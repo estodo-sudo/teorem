@@ -505,5 +505,76 @@
         "desc": "Toplam 30 günlük görev tamamla."
       }
     }
+  },
+  "progress": {
+    "title": "İlerleme",
+    "totalWorkouts": "Toplam antrenman",
+    "totalMinutes": "Toplam dakika",
+    "longestStreak": "En uzun seri",
+    "level": "Mevcut seviye",
+    "days": "{{count}} gün",
+    "unitSec": " sn",
+    "unitMin": " dk",
+    "achievements": "Kupalarım",
+    "dayLetters": [
+      "Pt",
+      "Sa",
+      "Ça",
+      "Pe",
+      "Cu",
+      "Ct",
+      "Pz"
+    ],
+    "strength": {
+      "title": "Haftalık güç testi",
+      "due": "Test zamanı geldi. Gelişimini ölçmek 1 dakika sürer.",
+      "notDue": "Son testini bu hafta yaptın. İstersen tekrar ölçebilirsin.",
+      "start": "Teste başla"
+    },
+    "charts": {
+      "hold": "Tutma süresi (en iyi deneme)",
+      "quick": "Hızlı kasılma (10 sn)",
+      "weekly": "Haftalık antrenman dakikası",
+      "calendar": "Antrenman takvimi",
+      "empty": "İlk güç testinden sonra burada grafiğin oluşacak."
+    },
+    "heat": {
+      "none": "Yok",
+      "partial": "Yarım",
+      "done": "Tamam",
+      "multi": "2+ seans"
+    },
+    "notes": {
+      "title": "Notlarım",
+      "hint": "Kendin için kısa notlar al. Sadece bu cihazda saklanır.",
+      "placeholder": "Örn. bugün daha iyi hissettim",
+      "add": "Not ekle"
+    }
+  },
+  "strength": {
+    "title": "Güç testi",
+    "testA": "TEST A · TUTMA SÜRESİ",
+    "testB": "TEST B · HIZLI KASILMA",
+    "holdTitle": "Ne kadar tutabiliyorsun?",
+    "holdBody": "Kası sık ve butona BASILI TUT. Gevşediğin anda bırak. {{n}} deneme yapacaksın, en iyisi kaydedilir.",
+    "quickTitle": "10 saniyede kaç kez?",
+    "quickBody": "{{sec}} saniyede kası kaç kez sıkıp gevşetebilirsin? Her sıkışta butona dokun. İlk dokunuşla süre başlar.",
+    "honest": "Bu test bir tıbbi ölçüm değildir; sadece kendi gelişimini takip etmen için. Dürüst ve rahat ol, zorlama.",
+    "ready": "Hazırım",
+    "attempt": "Deneme {{n}} / {{total}}",
+    "holdHint": "Kası sıkarken butona basılı tut.",
+    "holdingHint": "Gevşediğin anda parmağını kaldır.",
+    "holdButton": "Basılı tut",
+    "pressHold": "BASILI TUT",
+    "release": "Gevşeyince bırak",
+    "attemptResult": "{{n}}: {{sec}} sn",
+    "tapToStart": "Başlamak için dokun",
+    "secondsLeft": "{{sec}} sn kaldı",
+    "tapButton": "Her sıkışta dokun",
+    "tap": "DOKUN",
+    "doneTitle": "Test tamamlandı",
+    "bestHold": "En iyi tutma",
+    "quickCount": "Hızlı kasılma",
+    "doneBody": "Bir hafta sonra tekrar ölçerek gelişimini grafikte görebilirsin."
   }
 }

@@ -576,5 +576,32 @@
     "bestHold": "En iyi tutma",
     "quickCount": "Hızlı kasılma",
     "doneBody": "Bir hafta sonra tekrar ölçerek gelişimini grafikte görebilirsin."
+  },
+  "reminders": {
+    "discreet": {
+      "title": "Günlük 5 dakikan",
+      "body0": "Günlük 5 dakikan seni bekliyor 💪",
+      "body1": "Kısa bir mola zamanı. Hazır olduğunda buradayız.",
+      "body2": "Bugünkü küçük hedefin seni bekliyor ✨",
+      "body3": "5 dakikalık rutinin için iyi bir an 🙂",
+      "body4": "Serini sürdürmek için kısa bir adım kaldı 🔥",
+      "body5": "Kendine ayırdığın 5 dakika zamanı geldi.",
+      "testTitle": "Haftalık kontrol",
+      "testBody": "Haftalık ölçüm zamanı geldi. Bir dakikanı alır 📏"
+    },
+    "explicit": {
+      "title": "Kegel antrenmanı zamanı",
+      "body0": "Günlük pelvik taban antrenmanın seni bekliyor 💪",
+      "body1": "5 dakikalık Kegel seansın için hazır mısın?",
+      "body2": "Pelvik taban kaslarını çalıştırma zamanı 🔥",
+      "body3": "Bugünkü Kegel antrenmanını tamamla, serini koru.",
+      "testTitle": "Güç testi zamanı",
+      "testBody": "Haftalık pelvik taban güç testini yap ve gelişimini gör 📏"
+    },
+    "actions": {
+      "start": "Başla",
+      "snooze15": "15 dk ertele",
+      "snooze60": "1 saat ertele"
+    }
   }
 }

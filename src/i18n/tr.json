@@ -780,5 +780,112 @@
       "cta": "{{days}} gün ücretsiz başla",
       "later": "Şimdilik değil"
     }
+  },
+  "profile": {
+    "title": "Profil",
+    "level": "Seviye",
+    "streak": "Seri",
+    "trophies": "Kupa",
+    "settings": "Ayarlar",
+    "legal": "Yasal",
+    "replayTutorial": "Eğitimi tekrar izle",
+    "sub": {
+      "active": "Premium aktif ✨",
+      "free": "Ücretsiz sürüm",
+      "renews": "Yenilenme / bitiş: {{date}}",
+      "upgrade": "Premium'a geç",
+      "manage": "Aboneliği yönet"
+    }
+  },
+  "settings": {
+    "training": {
+      "title": "Antrenman",
+      "level": "Seviye",
+      "levelUp": "Seviyeyi artır",
+      "levelDown": "Seviyeyi azalt",
+      "levelHint": "Seviye normalde geri bildirimine göre otomatik ayarlanır. Elle değiştirebilirsin; seviye arttıkça seans uzar.",
+      "applyLevel": "Seviye {{level}} olarak ayarla",
+      "confirmTitle": "Seviye {{level}}?",
+      "confirmUp": "Günlük seansın yaklaşık {{from}} dakikadan {{to}} dakikaya çıkacak. Zorlanırsan geri bildirimle seviye tekrar ayarlanır.",
+      "confirmDown": "Günlük seansın yaklaşık {{from}} dakikadan {{to}} dakikaya inecek.",
+      "haptics": "Titreşim şiddeti",
+      "hapticsHint": "Seçince örnek bir \"SIK\" titreşimi hissedersin.",
+      "strength": {
+        "0": "Kapalı",
+        "1": "Hafif",
+        "2": "Normal",
+        "3": "Güçlü"
+      },
+      "sound": "Ses ipuçları",
+      "soundHint": "Faz geçişlerinde yumuşak tonlar (sessiz modda çalmaz).",
+      "discreet": "Gizli mod",
+      "discreetHint": "Oynatıcıda yazı yerine yalnızca daire ve renkler gösterilir.",
+      "perDay": "Günlük seans hedefi",
+      "perDayHint": "Seri için günde 1 seans yeterli. Daha fazlası isteğe bağlı."
+    },
+    "reminders": {
+      "title": "Hatırlatıcılar",
+      "enabled": "Günlük hatırlatma",
+      "discreet": "Nötr bildirim metni",
+      "discreetHint": "Kilit ekranında egzersizin ne olduğu yazmaz.",
+      "weekly": "Haftalık güç testi hatırlatması",
+      "weeklyHint": "Son testinden 7 gün sonra hatırlatır.",
+      "times": "Hatırlatma saatleri",
+      "timeN": "{{n}}. hatırlatma",
+      "remove": "{{n}}. hatırlatmayı sil",
+      "add": "Saat ekle (en fazla 3)",
+      "hint": "O günün antrenmanını tamamladığında kalan hatırlatmalar otomatik iptal edilir.",
+      "noPermission": "Bildirim izni kapalı. Hatırlatmaları almak için izin ver.",
+      "allow": "Bildirimlere izin ver"
+    },
+    "appearance": {
+      "title": "Görünüm ve dil",
+      "theme": "Tema",
+      "light": "Açık",
+      "dark": "Koyu",
+      "system": "Sistem",
+      "language": "Dil",
+      "languageHint": "İngilizce desteği yakında geliyor."
+    },
+    "data": {
+      "title": "Verilerim",
+      "privacyTitle": "Verilerin bu cihazdan çıkmaz",
+      "privacyBody": "Tüm kayıtların yalnızca bu telefonda saklanır. Yedeği ne zaman ve nereye kaydedeceğine sen karar verirsin.",
+      "backup": "Yedekle ve geri yükle",
+      "backupHint": "Tüm verilerini tek bir JSON dosyası olarak dışa aktar; yeni bir telefona geçerken içe aktar.",
+      "export": "Dışa aktar",
+      "import": "İçe aktar",
+      "shareUnavailable": "Bu cihazda paylaşım menüsü kullanılamıyor.",
+      "exportError": "Dışa aktarma sırasında bir sorun oluştu.",
+      "importTitle": "Yedek geri yüklensin mi?",
+      "importBody": "Bu cihazdaki mevcut verilerin yerine yedekteki veriler gelecek.",
+      "importConfirm": "Geri yükle",
+      "importDone": "Yedek başarıyla geri yüklendi.",
+      "importErrors": {
+        "invalidJson": "Dosya okunamadı. Geçerli bir yedek dosyası seç.",
+        "wrongFormat": "Bu dosya bu uygulamanın yedeği değil.",
+        "newerVersion": "Bu yedek uygulamanın daha yeni bir sürümüyle oluşturulmuş. Önce uygulamayı güncelle.",
+        "corrupt": "Yedek dosyası bozuk görünüyor."
+      },
+      "saveUnload": "Zihin Boşaltma notlarını kaydet",
+      "saveUnloadHint": "Varsayılan olarak kapalı: yazdıkların hiçbir yere kaydedilmez.",
+      "deleteUnload": "Kayıtlı {{count}} notu sil",
+      "dangerTitle": "Tüm verileri sil",
+      "wipeHint": "Antrenman geçmişi, ayarlar, ilerleme ve notlar kalıcı olarak silinir. Abonelik mağaza hesabında kalır; geri yükleyebilirsin.",
+      "wipe": "Tüm verileri sil",
+      "wipeTitle1": "Emin misin?",
+      "wipeBody1": "Bu işlem geri alınamaz. İstersen önce dışa aktararak yedek al.",
+      "wipeTitle2": "Son onay",
+      "wipeBody2": "Tüm verilerin bu cihazdan kalıcı olarak silinecek ve uygulama ilk açılış ekranına dönecek.",
+      "wipeConfirm": "Evet, hepsini sil"
+    },
+    "about": {
+      "title": "{{app}} hakkında",
+      "version": "Sürüm {{version}}",
+      "privacyTitle": "Verilerin bu cihazdan çıkmaz",
+      "privacyBody": "Sunucumuz yok, hesap yok, reklam ve takip yazılımı yok. Uygulama internetsiz çalışır; yalnızca satın alma işlemleri mağaza üzerinden internet kullanır.",
+      "medicalTitle": "Tıbbi cihaz değildir",
+      "medicalBody": "Bu uygulama genel sağlık ve egzersiz amaçlıdır; tıbbi tavsiye yerine geçmez."
+    }
   }
 }

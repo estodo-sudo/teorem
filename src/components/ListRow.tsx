@@ -77,6 +77,7 @@ export function SwitchRow({ label, description, value, onChange, icon }: SwitchR
           value={value}
           onValueChange={onChange}
           trackColor={{ true: t.colors.accent, false: t.colors.surfaceAlt }}
+          thumbColor="#FFFFFF"
         />
       }
     />

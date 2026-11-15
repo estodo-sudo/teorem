@@ -11,4 +11,5 @@ export { ProgressRing } from './ProgressRing';
 export { Screen } from './Screen';
 export { Segmented } from './Segmented';
 export { SegmentedBar } from './SegmentedBar';
+export { TimeStepper } from './TimeStepper';
 export { useTheme } from './useTheme';

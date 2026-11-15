@@ -49,7 +49,7 @@ export function Icon({ name, size = 24, color, strokeWidth = 2 }: Props) {
     strokeLinejoin: 'round' as const,
   };
   return (
-    <Svg width={size} height={size} viewBox="0 0 24 24" accessible={false}>
+    <Svg width={size} height={size} viewBox="0 0 24 24">
       {renderIcon(name, p, color)}
     </Svg>
   );

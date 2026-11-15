@@ -1,10 +1,10 @@
-import { useKeepAwake } from 'expo-keep-awake';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AppState, Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
 import { AppText, Dialog, Icon, ProgressBar, useTheme, type IconName } from '@/components';
+import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useSettingsStore } from '@/stores/settingsStore';
 
 import { cueForPhase } from '../hapticPatterns';
@@ -31,7 +31,7 @@ interface Props {
 }
 
 export function WorkoutPlayer({ session, onDone, minimal, forceLabels }: Props) {
-  useKeepAwake();
+  useSafeKeepAwake();
   const t = useTheme();
   const { t: tr } = useTranslation();
   const { width } = useWindowDimensions();

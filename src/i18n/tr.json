@@ -25,7 +25,15 @@
     "profile": "Profil"
   },
   "consent": {
-    "title": "Hoş geldin"
+    "title": "{{app}}'a hoş geldin",
+    "subtitle": "Başlamadan önce iki kısa onay gerekiyor.",
+    "medicalTitle": "Önemli sağlık uyarısı",
+    "medicalBody": "Bu uygulama tıbbi tavsiye değildir ve bir tıbbi cihaz değildir. Ağrı, idrar yolu sorunu, ameliyat sonrası dönem vb. durumlarda önce doktoruna danış.",
+    "readMore": "Tıbbi uyarının tamamını oku",
+    "age": "{{age}} yaşından büyüğüm.",
+    "medicalCheck": "Tıbbi uyarıyı okudum ve anladım.",
+    "accept": "Kabul et ve başla",
+    "acceptHint": "İki onay kutusu işaretlenince etkinleşir."
   },
   "exercise": {
     "hold": {
@@ -131,6 +139,255 @@
         "title": "Kaydedildi",
         "body": "Seviye {{level}} ile devam ediyoruz. İstikrar en önemli şey."
       }
+    }
+  },
+  "time": {
+    "hour": "Saat",
+    "minute": "Dakika"
+  },
+  "goal": {
+    "endurance": "Dayanıklılık",
+    "bladder": "Mesane kontrolü",
+    "erection": "Sertleşme kalitesi",
+    "confidence": "Özgüven",
+    "general": "Genel sağlık",
+    "postSurgery": "Ameliyat sonrası toparlanma"
+  },
+  "onboarding": {
+    "progress": "Adım {{step}} / {{total}}",
+    "welcome": {
+      "title": "{{app}} ile pelvik taban kaslarını güçlendir.",
+      "body": "Günde 5 dakika, kimse fark etmeden.",
+      "point1": "Kısa ve kişisel günlük antrenman",
+      "point2": "Ekrana bakmadan, titreşimle yönlendirme",
+      "point3": "Verilerin sadece bu telefonda"
+    },
+    "goals": {
+      "title": "Hedeflerin neler?",
+      "hint": "Birden fazla seçebilirsin."
+    },
+    "age": {
+      "title": "Yaş aralığın?",
+      "55": "55 ve üzeri"
+    },
+    "experience": {
+      "title": "Daha önce Kegel egzersizi yaptın mı?",
+      "none": {
+        "label": "Hiç yapmadım",
+        "hint": "En baştan, adım adım başlarız."
+      },
+      "some": {
+        "label": "Birkaç kez denedim",
+        "hint": "Biraz daha ileriden başlarız."
+      },
+      "regular": {
+        "label": "Düzenli yapıyorum",
+        "hint": "Orta seviyeden başlarız."
+      }
+    },
+    "activity": {
+      "title": "Fiziksel aktivite düzeyin?",
+      "hint": "Ek kasık egzersizi önerimizi buna göre ayarlarız.",
+      "low": {
+        "label": "Az",
+        "hint": "Gün içinde çoğunlukla oturuyorum."
+      },
+      "mid": {
+        "label": "Orta",
+        "hint": "Haftada birkaç kez yürüyüş veya spor."
+      },
+      "high": {
+        "label": "Yüksek",
+        "hint": "Düzenli ve yoğun antrenman yapıyorum."
+      }
+    },
+    "reminder": {
+      "title": "Ne zaman hatırlatalım?",
+      "hint": "Her gün bu saatte nazik bir hatırlatma gönderelim.",
+      "privacy": "Bildirim metni nötrdür; kilit ekranında egzersizin ne olduğu yazmaz.",
+      "allow": "Hatırlatmaları aç",
+      "skip": "Şimdilik geç"
+    },
+    "plan": {
+      "title": "Planın hazır 🎯",
+      "body": "Senin için Seviye {{level}}'den başlayan {{days}} günlük bir plan hazırladık.",
+      "start": "Başlangıç",
+      "daily": "Günlük süre",
+      "reminder": "Hatırlatma",
+      "next": "Sıradaki adım: kası doğru bulmak için kısa bir eğitim (yaklaşık 3 dakika).",
+      "cta": "Eğitime başla"
+    }
+  },
+  "tutorial": {
+    "header": "Eğitim",
+    "understood": "Anladım",
+    "close": "Eğitimi kapat",
+    "what": {
+      "title": "Pelvik taban kası nedir?",
+      "body": [
+        "Pelvik taban, leğen kemiğinin altında bir hamak gibi uzanan kas grubudur.",
+        "Mesaneyi ve bağırsakları destekler, idrar kontrolüne ve cinsel fonksiyona katkı sağlar.",
+        "Diğer kaslar gibi düzenli ve doğru çalıştırıldığında güçlenebilir."
+      ]
+    },
+    "find": {
+      "title": "Kası nasıl bulursun?",
+      "body": [
+        "İdrarını yarıda kesmeye çalıştığını ya da gaz çıkarmamak için kendini tuttuğunu hayal et.",
+        "O an içeri ve yukarı doğru kasılan bölge pelvik taban kasındır.",
+        "Kası bulduktan sonra bu hissi idrar yapmadan, oturur ya da uzanmış hâlde tekrarla."
+      ],
+      "warn": "Bunu egzersiz olarak tuvalette, idrar yaparken yapma. Mesanenin tam boşalmasını engelleyebilir."
+    },
+    "technique": {
+      "title": "Doğru teknik",
+      "body": [
+        "Sadece pelvik taban kasını sık: karın, kalça ve bacaklar gevşek kalsın.",
+        "Nefesini tutma; sakin ve düzenli nefes almaya devam et.",
+        "Her sıkmadan sonra kası tamamen gevşet. Gevşeme de egzersizin parçası."
+      ],
+      "warn": "Ağrı veya rahatsızlık hissedersen dur. Sorun devam ederse bir sağlık profesyoneline danış."
+    },
+    "vibration": {
+      "title": "Titreşim dili",
+      "body": [
+        "Antrenmanı ekrana bakmadan yapabilirsin. Telefon sana titreşimle yol gösterir:",
+        "Güçlü tek titreşim = SIK. Sıkarken her saniye hafif bir tık hissedersin.",
+        "Çift hafif titreşim = GEVŞE. Üçlü titreşim = egzersiz bitti."
+      ],
+      "trySqueeze": "SIK'ı dene",
+      "tryRelax": "GEVŞE'yi dene",
+      "cta": "Deneme setine geç"
+    },
+    "trial": {
+      "title": "Deneme seti",
+      "body": "3 tekrar: 3 saniye sık, 3 saniye gevşe. Titreşimi takip et."
+    },
+    "check": {
+      "title": "Yapabildin mi?",
+      "body": "Kası sıkıp gevşetmeyi hissedebildin mi?",
+      "yes": "Evet, yapabildim",
+      "unsure": "Emin değilim"
+    },
+    "tips": {
+      "title": "Birkaç ipucu",
+      "body": [
+        "Uzanarak dene: dizlerin bükülü, sırtın yerde. Bu pozisyonda kası hissetmek daha kolaydır.",
+        "Elini karnına koy: sıkarken karın hareket etmemeli.",
+        "Kasılmayı çok güçlü yapmaya çalışma; hafif ama net bir içeri-yukarı çekiş yeterli.",
+        "İlk günlerde hissetmek zor olabilir; bu çok normal ve pratikle kolaylaşır."
+      ],
+      "retry": "Tekrar dene"
+    }
+  },
+  "legal": {
+    "updated": "Son güncelleme: Kasım 2026 · Taslak metin, yayın öncesi hukuki kontrol gerektirir.",
+    "disclaimer": {
+      "title": "Tıbbi Uyarı",
+      "sections": [
+        {
+          "heading": "Tıbbi tavsiye değildir",
+          "paragraphs": [
+            "{{app}} genel sağlık ve egzersiz amaçlı bir eğitim uygulamasıdır. Bir tıbbi cihaz değildir; herhangi bir hastalığı teşhis etmez, tedavi etmez veya önlemez.",
+            "Uygulamadaki bilgiler bir doktorun, ürologun veya fizyoterapistin muayenesinin ya da önerisinin yerini tutmaz."
+          ]
+        },
+        {
+          "heading": "Önce doktoruna danış",
+          "paragraphs": [
+            "Pelvik bölgede ağrı, idrar yaparken yanma veya kan, idrar yolu enfeksiyonu, prostat sorunları, yakın zamanda geçirilmiş bir ameliyat (özellikle prostat veya pelvik cerrahi) ya da kronik bir hastalığın varsa egzersize başlamadan önce bir sağlık profesyoneline danış.",
+            "Ameliyat sonrası dönemde egzersizlere ne zaman ve nasıl başlayacağına mutlaka doktorun karar vermelidir."
+          ]
+        },
+        {
+          "heading": "Ağrı hissedersen dur",
+          "paragraphs": [
+            "Egzersiz sırasında ya da sonrasında ağrı, kramp, yanma veya beklenmedik bir rahatsızlık hissedersen hemen dur. Belirtiler geçmezse bir sağlık profesyoneline başvur.",
+            "Kasları aşırı zorlamak fayda sağlamaz. Gevşeme fazı en az sıkma kadar önemlidir."
+          ]
+        },
+        {
+          "heading": "Sonuçlar kişiden kişiye değişir",
+          "paragraphs": [
+            "Pelvik taban egzersizlerinin etkisi kişiden kişiye farklıdır. {{app}} belirli bir iyileşme veya sonuç vaat etmez.",
+            "Uygulamadaki eğitim içerikleri genel bilgilendirme amaçlıdır, güvenilir kaynaklara dayanır ve henüz uzman tarafından son kontrolü yapılmamış olabilir."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "sections": [
+        {
+          "heading": "Kısaca",
+          "paragraphs": [
+            "Verilerin telefonundan hiç çıkmaz. {{app}}'ın bir sunucusu yoktur; hesap açmanı, e-posta veya telefon numarası vermeni istemez."
+          ]
+        },
+        {
+          "heading": "Hangi veriler, nerede?",
+          "paragraphs": [
+            "Onboarding cevapların, ayarların, antrenman geçmişin, güç testi sonuçların, notların ve içerik ilerlemen yalnızca bu cihazda, uygulamanın kendi depolama alanında saklanır.",
+            "Bu veriler bize, reklam ağlarına veya üçüncü taraflara gönderilmez. Uygulamada analiz (analytics), reklam veya izleme (tracking) yazılımı bulunmaz."
+          ]
+        },
+        {
+          "heading": "Satın alımlar",
+          "paragraphs": [
+            "Abonelik ve satın alma işlemleri tamamen Apple App Store veya Google Play tarafından, kendi gizlilik politikaları çerçevesinde yürütülür. Uygulama yalnızca aboneliğinin aktif olup olmadığını platformdan sorgular; ödeme bilgilerini görmez."
+          ]
+        },
+        {
+          "heading": "Bildirimler",
+          "paragraphs": [
+            "Hatırlatmalar cihazında yerel olarak planlanır; bir bildirim sunucusu kullanılmaz. Bildirim metinleri varsayılan olarak nötrdür."
+          ]
+        },
+        {
+          "heading": "Kontrol sende",
+          "paragraphs": [
+            "Ayarlar > Veri bölümünden tüm verilerini bir JSON dosyası olarak dışa aktarabilir, geri yükleyebilir veya kalıcı olarak silebilirsin. Uygulamayı silmek de tüm verileri cihazdan kaldırır.",
+            "Dışa aktardığın dosyayı nereye kaydedeceğine veya kiminle paylaşacağına sen karar verirsin."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "sections": [
+        {
+          "heading": "Kapsam",
+          "paragraphs": [
+            "{{app}}'ı kullanarak bu şartları kabul etmiş olursun. Uygulama 16 yaş ve üzeri kullanıcılar içindir."
+          ]
+        },
+        {
+          "heading": "Sağlık sorumluluğu",
+          "paragraphs": [
+            "Uygulama tıbbi tavsiye vermez. Egzersizleri kendi sorumluluğunda ve Tıbbi Uyarı'da belirtilen kurallara uyarak yaparsın."
+          ]
+        },
+        {
+          "heading": "Abonelikler",
+          "paragraphs": [
+            "Premium özellikler otomatik yenilenen abonelik veya tek seferlik satın alma ile sunulur. Fiyatlar satın alma ekranında, mağazanın gösterdiği gerçek tutarlarla yer alır.",
+            "Ücretsiz deneme süresi bitmeden iptal etmezsen abonelik, seçtiğin plan üzerinden ücretlendirilir. Aboneliği App Store veya Google Play hesap ayarlarından istediğin zaman yönetebilir veya iptal edebilirsin. İptal, mevcut dönemin sonunda geçerli olur.",
+            "İade talepleri ilgili mağazanın kurallarına tabidir."
+          ]
+        },
+        {
+          "heading": "İçerik",
+          "paragraphs": [
+            "Uygulamadaki tüm metin, illüstrasyon ve sesler özgündür ve izinsiz çoğaltılamaz. Eğitim içerikleri genel bilgilendirme amaçlıdır."
+          ]
+        },
+        {
+          "heading": "Değişiklikler",
+          "paragraphs": [
+            "Bu şartlar güncellenebilir. Önemli değişiklikler uygulama güncellemesiyle birlikte duyurulur."
+          ]
+        }
+      ]
     }
   }
 }

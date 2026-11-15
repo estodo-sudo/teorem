@@ -1,12 +1,17 @@
+import { Platform } from 'react-native';
 import { create } from 'zustand';
 
-import { emptyHistory, type HistoryData, type HistoryRepo } from '@/features/data/repo';
+import { createMemoryRepo, emptyHistory, type HistoryData, type HistoryRepo } from '@/features/data/repo';
 import type { FitnessLog, ProgressNote, StrengthTest, WorkoutSession } from '@/types';
 
 let repo: HistoryRepo | null = null;
 
 /** Lazily resolves the SQLite repo (kept out of module scope so tests can inject). */
 function getRepo(): HistoryRepo {
+  if (!repo && Platform.OS === 'web') {
+    // Web is only a development preview; history stays in memory there.
+    repo = createMemoryRepo();
+  }
   if (!repo) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { createSqliteRepo } = require('@/features/data/db') as typeof import('@/features/data/db');

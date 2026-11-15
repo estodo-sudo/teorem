@@ -26,5 +26,111 @@
   },
   "consent": {
     "title": "Hoş geldin"
+  },
+  "exercise": {
+    "hold": {
+      "name": "Uzun Sıkma",
+      "desc": "Kası sık, birkaç saniye tut, tamamen gevşet."
+    },
+    "quick": {
+      "name": "Hızlı Sıkma",
+      "desc": "1 saniye sık, 1 saniye gevşet. Hızlı ve kontrollü."
+    },
+    "elevator": {
+      "name": "Asansör",
+      "desc": "Üç kademede gittikçe daha güçlü sık, tepede bekle, kademe kademe bırak."
+    },
+    "pulse": {
+      "name": "Ritim",
+      "desc": "Kısa ve ritmik sıkma darbeleri, bloklar arasında dinlenme."
+    },
+    "endurance": {
+      "name": "Dayanıklılık",
+      "desc": "Tek ve uzun bir sıkma, ardından uzun bir dinlenme."
+    },
+    "relax": {
+      "name": "Gevşeme ve Nefes",
+      "desc": "Derin nefesle kasları bilinçli olarak serbest bırak."
+    }
+  },
+  "player": {
+    "phase": {
+      "countdown": "HAZIR",
+      "contract": "SIK",
+      "release": "BIRAK",
+      "relax": "GEVŞE",
+      "rest": "DİNLEN",
+      "transition": "SIRADAKİ",
+      "inhale": "NEFES AL",
+      "exhale": "NEFES VER"
+    },
+    "stage": "{{stage}}. KAT",
+    "getReady": "Hazırlan",
+    "next": "Sıradaki: {{name}}",
+    "rep": "{{rep}} / {{reps}}",
+    "setRep": "Set {{set}}/{{sets}} · {{rep}} / {{reps}}",
+    "block": "Blok {{rep}} / {{reps}}",
+    "paused": "DURAKLADI",
+    "pause": "Duraklat",
+    "resume": "Devam et",
+    "restart": "Baştan başla",
+    "skip": "Egzersizi atla",
+    "finish": "Bitir",
+    "keepGoing": "Devam ediyorum",
+    "progress": "Antrenman ilerlemesi",
+    "help": "Yardım",
+    "helpTitle": "Doğru teknik",
+    "helpTips": [
+      "Karnını, kalçanı ve bacaklarını sıkma; sadece pelvik taban kası çalışsın.",
+      "Nefesini tutma. Sıkarken de gevşerken de rahatça nefes al.",
+      "Güçlü titreşim = SIK, çift hafif titreşim = GEVŞE. Ekrana bakmana gerek yok.",
+      "Gevşeme fazı en az sıkma kadar önemlidir; kası tamamen bırak."
+    ],
+    "painWarning": "Ağrı, yanma veya rahatsızlık hissedersen hemen dur ve bir sağlık profesyoneline danış.",
+    "interruptedTitle": "Antrenman duraklatıldı",
+    "interruptedBody": "Uygulamadan çıktığın için antrenmanı durdurduk. Nasıl devam etmek istersin?",
+    "finishTitle": "Antrenmanı bitir?",
+    "finishBody": "Şimdi bitirirsen bu seans tamamlanmamış olarak kaydedilir."
+  },
+  "feedback": {
+    "doneTitle": "Harika, bugünkü antrenman tamam!",
+    "partialTitle": "Yarıda bıraktın, sorun değil",
+    "duration": "Süre",
+    "level": "Seviye",
+    "question": "Bugünkü antrenman nasıldı?",
+    "submit": "Kaydet",
+    "note": "Cevabına göre zorluk seviyen otomatik ayarlanır.",
+    "option": {
+      "easy": {
+        "label": "Çok kolay",
+        "hint": "Bir üst seviyeye geçelim."
+      },
+      "ok": {
+        "label": "Uygun",
+        "hint": "Üst üste 3 kez uygunsa seviye artar."
+      },
+      "hard": {
+        "label": "Zor",
+        "hint": "Bir seviye geri alalım."
+      },
+      "failed": {
+        "label": "Tamamlayamadım",
+        "hint": "Seviyeyi düşürüp yarın aynı günü tekrar edelim."
+      }
+    },
+    "result": {
+      "up": {
+        "title": "Seviye {{level}}!",
+        "body": "Kasların güçleniyor. Bir sonraki antrenman biraz daha uzun olacak."
+      },
+      "down": {
+        "title": "Seviye {{level}}",
+        "body": "Biraz geri adım atmak ilerlemenin parçası. Kendini zorlamadan devam et."
+      },
+      "same": {
+        "title": "Kaydedildi",
+        "body": "Seviye {{level}} ile devam ediyoruz. İstikrar en önemli şey."
+      }
+    }
   }
 }

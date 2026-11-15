@@ -2,6 +2,7 @@ export { AppText } from './AppText';
 export { Button } from './Button';
 export { Card } from './Card';
 export { ChoiceCard } from './ChoiceCard';
+export { Dialog, type DialogAction } from './Dialog';
 export { Header } from './Header';
 export { Icon, type IconName } from './Icon';
 export { ListRow, SwitchRow } from './ListRow';

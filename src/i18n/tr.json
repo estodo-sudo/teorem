@@ -1,0 +1,30 @@
+{
+  "common": {
+    "back": "Geri",
+    "close": "Kapat",
+    "continue": "Devam et",
+    "next": "İleri",
+    "done": "Tamam",
+    "cancel": "Vazgeç",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "yes": "Evet",
+    "no": "Hayır",
+    "start": "Başla",
+    "minutes": "{{count}} dk",
+    "seconds": "{{count}} sn",
+    "level": "Seviye {{level}}",
+    "premium": "Premium",
+    "comingSoon": "Yakında"
+  },
+  "tabs": {
+    "today": "Bugün",
+    "training": "Antrenman",
+    "progress": "İlerleme",
+    "discover": "Keşfet",
+    "profile": "Profil"
+  },
+  "consent": {
+    "title": "Hoş geldin"
+  }
+}

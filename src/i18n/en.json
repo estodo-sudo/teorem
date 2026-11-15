@@ -1,0 +1,10 @@
+{
+  "_meta": { "note": "English skeleton — Phase 2. Missing keys fall back to Turkish." },
+  "tabs": {
+    "today": "Today",
+    "training": "Training",
+    "progress": "Progress",
+    "discover": "Discover",
+    "profile": "Profile"
+  }
+}

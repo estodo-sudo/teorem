@@ -731,5 +731,54 @@
     "resultTitle": "{{correct}}/{{total}} doğru",
     "resultBody": "Ders tamamlandı. İstediğin zaman tekrar okuyabilirsin.",
     "notFound": "Kurs bulunamadı."
+  },
+  "paywall": {
+    "title": "{{app}} Premium ile her gün bir adım ileri",
+    "titleLocked": "Bu özellik Premium'a dahil",
+    "benefits": {
+      "plan": "Seviyene göre kendini ayarlayan günlük antrenman planı (30 seviye)",
+      "levels": "Sınırsız seans, güç testi ve ilerleme grafikleri",
+      "fitness": "Kasık Fitness rutinleri",
+      "courses": "Kurslar ve tüm bilgi hikâyeleri",
+      "mind": "Nefes, zihin boşaltma ve beden taraması",
+      "privacy": "Reklam yok, takip yok. Verilerin sadece bu telefonda."
+    },
+    "plan": {
+      "weekly": "Haftalık",
+      "monthly": "Aylık",
+      "yearly": "Yıllık",
+      "lifetime": "Ömür boyu"
+    },
+    "per": {
+      "weekly": "/ hafta",
+      "monthly": "/ ay",
+      "yearly": "/ yıl",
+      "lifetime": "tek seferlik"
+    },
+    "perMonthEq": "Aylık yaklaşık {{price}}",
+    "trialTag": "{{days}} gün ücretsiz",
+    "saving": "Aylığa göre %{{pct}} daha az",
+    "cta": "Devam et",
+    "ctaTrial": "{{days}} gün ücretsiz başla",
+    "noteTrial": "{{days}} günlük ücretsiz deneme {{date}} tarihinde biter. Deneme bitmeden iptal etmezsen {{price}} {{period}} olarak ücretlendirilir ve abonelik otomatik yenilenir. İstediğin zaman mağaza ayarlarından iptal edebilirsin.",
+    "noteSub": "{{price}} {{period}} olarak ücretlendirilir ve iptal edilene kadar otomatik yenilenir. İstediğin zaman mağaza ayarlarından iptal edebilirsin.",
+    "noteLifetime": "{{price}} tek seferlik ödeme. Abonelik değildir, yenilenmez.",
+    "restore": "Satın alımları geri yükle",
+    "restoreNone": "Bu hesapta aktif bir satın alım bulunamadı.",
+    "terms": "Kullanım Şartları",
+    "privacy": "Gizlilik Politikası",
+    "error": "Satın alma tamamlanamadı. Lütfen tekrar dene.",
+    "unavailableTitle": "Fiyatlar şu an yüklenemedi",
+    "unavailableBody": "Planları görmek için mağazaya bağlanmak gerekiyor. İnternet bağlantını kontrol edip tekrar dene. Uygulamanın geri kalanı internetsiz çalışmaya devam eder.",
+    "retry": "Tekrar dene",
+    "soft": {
+      "title": "{{days}} gün ücretsiz dene",
+      "body": "Kararını vermeden önce tüm özellikleri rahatça dene.",
+      "step1": "Bugün: tüm Premium özellikler açılır.",
+      "step2": "{{date}}: Devam etmek istemiyorsan iptal etmek için iyi bir gün.",
+      "step3": "{{date}}: İptal etmediysen yıllık plan ({{price}}) başlar.",
+      "cta": "{{days}} gün ücretsiz başla",
+      "later": "Şimdilik değil"
+    }
   }
 }

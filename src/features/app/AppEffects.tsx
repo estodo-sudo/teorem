@@ -3,6 +3,7 @@ import { AppState } from 'react-native';
 
 import { Celebration } from '@/features/gamification/Celebration';
 import { checkAchievements } from '@/features/gamification/service';
+import { refreshEntitlement, startPurchaseListener } from '@/features/purchases/iap';
 import { addResponseListener, consumeColdStartResponse, initNotifications, syncReminders } from '@/features/reminders/scheduler';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
@@ -19,6 +20,18 @@ export function AppEffects() {
   useEffect(() => {
     // Catch up on anything earned while the app was closed (e.g. after import).
     checkAchievements();
+    // Silently re-verify the subscription with the store; offline keeps the cache.
+    void refreshEntitlement();
+    // Also catches purchases that complete while the paywall isn't open
+    // (e.g. Ask-to-Buy approvals, interrupted transactions).
+    const stop = startPurchaseListener();
+    const sub = AppState.addEventListener('change', (s) => {
+      if (s === 'active') void refreshEntitlement();
+    });
+    return () => {
+      stop();
+      sub.remove();
+    };
   }, []);
 
   useEffect(() => {

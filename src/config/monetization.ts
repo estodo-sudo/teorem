@@ -27,8 +27,8 @@ export const PRODUCT_IDS = {
 export type PlanKey = keyof typeof PRODUCT_IDS;
 
 /** Subscription products (lifetime is a one-time purchase). */
-export const SUBSCRIPTION_SKUS = [PRODUCT_IDS.weekly, PRODUCT_IDS.monthly, PRODUCT_IDS.yearly];
-export const ONE_TIME_SKUS = [PRODUCT_IDS.lifetime];
+export const SUBSCRIPTION_SKUS: string[] = [PRODUCT_IDS.weekly, PRODUCT_IDS.monthly, PRODUCT_IDS.yearly];
+export const ONE_TIME_SKUS: string[] = [PRODUCT_IDS.lifetime];
 
 /** Whether the optional lifetime product is offered on the paywall. */
 export const OFFER_LIFETIME = true;

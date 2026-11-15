@@ -1,12 +1,13 @@
 import '@/i18n';
 
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { DarkTheme, DefaultTheme, router, Stack, ThemeProvider, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useTheme } from '@/components';
 import { AppEffects } from '@/features/app/AppEffects';
+import { isAllowedDuringFirstRun, requiredFirstRunRoute } from '@/features/app/gate';
 import { setLanguage } from '@/i18n';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
@@ -23,8 +24,14 @@ export default function RootLayout() {
   });
   useEffect(() => setLanguage(language), [language]);
 
-  const consented = !!profile.disclaimerAcceptedAt;
-  const ready = consented && profile.onboardingDone && profile.tutorialDone;
+  // First-run gate: consent → onboarding → tutorial. Any other route (including
+  // deep links and notification taps) is redirected until setup is complete.
+  const segments = useSegments();
+  const gate = requiredFirstRunRoute(profile);
+  const blocked = gate !== null && !isAllowedDuringFirstRun(gate, segments[0]);
+  useEffect(() => {
+    if (gate && blocked) router.replace(gate);
+  }, [gate, blocked]);
 
   const navTheme = theme.dark ? DarkTheme : DefaultTheme;
   return (
@@ -44,15 +51,9 @@ export default function RootLayout() {
       >
         <StatusBar style={theme.dark ? 'light' : 'dark'} />
         <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: theme.colors.background } }}>
-          <Stack.Protected guard={ready}>
-            <Stack.Screen name="(tabs)" />
-          </Stack.Protected>
-          <Stack.Protected guard={!consented}>
-            <Stack.Screen name="consent" />
-          </Stack.Protected>
-          <Stack.Protected guard={consented && !profile.onboardingDone}>
-            <Stack.Screen name="onboarding" />
-          </Stack.Protected>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="consent" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="onboarding" options={{ gestureEnabled: false }} />
           <Stack.Screen name="tutorial" options={{ gestureEnabled: false }} />
           <Stack.Screen name="paywall" options={{ presentation: 'fullScreenModal', gestureEnabled: false }} />
           <Stack.Screen name="workout/[sessionId]" options={{ presentation: 'fullScreenModal', gestureEnabled: false }} />

@@ -624,5 +624,53 @@
     "finishTitle": "Rutini bitir?",
     "notFound": "Rutin bulunamadı.",
     "stepMetaLast": "{{work}} sn çalış"
+  },
+  "mind": {
+    "title": "Zihin Rahatlatma",
+    "subtitle": "Stres ve performans kaygısı bedeni de etkileyebilir. Birkaç dakikalık sakinleşme, günün geri kalanını kolaylaştırabilir.",
+    "note": "Bu araçlar rahatlamana yardımcı olmak içindir; bir tedavi yerine geçmez. Kaygı uzun süredir hayatını zorlaştırıyorsa bir uzmandan destek almak iyi bir adımdır.",
+    "breathing": {
+      "title": "Nefes",
+      "card": "Kutu nefesi veya 4-7-8 ile sakinleş",
+      "intro": "Daireyi takip et: büyürken nefes al, küçülürken ver. Telefonun titreşimle de yön gösterir; gözlerini kapatabilirsin.",
+      "pattern": "Nefes deseni",
+      "duration": "Süre",
+      "box": {
+        "name": "Kutu nefesi (4-4-4-4)",
+        "desc": "4 sn al, 4 sn tut, 4 sn ver, 4 sn bekle. Dengeli ve odaklayıcı."
+      },
+      "478": {
+        "name": "4-7-8 nefesi",
+        "desc": "4 sn al, 7 sn tut, 8 sn yavaşça ver. Uzun nefes verme sakinleşmeye yardımcı olabilir."
+      },
+      "phase": {
+        "inhale": "Nefes al",
+        "holdIn": "Tut",
+        "exhale": "Nefes ver",
+        "holdOut": "Bekle"
+      },
+      "done": "Güzel. Birkaç saniye bu sakinlikte kal."
+    },
+    "unload": {
+      "title": "Zihin Boşaltma",
+      "card": "Aklındakileri yaz ve bırak",
+      "intro": "Seni meşgul eden ne varsa yaz: endişeler, yapılacaklar, kafanda dönen düşünceler. Sonra \"Bırak\"a bas.",
+      "placeholder": "Aklımdan geçenler…",
+      "release": "Bırak",
+      "again": "Tekrar yaz",
+      "privateHint": "Yazdıkların hiçbir yere kaydedilmez; bıraktığında kaybolur.",
+      "savedHint": "Ayarlarda kaydetme açık: yazdıkların sadece bu cihazda saklanır.",
+      "afterTitle": "Bıraktın.",
+      "afterBody": "Düşünceler geri gelebilir, bu normal. Her geldiğinde fark edip tekrar bırakabilirsin. Şimdi derin bir nefes al."
+    },
+    "bodyScan": {
+      "title": "Beden Taraması",
+      "card": "5 dakikalık yönlendirmeli gevşeme",
+      "intro": "Yaklaşık {{min}} dakika boyunca dikkatini adım adım bedeninin farklı bölgelerine götüreceğiz. Her adım kendiliğinden ilerler.",
+      "tip": "Sessiz bir yer ve rahat bir pozisyon seç. Her adımın başında hafif bir titreşim hissedeceksin.",
+      "step": "Adım {{n}} / {{total}}",
+      "next": "Sonraki adım",
+      "done": "Tarama tamamlandı. Kendine iyi bak 🌿"
+    }
   }
 }

@@ -1,7 +1,10 @@
+import { Redirect } from 'expo-router';
 import { Tabs } from 'expo-router/js-tabs';
 import { useTranslation } from 'react-i18next';
 
 import { Icon, type IconName, useTheme } from '@/components';
+import { requiredFirstRunRoute } from '@/features/app/gate';
+import { useProfileStore } from '@/stores/profileStore';
 
 const TABS: { name: string; key: string; icon: IconName }[] = [
   { name: 'index', key: 'today', icon: 'home' },
@@ -14,6 +17,9 @@ const TABS: { name: string; key: string; icon: IconName }[] = [
 export default function TabsLayout() {
   const t = useTheme();
   const { t: tr } = useTranslation();
+  const gate = useProfileStore((s) => requiredFirstRunRoute(s.profile));
+  // Never render the main app before first-run setup is complete.
+  if (gate) return <Redirect href={gate} />;
   return (
     <Tabs
       screenOptions={{

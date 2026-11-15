@@ -36,7 +36,8 @@ export function recordWorkout(session: GeneratedSession, result: PlayerResult, n
       completed: result.outcomes[i]?.completed ?? false,
       skipped: result.outcomes[i]?.skipped ?? false,
     })),
-    completed: !result.endedEarly,
+    // Counts toward streak only if it ran to the end and wasn't skipped entirely.
+    completed: !result.endedEarly && result.outcomes.some((o) => o.completed),
   };
   useHistoryStore.getState().saveWorkout(w);
   return w;

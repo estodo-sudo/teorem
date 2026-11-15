@@ -389,5 +389,121 @@
         }
       ]
     }
+  },
+  "today": {
+    "greeting": {
+      "morning": "Günaydın",
+      "afternoon": "İyi günler",
+      "evening": "İyi akşamlar",
+      "night": "İyi geceler"
+    },
+    "levelShort": "Sv {{level}}",
+    "streakA11y": "{{count}} günlük seri",
+    "workout": {
+      "plan": "PLAN {{plan}} · GÜN {{day}}/{{total}}",
+      "sessions": "{{done}}/{{total}} seans",
+      "title": "Günün antrenmanı",
+      "doneTitle": "Bugünkü antrenman tamam",
+      "meta": "{{min}} dk · Seviye {{level}}",
+      "repeat": "Tamamlayamadığın günü bir seviye daha kolay olarak tekrar ediyoruz.",
+      "again": "Bir seans daha"
+    }
+  },
+  "training": {
+    "title": "Antrenman",
+    "planTitle": "Plan {{plan}}",
+    "planProgress": "{{done}}/30 gün",
+    "planHint": "Her gün bir kutu ilerlersin. 30 gün bitince bir sonraki plan, kaldığın seviyeden otomatik başlar.",
+    "planA11y": "30 günlük plan, {{done}} gün tamamlandı",
+    "dayDone": "Gün {{day}}, tamamlandı",
+    "dayToday": "Gün {{day}}, bugün",
+    "dayTodo": "Gün {{day}}",
+    "exercisesTitle": "Egzersiz türleri"
+  },
+  "achievements": {
+    "title": "Kupalar",
+    "summary": "{{count}} / {{total}} kupa kazanıldı",
+    "unlocked": "YENİ KUPA",
+    "great": "Harika!",
+    "earned": "kazanıldı",
+    "locked": "kilitli",
+    "items": {
+      "first_workout": {
+        "title": "İlk Adım",
+        "desc": "İlk antrenmanını tamamla."
+      },
+      "streak_3": {
+        "title": "3 Gün Üst Üste",
+        "desc": "3 günlük seriye ulaş."
+      },
+      "streak_7": {
+        "title": "Bir Hafta",
+        "desc": "7 günlük seriye ulaş."
+      },
+      "streak_14": {
+        "title": "İki Hafta",
+        "desc": "14 günlük seriye ulaş."
+      },
+      "streak_30": {
+        "title": "Bir Ay",
+        "desc": "30 günlük seriye ulaş."
+      },
+      "streak_60": {
+        "title": "İki Ay",
+        "desc": "60 günlük seriye ulaş."
+      },
+      "streak_100": {
+        "title": "Yüz Gün",
+        "desc": "100 günlük seriye ulaş."
+      },
+      "workouts_10": {
+        "title": "10 Antrenman",
+        "desc": "Toplam 10 antrenman tamamla."
+      },
+      "workouts_50": {
+        "title": "50 Antrenman",
+        "desc": "Toplam 50 antrenman tamamla."
+      },
+      "workouts_100": {
+        "title": "100 Antrenman",
+        "desc": "Toplam 100 antrenman tamamla."
+      },
+      "workouts_250": {
+        "title": "250 Antrenman",
+        "desc": "Toplam 250 antrenman tamamla."
+      },
+      "level_5": {
+        "title": "Seviye 5",
+        "desc": "Seviye 5'e ulaş."
+      },
+      "level_10": {
+        "title": "Seviye 10",
+        "desc": "Seviye 10'a ulaş."
+      },
+      "level_20": {
+        "title": "Seviye 20",
+        "desc": "Seviye 20'ye ulaş."
+      },
+      "first_strength_test": {
+        "title": "İlk Ölçüm",
+        "desc": "İlk güç testini yap."
+      },
+      "strength_plus_25": {
+        "title": "%25 Gelişim",
+        "desc": "Güç testinde ilk ölçümüne göre %25 gelişim göster."
+      },
+      "lessons_5": {
+        "title": "Öğrenci",
+        "desc": "5 kurs dersini tamamla."
+      },
+      "all_stories": {
+        "title": "Kitap Kurdu",
+        "desc": "Tüm bilgi hikâyelerini oku."
+      },
+      "challenges_30": {
+        "title": "Görev Ustası",
+        "desc": "Toplam 30 günlük görev tamamla."
+      }
+    }
   }
 }

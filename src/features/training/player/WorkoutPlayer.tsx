@@ -117,7 +117,7 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels }: Props) 
   const phase = currentPhase(state) ?? session.phases[session.phases.length - 1]!;
   const exercise = phase.exerciseIndex >= 0 ? session.exercises[phase.exerciseIndex] : undefined;
   const remainingMs = remainingInPhase(state, now);
-  const circleSize = Math.min(width * 0.72, 320);
+  const circleSize = Math.min(width * 0.68, 300);
   const visual = useMemo(() => phaseVisual(phase, t.colors), [phase, t.colors]);
 
   const label = phaseLabel(phase, tr);
@@ -173,17 +173,19 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels }: Props) 
           ringColor={t.colors.border}
         />
         <View style={[StyleSheet.absoluteFill, styles.centerText]} pointerEvents="none">
-          {!discreet ? (
-            <AppText variant="display" color="#FFFFFF" center style={styles.shadow}>
-              {paused ? tr('player.paused') : label}
-            </AppText>
-          ) : null}
           {phase.durationMs >= 1000 && !paused ? (
-            <AppText variant="h1" color="#FFFFFF" center style={[styles.shadow, { opacity: 0.9 }]}>
+            <AppText variant="display" color="#FFFFFF" center style={styles.shadow}>
               {secondsLeft}
             </AppText>
           ) : null}
         </View>
+      </View>
+      <View style={{ minHeight: 64, justifyContent: 'center' }}>
+        {!discreet ? (
+          <AppText variant="display" center color={paused ? t.colors.textMuted : visual.color === t.colors.relax ? t.colors.text : visual.color}>
+            {paused ? tr('player.paused') : label}
+          </AppText>
+        ) : null}
       </View>
 
       {/* Bottom controls */}

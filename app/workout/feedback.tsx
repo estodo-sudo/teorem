@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Button, Card, ChoiceCard, Screen, useTheme } from '@/components';
 import { submitFeedback } from '@/features/training/service';
 import { formatDuration } from '@/lib/date';
+import { goHome } from '@/lib/nav';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { Feedback } from '@/types';
@@ -38,7 +39,7 @@ export default function FeedbackScreen() {
     const key = result.after > result.before ? 'up' : result.after < result.before ? 'down' : 'same';
     return (
       <Screen
-        footer={<Button label={tr('common.continue')} size="lg" variant="accent" onPress={() => router.replace('/')} />}
+        footer={<Button label={tr('common.continue')} size="lg" variant="accent" onPress={goHome} />}
       >
         <View style={{ alignItems: 'center', gap: 12, marginTop: 40 }}>
           <AppText variant="display">{key === 'up' ? '🚀' : key === 'down' ? '🌱' : '✅'}</AppText>

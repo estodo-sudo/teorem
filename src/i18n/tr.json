@@ -407,7 +407,14 @@
       "meta": "{{min}} dk · Seviye {{level}}",
       "repeat": "Tamamlayamadığın günü bir seviye daha kolay olarak tekrar ediyoruz.",
       "again": "Bir seans daha"
-    }
+    },
+    "challenges": "Günlük görevler",
+    "strengthDue": "Haftalık güç testi zamanı",
+    "strengthDueBody": "1 dakikada gelişimini ölç.",
+    "fitnessLabel": "ÖNERİLEN KASIK RUTİNİ",
+    "fitness": "{{name}} rutini",
+    "breathing": "1 dakikalık nefes molası",
+    "achievements": "Kupalarım"
   },
   "training": {
     "title": "Antrenman",
@@ -672,5 +679,57 @@
       "next": "Sonraki adım",
       "done": "Tarama tamamlandı. Kendine iyi bak 🌿"
     }
+  },
+  "challengeCategory": {
+    "physical": "Fiziksel",
+    "mental": "Zihinsel",
+    "social": "Sosyal",
+    "nutrition": "Beslenme"
+  },
+  "discover": {
+    "title": "Keşfet"
+  },
+  "stories": {
+    "title": "Bilgi Hikâyeleri",
+    "readCount": "{{read}}/{{total}} okundu",
+    "ofTheDay": "Günün hikâyesi",
+    "favorites": "Favorilerim",
+    "minutes": "~{{count}} dk okuma",
+    "didYouKnow": "BİLİYOR MUYDUN?",
+    "prev": "Önceki slayt",
+    "next": "Sonraki slayt",
+    "favorite": "Favorilere ekle",
+    "unfavorite": "Favorilerden çıkar",
+    "finished": "Hikâyeyi tamamladın.",
+    "sources": "Kaynaklar",
+    "disclaimer": "Genel bilgilendirme amaçlıdır, tıbbi tavsiye değildir. İçerik henüz uzman kontrolünden geçmemiştir.",
+    "notFound": "Hikâye bulunamadı.",
+    "category": {
+      "menHealth": "Erkek Sağlığı",
+      "relationships": "İlişkiler",
+      "nutrition": "Beslenme",
+      "sleep": "Uyku",
+      "stress": "Stres",
+      "exercise": "Egzersiz"
+    }
+  },
+  "courses": {
+    "title": "Kurslar",
+    "progress": "{{done}}/{{total}} ders tamamlandı",
+    "lessonMeta": "{{slides}} slayt · {{q}} soru",
+    "score": "Tamamlandı · Test: %{{pct}}",
+    "completed": "tamamlandı",
+    "badge": "Kurs rozeti kazanıldı!",
+    "badgeBody": "Bu kurstaki tüm dersleri tamamladın.",
+    "toQuiz": "Mini teste geç",
+    "quizTitle": "Mini test",
+    "question": "Soru {{n}} / {{total}}",
+    "check": "Kontrol et",
+    "correct": "Doğru! 🎉",
+    "wrong": "Tam olarak değil.",
+    "finish": "Bitir",
+    "resultTitle": "{{correct}}/{{total}} doğru",
+    "resultBody": "Ders tamamlandı. İstediğin zaman tekrar okuyabilirsin.",
+    "notFound": "Kurs bulunamadı."
   }
 }

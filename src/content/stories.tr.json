@@ -1,1 +1,821 @@
-[]
+[
+  {
+    "id": "pf-basics",
+    "title": "Erkeklerde pelvik taban",
+    "category": "menHealth",
+    "emoji": "🧭",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🧭",
+        "title": "Görünmeyen kas grubu",
+        "text": "Pelvik taban, leğen kemiğinin altında hamak gibi uzanan kaslardan oluşur. Çoğu erkek varlığından bile haberdar değildir."
+      },
+      {
+        "emoji": "🛡️",
+        "title": "Ne işe yarar?",
+        "text": "Mesaneyi ve bağırsakları destekler, idrar ve gaz kontrolüne yardımcı olur, cinsel fonksiyonda da rol oynar."
+      },
+      {
+        "emoji": "📉",
+        "title": "Zamanla zayıflayabilir",
+        "text": "Yaş, uzun süre oturmak, kronik öksürük, fazla kilo veya bazı ameliyatlar bu kasları zayıflatabilir.",
+        "didYouKnow": "Pelvik taban egzersizleri, prostat ameliyatı sonrası idrar kontrolünü desteklemek için sıkça önerilen yöntemlerdendir."
+      },
+      {
+        "emoji": "💪",
+        "title": "Çalıştırılabilir",
+        "text": "Diğer kaslar gibi düzenli ve doğru egzersizle güçlenebilir. Anahtar kelime: istikrar."
+      },
+      {
+        "emoji": "🩺",
+        "title": "Ne zaman doktora?",
+        "text": "Ağrı, idrarda kan, ani idrar kaçırma veya yeni başlayan sertleşme sorunlarında egzersizden önce bir doktora danış."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mayo Clinic – Kegel exercises for men",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+      },
+      {
+        "title": "NHS – What are pelvic floor exercises?",
+        "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "kegel-mistakes",
+    "title": "En sık yapılan 5 Kegel hatası",
+    "category": "menHealth",
+    "emoji": "⚠️",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🙅",
+        "title": "1. Yanlış kası sıkmak",
+        "text": "Karın, kalça veya bacakları sıkmak çok yaygındır. Pelvik taban hareketi içeriden ve küçüktür."
+      },
+      {
+        "emoji": "😮‍💨",
+        "title": "2. Nefesi tutmak",
+        "text": "Sıkarken nefesi tutmak karın içi basıncı artırır. Sakin nefes almaya devam et."
+      },
+      {
+        "emoji": "🔁",
+        "title": "3. Gevşemeyi atlamak",
+        "text": "Kası tamamen bırakmak, sıkmak kadar önemlidir. Sürekli gergin bir kas da sorun yaratabilir."
+      },
+      {
+        "emoji": "🚽",
+        "title": "4. Tuvalette egzersiz",
+        "text": "İdrarı yarıda kesmek kası bulmak için bir fikir verebilir ama düzenli egzersiz olarak yapılmamalı."
+      },
+      {
+        "emoji": "📆",
+        "title": "5. Çabuk vazgeçmek",
+        "text": "Kas gücündeki değişim haftalar içinde gelişir. Kısa ama düzenli seanslar, seyrek uzun seanslardan daha faydalıdır."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mayo Clinic – Kegel exercises for men",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+      },
+      {
+        "title": "NHS – What are pelvic floor exercises?",
+        "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "erection-blood",
+    "title": "Sertleşme ve damar sağlığı",
+    "category": "menHealth",
+    "emoji": "❤️",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "❤️",
+        "title": "Kalp ve damarlar",
+        "text": "Sertleşme büyük ölçüde sağlıklı kan akışına bağlıdır. Bu yüzden damar sağlığını etkileyen her şey önemlidir."
+      },
+      {
+        "emoji": "🚬",
+        "title": "Risk faktörleri",
+        "text": "Sigara, yüksek tansiyon, diyabet, yüksek kolesterol ve hareketsizlik sertleşme sorunlarıyla ilişkilendirilir."
+      },
+      {
+        "emoji": "🏃",
+        "title": "Yaşam tarzı",
+        "text": "Düzenli egzersiz, dengeli beslenme ve sigarayı bırakmak genel damar sağlığını destekler.",
+        "didYouKnow": "Yeni başlayan sertleşme sorunları bazen kalp-damar hastalıklarının erken bir işareti olabilir; bu yüzden doktorla konuşmak önemlidir."
+      },
+      {
+        "emoji": "🧩",
+        "title": "Pelvik tabanın yeri",
+        "text": "Bazı çalışmalar pelvik taban egzersizlerinin sertleşme sorunlarında destekleyici olabileceğini gösteriyor; ancak tek başına bir tedavi değildir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
+      {
+        "title": "Mayo Clinic – Erectile dysfunction",
+        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+      },
+      {
+        "title": "PubMed – Pelvic floor muscle training & erectile function (search)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+muscle+training+erectile+dysfunction"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "bladder-control",
+    "title": "Mesane kontrolü üzerine",
+    "category": "menHealth",
+    "emoji": "💧",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "💧",
+        "title": "Sık rastlanır",
+        "text": "İdrar kaçırma özellikle yaş ilerledikçe ve prostat ameliyatı sonrasında erkeklerde de görülebilir."
+      },
+      {
+        "emoji": "⏳",
+        "title": "Damla kaçırma",
+        "text": "İdrar yaptıktan sonra birkaç damla kaçırmak yaygındır. Bitirdikten sonra pelvik tabanı birkaç kez sıkmak yardımcı olabilir."
+      },
+      {
+        "emoji": "☕",
+        "title": "Tetikleyiciler",
+        "text": "Kafein, alkol ve gazlı içecekler bazı kişilerde mesaneyi uyarabilir. Kendi tetikleyicilerini gözlemle."
+      },
+      {
+        "emoji": "🩺",
+        "title": "Değerlendirme şart",
+        "text": "Yeni başlayan veya artan idrar kaçırma bir sağlık profesyoneli tarafından değerlendirilmelidir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      },
+      {
+        "title": "NHS – What are pelvic floor exercises?",
+        "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+      },
+      {
+        "title": "PubMed – Pelvic floor training after prostatectomy (search)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+muscle+training+after+prostatectomy"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "talk-partner",
+    "title": "Partnerinle konuşmak",
+    "category": "relationships",
+    "emoji": "💬",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "💬",
+        "title": "Sessizlik ağırlaştırır",
+        "text": "Cinsel konularda yaşanan zorluklar konuşulmadığında kaygı ve yanlış anlamalar büyüyebilir."
+      },
+      {
+        "emoji": "🕰️",
+        "title": "Doğru zaman",
+        "text": "Yatak odası dışında, sakin ve acelesiz bir an seçmek konuşmayı kolaylaştırır."
+      },
+      {
+        "emoji": "🙋",
+        "title": "Ben dili",
+        "text": "\"Sen hiç…\" yerine \"Ben son zamanlarda … hissediyorum\" demek savunmayı azaltır."
+      },
+      {
+        "emoji": "🤝",
+        "title": "Ekip olmak",
+        "text": "Sorunu ortak bir konu olarak görmek, çözüm arayışını birlikte yapmanızı sağlar.",
+        "didYouKnow": "Araştırmalar, ilişki doyumunda iletişimin cinsel sıklıktan daha belirleyici olabileceğini gösteriyor."
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Sexual health",
+        "url": "https://www.who.int/health-topics/sexual-health"
+      },
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "performance-anxiety",
+    "title": "Performans kaygısı",
+    "category": "relationships",
+    "emoji": "🎭",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🎭",
+        "title": "Çok yaygın",
+        "text": "Performans kaygısı pek çok erkeğin hayatının bir döneminde yaşadığı bir durumdur."
+      },
+      {
+        "emoji": "🔄",
+        "title": "Kısır döngü",
+        "text": "Bir kez yaşanan zorluk, sonraki seferde endişeye; endişe de vücudun gevşemesini zorlaştırarak yeni zorluklara yol açabilir."
+      },
+      {
+        "emoji": "🌬️",
+        "title": "Bedeni sakinleştirmek",
+        "text": "Yavaş nefes, odağı sonuçtan duyulara kaydırmak ve beklentileri azaltmak döngüyü kırmaya yardımcı olabilir."
+      },
+      {
+        "emoji": "🧠",
+        "title": "Destek almak",
+        "text": "Kaygı sürekli hâle geldiyse cinsel sağlık konusunda deneyimli bir uzmanla konuşmak faydalı olabilir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
+      {
+        "title": "Mayo Clinic – Stress management",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "intimacy-beyond",
+    "title": "Yakınlık sadece cinsellik değil",
+    "category": "relationships",
+    "emoji": "🫶",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🫶",
+        "title": "Geniş bir kavram",
+        "text": "Yakınlık; dokunma, sohbet, birlikte gülmek ve birbirine zaman ayırmak gibi pek çok şeyi kapsar."
+      },
+      {
+        "emoji": "📵",
+        "title": "Ekransız zaman",
+        "text": "Günde birkaç dakikalık telefonsuz sohbet, bağ kurmanın basit bir yoludur."
+      },
+      {
+        "emoji": "🎯",
+        "title": "Baskıyı azaltmak",
+        "text": "Yakınlığı yalnızca cinsel birleşmeye indirgememek, performans baskısını hafifletebilir."
+      },
+      {
+        "emoji": "🗓️",
+        "title": "Küçük ritüeller",
+        "text": "Haftada bir birlikte yürüyüş, ortak bir yemek ya da sadece sarılarak geçirilen birkaç dakika bağı güçlendirebilir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Sexual health",
+        "url": "https://www.who.int/health-topics/sexual-health"
+      },
+      {
+        "title": "NHS – 5 steps to mental wellbeing",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "water",
+    "title": "Su ve mesane",
+    "category": "nutrition",
+    "emoji": "🥤",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🥤",
+        "title": "Az içmek çözüm değil",
+        "text": "İdrar kaçırma endişesiyle su içmeyi azaltmak idrarı yoğunlaştırarak mesaneyi daha çok tahriş edebilir."
+      },
+      {
+        "emoji": "📏",
+        "title": "Ne kadar?",
+        "text": "Genel öneri gün boyunca düzenli sıvı almaktır; ihtiyaç kilo, hava ve aktiviteye göre değişir."
+      },
+      {
+        "emoji": "🌙",
+        "title": "Akşam düzeni",
+        "text": "Gece sık tuvalete kalkıyorsan, sıvının çoğunu gündüz almayı ve yatmadan önceki saatlerde azaltmayı deneyebilirsin."
+      },
+      {
+        "emoji": "🔎",
+        "title": "İpucu",
+        "text": "Açık sarı idrar genellikle yeterli sıvı aldığının işaretidir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Water, drinks and your health",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/water-drinks-nutrition/"
+      },
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "plate",
+    "title": "Damar dostu tabak",
+    "category": "nutrition",
+    "emoji": "🥗",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🥗",
+        "title": "Yarısı sebze",
+        "text": "Tabağın yarısını sebze ve meyveyle doldurmak basit ve etkili bir başlangıç."
+      },
+      {
+        "emoji": "🌾",
+        "title": "Tam tahıl",
+        "text": "Beyaz ekmek ve pirinç yerine tam tahıllı seçenekler lif alımını artırır."
+      },
+      {
+        "emoji": "🫒",
+        "title": "Yağ seçimi",
+        "text": "Zeytinyağı, kuruyemiş ve balık gibi sağlıklı yağ kaynaklarını tercih et; işlenmiş et ve kızartmaları sınırla."
+      },
+      {
+        "emoji": "🧂",
+        "title": "Tuz ve şeker",
+        "text": "Fazla tuz tansiyonu, fazla şeker kilo ve kan şekerini etkileyebilir.",
+        "didYouKnow": "WHO, günlük tuz alımının 5 gramın altında tutulmasını önerir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Healthy diet fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+      },
+      {
+        "title": "Mayo Clinic – Erectile dysfunction",
+        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "alcohol",
+    "title": "Alkol ve performans",
+    "category": "nutrition",
+    "emoji": "🍷",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🍷",
+        "title": "Kısa vadede",
+        "text": "Alkol bazı kişilerde rahatlatıcı gibi görünse de fazlası sertleşmeyi ve hissetmeyi zorlaştırabilir."
+      },
+      {
+        "emoji": "📆",
+        "title": "Uzun vadede",
+        "text": "Düzenli ve yüksek miktarda alkol hormonları, uykuyu ve damar sağlığını olumsuz etkileyebilir."
+      },
+      {
+        "emoji": "🧮",
+        "title": "Azaltma fikirleri",
+        "text": "Alkolsüz günler belirlemek, küçük bardak kullanmak ve her içkinin arasına su koymak işe yarayabilir."
+      },
+      {
+        "emoji": "🩺",
+        "title": "Ne zaman yardım?",
+        "text": "Alkolü azaltmakta zorlanıyorsan bu konuda destek veren sağlık hizmetlerinden yardım almak güçlü bir adımdır."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Alcohol advice",
+        "url": "https://www.nhs.uk/live-well/alcohol-advice/"
+      },
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "sleep-hormones",
+    "title": "Uyku ve hormonlar",
+    "category": "sleep",
+    "emoji": "😴",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "😴",
+        "title": "Gece yenilenme",
+        "text": "Vücudun pek çok hormonu uyku sırasında düzenlenir."
+      },
+      {
+        "emoji": "⏱️",
+        "title": "Kısa uyku",
+        "text": "Bazı çalışmalarda kısıtlı uykunun genç erkeklerde testosteron düzeylerini düşürebildiği gözlenmiştir."
+      },
+      {
+        "emoji": "🛏️",
+        "title": "Hedef",
+        "text": "Yetişkinlerin çoğu için gecede 7–9 saat uyku önerilir."
+      },
+      {
+        "emoji": "🔋",
+        "title": "Enerji ve istek",
+        "text": "Yorgunluk cinsel isteği ve ruh hâlini doğrudan etkileyebilir; uyku bu yüzden bir öncelik."
+      }
+    ],
+    "sources": [
+      {
+        "title": "PubMed – Sleep restriction & testosterone (search)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=sleep+restriction+testosterone+young+men"
+      },
+      {
+        "title": "NHS – How to get to sleep",
+        "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "sleep-routine",
+    "title": "Daha iyi uyku için akşam rutini",
+    "category": "sleep",
+    "emoji": "🌙",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🌙",
+        "title": "Sabit saat",
+        "text": "Her gün aynı saatte yatıp kalkmak iç saatini düzenler — hafta sonu da."
+      },
+      {
+        "emoji": "📱",
+        "title": "Ekran molası",
+        "text": "Yatmadan 30–60 dakika önce ekranları bırakmak uykuya geçişi kolaylaştırabilir."
+      },
+      {
+        "emoji": "☕",
+        "title": "Kafein saati",
+        "text": "Kafeinin etkisi saatlerce sürebilir; öğleden sonra kahveyi azaltmayı dene."
+      },
+      {
+        "emoji": "🌬️",
+        "title": "Gevşeme",
+        "text": "Yatakta 4-7-8 nefesi veya beden taraması zihni yavaşlatmana yardımcı olabilir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – How to get to sleep",
+        "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+      },
+      {
+        "title": "Mayo Clinic – Sleep tips",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "night-bathroom",
+    "title": "Gece tuvalete kalkmak",
+    "category": "sleep",
+    "emoji": "🚽",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🚽",
+        "title": "Noktüri",
+        "text": "Gece birden fazla kez tuvalete kalkmaya noktüri denir ve yaşla birlikte daha sık görülür."
+      },
+      {
+        "emoji": "🥤",
+        "title": "Akşam sıvısı",
+        "text": "Akşam saatlerinde özellikle kafeinli ve alkollü içecekleri azaltmak fark yaratabilir."
+      },
+      {
+        "emoji": "🩺",
+        "title": "Altta yatan nedenler",
+        "text": "Prostat büyümesi, diyabet veya uyku apnesi gibi durumlar noktüriye yol açabilir; sık oluyorsa doktora danış."
+      },
+      {
+        "emoji": "🛏️",
+        "title": "Yatmadan önce",
+        "text": "Yatmadan hemen önce tuvalete gitmek ve gün içinde pelvik taban egzersizlerine devam etmek bazı kişilere yardımcı olabilir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      },
+      {
+        "title": "Mayo Clinic – Sleep tips",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "stress-body",
+    "title": "Stres bedende nasıl hissedilir?",
+    "category": "stress",
+    "emoji": "🌪️",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🌪️",
+        "title": "Savaş ya da kaç",
+        "text": "Stres anında vücut alarm durumuna geçer: kalp hızlanır, kaslar gerilir, nefes sığlaşır."
+      },
+      {
+        "emoji": "🧱",
+        "title": "Gergin kaslar",
+        "text": "Uzun süreli stres boyun, omuz ve hatta pelvik taban kaslarında istemsiz gerginliğe yol açabilir."
+      },
+      {
+        "emoji": "🌬️",
+        "title": "Fren pedalı",
+        "text": "Yavaş ve uzun nefes vermek, vücudun sakinleşme sistemini devreye sokmanın en kolay yollarından biridir."
+      },
+      {
+        "emoji": "🧘",
+        "title": "Küçük molalar",
+        "text": "Gün içinde 1–2 dakikalık nefes molaları birikimli bir etki yaratabilir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mayo Clinic – Stress management",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037"
+      },
+      {
+        "title": "NHS – Tips to reduce stress",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "worry-time",
+    "title": "Endişe zamanı tekniği",
+    "category": "stress",
+    "emoji": "🗒️",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🗒️",
+        "title": "Erteleme",
+        "text": "Endişeler gün boyu gelir; her geldiğinde bir kenara not edip \"bunu endişe zamanımda düşüneceğim\" diyebilirsin."
+      },
+      {
+        "emoji": "⏰",
+        "title": "15 dakika",
+        "text": "Her gün aynı saatte 15 dakikalık bir \"endişe zamanı\" belirle ve notlarına o zaman bak."
+      },
+      {
+        "emoji": "✍️",
+        "title": "Yazıya dökmek",
+        "text": "Düşünceleri yazmak onları somutlaştırır ve kafada dönmelerini azaltabilir. Zihin Boşaltma aracını deneyebilirsin."
+      },
+      {
+        "emoji": "🔍",
+        "title": "Çözülebilir mi?",
+        "text": "Endişe zamanında her madde için sor: Bununla ilgili bugün atabileceğim küçük bir adım var mı? Yoksa bırakmayı dene."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Tips to reduce stress",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+      },
+      {
+        "title": "NHS – Mindfulness",
+        "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "mindfulness",
+    "title": "Farkındalık nedir?",
+    "category": "stress",
+    "emoji": "🍃",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🍃",
+        "title": "Şimdi ve burada",
+        "text": "Farkındalık, dikkatini yargılamadan şu anki deneyimine vermektir."
+      },
+      {
+        "emoji": "☕",
+        "title": "Günlük hayatta",
+        "text": "Bir fincan çayı içerken sadece sıcaklığına, kokusuna ve tadına odaklanmak bile bir farkındalık pratiğidir."
+      },
+      {
+        "emoji": "🔁",
+        "title": "Dikkat kaçar",
+        "text": "Zihin dağılır; bu başarısızlık değil. Fark edip nazikçe geri dönmek pratiğin kendisidir."
+      },
+      {
+        "emoji": "⏱️",
+        "title": "Kısa başla",
+        "text": "Günde 2–3 dakikalık pratik bile başlangıç için yeterli. Nefes aracındaki 1 dakikalık seçenekle deneyebilirsin."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Mindfulness",
+        "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
+      },
+      {
+        "title": "NHS – 5 steps to mental wellbeing",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "move-more",
+    "title": "Daha çok hareket",
+    "category": "exercise",
+    "emoji": "🚶",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🚶",
+        "title": "Öneri",
+        "text": "WHO yetişkinler için haftada en az 150–300 dakika orta yoğunlukta aerobik aktivite öneriyor."
+      },
+      {
+        "emoji": "🧩",
+        "title": "Parçalara böl",
+        "text": "Günde 3 kez 10 dakikalık yürüyüş de sayılır."
+      },
+      {
+        "emoji": "🪑",
+        "title": "Oturmayı kes",
+        "text": "Uzun süre oturuyorsan her saat birkaç dakika kalkıp hareket et.",
+        "didYouKnow": "Az hareket bile hiç hareketsizlikten iyidir."
+      },
+      {
+        "emoji": "❤️",
+        "title": "Neden önemli?",
+        "text": "Düzenli hareket kalp-damar sağlığını, uykuyu ve ruh hâlini destekler."
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Physical activity fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "core-hips",
+    "title": "Kalça ve gövde neden önemli?",
+    "category": "exercise",
+    "emoji": "🏋️",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🏋️",
+        "title": "Bir ekip",
+        "text": "Pelvik taban; karın, sırt ve kalça kaslarıyla birlikte çalışan bir sistemin parçasıdır."
+      },
+      {
+        "emoji": "🌉",
+        "title": "Köprü ve squat",
+        "text": "Kalça kaslarını çalıştıran hareketler gövdenin stabilitesini destekler."
+      },
+      {
+        "emoji": "📲",
+        "title": "Uygulamada",
+        "text": "Kasık Fitness bölümündeki kısa rutinler bu kas gruplarını hedefler."
+      },
+      {
+        "emoji": "🧘",
+        "title": "Esneklik de önemli",
+        "text": "Kalça ve iç bacak esnemeleri bölgedeki gerginliği azaltmaya yardımcı olabilir; esnemeyi zorlamadan yap."
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Physical activity fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      },
+      {
+        "title": "Mayo Clinic – Kegel exercises for men",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "cycling",
+    "title": "Bisiklet ve pelvik bölge",
+    "category": "exercise",
+    "emoji": "🚴",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🚴",
+        "title": "Uzun sürüşler",
+        "text": "Uzun süre sert bir selede oturmak bazı kişilerde perine bölgesinde uyuşma ve basıya yol açabilir."
+      },
+      {
+        "emoji": "🪑",
+        "title": "Sele ayarı",
+        "text": "Doğru sele yüksekliği ve şekli, ara ara ayağa kalkmak ve mola vermek basıncı azaltabilir."
+      },
+      {
+        "emoji": "🩺",
+        "title": "Dikkat",
+        "text": "Uyuşma veya his kaybı geçmiyorsa sürüşü azalt ve bir sağlık profesyoneline danış."
+      },
+      {
+        "emoji": "🔄",
+        "title": "Dengeli antrenman",
+        "text": "Bisikleti seviyorsan bırakman gerekmez; kalça ve gövde güçlendirme, esneme ve molalarla dengelemek iyi bir fikir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mayo Clinic – Erectile dysfunction",
+        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+      },
+      {
+        "title": "WHO – Physical activity fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "smoking",
+    "title": "Sigara ve cinsel sağlık",
+    "category": "menHealth",
+    "emoji": "🚭",
+    "minutes": 2,
+    "slides": [
+      {
+        "emoji": "🚭",
+        "title": "Damarlar",
+        "text": "Sigara damarlara zarar vererek kan akışını azaltabilir; bu da sertleşmeyi olumsuz etkileyebilir."
+      },
+      {
+        "emoji": "📈",
+        "title": "Bırakmanın faydası",
+        "text": "Sigarayı bırakmak birçok sağlık riskini zamanla azaltır; vücut iyileşmeye ilk günlerden başlar."
+      },
+      {
+        "emoji": "🤝",
+        "title": "Destek",
+        "text": "Bırakma sürecinde profesyonel destek ve bırakma programları başarı şansını artırabilir."
+      },
+      {
+        "emoji": "💡",
+        "title": "Tetikleyicileri tanı",
+        "text": "Kahve, stres veya belirli ortamlar sigara isteğini tetikleyebilir. Bu anlar için önceden bir alternatif (nefes, yürüyüş) planla."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Quit smoking",
+        "url": "https://www.nhs.uk/better-health/quit-smoking/"
+      },
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      }
+    ],
+    "reviewed": false
+  }
+]

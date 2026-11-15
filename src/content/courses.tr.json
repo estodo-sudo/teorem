@@ -1,1 +1,928 @@
-[]
+[
+  {
+    "id": "pf101",
+    "title": "Pelvik Taban 101",
+    "emoji": "🎓",
+    "reviewed": false,
+    "description": "Anatomiden doğru tekniğe, pelvik taban hakkında bilmen gereken temel bilgiler.",
+    "lessons": [
+      {
+        "id": "pf101-1",
+        "title": "Anatomi: Nerede, ne yapar?",
+        "slides": [
+          {
+            "emoji": "🦴",
+            "title": "Leğen kemiğinin tabanı",
+            "text": "Pelvik taban kasları, kuyruk sokumundan kasık kemiğine kadar uzanan kas ve bağ dokusundan oluşur."
+          },
+          {
+            "emoji": "🛡️",
+            "title": "Destek görevi",
+            "text": "Mesane ve bağırsaklar gibi organları aşağıdan destekler."
+          },
+          {
+            "emoji": "🚪",
+            "title": "Kapı görevi",
+            "text": "İdrar ve dışkı çıkışını kontrol eden sfinkterlerle birlikte çalışır."
+          },
+          {
+            "emoji": "⚡",
+            "title": "Cinsel fonksiyon",
+            "text": "Sertleşme sırasında kan akışının korunmasına ve boşalma refleksine katkıda bulunan kaslar da bu gruptadır."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Pelvik taban kasları nerede bulunur?",
+            "options": [
+              "Göğüs kafesinde",
+              "Leğen kemiğinin alt kısmında",
+              "Sırtın üst kısmında"
+            ],
+            "answer": 1,
+            "explain": "Pelvik taban, leğen kemiğinin altında hamak gibi uzanır."
+          },
+          {
+            "q": "Aşağıdakilerden hangisi pelvik tabanın görevlerinden biridir?",
+            "options": [
+              "Organlara destek olmak",
+              "Nefes almayı sağlamak",
+              "Kan pompalamak"
+            ],
+            "answer": 0,
+            "explain": "Mesane ve bağırsakları aşağıdan destekler."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Mayo Clinic – Kegel exercises for men",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+          },
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "pf101-2",
+        "title": "Neden önemli?",
+        "slides": [
+          {
+            "emoji": "💧",
+            "title": "İdrar kontrolü",
+            "text": "Güçlü ve koordineli pelvik taban, ani basınç anlarında (öksürük, hapşırık, ağır kaldırma) idrar kontrolüne yardımcı olur."
+          },
+          {
+            "emoji": "🏥",
+            "title": "Ameliyat sonrası",
+            "text": "Prostat ameliyatı sonrası dönemde pelvik taban egzersizleri sık önerilen destekleyici yaklaşımlardandır."
+          },
+          {
+            "emoji": "🔬",
+            "title": "Cinsel sağlık",
+            "text": "Bazı çalışmalar düzenli pelvik taban egzersizinin sertleşme ve boşalma kontrolü üzerinde olumlu etkiler gösterebildiğini bildiriyor; sonuçlar kişiden kişiye değişir."
+          },
+          {
+            "emoji": "🧍",
+            "title": "Gövde dengesi",
+            "text": "Pelvik taban, karın ve sırt kaslarıyla birlikte gövde stabilitesine katkı verir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Pelvik taban egzersizleri hangi durumda sıkça önerilir?",
+            "options": [
+              "Prostat ameliyatı sonrası",
+              "Kırık bir kolun iyileşmesinde",
+              "Göz yorgunluğunda"
+            ],
+            "answer": 0,
+            "explain": "İdrar kontrolünü desteklemek için ameliyat sonrası sık önerilir."
+          },
+          {
+            "q": "Pelvik taban egzersizleri ile ilgili hangisi doğrudur?",
+            "options": [
+              "Herkeste aynı sonucu garanti eder",
+              "Sonuçlar kişiden kişiye değişebilir",
+              "Tek seansta etkisini gösterir"
+            ],
+            "answer": 1,
+            "explain": "Etkiler bireysel farklılık gösterir ve düzenlilik gerektirir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "PubMed – Pelvic floor training after prostatectomy (search)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+muscle+training+after+prostatectomy"
+          },
+          {
+            "title": "PubMed – Pelvic floor muscle training & erectile function (search)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+muscle+training+erectile+dysfunction"
+          },
+          {
+            "title": "NHS – Urinary incontinence",
+            "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "pf101-3",
+        "title": "Doğru teknik",
+        "slides": [
+          {
+            "emoji": "🎯",
+            "title": "İzole et",
+            "text": "Sadece pelvik taban kasını sık; karın, kalça ve uyluklar gevşek kalsın."
+          },
+          {
+            "emoji": "⬆️",
+            "title": "İçeri ve yukarı",
+            "text": "Hareketi içeri ve yukarı doğru bir çekiş gibi düşün. Dışarıdan bakan biri fark etmemeli."
+          },
+          {
+            "emoji": "🌬️",
+            "title": "Nefes",
+            "text": "Sıkarken nefesini tutma. Nefes verirken sıkmak bazı kişilere daha kolay gelir."
+          },
+          {
+            "emoji": "🔓",
+            "title": "Tam gevşeme",
+            "text": "Her tekrardan sonra kası tamamen bırak. Gevşeme süresi en az sıkma süresi kadar olsun."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Kegel sırasında hangisi YAPILMAMALI?",
+            "options": [
+              "Nefesi tutmak",
+              "Kası tamamen gevşetmek",
+              "Karın kaslarını gevşek bırakmak"
+            ],
+            "answer": 0,
+            "explain": "Nefesi tutmak karın içi basıncı artırır."
+          },
+          {
+            "q": "Gevşeme süresi ne kadar olmalı?",
+            "options": [
+              "Hiç gerek yok",
+              "En az sıkma süresi kadar",
+              "Sıkmanın yarısı kadar"
+            ],
+            "answer": 1,
+            "explain": "Kasın toparlanması için en az sıkma süresi kadar gevşe."
+          },
+          {
+            "q": "Doğru Kegel dışarıdan nasıl görünür?",
+            "options": [
+              "Kalça belirgin şekilde sıkılır",
+              "Karın içeri çekilir",
+              "Dışarıdan neredeyse fark edilmez"
+            ],
+            "answer": 2,
+            "explain": "Hareket içeriden ve küçüktür."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Mayo Clinic – Kegel exercises for men",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+          },
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "pf101-4",
+        "title": "Sık yapılan hatalar",
+        "slides": [
+          {
+            "emoji": "🏋️",
+            "title": "Fazlası iyi değil",
+            "text": "Çok uzun ve çok sık seanslar kası yorabilir. Önerilen programa sadık kalmak daha iyidir."
+          },
+          {
+            "emoji": "🚽",
+            "title": "Tuvalet hatası",
+            "text": "İdrarı yarıda kesmeyi egzersiz olarak yapmak mesanenin tam boşalmamasına neden olabilir."
+          },
+          {
+            "emoji": "😣",
+            "title": "Ağrıya rağmen devam",
+            "text": "Ağrı bir uyarı işaretidir. Ağrı varsa dur ve bir sağlık profesyoneline danış."
+          },
+          {
+            "emoji": "🎲",
+            "title": "Düzensizlik",
+            "text": "Haftada bir uzun seans yerine her gün kısa seanslar daha etkilidir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Egzersiz sırasında ağrı hissedersen ne yapmalısın?",
+            "options": [
+              "Daha güçlü sıkmalısın",
+              "Durup bir sağlık profesyoneline danışmalısın",
+              "Süreyi uzatmalısın"
+            ],
+            "answer": 1,
+            "explain": "Ağrı bir uyarı işaretidir."
+          },
+          {
+            "q": "Hangisi daha etkilidir?",
+            "options": [
+              "Haftada bir uzun seans",
+              "Her gün kısa seans",
+              "Ayda bir yoğun seans"
+            ],
+            "answer": 1,
+            "explain": "Düzenlilik kilit faktördür."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Mayo Clinic – Kegel exercises for men",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+          },
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "pf101-5",
+        "title": "İlerleme beklentisi",
+        "slides": [
+          {
+            "emoji": "📆",
+            "title": "Haftalar sürer",
+            "text": "Kas gücünde değişim genellikle birkaç hafta ile birkaç ay arasında fark edilir."
+          },
+          {
+            "emoji": "📏",
+            "title": "Ölç ve gör",
+            "text": "Haftalık güç testi, küçük değişimleri görmene yardımcı olur."
+          },
+          {
+            "emoji": "🔁",
+            "title": "Kalıcılık",
+            "text": "Kazanımları korumak için egzersize uzun vadede devam etmek gerekir."
+          },
+          {
+            "emoji": "🩺",
+            "title": "Değişim yoksa",
+            "text": "Birkaç ay düzenli egzersize rağmen şikâyetlerin sürüyorsa bir uzmana (ürolog veya pelvik taban fizyoterapisti) başvur."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Değişim genellikle ne zaman fark edilir?",
+            "options": [
+              "Birkaç hafta - birkaç ay içinde",
+              "İlk gün",
+              "Hiçbir zaman"
+            ],
+            "answer": 0,
+            "explain": "Kas adaptasyonu zaman alır."
+          },
+          {
+            "q": "Kazanımları korumak için ne gerekir?",
+            "options": [
+              "Egzersizi bırakmak",
+              "Uzun vadede devam etmek",
+              "Sadece güç testini yapmak"
+            ],
+            "answer": 1,
+            "explain": "Kas gücü, kullanılmadığında azalabilir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Mayo Clinic – Kegel exercises for men",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+          },
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          }
+        ],
+        "reviewed": false
+      }
+    ]
+  },
+  {
+    "id": "sexual-health",
+    "title": "Cinsel Sağlığın Temelleri",
+    "emoji": "🩺",
+    "reviewed": false,
+    "description": "Genel, eğitici ve tıbbi dille cinsel sağlığın temel konuları.",
+    "lessons": [
+      {
+        "id": "sh-1",
+        "title": "Cinsel sağlık nedir?",
+        "slides": [
+          {
+            "emoji": "🌐",
+            "title": "Geniş bir tanım",
+            "text": "Dünya Sağlık Örgütü cinsel sağlığı yalnızca hastalığın olmaması değil; fiziksel, duygusal, zihinsel ve sosyal iyilik hâli olarak tanımlar."
+          },
+          {
+            "emoji": "🤝",
+            "title": "Saygı ve rıza",
+            "text": "Sağlıklı cinsellik karşılıklı saygı, güven ve rızaya dayanır."
+          },
+          {
+            "emoji": "🧠",
+            "title": "Beden ve zihin",
+            "text": "Cinsel fonksiyon; hormonlar, damarlar, sinirler ve duygusal durumun birlikte çalışmasıyla oluşur."
+          },
+          {
+            "emoji": "🩺",
+            "title": "Konuşulabilir",
+            "text": "Cinsel sağlık sorunları sağlık profesyonellerinin her gün karşılaştığı, konuşulabilir konulardır."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "WHO'ya göre cinsel sağlık neyi kapsar?",
+            "options": [
+              "Sadece hastalığın olmamasını",
+              "Fiziksel, duygusal, zihinsel ve sosyal iyilik hâlini",
+              "Sadece üreme yeteneğini"
+            ],
+            "answer": 1,
+            "explain": "Tanım bütüncüldür."
+          },
+          {
+            "q": "Sağlıklı cinselliğin temeli nedir?",
+            "options": [
+              "Performans",
+              "Saygı, güven ve rıza",
+              "Sıklık"
+            ],
+            "answer": 1,
+            "explain": "Karşılıklı saygı ve rıza temel unsurlardır."
+          }
+        ],
+        "sources": [
+          {
+            "title": "WHO – Sexual health",
+            "url": "https://www.who.int/health-topics/sexual-health"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "sh-2",
+        "title": "Sertleşme nasıl oluşur?",
+        "slides": [
+          {
+            "emoji": "🧠",
+            "title": "Başlangıç",
+            "text": "Uyarılma beyinde ve sinir sisteminde başlar, sinyaller pelvik bölgeye iletilir."
+          },
+          {
+            "emoji": "🩸",
+            "title": "Kan akışı",
+            "text": "Penisteki süngerimsi dokulara kan akışı artar ve sertleşme oluşur."
+          },
+          {
+            "emoji": "🔒",
+            "title": "Koruma",
+            "text": "Pelvik taban kasları dahil çeşitli mekanizmalar kanın bölgede kalmasına yardımcı olur."
+          },
+          {
+            "emoji": "⚖️",
+            "title": "Dengeyi bozanlar",
+            "text": "Damar hastalıkları, bazı ilaçlar, hormon bozuklukları, stres ve yorgunluk bu süreci etkileyebilir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Sertleşmede temel rol oynayan nedir?",
+            "options": [
+              "Bölgeye kan akışının artması",
+              "Kemik yapısı",
+              "Sindirim sistemi"
+            ],
+            "answer": 0,
+            "explain": "Sertleşme büyük ölçüde damar ve sinir sistemine bağlıdır."
+          },
+          {
+            "q": "Hangisi sertleşmeyi etkileyebilir?",
+            "options": [
+              "Stres",
+              "Göz rengi",
+              "Ayakkabı numarası"
+            ],
+            "answer": 0,
+            "explain": "Psikolojik faktörler de önemli rol oynar."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          },
+          {
+            "title": "Mayo Clinic – Erectile dysfunction",
+            "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "sh-3",
+        "title": "Sertleşme sorunları",
+        "slides": [
+          {
+            "emoji": "📊",
+            "title": "Yaygın bir durum",
+            "text": "Ara sıra yaşanan sertleşme sorunları çok yaygındır ve genellikle endişe gerektirmez."
+          },
+          {
+            "emoji": "🔁",
+            "title": "Sürekli ise",
+            "text": "Sorun sık tekrarlıyorsa veya yeni başladıysa bir doktora danışmak önemlidir; bazen başka sağlık sorunlarının işareti olabilir."
+          },
+          {
+            "emoji": "🧰",
+            "title": "Seçenekler",
+            "text": "Yaşam tarzı değişiklikleri, psikolojik destek, ilaçlar ve diğer tıbbi tedaviler doktorla değerlendirilebilir."
+          },
+          {
+            "emoji": "💊",
+            "title": "Kendi kendine ilaç yok",
+            "text": "Reçetesiz ve kaynağı belirsiz ürünler ciddi riskler taşıyabilir; ilaç kullanımı mutlaka doktor kontrolünde olmalı."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Sık tekrarlayan sertleşme sorununda ne yapılmalı?",
+            "options": [
+              "Görmezden gelmek",
+              "Doktora danışmak",
+              "İnternetten ilaç almak"
+            ],
+            "answer": 1,
+            "explain": "Altta yatan nedenler değerlendirilmelidir."
+          },
+          {
+            "q": "Kaynağı belirsiz 'güçlendirici' ürünler için hangisi doğru?",
+            "options": [
+              "Tamamen güvenlidir",
+              "Ciddi riskler taşıyabilir",
+              "Doktor önerisinden daha iyidir"
+            ],
+            "answer": 1,
+            "explain": "Bu ürünler etiketlenmemiş etken maddeler içerebilir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          },
+          {
+            "title": "Mayo Clinic – Erectile dysfunction",
+            "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "sh-4",
+        "title": "Boşalma kontrolü",
+        "slides": [
+          {
+            "emoji": "⏱️",
+            "title": "Kişiden kişiye",
+            "text": "Boşalma süresi kişiden kişiye ve durumdan duruma değişir; tek bir 'normal' süre yoktur."
+          },
+          {
+            "emoji": "😟",
+            "title": "Ne zaman sorun?",
+            "text": "Kişi veya partneri için sürekli sıkıntı yaratıyorsa bir sağlık profesyoneliyle konuşmak faydalı olabilir."
+          },
+          {
+            "emoji": "🧩",
+            "title": "Pelvik tabanın rolü",
+            "text": "Boşalma refleksinde pelvik taban kasları görev alır; bazı çalışmalar bu kasların eğitiminin kontrolü destekleyebileceğini gösteriyor."
+          },
+          {
+            "emoji": "🧠",
+            "title": "Kaygı etkisi",
+            "text": "Performans kaygısı durumu zorlaştırabilir; gevşeme ve iletişim önemli parçalardır."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Boşalma süresi için hangisi doğru?",
+            "options": [
+              "Herkes için aynı normal süre vardır",
+              "Kişiden kişiye değişir",
+              "Hiç değişmez"
+            ],
+            "answer": 1,
+            "explain": "Bireysel farklılıklar büyüktür."
+          },
+          {
+            "q": "Hangisi boşalma kontrolünü zorlaştırabilir?",
+            "options": [
+              "Performans kaygısı",
+              "Su içmek",
+              "Yürüyüş"
+            ],
+            "answer": 0,
+            "explain": "Kaygı, vücudun refleks yanıtlarını etkileyebilir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Ejaculation problems",
+            "url": "https://www.nhs.uk/conditions/ejaculation-problems/"
+          },
+          {
+            "title": "PubMed – Pelvic floor rehabilitation & premature ejaculation (search)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+rehabilitation+premature+ejaculation"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "sh-5",
+        "title": "Ne zaman doktora gitmeli?",
+        "slides": [
+          {
+            "emoji": "🚩",
+            "title": "Uyarı işaretleri",
+            "text": "Ağrı, idrarda veya menide kan, testislerde şişlik ya da sertlik fark edersen beklemeden doktora başvur."
+          },
+          {
+            "emoji": "🆕",
+            "title": "Yeni başlayan sorunlar",
+            "text": "Yeni ortaya çıkan sertleşme veya idrar sorunları değerlendirilmelidir."
+          },
+          {
+            "emoji": "🗣️",
+            "title": "Hazırlık",
+            "text": "Belirtilerini, ne zaman başladığını ve kullandığın ilaçları önceden not almak görüşmeyi kolaylaştırır."
+          },
+          {
+            "emoji": "🧑‍⚕️",
+            "title": "Kime?",
+            "text": "Aile hekimi iyi bir başlangıç noktasıdır; gerekirse üroloji veya diğer uzmanlıklara yönlendirir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Hangisi beklemeden doktora gitmeyi gerektirir?",
+            "options": [
+              "İdrarda kan",
+              "Hafif yorgunluk",
+              "Bir gece kötü uyku"
+            ],
+            "answer": 0,
+            "explain": "Kanama bir uyarı işaretidir."
+          },
+          {
+            "q": "Doktor görüşmesine nasıl hazırlanabilirsin?",
+            "options": [
+              "Belirtileri ve ilaçları not alarak",
+              "Hiçbir şey söylemeyerek",
+              "Sadece internetteki teşhisi göstererek"
+            ],
+            "answer": 0,
+            "explain": "Not almak, doktorun seni daha iyi değerlendirmesini sağlar."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          },
+          {
+            "title": "NHS – Urinary incontinence",
+            "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+          },
+          {
+            "title": "Mayo Clinic – Erectile dysfunction",
+            "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+          }
+        ],
+        "reviewed": false
+      }
+    ]
+  },
+  {
+    "id": "stress-sleep",
+    "title": "Stres, Uyku ve Performans",
+    "emoji": "🌙",
+    "reviewed": false,
+    "description": "Zihin, uyku ve beden arasındaki bağ ve günlük hayatta uygulanabilecek alışkanlıklar.",
+    "lessons": [
+      {
+        "id": "ss-1",
+        "title": "Stresin bedendeki izleri",
+        "slides": [
+          {
+            "emoji": "🌪️",
+            "title": "Alarm sistemi",
+            "text": "Stres anında salgılanan hormonlar vücudu harekete hazırlar; kısa süreli stres normaldir."
+          },
+          {
+            "emoji": "📆",
+            "title": "Uzun süreli stres",
+            "text": "Sürekli stres uyku, sindirim, bağışıklık ve cinsel istek üzerinde olumsuz etki yapabilir."
+          },
+          {
+            "emoji": "🧱",
+            "title": "Kas gerginliği",
+            "text": "Omuzlar, çene ve pelvik bölge stresle birlikte istemsizce gerilebilir."
+          },
+          {
+            "emoji": "🔍",
+            "title": "Fark etmek",
+            "text": "Gün içinde kendine 'Şu an nerem gergin?' diye sormak ilk adımdır."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Uzun süreli stres neyi etkileyebilir?",
+            "options": [
+              "Uyku ve cinsel istek",
+              "Göz rengi",
+              "Boy uzunluğu"
+            ],
+            "answer": 0,
+            "explain": "Kronik stres birçok sistemi etkiler."
+          },
+          {
+            "q": "Stresi yönetmede ilk adım nedir?",
+            "options": [
+              "Fark etmek",
+              "Görmezden gelmek",
+              "Daha çok kahve içmek"
+            ],
+            "answer": 0,
+            "explain": "Bedensel gerginliği fark etmek yönetimin başlangıcıdır."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Mayo Clinic – Stress management",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037"
+          },
+          {
+            "title": "NHS – Tips to reduce stress",
+            "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ss-2",
+        "title": "Nefesin gücü",
+        "slides": [
+          {
+            "emoji": "🌬️",
+            "title": "Yavaş nefes",
+            "text": "Nefes vermeyi uzatmak, vücudun sakinleşme yanıtını destekler."
+          },
+          {
+            "emoji": "🔲",
+            "title": "Kutu nefesi",
+            "text": "4 sn al, 4 sn tut, 4 sn ver, 4 sn bekle. Odaklanmak için kullanılabilir."
+          },
+          {
+            "emoji": "🌙",
+            "title": "4-7-8",
+            "text": "4 sn al, 7 sn tut, 8 sn ver. Uykuya geçişte bazı kişilere yardımcı olur."
+          },
+          {
+            "emoji": "📲",
+            "title": "Uygula",
+            "text": "Uygulamadaki Nefes aracı, titreşimle ekrana bakmadan nefes almanı sağlar."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Hangisi sakinleşmeyi destekler?",
+            "options": [
+              "Nefes vermeyi uzatmak",
+              "Hızlı ve sığ nefes",
+              "Nefesi uzun süre tutup bırakmamak"
+            ],
+            "answer": 0,
+            "explain": "Uzun nefes verme sakinleşme sistemini destekler."
+          },
+          {
+            "q": "4-7-8 nefesinde nefes kaç saniyede verilir?",
+            "options": [
+              "4",
+              "7",
+              "8"
+            ],
+            "answer": 2,
+            "explain": "Nefes verme 8 saniye sürer."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Tips to reduce stress",
+            "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+          },
+          {
+            "title": "NHS – Mindfulness",
+            "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ss-3",
+        "title": "Uyku hijyeni",
+        "slides": [
+          {
+            "emoji": "⏰",
+            "title": "Düzen",
+            "text": "Her gün aynı saatte yatıp kalkmak en etkili uyku alışkanlıklarından biridir."
+          },
+          {
+            "emoji": "🌑",
+            "title": "Ortam",
+            "text": "Karanlık, sessiz ve serin bir yatak odası uykuyu kolaylaştırır."
+          },
+          {
+            "emoji": "📵",
+            "title": "Ekranlar",
+            "text": "Yatmadan önce ekran süresini azaltmak zihnin yavaşlamasına yardımcı olur."
+          },
+          {
+            "emoji": "🛏️",
+            "title": "Yatak sadece uyku için",
+            "text": "Uyuyamıyorsan yatakta kıvranmak yerine kalkıp sakin bir şeyle uğraşmak ve uykun gelince dönmek önerilir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Hangisi iyi bir uyku alışkanlığıdır?",
+            "options": [
+              "Her gün aynı saatte yatmak",
+              "Yatakta telefonla oyalanmak",
+              "Gece geç kahve içmek"
+            ],
+            "answer": 0,
+            "explain": "Düzen iç saati destekler."
+          },
+          {
+            "q": "Uyuyamadığında ne önerilir?",
+            "options": [
+              "Yatakta saatlerce beklemek",
+              "Kalkıp sakin bir şey yapmak",
+              "Ağır egzersiz yapmak"
+            ],
+            "answer": 1,
+            "explain": "Yatakla uyanıklık arasındaki bağı zayıflatmak için önerilir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – How to get to sleep",
+            "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+          },
+          {
+            "title": "Mayo Clinic – Sleep tips",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ss-4",
+        "title": "Performans kaygısıyla başa çıkmak",
+        "slides": [
+          {
+            "emoji": "🎭",
+            "title": "Normal bir deneyim",
+            "text": "Kaygı herkesin yaşayabileceği bir duygudur; varlığı bir sorun olduğun anlamına gelmez."
+          },
+          {
+            "emoji": "🎯",
+            "title": "Sonuçtan sürece",
+            "text": "Dikkati 'başarmalıyım' düşüncesinden anlık duyulara ve paylaşıma kaydırmak baskıyı azaltabilir."
+          },
+          {
+            "emoji": "💬",
+            "title": "Paylaşmak",
+            "text": "Partnerle açık iletişim, beklentileri hafifletir."
+          },
+          {
+            "emoji": "🧑‍⚕️",
+            "title": "Profesyonel destek",
+            "text": "Kaygı sürekli hâle geldiyse cinsel sağlık konusunda deneyimli bir uzman yardımcı olabilir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Performans kaygısını azaltmaya ne yardımcı olabilir?",
+            "options": [
+              "Dikkati sonuçtan sürece kaydırmak",
+              "Daha çok baskı yapmak",
+              "Hiç konuşmamak"
+            ],
+            "answer": 0,
+            "explain": "Odak değişimi baskıyı azaltabilir."
+          },
+          {
+            "q": "Kaygı sürekli hâle geldiyse ne yapılabilir?",
+            "options": [
+              "Bir uzmandan destek almak",
+              "Tamamen yalnız başa çıkmak zorundasın",
+              "Hiçbir şey yapılamaz"
+            ],
+            "answer": 0,
+            "explain": "Profesyonel destek etkili bir seçenektir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "Mayo Clinic – Stress management",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037"
+          },
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ss-5",
+        "title": "Sürdürülebilir alışkanlıklar",
+        "slides": [
+          {
+            "emoji": "🧱",
+            "title": "Küçük adımlar",
+            "text": "Büyük değişiklikler yerine küçük ve sürdürülebilir adımlar daha kalıcıdır."
+          },
+          {
+            "emoji": "🔗",
+            "title": "Alışkanlık zinciri",
+            "text": "Yeni alışkanlığı mevcut bir rutine bağla: örneğin dişlerini fırçaladıktan sonra 5 dakikalık antrenman."
+          },
+          {
+            "emoji": "🔥",
+            "title": "Seri ama esnek",
+            "text": "Seri motive eder; bir gün kaçırırsan kendini suçlamadan ertesi gün devam et."
+          },
+          {
+            "emoji": "🎉",
+            "title": "Kutla",
+            "text": "Küçük ilerlemeleri fark etmek ve kutlamak motivasyonu canlı tutar."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Hangisi daha kalıcı değişim sağlar?",
+            "options": [
+              "Küçük ve sürdürülebilir adımlar",
+              "Bir günde her şeyi değiştirmek",
+              "Hiç plan yapmamak"
+            ],
+            "answer": 0,
+            "explain": "Küçük adımlar sürdürülebilirdir."
+          },
+          {
+            "q": "Bir gün antrenmanı kaçırırsan ne yapmalısın?",
+            "options": [
+              "Tamamen bırakmalısın",
+              "Ertesi gün kaldığın yerden devam etmelisin",
+              "İki kat süre yapmalısın"
+            ],
+            "answer": 1,
+            "explain": "Esneklik uzun vadede devamlılığı korur."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – 5 steps to mental wellbeing",
+            "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/"
+          },
+          {
+            "title": "WHO – Physical activity fact sheet",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+          }
+        ],
+        "reviewed": false
+      }
+    ]
+  }
+]

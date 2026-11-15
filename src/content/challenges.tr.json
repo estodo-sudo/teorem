@@ -1,1 +1,312 @@
-[]
+[
+  {
+    "id": "ph01",
+    "category": "physical",
+    "text": "10 dakika yürüyüş yap"
+  },
+  {
+    "id": "ph02",
+    "category": "physical",
+    "text": "Asansör yerine merdiveni kullan"
+  },
+  {
+    "id": "ph03",
+    "category": "physical",
+    "text": "Her saat başı 2 dakika ayağa kalk ve esne"
+  },
+  {
+    "id": "ph04",
+    "category": "physical",
+    "text": "20 squat yap"
+  },
+  {
+    "id": "ph05",
+    "category": "physical",
+    "text": "Akşam yemeğinden sonra 15 dakika yürü"
+  },
+  {
+    "id": "ph06",
+    "category": "physical",
+    "text": "Gün içinde 3 kez omuzlarını çevir ve boynunu esnet"
+  },
+  {
+    "id": "ph07",
+    "category": "physical",
+    "text": "5 dakika kalça esnemesi yap"
+  },
+  {
+    "id": "ph08",
+    "category": "physical",
+    "text": "Bugün 7.000 adımı hedefle"
+  },
+  {
+    "id": "ph09",
+    "category": "physical",
+    "text": "Bir Kasık Fitness rutinini tamamla"
+  },
+  {
+    "id": "ph10",
+    "category": "physical",
+    "text": "1 dakika plank dene (bölerek de olur)"
+  },
+  {
+    "id": "ph11",
+    "category": "physical",
+    "text": "Telefonla konuşurken ayakta yürü"
+  },
+  {
+    "id": "ph12",
+    "category": "physical",
+    "text": "Otururken dik dur ve sırtını dikleştir"
+  },
+  {
+    "id": "ph13",
+    "category": "physical",
+    "text": "Yatmadan önce 5 dakika hafif esneme yap"
+  },
+  {
+    "id": "ph14",
+    "category": "physical",
+    "text": "Bugün en az 30 dakika aktif ol"
+  },
+  {
+    "id": "ph15",
+    "category": "physical",
+    "text": "Kısa mesafeye araç yerine yürüyerek git"
+  },
+  {
+    "id": "ph16",
+    "category": "physical",
+    "text": "10 köprü (glute bridge) hareketi yap"
+  },
+  {
+    "id": "me01",
+    "category": "mental",
+    "text": "1 dakika nefes egzersizi yap"
+  },
+  {
+    "id": "me02",
+    "category": "mental",
+    "text": "Bugün minnettar olduğun 3 şeyi yaz"
+  },
+  {
+    "id": "me03",
+    "category": "mental",
+    "text": "Yatmadan önce 15 dk ekransız kal"
+  },
+  {
+    "id": "me04",
+    "category": "mental",
+    "text": "Zihin Boşaltma aracını kullan"
+  },
+  {
+    "id": "me05",
+    "category": "mental",
+    "text": "5 dakika telefonsuz, sadece etrafını gözlemle"
+  },
+  {
+    "id": "me06",
+    "category": "mental",
+    "text": "Bugün bir şeyi yavaşça, fark ederek ye"
+  },
+  {
+    "id": "me07",
+    "category": "mental",
+    "text": "Beden taramasını dene"
+  },
+  {
+    "id": "me08",
+    "category": "mental",
+    "text": "Bugün kendine nazik bir cümle söyle"
+  },
+  {
+    "id": "me09",
+    "category": "mental",
+    "text": "Bildirimlerini 1 saat sessize al"
+  },
+  {
+    "id": "me10",
+    "category": "mental",
+    "text": "Bugünün en iyi anını not et"
+  },
+  {
+    "id": "me11",
+    "category": "mental",
+    "text": "Yarın için tek bir öncelik belirle"
+  },
+  {
+    "id": "me12",
+    "category": "mental",
+    "text": "Bir bilgi hikâyesi oku"
+  },
+  {
+    "id": "me13",
+    "category": "mental",
+    "text": "10 dakika kitap oku"
+  },
+  {
+    "id": "me14",
+    "category": "mental",
+    "text": "Bugün bir kez 'hayır' demeyi dene, gerekiyorsa"
+  },
+  {
+    "id": "me15",
+    "category": "mental",
+    "text": "Uyumadan önce 4-7-8 nefesini 3 tur yap"
+  },
+  {
+    "id": "me16",
+    "category": "mental",
+    "text": "Sosyal medyaya bugün 30 dakikadan az zaman ayır"
+  },
+  {
+    "id": "so01",
+    "category": "social",
+    "text": "Bir arkadaşına mesaj at"
+  },
+  {
+    "id": "so02",
+    "category": "social",
+    "text": "Sevdiğin birine teşekkür et"
+  },
+  {
+    "id": "so03",
+    "category": "social",
+    "text": "Partnerinle 10 dakika telefonsuz sohbet et"
+  },
+  {
+    "id": "so04",
+    "category": "social",
+    "text": "Uzun süredir konuşmadığın birini ara"
+  },
+  {
+    "id": "so05",
+    "category": "social",
+    "text": "Bugün birine içten bir iltifat et"
+  },
+  {
+    "id": "so06",
+    "category": "social",
+    "text": "Ailenden biriyle birlikte yemek ye"
+  },
+  {
+    "id": "so07",
+    "category": "social",
+    "text": "Birine küçük bir iyilik yap"
+  },
+  {
+    "id": "so08",
+    "category": "social",
+    "text": "Bir arkadaşınla yürüyüşe çık"
+  },
+  {
+    "id": "so09",
+    "category": "social",
+    "text": "Partnerine bugün nasıl hissettiğini sor"
+  },
+  {
+    "id": "so10",
+    "category": "social",
+    "text": "Bir komşuna ya da iş arkadaşına selam ver ve hâlini sor"
+  },
+  {
+    "id": "so11",
+    "category": "social",
+    "text": "Birlikte gülebileceğin biriyle vakit geçir"
+  },
+  {
+    "id": "so12",
+    "category": "social",
+    "text": "Sevdiğin birine sarıl"
+  },
+  {
+    "id": "so13",
+    "category": "social",
+    "text": "Bir arkadaşına bir şarkı veya kitap öner"
+  },
+  {
+    "id": "so14",
+    "category": "social",
+    "text": "Bugün birini gerçekten dinle, sözünü kesmeden"
+  },
+  {
+    "id": "so15",
+    "category": "social",
+    "text": "Hafta sonu için biriyle küçük bir plan yap"
+  },
+  {
+    "id": "nu01",
+    "category": "nutrition",
+    "text": "Bugün 2 litre su iç"
+  },
+  {
+    "id": "nu02",
+    "category": "nutrition",
+    "text": "Şekerli içecek içme"
+  },
+  {
+    "id": "nu03",
+    "category": "nutrition",
+    "text": "Bir öğüne bir porsiyon sebze ekle"
+  },
+  {
+    "id": "nu04",
+    "category": "nutrition",
+    "text": "Bugün bir avuç kuruyemiş ye"
+  },
+  {
+    "id": "nu05",
+    "category": "nutrition",
+    "text": "Akşam yemeğini yatmadan en az 2 saat önce bitir"
+  },
+  {
+    "id": "nu06",
+    "category": "nutrition",
+    "text": "Öğleden sonra kafeinsiz kal"
+  },
+  {
+    "id": "nu07",
+    "category": "nutrition",
+    "text": "Bugün alkol içme"
+  },
+  {
+    "id": "nu08",
+    "category": "nutrition",
+    "text": "Bir öğünde beyaz ekmek yerine tam tahıl seç"
+  },
+  {
+    "id": "nu09",
+    "category": "nutrition",
+    "text": "Bugün 2 porsiyon meyve ye"
+  },
+  {
+    "id": "nu10",
+    "category": "nutrition",
+    "text": "Tuzluğu masadan kaldır"
+  },
+  {
+    "id": "nu11",
+    "category": "nutrition",
+    "text": "Paketli atıştırmalık yerine meyve seç"
+  },
+  {
+    "id": "nu12",
+    "category": "nutrition",
+    "text": "Bugün balık veya baklagil içeren bir öğün ye"
+  },
+  {
+    "id": "nu13",
+    "category": "nutrition",
+    "text": "Her öğünden önce bir bardak su iç"
+  },
+  {
+    "id": "nu14",
+    "category": "nutrition",
+    "text": "Kızartma yerine fırın veya haşlama tercih et"
+  },
+  {
+    "id": "nu15",
+    "category": "nutrition",
+    "text": "Bugün yavaş ye, her lokmayı iyice çiğne"
+  }
+]

@@ -603,5 +603,26 @@
       "snooze15": "15 dk ertele",
       "snooze60": "1 saat ertele"
     }
+  },
+  "fitness": {
+    "title": "Kasık Fitness",
+    "subtitle": "Kalça, karın ve iç bacak kaslarını destekleyen vücut ağırlığı egzersizleri.",
+    "routineTitle": "{{name}} rutini",
+    "overview": "{{count}} egzersiz · yaklaşık {{min}} dakika. Egzersizler arasında geçişi titreşimle bildiririz.",
+    "stepMeta": "{{work}} sn çalış · {{rest}} sn dinlen",
+    "cardMeta": "{{count}} egzersiz · {{min}} dk",
+    "recommended": "Senin için önerilen",
+    "safety": "Hareketleri acele etmeden, ağrısız bir aralıkta yap. Ağrı hissedersen dur.",
+    "work": "ÇALIŞ",
+    "rest": "DİNLEN",
+    "stepOf": "{{n}} / {{total}}",
+    "nextUp": "Sıradaki: {{name}}",
+    "next": "Sonra: {{name}}",
+    "done": "Rutin tamamlandı!",
+    "partial": "Bugünlük bu kadar, güzel iş",
+    "doneMeta": "Aktif süre: {{time}}",
+    "finishTitle": "Rutini bitir?",
+    "notFound": "Rutin bulunamadı.",
+    "stepMetaLast": "{{work}} sn çalış"
   }
 }

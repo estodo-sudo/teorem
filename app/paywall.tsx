@@ -30,21 +30,23 @@ export default function Paywall() {
     else goHome();
   }, []);
 
-  const load = useCallback(() => {
-    setOffers(null);
-    void loadOffers().then((o) => {
-      setOffers(o);
-      if (o.length && !o.some((x) => x.key === 'yearly')) setSelected(o[0]!.key);
-    });
+  const applyOffers = useCallback((o: Offer[]) => {
+    setOffers(o);
+    if (o.length && !o.some((x) => x.key === 'yearly')) setSelected(o[0]!.key);
   }, []);
 
+  const load = useCallback(() => {
+    setOffers(null);
+    void loadOffers().then(applyOffers);
+  }, [applyOffers]);
+
   useEffect(() => {
-    load();
+    void loadOffers().then(applyOffers);
     return startPurchaseListener(() => {
       setBusy(false);
       leave();
     });
-  }, [load, leave]);
+  }, [applyOffers, leave]);
 
   const close = () => {
     const p = useProfileStore.getState();

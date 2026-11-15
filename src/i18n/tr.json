@@ -887,5 +887,11 @@
       "medicalTitle": "Tıbbi cihaz değildir",
       "medicalBody": "Bu uygulama genel sağlık ve egzersiz amaçlıdır; tıbbi tavsiye yerine geçmez."
     }
+  },
+  "error": {
+    "title": "Bir şeyler ters gitti",
+    "body": "Beklenmedik bir hata oluştu. Verilerin güvende; tekrar deneyebilirsin.",
+    "retry": "Tekrar dene",
+    "home": "Ana sayfaya dön"
   }
 }

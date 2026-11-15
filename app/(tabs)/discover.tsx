@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 

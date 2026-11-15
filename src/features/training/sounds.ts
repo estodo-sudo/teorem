@@ -4,12 +4,10 @@ import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-aud
 export type SoundCue = 'contract' | 'relax' | 'done' | 'breathe';
 
 const SOURCES: Record<SoundCue, number> = {
-  /* eslint-disable @typescript-eslint/no-require-imports */
   contract: require('../../../assets/sounds/contract.wav'),
   relax: require('../../../assets/sounds/relax.wav'),
   done: require('../../../assets/sounds/done.wav'),
   breathe: require('../../../assets/sounds/breathe.wav'),
-  /* eslint-enable @typescript-eslint/no-require-imports */
 };
 
 let players: Partial<Record<SoundCue, AudioPlayer>> = {};

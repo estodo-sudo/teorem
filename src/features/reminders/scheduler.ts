@@ -1,4 +1,5 @@
 import * as Notifications from 'expo-notifications';
+import { AndroidImportance, AndroidNotificationVisibility } from 'expo-notifications';
 import { router } from 'expo-router';
 import { Platform } from 'react-native';
 
@@ -34,10 +35,10 @@ export async function initNotifications() {
     if (Platform.OS === 'android') {
       await Notifications.setNotificationChannelAsync(CHANNEL, {
         name: i18n.t('reminders.discreet.title'),
-        importance: Notifications.AndroidImportance.DEFAULT,
+        importance: AndroidImportance.DEFAULT,
         vibrationPattern: [0, 200],
         // Content hidden on the lock screen by default for privacy.
-        lockscreenVisibility: Notifications.AndroidNotificationVisibility.PRIVATE,
+        lockscreenVisibility: AndroidNotificationVisibility.PRIVATE,
       });
     }
     await Notifications.setNotificationCategoryAsync(CATEGORY, [

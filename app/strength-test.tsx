@@ -24,26 +24,26 @@ export default function StrengthTest() {
   const [phase, setPhase] = useState<Phase>('introA');
   const [attempts, setAttempts] = useState<number[]>([]);
   const [pressStart, setPressStart] = useState<number | null>(null);
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(() => Date.now());
   const [taps, setTaps] = useState(0);
   const [quickStart, setQuickStart] = useState<number | null>(null);
   const tapsRef = useRef(0);
 
-  // Live clock for the hold timer and quick countdown.
+  // Live clock for the hold timer and quick countdown; ends the quick test
+  // after 10 s (wall-clock based).
   useEffect(() => {
     if (pressStart === null && quickStart === null) return;
-    const id = setInterval(() => setNow(Date.now()), 50);
+    const id = setInterval(() => {
+      const t = Date.now();
+      setNow(t);
+      if (quickStart !== null && t - quickStart >= QUICK_SEC * 1000) {
+        setQuickStart(null);
+        playCue('exerciseEnd', strength);
+        setPhase('done');
+      }
+    }, 50);
     return () => clearInterval(id);
-  }, [pressStart, quickStart]);
-
-  // End quick test after 10 s (wall-clock based).
-  useEffect(() => {
-    if (quickStart !== null && now - quickStart >= QUICK_SEC * 1000) {
-      setQuickStart(null);
-      playCue('exerciseEnd', strength);
-      setPhase('done');
-    }
-  }, [now, quickStart, strength]);
+  }, [pressStart, quickStart, strength]);
 
   const save = () => {
     useHistoryStore.getState().addStrengthTest({

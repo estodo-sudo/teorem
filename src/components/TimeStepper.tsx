@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import type { Theme } from '@/config/theme';
 import { formatTime, parseTime } from '@/lib/date';
 
 import { AppText } from './AppText';
@@ -31,7 +32,17 @@ export function TimeStepper({ value, onChange, minuteStep = 15 }: Props) {
     }
     onChange(formatTime(h, Math.round(m / minuteStep) * minuteStep % 60));
   };
-  const Col = ({ v, onUp, onDown, label }: { v: number; onUp: () => void; onDown: () => void; label: string }) => (
+  return (
+    <View style={styles.row}>
+      <Col t={t} v={hour} onUp={() => setH(1)} onDown={() => setH(-1)} label={tr('time.hour')} />
+      <AppText variant="display">:</AppText>
+      <Col t={t} v={minute} onUp={() => setM(1)} onDown={() => setM(-1)} label={tr('time.minute')} />
+    </View>
+  );
+}
+
+function Col({ t, v, onUp, onDown, label }: { t: Theme; v: number; onUp: () => void; onDown: () => void; label: string }) {
+  return (
     <View style={styles.col} accessible accessibilityRole="adjustable" accessibilityLabel={label}
       accessibilityValue={{ text: String(v).padStart(2, '0') }}
       accessibilityActions={[{ name: 'increment' }, { name: 'decrement' }]}
@@ -48,13 +59,6 @@ export function TimeStepper({ value, onChange, minuteStep = 15 }: Props) {
           <View style={{ width: 14, height: 2, backgroundColor: t.colors.text, borderRadius: 1 }} />
         </View>
       </Pressable>
-    </View>
-  );
-  return (
-    <View style={styles.row}>
-      <Col v={hour} onUp={() => setH(1)} onDown={() => setH(-1)} label={tr('time.hour')} />
-      <AppText variant="display">:</AppText>
-      <Col v={minute} onUp={() => setM(1)} onDown={() => setM(-1)} label={tr('time.minute')} />
     </View>
   );
 }

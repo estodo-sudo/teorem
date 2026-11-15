@@ -1,12 +1,11 @@
-import '@/i18n';
-
-import { DarkTheme, DefaultTheme, router, Stack, ThemeProvider, useSegments } from 'expo-router';
+import { DarkTheme, DefaultTheme, router, Stack, ThemeProvider, useSegments, type ErrorBoundaryProps } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useTheme } from '@/components';
 import { AppEffects } from '@/features/app/AppEffects';
+import { ErrorScreen } from '@/features/app/ErrorScreen';
 import { isAllowedDuringFirstRun, requiredFirstRunRoute } from '@/features/app/gate';
 import { setLanguage } from '@/i18n';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -66,4 +65,9 @@ export default function RootLayout() {
       </ThemeProvider>
     </SafeAreaProvider>
   );
+}
+
+/** Friendly fallback for unexpected render errors (no crash reporting: nothing leaves the device). */
+export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
+  return <ErrorScreen onRetry={retry} />;
 }

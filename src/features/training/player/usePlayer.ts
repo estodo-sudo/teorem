@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import {
   createPlayer,
@@ -24,11 +24,14 @@ export function usePlayer<P extends TimedPhase>(
   phases: readonly P[],
   onEvents: (events: PlayerEvent<P>[], state: PlayerState<P>) => void,
 ) {
-  const ref = useRef<PlayerState<P>>(createPlayer(phases));
-  const [state, setState] = useState(ref.current);
+  const [initial] = useState(() => createPlayer(phases));
+  const ref = useRef<PlayerState<P>>(initial);
+  const [state, setState] = useState(initial);
   const [now, setNow] = useState(() => Date.now());
   const handler = useRef(onEvents);
-  handler.current = onEvents;
+  useLayoutEffect(() => {
+    handler.current = onEvents;
+  }, [onEvents]);
 
   const apply = useCallback((step: Step<P>) => {
     ref.current = step.state;

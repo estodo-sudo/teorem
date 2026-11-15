@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { PanResponder, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -30,7 +30,7 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
   const [index, setIndex] = useState(0);
   const [elapsed, setElapsed] = useState(0);
   const [paused, setPaused] = useState(false);
-  const startRef = useRef(Date.now());
+  const startRef = useRef(0);
   const baseRef = useRef(0);
   const finished = useRef(false);
   const slide = slides[index]!;
@@ -68,14 +68,16 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, paused, dur]);
 
-  const pan = useRef(
-    PanResponder.create({
-      onMoveShouldSetPanResponder: (_, g) => g.dy > 12 && Math.abs(g.dy) > Math.abs(g.dx),
-      onPanResponderRelease: (_, g) => {
-        if (g.dy > 80) onClose();
-      },
-    }),
-  ).current;
+  const pan = useMemo(
+    () =>
+      PanResponder.create({
+        onMoveShouldSetPanResponder: (_, g) => g.dy > 12 && Math.abs(g.dy) > Math.abs(g.dx),
+        onPanResponderRelease: (_, g) => {
+          if (g.dy > 80) onClose();
+        },
+      }),
+    [onClose],
+  );
 
   const bg = t.dark ? t.colors.surface : t.colors.primary;
   const fg = '#FFFFFF';

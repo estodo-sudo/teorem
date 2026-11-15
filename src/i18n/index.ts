@@ -1,4 +1,4 @@
-import i18n from 'i18next';
+import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import en from './en.json';
@@ -6,6 +6,8 @@ import tr from './tr.json';
 
 export const SUPPORTED_LANGUAGES = ['tr', 'en'] as const;
 export type Language = (typeof SUPPORTED_LANGUAGES)[number];
+
+const i18n = createInstance();
 
 // Turkish is the primary language. English is a skeleton for Phase 2 and
 // falls back to Turkish for any missing key.

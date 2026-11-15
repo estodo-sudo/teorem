@@ -3,23 +3,29 @@
  * use in the app, and it goes through the platform store — no own backend,
  * no RevenueCat. Everything is guarded so the app works offline / on web.
  */
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
-import { OFFER_LIFETIME, ONE_TIME_SKUS, PRODUCT_IDS, SUBSCRIPTION_SKUS, type PlanKey } from '@/config/monetization';
-import { useEntitlementStore } from '@/stores/entitlementStore';
+import {
+  OFFER_LIFETIME,
+  ONE_TIME_SKUS,
+  PRODUCT_IDS,
+  SUBSCRIPTION_SKUS,
+  type PlanKey,
+} from "@/config/monetization";
+import { useEntitlementStore } from "@/stores/entitlementStore";
 
-import { resolveEntitlement, type VerifiedPurchase } from './entitlement';
-import { sortOffers, trialDaysFromPeriod, type Offer } from './pricing';
+import { resolveEntitlement, type VerifiedPurchase } from "./entitlement";
+import { sortOffers, trialDaysFromPeriod, type Offer } from "./pricing";
 
-type IapModule = typeof import('expo-iap');
+type IapModule = typeof import("expo-iap");
 let mod: IapModule | null | undefined;
 
 function iap(): IapModule | null {
   if (mod !== undefined) return mod;
-  if (Platform.OS !== 'ios' && Platform.OS !== 'android') return (mod = null);
+  if (Platform.OS !== "ios" && Platform.OS !== "android") return (mod = null);
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    mod = require('expo-iap') as IapModule;
+    mod = require("expo-iap") as IapModule;
   } catch {
     mod = null; // e.g. Expo Go without the native module
   }
@@ -31,27 +37,43 @@ function connect(): Promise<boolean> {
   const m = iap();
   if (!m) return Promise.resolve(false);
   if (!connected) {
-    connected = m.initConnection().then(
-      (ok) => !!ok,
-      () => {
-        connected = null;
-        return false;
-      },
-    );
+    try {
+      connected = m.initConnection().then(
+        (ok) => !!ok,
+        () => {
+          connected = null;
+          return false;
+        },
+      );
+    } catch {
+      // Native module missing (e.g. Expo Go): purchases unavailable.
+      mod = null;
+      return Promise.resolve(false);
+    }
   }
   return connected;
 }
 
 const keyFor = (productId: string): PlanKey | undefined =>
-  (Object.keys(PRODUCT_IDS) as PlanKey[]).find((k) => PRODUCT_IDS[k] === productId);
+  (Object.keys(PRODUCT_IDS) as PlanKey[]).find(
+    (k) => PRODUCT_IDS[k] === productId,
+  );
 
 type AnyProduct = {
   id: string;
   displayPrice: string;
   price?: number | null;
   currency: string;
-  type: 'subs' | 'in-app';
-  subscriptionOffers?: { offerTokenAndroid?: string | null; paymentMode?: string | null; period?: { unit: string; value: number } | null; periodCount?: number | null; type?: string }[] | null;
+  type: "subs" | "in-app";
+  subscriptionOffers?:
+    | {
+        offerTokenAndroid?: string | null;
+        paymentMode?: string | null;
+        period?: { unit: string; value: number } | null;
+        periodCount?: number | null;
+        type?: string;
+      }[]
+    | null;
   introductoryPricePaymentModeIOS?: string;
   introductoryPriceSubscriptionPeriodIOS?: string | null;
   introductoryPriceNumberOfPeriodsIOS?: string | null;
@@ -61,15 +83,26 @@ function toOffer(p: AnyProduct): Offer | null {
   const key = keyFor(p.id);
   if (!key) return null;
   const offers = p.subscriptionOffers ?? [];
-  const trial = offers.find((o) => o.paymentMode === 'free-trial');
-  let trialDays = trial ? trialDaysFromPeriod(trial.period as never) : undefined;
-  if (!trialDays && p.introductoryPricePaymentModeIOS === 'free-trial') {
-    const unit = (p.introductoryPriceSubscriptionPeriodIOS ?? '').toLowerCase();
-    const n = Number(p.introductoryPriceNumberOfPeriodsIOS ?? '1') || 1;
-    trialDays = trialDaysFromPeriod({ unit: (['day', 'week', 'month', 'year'].includes(unit) ? unit : 'unknown') as never, value: 1, count: n });
+  const trial = offers.find((o) => o.paymentMode === "free-trial");
+  let trialDays = trial
+    ? trialDaysFromPeriod(trial.period as never)
+    : undefined;
+  if (!trialDays && p.introductoryPricePaymentModeIOS === "free-trial") {
+    const unit = (p.introductoryPriceSubscriptionPeriodIOS ?? "").toLowerCase();
+    const n = Number(p.introductoryPriceNumberOfPeriodsIOS ?? "1") || 1;
+    trialDays = trialDaysFromPeriod({
+      unit: (["day", "week", "month", "year"].includes(unit)
+        ? unit
+        : "unknown") as never,
+      value: 1,
+      count: n,
+    });
   }
   // Android: prefer the free-trial offer token, else the base plan's token.
-  const androidOfferToken = (trial?.offerTokenAndroid ?? offers.find((o) => o.offerTokenAndroid)?.offerTokenAndroid) ?? undefined;
+  const androidOfferToken =
+    trial?.offerTokenAndroid ??
+    offers.find((o) => o.offerTokenAndroid)?.offerTokenAndroid ??
+    undefined;
   return {
     key,
     productId: p.id,
@@ -87,9 +120,17 @@ export async function loadOffers(): Promise<Offer[]> {
   const m = iap();
   if (!m || !(await connect())) return [];
   try {
-    const subs = ((await m.fetchProducts({ skus: SUBSCRIPTION_SKUS, type: 'subs' })) ?? []) as unknown as AnyProduct[];
-    const once = OFFER_LIFETIME ? (((await m.fetchProducts({ skus: ONE_TIME_SKUS, type: 'in-app' })) ?? []) as unknown as AnyProduct[]) : [];
-    return sortOffers([...subs, ...once].map(toOffer).filter((o): o is Offer => !!o));
+    const subs = ((await m.fetchProducts({
+      skus: SUBSCRIPTION_SKUS,
+      type: "subs",
+    })) ?? []) as unknown as AnyProduct[];
+    const once = OFFER_LIFETIME
+      ? (((await m.fetchProducts({ skus: ONE_TIME_SKUS, type: "in-app" })) ??
+          []) as unknown as AnyProduct[])
+      : [];
+    return sortOffers(
+      [...subs, ...once].map(toOffer).filter((o): o is Offer => !!o),
+    );
   } catch {
     return [];
   }
@@ -98,20 +139,28 @@ export async function loadOffers(): Promise<Offer[]> {
 /** Starts a purchase; the result arrives via the purchase listener. */
 export async function purchase(offer: Offer): Promise<void> {
   const m = iap();
-  if (!m || !(await connect())) throw new Error('store-unavailable');
-  if (offer.type === 'subs') {
+  if (!m || !(await connect())) throw new Error("store-unavailable");
+  if (offer.type === "subs") {
     await m.requestPurchase({
-      type: 'subs',
+      type: "subs",
       request: {
         apple: { sku: offer.productId },
         google: {
           skus: [offer.productId],
-          subscriptionOffers: offer.androidOfferToken ? [{ sku: offer.productId, offerToken: offer.androidOfferToken }] : undefined,
+          subscriptionOffers: offer.androidOfferToken
+            ? [{ sku: offer.productId, offerToken: offer.androidOfferToken }]
+            : undefined,
         },
       },
     });
   } else {
-    await m.requestPurchase({ type: 'in-app', request: { apple: { sku: offer.productId }, google: { skus: [offer.productId] } } });
+    await m.requestPurchase({
+      type: "in-app",
+      request: {
+        apple: { sku: offer.productId },
+        google: { skus: [offer.productId] },
+      },
+    });
   }
 }
 
@@ -140,7 +189,9 @@ async function verifyWithStore(): Promise<VerifiedPurchase[] | null> {
       }));
     if (OFFER_LIFETIME) {
       const owned = await m.getAvailablePurchases();
-      owned.filter((p) => ONE_TIME_SKUS.includes(p.productId)).forEach((p) => out.push({ productId: p.productId }));
+      owned
+        .filter((p) => ONE_TIME_SKUS.includes(p.productId))
+        .forEach((p) => out.push({ productId: p.productId }));
     }
     return out;
   } catch {
@@ -171,17 +222,22 @@ export async function restorePurchases(): Promise<boolean> {
 export function startPurchaseListener(onUnlocked?: () => void): () => void {
   const m = iap();
   if (!m) return () => {};
-  const sub = m.purchaseUpdatedListener(async (p) => {
-    try {
-      if (p.purchaseState === 'purchased') {
-        await m.finishTransaction({ purchase: p, isConsumable: false });
-        await refreshEntitlement();
-        if (useEntitlementStore.getState().entitlement.active) onUnlocked?.();
+  let sub: { remove: () => void };
+  try {
+    sub = m.purchaseUpdatedListener(async (p) => {
+      try {
+        if (p.purchaseState === "purchased") {
+          await m.finishTransaction({ purchase: p, isConsumable: false });
+          await refreshEntitlement();
+          if (useEntitlementStore.getState().entitlement.active) onUnlocked?.();
+        }
+      } catch {
+        // ignore; restore will pick it up
       }
-    } catch {
-      // ignore; restore will pick it up
-    }
-  });
+    });
+  } catch {
+    return () => {};
+  }
   return () => sub.remove();
 }
 

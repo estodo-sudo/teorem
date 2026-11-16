@@ -27,8 +27,13 @@ describe('privacy & offline', () => {
   const deps = Object.keys({ ...pkg.dependencies, ...pkg.devDependencies });
 
   it('has no analytics / ads / tracking / remote-config SDKs', () => {
-    const banned = /firebase|analytics|amplitude|mixpanel|segment|appsflyer|adjust|branch|facebook|fbsdk|admob|google-mobile-ads|sentry|bugsnag|datadog|onesignal|revenuecat|purchases|posthog|braze|clevertap|expo-updates/i;
+    const banned = /firebase|analytics|amplitude|mixpanel|segment|appsflyer|adjust|branch|facebook|fbsdk|admob|google-mobile-ads|sentry|bugsnag|datadog|onesignal|revenuecat|purchases|posthog|braze|clevertap/i;
     expect(deps.filter((d) => banned.test(d))).toEqual([]);
+  });
+
+  it('never checks for OTA updates on its own (expo-updates is dev-preview only)', () => {
+    const config = require('../app.config').default;
+    expect(config.updates?.checkAutomatically).toBe('NEVER');
   });
 
   it('makes network calls only from allow-listed modules', () => {

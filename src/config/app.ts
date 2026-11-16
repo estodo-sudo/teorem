@@ -13,6 +13,9 @@ export const ANDROID_PACKAGE = 'com.example.pelvikapp';
 
 export const APP_VERSION = '1.0.0';
 
+/** EAS project (used only to publish test builds/updates; no runtime network). */
+export const EAS_PROJECT_ID = '18811e36-1176-4e14-9bb8-2e59752cd211';
+
 /** Minimum age for using the app (age gate). */
 export const MIN_AGE = 16;
 

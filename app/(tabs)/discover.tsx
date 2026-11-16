@@ -2,14 +2,13 @@ import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Icon, ProgressBar, Screen, useTheme, type IconName } from '@/components';
-import { COURSES, STORIES, type StoryCategory } from '@/features/content/data';
+import { COURSES, STORIES } from '@/features/content/data';
 import { storyOfTheDay } from '@/features/content/daily';
 import { StoryBubble } from '@/features/content/StoryBubble';
 import { openGated, useAccess } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useProgressStore } from '@/stores/progressStore';
 
-const CATEGORIES: StoryCategory[] = ['menHealth', 'relationships', 'nutrition', 'sleep', 'stress', 'exercise'];
 const MIND: { route: '/mind/breathing' | '/mind/unload' | '/mind/body-scan'; key: string; icon: IconName }[] = [
   { route: '/mind/breathing', key: 'breathing', icon: 'wind' },
   { route: '/mind/unload', key: 'unload', icon: 'leaf' },
@@ -57,16 +56,10 @@ export default function Discover() {
             <BubbleRow items={favorites.map((s) => ({ story: s, read: read.includes(s.id) }))} onOpen={openStory} />
           </>
         ) : null}
-        {CATEGORIES.map((c) => {
-          const items = STORIES.filter((s) => s.category === c);
-          if (!items.length) return null;
-          return (
-            <View key={c} style={{ gap: 6 }}>
-              <AppText variant="h3">{tr(`stories.category.${c}`)}</AppText>
-              <BubbleRow items={items.map((s) => ({ story: s, read: read.includes(s.id) }))} onOpen={openStory} />
-            </View>
-          );
-        })}
+        <View style={{ gap: 6 }}>
+          <AppText variant="h3">{tr('stories.allRow')}</AppText>
+          <BubbleRow items={STORIES.map((s) => ({ story: s, read: read.includes(s.id) }))} onOpen={openStory} />
+        </View>
       </View>
 
       <AppText variant="h2" style={{ marginTop: 8 }}>

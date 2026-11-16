@@ -711,7 +711,8 @@
       "sleep": "Uyku",
       "stress": "Stres",
       "exercise": "Egzersiz"
-    }
+    },
+    "allRow": "Sağlıklı Yaşam"
   },
   "courses": {
     "title": "Kurslar",

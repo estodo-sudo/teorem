@@ -1,3 +1,4 @@
+import { deepClone } from '@/lib/clone';
 import { APP_NAME } from '@/config/app';
 import type { ProgressSnapshot } from '@/stores/progressStore';
 import type { Settings, TrainingState, UserProfile } from '@/types';
@@ -35,7 +36,7 @@ export function buildExport(s: AppSnapshot, now = new Date()): ExportBundle {
     schemaVersion: EXPORT_SCHEMA_VERSION,
     app: APP_NAME,
     exportedAt: now.toISOString(),
-    ...structuredClone(s),
+    ...deepClone(s),
   };
 }
 

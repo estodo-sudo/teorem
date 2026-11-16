@@ -1,3 +1,4 @@
+import { deepClone } from '@/lib/clone';
 import type { FitnessLog, ProgressNote, StrengthTest, WorkoutSession } from '@/types';
 
 /** All history that lives in SQLite. */
@@ -28,18 +29,18 @@ export interface HistoryRepo {
 }
 
 export function createMemoryRepo(initial: HistoryData = emptyHistory()): HistoryRepo {
-  let data: HistoryData = structuredClone(initial);
+  let data: HistoryData = deepClone(initial);
   const upsert = <T extends { id: string }>(list: T[], item: T) => {
     const i = list.findIndex((x) => x.id === item.id);
     if (i >= 0) list[i] = item;
     else list.push(item);
   };
   return {
-    loadAll: () => structuredClone(data),
-    upsertWorkout: (w) => upsert(data.workouts, structuredClone(w)),
-    insertStrengthTest: (t) => upsert(data.strengthTests, structuredClone(t)),
-    insertFitnessLog: (l) => upsert(data.fitnessLogs, structuredClone(l)),
-    insertNote: (n) => upsert(data.notes, structuredClone(n)),
+    loadAll: () => deepClone(data),
+    upsertWorkout: (w) => upsert(data.workouts, deepClone(w)),
+    insertStrengthTest: (t) => upsert(data.strengthTests, deepClone(t)),
+    insertFitnessLog: (l) => upsert(data.fitnessLogs, deepClone(l)),
+    insertNote: (n) => upsert(data.notes, deepClone(n)),
     deleteNote: (id) => {
       data.notes = data.notes.filter((n) => n.id !== id);
     },
@@ -47,7 +48,7 @@ export function createMemoryRepo(initial: HistoryData = emptyHistory()): History
       data = emptyHistory();
     },
     replaceAll: (d) => {
-      data = structuredClone(d);
+      data = deepClone(d);
     },
   };
 }

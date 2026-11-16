@@ -68,6 +68,6 @@ export default function RootLayout() {
 }
 
 /** Friendly fallback for unexpected render errors (no crash reporting: nothing leaves the device). */
-export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
-  return <ErrorScreen onRetry={retry} />;
+export function ErrorBoundary({ error, retry }: ErrorBoundaryProps) {
+  return <ErrorScreen error={error} onRetry={retry} />;
 }

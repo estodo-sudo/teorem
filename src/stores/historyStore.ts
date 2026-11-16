@@ -1,3 +1,4 @@
+import { deepClone } from '@/lib/clone';
 import { Platform } from 'react-native';
 import { create } from 'zustand';
 
@@ -82,6 +83,6 @@ export const useHistoryStore = create<HistoryStore>()((set, get) => ({
   },
   replaceAll: (d) => {
     getRepo().replaceAll(d);
-    set({ ...structuredClone(d), loaded: true });
+    set({ ...deepClone(d), loaded: true });
   },
 }));

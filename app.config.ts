@@ -15,7 +15,8 @@ const config: ExpoConfig = {
   slug: APP_SLUG,
   version: APP_VERSION,
   scheme: APP_SCHEME,
-  platforms: ['ios', 'android'],
+  // Web is only built for browser previews (WEB_PREVIEW=1); the product is iOS + Android.
+  platforms: process.env.WEB_PREVIEW === '1' ? ['ios', 'android', 'web'] : ['ios', 'android'],
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
@@ -42,6 +43,7 @@ const config: ExpoConfig = {
   },
   web: {
     favicon: './assets/favicon.png',
+    output: 'single',
   },
   plugins: [
     'expo-router',

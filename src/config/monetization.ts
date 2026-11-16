@@ -42,5 +42,10 @@ export const YEARLY_TRIAL_DAYS = 7;
  */
 export const ENTITLEMENT_OFFLINE_GRACE_DAYS = 7;
 
-/** Developer flag: skip the paywall entirely in development builds. */
-export const DEV_BYPASS_PAYWALL = typeof __DEV__ !== 'undefined' ? __DEV__ : false;
+/**
+ * Developer flag: skip the paywall in development, and in test previews
+ * (Expo Go updates, web preview) published with EXPO_PUBLIC_PREVIEW_UNLOCK=1.
+ * Store builds never set it.
+ */
+export const DEV_BYPASS_PAYWALL =
+  (typeof __DEV__ !== 'undefined' && __DEV__) || process.env.EXPO_PUBLIC_PREVIEW_UNLOCK === '1';

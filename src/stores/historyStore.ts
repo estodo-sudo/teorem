@@ -15,7 +15,14 @@ function getRepo(): HistoryRepo {
   if (!repo) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { createSqliteRepo } = require('@/features/data/db') as typeof import('@/features/data/db');
-    repo = createSqliteRepo();
+    try {
+      const sqlite = createSqliteRepo();
+      sqlite.loadAll(); // opens + migrates; throws if SQLite is unusable
+      repo = sqlite;
+    } catch {
+      console.warn('[history] SQLite unavailable; history kept in memory.');
+      repo = createMemoryRepo();
+    }
   }
   return repo;
 }

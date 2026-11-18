@@ -1,0 +1,194 @@
+[
+  {
+    "id": "bricker2020",
+    "title": "Efficacy of Smartphone Applications for Smoking Cessation: A Randomized Clinical Trial",
+    "org": "Bricker JB ve ark., JAMA Internal Medicine",
+    "year": 2020,
+    "url": "https://doi.org/10.1001/jamainternmed.2020.4055",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "bricker2021",
+    "title": "Mechanisms of Smartphone Apps for Cigarette Smoking Cessation (iCanQuit)",
+    "org": "Bricker JB, Levin M, Lappalainen R ve ark., JMIR mHealth uHealth",
+    "year": 2021,
+    "url": "https://mhealth.jmir.org/",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "crane2018",
+    "title": "Relative effectiveness of a full versus reduced version of the 'Smoke Free' mobile application",
+    "org": "Crane D, Ubhi HK, Brown J, West R, F1000Research",
+    "year": 2018,
+    "url": "https://doi.org/10.12688/f1000research.16148.1",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "perski2019",
+    "title": "Does the addition of a supportive chatbot promote user engagement with a smoking cessation app?",
+    "org": "Perski O, Crane D, Beard E, Brown J, Digital Health",
+    "year": 2019,
+    "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6775545/",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "cochrane2019",
+    "title": "Mobile phone text messaging and app-based interventions for smoking cessation",
+    "org": "Whittaker R ve ark., Cochrane Database of Systematic Reviews",
+    "year": 2019,
+    "url": "https://doi.org/10.1002/14651858.CD006611.pub5",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "guo2023",
+    "title": "The Effectiveness of Smartphone App-Based Interventions for Assisting Smoking Cessation: Systematic Review and Meta-analysis",
+    "org": "Guo YQ ve ark., J Med Internet Res",
+    "year": 2023,
+    "url": "https://www.jmir.org/2023/1/e43242",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "black2020",
+    "title": "Behaviour change techniques associated with smoking cessation in intervention and comparator groups of RCTs",
+    "org": "Black N, Johnston M, Michie S ve ark., Addiction",
+    "year": 2020,
+    "url": "https://doi.org/10.1111/add.15056",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "heatherton1989",
+    "title": "Measuring the heaviness of smoking (Heaviness of Smoking Index)",
+    "org": "Heatherton TF ve ark., British Journal of Addiction",
+    "year": 1989,
+    "url": "https://doi.org/10.1111/j.1360-0443.1989.tb03059.x",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "who-benefits",
+    "title": "Tobacco: Health benefits of smoking cessation",
+    "org": "Dünya Sağlık Örgütü (DSÖ)",
+    "year": 2020,
+    "url": "https://www.who.int/news-room/q-a-detail/health-benefits-of-smoking-cessation",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "nci-withdrawal",
+    "title": "Handling Nicotine Withdrawal and Triggers When You Decide To Quit Tobacco",
+    "org": "National Cancer Institute (NCI)",
+    "year": 2022,
+    "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/tobacco/withdrawal-fact-sheet",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "smokefree-withdrawal",
+    "title": "Managing Nicotine Withdrawal",
+    "org": "Smokefree.gov",
+    "year": 2024,
+    "url": "https://smokefree.gov/challenges-when-quitting/managing-withdrawal",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "alo171",
+    "title": "ALO 171 Sigara Bırakma Danışma Hattı",
+    "org": "T.C. Sağlık Bakanlığı",
+    "year": 2026,
+    "url": "https://alo171.saglik.gov.tr",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "tuik2025",
+    "title": "Türkiye Sağlık Araştırması 2025",
+    "org": "TÜİK",
+    "year": 2025,
+    "url": "https://data.tuik.gov.tr",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "apple141",
+    "title": "App Store Review Guidelines — 1.4.1",
+    "org": "Apple",
+    "year": 2026,
+    "url": "https://developer.apple.com/app-store/review/guidelines/#safety",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "michie2013",
+    "title": "The Behavior Change Technique Taxonomy (v1) of 93 Hierarchically Clustered Techniques",
+    "org": "Michie S ve ark., Annals of Behavioral Medicine",
+    "year": 2013,
+    "url": "https://doi.org/10.1007/s12160-013-9486-6",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "yedam",
+    "title": "Yeşilay Danışmanlık Merkezi (YEDAM) – 115 YEDAM Danışma Hattı",
+    "org": "Türkiye Yeşilay Cemiyeti",
+    "year": 2026,
+    "url": "https://www.yedam.org.tr",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "who-tobacco",
+    "title": "Tobacco – fact sheet",
+    "org": "Dünya Sağlık Örgütü (DSÖ)",
+    "year": 2025,
+    "url": "https://www.who.int/news-room/fact-sheets/detail/tobacco",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "who-waterpipe",
+    "title": "Advisory note: waterpipe tobacco smoking – health effects, research needs and recommended actions by regulators",
+    "org": "Dünya Sağlık Örgütü (DSÖ)",
+    "year": 2015,
+    "url": "https://www.who.int/publications/i/item/advisory-note-waterpipe-tobacco-smoking-health-effects-research-needs-and-recommended-actions-by-regulators-2nd-ed",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "who-ecig",
+    "title": "Tobacco: E-cigarettes (Q&A)",
+    "org": "Dünya Sağlık Örgütü (DSÖ)",
+    "year": 2024,
+    "url": "https://www.who.int/news-room/questions-and-answers/item/tobacco-e-cigarettes",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "cdc-health-effects",
+    "title": "Health Effects of Cigarettes",
+    "org": "CDC",
+    "year": 2024,
+    "url": "https://www.cdc.gov/tobacco/",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "cdc-secondhand",
+    "title": "Secondhand Smoke",
+    "org": "CDC",
+    "year": 2024,
+    "url": "https://www.cdc.gov/tobacco/secondhand-smoke/",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "nci-light",
+    "title": "Light Cigarettes and Cancer Risk",
+    "org": "National Cancer Institute (NCI)",
+    "year": 2010,
+    "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/tobacco/light-cigarettes-fact-sheet",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "nhs-quit",
+    "title": "Quit smoking – Better Health",
+    "org": "NHS",
+    "year": 2024,
+    "url": "https://www.nhs.uk/better-health/quit-smoking/",
+    "accessed": "2026-11-17"
+  },
+  {
+    "id": "gollwitzer2006",
+    "title": "Implementation intentions and goal achievement: A meta-analysis of effects and processes",
+    "org": "Gollwitzer PM, Sheeran P, Advances in Experimental Social Psychology",
+    "year": 2006,
+    "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
+    "accessed": "2026-11-17"
+  }
+]

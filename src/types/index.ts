@@ -87,7 +87,8 @@ export interface ProgressNote {
   kind: 'progress' | 'unload';
 }
 
-export type ChallengeCategory = 'physical' | 'mental' | 'social' | 'nutrition';
+/** Daily tasks: a 28-day nutrition plan for sexual health (snack, fruit, plate). */
+export type ChallengeCategory = 'snack' | 'fruit' | 'plate';
 
 export interface ChallengeLog {
   date: string;

@@ -1,0 +1,96 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "bricker2020",
+    "bricker2021",
+    "nci-withdrawal",
+    "smokefree-withdrawal"
+  ],
+  "intro": "Bu istek gelip geçecek. Birkaç dakika birlikte kalalım.",
+  "intensityLabels": {
+    "low": "Hafif",
+    "high": "Çok güçlü"
+  },
+  "surf": {
+    "title": "Dalga sörfü",
+    "desc": "İsteği yok etmeye çalışma; onu bir dalga gibi izle. Yükselecek, zirve yapacak ve alçalacak.",
+    "prompts": [
+      "İsteği fark et. Şu an bir sigara isteği var; bu sadece bir his.",
+      "Bedeninde nerede hissediyorsun? Göğsünde mi, boğazında mı, ellerinde mi?",
+      "Onunla savaşma. Sadece izle; merakla, yargılamadan.",
+      "Nefesin doğal aksın. Dalganın üstünde, nefesinle birlikte duruyorsun.",
+      "His şiddetlenebilir. Bu, dalganın zirvesi; zirveler hep geçer.",
+      "Aklına \"bir tane bir şey olmaz\" gibi düşünceler gelebilir. Onları sadece fark et ve geçmelerine izin ver.",
+      "Hissin değiştiğini fark ediyor musun? Biraz azaldı mı, şekil mi değiştirdi?",
+      "Dalga alçalıyor. Sigara içmeden bu isteğin içinden geçtin."
+    ],
+    "done": "Dalga geçti ya da hafifledi. İsteğe yer açıp onunla birlikte durabildin."
+  },
+  "breath": {
+    "title": "Nefes",
+    "desc": "Nefesini yavaşlatmak bedenini sakinleştirir. Kutu nefesi ya da 4-7-8 ile iki dakika."
+  },
+  "delay": {
+    "title": "10 dakika ertele",
+    "desc": "Kararı sadece 10 dakika ertele. İstekler çoğu zaman birkaç dakikada zirve yapıp söner.",
+    "ideas": [
+      "Bir bardak su iç",
+      "Kısa bir yürüyüş yap",
+      "Dişlerini fırçala",
+      "Birine mesaj at ya da ara",
+      "Esneme hareketleri yap",
+      "Şekersiz sakız çiğne",
+      "Ellerini yıka, yüzüne su çarp",
+      "Bir şarkı aç ve eşlik et"
+    ],
+    "done": "10 dakika doldu. Kararı yeniden sen verebilirsin; istek muhtemelen biraz hafifledi."
+  },
+  "fourE": {
+    "title": "4E kuralı",
+    "desc": "Zor anda hatırlaman kolay dört adım.",
+    "items": [
+      {
+        "letter": "E",
+        "title": "Ertele",
+        "text": "\"Şimdi değil, 10 dakika sonra\" de. Çoğu istek bu sürede hafifler."
+      },
+      {
+        "letter": "E",
+        "title": "Elini meşgul et",
+        "text": "Kalem, stres topu, telefonla kısa bir oyun; elin sigaraya gitmesin."
+      },
+      {
+        "letter": "E",
+        "title": "En sevdiğin içeceği iç",
+        "text": "Bir bardak su ya da sevdiğin şekersiz bir içecek; yavaş yudumlarla."
+      },
+      {
+        "letter": "E",
+        "title": "Eğlenceli bir şey yap",
+        "text": "Sevdiğin bir şarkı, kısa bir video, biriyle sohbet; dikkatini başka yöne çevir."
+      }
+    ]
+  },
+  "reasons": {
+    "title": "Nedenlerim",
+    "desc": "Neden bırakmak istediğini kendi sözlerinle hatırla.",
+    "empty": "Henüz bir nedenin kayıtlı değil."
+  },
+  "game": {
+    "title": "Eşleştirme oyunu",
+    "desc": "60 saniye içinde kartları eşleştir. Dikkatini isteğin dışına taşı.",
+    "seconds": 60
+  },
+  "alo": "Yalnız değilsin. ALO 171'deki danışmanlar şu an seninle konuşabilir.",
+  "end": {
+    "question": "Şimdi nasılsın?",
+    "resisted": "Geçti, içmedim 💪",
+    "hard": "Hâlâ zor",
+    "smoked": "İçtim",
+    "resistedTitle": "Bu krizi atlattın!",
+    "resistedBody": "İsteğin içinden sigara içmeden geçmek, beynine yeni bir yol öğretmek demek. Her atlattığın kriz bir sonrakini kolaylaştırır.",
+    "hardBody": "Bazen istek biraz daha uzun sürer. Başka bir araç dene; ya da ALO 171'i arayıp biriyle konuş.",
+    "smokedTitle": "Bu bir öğrenme anı",
+    "smokedBody": "Bir sigara, emeğini silmez. Toplam dumansız günlerin korunuyor. Ne olduğunu anlamak, bir dahaki sefere hazır olmanı sağlar."
+  }
+}

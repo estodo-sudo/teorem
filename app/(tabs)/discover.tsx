@@ -1,19 +1,18 @@
+import { router } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Icon, ProgressBar, Screen, useTheme, type IconName } from '@/components';
-import { COURSES, STORIES } from '@/features/content/data';
+import { AppText, Card, Icon, Screen, useTheme } from '@/components';
+import { CAMPUSES, CampusCard, campusEmoji, GlossaryCard, SeeAllCard } from '@/features/content/cards';
+import { GLOSSARY, STORIES } from '@/features/content/data';
 import { storyOfTheDay } from '@/features/content/daily';
 import { StoryBubble } from '@/features/content/StoryBubble';
 import { openGated, useAccess } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useProgressStore } from '@/stores/progressStore';
 
-const MIND: { route: '/mind/breathing' | '/mind/unload' | '/mind/body-scan'; key: string; icon: IconName }[] = [
-  { route: '/mind/breathing', key: 'breathing', icon: 'wind' },
-  { route: '/mind/unload', key: 'unload', icon: 'leaf' },
-  { route: '/mind/body-scan', key: 'bodyScan', icon: 'body' },
-];
+/** Campuses and "Neden, Nedir ve Ne Demek?" show this many rows, then a "see all" row. */
+const PREVIEW_ROWS = 3;
 
 export default function Discover() {
   const t = useTheme();
@@ -65,51 +64,35 @@ export default function Discover() {
       <AppText variant="h2" style={{ marginTop: 8 }}>
         {tr('courses.title')}
       </AppText>
-      {COURSES.map((c) => {
-        const done = content.courseProgress[c.id]?.completedLessonIds.length ?? 0;
-        return (
-          <Card
-            key={c.id}
-            onPress={() => openGated('courses', { pathname: '/course/[courseId]', params: { courseId: c.id } })}
-            accessibilityLabel={`${c.title}, ${tr('courses.progress', { done, total: c.lessons.length })}`}
-            style={{ gap: 8 }}
-          >
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-              <AppText variant="h1">{c.emoji}</AppText>
-              <View style={{ flex: 1 }}>
-                <AppText weight="800">{c.title}</AppText>
-                <AppText variant="small" muted numberOfLines={2}>
-                  {c.description}
-                </AppText>
-              </View>
-              <Icon name={access('courses') ? 'chevron' : 'lock'} color={t.colors.textMuted} size={18} />
-            </View>
-            <ProgressBar value={done / c.lessons.length} height={6} />
-          </Card>
-        );
-      })}
+      {CAMPUSES.slice(0, PREVIEW_ROWS).map((c) => (
+        <CampusCard key={c.id} entry={c} />
+      ))}
+      {CAMPUSES.length > PREVIEW_ROWS ? (
+        <SeeAllCard
+          label={tr('courses.seeAll')}
+          hint={tr('courses.moreCount', { count: CAMPUSES.length - PREVIEW_ROWS })}
+          emojis={CAMPUSES.slice(PREVIEW_ROWS).map(campusEmoji)}
+          moreCount={CAMPUSES.length - PREVIEW_ROWS}
+          onPress={() => router.push('/course')}
+        />
+      ) : null}
 
       <AppText variant="h2" style={{ marginTop: 8 }}>
-        {tr('mind.title')}
+        {tr('glossary.title')}
       </AppText>
-      <AppText muted>{tr('mind.subtitle')}</AppText>
-      {MIND.map((m) => (
-        <Card key={m.key} onPress={() => openGated('mind', m.route)} accessibilityLabel={tr(`mind.${m.key}.title`)} style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-          <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>
-            <Icon name={m.icon} color={t.colors.breathe} />
-          </View>
-          <View style={{ flex: 1 }}>
-            <AppText weight="700">{tr(`mind.${m.key}.title`)}</AppText>
-            <AppText variant="small" muted>
-              {tr(`mind.${m.key}.card`)}
-            </AppText>
-          </View>
-          <Icon name={access('mind') ? 'chevron' : 'lock'} color={t.colors.textMuted} size={18} />
-        </Card>
+      <AppText muted>{tr('glossary.subtitle')}</AppText>
+      {GLOSSARY.slice(0, PREVIEW_ROWS).map((g) => (
+        <GlossaryCard key={g.id} term={g} detail="short" />
       ))}
-      <AppText variant="small" muted>
-        {tr('mind.note')}
-      </AppText>
+      {GLOSSARY.length > PREVIEW_ROWS ? (
+        <SeeAllCard
+          label={tr('glossary.seeAll')}
+          hint={tr('glossary.moreCount', { count: GLOSSARY.length - PREVIEW_ROWS })}
+          emojis={GLOSSARY.slice(PREVIEW_ROWS).map((g) => g.emoji)}
+          moreCount={GLOSSARY.length - PREVIEW_ROWS}
+          onPress={() => router.push('/glossary')}
+        />
+      ) : null}
     </Screen>
   );
 }

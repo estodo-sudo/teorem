@@ -7,7 +7,7 @@ import { useTheme } from './useTheme';
 interface Props {
   label: string;
   onPress: () => void;
-  variant?: 'primary' | 'accent' | 'secondary' | 'ghost' | 'danger';
+  variant?: 'primary' | 'accent' | 'info' | 'secondary' | 'ghost' | 'danger';
   size?: 'md' | 'lg';
   icon?: IconName;
   disabled?: boolean;
@@ -33,6 +33,7 @@ export function Button({
   const bg = {
     primary: t.colors.primary,
     accent: t.colors.accent,
+    info: t.colors.info,
     secondary: t.colors.surfaceAlt,
     ghost: 'transparent',
     danger: t.colors.danger,
@@ -40,6 +41,7 @@ export function Button({
   const fg = {
     primary: t.colors.primaryText,
     accent: t.colors.accentText,
+    info: t.colors.infoText,
     secondary: t.colors.text,
     ghost: t.colors.primary,
     danger: '#FFFFFF',

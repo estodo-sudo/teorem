@@ -5,6 +5,7 @@ import { Celebration } from '@/features/gamification/Celebration';
 import { checkAchievements } from '@/features/gamification/service';
 import { refreshEntitlement, startPurchaseListener } from '@/features/purchases/iap';
 import { addResponseListener, consumeColdStartResponse, initNotifications, syncReminders } from '@/features/reminders/scheduler';
+import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
 import { useSettingsStore } from '@/stores/settingsStore';
@@ -62,11 +63,20 @@ export function AppEffects() {
     const unsubHistory = useHistoryStore.subscribe((state, prev) => {
       if (state.workouts !== prev.workouts || state.strengthTests !== prev.strengthTests) void syncReminders();
     });
+    // Sigarasız Kamp: a new phase, check-in, diary entry or the camp switch changes what should fire.
+    const unsubCamp = useCampStore.subscribe((state, prev) => {
+      if (state.attempts !== prev.attempts || state.notifyEnabled !== prev.notifyEnabled || state.profile !== prev.profile) void syncReminders();
+    });
+    const unsubCampEvents = useCampEventsStore.subscribe((state, prev) => {
+      if (state.checkins !== prev.checkins || state.cigarettes !== prev.cigarettes) void syncReminders();
+    });
     return () => {
       removeListener();
       appSub.remove();
       unsubSettings();
       unsubHistory();
+      unsubCamp();
+      unsubCampEvents();
     };
   }, [ready]);
 

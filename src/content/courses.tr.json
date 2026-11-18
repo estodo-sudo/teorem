@@ -1,7 +1,7 @@
 [
   {
     "id": "pf101",
-    "title": "Pelvik Taban 101",
+    "title": "Pelvik Taban Kampüsü",
     "emoji": "🎓",
     "reviewed": false,
     "description": "Anatomiden doğru tekniğe, pelvik taban hakkında bilmen gereken temel bilgiler.",
@@ -319,7 +319,7 @@
   },
   {
     "id": "sexual-health",
-    "title": "Cinsel Sağlığın Temelleri",
+    "title": "Cinsel Sağlık Kampüsü",
     "emoji": "🩺",
     "reviewed": false,
     "description": "Genel, eğitici ve tıbbi dille cinsel sağlığın temel konuları.",
@@ -623,7 +623,7 @@
   },
   {
     "id": "stress-sleep",
-    "title": "Stres, Uyku ve Performans",
+    "title": "Stres, Uyku ve Performans Kampüsü",
     "emoji": "🌙",
     "reviewed": false,
     "description": "Zihin, uyku ve beden arasındaki bağ ve günlük hayatta uygulanabilecek alışkanlıklar.",
@@ -919,6 +919,626 @@
           {
             "title": "WHO – Physical activity fact sheet",
             "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+          }
+        ],
+        "reviewed": false
+      }
+    ]
+  },
+  {
+    "id": "lifestyle",
+    "title": "Yaşam Tarzı Kampüsü",
+    "emoji": "🥗",
+    "reviewed": false,
+    "description": "Hareket, beslenme, alkol, sigara ve düzenli kontrollerin pelvik taban ve cinsel sağlıkla bağlantısı.",
+    "lessons": [
+      {
+        "id": "ls-1",
+        "title": "Hareketin etkisi",
+        "slides": [
+          {
+            "emoji": "🚶",
+            "title": "Az da olsa hareket",
+            "text": "Gün içinde oturma süresini bölmek ve kısa yürüyüşler yapmak genel sağlığı destekler."
+          },
+          {
+            "emoji": "📅",
+            "title": "Haftalık hedef",
+            "text": "Yetişkinler için haftada en az 150 dakika orta yoğunlukta fiziksel aktivite önerilir."
+          },
+          {
+            "emoji": "❤️",
+            "title": "Kalp ve damarlar",
+            "text": "Düzenli hareket kalp-damar sağlığını destekler; sağlıklı kan akışı cinsel sağlık için de önemlidir."
+          },
+          {
+            "emoji": "🧩",
+            "title": "Kegel ile birlikte",
+            "text": "Kegel antrenmanı genel egzersizin yerini tutmaz; ikisi birbirini tamamlar."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Yetişkinler için haftalık önerilen orta yoğunlukta aktivite süresi en az ne kadardır?",
+            "options": [
+              "30 dakika",
+              "150 dakika",
+              "600 dakika"
+            ],
+            "answer": 1,
+            "explain": "Haftada en az 150 dakika orta yoğunlukta aktivite önerilir."
+          },
+          {
+            "q": "Kegel antrenmanı ile genel egzersiz arasındaki ilişki nedir?",
+            "options": [
+              "Kegel genel egzersizin yerini tutar",
+              "Birbirlerini tamamlarlar",
+              "Birlikte yapılmamalıdır"
+            ],
+            "answer": 1,
+            "explain": "İkisi farklı ihtiyaçlara hitap eder ve birlikte yapılabilir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "WHO – Physical activity fact sheet",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+          },
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ls-2",
+        "title": "Beslenme",
+        "slides": [
+          {
+            "emoji": "🥦",
+            "title": "Çeşitlilik",
+            "text": "Sebze, meyve, baklagil ve tam tahıllardan zengin bir beslenme genel sağlığı destekler."
+          },
+          {
+            "emoji": "🧂",
+            "title": "Tuz ve şeker",
+            "text": "Fazla tuz, şeker ve işlenmiş gıdayı azaltmak kalp-damar sağlığı için önerilir."
+          },
+          {
+            "emoji": "💧",
+            "title": "Su",
+            "text": "Yeterli sıvı almak önemlidir; idrar kaçırma kaygısıyla su içmeyi kısmak mesaneyi rahatsız edebilir."
+          },
+          {
+            "emoji": "🌾",
+            "title": "Lif ve kabızlık",
+            "text": "Lifli beslenme kabızlığı azaltabilir; ıkınmak pelvik tabana ek yük bindirir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Kabızlık sırasında ıkınmak pelvik tabanı nasıl etkiler?",
+            "options": [
+              "Ek yük bindirir",
+              "Kasları dinlendirir",
+              "Hiçbir etkisi yoktur"
+            ],
+            "answer": 0,
+            "explain": "Ikınmak karın içi basıncı artırarak pelvik tabana yük bindirir."
+          },
+          {
+            "q": "İdrar kaçırma kaygısıyla su içmeyi kısmak neden önerilmez?",
+            "options": [
+              "Mesaneyi rahatsız edebilir",
+              "Kasları güçlendirir",
+              "Uykuyu artırır"
+            ],
+            "answer": 0,
+            "explain": "Yoğun idrar mesaneyi tahriş edebilir; yeterli sıvı önemlidir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "WHO – Healthy diet fact sheet",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+          },
+          {
+            "title": "NHS – Water, drinks and your health",
+            "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/water-drinks-nutrition/"
+          },
+          {
+            "title": "NHS – Urinary incontinence",
+            "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ls-3",
+        "title": "Alkol ve sigara",
+        "slides": [
+          {
+            "emoji": "🍺",
+            "title": "Alkol",
+            "text": "Fazla alkol idrar söktürücü etki yapabilir ve sertleşme sorunlarına katkıda bulunabilir."
+          },
+          {
+            "emoji": "🚭",
+            "title": "Sigara",
+            "text": "Sigara damarlara zarar verir; damar sağlığı sertleşme için önemli bir etkendir."
+          },
+          {
+            "emoji": "📉",
+            "title": "Azaltmak da değerli",
+            "text": "Tamamen bırakmak en iyisidir; ancak azaltmak bile sağlık açısından fark yaratabilir."
+          },
+          {
+            "emoji": "🤝",
+            "title": "Destek almak",
+            "text": "Sigarayı bırakma ve alkolü azaltma konusunda destek hatları ve uzmanlar yardımcı olabilir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Sigara cinsel sağlığı hangi yoldan etkileyebilir?",
+            "options": [
+              "Damarlara zarar vererek",
+              "Kasları büyüterek",
+              "Uykuyu düzenleyerek"
+            ],
+            "answer": 0,
+            "explain": "Sigara damar sağlığını bozar."
+          },
+          {
+            "q": "Alkolü tamamen bırakamıyorsan ne söylenebilir?",
+            "options": [
+              "Azaltmak da fark yaratabilir",
+              "Hiçbir şey değişmez",
+              "Daha fazla içmek daha iyidir"
+            ],
+            "answer": 0,
+            "explain": "Azaltmak bile sağlık açısından değerlidir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Alcohol advice",
+            "url": "https://www.nhs.uk/live-well/alcohol-advice/"
+          },
+          {
+            "title": "NHS – Quit smoking",
+            "url": "https://www.nhs.uk/better-health/quit-smoking/"
+          },
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ls-4",
+        "title": "Kilo ve karın içi basınç",
+        "slides": [
+          {
+            "emoji": "⚖️",
+            "title": "Karın bölgesi",
+            "text": "Karın bölgesindeki fazla kilo, pelvik tabana sürekli ek basınç bindirebilir."
+          },
+          {
+            "emoji": "🔗",
+            "title": "Ortak risk",
+            "text": "Fazla kilo; kalp-damar hastalıkları ve sertleşme sorunlarıyla ortak risk etkenlerini paylaşır."
+          },
+          {
+            "emoji": "🐢",
+            "title": "Yavaş ve kalıcı",
+            "text": "Hızlı diyetler yerine sürdürülebilir küçük değişiklikler daha kalıcı sonuç verir."
+          },
+          {
+            "emoji": "🧑‍⚕️",
+            "title": "Kişisel plan",
+            "text": "Kilo vermek istiyorsan bir sağlık profesyoneliyle sana uygun bir plan oluşturmak en güvenli yoldur."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Karın bölgesindeki fazla kilo pelvik tabanı nasıl etkileyebilir?",
+            "options": [
+              "Ek basınç bindirebilir",
+              "Basıncı azaltır",
+              "Etkisi yoktur"
+            ],
+            "answer": 0,
+            "explain": "Karın içi basınç artar."
+          },
+          {
+            "q": "Hangisi daha kalıcı sonuç verir?",
+            "options": [
+              "Çok hızlı diyetler",
+              "Sürdürülebilir küçük değişiklikler",
+              "Öğün atlamak"
+            ],
+            "answer": 1,
+            "explain": "Küçük ve sürdürülebilir adımlar kalıcıdır."
+          }
+        ],
+        "sources": [
+          {
+            "title": "WHO – Healthy diet fact sheet",
+            "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+          },
+          {
+            "title": "Mayo Clinic – Erectile dysfunction",
+            "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "ls-5",
+        "title": "Düzenli kontroller",
+        "slides": [
+          {
+            "emoji": "🩺",
+            "title": "Erken uyarı",
+            "text": "Sertleşme sorunları bazen kalp-damar hastalığı veya diyabet gibi durumların erken işareti olabilir."
+          },
+          {
+            "emoji": "🚩",
+            "title": "Ne zaman başvurmalı?",
+            "text": "İdrarda kan, ağrı, ani idrar sorunları veya uzun süren sertleşme sorunlarında bir doktora başvur."
+          },
+          {
+            "emoji": "🗣️",
+            "title": "Çekinme",
+            "text": "Doktorlar bu konuları her gün konuşur; açık olmak doğru yardımı almanı kolaylaştırır."
+          },
+          {
+            "emoji": "📱",
+            "title": "Uygulamanın yeri",
+            "text": "Bu uygulama bir antrenman yardımcısıdır; muayene ve tedavinin yerini tutmaz."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Sertleşme sorunları neden önemsenmelidir?",
+            "options": [
+              "Başka sağlık sorunlarının erken işareti olabilir",
+              "Her zaman kendiliğinden geçer",
+              "Sadece yaşla ilgilidir"
+            ],
+            "answer": 0,
+            "explain": "Kalp-damar hastalığı veya diyabetin erken işareti olabilir."
+          },
+          {
+            "q": "Hangi durumda doktora başvurmalısın?",
+            "options": [
+              "İdrarda kan gördüğünde",
+              "Antrenmanı bitirdiğinde",
+              "Seri kazandığında"
+            ],
+            "answer": 0,
+            "explain": "İdrarda kan bir doktor tarafından değerlendirilmelidir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Erection problems (erectile dysfunction)",
+            "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+          },
+          {
+            "title": "Mayo Clinic – Erectile dysfunction",
+            "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+          },
+          {
+            "title": "NHS – Urinary incontinence",
+            "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+          }
+        ],
+        "reviewed": false
+      }
+    ]
+  },
+  {
+    "id": "daily-life",
+    "title": "Günlük Hayat Kampüsü",
+    "emoji": "🏃",
+    "reviewed": false,
+    "description": "Pelvik taban kasını gün içinde doğru kullanmak ve motivasyonu uzun süre korumak.",
+    "lessons": [
+      {
+        "id": "dl-1",
+        "title": "Farklı pozisyonlarda",
+        "slides": [
+          {
+            "emoji": "🛋️",
+            "title": "Önce uzanarak",
+            "text": "Başlangıçta sırtüstü uzanarak çalışmak kası bulmayı kolaylaştırır."
+          },
+          {
+            "emoji": "🪑",
+            "title": "Sonra oturarak",
+            "text": "Kası rahatça bulduğunda oturarak da yapabilirsin; masa başında kimse fark etmez."
+          },
+          {
+            "emoji": "🧍",
+            "title": "En son ayakta",
+            "text": "Ayakta yapmak daha zordur ama günlük hayattaki kullanıma en yakın pozisyondur."
+          },
+          {
+            "emoji": "🔁",
+            "title": "Teknik aynı",
+            "text": "Pozisyon değişse de kural aynı: karın ve kalça gevşek, nefes serbest, tam gevşeme."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Kası bulmak için başlangıçta hangi pozisyon daha kolaydır?",
+            "options": [
+              "Ayakta",
+              "Sırtüstü uzanarak",
+              "Koşarken"
+            ],
+            "answer": 1,
+            "explain": "Uzanırken kası bulmak ve izole etmek daha kolaydır."
+          },
+          {
+            "q": "Pozisyon değiştiğinde hangisi değişmez?",
+            "options": [
+              "Doğru teknik kuralları",
+              "Yer çekiminin etkisi",
+              "Zorluk derecesi"
+            ],
+            "answer": 0,
+            "explain": "Teknik kuralları her pozisyonda geçerlidir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          },
+          {
+            "title": "Mayo Clinic – Kegel exercises for men",
+            "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "dl-2",
+        "title": "Öksürmeden önce sık",
+        "slides": [
+          {
+            "emoji": "🤧",
+            "title": "Ani basınç",
+            "text": "Öksürük, hapşırık ve gülme karın içi basıncı aniden artırır."
+          },
+          {
+            "emoji": "⏱️",
+            "title": "Bir an önce",
+            "text": "Bu anlardan hemen önce pelvik taban kasını kısaca sıkmak idrar kontrolüne yardımcı olabilir."
+          },
+          {
+            "emoji": "🏋️",
+            "title": "Ağır kaldırırken",
+            "text": "Bir şey kaldırmadan önce kası sıkmak ve nefesini tutmamak aynı mantıkla çalışır."
+          },
+          {
+            "emoji": "🎯",
+            "title": "Alışkanlık hâline getir",
+            "text": "Tekrar ettikçe bu küçük sıkma otomatik bir alışkanlığa dönüşebilir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Öksürmeden hemen önce ne yapmak idrar kontrolüne yardımcı olabilir?",
+            "options": [
+              "Pelvik taban kasını kısaca sıkmak",
+              "Nefesi uzun süre tutmak",
+              "Karnı şişirmek"
+            ],
+            "answer": 0,
+            "explain": "Kısa bir sıkma ani basınca karşı destek olur."
+          },
+          {
+            "q": "Ağır bir şey kaldırırken hangisi doğrudur?",
+            "options": [
+              "Nefesi tutmak",
+              "Kası sıkıp nefes almaya devam etmek",
+              "Kası tamamen gevşek bırakmak"
+            ],
+            "answer": 1,
+            "explain": "Nefesi tutmak karın içi basıncı artırır."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – Urinary incontinence",
+            "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+          },
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "dl-3",
+        "title": "Tuvalet sonrası damlama",
+        "slides": [
+          {
+            "emoji": "💧",
+            "title": "Yaygın bir durum",
+            "text": "İdrar bittikten sonra birkaç damla gelmesi erkeklerde sık görülen bir durumdur."
+          },
+          {
+            "emoji": "⬆️",
+            "title": "Sık ve boşalt",
+            "text": "İdrar bittikten sonra pelvik taban kasını güçlüce sıkmak, kanalda kalan idrarın çıkmasına yardımcı olabilir."
+          },
+          {
+            "emoji": "🚫",
+            "title": "Yarıda kesme değil",
+            "text": "Bu, idrarı yarıda kesmekle aynı şey değildir; idrar tamamen bittikten sonra yapılır."
+          },
+          {
+            "emoji": "🩺",
+            "title": "Değişiklik varsa",
+            "text": "Damlama yeni başladıysa veya artıyorsa bir doktora danış."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Tuvalet sonrası damlamaya karşı sıkma ne zaman yapılır?",
+            "options": [
+              "İdrar tamamen bittikten sonra",
+              "İdrarın ortasında",
+              "Tuvalete gitmeden önce"
+            ],
+            "answer": 0,
+            "explain": "İdrarı yarıda kesmek önerilmez; sıkma idrar bittikten sonra yapılır."
+          },
+          {
+            "q": "Damlama yeni başladıysa ne yapmalısın?",
+            "options": [
+              "Bir doktora danışmalısın",
+              "Su içmeyi bırakmalısın",
+              "Görmezden gelmelisin"
+            ],
+            "answer": 0,
+            "explain": "Yeni başlayan değişiklikler değerlendirilmelidir."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          },
+          {
+            "title": "NHS – Urinary incontinence",
+            "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "dl-4",
+        "title": "Duruş ve nefes",
+        "slides": [
+          {
+            "emoji": "🧘",
+            "title": "Dik ama rahat",
+            "text": "Dik ama gergin olmayan bir duruş, pelvik taban kasını doğru kullanmayı kolaylaştırır."
+          },
+          {
+            "emoji": "🌬️",
+            "title": "Diyafram ile uyum",
+            "text": "Nefes alırken pelvik taban hafifçe aşağı iner, nefes verirken yukarı toparlanır."
+          },
+          {
+            "emoji": "🔄",
+            "title": "Nefes verirken sık",
+            "text": "Bu yüzden birçok kişi sıkmayı nefes verirken daha kolay bulur."
+          },
+          {
+            "emoji": "😮‍💨",
+            "title": "Gevşerken nefes al",
+            "text": "Gevşeme fazında yavaşça nefes almak kasın tamamen bırakmasına yardımcı olur."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "Birçok kişi kası hangi sırada sıkmayı daha kolay bulur?",
+            "options": [
+              "Nefes verirken",
+              "Nefesi tutarken",
+              "Hızlı nefes alırken"
+            ],
+            "answer": 0,
+            "explain": "Nefes verirken pelvik taban doğal olarak yukarı toparlanır."
+          },
+          {
+            "q": "Gevşeme fazında ne yapmak yardımcı olur?",
+            "options": [
+              "Yavaşça nefes almak",
+              "Nefesi tutmak",
+              "Kalçayı sıkmak"
+            ],
+            "answer": 0,
+            "explain": "Yavaş nefes kasın tamamen gevşemesine yardımcı olur."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          },
+          {
+            "title": "NHS – Mindfulness",
+            "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
+          }
+        ],
+        "reviewed": false
+      },
+      {
+        "id": "dl-5",
+        "title": "Plato ve motivasyon",
+        "slides": [
+          {
+            "emoji": "📈",
+            "title": "İlerleme düz değildir",
+            "text": "Bazı haftalar hızlı, bazı haftalar yavaş ilerlersin; bu normaldir."
+          },
+          {
+            "emoji": "🧪",
+            "title": "Ölçüme güven",
+            "text": "Hissin değişse bile haftalık güç testi gerçek eğilimi görmene yardım eder."
+          },
+          {
+            "emoji": "🎚️",
+            "title": "Zorluğu bildir",
+            "text": "Seanslar çok kolay ya da çok zor geliyorsa geri bildirim ver; seviye buna göre ayarlanır."
+          },
+          {
+            "emoji": "🔥",
+            "title": "Kendine nazik ol",
+            "text": "Bir gün kaçırmak her şeyi bitirmez; önemli olan geri dönmektir."
+          }
+        ],
+        "quiz": [
+          {
+            "q": "İlerleme bir süre yavaşlarsa ne düşünmelisin?",
+            "options": [
+              "Bu normaldir, devam etmeliyim",
+              "Hiç işe yaramıyor",
+              "Süreyi üçe katlamalıyım"
+            ],
+            "answer": 0,
+            "explain": "İlerleme dalgalı olabilir."
+          },
+          {
+            "q": "Seanslar sana çok kolay geliyorsa ne yapmalısın?",
+            "options": [
+              "Geri bildirimde Çok kolay seçeneğini seçmeliyim",
+              "Antrenmanı bırakmalıyım",
+              "Hiçbir şey yapmamalıyım"
+            ],
+            "answer": 0,
+            "explain": "Geri bildirim seviyeni otomatik ayarlar."
+          }
+        ],
+        "sources": [
+          {
+            "title": "NHS – What are pelvic floor exercises?",
+            "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+          },
+          {
+            "title": "NHS – 5 steps to mental wellbeing",
+            "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/"
           }
         ],
         "reviewed": false

@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -14,6 +14,7 @@ import { makeId } from '@/lib/random';
 import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useSettingsStore } from '@/stores/settingsStore';
+import { goBack } from '@/lib/nav';
 
 export default function FitnessRoutine() {
   const { routineId } = useLocalSearchParams<{ routineId: string }>();
@@ -105,7 +106,7 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
 
   if (state.status === 'completed') {
     return (
-      <Screen footer={<Button label={tr('common.done')} size="lg" variant="accent" onPress={() => router.back()} />}>
+      <Screen footer={<Button label={tr('common.done')} size="lg" variant="accent" onPress={() => goBack()} />}>
         <View style={{ alignItems: 'center', gap: 12, marginTop: 60 }}>
           <AppText variant="display">{state.endedEarly ? '👍' : '🏅'}</AppText>
           <AppText variant="h1" center>

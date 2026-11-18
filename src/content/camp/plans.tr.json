@@ -1,0 +1,107 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "gollwitzer2006",
+    "michie2013",
+    "bricker2020"
+  ],
+  "info": "\"Eğer–o zaman\" planı, zor anı önceden düşünüp ne yapacağına şimdiden karar vermektir. Araştırmalar bu tür planların niyeti davranışa dönüştürmeyi kolaylaştırdığını gösteriyor. Bazı durumlardan kaçınmak mümkün değildir; bu yüzden plan \"istekle birlikte şunu yapacağım\" şeklinde de olabilir.",
+  "templates": {
+    "waking": {
+      "if": "Sabah uyanınca",
+      "then": [
+        "önce bir bardak su içip duş alacağım",
+        "sigara yerine pencereyi açıp beş derin nefes alacağım",
+        "isteği fark edip kahvaltımı başka bir odada yapacağım"
+      ]
+    },
+    "coffee_tea": {
+      "if": "Kahvemi ya da çayımı içerken",
+      "then": [
+        "her zamankinden farklı bir yerde oturacağım",
+        "elimi meşgul etmek için bir kalem ya da stres topu tutacağım",
+        "isteği fark edip yudumlarıma odaklanacağım"
+      ]
+    },
+    "after_meal": {
+      "if": "Yemek bitince",
+      "then": [
+        "hemen kalkıp dişlerimi fırçalayacağım",
+        "masadan kalkıp beş dakika yürüyeceğim",
+        "bulaşıkları yıkayarak ellerimi meşgul edeceğim"
+      ]
+    },
+    "work_break": {
+      "if": "İş molası verdiğimde",
+      "then": [
+        "sigara içilen alana değil, başka bir yöne yürüyeceğim",
+        "molamda birini arayıp sohbet edeceğim",
+        "su şişemi alıp kısa bir esneme yapacağım"
+      ]
+    },
+    "stress": {
+      "if": "Stresli ya da sinirli hissettiğimde",
+      "then": [
+        "dalga sörfü yapıp isteğin geçmesini izleyeceğim",
+        "dört saniye nefes alıp altı saniyede vereceğim",
+        "on dakika bekleyip ne hissettiğimi yazacağım"
+      ]
+    },
+    "boredom": {
+      "if": "Canım sıkıldığında",
+      "then": [
+        "sevdiğim bir şarkıyı açıp kısa bir yürüyüş yapacağım",
+        "elimle yapabileceğim küçük bir işe başlayacağım",
+        "birine mesaj atacağım"
+      ]
+    },
+    "alcohol": {
+      "if": "Alkol olan bir ortamda bulunduğumda",
+      "then": [
+        "sigarayı tuttuğum elime bardağımı alacağım",
+        "sigara içenlerin yanından uzak duracağım",
+        "ortama girmeden önce planımı gözden geçireceğim"
+      ]
+    },
+    "friends": {
+      "if": "Arkadaşlarım sigara yaktığında",
+      "then": [
+        "\"Teşekkürler, bıraktım\" diyeceğim",
+        "o sırada bir şey içip sohbete devam edeceğim",
+        "isteği fark edip kendime nedenlerimi hatırlatacağım"
+      ]
+    },
+    "driving": {
+      "if": "Araba kullanırken canım çektiğinde",
+      "then": [
+        "sakız çiğneyeceğim",
+        "sevdiğim bir podcast açacağım",
+        "camı açıp derin nefes alacağım"
+      ]
+    },
+    "phone": {
+      "if": "Telefonda konuşurken",
+      "then": [
+        "boşta kalan elimle bir kalem tutacağım",
+        "konuşurken yürüyeceğim",
+        "balkona değil, içeride bir yere geçeceğim"
+      ]
+    },
+    "bedtime": {
+      "if": "Yatmadan önce",
+      "then": [
+        "sıcak bir bitki çayı içeceğim",
+        "kısa bir nefes egzersizi yapacağım",
+        "dişlerimi erkenden fırçalayacağım"
+      ]
+    },
+    "toilet": {
+      "if": "Tuvaletteyken canım çektiğinde",
+      "then": [
+        "telefonumda kısa bir oyun açacağım",
+        "orada geçirdiğim zamanı kısaltacağım",
+        "isteği fark edip bir dakika nefesime odaklanacağım"
+      ]
+    }
+  }
+}

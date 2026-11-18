@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Modal, Pressable, StyleSheet, View } from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { AppText } from './AppText';
 import { Button } from './Button';
@@ -20,6 +20,10 @@ interface Props {
   onDismiss?: () => void;
 }
 
+/**
+ * Modal dialog. The title and the actions stay visible; the message and any
+ * content in between scroll when they do not fit (long forms on small phones).
+ */
 export function Dialog({ visible, title, message, children, actions, onDismiss }: Props) {
   const t = useTheme();
   return (
@@ -38,8 +42,12 @@ export function Dialog({ visible, title, message, children, actions, onDismiss }
           <AppText variant="h2" accessibilityRole="header">
             {title}
           </AppText>
-          {message ? <AppText muted>{message}</AppText> : null}
-          {children}
+          {message || children ? (
+            <ScrollView style={styles.body} contentContainerStyle={styles.bodyContent} showsVerticalScrollIndicator keyboardShouldPersistTaps="handled">
+              {message ? <AppText muted>{message}</AppText> : null}
+              {children}
+            </ScrollView>
+          ) : null}
           <View style={{ gap: 10, marginTop: 8 }}>
             {actions.map((a) => (
               <Button key={a.label} label={a.label} onPress={a.onPress} variant={a.variant ?? 'secondary'} />
@@ -52,6 +60,8 @@ export function Dialog({ visible, title, message, children, actions, onDismiss }
 }
 
 const styles = StyleSheet.create({
-  backdrop: { flex: 1, justifyContent: 'center', padding: 24 },
-  card: { padding: 24, gap: 12 },
+  backdrop: { flex: 1, justifyContent: 'center', padding: 24, paddingVertical: 48 },
+  card: { padding: 24, gap: 12, maxHeight: '100%' },
+  body: { flexGrow: 0, flexShrink: 1 },
+  bodyContent: { gap: 12 },
 });

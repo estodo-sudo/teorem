@@ -5,16 +5,13 @@ import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProgressStore } from '@/stores/progressStore';
 import { useTrainingStore } from '@/stores/trainingStore';
-import type { ChallengeLog, WorkoutSession } from '@/types';
+import type { WorkoutSession } from '@/types';
 
 import { evaluateAchievements, type AchievementContext } from './achievements';
 import { computeStreak } from './streak';
 
 export const completedDates = (workouts: WorkoutSession[]) =>
   workouts.filter((w) => w.completed).map((w) => w.date);
-
-export const countCompletedChallenges = (logs: Record<string, ChallengeLog>) =>
-  Object.values(logs).reduce((a, l) => a + l.completedIds.length, 0);
 
 export function buildAchievementContext(today = toDateKey()): AchievementContext {
   const h = useHistoryStore.getState();
@@ -29,7 +26,6 @@ export function buildAchievementContext(today = toDateKey()): AchievementContext
     completedLessons: Object.values(p.content.courseProgress).reduce((a, c) => a + c.completedLessonIds.length, 0),
     readStories: p.content.readStoryIds.filter((id) => STORIES.some((s) => s.id === id)).length,
     totalStories: STORIES.length,
-    completedChallenges: countCompletedChallenges(p.challengeLogs),
   };
 }
 

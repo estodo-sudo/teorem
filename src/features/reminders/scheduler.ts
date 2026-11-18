@@ -8,6 +8,8 @@ import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 
+import { campNotificationRequests, handleCampResponse, setupCampCategory } from '@/features/camp/campNotifications';
+
 import { planReminders, snoozeDate } from './plan';
 
 const CATEGORY = 'daily-workout';
@@ -46,6 +48,8 @@ export async function initNotifications() {
       { identifier: ACTION_SNOOZE_15, buttonTitle: i18n.t('reminders.actions.snooze15'), options: { opensAppToForeground: false } },
       { identifier: ACTION_SNOOZE_60, buttonTitle: i18n.t('reminders.actions.snooze60'), options: { opensAppToForeground: false } },
     ]);
+    // Sigarasız Kamp notifications have their own actions (SOS, check-in, snooze).
+    await setupCampCategory();
   } catch {
     // Notifications are optional; never block the app.
   }
@@ -97,6 +101,14 @@ export function syncReminders(): Promise<void> {
           },
         });
       }
+      // Sigarasız Kamp: phase-aware camp notifications share this sync (it cancels everything first).
+      for (const c of campNotificationRequests()) {
+        await Notifications.scheduleNotificationAsync({
+          identifier: c.identifier,
+          content: c.content,
+          trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: c.date, channelId: CHANNEL },
+        });
+      }
     } catch {
       // ignore
     }
@@ -121,6 +133,10 @@ async function snooze(minutes: number) {
 }
 
 export function handleNotificationResponse(res: Notifications.NotificationResponse) {
+  if (handleCampResponse(res)) {
+    if (res.actionIdentifier !== Notifications.DEFAULT_ACTION_IDENTIFIER) void Notifications.dismissNotificationAsync(res.notification.request.identifier).catch(() => {});
+    return;
+  }
   const kind = (res.notification.request.content.data as { kind?: string } | undefined)?.kind;
   switch (res.actionIdentifier) {
     case ACTION_SNOOZE_15:

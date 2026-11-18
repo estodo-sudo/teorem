@@ -1,12 +1,20 @@
 import { deepClone } from '@/lib/clone';
 import { APP_NAME } from '@/config/app';
+import { sanitizeAlcState } from '@/features/campus/alcohol/logic';
+import { sanitizePcState } from '@/features/campus/porn/logic';
+import { sanitizeBodyState } from '@/features/campus/body/logic';
+import { defaultCampState, emptyCampEvents, sanitizeCampEvents, sanitizeCampState, type CampState } from '@/features/camp/state';
+import type { CampEvents } from '@/features/camp/types';
+import { sanitizeMcState } from '@/features/campus/masturbation/logic';
+import { sanitizeSmokingState } from '@/features/campus/smoking/logic';
+import { defaultCampus, type CampusSnapshot } from '@/stores/campusStore';
 import type { ProgressSnapshot } from '@/stores/progressStore';
 import type { Settings, TrainingState, UserProfile } from '@/types';
 
 import type { HistoryData } from './repo';
 
 /** Bump when the export shape changes; add a migration in `upgrade()`. */
-export const EXPORT_SCHEMA_VERSION = 1;
+export const EXPORT_SCHEMA_VERSION = 3;
 export const EXPORT_FORMAT = 'pelvic-app-backup';
 
 export interface ExportBundle {
@@ -18,7 +26,15 @@ export interface ExportBundle {
   settings: Settings;
   training: TrainingState;
   progress: ProgressSnapshot;
+  campus: CampusSnapshot;
+  camp: CampSnapshot;
   history: HistoryData;
+}
+
+/** Sigarasız Kamp: persisted state plus its SQLite event logs. */
+export interface CampSnapshot {
+  state: CampState;
+  events: CampEvents;
 }
 
 export interface AppSnapshot {
@@ -26,6 +42,8 @@ export interface AppSnapshot {
   settings: Settings;
   training: TrainingState;
   progress: ProgressSnapshot;
+  campus: CampusSnapshot;
+  camp: CampSnapshot;
   history: HistoryData;
 }
 
@@ -50,8 +68,12 @@ const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object
 const isArr = Array.isArray;
 
 function upgrade(raw: Record<string, unknown>): Record<string, unknown> {
-  // v1 is the first version — future migrations go here (v1 → v2 …).
-  return raw;
+  let b = raw;
+  // v1 → v2: campus programs (Sigara Bırakma Kampüsü) were added.
+  if (Number(b.schemaVersion) < 2) b = { ...b, campus: defaultCampus(), schemaVersion: 2 };
+  // v2 → v3: Sigarasız Kamp was added.
+  if (Number(b.schemaVersion) < 3) b = { ...b, camp: { state: defaultCampState(), events: emptyCampEvents() }, schemaVersion: 3 };
+  return b;
 }
 
 export function parseImport(text: string): ImportResult {
@@ -95,6 +117,19 @@ export function parseImport(text: string): ImportResult {
         challengeLogs: (isObj(p.challengeLogs) ? p.challengeLogs : {}) as ProgressSnapshot['challengeLogs'],
         achievements: (isObj(p.achievements) ? p.achievements : {}) as ProgressSnapshot['achievements'],
         lastMindSession: typeof p.lastMindSession === 'string' ? p.lastMindSession : null,
+      },
+      // Campuses added later (e.g. masturbation) are simply missing from older backups → defaults.
+      campus: {
+        smoking: sanitizeSmokingState(isObj(b.campus) ? b.campus.smoking : undefined),
+        masturbation: sanitizeMcState(isObj(b.campus) ? b.campus.masturbation : undefined),
+        alcohol: sanitizeAlcState(isObj(b.campus) ? b.campus.alcohol : undefined),
+        porn: sanitizePcState(isObj(b.campus) ? b.campus.porn : undefined),
+        neck: sanitizeBodyState(isObj(b.campus) ? b.campus.neck : undefined),
+        feet: sanitizeBodyState(isObj(b.campus) ? b.campus.feet : undefined),
+      },
+      camp: {
+        state: sanitizeCampState(isObj(b.camp) ? b.camp.state : undefined),
+        events: sanitizeCampEvents(isObj(b.camp) ? b.camp.events : undefined),
       },
       history: h as unknown as HistoryData,
     },

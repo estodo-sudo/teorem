@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ import { quizScore } from '@/features/content/daily';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { checkAchievements } from '@/features/gamification/service';
 import { useProgressStore } from '@/stores/progressStore';
+import { goBack } from '@/lib/nav';
 
 export default function LessonScreen() {
   const t = useTheme();
@@ -20,7 +21,7 @@ export default function LessonScreen() {
   const [qi, setQi] = useState(0);
   const [answers, setAnswers] = useState<(number | null)[]>([]);
   const [revealed, setRevealed] = useState(false);
-  const close = () => router.back();
+  const close = () => goBack();
 
   if (!course || !lesson) {
     return (

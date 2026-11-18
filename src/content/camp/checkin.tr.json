@@ -1,0 +1,117 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "nci-withdrawal",
+    "smokefree-withdrawal",
+    "alo171"
+  ],
+  "symptoms": [
+    {
+      "id": "restless",
+      "emoji": "🌀",
+      "label": "Huzursuzluk",
+      "tip": "Bedenini hareket ettir: kısa bir yürüyüş, merdiven inip çıkmak ya da birkaç esneme hareketi huzursuzluğu azaltır. Kafeinli içecekleri biraz azaltmak da işe yarayabilir.",
+      "eases": "Genellikle ilk 2–4 hafta içinde azalır."
+    },
+    {
+      "id": "irritable",
+      "emoji": "😤",
+      "label": "Sinirlilik, öfke",
+      "tip": "Bu his geçici ve yoksunluğun normal bir parçası. Tepki vermeden önce birkaç yavaş nefes al; çevrendekilere bu dönemden geçtiğini söylemek de anlayış kazanmanı sağlar.",
+      "eases": "İlk hafta en yoğundur; çoğu zaman 2–4 hafta içinde hafifler."
+    },
+    {
+      "id": "insomnia",
+      "emoji": "🌙",
+      "label": "Uykusuzluk",
+      "tip": "Akşam saatlerinde kafeinden kaçın, yatmadan önce ekranı bırak ve her gün aynı saatte yatmaya çalış. Yatakta uyuyamıyorsan kalkıp sakin bir şeyle uğraşmak yardımcı olur.",
+      "eases": "Uyku düzeni çoğu zaman birkaç hafta içinde yerine oturur."
+    },
+    {
+      "id": "appetite",
+      "emoji": "🍽️",
+      "label": "İştah artışı",
+      "tip": "Acıktığında elinin altında meyve, sebze ya da su olsun. Yavaş yemek ve öğün atlamamak ani açlıkları azaltır. Sigaranın yerini atıştırmalıkla doldurduğunu fark etmek de önemli.",
+      "eases": "İştah artışı birkaç hafta sürebilir; zamanla dengelenir."
+    },
+    {
+      "id": "headache",
+      "emoji": "🤕",
+      "label": "Baş ağrısı",
+      "tip": "Bol su iç, düzenli öğün ye ve kısa molalar ver. Baş ağrın şiddetliyse ya da geçmiyorsa bir hekime danış.",
+      "eases": "Genellikle ilk günlerde görülür ve kısa sürede geçer."
+    },
+    {
+      "id": "focus",
+      "emoji": "🧠",
+      "label": "Odaklanma güçlüğü",
+      "tip": "İşlerini küçük parçalara böl ve sık ara ver. Önemli işleri gün içinde en dinç olduğun saatlere koy. Kısa bir yürüyüş zihnini toplamana yardım eder.",
+      "eases": "Çoğu zaman birkaç hafta içinde düzelir."
+    },
+    {
+      "id": "cough",
+      "emoji": "😮‍💨",
+      "label": "Öksürük",
+      "tip": "Akciğerlerin temizlenirken bir süre öksürük artabilir. Bol su içmek balgamı yumuşatır. Öksürüğün uzun sürerse, kan gelirse ya da nefes darlığın varsa hekime başvur.",
+      "eases": "Genellikle birkaç hafta içinde azalır."
+    },
+    {
+      "id": "constipation",
+      "emoji": "🥦",
+      "label": "Kabızlık",
+      "tip": "Lifli yiyecekler (sebze, meyve, tam tahıl) ve bol su tüket; her gün biraz hareket etmek bağırsakları çalıştırır.",
+      "eases": "Genellikle birkaç hafta içinde düzelir."
+    }
+  ],
+  "moods": [
+    {
+      "v": 1,
+      "emoji": "😣",
+      "label": "Çok kötü"
+    },
+    {
+      "v": 2,
+      "emoji": "😕",
+      "label": "Kötü"
+    },
+    {
+      "v": 3,
+      "emoji": "😐",
+      "label": "İdare eder"
+    },
+    {
+      "v": 4,
+      "emoji": "🙂",
+      "label": "İyi"
+    },
+    {
+      "v": 5,
+      "emoji": "😄",
+      "label": "Çok iyi"
+    }
+  ],
+  "safety": {
+    "title": "Son günlerde kendini çok kötü hissediyorsun",
+    "text": "Üç gündür ruh halini \"çok kötü\" olarak işaretledin. Bırakma sürecinde zor günler olabilir, ama bu kadar zorlanıyorsan yalnız taşımak zorunda değilsin. Bir hekime başvurmanı ya da ALO 171'i arayıp konuşmanı öneririz. Acil bir durumda 112'yi ara."
+  },
+  "slip": {
+    "welcomeTitle": "Bu bir öğrenme anı",
+    "welcome": "Bir kayma, bırakma yolculuğunun sık görülen bir parçasıdır ve emeğini silmez. Toplam dumansız günlerin korunuyor. Şimdi ne olduğunu birlikte anlayalım; bu, bir dahaki sefere hazır olmanı sağlar.",
+    "howMany": "Kaç sigara içtin?",
+    "what": "Ne oldu?",
+    "feeling": "Nasıl hissediyordun?",
+    "next": "Bir dahaki sefere ne yapacaksın?",
+    "nextHint": "Bu durum için yeni bir Eğer–O zaman planı yap. Bir sonraki sefer hazır olacaksın.",
+    "doneTitle": "Programa devam",
+    "done": "Aşaman korunuyor. Bir kayma geri dönüş değil; şimdi bir sonraki adıma odaklan.",
+    "relapseLink": "Tekrar düzenli içmeye başladım"
+  },
+  "relapse": {
+    "title": "Yeniden başlamak için hazırlan",
+    "intro": "Tekrar düzenli içmeye başlamış olman, öğrendiklerinin boşa gittiği anlamına gelmez. Çoğu kişi kalıcı olarak bırakmadan önce birkaç kez dener. Bu denemeden öğrendiklerin bir sonrakini güçlendirecek.",
+    "learned": "Bu denemeden öğrendiklerin",
+    "plan": "Yeni bırakma günü",
+    "planHint": "Kısa bir hazırlıkla (3 gün önerilir) yeniden başla. Planların, nedenlerin ve kayıtların korunur.",
+    "confirm": "Yeni denemeyi başlat"
+  }
+}

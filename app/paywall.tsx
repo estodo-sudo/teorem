@@ -12,7 +12,7 @@ import { monthlyEquivalent, trialEndDate, yearlySavingPercent, type Offer } from
 import { goHome } from '@/lib/nav';
 import { useProfileStore } from '@/stores/profileStore';
 
-const BENEFITS = ['plan', 'levels', 'fitness', 'courses', 'mind', 'privacy'] as const;
+const BENEFITS = ['plan', 'levels', 'fitness', 'courses', 'camp', 'mind', 'privacy'] as const;
 
 export default function Paywall() {
   const t = useTheme();

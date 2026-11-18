@@ -1,0 +1,470 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "alo171",
+    "cdc-health-effects",
+    "cdc-secondhand",
+    "cochrane2019",
+    "nci-light",
+    "nci-withdrawal",
+    "nhs-quit",
+    "smokefree-withdrawal",
+    "who-benefits",
+    "who-ecig",
+    "who-tobacco",
+    "who-waterpipe"
+  ],
+  "stories": [
+    {
+      "id": "addiction",
+      "emoji": "🧠",
+      "title": "Nikotin bağımlılığı nasıl çalışır?",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "emoji": "🧠",
+          "title": "Hızlı bir yol",
+          "text": "Nikotin, solunduktan kısa süre sonra beyne ulaşır ve ödül sistemini uyarır. Bu hızlı etki, alışkanlığın kolay kurulmasının nedenlerinden biridir."
+        },
+        {
+          "emoji": "🔁",
+          "title": "Alışma ve yoksunluk",
+          "text": "Beyin zamanla nikotine alışır. Nikotin düzeyi düşünce huzursuzluk ve istek başlar; bir sonraki sigara bu hissi geçici olarak giderir."
+        },
+        {
+          "emoji": "🔗",
+          "title": "Alışkanlık bağları",
+          "text": "Kahve, yemek sonrası, araba gibi durumlar sigarayla eşleşir. Bu bağlar, istek uyandıran tetikleyicilere dönüşür."
+        },
+        {
+          "emoji": "🌱",
+          "title": "Geri döndürülebilir",
+          "text": "Sigara bırakıldığında beyin yeniden dengeye gelir. İstekler zamanla seyrekleşir ve zayıflar."
+        }
+      ]
+    },
+    {
+      "id": "withdrawal-timeline",
+      "emoji": "📆",
+      "title": "Yoksunluk zaman çizelgesi",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "⏰",
+          "title": "İlk saatler",
+          "text": "Son sigaradan birkaç saat sonra istek ve huzursuzluk başlayabilir."
+        },
+        {
+          "emoji": "🔥",
+          "title": "İlk üç gün",
+          "text": "Belirtiler genellikle ilk günlerde zirve yapar: güçlü istekler, sinirlilik, odaklanma güçlüğü."
+        },
+        {
+          "emoji": "📉",
+          "title": "İlk haftalar",
+          "text": "Sinirlilik ve huzursuzluk 2–4 hafta içinde azalır. İştah artışı biraz daha uzun sürebilir."
+        },
+        {
+          "emoji": "🌤️",
+          "title": "Sonrası",
+          "text": "Birkaç ay sonra istekler seyrekleşir; ama belirli ortamlarda beklenmedik anlarda gelebilir. Bu normaldir ve geçer."
+        }
+      ]
+    },
+    {
+      "id": "light-myth",
+      "emoji": "🪶",
+      "title": "\"Light\" sigara efsanesi",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-light",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "emoji": "🪶",
+          "title": "Daha hafif mi?",
+          "text": "\"Light\", \"ultra\" ya da \"yumuşak\" diye pazarlanan sigaraların daha az zararlı olduğuna dair bir kanıt yoktur."
+        },
+        {
+          "emoji": "🌬️",
+          "title": "Neden?",
+          "text": "Bu sigaraları içenler çoğu zaman farkında olmadan daha derin ya da daha sık nefes çeker; böylece benzer miktarda zararlı madde alırlar."
+        },
+        {
+          "emoji": "⚖️",
+          "title": "Sonuç",
+          "text": "Daha \"hafif\" bir sigaraya geçmek, bırakmanın sağladığı faydaların yerini tutmaz."
+        }
+      ]
+    },
+    {
+      "id": "hookah",
+      "emoji": "💨",
+      "title": "Nargile gerçekleri",
+      "minutes": 2,
+      "sourceIds": [
+        "who-waterpipe",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "emoji": "💨",
+          "title": "Su süzmez",
+          "text": "Nargiledeki su, dumanı serinletir ama zararlı maddelerin çoğunu süzmez."
+        },
+        {
+          "emoji": "⏳",
+          "title": "Uzun oturum",
+          "text": "Bir nargile oturumu uzun sürer ve bu sürede çok miktarda duman solunur."
+        },
+        {
+          "emoji": "🧪",
+          "title": "Nikotin ve karbonmonoksit",
+          "text": "Nargile dumanı nikotin, karbonmonoksit ve kanserle ilişkili maddeler içerir. Bağımlılık yapabilir."
+        },
+        {
+          "emoji": "👥",
+          "title": "Paylaşmak risk",
+          "text": "Ortak ağızlık kullanımı enfeksiyon bulaşma riskini de artırabilir."
+        }
+      ]
+    },
+    {
+      "id": "ecig",
+      "emoji": "🔋",
+      "title": "E-sigara ve ısıtılmış tütün gerçekleri",
+      "minutes": 2,
+      "sourceIds": [
+        "who-ecig",
+        "alo171"
+      ],
+      "slides": [
+        {
+          "emoji": "🔋",
+          "title": "Zararsız değil",
+          "text": "Elektronik sigaralar ve ısıtılmış tütün ürünleri genellikle nikotin içerir ve bağımlılık yapar. Uzun vadeli etkileri hâlâ araştırılmaktadır."
+        },
+        {
+          "emoji": "⚖️",
+          "title": "Türkiye'de yasal durum",
+          "text": "Türkiye'de elektronik sigara ve ısıtılmış tütün ürünlerinin ticari satışı yasaktır."
+        },
+        {
+          "emoji": "🚫",
+          "title": "Bırakma yöntemi değil",
+          "text": "Bu kamp, e-sigara ya da ısıtılmış tütünü bir bırakma yöntemi olarak önermez. Bunları kullanıyorsan, onlar da birlikte bırakılacak ürünlerdir."
+        },
+        {
+          "emoji": "📞",
+          "title": "Kanıtlanmış destek",
+          "text": "Bırakmak için davranışsal destek ve gerektiğinde hekim değerlendirmesi önerilir. ALO 171 seni doğru desteğe yönlendirebilir."
+        }
+      ]
+    },
+    {
+      "id": "secondhand",
+      "emoji": "🏠",
+      "title": "Pasif ve üçüncü el duman",
+      "minutes": 2,
+      "sourceIds": [
+        "cdc-secondhand",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "emoji": "🏠",
+          "title": "Pasif içicilik",
+          "text": "Sigara içilen ortamda bulunan herkes dumandaki zararlı maddeleri solur. Pasif içiciliğin güvenli bir düzeyi yoktur."
+        },
+        {
+          "emoji": "👶",
+          "title": "Çocuklar için",
+          "text": "Çocuklar pasif dumandan daha çok etkilenir; solunum yolu enfeksiyonları ve astım atakları daha sık görülebilir."
+        },
+        {
+          "emoji": "🧥",
+          "title": "Üçüncü el duman",
+          "text": "Duman kalıntıları giysilere, eşyalara ve araba içine yapışır ve zamanla yeniden havaya karışabilir."
+        },
+        {
+          "emoji": "✅",
+          "title": "Dumansız alan",
+          "text": "Evini ve arabanı tamamen dumansız tutmak, sevdiklerini korumanın en etkili yoludur."
+        }
+      ]
+    },
+    {
+      "id": "vascular-sexual",
+      "emoji": "💞",
+      "title": "Sigara ve cinsel/damar sağlığı",
+      "minutes": 2,
+      "sourceIds": [
+        "cdc-health-effects",
+        "who-tobacco",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "emoji": "🩸",
+          "title": "Damarlar",
+          "text": "Sigara damar iç yüzeyine zarar verir, damarları daraltır ve pıhtı oluşumunu kolaylaştırır."
+        },
+        {
+          "emoji": "❤️",
+          "title": "Kalp ve dolaşım",
+          "text": "Bu etkiler kalp krizi, inme ve dolaşım sorunları riskini artırır."
+        },
+        {
+          "emoji": "💞",
+          "title": "Cinsel sağlık",
+          "text": "Yeterli kan akışı cinsel işlev için önemlidir; sigara sertleşme sorunları için bilinen bir risk etkenidir."
+        },
+        {
+          "emoji": "📈",
+          "title": "Bırakınca",
+          "text": "Bıraktıktan sonra dolaşım iyileşir ve risk zamanla azalır. Süregelen sorunlarda bir hekime danışmak önemlidir."
+        }
+      ]
+    },
+    {
+      "id": "skin-teeth",
+      "emoji": "😁",
+      "title": "Sigara, cilt ve dişler",
+      "minutes": 2,
+      "sourceIds": [
+        "cdc-health-effects",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "emoji": "🧴",
+          "title": "Cilt",
+          "text": "Sigara cilde giden kan akışını azaltır; cilt erken yaşlanabilir ve yaralar daha yavaş iyileşebilir."
+        },
+        {
+          "emoji": "😁",
+          "title": "Dişler ve diş eti",
+          "text": "Sigara dişlerde lekelenmeye, ağız kokusuna ve diş eti hastalıklarına yol açabilir."
+        },
+        {
+          "emoji": "👃",
+          "title": "Tat ve koku",
+          "text": "Bıraktıktan sonraki günlerde tat ve koku alma duyusu düzelmeye başlar."
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "emoji": "🏃",
+      "title": "Sigara ve spor performansı",
+      "minutes": 2,
+      "sourceIds": [
+        "who-benefits",
+        "cdc-health-effects"
+      ],
+      "slides": [
+        {
+          "emoji": "🫁",
+          "title": "Oksijen taşınması",
+          "text": "Sigara dumanındaki karbonmonoksit, kanın oksijen taşıma kapasitesini azaltır."
+        },
+        {
+          "emoji": "🏃",
+          "title": "Dayanıklılık",
+          "text": "Bu nedenle sigara içenler eforla daha çabuk yorulabilir ve nefes nefese kalabilir."
+        },
+        {
+          "emoji": "📈",
+          "title": "Bırakınca",
+          "text": "Bıraktıktan sonraki haftalarda dolaşım iyileşir ve akciğer fonksiyonu artar. Birçok kişi merdiven çıkarken farkı hisseder."
+        }
+      ]
+    },
+    {
+      "id": "medication-info",
+      "emoji": "💊",
+      "title": "Bırakma ilaçları hakkında genel bilgi",
+      "minutes": 2,
+      "sourceIds": [
+        "cochrane2019",
+        "alo171"
+      ],
+      "slides": [
+        {
+          "emoji": "💊",
+          "title": "İlaçlar yardımcı olabilir",
+          "text": "Sigara bırakma ilaçları, yoksunluk belirtilerini ve istekleri azaltarak bırakma şansını artırabilir."
+        },
+        {
+          "emoji": "🩺",
+          "title": "Hekim kararı",
+          "text": "Hangi ilacın sana uygun olduğuna yalnızca hekim karar verebilir. Bu uygulama ilaç adı ya da doz önermez."
+        },
+        {
+          "emoji": "🏥",
+          "title": "Türkiye'de ücretsiz",
+          "text": "Sigara bırakma polikliniklerinde hekim uygun görürse ilaçlar ücretsiz verilmektedir. Randevu için ALO 171'i arayabilirsin."
+        },
+        {
+          "emoji": "⚠️",
+          "title": "Önce danış",
+          "text": "Gebelik, kalp hastalığı ya da psikiyatrik bir tanın varsa herhangi bir yöntemden önce hekimine danış."
+        }
+      ]
+    },
+    {
+      "id": "weight",
+      "emoji": "⚖️",
+      "title": "Kilo yönetimi",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "⚖️",
+          "title": "Neden kilo alınabilir?",
+          "text": "Bıraktıktan sonra iştah artabilir ve tatlı isteği çoğalabilir; metabolizmada da küçük değişiklikler olur."
+        },
+        {
+          "emoji": "🍎",
+          "title": "Küçük adımlar",
+          "text": "Düzenli öğünler, sebze ve meyve, bol su ve günlük hareket ani kilo artışını sınırlamaya yardım eder."
+        },
+        {
+          "emoji": "🎯",
+          "title": "Öncelik",
+          "text": "Sigarayı bırakmanın sağlığa faydası, alınabilecek birkaç kilonun riskinden çok daha büyüktür."
+        }
+      ]
+    },
+    {
+      "id": "stress",
+      "emoji": "😤",
+      "title": "Stres ve sigara ilişkisi",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "emoji": "😤",
+          "title": "Sigara rahatlatır mı?",
+          "text": "Sigaranın rahatlatıcı hissi büyük ölçüde iki sigara arasındaki yoksunluğun giderilmesinden gelir."
+        },
+        {
+          "emoji": "🔄",
+          "title": "Kısır döngü",
+          "text": "Yoksunluk gerginlik yaratır, sigara onu geçici olarak giderir; böylece sigara stresin kaynağı ile çözümü gibi görünür."
+        },
+        {
+          "emoji": "🌿",
+          "title": "Bıraktıktan sonra",
+          "text": "Yoksunluk döneminden sonra birçok kişi daha az gergin hisseder. Nefes, hareket ve sosyal destek yeni başa çıkma yollarıdır."
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "emoji": "🌙",
+      "title": "Uyku ve sigara",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "🌙",
+          "title": "İlk günler",
+          "text": "Bıraktıktan sonra uykuya dalmakta ya da uykuyu sürdürmekte güçlük çekebilirsin. Bu genellikle geçicidir."
+        },
+        {
+          "emoji": "☕",
+          "title": "Kafein",
+          "text": "Sigara kafeinin vücuttan atılmasını hızlandırır. Bıraktıktan sonra aynı miktarda kahve daha güçlü etki edebilir; akşamları kafeini azalt."
+        },
+        {
+          "emoji": "🛏️",
+          "title": "Uyku düzeni",
+          "text": "Her gün aynı saatte yatmak, yatmadan önce ekranı bırakmak ve sakin bir rutin oluşturmak yardımcı olur."
+        }
+      ]
+    },
+    {
+      "id": "ramadan",
+      "emoji": "🌙",
+      "title": "Ramazan'da sigara bırakmak",
+      "minutes": 2,
+      "sourceIds": [
+        "who-benefits",
+        "alo171"
+      ],
+      "slides": [
+        {
+          "emoji": "🌙",
+          "title": "Hazır bir fırsat",
+          "text": "Ramazan'da gün boyu sigara içilmez. Birçok kişi için bu, aslında saatlerce sigarasız kalabildiğini gösteren bir deneyimdir."
+        },
+        {
+          "emoji": "🍽️",
+          "title": "Riskli saat: iftar sonrası",
+          "text": "İftardan hemen sonra istek güçlü olabilir. Bu an için önceden bir Eğer–O zaman planı yapmak işini kolaylaştırır."
+        },
+        {
+          "emoji": "🤝",
+          "title": "Sahurdan sonra",
+          "text": "Sahurdan sonraki sigarayı da bırakarak, oruçla kazandığın sigarasız saatleri bütün güne yayabilirsin."
+        },
+        {
+          "emoji": "📅",
+          "title": "Bırakma günü seç",
+          "text": "Ramazan'ın başı ya da ortası, bırakma günü için anlamlı bir tarih olabilir."
+        }
+      ]
+    },
+    {
+      "id": "any-age",
+      "emoji": "🕰️",
+      "title": "Her yaşta bırakmanın faydası",
+      "minutes": 2,
+      "sourceIds": [
+        "who-benefits",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "emoji": "🕰️",
+          "title": "Hiçbir zaman geç değil",
+          "text": "Sigarayı hangi yaşta bırakırsan bırak, sağlığına faydası olur."
+        },
+        {
+          "emoji": "❤️",
+          "title": "Hızlı kazanımlar",
+          "text": "Bıraktıktan kısa süre sonra kalp atış hızı ve kandaki karbonmonoksit düzeyi düşer."
+        },
+        {
+          "emoji": "📈",
+          "title": "Uzun vadeli kazanımlar",
+          "text": "Yıllar içinde kalp hastalığı, inme ve birçok kanser türünün riski azalır."
+        },
+        {
+          "emoji": "🌱",
+          "title": "Yaşam kalitesi",
+          "text": "Daha rahat nefes, daha iyi tat ve koku, daha fazla enerji: kazanımlar sadece uzun vadeli değildir."
+        }
+      ]
+    }
+  ]
+}

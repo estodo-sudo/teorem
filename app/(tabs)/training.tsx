@@ -2,13 +2,20 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Screen, useTheme } from '@/components';
+import { GlossaryCard } from '@/features/content/cards';
+import { GLOSSARY, type GlossaryTerm } from '@/features/content/data';
 import { PlanGrid } from '@/features/training/PlanGrid';
 import { advancedToday, todayPlanDay } from '@/features/training/plan';
 import { TrainingFitnessSection } from '@/features/fitness/TrainingFitnessSection';
+import { TrainingMindSection } from '@/features/mind/TrainingMindSection';
 import { WorkoutCard } from '@/features/today/WorkoutCard';
 import { toDateKey } from '@/lib/date';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { ExerciseType } from '@/types';
+
+/** Sexual-health topics from "Neden, Nedir ve Ne Demek?" shown on the training tab. */
+const TOPIC_IDS = ['premature-ejaculation', 'erectile-dysfunction', 'masturbation'];
+const TOPICS = TOPIC_IDS.map((id) => GLOSSARY.find((g) => g.id === id)).filter((g): g is GlossaryTerm => !!g);
 
 const TYPES: ExerciseType[] = ['hold', 'quick', 'elevator', 'pulse', 'endurance', 'relax'];
 
@@ -36,6 +43,16 @@ export default function TrainingTab() {
           {tr('training.planHint')}
         </AppText>
       </Card>
+      <View style={{ gap: 10 }}>
+        <AppText variant="h2" style={{ marginTop: 8 }}>
+          {tr('training.topicsTitle')}
+        </AppText>
+        {TOPICS.map((term) => (
+          <GlossaryCard key={term.id} term={term} />
+        ))}
+      </View>
+      <TrainingFitnessSection />
+      <TrainingMindSection />
       <AppText variant="h2" style={{ marginTop: 8 }}>
         {tr('training.exercisesTitle')}
       </AppText>
@@ -52,7 +69,6 @@ export default function TrainingTab() {
           </Card>
         ))}
       </View>
-      <TrainingFitnessSection />
     </Screen>
   );
 }

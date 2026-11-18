@@ -9,7 +9,6 @@ export interface AchievementContext {
   completedLessons: number;
   readStories: number;
   totalStories: number;
-  completedChallenges: number;
 }
 
 export interface AchievementDef {
@@ -73,7 +72,6 @@ export const ACHIEVEMENTS: AchievementDef[] = [
     emoji: '📚',
     progress: (c) => (c.totalStories > 0 ? ratio(c.readStories, c.totalStories) : 0),
   },
-  { id: 'challenges_30', emoji: '✅', progress: (c) => ratio(c.completedChallenges, 30) },
 ];
 
 /** Returns ids of achievements newly earned in this context. */

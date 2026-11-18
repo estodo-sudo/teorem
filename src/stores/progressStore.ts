@@ -28,7 +28,6 @@ interface ProgressStore extends ProgressSnapshot {
   toggleFavorite: (id: string) => void;
   completeLesson: (courseId: string, lessonId: string, score: number) => void;
   setChallengeLog: (log: ChallengeLog) => void;
-  toggleChallenge: (date: string, challengeId: string) => void;
   unlockAchievements: (ids: string[], at?: string) => void;
   shiftCelebration: () => void;
   setLastMindSession: (date: string) => void;
@@ -86,15 +85,6 @@ export const useProgressStore = create<ProgressStore>()(
         }),
       setChallengeLog: (log) =>
         set((s) => ({ challengeLogs: { ...s.challengeLogs, [log.date]: log } })),
-      toggleChallenge: (date, challengeId) =>
-        set((s) => {
-          const log = s.challengeLogs[date];
-          if (!log) return {};
-          const done = log.completedIds.includes(challengeId)
-            ? log.completedIds.filter((x) => x !== challengeId)
-            : [...log.completedIds, challengeId];
-          return { challengeLogs: { ...s.challengeLogs, [date]: { ...log, completedIds: done } } };
-        }),
       unlockAchievements: (ids, at) =>
         set((s) => {
           const fresh = ids.filter((id) => !s.achievements[id]);

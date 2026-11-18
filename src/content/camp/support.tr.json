@@ -1,0 +1,57 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "alo171",
+    "yedam"
+  ],
+  "lastVerified": "2026-11",
+  "alo171": {
+    "title": "ALO 171 Sigara Bırakma Danışma Hattı",
+    "number": "171",
+    "hours": "7 gün 24 saat",
+    "cost": "Sabit hattan ücretsizdir; cep telefonundan aramalarda operatörünün tarifesi uygulanabilir.",
+    "offers": [
+      "Sigara bırakma danışmanlığı",
+      "Bağımlılık düzeyinin değerlendirilmesi",
+      "Sigara bırakma polikliniğinden randevu",
+      "Bırakma sürecinde takip"
+    ]
+  },
+  "clinics": {
+    "title": "Sigara bırakma poliklinikleri",
+    "text": "Hastanelerde, sağlıklı hayat merkezlerinde ve aile sağlığı merkezlerinde sigara bırakma poliklinikleri bulunur. Hekim uygun görürse sigara bırakma ilaçları ücretsiz verilir. ALO 171 seni en yakın polikliniğe yönlendirir."
+  },
+  "yesilay": {
+    "title": "Yeşilay Danışmanlık Merkezi (YEDAM)",
+    "number": "115",
+    "text": "Yeşilay'ın danışmanlık merkezleri tütün bağımlılığı dahil bağımlılıklarda ücretsiz psikolojik ve sosyal destek sunar. 115 YEDAM Danışma Hattı'nı arayarak randevu alabilirsin."
+  },
+  "emergency": {
+    "title": "Acil durumda 112",
+    "text": "Kendini ya da başkasını tehlikede hissettiğin acil bir durumda hemen 112'yi ara."
+  },
+  "supporter": {
+    "intro": "Destekçine hazır bir mesaj gönder. Mesaj telefonunun paylaşım menüsüyle gider; uygulama hiçbir şeyi kendisi göndermez.",
+    "messages": [
+      {
+        "id": "quit",
+        "label": "Bırakma günü",
+        "text": "Merhaba {supporter}, {date} günü sigarayı bırakıyorum. Zorlandığımda sana yazabilir miyim? Desteğin benim için çok değerli."
+      },
+      {
+        "id": "progress",
+        "label": "İlerleme",
+        "text": "{days} gündür dumansızım! Bu süreçte yanımda olduğun için teşekkür ederim, {supporter}."
+      },
+      {
+        "id": "hard",
+        "label": "Zor bir an",
+        "text": "{supporter}, şu an sigara isteğiyle zor bir an yaşıyorum. Birkaç dakika konuşabilir miyiz?"
+      }
+    ]
+  },
+  "doctor": {
+    "intro": "Sigara bırakma polikliniğinde ya da hekiminle görüşürken kullanabileceğin kısa bir özet. Özet cihazında oluşturulur ve sadece sen paylaşırsan gönderilir.",
+    "note": "Bu özet, kullanıcının uygulamaya kendi girdiği bilgilerden oluşturulmuştur; tıbbi bir değerlendirme değildir."
+  }
+}

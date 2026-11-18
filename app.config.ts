@@ -67,6 +67,23 @@ const config: ExpoConfig = {
       },
     ],
     'expo-iap',
+    // Sigarasız Kamp: an optional "my reasons" photo (stays on the device) and saving ALO 171 to contacts.
+    [
+      'expo-image-picker',
+      {
+        photosPermission: 'Bırakma nedenlerine kendi fotoğrafını eklemek için galerine erişim gerekiyor. Fotoğraf yalnızca cihazında saklanır.',
+        cameraPermission: false,
+        microphonePermission: false,
+      },
+    ],
+    // Sigarasız Kamp: "Canım çekiyor" home-screen shortcut (iOS Quick Action / Android shortcut).
+    'expo-quick-actions',
+    [
+      'expo-contacts',
+      {
+        contactsPermission: 'ALO 171 Sigara Bırakma Danışma Hattı numarasını rehberine kaydetmek için rehber erişimi gerekiyor.',
+      },
+    ],
   ],
   // EAS Update is used only to preview test versions in Expo Go during
   // development. The app never checks for updates on its own ('NEVER'), so

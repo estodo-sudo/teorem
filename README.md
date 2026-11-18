@@ -120,6 +120,7 @@ Uçak modunu aç, uygulamayı kapatıp yeniden başlat ve sırayla doğrula:
 5. Zihin: nefes, zihin boşaltma, beden taraması.
 6. Bildirim: Ayarlar > Hatırlatıcılar'dan 2 dk sonrasına saat kur; bildirim gelsin, "15 dk ertele" çalışsın, kilit ekranında nötr metin görünsün.
 7. Ayarlar > Verilerim: dışa aktar → tüm verileri sil → içe aktar; her şey geri gelsin.
+8. Sigarasız Kamp (Keşfet): değerlendirme → plan → panel; "Canım çekiyor" (dalga sörfü, nefes, oyun), sigara günlüğü, günlük kontrol, kayma akışı, beceri dersi, kütüphane, Koç, istatistik, hekime özet (PDF paylaşımı), kamp bildirimleri (gizli modda "sigara" geçmesin), rozet kutlaması.
 
 Otomatik kapsam: `__tests__/acceptance.test.ts` takip SDK'sı olmadığını, ağ çağrısının yalnızca izinli modüllerde olduğunu, kullanılan tüm i18n anahtarlarının var olduğunu ve rakip adının geçmediğini doğrular; `exportImport.test.ts` dışa aktar → sil → içe aktar döngüsünün kayıpsız olduğunu kanıtlar.
 
@@ -127,6 +128,7 @@ Otomatik kapsam: `__tests__/acceptance.test.ts` takip SDK'sı olmadığını, a�
 
 - Hikâye/kurs/görev JSON'ları `scripts/content/*.py` ile üretilir (tek kaynak); düzenledikten sonra `python3 scripts/content/<dosya>.py` çalıştır.
 - Tüm eğitim içeriği `reviewed: false` — uzman (ürolog / pelvik taban fizyoterapisti) kontrolü Faz 2'de. Kaynak linkleri (`scripts/content/sources.py`) inceleme sırasında doğrulanmalı; PubMed bağlantıları arama sorgusudur.
+- Sigarasız Kamp içeriği `scripts/content/camp*.py` ile üretilir (`src/content/camp/`), tüm öğeler `reviewed: false` ve `sourceIds` taşır. Uzman kontrol listesi `docs/CONTENT_REVIEW.md` (`python3 scripts/content/camp_review.py` ile yeniden üret). Kurumsal bilgiler (ALO 171, poliklinikler, ücretsiz ilaç, Yeşilay 115) `lastVerified` tarihlidir: **her sürümde kontrol et** ve `scripts/content/camp.py` içindeki tarihi güncelle.
 - Ses ipuçları `scripts/generate-tones.js` ile sentezlenmiş özgün tonlardır.
 - İllüstrasyonlar ve uygulama ikonu yer tutucudur (`src/components/Illustrations.tsx`, `src/features/fitness/PostureArt.tsx`, `assets/`).
 

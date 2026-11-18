@@ -49,6 +49,45 @@ export const MIGRATIONS: Migration[] = [
       );
     `,
   },
+  {
+    // Sigarasız Kamp event logs (cigarettes, cravings, check-ins).
+    version: 2,
+    sql: `
+      CREATE TABLE IF NOT EXISTS camp_cigarettes (
+        id TEXT PRIMARY KEY NOT NULL,
+        attempt_id TEXT NOT NULL,
+        at TEXT NOT NULL,
+        trig TEXT,
+        mood INTEGER,
+        need INTEGER,
+        tag TEXT,
+        is_slip INTEGER NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_camp_cigarettes_at ON camp_cigarettes(at);
+
+      CREATE TABLE IF NOT EXISTS camp_cravings (
+        id TEXT PRIMARY KEY NOT NULL,
+        at TEXT NOT NULL,
+        intensity_before INTEGER NOT NULL,
+        intensity_after INTEGER,
+        trig TEXT,
+        tools TEXT NOT NULL,
+        outcome TEXT NOT NULL,
+        duration_sec INTEGER NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_camp_cravings_at ON camp_cravings(at);
+
+      CREATE TABLE IF NOT EXISTS camp_checkins (
+        id TEXT PRIMARY KEY NOT NULL,
+        at TEXT NOT NULL,
+        smoked INTEGER NOT NULL,
+        craving_count INTEGER NOT NULL,
+        mood INTEGER NOT NULL,
+        symptoms TEXT NOT NULL
+      );
+      CREATE INDEX IF NOT EXISTS idx_camp_checkins_at ON camp_checkins(at);
+    `,
+  },
 ];
 
 export interface MigratableDb {

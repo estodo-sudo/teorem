@@ -1,23 +1,21 @@
-import { createRng, shuffle } from '@/lib/random';
-import type { ChallengeCategory } from '@/types';
+import { daysBetween } from '@/lib/date';
+import { createRng } from '@/lib/random';
 
 import type { Challenge, Story } from './data';
 
 /**
- * 3 challenges for a date, each from a different category. Deterministic per
- * date; avoids repeating yesterday's challenge ids when possible.
+ * Day of the nutrition plan (0-based) for a date: counted from the day the user
+ * started, repeating every `days` days.
  */
-export function pickDailyChallenges(date: string, all: readonly Challenge[], avoidIds: readonly string[] = []): Challenge[] {
-  const rng = createRng(`challenges|${date}`);
-  const cats = shuffle(rng, ['physical', 'mental', 'social', 'nutrition'] as ChallengeCategory[]).slice(0, 3);
-  const out: Challenge[] = [];
-  for (const cat of cats) {
-    const pool = all.filter((c) => c.category === cat);
-    const fresh = pool.filter((c) => !avoidIds.includes(c.id));
-    const from = fresh.length ? fresh : pool;
-    if (from.length) out.push(from[Math.floor(rng() * from.length)]!);
-  }
-  return out;
+export function nutritionDayIndex(startDate: string, date: string, days: number): number {
+  if (days <= 0) return 0;
+  const n = daysBetween(startDate, date);
+  return ((n % days) + days) % days;
+}
+
+/** The tasks of one plan day (unknown ids are skipped). */
+export function nutritionTasksForDay(plan: readonly string[][], all: readonly Challenge[], dayIndex: number): Challenge[] {
+  return (plan[dayIndex] ?? []).map((id) => all.find((c) => c.id === id)).filter((c): c is Challenge => !!c);
 }
 
 /** "Story of the day": deterministic per date, preferring unread stories. */

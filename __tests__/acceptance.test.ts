@@ -20,7 +20,8 @@ function walk(dir: string, exts = ['.ts', '.tsx', '.json']): string[] {
 
 const codeFiles = [...walk(path.join(ROOT, 'app')), ...walk(path.join(ROOT, 'src'))];
 const read = (f: string) => fs.readFileSync(f, 'utf8');
-const rel = (f: string) => path.relative(ROOT, f);
+// Normalize to forward slashes so allow-lists match on Windows too.
+const rel = (f: string) => path.relative(ROOT, f).split(path.sep).join('/');
 
 describe('privacy & offline', () => {
   const pkg = JSON.parse(read(path.join(ROOT, 'package.json')));

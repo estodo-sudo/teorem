@@ -6,7 +6,8 @@ import {
   type PaywallMode,
 } from '@/config/monetization';
 
-export type GatedFeature = 'workout' | 'fitness' | 'courses' | 'stories' | 'mind' | 'strengthTest';
+/** `camp`: Sigarasız Kamp premium parts (its crisis tools, counters and help lines are always free). */
+export type GatedFeature = 'workout' | 'fitness' | 'courses' | 'stories' | 'mind' | 'strengthTest' | 'camp';
 
 export interface GateContext {
   mode: PaywallMode;
@@ -38,6 +39,7 @@ export function hasAccess(feature: GatedFeature, c: GateContext): boolean {
       return true;
     case 'courses':
     case 'fitness':
+    case 'camp':
       return false;
   }
 }

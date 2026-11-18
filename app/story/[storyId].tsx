@@ -8,6 +8,7 @@ import { STORIES } from '@/features/content/data';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { checkAchievements } from '@/features/gamification/service';
 import { useProgressStore } from '@/stores/progressStore';
+import { goBack } from '@/lib/nav';
 
 export default function StoryScreen() {
   const { storyId } = useLocalSearchParams<{ storyId: string }>();
@@ -16,7 +17,7 @@ export default function StoryScreen() {
   const fav = useProgressStore((s) => (storyId ? s.content.favoriteStoryIds.includes(storyId) : false));
   const toggleFav = useProgressStore((s) => s.toggleFavorite);
   const [done, setDone] = useState(false);
-  const close = () => (router.canGoBack() ? router.back() : router.replace('/discover'));
+  const close = () => (router.canGoBack() ? goBack() : router.replace('/discover'));
 
   if (!story) {
     return (

@@ -10,6 +10,7 @@ import { generateTrialSession } from '@/features/training/generateSession';
 import { playCue } from '@/features/training/haptics';
 import { WorkoutPlayer } from '@/features/training/player/WorkoutPlayer';
 import { useProfileStore } from '@/stores/profileStore';
+import { goBack as safeBack } from '@/lib/nav';
 import { useSettingsStore } from '@/stores/settingsStore';
 
 type Step = 'what' | 'find' | 'technique' | 'vibration' | 'trial' | 'check' | 'tips';
@@ -27,7 +28,7 @@ export default function Tutorial() {
 
   const done = () => {
     if (replay) {
-      router.back();
+      safeBack();
       return;
     }
     useProfileStore.getState().update({ tutorialDone: true });
@@ -36,7 +37,7 @@ export default function Tutorial() {
 
   const goBack = () => {
     if (step === 'tips') return setStep('check');
-    if (idx === 0) return replay ? router.back() : undefined;
+    if (idx === 0) return replay ? safeBack() : undefined;
     setStep(ORDER[idx - 1]!);
   };
 
@@ -87,7 +88,7 @@ export default function Tutorial() {
         <>
           <Button label={c.cta} size="lg" variant="accent" onPress={onCta} />
           {step === 'check' ? <Button label={tr('tutorial.check.unsure')} variant="secondary" onPress={() => setStep('tips')} /> : null}
-          {replay && step !== 'check' ? <Button label={tr('tutorial.close')} variant="ghost" onPress={() => router.back()} /> : null}
+          {replay && step !== 'check' ? <Button label={tr('tutorial.close')} variant="ghost" onPress={() => safeBack()} /> : null}
         </>
       }
     >

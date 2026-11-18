@@ -12,44 +12,51 @@ import { ACHIEVEMENTS } from './achievements';
 
 /** Global overlay that celebrates newly unlocked achievements one by one. */
 export function Celebration() {
-  const t = useTheme();
   const { t: tr } = useTranslation();
   const queue = useProgressStore((s) => s.celebrationQueue);
   const shift = useProgressStore((s) => s.shiftCelebration);
-  const strength = useSettingsStore((s) => s.settings.hapticStrength);
   const id = queue[0];
   const def = ACHIEVEMENTS.find((a) => a.id === id);
+  if (!id || !def) return null;
+  return <CelebrationCard celebrationKey={id} kicker={tr('achievements.unlocked')} emoji={def.emoji} title={tr(`achievements.items.${def.id}.title`)} desc={tr(`achievements.items.${def.id}.desc`)} cta={tr('achievements.great')} onClose={shift} />;
+}
+
+/**
+ * The celebration modal itself (animated medal, haptic cue). Shared by achievements and other
+ * milestones such as the smoke-free camp's health gains. `celebrationKey` restarts the animation.
+ */
+export function CelebrationCard({ celebrationKey, kicker, emoji, title, desc, cta, onClose }: { celebrationKey: string; kicker: string; emoji: string; title: string; desc: string; cta: string; onClose: () => void }) {
+  const t = useTheme();
+  const strength = useSettingsStore((s) => s.settings.hapticStrength);
   const scale = useSharedValue(0.3);
   const rotate = useSharedValue(0);
 
   useEffect(() => {
-    if (!id) return;
     scale.value = 0.3;
     scale.value = withSpring(1, { damping: 8, stiffness: 140 });
     rotate.value = withSequence(withTiming(-12, { duration: 120 }), withTiming(12, { duration: 160 }), withTiming(0, { duration: 140 }));
     playCue('sessionEnd', strength);
-  }, [id, scale, rotate, strength]);
+  }, [celebrationKey, scale, rotate, strength]);
 
   const style = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }, { rotate: `${rotate.value}deg` }] }));
 
-  if (!id || !def) return null;
   return (
-    <Modal visible transparent animationType="fade" onRequestClose={shift} statusBarTranslucent>
-      <Pressable style={[styles.backdrop, { backgroundColor: t.colors.overlay }]} onPress={shift} accessible={false}>
+    <Modal visible transparent animationType="fade" onRequestClose={onClose} statusBarTranslucent>
+      <Pressable style={[styles.backdrop, { backgroundColor: t.colors.overlay }]} onPress={onClose} accessible={false}>
         <View style={[styles.card, { backgroundColor: t.colors.surface, borderRadius: t.radius.xl }]} accessibilityViewIsModal>
           <AppText variant="small" weight="700" color={t.colors.accent} center>
-            {tr('achievements.unlocked')}
+            {kicker}
           </AppText>
           <Animated.View style={[styles.medal, { backgroundColor: t.dark ? t.colors.surfaceAlt : '#FFF3EB', borderColor: t.colors.accent }, style]}>
-            <AppText style={{ fontSize: 56, lineHeight: 68 }}>{def.emoji}</AppText>
+            <AppText style={{ fontSize: 56, lineHeight: 68 }}>{emoji}</AppText>
           </Animated.View>
           <AppText variant="h2" center accessibilityRole="header">
-            {tr(`achievements.items.${def.id}.title`)}
+            {title}
           </AppText>
           <AppText muted center>
-            {tr(`achievements.items.${def.id}.desc`)}
+            {desc}
           </AppText>
-          <Button label={tr('achievements.great')} variant="accent" onPress={shift} />
+          <Button label={cta} variant="accent" onPress={onClose} />
         </View>
       </Pressable>
     </Modal>

@@ -8,6 +8,7 @@ import { AppEffects } from '@/features/app/AppEffects';
 import { ErrorScreen } from '@/features/app/ErrorScreen';
 import { isAllowedDuringFirstRun, requiredFirstRunRoute } from '@/features/app/gate';
 import { setLanguage } from '@/i18n';
+import { useCampEventsStore } from '@/stores/campStore';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
 import { useSettingsStore } from '@/stores/settingsStore';
@@ -19,6 +20,7 @@ export default function RootLayout() {
   // SQLite history is small; load it synchronously before first render.
   useState(() => {
     useHistoryStore.getState().load();
+    useCampEventsStore.getState().load();
     return true;
   });
   useEffect(() => setLanguage(language), [language]);
@@ -60,6 +62,15 @@ export default function RootLayout() {
           <Stack.Screen name="strength-test" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="fitness/[routineId]" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="story/[storyId]" options={{ presentation: 'fullScreenModal', animation: 'fade' }} />
+          <Stack.Screen name="campus/smoking/craving" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="campus/masturbation/urge" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="campus/porn/urge" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="campus/neck/routine" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="campus/feet/routine" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="camp/sos" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="camp/log-cigarette" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="camp/checkin" options={{ presentation: 'fullScreenModal' }} />
+          <Stack.Screen name="camp/slip" options={{ presentation: 'fullScreenModal' }} />
         </Stack>
         <AppEffects />
       </ThemeProvider>

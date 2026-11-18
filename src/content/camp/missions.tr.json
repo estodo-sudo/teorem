@@ -1,0 +1,1261 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "michie2013",
+    "crane2018",
+    "black2020",
+    "nci-withdrawal"
+  ],
+  "missions": [
+    {
+      "id": "prep-1",
+      "phase": "preparation",
+      "day": 1,
+      "title": "Bırakma günü öncesi son kontrol",
+      "body": "Yarın bırakma günün. Evde, arabada ve çantanda kalan sigara, çakmak ve küllükleri topla ve at. Acil durum kutun hazır mı, kontrol et. Bu gece erken yat; yarın dinç başlamak işini kolaylaştırır.",
+      "durationMin": 10,
+      "bctCodes": [
+        "1.4",
+        "12.1",
+        "7.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-2",
+      "phase": "preparation",
+      "day": 2,
+      "title": "Acil durum kutunu hazırla",
+      "body": "Zor anlar için küçük bir kutu hazırla: şekersiz sakız, su şişesi, stres topu ya da kalem, sevdiğin bir atıştırmalık (meyve, kuruyemiş). Kutuyu en çok sigara içtiğin yere koy.",
+      "durationMin": 10,
+      "bctCodes": [
+        "12.1",
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-3",
+      "phase": "preparation",
+      "day": 3,
+      "title": "Sigara izlerini temizle",
+      "body": "Arabanı, montunu ve sigara içtiğin köşeyi temizle; kokuyu ve hatırlatıcıları azalt. Küllükleri şimdiden kaldırabilirsin; son günlerde sigarayı sadece dışarıda iç.",
+      "durationMin": 15,
+      "bctCodes": [
+        "12.1",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-4",
+      "phase": "preparation",
+      "day": 4,
+      "title": "Bırakacağını birine söyle",
+      "body": "Güvendiğin bir kişiye bırakma gününü söyle ve zor anlarda ona yazabileceğini belirt. İstersen uygulamadaki hazır mesajı kullan. Söylemek, kararını güçlendirir.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1",
+        "1.9"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "prep-5",
+      "phase": "preparation",
+      "day": 5,
+      "title": "En riskli 3 anın için plan yap",
+      "body": "Tetikleyici haritana git ve en sık sigara içtiğin üç durum için Eğer–O zaman planın olduğundan emin ol. Planı yüksek sesle bir kez oku.",
+      "durationMin": 10,
+      "bctCodes": [
+        "1.4",
+        "4.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-6",
+      "phase": "preparation",
+      "day": 6,
+      "title": "Profesyonel destek seçeneğini öğren",
+      "body": "ALO 171'i arayarak sigara bırakma polikliniği randevusu ve ücretsiz destek seçeneklerini öğrenebilirsin. Aramasan bile numarayı rehberine kaydet.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.2"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "prep-7",
+      "phase": "preparation",
+      "day": 7,
+      "title": "Her sigarayı kaydet",
+      "body": "Bugün içtiğin her sigarayı günlüğe kaydet ve yanına neden içtiğini seç. Bu kayıtlar sana en zor saatlerini ve durumlarını gösterecek.",
+      "durationMin": 2,
+      "bctCodes": [
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-8",
+      "phase": "preparation",
+      "day": 8,
+      "title": "Nedenlerini yeniden yaz",
+      "body": "Bırakmak istemenin en önemli üç nedenini kendi cümlelerinle yaz. Zor anlarda bu cümleleri sana hatırlatacağız.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2",
+        "1.1"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-9",
+      "phase": "preparation",
+      "day": 9,
+      "title": "İlk sigarayı 15 dakika ertele",
+      "body": "Bugün sabahki ilk sigaranı 15 dakika geciktir. Bu sürede su iç ya da duş al. Erteleyebildiğini görmek, bırakma günü için güven verir.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7",
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-10",
+      "phase": "preparation",
+      "day": 10,
+      "title": "Dalga sörfünü dene",
+      "body": "Bir sonraki sigara isteğinde \"Canım çekiyor\" aracını aç ve dalga sörfünü dene. İsteği yok etmeye çalışma; yükselip alçalmasını izle.",
+      "durationMin": 3,
+      "bctCodes": [
+        "4.1",
+        "11.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-11",
+      "phase": "preparation",
+      "day": 11,
+      "title": "Dumansız alanlar belirle",
+      "body": "Evini ve arabanı bugünden itibaren dumansız alan ilan et. Sigara içmek istediğinde dışarı çıkman gerekecek; bu küçük zorluk otomatik sigaraları azaltır.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3",
+        "12.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-12",
+      "phase": "preparation",
+      "day": 12,
+      "title": "Otomatik pilot sigaralarını bul",
+      "body": "Günlüğüne bak: \"pek ihtiyaç duymadan\" içtiğin sigaralar hangileri? Bugün bunlardan birini içmeden geçirmeyi dene.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.3",
+        "4.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-13",
+      "phase": "preparation",
+      "day": 13,
+      "title": "Kendine bir ödül hedefi koy",
+      "body": "Biriktireceğin parayla almak istediğin bir şey seç. Tasarruf sayacın bırakma gününden itibaren onu biriktirmeye başlayacak.",
+      "durationMin": 5,
+      "bctCodes": [
+        "10.9",
+        "1.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-14",
+      "phase": "preparation",
+      "day": 14,
+      "title": "Yoksunluğu tanı",
+      "body": "İlk günlerde huzursuzluk, sinirlilik ya da uykusuzluk olabilir. Bunlar geçicidir ve vücudunun iyileştiğinin işaretidir. Ne bekleyeceğini bilmek seni hazırlıklı kılar.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.6",
+        "4.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-15",
+      "phase": "preparation",
+      "day": 15,
+      "title": "Bugün bir sigara eksik iç",
+      "body": "Azaltma planındaysan günlük hedefinin bir altında kal. Hangi sigarayı bırakacağını sabahtan seç; tercihen bir otomatik pilot sigarası olsun.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7",
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-16",
+      "phase": "preparation",
+      "day": 16,
+      "title": "Kahve rutinini değiştir",
+      "body": "Kahve ya da çayını her zamankinden farklı bir yerde, farklı bir bardakla iç. Sigara ile kurulan bağı gevşetmek için küçük bir değişiklik bile işe yarar.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-17",
+      "phase": "preparation",
+      "day": 17,
+      "title": "Sigaranın sana maliyetini hesapla",
+      "body": "Bir haftalık, bir aylık ve bir yıllık harcamanı düşün. Bu parayla neler yapabileceğini bir kenara yaz.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-18",
+      "phase": "preparation",
+      "day": 18,
+      "title": "İki sigara arasını uzat",
+      "body": "Bugün iki sigara arasındaki süreyi 30 dakika uzatmayı dene. Beklerken bir bardak su iç ya da kısa bir yürüyüş yap.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-19",
+      "phase": "preparation",
+      "day": 19,
+      "title": "Bir destekçi daha bul",
+      "body": "Sigarayı bırakmış bir tanıdığın var mı? Ona en çok neyin işine yaradığını sor.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "prep-20",
+      "phase": "preparation",
+      "day": 20,
+      "title": "Sigara satın alma alışkanlığını değiştir",
+      "body": "Karton ya da çift paket almayı bırak; her seferinde tek paket al. Sigaraya ulaşmak zorlaştıkça otomatik içmek azalır.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-21",
+      "phase": "preparation",
+      "day": 21,
+      "title": "Bıraktıktan sonra neler olur?",
+      "body": "Sağlık iyileşme zaman çizelgesine göz at: bıraktıktan 20 dakika sonra bile vücudunda olumlu değişiklikler başlar.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.1"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-22",
+      "phase": "preparation",
+      "day": 22,
+      "title": "Yemekten sonra masadan kalk",
+      "body": "Bugün her yemekten sonra hemen masadan kalk ve dişlerini fırçala ya da beş dakika yürü. Yemek sonrası sigara bağını zayıflat.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-23",
+      "phase": "preparation",
+      "day": 23,
+      "title": "Daha önce başardıklarını hatırla",
+      "body": "Hayatında zor bir alışkanlığı değiştirdiğin bir zamanı düşün. Bunu nasıl başardın? Aynı gücü şimdi de kullanabilirsin.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-24",
+      "phase": "preparation",
+      "day": 24,
+      "title": "Günlük hedefini kontrol et",
+      "body": "Azaltma planındaki bu haftanın hedefine bak. Bugün hedefinin altında kalabildin mi? Kalabildiysen bunu kendine söyle.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7",
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-25",
+      "phase": "preparation",
+      "day": 25,
+      "title": "Hatırlatıcı koy",
+      "body": "Telefonunun kilit ekranına ya da cüzdanına bırakma nedenini hatırlatan küçük bir not koy.",
+      "durationMin": 3,
+      "bctCodes": [
+        "7.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-26",
+      "phase": "preparation",
+      "day": 26,
+      "title": "\"Bir tane bir şey olmaz\" düşüncesini tanı",
+      "body": "Bu düşünce çoğu kişiyi yeniden başlatan cümledir. Duyduğunda onu sadece bir düşünce olarak fark et; ona uymak zorunda değilsin.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-27",
+      "phase": "preparation",
+      "day": 27,
+      "title": "Bırakma gününü işaretle",
+      "body": "Takviminde bırakma gününü işaretle ve o güne kadar kalan günleri say. Tarihi değiştirmek gerekirse kamp ayarlarından yapabilirsin.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.1",
+        "1.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-28",
+      "phase": "preparation",
+      "day": 28,
+      "title": "Bırakmanın artıları ve zorlukları",
+      "body": "Bir kâğıda iki sütun aç: bırakmanın sana kazandıracakları ve seni zorlayacak şeyler. Zorlukların her biri için küçük bir çözüm yaz.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "quit-0",
+      "phase": "quit_day",
+      "day": 0,
+      "title": "Bugün bırakma günün",
+      "body": "Bugün tek nefes bile yok kuralı başlıyor. Bırakma Günü ekranındaki kontrol listesini tamamla, acil durum kutunu yanında tut ve zorlandığında \"Canım çekiyor\" butonunu kullan.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.9",
+        "1.4",
+        "12.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-1",
+      "phase": "critical_week",
+      "day": 1,
+      "title": "Sabah rutinini değiştir",
+      "body": "Uyanınca ilk iş bir bardak su iç ve duş al. Sabah sigarasının yerini yeni bir alışkanlık alsın.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-2",
+      "phase": "critical_week",
+      "day": 2,
+      "title": "Zirve günlerini tanı",
+      "body": "Yoksunluk belirtileri genellikle ilk üç günde en yoğundur. Bugün zor geçebilir; bu, vücudunun nikotinsiz yaşamaya alıştığının işaretidir.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.6",
+        "11.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "crit-3",
+      "phase": "critical_week",
+      "day": 3,
+      "title": "Kahveni farklı bir yerde iç",
+      "body": "Bugün kahve ya da çayını her zaman sigara içtiğin yerden uzakta iç. Küçük bir yer değişikliği güçlü bir tetikleyiciyi zayıflatır.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-4",
+      "phase": "critical_week",
+      "day": 4,
+      "title": "Yemekten sonra 5 dakika yürü",
+      "body": "Yemek biter bitmez masadan kalk ve beş dakika yürü ya da dişlerini fırçala.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-5",
+      "phase": "critical_week",
+      "day": 5,
+      "title": "Tasarrufunla kendine küçük bir ödül seç",
+      "body": "Şimdiye kadar biriktirdiğin parayla kendine küçük bir şey al ya da bir ödül planla. Emeğini fark etmek önemli.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-6",
+      "phase": "critical_week",
+      "day": 6,
+      "title": "Destekçine haber ver",
+      "body": "Destekçine kaç gündür dumansız olduğunu yaz. Paylaşmak hem seni hem onu motive eder.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.3"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "crit-7",
+      "phase": "critical_week",
+      "day": 7,
+      "title": "İlk haftanı değerlendir",
+      "body": "İlk haftayı tamamladın. En zor an neydi, seni ne geçirdi? Bunu bir cümleyle yaz; bir sonraki zor anda bu cümle işine yarayacak.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4",
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-8",
+      "phase": "strengthening",
+      "day": 8,
+      "title": "Kendini nasıl tanımlıyorsun?",
+      "body": "\"Sigarayı bırakmaya çalışıyorum\" yerine \"Ben sigara içmeyen biriyim\" demeyi dene. Kimliğin değiştikçe istek de zayıflar.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-9",
+      "phase": "strengthening",
+      "day": 9,
+      "title": "Yeni bir risk anına plan yap",
+      "body": "Bu hafta karşılaşacağın yeni bir zor durumu düşün (bir davet, yoğun bir iş günü) ve onun için Eğer–O zaman planı ekle.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4",
+        "4.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-10",
+      "phase": "strengthening",
+      "day": 10,
+      "title": "Hareket et",
+      "body": "Bugün en az 10 dakika tempolu yürü. Hareket, isteği ve gerginliği azaltır; nefesinin ne kadar rahatladığını da fark edebilirsin.",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-11",
+      "phase": "strengthening",
+      "day": 11,
+      "title": "Değişimleri fark et",
+      "body": "Bıraktığından beri koku, tat alma ya da nefes alışında bir fark var mı? Fark ettiklerini bir yere not et.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-12",
+      "phase": "strengthening",
+      "day": 12,
+      "title": "Nefes egzersizi yap",
+      "body": "Stresli bir anda kutu nefesi dene: 4 saniye al, 4 tut, 4 ver, 4 bekle. Günde bir kez pratik yapmak zor anda işini kolaylaştırır.",
+      "durationMin": 3,
+      "bctCodes": [
+        "11.2",
+        "4.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-13",
+      "phase": "strengthening",
+      "day": 13,
+      "title": "Sigara içen arkadaşlarına sınırını söyle",
+      "body": "Yakınında sigara içilmemesini rica etmekten çekinme. Kısa ve net bir cümle yeterli: \"Bıraktım, yanımda içmesen sevinirim.\"",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "str-14",
+      "phase": "strengthening",
+      "day": 14,
+      "title": "İki haftanı kutla",
+      "body": "İki hafta dumansızsın. Bu sürede atlattığın krizleri say ve kendine bunu söyle: \"Başarabiliyorum.\"",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-15",
+      "phase": "strengthening",
+      "day": 15,
+      "title": "Kilo endişesiyle barış",
+      "body": "Bıraktıktan sonra iştah artabilir. Bu normaldir. Öğün atlamamak, su içmek ve hareket etmek yardımcı olur; şimdilik önceliğin dumansız kalmak.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.1"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-16",
+      "phase": "strengthening",
+      "day": 16,
+      "title": "Elini meşgul eden bir şey bul",
+      "body": "Sigara tutma alışkanlığının yerine elini meşgul edecek bir şey seç: bir kalem, bir halka, bir stres topu. Bugün onu yanında taşı.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-17",
+      "phase": "strengthening",
+      "day": 17,
+      "title": "Düşüncelerinle mesafe al",
+      "body": "Bugün aklına sigara düşüncesi geldiğinde \"Şu an sigara içmeyi düşündüğümü fark ediyorum\" de. Düşünceyi fark etmek ona uymak zorunda olmadığını hatırlatır.",
+      "durationMin": 5,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-18",
+      "phase": "strengthening",
+      "day": 18,
+      "title": "Alkollü ortamlara hazırlan",
+      "body": "Alkol, en güçlü tetikleyicilerden biridir. Bu hafta alkol olan bir ortama gireceksen planını önceden yap ya da ilk haftalarda bu ortamlardan kaçınmayı düşün.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3",
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-19",
+      "phase": "strengthening",
+      "day": 19,
+      "title": "Tasarruf hedefini güncelle",
+      "body": "Ödül kumbarana bak; hedefine ne kadar yaklaştın? Yeni bir hedef eklemek motivasyonunu taze tutar.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-20",
+      "phase": "strengthening",
+      "day": 20,
+      "title": "Ruh halindeki değişiklikler",
+      "body": "Bazı günler kendini daha gergin ya da üzgün hissedebilirsin. Bu genellikle geçicidir. Uzun süren ya da ağırlaşan bir durum olursa bir hekime danış.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.6"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-21",
+      "phase": "strengthening",
+      "day": 21,
+      "title": "Üç haftanın özeti",
+      "body": "Kontrol kayıtlarına bak: istek sayın ilk haftaya göre azaldı mı? Azaldıysa bu, beyninin yeniden öğrendiğinin işareti.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-22",
+      "phase": "strengthening",
+      "day": 22,
+      "title": "Stres için yeni bir yol dene",
+      "body": "Sigara yerine stresle başa çıkmanın yeni bir yolunu dene: kısa bir yürüyüş, sevdiğin bir müzik, biriyle konuşmak.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "11.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-23",
+      "phase": "strengthening",
+      "day": 23,
+      "title": "Birine teşekkür et",
+      "body": "Bu süreçte sana destek olan birine teşekkür et. Destek almak da vermek de yolunu kolaylaştırır.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.3"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "str-24",
+      "phase": "strengthening",
+      "day": 24,
+      "title": "Hatırlatıcını yenile",
+      "body": "Kilit ekranındaki ya da cüzdanındaki hatırlatıcı notunu yenile. Yeni nedenlerin olabilir.",
+      "durationMin": 3,
+      "bctCodes": [
+        "7.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-25",
+      "phase": "strengthening",
+      "day": 25,
+      "title": "Kayma çöküş değildir",
+      "body": "Bir sigara içsen bile bu her şeyin bittiği anlamına gelmez. Kayma olursa ne yapacağını şimdiden bil: kaydet, ne olduğunu incele ve devam et.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-26",
+      "phase": "strengthening",
+      "day": 26,
+      "title": "Yeni bir hobiye vakit ayır",
+      "body": "Sigaraya ayırdığın zamanları yeni bir şeyle doldur: yürüyüş, el işi, kitap, müzik. Bugün buna 10 dakika ayır.",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-27",
+      "phase": "strengthening",
+      "day": 27,
+      "title": "Kazandıklarını listele",
+      "body": "Bıraktığından beri kazandıklarını yaz: para, zaman, sağlık, özgürlük. Liste uzadıkça kararın güçlenir.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-28",
+      "phase": "strengthening",
+      "day": 28,
+      "title": "Bir sonraki ay için plan yap",
+      "body": "Önümüzdeki ay seni zorlayabilecek olayları düşün (tatil, bayram, sınav, düğün) ve her biri için bir plan yaz.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-29",
+      "phase": "strengthening",
+      "day": 29,
+      "title": "İlerlemeni paylaş",
+      "body": "Destekçine ya da ailene bir ayına yaklaştığını söyle. Kutlamayı birlikte planlayabilirsiniz.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "str-30",
+      "phase": "strengthening",
+      "day": 30,
+      "title": "Bir ayını kutla",
+      "body": "Bir ay dumansızsın. Kendine biriktirdiğin parayla bir ödül ver ve bu ay seni en çok neyin taşıdığını düşün.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "10.9"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-31",
+      "phase": "maintenance",
+      "day": 31,
+      "title": "Yeni kimliğin",
+      "body": "Artık sigara içmeyen birisin. Bu yeni kimliği güçlendirmek için bugün kendine böyle hitap et.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-33",
+      "phase": "maintenance",
+      "day": 33,
+      "title": "Sigara içen biriyle buluşmadan önce",
+      "body": "Sigara içen bir arkadaşınla buluşacaksan planını önceden gözden geçir: ne içeceksin, nerede oturacaksın, teklif ederse ne diyeceksin?",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-35",
+      "phase": "maintenance",
+      "day": 35,
+      "title": "Nefesinin farkına var",
+      "body": "Bugün merdiven çık ya da tempolu yürü ve nefesini dinle. Bıraktığından beri farkı hissediyor musun?",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-38",
+      "phase": "maintenance",
+      "day": 38,
+      "title": "Gizli tetikleyiciler",
+      "body": "Haftalar geçtikçe istekler seyrekleşir ama beklenmedik anlarda gelebilir: bir koku, bir şarkı, eski bir mekân. Bunlar normaldir ve geçer.",
+      "durationMin": 3,
+      "bctCodes": [
+        "4.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-40",
+      "phase": "maintenance",
+      "day": 40,
+      "title": "Alkol ortamında nasıl davranacaksın?",
+      "body": "Alkol olan bir ortamda nasıl davranacağını planla: içkini hangi elinde tutacaksın, sigara içilen yerden nasıl uzak duracaksın?",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-42",
+      "phase": "maintenance",
+      "day": 42,
+      "title": "Altı haftanın değerlendirmesi",
+      "body": "Altı hafta oldu. İstatistiklerine bak: hangi araçlar en çok işine yaradı? Onları kullanmaya devam et.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-45",
+      "phase": "maintenance",
+      "day": 45,
+      "title": "Tasarruf kumbaranı kontrol et",
+      "body": "Ödül hedeflerinden birine ulaştın mı? Ulaştıysan kutla; ulaşmadıysan ne kadar kaldığına bak.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-47",
+      "phase": "maintenance",
+      "day": 47,
+      "title": "Başkasına destek ol",
+      "body": "Bırakmayı düşünen birini tanıyor musun? Deneyimini paylaş; başkasına destek olmak senin kararını da güçlendirir.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-49",
+      "phase": "maintenance",
+      "day": 49,
+      "title": "Özlem düşüncesiyle başa çık",
+      "body": "\"Keşke bir tane içebilsem\" düşüncesi gelebilir. Bu bir özlemdir, bir talimat değil. Fark et, nedenlerini hatırla ve devam et.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-52",
+      "phase": "maintenance",
+      "day": 52,
+      "title": "Stres planını gözden geçir",
+      "body": "Son haftalarda seni en çok strese sokan şey neydi? Bu durumlar için en az bir başa çıkma yolun hazır mı?",
+      "durationMin": 5,
+      "bctCodes": [
+        "11.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-54",
+      "phase": "maintenance",
+      "day": 54,
+      "title": "Atlattığın krizleri say",
+      "body": "Bugüne kadar kaç krizi sigara içmeden atlattın? Her biri, bir sonrakini kolaylaştıran bir deneyim.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-56",
+      "phase": "maintenance",
+      "day": 56,
+      "title": "Tatil ve özel günler için plan",
+      "body": "Yaklaşan bir tatil, bayram ya da kutlama var mı? Rutinin değiştiğinde eski alışkanlıklar uyanabilir; önceden plan yap.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-59",
+      "phase": "maintenance",
+      "day": 59,
+      "title": "Uzun vadeli kazanımlar",
+      "body": "Sağlık zaman çizelgende bir sonraki kazanıma ne kadar kaldığına bak. Her ay vücudun biraz daha iyileşiyor.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.1"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-61",
+      "phase": "maintenance",
+      "day": 61,
+      "title": "Yeni alışkanlığını güçlendir",
+      "body": "Sigaranın yerine koyduğun yeni alışkanlığa (yürüyüş, su, nefes) bugün de 10 dakika ayır.",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-63",
+      "phase": "maintenance",
+      "day": 63,
+      "title": "İki ayın bilançosu",
+      "body": "İki ay dumansızsın. Kazandığın parayı, atlattığın krizleri ve sağlığındaki değişiklikleri düşün.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-66",
+      "phase": "maintenance",
+      "day": 66,
+      "title": "Destekçinle konuş",
+      "body": "Destekçine bu sürecin nasıl geçtiğini anlat ve hâlâ zorlandığın anlar varsa söyle.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.3"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-68",
+      "phase": "maintenance",
+      "day": 68,
+      "title": "Eski alışkanlık mekânlarını fark et",
+      "body": "Eskiden sigara içtiğin bir yere gittiğinde isteğin artabilir. Bu mekânlarda ne yapacağını önceden planla.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-70",
+      "phase": "maintenance",
+      "day": 70,
+      "title": "Kendine şefkat göster",
+      "body": "Zorlandığın günlerde kendine bir arkadaşına davranır gibi davran. Mükemmel olmak zorunda değilsin; devam etmek yeterli.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-73",
+      "phase": "maintenance",
+      "day": 73,
+      "title": "Yeniden başlamayı önleme planı",
+      "body": "Eğer bir gün bir sigara içersen ne yapacaksın? Planını şimdi yaz: kaydet, nedenini incele, programa devam et.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-75",
+      "phase": "maintenance",
+      "day": 75,
+      "title": "Değişimini fotoğrafla",
+      "body": "Bugün kendinle ilgili bir şeyi not et ya da fotoğrafla: daha rahat nefes, daha iyi uyku, daha fazla para. Bu, gelecekteki sana bir hatırlatma olsun.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-77",
+      "phase": "maintenance",
+      "day": 77,
+      "title": "Kendine teşekkür et",
+      "body": "Bugün kendine bir teşekkür et. Bu yolu yürüyen sensin.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-80",
+      "phase": "maintenance",
+      "day": 80,
+      "title": "Sigarasız bir gelecek",
+      "body": "Bir yıl sonra kendini nerede görüyorsun? Sigarasız bir gelecekte yapmak istediğin bir şeyi hayal et.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-82",
+      "phase": "maintenance",
+      "day": 82,
+      "title": "Deneyimini paylaş",
+      "body": "Bıraktığını öğrenen birine kısa bir tavsiye ver. En çok neyin işine yaradığını söyle.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-84",
+      "phase": "maintenance",
+      "day": 84,
+      "title": "Mezuniyete hazırlık",
+      "body": "Kampın sonuna bir hafta kaldı. 90. günden sonra da kullanacağın üç aracı seç.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-87",
+      "phase": "maintenance",
+      "day": 87,
+      "title": "Yolculuğunu hatırla",
+      "body": "Kampın ilk gününü düşün. O günden bugüne neler değişti?",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-89",
+      "phase": "maintenance",
+      "day": 89,
+      "title": "Kendine yeni bir söz ver",
+      "body": "Kamp bitiyor, ama dumansız hayatın devam ediyor. Kendine önümüzdeki ay için küçük bir söz ver.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.1",
+        "1.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "free-91",
+      "phase": "freedom",
+      "day": 91,
+      "title": "Mezun oldun",
+      "body": "90 günü tamamladın. Bu büyük bir kazanım. Mezuniyet ekranında yolculuğunu gör ve kendini kutla.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "10.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-120",
+      "phase": "freedom",
+      "day": 120,
+      "title": "Aylık kontrol: dört ay",
+      "body": "Dört aydır dumansızsın. Hâlâ zorlandığın anlar var mı? Planlarını gerekirse güncelle.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-150",
+      "phase": "freedom",
+      "day": 150,
+      "title": "Aylık kontrol: beş ay",
+      "body": "Yaklaşan özel günler ya da değişiklikler için planlarını gözden geçir.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "free-180",
+      "phase": "freedom",
+      "day": 180,
+      "title": "Altı ay",
+      "body": "Altı ay dumansızsın. Biriktirdiğin parayı ve sağlığındaki değişiklikleri düşün; bu yarım yılı kutla.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-270",
+      "phase": "freedom",
+      "day": 270,
+      "title": "Dokuz ay",
+      "body": "Dokuz ay oldu. Sigara artık hayatının bir parçası değil; bunu fark etmek bile bir kazanım.",
+      "durationMin": 5,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-365",
+      "phase": "freedom",
+      "day": 365,
+      "title": "Bir yıl",
+      "body": "Bir yıl dumansızsın. Sağlık zaman çizelgende önemli bir eşiğe ulaştın. Kendini kutla.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "10.9"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    }
+  ],
+  "quitDay": {
+    "title": "Bugün bırakma günün",
+    "intro": "Bu günü özel kılan senin kararın. Bugünden itibaren tek bir kural var.",
+    "rule": "Tek nefes bile yok",
+    "ruleText": "Bugünden itibaren tek bir nefes bile yok. Bir nefesin \"bir şey olmaz\" gibi görünmesi, isteği yeniden canlandırır. Zorlandığında \"Canım çekiyor\" butonunu kullan.",
+    "checklist": [
+      {
+        "id": "remove",
+        "text": "Evdeki, arabadaki ve çantadaki tüm sigara, çakmak ve küllükleri attım"
+      },
+      {
+        "id": "kit",
+        "text": "Acil durum kutum (sakız, su, stres topu) yanımda"
+      },
+      {
+        "id": "plans",
+        "text": "En riskli üç anım için Eğer–O zaman planlarımı okudum"
+      },
+      {
+        "id": "supporter",
+        "text": "Destekçime bugün bıraktığımı söyledim"
+      },
+      {
+        "id": "alo",
+        "text": "ALO 171 numarası rehberimde kayıtlı"
+      },
+      {
+        "id": "day",
+        "text": "Bugün için sigarasız bir plan yaptım (yürüyüş, sevdiğim bir aktivite)"
+      }
+    ],
+    "after": "Bugün zorlanırsan bu normaldir. İstekler dalga gibidir; gelir, zirve yapar ve geçer."
+  }
+}

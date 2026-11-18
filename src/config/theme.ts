@@ -23,6 +23,11 @@ export interface ThemeColors {
   /** Relax phase colour in the player. */
   relax: string;
   breathe: string;
+  /** Ring around unread story bubbles. */
+  storyRing: string;
+  /** Calm informational action (e.g. "what may happen"). */
+  info: string;
+  infoText: string;
   locked: string;
   overlay: string;
 }
@@ -53,6 +58,10 @@ const palette = {
   petrol500: '#1B6F86',
   petrol400: '#2C8CA6',
   petrol100: '#D7EEF3',
+  blue500: '#2F7DE1',
+  blue400: '#5AA2F0',
+  green700: '#1B7F4E',
+  green400: '#45C084',
   orange500: '#F26B1D',
   orange400: '#FF8A45',
   orange100: '#FFE7D9',
@@ -96,6 +105,9 @@ export const lightTheme: Theme = {
     contract: palette.orange500,
     relax: palette.gray400,
     breathe: palette.petrol400,
+    storyRing: palette.blue500,
+    info: palette.green700,
+    infoText: palette.white,
     locked: palette.gray200,
     overlay: 'rgba(11,29,46,0.55)',
   },
@@ -122,6 +134,9 @@ export const darkTheme: Theme = {
     contract: palette.orange400,
     relax: '#5D7184',
     breathe: palette.petrol400,
+    storyRing: palette.blue400,
+    info: palette.green400,
+    infoText: palette.navy900,
     locked: palette.navy600,
     overlay: 'rgba(0,0,0,0.6)',
   },

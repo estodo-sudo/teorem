@@ -1,0 +1,712 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "bricker2020",
+    "bricker2021",
+    "nci-withdrawal"
+  ],
+  "lessons": [
+    {
+      "id": "values",
+      "emoji": "🧭",
+      "title": "Değerlerin",
+      "summary": "Sigarasız hayatta neye önem veriyorsun?",
+      "relapse": [],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "🧭",
+          "title": "Pusulan ne gösteriyor?",
+          "text": "Değerler, hayatta neyin önemli olduğunu gösteren pusulandır: sağlık, aile, özgürlük, merak, emek. Hedefler bir gün biter, değerler hep yol gösterir."
+        },
+        {
+          "emoji": "💡",
+          "title": "Neden önemli?",
+          "text": "İstek geldiğinde \"Bu sigara beni önem verdiğim şeye yaklaştırır mı, uzaklaştırır mı?\" diye sormak, kararını kolaylaştırır."
+        },
+        {
+          "emoji": "👨‍👩‍👧",
+          "title": "Somut hale getir",
+          "text": "\"Sağlık\" yerine \"Kızımla koşabilmek\" gibi somut bir cümle, zor anda daha güçlü bir hatırlatıcıdır."
+        },
+        {
+          "emoji": "🌱",
+          "title": "Mükemmel olmak gerekmez",
+          "text": "Değerlere göre yaşamak her gün kusursuz olmak değil; her seferinde yönünü yeniden onlara çevirmektir."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Senin için en önemli iki değeri seç ve her biri için sigarasız hayatta yapmak istediğin bir şeyi yaz. Bu cümleleri nedenlerine ekleyebilirsin."
+      },
+      "quiz": [
+        {
+          "q": "İstek geldiğinde değerler nasıl yardım eder?",
+          "options": [
+            "İsteği tamamen yok eder",
+            "Sigaranın beni önem verdiğim şeye yaklaştırıp yaklaştırmadığını sormamı sağlar",
+            "Sadece motivasyon sözüdür"
+          ],
+          "answer": 1,
+          "explain": "Değerler isteği silmez; ama hangi yöne gitmek istediğini hatırlatarak seçim yapmanı kolaylaştırır."
+        }
+      ],
+      "order": 1,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "wave",
+      "emoji": "🌊",
+      "title": "İstek bir dalgadır",
+      "summary": "İsteğin doğası: yükselir, zirve yapar, söner.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021",
+        "nci-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "🌊",
+          "title": "İstek nasıl davranır?",
+          "text": "Sigara isteği bir dalga gibidir: yükselir, zirveye ulaşır ve sonra alçalır. Çoğu istek birkaç dakika içinde zirve yapar."
+        },
+        {
+          "emoji": "⏱️",
+          "title": "Zaman senden yana",
+          "text": "İsteğe hemen karşılık vermediğinde dalga kendiliğinden söner. Her seferinde beynin, isteğin geçebileceğini öğrenir."
+        },
+        {
+          "emoji": "📉",
+          "title": "Zamanla seyrekleşir",
+          "text": "İlk günlerde istekler sık ve güçlüdür. Haftalar geçtikçe hem sıklıkları hem şiddetleri azalır.",
+          "didYouKnow": "Yoksunluk belirtileri genellikle ilk hafta en yoğundur ve ilk ay içinde belirgin şekilde azalır."
+        },
+        {
+          "emoji": "🏄",
+          "title": "Savaşmak yerine sörf",
+          "text": "İstekle savaşmak onu büyütebilir. Onu fark edip üzerinde durmak, dalganın geçmesine izin vermektir."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bir sonraki istekte saati kontrol et ve isteğin ne kadar sürdüğünü gözlemle. Çoğu zaman düşündüğünden kısa sürdüğünü fark edeceksin."
+      },
+      "quiz": [
+        {
+          "q": "Sigara isteği genellikle nasıl ilerler?",
+          "options": [
+            "Sigara içene kadar sürekli artar",
+            "Yükselir, zirve yapar ve kendiliğinden azalır",
+            "Hiç değişmez"
+          ],
+          "answer": 1,
+          "explain": "İstekler dalga gibidir; karşılık vermediğinde zirveden sonra kendiliğinden azalır."
+        }
+      ],
+      "order": 2,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "surf",
+      "emoji": "🏄",
+      "title": "Dalga sörfü pratiği",
+      "summary": "İstekle birlikte durabilmeyi rehberli pratikle öğren.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "👀",
+          "title": "1. Fark et",
+          "text": "İstek geldiğinde kendine söyle: \"Şu an sigara isteği hissediyorum.\" Adını koymak, isteğe kapılmadan onu görmeni sağlar."
+        },
+        {
+          "emoji": "🫁",
+          "title": "2. Bedende bul",
+          "text": "İsteği bedeninin neresinde hissediyorsun? Göğüs, boğaz, eller, mide? Hissin şeklini, sıcaklığını, yoğunluğunu merakla incele."
+        },
+        {
+          "emoji": "🌬️",
+          "title": "3. Nefesle eşlik et",
+          "text": "Nefesin doğal aksın. Her nefeste isteğe biraz daha yer aç; onu itmeye ya da kovmaya çalışma."
+        },
+        {
+          "emoji": "📈",
+          "title": "4. Dalgayı izle",
+          "text": "His artabilir, değişebilir, azalabilir. Sadece izle. Zirve geçtiğinde, sigara içmeden bir dalgayı atlatmış olursun."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "\"Canım çekiyor\" aracındaki dalga sörfünü bir istek anında 3 dakika boyunca dene. İstek yoksa bile bugün bir kez pratik yap."
+      },
+      "quiz": [
+        {
+          "q": "Dalga sörfünün amacı nedir?",
+          "options": [
+            "İsteği yok etmek",
+            "İstekle birlikte durabilmek ve geçmesine izin vermek",
+            "Sigarayı ertelemek için kendini zorlamak"
+          ],
+          "answer": 1,
+          "explain": "Amaç isteği silmek değil, onunla birlikte durabilmek; iCanQuit çalışmasındaki temel beceri de budur."
+        }
+      ],
+      "order": 3,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "thoughts",
+      "emoji": "💭",
+      "title": "Düşünceler sadece düşüncedir",
+      "summary": "\"Bir tane bir şey olmaz\" düşüncesinden mesafe al.",
+      "relapse": [
+        "just_one"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "💭",
+          "title": "Zihnin konuşur",
+          "text": "Bırakma sürecinde zihin ikna edici cümleler kurar: \"Bir tane bir şey olmaz\", \"Bugün hak ettin\", \"Bu stresle bırakılmaz\"."
+        },
+        {
+          "emoji": "🔍",
+          "title": "Düşünce ≠ gerçek",
+          "text": "Bir düşüncenin aklına gelmesi, onun doğru olduğu ya da ona uyman gerektiği anlamına gelmez."
+        },
+        {
+          "emoji": "🏷️",
+          "title": "Etiketle",
+          "text": "Düşünceyi şöyle söyle: \"Aklıma 'bir tane bir şey olmaz' düşüncesi geliyor.\" Bu küçük cümle düşünceyle arana mesafe koyar."
+        },
+        {
+          "emoji": "🚗",
+          "title": "Arka koltuktaki yolcu",
+          "text": "Düşünceleri arabanın arka koltuğundaki yolcular gibi düşün. Konuşabilirler, ama direksiyon sende.",
+          "didYouKnow": "\"Bir tane\"den sonra yeniden başlamak, bırakmayı denemiş kişilerin en sık anlattığı deneyimlerden biridir."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugün sigara ile ilgili bir düşünce geldiğinde başına \"Aklıma şu düşünce geliyor:\" ekleyerek tekrar et. Hissettiğin farkı fark et."
+      },
+      "quiz": [
+        {
+          "q": "\"Bir tane bir şey olmaz\" düşüncesi geldiğinde ne yapmak işe yarar?",
+          "options": [
+            "Düşünceyle tartışıp onu yenmek",
+            "Onu bir düşünce olarak fark edip uymadan geçmesine izin vermek",
+            "Düşünce geçene kadar bir tane içmek"
+          ],
+          "answer": 1,
+          "explain": "Düşünceyi fark edip etiketlemek, ona uymak zorunda olmadığını hatırlatır."
+        }
+      ],
+      "order": 4,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "body",
+      "emoji": "🫀",
+      "title": "Bedensel hisleri kabul",
+      "summary": "Gerginlik, huzursuzluk ve boşluk hissiyle durabilmek.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021",
+        "nci-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "🫀",
+          "title": "Bedenin konuşur",
+          "text": "Bırakınca gerginlik, huzursuzluk, ellerde boşluk ya da midede bir sıkışma hissedebilirsin. Bunlar yoksunluğun normal parçalarıdır."
+        },
+        {
+          "emoji": "🧲",
+          "title": "Direnç büyütür",
+          "text": "Rahatsız edici bir hissi hemen gidermeye çalışmak çoğu zaman onu daha belirgin kılar."
+        },
+        {
+          "emoji": "🛋️",
+          "title": "Yer aç",
+          "text": "Hissi düzeltmek yerine ona yer açmayı dene: \"Bu his burada olabilir, onunla birlikte de günümü sürdürebilirim.\""
+        },
+        {
+          "emoji": "🌤️",
+          "title": "Geçicidir",
+          "text": "Bedensel yoksunluk hisleri genellikle birkaç hafta içinde azalır. Her geçen gün vücudun nikotinsiz dengeye alışır."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugün bir rahatsızlık hissettiğinde 60 saniye boyunca onu sadece gözlemle: nerede, nasıl, ne kadar güçlü? Sonra ne değiştiğine bak."
+      },
+      "quiz": [
+        {
+          "q": "Rahatsız edici bir bedensel hisle başa çıkmanın ACT yolu hangisi?",
+          "options": [
+            "Hemen gidermeye çalışmak",
+            "Ona yer açıp onunla birlikte devam etmek",
+            "Görmezden gelip bastırmak"
+          ],
+          "answer": 1,
+          "explain": "Kabul, hissi sevmek değil; ona yer açıp önem verdiğin şeyi yapmaya devam etmektir."
+        }
+      ],
+      "order": 5,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "emotions",
+      "emoji": "🌦️",
+      "title": "Duygularla çalışmak",
+      "summary": "Stres, öfke ve can sıkıntısı (sigara olmadan).",
+      "relapse": [
+        "stress"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021",
+        "nci-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "🌦️",
+          "title": "Sigara bir duygu aracıydı",
+          "text": "Birçok kişi sigarayı stres, öfke ya da sıkıntıyla baş etmek için kullanır. Bırakınca bu duygular daha görünür hale gelir."
+        },
+        {
+          "emoji": "🧯",
+          "title": "Sigara stresi çözmez",
+          "text": "Sigaranın rahatlatıyor gibi gelmesi, büyük ölçüde nikotin yoksunluğunu gidermesinden kaynaklanır. Bıraktıktan bir süre sonra birçok kişi daha sakin hisseder."
+        },
+        {
+          "emoji": "🗣️",
+          "title": "Duyguya ad koy",
+          "text": "\"Şu an öfkeliyim\" ya da \"canım sıkılıyor\" demek, duyguyla arana küçük bir mesafe koyar ve seçim yapmanı kolaylaştırır."
+        },
+        {
+          "emoji": "🧰",
+          "title": "Yeni araçlar",
+          "text": "Kısa bir yürüyüş, nefes egzersizi, biriyle konuşmak ya da duyguyu yazmak; sigaranın yerini alabilecek yollardır."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugün güçlü bir duygu yaşadığında ona bir ad koy ve sigara yerine bir aracı dene: nefes, yürüyüş ya da birine yazmak."
+      },
+      "quiz": [
+        {
+          "q": "Sigaranın stresi azaltıyor gibi gelmesinin başlıca nedeni nedir?",
+          "options": [
+            "Sigaranın sakinleştirici bir ilaç olması",
+            "Nikotin yoksunluğunun geçici olarak giderilmesi",
+            "Dumanın ciğerleri gevşetmesi"
+          ],
+          "answer": 1,
+          "explain": "Sigara içen biri, iki sigara arasında hafif bir yoksunluk yaşar; sigara bunu giderdiği için rahatlatıyor gibi hissettirir."
+        }
+      ],
+      "order": 6,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "willingness",
+      "emoji": "🚪",
+      "title": "İsteklilik",
+      "summary": "Önem verdiğin şey için rahatsızlığa yer açmak.",
+      "relapse": [],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "🚪",
+          "title": "İsteklilik nedir?",
+          "text": "İsteklilik, önem verdiğin bir şey için rahatsız edici duygu ve düşüncelere yer açmaya razı olmaktır."
+        },
+        {
+          "emoji": "⛰️",
+          "title": "Dağa tırmanmak gibi",
+          "text": "Zirveye çıkmak isteyen biri yorgunluğu sevmez, ama ona razı olur. Sigarasız hayat da bazı zor anlara razı olmayı gerektirir."
+        },
+        {
+          "emoji": "🎚️",
+          "title": "Ya hep ya hiç değil",
+          "text": "İsteklilik bir anahtar gibidir: aç ya da kapat. İsteği azaltmaya çalışmak yerine ona kapıyı açmayı seçebilirsin."
+        },
+        {
+          "emoji": "🧭",
+          "title": "Değerlerinle bağla",
+          "text": "\"Bu zorluğa neden razıyım?\" sorusunun cevabı değerlerindedir."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugün bir istek anında kendine sor: \"Önem verdiğim şey için bu rahatsızlığa yer açmaya razı mıyım?\" Cevabını not et."
+      },
+      "quiz": [
+        {
+          "q": "İsteklilik ne anlama gelir?",
+          "options": [
+            "İsteği sevmek",
+            "Önem verdiğin şey için rahatsızlığa yer açmaya razı olmak",
+            "İsteğe teslim olmak"
+          ],
+          "answer": 1,
+          "explain": "İsteklilik, rahatsızlığı sevmek değil; değerlerin için ona yer açmayı seçmektir."
+        }
+      ],
+      "order": 7,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "withdrawal",
+      "emoji": "📆",
+      "title": "Yoksunlukta ne beklemeli?",
+      "summary": "Belirtiler, süreleri ve başa çıkma yolları.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "📆",
+          "title": "İlk günler",
+          "text": "Belirtiler genellikle bırakmadan sonraki ilk birkaç günde zirve yapar. İlk hafta en zor dönemdir."
+        },
+        {
+          "emoji": "😤",
+          "title": "Sık görülen belirtiler",
+          "text": "Sigara isteği, sinirlilik, huzursuzluk, odaklanma güçlüğü, uyku sorunları ve iştah artışı en sık yaşananlardır."
+        },
+        {
+          "emoji": "📉",
+          "title": "Ne kadar sürer?",
+          "text": "Çoğu belirti ilk ay içinde belirgin şekilde azalır. Sinirlilik ilk haftada en yoğundur ve 2–4 hafta sürebilir.",
+          "didYouKnow": "Yoksunluk belirtileri vücudun nikotinsiz yaşamaya alıştığının işaretidir; geçicidir."
+        },
+        {
+          "emoji": "🛠️",
+          "title": "Başa çıkma",
+          "text": "Günlük kontroldeki belirti ipuçları her belirti için kısa öneriler sunar. Destek almak da yoksunluğu kolaylaştırır."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugünkü kontrolünde hissettiğin belirtileri işaretle ve önerilerden birini dene."
+      },
+      "quiz": [
+        {
+          "q": "Yoksunluk belirtileri genellikle ne zaman en yoğundur?",
+          "options": [
+            "Bıraktıktan bir yıl sonra",
+            "Bırakmadan sonraki ilk günlerde",
+            "Hiçbir zaman azalmaz"
+          ],
+          "answer": 1,
+          "explain": "Belirtiler genellikle ilk günlerde zirve yapar ve ilk ay içinde belirgin şekilde azalır."
+        }
+      ],
+      "order": 8,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "weight",
+      "emoji": "⚖️",
+      "title": "Kilo alma endişesi",
+      "summary": "Gerçekler ve küçük stratejiler.",
+      "relapse": [
+        "weight"
+      ],
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "emoji": "⚖️",
+          "title": "Bir endişe, bir gerçek",
+          "text": "Bıraktıktan sonra bazı kişiler biraz kilo alabilir. Bunun nedenleri arasında iştahın artması ve metabolizmadaki küçük değişiklikler vardır."
+        },
+        {
+          "emoji": "❤️",
+          "title": "Kazanç daha büyük",
+          "text": "Sigarayı bırakmanın sağlığa faydaları, birkaç kilonun olası etkilerinden çok daha büyüktür."
+        },
+        {
+          "emoji": "🍎",
+          "title": "Küçük stratejiler",
+          "text": "Öğün atlamamak, elinin altında meyve ve sebze bulundurmak, su içmek ve her gün biraz hareket etmek yardımcı olur."
+        },
+        {
+          "emoji": "🎯",
+          "title": "Önce dumansız kal",
+          "text": "İlk haftalarda önceliğin dumansız kalmak. Beslenmeye dair büyük değişiklikleri, kendini daha güçlü hissettiğinde yapabilirsin."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Yarın için elinin altında bulunacak iki sağlıklı atıştırmalık seç ve hazırla."
+      },
+      "quiz": [
+        {
+          "q": "Kilo endişesi için ilk haftalarda en iyi yaklaşım hangisi?",
+          "options": [
+            "Sıkı bir diyete başlamak",
+            "Önceliği dumansız kalmaya verip küçük, sürdürülebilir adımlar atmak",
+            "Kilo almamak için sigaraya dönmek"
+          ],
+          "answer": 1,
+          "explain": "Küçük adımlar yeterlidir; asıl kazanç dumansız kalmaktır."
+        }
+      ],
+      "order": 9,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "social",
+      "emoji": "👥",
+      "title": "Sosyal baskı ve \"hayır\" demek",
+      "summary": "Arkadaş ortamları ve teklifler.",
+      "relapse": [
+        "social",
+        "alcohol"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "👥",
+          "title": "Ortamlar tetikler",
+          "text": "Sigara içilen arkadaş ortamları, düğünler, kahvehaneler ve alkollü buluşmalar güçlü tetikleyicilerdir."
+        },
+        {
+          "emoji": "🙅",
+          "title": "Kısa ve net",
+          "text": "\"Teşekkürler, bıraktım\" yeterlidir. Açıklama yapmak zorunda değilsin."
+        },
+        {
+          "emoji": "🗺️",
+          "title": "Önceden planla",
+          "text": "Ortama girmeden önce ne içeceğini, nerede duracağını ve teklif gelirse ne diyeceğini düşün."
+        },
+        {
+          "emoji": "🍺",
+          "title": "Alkol dikkat",
+          "text": "Alkol kararlılığı zayıflatabilir. İlk haftalarda alkollü ortamlardan kaçınmak ya da sınırlı tutmak işini kolaylaştırır."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bu hafta karşılaşabileceğin bir sosyal durum için Eğer–O zaman planı yaz ve \"hayır\" cümleni bir kez yüksek sesle söyle."
+      },
+      "quiz": [
+        {
+          "q": "Biri sigara uzattığında en işe yarar cevap hangisi olabilir?",
+          "options": [
+            "Uzun bir açıklama yapmak",
+            "\"Teşekkürler, bıraktım\" gibi kısa ve net bir cümle",
+            "Bir tane alıp içmemek"
+          ],
+          "answer": 1,
+          "explain": "Kısa ve net bir cevap tartışmaya yer bırakmaz ve kararını güçlendirir."
+        }
+      ],
+      "order": 10,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "slip",
+      "emoji": "🌱",
+      "title": "Kayma çöküş değildir",
+      "summary": "Öz-şefkat ve geri dönmek.",
+      "relapse": [
+        "just_one"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "🌱",
+          "title": "Kayma olabilir",
+          "text": "Bir ya da birkaç sigara içmek, bırakma sürecinde sık yaşanır. Bu, yolculuğun bittiği anlamına gelmez."
+        },
+        {
+          "emoji": "🧱",
+          "title": "\"Zaten bozdum\" tuzağı",
+          "text": "En büyük risk, bir sigaradan sonra \"artık bozdum\" diyerek tamamen bırakmaktan vazgeçmektir."
+        },
+        {
+          "emoji": "🤲",
+          "title": "Öz-şefkat",
+          "text": "Kendine bir arkadaşına davranır gibi davran. Kendini suçlamak yerine ne olduğunu anlamaya çalış."
+        },
+        {
+          "emoji": "🧭",
+          "title": "Öğren ve devam et",
+          "text": "Kaymanın tetikleyicisini bul, onun için yeni bir plan yap ve programa devam et. Toplam dumansız günlerin korunur."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "\"Bir kayma olursa ne yapacağım?\" sorusunun cevabını şimdiden yaz: kaydet, nedenini incele, yeni plan yap, devam et."
+      },
+      "quiz": [
+        {
+          "q": "Bir kaymadan sonra en yararlı adım hangisi?",
+          "options": [
+            "Kendini suçlayıp programı bırakmak",
+            "Ne olduğunu anlayıp yeni bir plan yapmak ve devam etmek",
+            "Hiçbir şey olmamış gibi davranmak"
+          ],
+          "answer": 1,
+          "explain": "Kaymadan öğrenmek ve devam etmek, bırakma yolculuğunun önemli bir parçasıdır."
+        }
+      ],
+      "order": 11,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "identity",
+      "emoji": "🪪",
+      "title": "Yeni kimliğin",
+      "summary": "\"Ben sigara içmeyen biriyim.\"",
+      "relapse": [],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "emoji": "🪪",
+          "title": "Kimlik değişir",
+          "text": "\"Sigarayı bırakmaya çalışan biri\" ile \"sigara içmeyen biri\" arasında küçük ama güçlü bir fark vardır."
+        },
+        {
+          "emoji": "🗣️",
+          "title": "Dilini değiştir",
+          "text": "\"İçemem\" yerine \"İçmiyorum\" demek, seçimin sana ait olduğunu hatırlatır."
+        },
+        {
+          "emoji": "🔁",
+          "title": "Her seçim bir oy",
+          "text": "Her sigarasız gün, olmak istediğin kişi için verilmiş bir oy gibidir. Oylar biriktikçe yeni kimliğin güçlenir."
+        },
+        {
+          "emoji": "🌄",
+          "title": "Uzun vade",
+          "text": "Zamanla sigara, hayatının bir parçası olmaktan çıkar. Bu kampın sonunda bile yeni alışkanlıklarını sürdürmek önemlidir."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugün en az bir kez kendini \"sigara içmeyen biri\" olarak tanıt ya da düşün."
+      },
+      "quiz": [
+        {
+          "q": "Hangi cümle yeni kimliği daha çok destekler?",
+          "options": [
+            "\"Sigara içemem\"",
+            "\"Sigara içmiyorum\"",
+            "\"Şimdilik içmiyorum ama...\""
+          ],
+          "answer": 1,
+          "explain": "\"İçmiyorum\" demek seçimin senin olduğunu vurgular ve yeni kimliğini güçlendirir."
+        }
+      ],
+      "order": 12,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "sexual-health",
+      "emoji": "💞",
+      "title": "Sigara, damar ve cinsel sağlık",
+      "summary": "Bonus ders: bırakmanın damarlara ve cinsel sağlığa etkisi.",
+      "relapse": [],
+      "bonus": true,
+      "sourceIds": [
+        "who-tobacco",
+        "cdc-health-effects",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "emoji": "🩸",
+          "title": "Sigara damarları etkiler",
+          "text": "Sigara dumanındaki maddeler damar iç yüzeyine zarar verir ve damarları daraltabilir. Bu, kan akışını azaltır."
+        },
+        {
+          "emoji": "💞",
+          "title": "Cinsel sağlıkla bağlantı",
+          "text": "Sertleşme, penise yeterli kan akışına bağlıdır. Bu nedenle sigara, sertleşme sorunları için bilinen risk etkenlerinden biridir."
+        },
+        {
+          "emoji": "📈",
+          "title": "Bırakınca",
+          "text": "Sigarayı bırakmak dolaşımı iyileştirir. Bazı kişilerde zamanla cinsel sağlıkta da iyileşme görülebilir; ancak bu kişiden kişiye değişir."
+        },
+        {
+          "emoji": "🩺",
+          "title": "Ne zaman hekime?",
+          "text": "Süregelen sertleşme sorunları kalp ve damar sağlığıyla ilgili olabilir. Bu durumda bir hekime danışmak önemlidir."
+        }
+      ],
+      "practice": {
+        "title": "Uygula",
+        "text": "Bugün 10 dakikalık tempolu bir yürüyüş yap. Hareket de dolaşımı destekler."
+      },
+      "quiz": [
+        {
+          "q": "Sigara cinsel sağlığı hangi yolla etkileyebilir?",
+          "options": [
+            "Damarları daraltıp kan akışını azaltarak",
+            "Hiçbir şekilde etkilemez",
+            "Sadece kokuyla"
+          ],
+          "answer": 0,
+          "explain": "Sertleşme yeterli kan akışına bağlıdır; sigara damarları etkileyerek bunu zorlaştırabilir."
+        }
+      ],
+      "order": 13,
+      "minutes": 3
+    }
+  ]
+}

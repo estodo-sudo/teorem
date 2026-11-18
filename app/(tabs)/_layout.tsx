@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Icon, type IconName, useTheme } from '@/components';
 import { requiredFirstRunRoute } from '@/features/app/gate';
+import { useCampShortcut } from '@/features/camp/shortcut';
 import { useProfileStore } from '@/stores/profileStore';
 
 const TABS: { name: string; key: string; icon: IconName }[] = [
@@ -18,6 +19,8 @@ export default function TabsLayout() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const gate = useProfileStore((s) => requiredFirstRunRoute(s.profile));
+  // "Canım çekiyor" home-screen shortcut → Sigarasız Kamp SOS (must live in a sub-layout).
+  useCampShortcut();
   // Never render the main app before first-run setup is complete.
   if (gate) return <Redirect href={gate} />;
   return (

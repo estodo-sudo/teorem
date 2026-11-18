@@ -15,7 +15,7 @@ def lesson(id, title, slides, quiz, srcs):
     return {"id": id, "title": title, "slides": slides, "quiz": quiz, "sources": [S[s] for s in srcs], "reviewed": False}
 
 COURSES = [
- {"id": "pf101", "title": "Pelvik Taban 101", "emoji": "🎓", "reviewed": False,
+ {"id": "pf101", "title": "Pelvik Taban Kampüsü", "emoji": "🎓", "reviewed": False,
   "description": "Anatomiden doğru tekniğe, pelvik taban hakkında bilmen gereken temel bilgiler.",
   "lessons": [
    lesson("pf101-1", "Anatomi: Nerede, ne yapar?", [
@@ -65,7 +65,7 @@ COURSES = [
      q("Kazanımları korumak için ne gerekir?", ["Egzersizi bırakmak", "Uzun vadede devam etmek", "Sadece güç testini yapmak"], 1, "Kas gücü, kullanılmadığında azalabilir.")
    ], ["mayo_kegel_men", "nhs_pelvic_men"]),
   ]},
- {"id": "sexual-health", "title": "Cinsel Sağlığın Temelleri", "emoji": "🩺", "reviewed": False,
+ {"id": "sexual-health", "title": "Cinsel Sağlık Kampüsü", "emoji": "🩺", "reviewed": False,
   "description": "Genel, eğitici ve tıbbi dille cinsel sağlığın temel konuları.",
   "lessons": [
    lesson("sh-1", "Cinsel sağlık nedir?", [
@@ -114,7 +114,7 @@ COURSES = [
      q("Doktor görüşmesine nasıl hazırlanabilirsin?", ["Belirtileri ve ilaçları not alarak", "Hiçbir şey söylemeyerek", "Sadece internetteki teşhisi göstererek"], 0, "Not almak, doktorun seni daha iyi değerlendirmesini sağlar.")
    ], ["nhs_ed", "nhs_incont", "mayo_ed"]),
   ]},
- {"id": "stress-sleep", "title": "Stres, Uyku ve Performans", "emoji": "🌙", "reviewed": False,
+ {"id": "stress-sleep", "title": "Stres, Uyku ve Performans Kampüsü", "emoji": "🌙", "reviewed": False,
   "description": "Zihin, uyku ve beden arasındaki bağ ve günlük hayatta uygulanabilecek alışkanlıklar.",
   "lessons": [
    lesson("ss-1", "Stresin bedendeki izleri", [
@@ -162,6 +162,104 @@ COURSES = [
      q("Hangisi daha kalıcı değişim sağlar?", ["Küçük ve sürdürülebilir adımlar", "Bir günde her şeyi değiştirmek", "Hiç plan yapmamak"], 0, "Küçük adımlar sürdürülebilirdir."),
      q("Bir gün antrenmanı kaçırırsan ne yapmalısın?", ["Tamamen bırakmalısın", "Ertesi gün kaldığın yerden devam etmelisin", "İki kat süre yapmalısın"], 1, "Esneklik uzun vadede devamlılığı korur.")
    ], ["nhs_wellbeing", "who_activity"]),
+  ]},
+ {"id": "lifestyle", "title": "Yaşam Tarzı Kampüsü", "emoji": "🥗", "reviewed": False,
+  "description": "Hareket, beslenme, alkol, sigara ve düzenli kontrollerin pelvik taban ve cinsel sağlıkla bağlantısı.",
+  "lessons": [
+   lesson("ls-1", "Hareketin etkisi", [
+     sl("🚶", "Az da olsa hareket", "Gün içinde oturma süresini bölmek ve kısa yürüyüşler yapmak genel sağlığı destekler."),
+     sl("📅", "Haftalık hedef", "Yetişkinler için haftada en az 150 dakika orta yoğunlukta fiziksel aktivite önerilir."),
+     sl("❤️", "Kalp ve damarlar", "Düzenli hareket kalp-damar sağlığını destekler; sağlıklı kan akışı cinsel sağlık için de önemlidir."),
+     sl("🧩", "Kegel ile birlikte", "Kegel antrenmanı genel egzersizin yerini tutmaz; ikisi birbirini tamamlar.")
+   ], [
+     q("Yetişkinler için haftalık önerilen orta yoğunlukta aktivite süresi en az ne kadardır?", ["30 dakika", "150 dakika", "600 dakika"], 1, "Haftada en az 150 dakika orta yoğunlukta aktivite önerilir."),
+     q("Kegel antrenmanı ile genel egzersiz arasındaki ilişki nedir?", ["Kegel genel egzersizin yerini tutar", "Birbirlerini tamamlarlar", "Birlikte yapılmamalıdır"], 1, "İkisi farklı ihtiyaçlara hitap eder ve birlikte yapılabilir.")
+   ], ["who_activity", "nhs_ed"]),
+   lesson("ls-2", "Beslenme", [
+     sl("🥦", "Çeşitlilik", "Sebze, meyve, baklagil ve tam tahıllardan zengin bir beslenme genel sağlığı destekler."),
+     sl("🧂", "Tuz ve şeker", "Fazla tuz, şeker ve işlenmiş gıdayı azaltmak kalp-damar sağlığı için önerilir."),
+     sl("💧", "Su", "Yeterli sıvı almak önemlidir; idrar kaçırma kaygısıyla su içmeyi kısmak mesaneyi rahatsız edebilir."),
+     sl("🌾", "Lif ve kabızlık", "Lifli beslenme kabızlığı azaltabilir; ıkınmak pelvik tabana ek yük bindirir.")
+   ], [
+     q("Kabızlık sırasında ıkınmak pelvik tabanı nasıl etkiler?", ["Ek yük bindirir", "Kasları dinlendirir", "Hiçbir etkisi yoktur"], 0, "Ikınmak karın içi basıncı artırarak pelvik tabana yük bindirir."),
+     q("İdrar kaçırma kaygısıyla su içmeyi kısmak neden önerilmez?", ["Mesaneyi rahatsız edebilir", "Kasları güçlendirir", "Uykuyu artırır"], 0, "Yoğun idrar mesaneyi tahriş edebilir; yeterli sıvı önemlidir.")
+   ], ["who_diet", "nhs_water", "nhs_incont"]),
+   lesson("ls-3", "Alkol ve sigara", [
+     sl("🍺", "Alkol", "Fazla alkol idrar söktürücü etki yapabilir ve sertleşme sorunlarına katkıda bulunabilir."),
+     sl("🚭", "Sigara", "Sigara damarlara zarar verir; damar sağlığı sertleşme için önemli bir etkendir."),
+     sl("📉", "Azaltmak da değerli", "Tamamen bırakmak en iyisidir; ancak azaltmak bile sağlık açısından fark yaratabilir."),
+     sl("🤝", "Destek almak", "Sigarayı bırakma ve alkolü azaltma konusunda destek hatları ve uzmanlar yardımcı olabilir.")
+   ], [
+     q("Sigara cinsel sağlığı hangi yoldan etkileyebilir?", ["Damarlara zarar vererek", "Kasları büyüterek", "Uykuyu düzenleyerek"], 0, "Sigara damar sağlığını bozar."),
+     q("Alkolü tamamen bırakamıyorsan ne söylenebilir?", ["Azaltmak da fark yaratabilir", "Hiçbir şey değişmez", "Daha fazla içmek daha iyidir"], 0, "Azaltmak bile sağlık açısından değerlidir.")
+   ], ["nhs_alcohol", "nhs_smoking", "nhs_ed"]),
+   lesson("ls-4", "Kilo ve karın içi basınç", [
+     sl("⚖️", "Karın bölgesi", "Karın bölgesindeki fazla kilo, pelvik tabana sürekli ek basınç bindirebilir."),
+     sl("🔗", "Ortak risk", "Fazla kilo; kalp-damar hastalıkları ve sertleşme sorunlarıyla ortak risk etkenlerini paylaşır."),
+     sl("🐢", "Yavaş ve kalıcı", "Hızlı diyetler yerine sürdürülebilir küçük değişiklikler daha kalıcı sonuç verir."),
+     sl("🧑‍⚕️", "Kişisel plan", "Kilo vermek istiyorsan bir sağlık profesyoneliyle sana uygun bir plan oluşturmak en güvenli yoldur.")
+   ], [
+     q("Karın bölgesindeki fazla kilo pelvik tabanı nasıl etkileyebilir?", ["Ek basınç bindirebilir", "Basıncı azaltır", "Etkisi yoktur"], 0, "Karın içi basınç artar."),
+     q("Hangisi daha kalıcı sonuç verir?", ["Çok hızlı diyetler", "Sürdürülebilir küçük değişiklikler", "Öğün atlamak"], 1, "Küçük ve sürdürülebilir adımlar kalıcıdır.")
+   ], ["who_diet", "mayo_ed"]),
+   lesson("ls-5", "Düzenli kontroller", [
+     sl("🩺", "Erken uyarı", "Sertleşme sorunları bazen kalp-damar hastalığı veya diyabet gibi durumların erken işareti olabilir."),
+     sl("🚩", "Ne zaman başvurmalı?", "İdrarda kan, ağrı, ani idrar sorunları veya uzun süren sertleşme sorunlarında bir doktora başvur."),
+     sl("🗣️", "Çekinme", "Doktorlar bu konuları her gün konuşur; açık olmak doğru yardımı almanı kolaylaştırır."),
+     sl("📱", "Uygulamanın yeri", "Bu uygulama bir antrenman yardımcısıdır; muayene ve tedavinin yerini tutmaz.")
+   ], [
+     q("Sertleşme sorunları neden önemsenmelidir?", ["Başka sağlık sorunlarının erken işareti olabilir", "Her zaman kendiliğinden geçer", "Sadece yaşla ilgilidir"], 0, "Kalp-damar hastalığı veya diyabetin erken işareti olabilir."),
+     q("Hangi durumda doktora başvurmalısın?", ["İdrarda kan gördüğünde", "Antrenmanı bitirdiğinde", "Seri kazandığında"], 0, "İdrarda kan bir doktor tarafından değerlendirilmelidir.")
+   ], ["nhs_ed", "mayo_ed", "nhs_incont"]),
+  ]},
+ {"id": "daily-life", "title": "Günlük Hayat Kampüsü", "emoji": "🏃", "reviewed": False,
+  "description": "Pelvik taban kasını gün içinde doğru kullanmak ve motivasyonu uzun süre korumak.",
+  "lessons": [
+   lesson("dl-1", "Farklı pozisyonlarda", [
+     sl("🛋️", "Önce uzanarak", "Başlangıçta sırtüstü uzanarak çalışmak kası bulmayı kolaylaştırır."),
+     sl("🪑", "Sonra oturarak", "Kası rahatça bulduğunda oturarak da yapabilirsin; masa başında kimse fark etmez."),
+     sl("🧍", "En son ayakta", "Ayakta yapmak daha zordur ama günlük hayattaki kullanıma en yakın pozisyondur."),
+     sl("🔁", "Teknik aynı", "Pozisyon değişse de kural aynı: karın ve kalça gevşek, nefes serbest, tam gevşeme.")
+   ], [
+     q("Kası bulmak için başlangıçta hangi pozisyon daha kolaydır?", ["Ayakta", "Sırtüstü uzanarak", "Koşarken"], 1, "Uzanırken kası bulmak ve izole etmek daha kolaydır."),
+     q("Pozisyon değiştiğinde hangisi değişmez?", ["Doğru teknik kuralları", "Yer çekiminin etkisi", "Zorluk derecesi"], 0, "Teknik kuralları her pozisyonda geçerlidir.")
+   ], ["nhs_pelvic_men", "mayo_kegel_men"]),
+   lesson("dl-2", "Öksürmeden önce sık", [
+     sl("🤧", "Ani basınç", "Öksürük, hapşırık ve gülme karın içi basıncı aniden artırır."),
+     sl("⏱️", "Bir an önce", "Bu anlardan hemen önce pelvik taban kasını kısaca sıkmak idrar kontrolüne yardımcı olabilir."),
+     sl("🏋️", "Ağır kaldırırken", "Bir şey kaldırmadan önce kası sıkmak ve nefesini tutmamak aynı mantıkla çalışır."),
+     sl("🎯", "Alışkanlık hâline getir", "Tekrar ettikçe bu küçük sıkma otomatik bir alışkanlığa dönüşebilir.")
+   ], [
+     q("Öksürmeden hemen önce ne yapmak idrar kontrolüne yardımcı olabilir?", ["Pelvik taban kasını kısaca sıkmak", "Nefesi uzun süre tutmak", "Karnı şişirmek"], 0, "Kısa bir sıkma ani basınca karşı destek olur."),
+     q("Ağır bir şey kaldırırken hangisi doğrudur?", ["Nefesi tutmak", "Kası sıkıp nefes almaya devam etmek", "Kası tamamen gevşek bırakmak"], 1, "Nefesi tutmak karın içi basıncı artırır.")
+   ], ["nhs_incont", "nhs_pelvic_men"]),
+   lesson("dl-3", "Tuvalet sonrası damlama", [
+     sl("💧", "Yaygın bir durum", "İdrar bittikten sonra birkaç damla gelmesi erkeklerde sık görülen bir durumdur."),
+     sl("⬆️", "Sık ve boşalt", "İdrar bittikten sonra pelvik taban kasını güçlüce sıkmak, kanalda kalan idrarın çıkmasına yardımcı olabilir."),
+     sl("🚫", "Yarıda kesme değil", "Bu, idrarı yarıda kesmekle aynı şey değildir; idrar tamamen bittikten sonra yapılır."),
+     sl("🩺", "Değişiklik varsa", "Damlama yeni başladıysa veya artıyorsa bir doktora danış.")
+   ], [
+     q("Tuvalet sonrası damlamaya karşı sıkma ne zaman yapılır?", ["İdrar tamamen bittikten sonra", "İdrarın ortasında", "Tuvalete gitmeden önce"], 0, "İdrarı yarıda kesmek önerilmez; sıkma idrar bittikten sonra yapılır."),
+     q("Damlama yeni başladıysa ne yapmalısın?", ["Bir doktora danışmalısın", "Su içmeyi bırakmalısın", "Görmezden gelmelisin"], 0, "Yeni başlayan değişiklikler değerlendirilmelidir.")
+   ], ["nhs_pelvic_men", "nhs_incont"]),
+   lesson("dl-4", "Duruş ve nefes", [
+     sl("🧘", "Dik ama rahat", "Dik ama gergin olmayan bir duruş, pelvik taban kasını doğru kullanmayı kolaylaştırır."),
+     sl("🌬️", "Diyafram ile uyum", "Nefes alırken pelvik taban hafifçe aşağı iner, nefes verirken yukarı toparlanır."),
+     sl("🔄", "Nefes verirken sık", "Bu yüzden birçok kişi sıkmayı nefes verirken daha kolay bulur."),
+     sl("😮‍💨", "Gevşerken nefes al", "Gevşeme fazında yavaşça nefes almak kasın tamamen bırakmasına yardımcı olur.")
+   ], [
+     q("Birçok kişi kası hangi sırada sıkmayı daha kolay bulur?", ["Nefes verirken", "Nefesi tutarken", "Hızlı nefes alırken"], 0, "Nefes verirken pelvik taban doğal olarak yukarı toparlanır."),
+     q("Gevşeme fazında ne yapmak yardımcı olur?", ["Yavaşça nefes almak", "Nefesi tutmak", "Kalçayı sıkmak"], 0, "Yavaş nefes kasın tamamen gevşemesine yardımcı olur.")
+   ], ["nhs_pelvic_men", "nhs_mindful"]),
+   lesson("dl-5", "Plato ve motivasyon", [
+     sl("📈", "İlerleme düz değildir", "Bazı haftalar hızlı, bazı haftalar yavaş ilerlersin; bu normaldir."),
+     sl("🧪", "Ölçüme güven", "Hissin değişse bile haftalık güç testi gerçek eğilimi görmene yardım eder."),
+     sl("🎚️", "Zorluğu bildir", "Seanslar çok kolay ya da çok zor geliyorsa geri bildirim ver; seviye buna göre ayarlanır."),
+     sl("🔥", "Kendine nazik ol", "Bir gün kaçırmak her şeyi bitirmez; önemli olan geri dönmektir.")
+   ], [
+     q("İlerleme bir süre yavaşlarsa ne düşünmelisin?", ["Bu normaldir, devam etmeliyim", "Hiç işe yaramıyor", "Süreyi üçe katlamalıyım"], 0, "İlerleme dalgalı olabilir."),
+     q("Seanslar sana çok kolay geliyorsa ne yapmalısın?", ["Geri bildirimde Çok kolay seçeneğini seçmeliyim", "Antrenmanı bırakmalıyım", "Hiçbir şey yapmamalıyım"], 0, "Geri bildirim seviyeni otomatik ayarlar.")
+   ], ["nhs_pelvic_men", "nhs_wellbeing"]),
   ]},
 ]
 

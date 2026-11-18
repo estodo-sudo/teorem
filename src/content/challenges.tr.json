@@ -1,312 +1,587 @@
-[
-  {
-    "id": "ph01",
-    "category": "physical",
-    "text": "10 dakika yürüyüş yap"
-  },
-  {
-    "id": "ph02",
-    "category": "physical",
-    "text": "Asansör yerine merdiveni kullan"
-  },
-  {
-    "id": "ph03",
-    "category": "physical",
-    "text": "Her saat başı 2 dakika ayağa kalk ve esne"
-  },
-  {
-    "id": "ph04",
-    "category": "physical",
-    "text": "20 squat yap"
-  },
-  {
-    "id": "ph05",
-    "category": "physical",
-    "text": "Akşam yemeğinden sonra 15 dakika yürü"
-  },
-  {
-    "id": "ph06",
-    "category": "physical",
-    "text": "Gün içinde 3 kez omuzlarını çevir ve boynunu esnet"
-  },
-  {
-    "id": "ph07",
-    "category": "physical",
-    "text": "5 dakika kalça esnemesi yap"
-  },
-  {
-    "id": "ph08",
-    "category": "physical",
-    "text": "Bugün 7.000 adımı hedefle"
-  },
-  {
-    "id": "ph09",
-    "category": "physical",
-    "text": "Bir Kasık Fitness rutinini tamamla"
-  },
-  {
-    "id": "ph10",
-    "category": "physical",
-    "text": "1 dakika plank dene (bölerek de olur)"
-  },
-  {
-    "id": "ph11",
-    "category": "physical",
-    "text": "Telefonla konuşurken ayakta yürü"
-  },
-  {
-    "id": "ph12",
-    "category": "physical",
-    "text": "Otururken dik dur ve sırtını dikleştir"
-  },
-  {
-    "id": "ph13",
-    "category": "physical",
-    "text": "Yatmadan önce 5 dakika hafif esneme yap"
-  },
-  {
-    "id": "ph14",
-    "category": "physical",
-    "text": "Bugün en az 30 dakika aktif ol"
-  },
-  {
-    "id": "ph15",
-    "category": "physical",
-    "text": "Kısa mesafeye araç yerine yürüyerek git"
-  },
-  {
-    "id": "ph16",
-    "category": "physical",
-    "text": "10 köprü (glute bridge) hareketi yap"
-  },
-  {
-    "id": "me01",
-    "category": "mental",
-    "text": "1 dakika nefes egzersizi yap"
-  },
-  {
-    "id": "me02",
-    "category": "mental",
-    "text": "Bugün minnettar olduğun 3 şeyi yaz"
-  },
-  {
-    "id": "me03",
-    "category": "mental",
-    "text": "Yatmadan önce 15 dk ekransız kal"
-  },
-  {
-    "id": "me04",
-    "category": "mental",
-    "text": "Zihin Boşaltma aracını kullan"
-  },
-  {
-    "id": "me05",
-    "category": "mental",
-    "text": "5 dakika telefonsuz, sadece etrafını gözlemle"
-  },
-  {
-    "id": "me06",
-    "category": "mental",
-    "text": "Bugün bir şeyi yavaşça, fark ederek ye"
-  },
-  {
-    "id": "me07",
-    "category": "mental",
-    "text": "Beden taramasını dene"
-  },
-  {
-    "id": "me08",
-    "category": "mental",
-    "text": "Bugün kendine nazik bir cümle söyle"
-  },
-  {
-    "id": "me09",
-    "category": "mental",
-    "text": "Bildirimlerini 1 saat sessize al"
-  },
-  {
-    "id": "me10",
-    "category": "mental",
-    "text": "Bugünün en iyi anını not et"
-  },
-  {
-    "id": "me11",
-    "category": "mental",
-    "text": "Yarın için tek bir öncelik belirle"
-  },
-  {
-    "id": "me12",
-    "category": "mental",
-    "text": "Bir bilgi hikâyesi oku"
-  },
-  {
-    "id": "me13",
-    "category": "mental",
-    "text": "10 dakika kitap oku"
-  },
-  {
-    "id": "me14",
-    "category": "mental",
-    "text": "Bugün bir kez 'hayır' demeyi dene, gerekiyorsa"
-  },
-  {
-    "id": "me15",
-    "category": "mental",
-    "text": "Uyumadan önce 4-7-8 nefesini 3 tur yap"
-  },
-  {
-    "id": "me16",
-    "category": "mental",
-    "text": "Sosyal medyaya bugün 30 dakikadan az zaman ayır"
-  },
-  {
-    "id": "so01",
-    "category": "social",
-    "text": "Bir arkadaşına mesaj at"
-  },
-  {
-    "id": "so02",
-    "category": "social",
-    "text": "Sevdiğin birine teşekkür et"
-  },
-  {
-    "id": "so03",
-    "category": "social",
-    "text": "Partnerinle 10 dakika telefonsuz sohbet et"
-  },
-  {
-    "id": "so04",
-    "category": "social",
-    "text": "Uzun süredir konuşmadığın birini ara"
-  },
-  {
-    "id": "so05",
-    "category": "social",
-    "text": "Bugün birine içten bir iltifat et"
-  },
-  {
-    "id": "so06",
-    "category": "social",
-    "text": "Ailenden biriyle birlikte yemek ye"
-  },
-  {
-    "id": "so07",
-    "category": "social",
-    "text": "Birine küçük bir iyilik yap"
-  },
-  {
-    "id": "so08",
-    "category": "social",
-    "text": "Bir arkadaşınla yürüyüşe çık"
-  },
-  {
-    "id": "so09",
-    "category": "social",
-    "text": "Partnerine bugün nasıl hissettiğini sor"
-  },
-  {
-    "id": "so10",
-    "category": "social",
-    "text": "Bir komşuna ya da iş arkadaşına selam ver ve hâlini sor"
-  },
-  {
-    "id": "so11",
-    "category": "social",
-    "text": "Birlikte gülebileceğin biriyle vakit geçir"
-  },
-  {
-    "id": "so12",
-    "category": "social",
-    "text": "Sevdiğin birine sarıl"
-  },
-  {
-    "id": "so13",
-    "category": "social",
-    "text": "Bir arkadaşına bir şarkı veya kitap öner"
-  },
-  {
-    "id": "so14",
-    "category": "social",
-    "text": "Bugün birini gerçekten dinle, sözünü kesmeden"
-  },
-  {
-    "id": "so15",
-    "category": "social",
-    "text": "Hafta sonu için biriyle küçük bir plan yap"
-  },
-  {
-    "id": "nu01",
-    "category": "nutrition",
-    "text": "Bugün 2 litre su iç"
-  },
-  {
-    "id": "nu02",
-    "category": "nutrition",
-    "text": "Şekerli içecek içme"
-  },
-  {
-    "id": "nu03",
-    "category": "nutrition",
-    "text": "Bir öğüne bir porsiyon sebze ekle"
-  },
-  {
-    "id": "nu04",
-    "category": "nutrition",
-    "text": "Bugün bir avuç kuruyemiş ye"
-  },
-  {
-    "id": "nu05",
-    "category": "nutrition",
-    "text": "Akşam yemeğini yatmadan en az 2 saat önce bitir"
-  },
-  {
-    "id": "nu06",
-    "category": "nutrition",
-    "text": "Öğleden sonra kafeinsiz kal"
-  },
-  {
-    "id": "nu07",
-    "category": "nutrition",
-    "text": "Bugün alkol içme"
-  },
-  {
-    "id": "nu08",
-    "category": "nutrition",
-    "text": "Bir öğünde beyaz ekmek yerine tam tahıl seç"
-  },
-  {
-    "id": "nu09",
-    "category": "nutrition",
-    "text": "Bugün 2 porsiyon meyve ye"
-  },
-  {
-    "id": "nu10",
-    "category": "nutrition",
-    "text": "Tuzluğu masadan kaldır"
-  },
-  {
-    "id": "nu11",
-    "category": "nutrition",
-    "text": "Paketli atıştırmalık yerine meyve seç"
-  },
-  {
-    "id": "nu12",
-    "category": "nutrition",
-    "text": "Bugün balık veya baklagil içeren bir öğün ye"
-  },
-  {
-    "id": "nu13",
-    "category": "nutrition",
-    "text": "Her öğünden önce bir bardak su iç"
-  },
-  {
-    "id": "nu14",
-    "category": "nutrition",
-    "text": "Kızartma yerine fırın veya haşlama tercih et"
-  },
-  {
-    "id": "nu15",
-    "category": "nutrition",
-    "text": "Bugün yavaş ye, her lokmayı iyice çiğne"
-  }
-]
+{
+  "days": 28,
+  "items": [
+    {
+      "id": "sn01",
+      "category": "snack",
+      "emoji": "🌰",
+      "text": "Bir avuç ceviz ye.",
+      "why": "Arjinin ve bitkisel omega-3 içerir; damar sağlığını destekler.",
+      "source": {
+        "title": "Esposito ve ark. (2006) – Akdeniz diyeti ve erektil fonksiyon",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      }
+    },
+    {
+      "id": "sn02",
+      "category": "snack",
+      "emoji": "🥜",
+      "text": "Bir avuç tuzsuz antep fıstığı ye.",
+      "why": "Arjinin ve antioksidanlardan zengindir.",
+      "source": {
+        "title": "L-arjinin ve erektil fonksiyon – meta-analiz (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "sn03",
+      "category": "snack",
+      "emoji": "🌰",
+      "text": "Bir avuç çiğ badem ye.",
+      "why": "Magnezyum ve E vitamini kaynağıdır.",
+      "source": {
+        "title": "NIH ODS – Magnezyum",
+        "url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer/"
+      }
+    },
+    {
+      "id": "sn04",
+      "category": "snack",
+      "emoji": "🎃",
+      "text": "Yoğurduna ya da salatana 1 yemek kaşığı kabak çekirdeği ekle.",
+      "why": "Testosteron üretimi için gerekli çinkonun iyi kaynaklarındandır.",
+      "source": {
+        "title": "NIH ODS – Çinko",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    },
+    {
+      "id": "sn05",
+      "category": "snack",
+      "emoji": "🍫",
+      "text": "1–2 kare %70+ kakaolu bitter çikolata ye.",
+      "why": "Kakao flavanolleri damar iç yüzeyinin işlevini destekler.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "sn06",
+      "category": "snack",
+      "emoji": "🌰",
+      "text": "1 adet Brezilya cevizi ye; fazlasını değil.",
+      "why": "Tek tanesi günlük selenyum ihtiyacını karşılar; selenyum üreme sağlığı için önemlidir.",
+      "source": {
+        "title": "NIH ODS – Selenyum",
+        "url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/"
+      }
+    },
+    {
+      "id": "sn07",
+      "category": "snack",
+      "emoji": "🥜",
+      "text": "Bir avuç kaju ye.",
+      "why": "Çinko ve magnezyum içerir.",
+      "source": {
+        "title": "NIH ODS – Çinko",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    },
+    {
+      "id": "sn08",
+      "category": "snack",
+      "emoji": "🌻",
+      "text": "Bir avuç tuzsuz ay çekirdeği ye.",
+      "why": "E vitamini ve çinko kaynağıdır.",
+      "source": {
+        "title": "NIH ODS – Çinko",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    },
+    {
+      "id": "sn09",
+      "category": "snack",
+      "emoji": "🫘",
+      "text": "Ara öğünde bir avuç leblebi ye.",
+      "why": "Bitkisel protein, arjinin ve folat sağlar.",
+      "source": {
+        "title": "NIH ODS – Folat",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "sn10",
+      "category": "snack",
+      "emoji": "🌾",
+      "text": "Yoğurduna 1 tatlı kaşığı öğütülmüş keten tohumu ekle.",
+      "why": "Bitkisel omega-3 ve lif içerir.",
+      "source": {
+        "title": "NIH ODS – Omega-3 yağ asitleri",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "sn11",
+      "category": "snack",
+      "emoji": "🥄",
+      "text": "Yoğurduna ya da sütüne 1 tatlı kaşığı chia tohumu ekle.",
+      "why": "Omega-3, lif ve magnezyum içerir.",
+      "source": {
+        "title": "NIH ODS – Omega-3 yağ asitleri",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "sn12",
+      "category": "snack",
+      "emoji": "☕",
+      "text": "Sütüne 1 tatlı kaşığı şekersiz kakao ekle.",
+      "why": "Saf kakao, flavanollerin en yoğun kaynaklarındandır.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "sn13",
+      "category": "snack",
+      "emoji": "🍵",
+      "text": "1–2 fincan yeşil çay iç.",
+      "why": "Kateşin adlı flavonoidlerden zengindir.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr01",
+      "category": "fruit",
+      "emoji": "🫐",
+      "text": "Bir kase yaban mersini ye.",
+      "why": "Antosiyaninden zengin meyveler, daha düşük ereksiyon sorunu riskiyle ilişkilendirildi.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr02",
+      "category": "fruit",
+      "emoji": "🍓",
+      "text": "Bir kase çilek ye.",
+      "why": "Çilek, flavonoid araştırmasında en çok katkı sağlayan meyvelerdendi.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr03",
+      "category": "fruit",
+      "emoji": "🔴",
+      "text": "Yarım nar ye.",
+      "why": "Polifenollerden zengindir; damar sağlığını destekler.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr04",
+      "category": "fruit",
+      "emoji": "🍉",
+      "text": "Birkaç dilim karpuz ye; mevsimi değilse bir kase çilekle değiştir.",
+      "why": "Vücutta arjinine dönüşen sitrülin içerir.",
+      "source": {
+        "title": "L-arjinin ve erektil fonksiyon – meta-analiz (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "fr05",
+      "category": "fruit",
+      "emoji": "🍊",
+      "text": "Bir portakal ye.",
+      "why": "Turunçgil flavanonları daha düşük ereksiyon sorunu riskiyle ilişkilendirildi.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr06",
+      "category": "fruit",
+      "emoji": "🍎",
+      "text": "Bir elma ye.",
+      "why": "Elma, flavonoid araştırmasında öne çıkan meyvelerdendi.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr07",
+      "category": "fruit",
+      "emoji": "🍌",
+      "text": "Bir muz ye.",
+      "why": "Potasyum ve magnezyum, kan basıncının dengesine katkı sağlar.",
+      "source": {
+        "title": "NIH ODS – Magnezyum",
+        "url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer/"
+      }
+    },
+    {
+      "id": "fr08",
+      "category": "fruit",
+      "emoji": "🍇",
+      "text": "Bir avuç kırmızı ya da siyah üzüm ye.",
+      "why": "Kabuğu antosiyanin ve resveratrol içerir.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr09",
+      "category": "fruit",
+      "emoji": "🍒",
+      "text": "Bir kase kiraz ya da vişne ye; mevsimi değilse kurusundan bir avuç.",
+      "why": "Antosiyaninden zengindir.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr10",
+      "category": "fruit",
+      "emoji": "🫐",
+      "text": "Bir avuç böğürtlen ya da dut ye.",
+      "why": "Antosiyanin ve lif kaynağıdır.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr11",
+      "category": "fruit",
+      "emoji": "🥑",
+      "text": "Yarım avokado ye.",
+      "why": "Sağlıklı yağ, folat ve magnezyum içerir.",
+      "source": {
+        "title": "NIH ODS – Folat",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "fr12",
+      "category": "fruit",
+      "emoji": "🍊",
+      "text": "İki mandalina ye.",
+      "why": "Flavanon ve C vitamini kaynağıdır.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr13",
+      "category": "fruit",
+      "emoji": "🍐",
+      "text": "Bir armut ye.",
+      "why": "Armut, flavonoid araştırmasında elmayla birlikte öne çıkan meyvelerdendi.",
+      "source": {
+        "title": "Cassidy ve ark. (2016) – Flavonoid alımı ve erektil disfonksiyon, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr14",
+      "category": "fruit",
+      "emoji": "🥝",
+      "text": "Bir kivi ye.",
+      "why": "Bir tanesi günlük C vitamini ihtiyacının büyük kısmını karşılar.",
+      "source": {
+        "title": "NIH ODS – C vitamini",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/"
+      }
+    },
+    {
+      "id": "pl01",
+      "category": "plate",
+      "emoji": "🟣",
+      "text": "Öğününe kırmızı pancar ekle.",
+      "why": "Doğal nitrat içerir; nitrat, damarları gevşeten nitrik okside dönüşür.",
+      "source": {
+        "title": "Pancar nitratı ve kan basıncı – meta-analiz (2022)",
+        "url": "https://www.frontiersin.org/articles/10.3389/fnut.2022.823039/full"
+      }
+    },
+    {
+      "id": "pl02",
+      "category": "plate",
+      "emoji": "🥬",
+      "text": "Salatana bir avuç roka ekle.",
+      "why": "Nitrattan en zengin yeşilliklerdendir.",
+      "source": {
+        "title": "İnorganik nitrat ve kardiyovasküler risk faktörleri – meta-analiz (2018)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29506204/"
+      }
+    },
+    {
+      "id": "pl03",
+      "category": "plate",
+      "emoji": "🥬",
+      "text": "Bir öğününe ıspanak ekle.",
+      "why": "Nitrat, folat ve magnezyum kaynağıdır.",
+      "source": {
+        "title": "İnorganik nitrat ve kardiyovasküler risk faktörleri – meta-analiz (2018)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29506204/"
+      }
+    },
+    {
+      "id": "pl04",
+      "category": "plate",
+      "emoji": "🥦",
+      "text": "Bir porsiyon brokoli ye.",
+      "why": "Folat ve C vitamini içerir.",
+      "source": {
+        "title": "NIH ODS – Folat",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "pl05",
+      "category": "plate",
+      "emoji": "🍅",
+      "text": "Bir öğünde domates ye.",
+      "why": "Likopen içerir; Akdeniz tipi beslenmenin temelidir.",
+      "source": {
+        "title": "Esposito ve ark. (2006) – Akdeniz diyeti ve erektil fonksiyon",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      }
+    },
+    {
+      "id": "pl06",
+      "category": "plate",
+      "emoji": "🫒",
+      "text": "Salatana bir kaşık zeytinyağı ekle.",
+      "why": "Zeytinyağı temelli Akdeniz diyeti, bir çalışmada erektil fonksiyonu iyileştirdi.",
+      "source": {
+        "title": "Esposito ve ark. (2006) – Akdeniz diyeti ve erektil fonksiyon",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      }
+    },
+    {
+      "id": "pl07",
+      "category": "plate",
+      "emoji": "🥚",
+      "text": "Kahvaltında yumurta ye.",
+      "why": "D vitamini, B12 ve kaliteli protein sağlar.",
+      "source": {
+        "title": "NIH ODS – D vitamini",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/"
+      }
+    },
+    {
+      "id": "pl08",
+      "category": "plate",
+      "emoji": "🐟",
+      "text": "Bir öğünde somon ya da uskumru ye.",
+      "why": "Omega-3 ve D vitamini kaynağıdır.",
+      "source": {
+        "title": "NIH ODS – Omega-3 yağ asitleri",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "pl09",
+      "category": "plate",
+      "emoji": "🐟",
+      "text": "Bir öğünde hamsi ya da sardalya ye.",
+      "why": "Omega-3 açısından zengin, ekonomik balıklardır.",
+      "source": {
+        "title": "NIH ODS – Omega-3 yağ asitleri",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "pl10",
+      "category": "plate",
+      "emoji": "🫘",
+      "text": "Bir öğünde nohut ye.",
+      "why": "Arjinin, çinko ve folat içerir.",
+      "source": {
+        "title": "L-arjinin ve erektil fonksiyon – meta-analiz (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "pl11",
+      "category": "plate",
+      "emoji": "🥣",
+      "text": "Bir kase mercimek çorbası iç.",
+      "why": "Folat, çinko ve bitkisel protein sağlar.",
+      "source": {
+        "title": "NIH ODS – Folat",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "pl12",
+      "category": "plate",
+      "emoji": "🍗",
+      "text": "Bir öğünde hindi ya da tavuk göğsü ye.",
+      "why": "Arjinin ve çinko kaynağıdır.",
+      "source": {
+        "title": "L-arjinin ve erektil fonksiyon – meta-analiz (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "pl13",
+      "category": "plate",
+      "emoji": "🦪",
+      "text": "Bir öğünde midye ya da karides ye.",
+      "why": "Kabuklu deniz ürünleri çinkonun en zengin kaynaklarındandır.",
+      "source": {
+        "title": "NIH ODS – Çinko",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    }
+  ],
+  "plan": [
+    [
+      "sn01",
+      "fr01",
+      "pl01"
+    ],
+    [
+      "sn02",
+      "fr02",
+      "pl02"
+    ],
+    [
+      "sn03",
+      "fr03",
+      "pl03"
+    ],
+    [
+      "sn04",
+      "fr04",
+      "pl04"
+    ],
+    [
+      "sn05",
+      "fr05",
+      "pl05"
+    ],
+    [
+      "sn06",
+      "fr06",
+      "pl06"
+    ],
+    [
+      "sn07",
+      "fr07",
+      "pl07"
+    ],
+    [
+      "sn08",
+      "fr08",
+      "pl08"
+    ],
+    [
+      "sn09",
+      "fr09",
+      "pl09"
+    ],
+    [
+      "sn10",
+      "fr10",
+      "pl10"
+    ],
+    [
+      "sn11",
+      "fr11",
+      "pl11"
+    ],
+    [
+      "sn12",
+      "fr12",
+      "pl12"
+    ],
+    [
+      "sn13",
+      "fr13",
+      "pl13"
+    ],
+    [
+      "sn01",
+      "fr14",
+      "pl01"
+    ],
+    [
+      "sn02",
+      "fr01",
+      "pl02"
+    ],
+    [
+      "sn03",
+      "fr02",
+      "pl03"
+    ],
+    [
+      "sn04",
+      "fr03",
+      "pl04"
+    ],
+    [
+      "sn05",
+      "fr04",
+      "pl05"
+    ],
+    [
+      "sn06",
+      "fr05",
+      "pl06"
+    ],
+    [
+      "sn07",
+      "fr06",
+      "pl07"
+    ],
+    [
+      "sn08",
+      "fr07",
+      "pl08"
+    ],
+    [
+      "sn09",
+      "fr08",
+      "pl09"
+    ],
+    [
+      "sn10",
+      "fr09",
+      "pl10"
+    ],
+    [
+      "sn11",
+      "fr10",
+      "pl11"
+    ],
+    [
+      "sn12",
+      "fr11",
+      "pl12"
+    ],
+    [
+      "sn13",
+      "fr12",
+      "pl13"
+    ],
+    [
+      "sn01",
+      "fr13",
+      "pl01"
+    ],
+    [
+      "sn02",
+      "fr14",
+      "pl02"
+    ]
+  ]
+}

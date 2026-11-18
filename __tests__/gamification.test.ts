@@ -38,7 +38,6 @@ const ctx = (patch: Partial<AchievementContext> = {}): AchievementContext => ({
   completedLessons: 0,
   readStories: 0,
   totalStories: 20,
-  completedChallenges: 0,
   ...patch,
 });
 
@@ -82,12 +81,8 @@ describe('achievements', () => {
     const ids = evaluateAchievements(ctx({ strengthTests: [test('2026-01-01', 4000, 10), test('2026-01-08', 5000, 10)] }), {});
     expect(ids).toEqual(['first_strength_test', 'strength_plus_25']);
   });
-  it('requires all stories read and 30 challenges', () => {
+  it('requires all stories read', () => {
     expect(evaluateAchievements(ctx({ readStories: 19 }), {})).toEqual([]);
-    expect(evaluateAchievements(ctx({ readStories: 20, completedChallenges: 30, completedLessons: 5 }), {})).toEqual([
-      'lessons_5',
-      'all_stories',
-      'challenges_30',
-    ]);
+    expect(evaluateAchievements(ctx({ readStories: 20, completedLessons: 5 }), {})).toEqual(['lessons_5', 'all_stories']);
   });
 });

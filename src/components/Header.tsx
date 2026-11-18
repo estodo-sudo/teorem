@@ -32,7 +32,7 @@ export function Header({ title, onBack, close, right }: Props) {
       </Pressable>
       <View style={styles.title}>
         {title ? (
-          <AppText variant="h3" numberOfLines={1} center accessibilityRole="header">
+          <AppText variant="h3" numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7} center accessibilityRole="header">
             {title}
           </AppText>
         ) : null}

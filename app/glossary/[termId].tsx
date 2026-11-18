@@ -1,0 +1,147 @@
+import { router, useLocalSearchParams } from 'expo-router';
+import { View } from 'react-native';
+import { useTranslation } from 'react-i18next';
+
+import { AppText, Card, Header, Icon, Screen, useTheme } from '@/components';
+import { GLOSSARY } from '@/features/content/data';
+
+/** How a section is presented, from its title (content is Turkish). */
+type Role = 'info' | 'action' | 'caution' | 'app' | 'source';
+const ACTION = ['Ne işe yarar?', 'Hemen işe yarayan ipucu', 'Ne yapılabilir?'];
+const CAUTION = ['Dikkat', 'Ne zaman önemlidir?', 'Hiç olmuyorsa?', 'Sık yapılan hatalar'];
+function roleOf(title: string): Role {
+  if (title === 'Kaynaklar') return 'source';
+  if (title === 'Uygulamada') return 'app';
+  if (ACTION.includes(title)) return 'action';
+  if (CAUTION.includes(title)) return 'caution';
+  return 'info';
+}
+
+/** ~180 words per minute, at least 1 minute. */
+const readMinutes = (texts: string[]) => Math.max(1, Math.round(texts.join(' ').split(/\s+/).length / 180));
+
+/** 8-digit hex with alpha for soft tinted backgrounds. */
+const tint = (hex: string, alpha = '1F') => (/^#[0-9a-f]{6}$/i.test(hex) ? `${hex}${alpha}` : hex);
+
+export default function GlossaryTermScreen() {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  const { termId } = useLocalSearchParams<{ termId: string }>();
+  const idx = GLOSSARY.findIndex((g) => g.id === termId);
+  const term = GLOSSARY[idx];
+  if (!term) {
+    return (
+      <Screen>
+        <Header />
+        <AppText>{tr('glossary.notFound')}</AppText>
+      </Screen>
+    );
+  }
+  const body = term.sections.filter((s) => roleOf(s.title) !== 'source');
+  const sources = term.sections.find((s) => roleOf(s.title) === 'source');
+  const next = GLOSSARY[(idx + 1) % GLOSSARY.length];
+  // Numbers for the plain explanation sections, in order.
+  const infoIdx = body.map((s) => roleOf(s.title) === 'info');
+  const stepOf = (i: number) => infoIdx.slice(0, i + 1).filter(Boolean).length;
+
+  return (
+    <Screen>
+      <Header />
+
+      <View style={{ alignItems: 'center', gap: 10, paddingVertical: 4 }}>
+        <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: tint(t.colors.primary, '33'), alignItems: 'center', justifyContent: 'center' }}>
+          <AppText variant="display">{term.emoji}</AppText>
+        </View>
+        <AppText variant="h1" center accessibilityRole="header">
+          {term.title}
+        </AppText>
+        <AppText muted center style={{ paddingHorizontal: 8 }}>
+          {term.summary}
+        </AppText>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingVertical: 6, borderRadius: t.radius.pill, backgroundColor: t.colors.surfaceAlt }}>
+          <Icon name="book" color={t.colors.textMuted} size={14} />
+          <AppText variant="tiny" weight="700" muted>
+            {tr('glossary.meta', { sections: body.length, minutes: readMinutes(term.sections.map((s) => s.text)) })}
+          </AppText>
+        </View>
+      </View>
+
+      <View style={{ gap: 14 }}>
+        {body.map((s, i) => {
+          const role = roleOf(s.title);
+          if (role === 'info') {
+            const step = stepOf(i);
+            const lastInfo = !body.slice(i + 1).some((x) => roleOf(x.title) === 'info');
+            return (
+              <View key={s.title} style={{ flexDirection: 'row', gap: 12 }}>
+                <View style={{ alignItems: 'center', width: 30 }}>
+                  <View style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: t.colors.primary, alignItems: 'center', justifyContent: 'center' }}>
+                    <AppText variant="small" weight="800" color={t.colors.primaryText}>
+                      {step}
+                    </AppText>
+                  </View>
+                  {!lastInfo ? <View style={{ flex: 1, width: 2, marginTop: 6, borderRadius: 1, backgroundColor: t.colors.border }} /> : null}
+                </View>
+                <View style={{ flex: 1, gap: 6, paddingBottom: 6 }}>
+                  <AppText variant="h3" accessibilityRole="header" style={{ marginTop: 3 }}>
+                    {s.title}
+                  </AppText>
+                  <AppText style={{ lineHeight: 24 }}>{s.text}</AppText>
+                </View>
+              </View>
+            );
+          }
+          const color = role === 'action' ? t.colors.success : role === 'caution' ? t.colors.warning : t.colors.primary;
+          const emoji = role === 'action' ? '✅' : role === 'caution' ? '⚠️' : '🎯';
+          return (
+            <View
+              key={s.title}
+              style={{ gap: 8, padding: 16, borderRadius: t.radius.lg, backgroundColor: tint(color), borderWidth: 1, borderColor: tint(color, '55') }}
+            >
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <AppText>{emoji}</AppText>
+                <AppText variant="h3" accessibilityRole="header" color={role === 'app' ? t.colors.text : color}>
+                  {s.title}
+                </AppText>
+              </View>
+              <AppText style={{ lineHeight: 24 }}>{s.text}</AppText>
+            </View>
+          );
+        })}
+      </View>
+
+      {sources ? (
+        <View style={{ flexDirection: 'row', gap: 10, paddingTop: 12, borderTopWidth: 1, borderTopColor: t.colors.border }}>
+          <AppText variant="small">📚</AppText>
+          <View style={{ flex: 1, gap: 2 }}>
+            <AppText variant="tiny" weight="800" muted>
+              {tr('glossary.sourcesTitle').toLocaleUpperCase('tr-TR')}
+            </AppText>
+            <AppText variant="tiny" muted style={{ lineHeight: 18 }}>
+              {sources.text}
+            </AppText>
+          </View>
+        </View>
+      ) : null}
+
+      {next && next.id !== term.id ? (
+        <Card
+          onPress={() => router.replace({ pathname: '/glossary/[termId]', params: { termId: next.id } })}
+          accessibilityLabel={`${tr('glossary.next')}: ${next.title}`}
+          style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 4 }}
+        >
+          <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>
+            <AppText variant="h3">{next.emoji}</AppText>
+          </View>
+          <View style={{ flex: 1, gap: 2 }}>
+            <AppText variant="tiny" weight="800" color={t.colors.primary}>
+              {tr('glossary.next').toLocaleUpperCase('tr-TR')}
+            </AppText>
+            <AppText weight="800">{next.title}</AppText>
+          </View>
+          <Icon name="chevron" color={t.colors.textMuted} size={18} />
+        </Card>
+      ) : null}
+    </Screen>
+  );
+}

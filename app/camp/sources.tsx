@@ -2,7 +2,7 @@ import { Linking, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_SOURCES, CAMP_SUPPORT } from '@/features/camp/content';
+import { CAMP_SOURCES, CAMP_SUPPORT } from '@/features/camps/smoking/content';
 import { SectionTitle } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 

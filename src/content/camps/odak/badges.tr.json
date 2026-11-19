@@ -1,0 +1,105 @@
+{
+ "title": "Rozetler",
+ "intro": "Her rozet, emeğinin bir kanıtı. Kazandığın rozetler bir kaymayla geri alınmaz.",
+ "kicker": "Yeni rozet",
+ "cta": "Devam",
+ "items": [
+  {
+   "id": "days-1",
+   "emoji": "🌱",
+   "title": "İlk gün",
+   "desc": "Hedefine uygun ilk günün."
+  },
+  {
+   "id": "days-3",
+   "emoji": "🌿",
+   "title": "3 gün",
+   "desc": "Hedefine uygun 3 gün."
+  },
+  {
+   "id": "days-7",
+   "emoji": "🍀",
+   "title": "Bir hafta",
+   "desc": "Hedefine uygun 7 gün."
+  },
+  {
+   "id": "days-14",
+   "emoji": "🌳",
+   "title": "İki hafta",
+   "desc": "Hedefine uygun 14 gün."
+  },
+  {
+   "id": "days-30",
+   "emoji": "🏔️",
+   "title": "30 gün",
+   "desc": "Hedefine uygun 30 gün."
+  },
+  {
+   "id": "days-60",
+   "emoji": "🌄",
+   "title": "60 gün",
+   "desc": "Hedefine uygun 60 gün."
+  },
+  {
+   "id": "days-90",
+   "emoji": "🌅",
+   "title": "90 gün",
+   "desc": "Hedefine uygun 90 gün."
+  },
+  {
+   "id": "urges-10",
+   "emoji": "🌊",
+   "title": "10 dalga",
+   "desc": "10 dürtü anını yönettin."
+  },
+  {
+   "id": "urges-50",
+   "emoji": "🏄",
+   "title": "50 dalga",
+   "desc": "50 dürtü anını yönettin."
+  },
+  {
+   "id": "urges-100",
+   "emoji": "🐬",
+   "title": "100 dalga",
+   "desc": "100 dürtü anını yönettin."
+  },
+  {
+   "id": "first-plan",
+   "emoji": "📝",
+   "title": "İlk plan",
+   "desc": "İlk Eğer–O zaman planını yaptın."
+  },
+  {
+   "id": "boundaries",
+   "emoji": "🧱",
+   "title": "Sınırlar kuruldu",
+   "desc": "Dijital sınırlarını kurdun."
+  },
+  {
+   "id": "checkin-7",
+   "emoji": "📅",
+   "title": "7 gün kontrol",
+   "desc": "7 gün kesintisiz günlük kontrol."
+  },
+  {
+   "id": "all-skills",
+   "emoji": "🎓",
+   "title": "Tüm dersler",
+   "desc": "16 beceri dersinin hepsini tamamladın."
+  },
+  {
+   "id": "comeback",
+   "emoji": "🔁",
+   "title": "Geri dönüş",
+   "desc": "Bir kaymadan sonra 7 gün devam ettin. Öz-şefkat işe yarıyor."
+  },
+  {
+   "id": "graduate",
+   "emoji": "🎖️",
+   "title": "Mezuniyet",
+   "desc": "90 günlük programı tamamladın."
+  }
+ ],
+ "locked": "Henüz kazanılmadı"
+}

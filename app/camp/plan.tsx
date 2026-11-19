@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Screen } from '@/components';
-import { priceAt } from '@/features/camp/engine/savings';
-import { currentAttempt, latestAttempt } from '@/features/camp/state';
-import { PlanSummary } from '@/features/camp/ui';
+import { priceAt } from '@/features/camps/smoking/engine/savings';
+import { currentAttempt, latestAttempt } from '@/features/camps/smoking/state';
+import { PlanSummary } from '@/features/camps/smoking/ui';
 import { goBack } from '@/lib/nav';
 import { useCampStore } from '@/stores/campStore';
 

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Icon, type IconName, useTheme } from '@/components';
 import { requiredFirstRunRoute } from '@/features/app/gate';
-import { useCampShortcut } from '@/features/camp/shortcut';
+import { useCampShortcut } from '@/features/camps/smoking/shortcut';
 import { useProfileStore } from '@/stores/profileStore';
 
 const TABS: { name: string; key: string; icon: IconName }[] = [

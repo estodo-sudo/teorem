@@ -4,7 +4,7 @@ import { Image, Pressable, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
-import { CAMP_ONBOARDING as ONB, CAMP_PLANS } from '@/features/camp/content';
+import { CAMP_ONBOARDING as ONB, CAMP_PLANS } from '@/features/camps/smoking/content';
 import {
   ALREADY_QUIT_MAX_DAYS,
   buildProfile,
@@ -21,11 +21,11 @@ import {
   stepError,
   type Answers,
   type StepId,
-} from '@/features/camp/onboarding';
-import { deleteReasonPhoto, pickReasonPhoto, saveAlo171Contact, type SaveContactResult } from '@/features/camp/device';
-import { MAX_PREP_DAYS, MIN_PREP_DAYS } from '@/features/camp/state';
-import { Alo171Card, HsiCard, NumberStepper, PlanSummary, useCampDate, type DraftPlan } from '@/features/camp/ui';
-import type { TriggerId } from '@/features/camp/types';
+} from '@/features/camps/smoking/onboarding';
+import { deleteReasonPhoto, pickReasonPhoto, saveAlo171Contact, type SaveContactResult } from '@/features/camps/smoking/device';
+import { MAX_PREP_DAYS, MIN_PREP_DAYS } from '@/features/camps/smoking/state';
+import { Alo171Card, HsiCard, NumberStepper, PlanSummary, useCampDate, type DraftPlan } from '@/features/camps/smoking/ui';
+import type { TriggerId } from '@/features/camps/smoking/types';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';

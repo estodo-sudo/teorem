@@ -1,0 +1,76 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "rct",
+ "sourceIds": [
+  "bothe2021",
+  "crosby2016",
+  "apple"
+ ],
+ "title": "Ortam ve dijital sınırlar",
+ "intro": "Ortamı düzenlemek, dürtü anında karar vermeyi kolaylaştırır. Filtreler ve sınırlar zor anlara bir fren koyar.",
+ "honesty": "Hiçbir filtre aşılmaz değildir. Filtre bir fren, asıl güç senin becerilerin ve planın.",
+ "checklistTitle": "Fiziksel ortam",
+ "checklist": [
+  {
+   "id": "charge",
+   "emoji": "🔌",
+   "label": "Telefonu yatak odası dışında şarj et"
+  },
+  {
+   "id": "grayscale",
+   "emoji": "🌫️",
+   "label": "Gece ekranı gri tonlamaya al"
+  },
+  {
+   "id": "spaces",
+   "emoji": "🛋️",
+   "label": "Çalışma ve yatma alanını ayır"
+  },
+  {
+   "id": "activities",
+   "emoji": "🗓️",
+   "label": "Riskli saatlerine bir etkinlik planla"
+  }
+ ],
+ "grayscaleHint": "Gri tonlama ekranı daha az çekici yapar. iPhone: Ayarlar > Erişilebilirlik > Ekran ve Metin Boyutu > Renk Filtreleri. Android: Ayarlar > Dijital Denge > Yatma vakti modu ya da Erişilebilirlik > Renk düzeltme.",
+ "ios": {
+  "title": "iPhone: Ekran Süresi",
+  "steps": [
+   "Ayarlar > Ekran Süresi'ni aç ve Ekran Süresi'ni etkinleştir.",
+   "İçerik ve Gizlilik Kısıtlamaları > İçerik Kısıtlamaları > Web İçeriği > \"Yetişkin Web Sitelerini Sınırla\"yı seç.",
+   "Kapalı Kalma Süresi'ni riskli saatlerine göre ayarla.",
+   "Uygulama Limitleri ile tetikleyici uygulamalara günlük süre koy.",
+   "İstersen bir Ekran Süresi parolası belirle ve güvendiğin birine sakla."
+  ],
+  "note": "Bu ayarların hepsi iPhone'un kendi içinde çalışır; uygulama hiçbir veriye erişmez.",
+  "done": "Ekran Süresi'ni kurdum"
+ },
+ "android": {
+  "title": "Android: Dijital Denge",
+  "steps": [
+   "Ayarlar > Dijital Denge ve ebeveyn denetimleri'ni aç.",
+   "Uygulama zamanlayıcıları ile tetikleyici uygulamalara günlük süre koy.",
+   "Odak modu ile riskli saatlerinde dikkat dağıtan uygulamaları duraklat.",
+   "Yatma vakti modunu aç: gece ekran gri tonlamaya geçer ve bildirimler susar."
+  ],
+  "open": "Dijital Denge'yi aç",
+  "note": "Bu ayarlar telefonun kendi içinde çalışır; uygulama hiçbir veriye erişmez.",
+  "done": "Dijital Denge'yi kurdum"
+ },
+ "reminder": {
+  "title": "Riskli saat hatırlatıcısı",
+  "body": "Riskli saatlerinde seçtiğin uygulamalardan biri açılırsa, nazik bir \"Odak zamanı\" hatırlatması gelir. Engellemez; yalnızca hatırlatır.",
+  "disclosure": "Bu özellik, \"Kullanım erişimi\" izniyle hangi uygulamaların ne zaman açıldığını yalnızca bu telefonda okur. Bu bilgi hiçbir yere gönderilmez, saklanmaz; sadece hatırlatmanın gerekip gerekmediğine bakılır.",
+  "enable": "Hatırlatıcıyı aç",
+  "grant": "Kullanım erişimi iznini ver",
+  "grantHint": "Açılan listede bu uygulamayı bulup izni aç, sonra buraya dön.",
+  "appsTitle": "Hangi uygulamalar?",
+  "appsHint": "Genelde tetikleyici olanları seç (ör. sosyal medya, tarayıcı).",
+  "hoursTitle": "Riskli saatlerin",
+  "noHours": "Önce en az bir riskli saat aralığı seç.",
+  "unavailable": "Bu özellik uygulamanın tam sürümünde (Android) çalışır; bu sürümde kullanılamıyor.",
+  "delay": "Telefon bu kontrolü yaklaşık 15 dakikada bir yapar; hatırlatma birkaç dakika gecikebilir.",
+  "notifTitle": "Odak zamanı 🎯",
+  "notifBody": "Planını hatırlamak için iyi bir an."
+ }
+}

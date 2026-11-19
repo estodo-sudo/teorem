@@ -8,7 +8,7 @@ import { ALC } from '@/features/campus/alcohol/content';
 import { AUDIT_QUESTIONS, auditBand, auditScore, CUT_LIMITS, QUIT_GOALS, WITHDRAWAL_QUESTIONS, withdrawalRisk, type AlcMode } from '@/features/campus/alcohol/logic';
 import { WithdrawalBanner } from '@/features/campus/alcohol/ui';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
-import { Chip, GuideStepView } from '@/features/campus/smoking/ui';
+import { Chip, GuideStepView } from '@/features/campus/shared/guide';
 import { goBack } from '@/lib/nav';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { useCampusStore } from '@/stores/campusStore';

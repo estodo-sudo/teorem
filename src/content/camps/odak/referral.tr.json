@@ -1,0 +1,15 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "expert",
+ "sourceIds": [
+  "briken2024",
+  "meta2025",
+  "phq2",
+  "gad2",
+  "yedam"
+ ],
+ "title": "Profesyonel destek bu süreci kolaylaştırabilir",
+ "slips": "Son iki haftada birkaç kez zorlandın. Bir uzmanla konuşmak, bu yükü birlikte taşımana yardım edebilir.",
+ "screen": "Tarama ve ruh hali yanıtların, bir uzmanla konuşmanın iyi gelebileceğini gösteriyor.",
+ "mood": "Son birkaç gündür kendini çok kötü hissediyorsun. Bunu yalnız taşımak zorunda değilsin."
+}

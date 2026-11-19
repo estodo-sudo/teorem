@@ -4,6 +4,7 @@ import {
   createPlayer,
   finish as finishFn,
   pause as pauseFn,
+  restartExercise as restartFn,
   resume as resumeFn,
   skipExercise as skipFn,
   start as startFn,
@@ -20,10 +21,7 @@ const TICK_MS = 100;
  * React binding for the player state machine. Drives `tick` from a short
  * interval but all timing comes from Date.now() differences.
  */
-export function usePlayer<P extends TimedPhase>(
-  phases: readonly P[],
-  onEvents: (events: PlayerEvent<P>[], state: PlayerState<P>) => void,
-) {
+export function usePlayer<P extends TimedPhase>(phases: readonly P[], onEvents: (events: PlayerEvent<P>[], state: PlayerState<P>) => void) {
   const [initial] = useState(() => createPlayer(phases));
   const ref = useRef<PlayerState<P>>(initial);
   const [state, setState] = useState(initial);
@@ -54,6 +52,7 @@ export function usePlayer<P extends TimedPhase>(
     resume: useCallback(() => apply(resumeFn(ref.current, Date.now())), [apply]),
     skip: useCallback(() => apply(skipFn(ref.current, Date.now())), [apply]),
     finish: useCallback(() => apply(finishFn(ref.current, Date.now())), [apply]),
+    restartBlock: useCallback(() => apply(restartFn(ref.current, Date.now())), [apply]),
     getState: () => ref.current,
   };
 }

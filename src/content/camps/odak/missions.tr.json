@@ -1,0 +1,513 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "rct",
+ "sourceIds": [
+  "bothe2021",
+  "crosby2016",
+  "twohig2010",
+  "marlatt",
+  "gollwitzer2006"
+ ],
+ "missions": [
+  {
+   "id": "d1",
+   "phase": "awareness",
+   "day": 1,
+   "title": "Başlangıç fotoğrafı",
+   "body": "Bugün hiçbir şeyi değiştirmeye çalışma. Sadece dürtü ve davranışlarını günlüğüne kaydet; nerede durduğunu görmek ilk adımdır.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d2",
+   "phase": "awareness",
+   "day": 2,
+   "title": "Tetikleyici avı",
+   "body": "Bugün bir dürtü geldiğinde hemen öncesinde ne olduğunu fark et: yer, saat, duygu. Günlüğüne bir cümle yaz.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d3",
+   "phase": "awareness",
+   "day": 3,
+   "title": "Değer cümlen",
+   "body": "Değer kartlarından birini seç ve şu cümleyi tamamla: “Bu hafta bu değere göre atacağım küçük adım: …”",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d4",
+   "phase": "awareness",
+   "day": 4,
+   "title": "Önce ve sonra",
+   "body": "Bir davranış olduysa öncesindeki ve sonrasındaki duyguyu karşılaştır. Olmadıysa bir dürtü anında ne hissettiğini yaz.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d5",
+   "phase": "awareness",
+   "day": 5,
+   "title": "İlk sürtünme",
+   "body": "Bu gece telefonunu yatak odası dışında şarj et. Küçük bir zorluk, otomatik davranışı yavaşlatır.",
+   "durationMin": 5,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d6",
+   "phase": "awareness",
+   "day": 6,
+   "title": "DAYY kontrolü",
+   "body": "Gün içinde üç kez kendine sor: Dinlenmemiş miyim, aç mıyım, yalnız mıyım, yüklü müyüm? Yanıtı not et.",
+   "durationMin": 3,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d7",
+   "phase": "awareness",
+   "day": 7,
+   "title": "İlk haftanın özeti",
+   "body": "Günlüğündeki haftalık özete bak. En riskli saatin hangisi? O saat için bir Eğer–O zaman planı seç.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d8",
+   "phase": "boundaries",
+   "day": 8,
+   "title": "Telefonunun kendi filtresi",
+   "body": "Ortam ve dijital sınırlar ekranından telefonunun kendi filtresini kur (iPhone'da Ekran Süresi, Android'de Dijital Denge).",
+   "durationMin": 15,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d9",
+   "phase": "boundaries",
+   "day": 9,
+   "title": "Gece kuralı",
+   "body": "Yatmadan 30 dakika önce ekranları kapat. Yerine kitap, müzik ya da sakin bir sohbet koy.",
+   "durationMin": 30,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d10",
+   "phase": "boundaries",
+   "day": 10,
+   "title": "Ana ekran düzeni",
+   "body": "Tetikleyici olan uygulamaları ana ekrandan kaldır ya da bir klasörün içine taşı. Birkaç saniyelik ek adım bir fren olur.",
+   "durationMin": 10,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d11",
+   "phase": "boundaries",
+   "day": 11,
+   "title": "Riskli saat planı",
+   "body": "En riskli saat aralığın için iki alternatif etkinlik yaz: yürüyüş, duş, birini aramak, bir nefes seansı…",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d12",
+   "phase": "boundaries",
+   "day": 12,
+   "title": "Gri tonlama",
+   "body": "Bu gece ekranı gri tonlamaya al ve ekranın sana nasıl geldiğini fark et.",
+   "durationMin": 5,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d13",
+   "phase": "boundaries",
+   "day": 13,
+   "title": "Destekçin",
+   "body": "Güvendiğin birine, ayrıntı vermeden, zor anlarda ona yazabileceğini söyle. “Bazen konuşmaya ihtiyacım olabilir” demek yeterli.",
+   "durationMin": 10,
+   "type": "social",
+   "reviewed": false
+  },
+  {
+   "id": "d14",
+   "phase": "boundaries",
+   "day": 14,
+   "title": "Sınır kontrolü",
+   "body": "Bu hafta kurduğun sınırlardan hangisi işe yaradı? Birini biraz daha güçlendir.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d15",
+   "phase": "skills",
+   "day": 15,
+   "title": "İlk dalga",
+   "body": "Bir dürtü geldiğinde Dürtü anı ekranındaki dürtü sörfünü baştan sona uygula.",
+   "durationMin": 5,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d16",
+   "phase": "skills",
+   "day": 16,
+   "title": "Düşünceyi adlandır",
+   "body": "“Bir kereden bir şey olmaz” gibi bir düşünce geldiğinde içinden şunu söyle: “Şu an … düşüncesini fark ediyorum.”",
+   "durationMin": 3,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d17",
+   "phase": "skills",
+   "day": 17,
+   "title": "Nefes pratiği",
+   "body": "Dürtü yokken iki dakika nefes egzersizi yap. Sakin anda çalışılan beceri, zor anda daha kolay hatırlanır.",
+   "durationMin": 2,
+   "type": "learning",
+   "reviewed": false
+  },
+  {
+   "id": "d18",
+   "phase": "skills",
+   "day": 18,
+   "title": "Yer aç",
+   "body": "Rahatsız bir hissi 60 saniye boyunca değiştirmeye çalışmadan izle. Bedeninde nerede, nasıl bir his?",
+   "durationMin": 3,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d19",
+   "phase": "skills",
+   "day": 19,
+   "title": "Yeni yollar listesi",
+   "body": "Stresli ya da sıkıntılı anlarda yapabileceğin üç yeni şeyi listele.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d20",
+   "phase": "skills",
+   "day": 20,
+   "title": "Öz-şefkat cümlen",
+   "body": "Zor bir anda kendine söyleyeceğin nazik bir cümle yaz. Bir arkadaşına ne söylerdin?",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d21",
+   "phase": "skills",
+   "day": 21,
+   "title": "Araç değerlendirmesi",
+   "body": "Günlüğündeki haftalık özete bak: hangi araç en çok işe yaradı? Onu bir sonraki zor ana hazırla.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d22",
+   "phase": "skills",
+   "day": 22,
+   "title": "Hareketle dalga",
+   "body": "Bir dürtü anında 2 dakikalık hareket setini dene ve sonrasında ne hissettiğini not et.",
+   "durationMin": 2,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d23",
+   "phase": "skills",
+   "day": 23,
+   "title": "Gelecekteki ben",
+   "body": "Dürtü anı ekranındaki “Gelecekteki ben” bölümünden kendine kısa bir mektup yaz.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d24",
+   "phase": "skills",
+   "day": 24,
+   "title": "Duygunun ihtiyacı",
+   "body": "Bugün dürtüden önce hangi duygu vardı? O duygu neye ihtiyaç duyuyordu ve ona başka nasıl iyi bakabilirsin?",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d25",
+   "phase": "skills",
+   "day": 25,
+   "title": "On dakika",
+   "body": "Bir dürtü anında kararını 10 dakika ertele ve dürtünün nasıl değiştiğini izle.",
+   "durationMin": 10,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d26",
+   "phase": "skills",
+   "day": 26,
+   "title": "Nazik iç ses",
+   "body": "Kendi kendine konuşmanda sert bir cümleyi fark et ve onu daha nazik bir cümleyle değiştir.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d27",
+   "phase": "skills",
+   "day": 27,
+   "title": "Favori becerin",
+   "body": "Şimdiye kadar öğrendiğin becerilerden en çok işine yarayanı bugün bilinçli olarak kullan.",
+   "durationMin": 5,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d28",
+   "phase": "skills",
+   "day": 28,
+   "title": "Beceriler haftası",
+   "body": "Bu iki haftada neyi öğrendin? Tek bir cümleyle yaz.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d29",
+   "phase": "rebuild",
+   "day": 29,
+   "title": "Uyku saati",
+   "body": "Bu hafta her gün aynı saatte yatmayı dene. Düzenli uyku, gece gelen dürtüleri hafifletebilir.",
+   "durationMin": 5,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d30",
+   "phase": "rebuild",
+   "day": 30,
+   "title": "Gece rutini",
+   "body": "Yatmadan önce üç adımlık sakin bir rutin oluştur: ekranı kapat, ışığı azalt, birkaç dakika nefes ya da kitap.",
+   "durationMin": 10,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d31",
+   "phase": "rebuild",
+   "day": 31,
+   "title": "Bağlantı planı",
+   "body": "Bir arkadaşınla ya da ailenden biriyle bu hafta buluşmak için bir plan yap.",
+   "durationMin": 10,
+   "type": "social",
+   "reviewed": false
+  },
+  {
+   "id": "d32",
+   "phase": "rebuild",
+   "day": 32,
+   "title": "Yeni bir uğraş",
+   "body": "Merak ettiğin bir hobiye 20 dakika ayır: çizim, müzik, yemek, bir dil…",
+   "durationMin": 20,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d33",
+   "phase": "rebuild",
+   "day": 33,
+   "title": "Hareket zamanı",
+   "body": "20 dakikalık bir yürüyüş yap ya da uygulamadaki bir fitness seansını uygula.",
+   "durationMin": 20,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d34",
+   "phase": "rebuild",
+   "day": 34,
+   "title": "Bedenine iyi bak",
+   "body": "Uygulamadaki bir Kegel ya da nefes seansıyla bedenine birkaç dakika ayır.",
+   "durationMin": 10,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d35",
+   "phase": "rebuild",
+   "day": 35,
+   "title": "Haftalık bağlantı görevi",
+   "body": "Bir topluluk etkinliğine katıl ya da uzun süredir konuşmadığın birini ara.",
+   "durationMin": 30,
+   "type": "social",
+   "reviewed": false
+  },
+  {
+   "id": "d36",
+   "phase": "rebuild",
+   "day": 36,
+   "title": "Ekran yerine",
+   "body": "Riskli saatinde, planladığın alternatif etkinliği uygula.",
+   "durationMin": 20,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d37",
+   "phase": "rebuild",
+   "day": 37,
+   "title": "Anlam",
+   "body": "Bu hafta değerlerinle uyumlu yaptığın üç şeyi yaz.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d38",
+   "phase": "rebuild",
+   "day": 38,
+   "title": "Uyku kontrolü",
+   "body": "Günlük kontrollerine bak: uyku kalitende bir değişim var mı?",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d39",
+   "phase": "rebuild",
+   "day": 39,
+   "title": "Saygılı bakış",
+   "body": "“Sağlıklı cinsellik anlayışı” dersini oku ve kendine uygun bir ilke yaz.",
+   "durationMin": 10,
+   "type": "learning",
+   "reviewed": false
+  },
+  {
+   "id": "d40",
+   "phase": "rebuild",
+   "day": 40,
+   "title": "Teşekkür",
+   "body": "Bu süreçte seni destekleyen birine teşekkür et.",
+   "durationMin": 5,
+   "type": "social",
+   "reviewed": false
+  },
+  {
+   "id": "d41",
+   "phase": "rebuild",
+   "day": 41,
+   "title": "Rutin kontrolü",
+   "body": "Hangi yeni rutin sana en iyi geldi? Onu sonraki haftalarda da sürdürmeyi planla.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d42",
+   "phase": "rebuild",
+   "day": 42,
+   "title": "Çekirdek programın sonu",
+   "body": "Altı haftayı tamamladın. Kısa taramayı yeniden yap ve kendi ilerlemene bak; bu bir not değil, yalnızca bir fotoğraf.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d43",
+   "phase": "consolidation",
+   "day": 43,
+   "title": "Yüksek riskli durumlar haritası",
+   "body": "“Kayma önleme planı” dersini oku ve en riskli üç durumun için bir plan yap.",
+   "durationMin": 15,
+   "type": "learning",
+   "reviewed": false
+  },
+  {
+   "id": "d50",
+   "phase": "consolidation",
+   "day": 50,
+   "title": "Erken uyarı işaretleri",
+   "body": "Bir kaymadan önce genelde fark ettiğin üç işareti yaz (ör. uykusuzluk, yalnızlık, gece geç saatte telefon).",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d57",
+   "phase": "consolidation",
+   "day": 57,
+   "title": "Kimlik cümlen",
+   "body": "“Değerlerime göre yaşayan biriyim” cümlesini kendi kelimelerinle yaz.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d64",
+   "phase": "consolidation",
+   "day": 64,
+   "title": "Planlarını güncelle",
+   "body": "Eğer–O zaman planlarından birini bugünkü hayatına göre güncelle.",
+   "durationMin": 10,
+   "type": "action",
+   "reviewed": false
+  },
+  {
+   "id": "d71",
+   "phase": "consolidation",
+   "day": 71,
+   "title": "Bağlantıyı sürdür",
+   "body": "Bu hafta birisiyle yüz yüze zaman geçir.",
+   "durationMin": 30,
+   "type": "social",
+   "reviewed": false
+  },
+  {
+   "id": "d78",
+   "phase": "consolidation",
+   "day": 78,
+   "title": "Kendine teşekkür",
+   "body": "Bu süreçte kendine teşekkür ettiğin üç şeyi yaz.",
+   "durationMin": 5,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d85",
+   "phase": "consolidation",
+   "day": 85,
+   "title": "Bakım planı",
+   "body": "90. güne az kaldı. Sonraki aylar için ayda bir yapacağın küçük bir kontrol planı hazırla.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  },
+  {
+   "id": "d90",
+   "phase": "consolidation",
+   "day": 90,
+   "title": "90 gün",
+   "body": "90 günü tamamladın. Kısa taramayı yeniden yap ve yolculuğuna dönüp bak. Bundan sonra ayda bir kontrol yeterli.",
+   "durationMin": 10,
+   "type": "reflection",
+   "reviewed": false
+  }
+ ]
+}

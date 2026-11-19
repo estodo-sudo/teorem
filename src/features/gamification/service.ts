@@ -7,16 +7,17 @@ import { useProgressStore } from '@/stores/progressStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { WorkoutSession } from '@/types';
 
+import { protectedDays } from '@/features/training/returns';
+
 import { evaluateAchievements, type AchievementContext } from './achievements';
 import { computeStreak } from './streak';
 
-export const completedDates = (workouts: WorkoutSession[]) =>
-  workouts.filter((w) => w.completed).map((w) => w.date);
+export const completedDates = (workouts: WorkoutSession[]) => workouts.filter((w) => w.completed).map((w) => w.date);
 
 export function buildAchievementContext(today = toDateKey()): AchievementContext {
   const h = useHistoryStore.getState();
   const p = useProgressStore.getState();
-  const streak = computeStreak(completedDates(h.workouts), today);
+  const streak = computeStreak(completedDates(h.workouts), today, protectedDays(useTrainingStore.getState().training));
   return {
     totalWorkouts: h.workouts.filter((w) => w.completed).length,
     currentStreak: streak.current,
@@ -39,6 +40,8 @@ export function checkAchievements(): string[] {
 
 export function useStreak() {
   const workouts = useHistoryStore((s) => s.workouts);
+  const frozen = useTrainingStore((s) => s.training.frozenDays);
+  const vacation = useTrainingStore((s) => s.training.vacation);
   const today = toDateKey();
-  return useMemo(() => computeStreak(completedDates(workouts), today), [workouts, today]);
+  return useMemo(() => computeStreak(completedDates(workouts), today, protectedDays({ frozenDays: frozen, vacation })), [workouts, today, frozen, vacation]);
 }

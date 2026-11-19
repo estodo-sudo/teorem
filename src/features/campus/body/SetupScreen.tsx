@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
-import { GuideStepView } from '@/features/campus/smoking/ui';
+import { GuideStepView } from '@/features/campus/shared/guide';
 import { goBack } from '@/lib/nav';
 import { useCampusStore } from '@/stores/campusStore';
 

@@ -1,0 +1,69 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "rct",
+ "sourceIds": [
+  "bothe2021",
+  "crosby2016",
+  "phq2"
+ ],
+ "title": "Günlük kontrol",
+ "hint": "30 saniye. Doğru ya da yanlış yanıt yok.",
+ "onGoal": {
+  "q": "Bugün hedefine uygun muydun?",
+  "yes": "Evet",
+  "no": "Hayır"
+ },
+ "urges": {
+  "q": "Kaç kez güçlü bir dürtü oldu?",
+  "options": [
+   0,
+   1,
+   2,
+   3,
+   5
+  ],
+  "max": "5+"
+ },
+ "mood": {
+  "q": "Ruh halin",
+  "scale": [
+   "Çok kötü",
+   "Kötü",
+   "Orta",
+   "İyi",
+   "Çok iyi"
+  ]
+ },
+ "sleep": {
+  "q": "Uyku kalitesi",
+  "scale": [
+   "Çok kötü",
+   "Kötü",
+   "Orta",
+   "İyi",
+   "Çok iyi"
+  ]
+ },
+ "loneliness": {
+  "q": "Yalnızlık hissi",
+  "scale": [
+   "Hiç",
+   "Az",
+   "Orta",
+   "Oldukça",
+   "Çok"
+  ]
+ },
+ "value": {
+  "q": "Bugün değerlerine uygun yaptığın bir şey (isteğe bağlı)",
+  "placeholder": "Örnek: Akşam yürüyüşe çıktım."
+ },
+ "save": "Kaydet",
+ "done": "Teşekkürler. Kendini fark etmek değişimin temelidir.",
+ "doneSlip": "Dürüst yanıtın için teşekkürler. İstersen birlikte bakalım; bu bir öğrenme fırsatı.",
+ "toSlip": "Birlikte bakalım",
+ "lowMood": "Son birkaç gündür kendini çok kötü hissediyorsun. Bunu yalnız taşımak zorunda değilsin.",
+ "panelDue": "Günlük kontrolün hazır",
+ "panelDone": "Bugünkü kontrol tamam ✓",
+ "panelNext": "Sonraki kontrol: {days} gün sonra"
+}

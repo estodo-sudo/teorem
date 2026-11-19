@@ -4,11 +4,11 @@ import { Pressable, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_ONBOARDING as ONB } from '@/features/camp/content';
-import { todayCount, triggerFrequency } from '@/features/camp/engine/diary';
-import { MIN_MS } from '@/features/camp/engine/time';
-import { campAttempt } from '@/features/camp/state';
-import type { Score5, TriggerId } from '@/features/camp/types';
+import { CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
+import { todayCount, triggerFrequency } from '@/features/camps/smoking/engine/diary';
+import { MIN_MS } from '@/features/camps/core/time';
+import { campAttempt } from '@/features/camps/smoking/state';
+import type { Score5, TriggerId } from '@/features/camps/smoking/types';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

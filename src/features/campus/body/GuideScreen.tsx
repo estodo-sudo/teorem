@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Header, Screen } from '@/components';
-import { GuideStepView } from '@/features/campus/smoking/ui';
+import { GuideStepView } from '@/features/campus/shared/guide';
 import { goBack } from '@/lib/nav';
 
 import { BODY } from './content';

@@ -1,0 +1,141 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "expert",
+ "sourceIds": [
+  "bothe2021",
+  "crosby2016"
+ ],
+ "title": "Yeniden İnşa",
+ "intro": "Davranışı azaltmak bir boşluk açar. O boşluğu sana iyi gelen rutinlerle doldurmak, değişimi kalıcı yapar.",
+ "planner": {
+  "title": "Riskli saatlerin için alternatifler",
+  "hint": "Her riskli saat aralığın için 1–2 alternatif etkinlik seç.",
+  "empty": "Önce Ortam ve dijital sınırlar ekranından ya da kayıt sırasında riskli saatlerini seç.",
+  "max": 2,
+  "options": [
+   {
+    "id": "walk",
+    "emoji": "🚶",
+    "label": "Yürüyüş"
+   },
+   {
+    "id": "shower",
+    "emoji": "🚿",
+    "label": "Duş"
+   },
+   {
+    "id": "book",
+    "emoji": "📖",
+    "label": "Kitap"
+   },
+   {
+    "id": "call",
+    "emoji": "📞",
+    "label": "Birini aramak"
+   },
+   {
+    "id": "kegel",
+    "emoji": "💪",
+    "label": "Kegel seansı"
+   },
+   {
+    "id": "breath",
+    "emoji": "🌬️",
+    "label": "Nefes egzersizi"
+   },
+   {
+    "id": "fitness",
+    "emoji": "🏃",
+    "label": "Fitness"
+   },
+   {
+    "id": "hobby",
+    "emoji": "🎨",
+    "label": "Bir uğraş"
+   },
+   {
+    "id": "music",
+    "emoji": "🎧",
+    "label": "Müzik"
+   },
+   {
+    "id": "sleep",
+    "emoji": "😴",
+    "label": "Erken yatmak"
+   }
+  ]
+ },
+ "sleep": {
+  "title": "Uyku hijyeni",
+  "note": "Genel bilgidir; tıbbi tedavi değildir. Uyku sorunun uzun sürerse bir hekime danış.",
+  "items": [
+   {
+    "id": "same-time",
+    "label": "Her gün benzer saatte yatıp kalkıyorum"
+   },
+   {
+    "id": "no-phone-bed",
+    "label": "Telefonu yatak odası dışında bırakıyorum"
+   },
+   {
+    "id": "screens-off",
+    "label": "Yatmadan 30 dakika önce ekranları kapatıyorum"
+   },
+   {
+    "id": "dark-cool",
+    "label": "Odam karanlık, sessiz ve serin"
+   },
+   {
+    "id": "caffeine",
+    "label": "Öğleden sonra kafeini azaltıyorum"
+   },
+   {
+    "id": "get-up",
+    "label": "Uyuyamazsam kalkıp loş ışıkta sakin bir şey yapıyorum"
+   }
+  ]
+ },
+ "connection": {
+  "title": "Haftalık bağlantı görevi",
+  "done": "Bu hafta yaptım",
+  "doneNote": "Harika. Bağlantı, dürtünün altındaki ihtiyaca iyi gelir.",
+  "tasks": [
+   "Bir arkadaşınla buluş.",
+   "Ailenden birini ara ve hal hatır sor.",
+   "Bir topluluk etkinliğine katıl (spor, kurs, gönüllülük).",
+   "Uzun süredir konuşmadığın birine mesaj at.",
+   "Biriyle birlikte yemek ye.",
+   "Birine küçük bir iyilik yap."
+  ]
+ },
+ "bridge": {
+  "title": "Uygulamadaki araçlar",
+  "hint": "Bedenine iyi bakmak da yeniden inşanın parçası.",
+  "items": [
+   {
+    "id": "kegel",
+    "emoji": "💪",
+    "label": "Kegel antrenmanı",
+    "route": "/training"
+   },
+   {
+    "id": "breathing",
+    "emoji": "🌬️",
+    "label": "Nefes egzersizi",
+    "route": "/mind/breathing"
+   },
+   {
+    "id": "bodyScan",
+    "emoji": "🧘",
+    "label": "Beden taraması",
+    "route": "/mind/body-scan"
+   },
+   {
+    "id": "fitness",
+    "emoji": "🏃",
+    "label": "Kasık Fitness",
+    "route": "/training"
+   }
+  ]
+ }
+}

@@ -4,11 +4,11 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_CHECKIN as CHK, CAMP_ONBOARDING as ONB } from '@/features/camp/content';
-import { totalSmokeFreeDays } from '@/features/camp/engine/counters';
-import { PlanEditor } from '@/features/camp/PlanEditor';
-import { campAttempt } from '@/features/camp/state';
-import type { Score5, TriggerId } from '@/features/camp/types';
+import { CAMP_CHECKIN as CHK, CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
+import { totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
+import { PlanEditor } from '@/features/camps/smoking/PlanEditor';
+import { campAttempt } from '@/features/camps/smoking/state';
+import type { Score5, TriggerId } from '@/features/camps/smoking/types';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

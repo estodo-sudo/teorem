@@ -1,0 +1,67 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "review",
+ "sourceIds": [
+  "marlatt",
+  "bothe2021",
+  "crosby2016",
+  "grubbs2019b"
+ ],
+ "welcome": {
+  "title": "Bu, yolun bir parçası",
+  "body": "Kendine sert davranmak bir sonrakini kolaylaştırmaz. Birlikte bakalım."
+ },
+ "what": {
+  "title": "Ne oldu?",
+  "hint": "Fark etmek, bir sonraki sefere hazırlanmaktır. Hepsi isteğe bağlı.",
+  "kind": "Ne oldu?",
+  "trigger": "Hangi durumda?",
+  "emotion": "Önce ne hissediyordun?",
+  "when": "Ne zaman?",
+  "whenOptions": [
+   {
+    "id": "now",
+    "label": "Az önce"
+   },
+   {
+    "id": "today",
+    "label": "Bugün daha erken"
+   },
+   {
+    "id": "yesterday",
+    "label": "Dün"
+   }
+  ]
+ },
+ "notErased": {
+  "title": "Bir kayma, bütün emeğin silindiği anlamına gelmez",
+  "body": "\"Nasılsa bozuldu, artık fark etmez\" düşüncesi çok yaygındır ve kaymayı uzatır. Gerçek şu: emeğin yerinde duruyor.",
+  "total": "Hedefine uygun toplam gün: {n}",
+  "longest": "En uzun serin: {n} gün",
+  "managed": "Yönettiğin dürtü anları: {n}"
+ },
+ "compassion": {
+  "title": "Bir dakika kendine nazik ol",
+  "seconds": 60,
+  "prompts": [
+   "Bir elini göğsüne koy. Şu an zorlandığını kabul et: \"Bu zor bir an.\"",
+   "Bunu yaşayan tek kişi sen değilsin. Değişim herkes için inişli çıkışlıdır.",
+   "Kendine, bir arkadaşına söyleyeceğin gibi söyle: \"Hata yapabilirim; yine de yoluma devam ediyorum.\""
+  ],
+  "start": "1 dakikayı başlat",
+  "done": "Kendine nazik davranmak, bir sonraki adımı atmayı kolaylaştırır."
+ },
+ "plan": {
+  "title": "Planını güncelle",
+  "hint": "Bu durum bir dahaki sefere nasıl farklı olabilir? Bir \"Eğer… o zaman…\" planı seç.",
+  "own": "Kendi planımı yazayım",
+  "ownPlaceholder": "O zaman…",
+  "skip": "Şimdilik geç",
+  "save": "Planı kaydet"
+ },
+ "done": {
+  "title": "Yoluna devam",
+  "body": "Kaymayı fark ettin, ondan öğrendin ve planını güncelledin. Bu, güçlü bir beceri.",
+  "back": "Panele dön"
+ }
+}

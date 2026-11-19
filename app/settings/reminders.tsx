@@ -4,10 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, Screen, SwitchRow, TimeStepper, useTheme } from '@/components';
 import { hasNotificationPermission, requestNotificationPermission } from '@/features/reminders/permissions';
+import { MAX_REMINDER_TIMES, REMINDER_PRESETS } from '@/features/reminders/plan';
 import { useSettingsStore } from '@/stores/settingsStore';
 
-const MAX_TIMES = 3;
-
+/**
+ * Reminders v2 (SPEC_KEGEL_V2 §13): 1–4 times in any order (sorted automatically — never an error),
+ * habit-anchor presets, neutral texts. Reminders go quiet once today's target is reached and during
+ * vacation mode.
+ */
 export default function ReminderSettings() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -19,7 +23,11 @@ export default function ReminderSettings() {
     void hasNotificationPermission().then(setGranted);
   }, []);
 
-  const setTime = (i: number, v: string) => update({ reminderTimes: settings.reminderTimes.map((x, k) => (k === i ? v : x)) });
+  const times = settings.reminderTimes;
+  const save = (next: string[]) => update({ reminderTimes: Array.from(new Set(next)).sort() });
+  // Editing a time keeps the card in place; the order is fixed when times are added or removed (and always when scheduling).
+  const setTime = (i: number, v: string) => update({ reminderTimes: times.map((x, k) => (k === i ? v : x)) });
+  const togglePreset = (time: string) => (times.includes(time) ? (times.length > 1 ? save(times.filter((x) => x !== time)) : undefined) : times.length < MAX_REMINDER_TIMES ? save([...times, time]) : undefined);
 
   return (
     <Screen>
@@ -37,18 +45,51 @@ export default function ReminderSettings() {
       </Card>
       {settings.remindersEnabled ? (
         <>
+          <AppText variant="h3">{tr('settings.reminders.presetsTitle')}</AppText>
+          <AppText variant="small" muted>
+            {tr('settings.reminders.presetsHint')}
+          </AppText>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+            {REMINDER_PRESETS.map((p) => {
+              const on = times.includes(p.time);
+              return (
+                <Pressable
+                  key={p.id}
+                  onPress={() => togglePreset(p.time)}
+                  accessibilityRole="checkbox"
+                  accessibilityState={{ checked: on }}
+                  accessibilityLabel={`${tr(`settings.reminders.preset.${p.id}`)} ${p.time}`}
+                  style={({ pressed }) => ({
+                    minHeight: 48,
+                    paddingHorizontal: 14,
+                    justifyContent: 'center',
+                    borderRadius: 24,
+                    borderWidth: 2,
+                    borderColor: on ? t.colors.accent : t.colors.border,
+                    backgroundColor: on ? t.colors.surfaceAlt : t.colors.surface,
+                    opacity: pressed ? 0.8 : 1,
+                  })}
+                >
+                  <AppText weight="700">
+                    {tr(`settings.reminders.preset.${p.id}`)} · {p.time}
+                  </AppText>
+                </Pressable>
+              );
+            })}
+          </View>
+
           <AppText variant="h3">{tr('settings.reminders.times')}</AppText>
-          {settings.reminderTimes.map((time, i) => (
+          {times.map((time, i) => (
             <Card key={i} style={{ gap: 8 }}>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <AppText weight="700">{tr('settings.reminders.timeN', { n: i + 1 })}</AppText>
-                {settings.reminderTimes.length > 1 ? (
+                {times.length > 1 ? (
                   <Pressable
-                    onPress={() => update({ reminderTimes: settings.reminderTimes.filter((_, k) => k !== i) })}
+                    onPress={() => save(times.filter((_, k) => k !== i))}
                     accessibilityRole="button"
                     accessibilityLabel={tr('settings.reminders.remove', { n: i + 1 })}
                     hitSlop={10}
-                    style={{ padding: 6 }}
+                    style={{ width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }}
                   >
                     <Icon name="trash" color={t.colors.textMuted} size={20} />
                   </Pressable>
@@ -57,9 +98,7 @@ export default function ReminderSettings() {
               <TimeStepper value={time} onChange={(v) => setTime(i, v)} />
             </Card>
           ))}
-          {settings.reminderTimes.length < MAX_TIMES ? (
-            <Button label={tr('settings.reminders.add')} variant="secondary" icon="plus" onPress={() => update({ reminderTimes: [...settings.reminderTimes, '12:00'] })} />
-          ) : null}
+          {times.length < MAX_REMINDER_TIMES ? <Button label={tr('settings.reminders.add')} variant="secondary" icon="plus" onPress={() => save([...times, ['12:00', '15:00', '18:00', '21:00'].find((x) => !times.includes(x)) ?? '12:30'])} /> : null}
           <AppText variant="small" muted>
             {tr('settings.reminders.hint')}
           </AppText>

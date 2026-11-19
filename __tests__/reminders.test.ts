@@ -32,10 +32,22 @@ describe('planReminders', () => {
     expect(r).toHaveLength(18);
   });
 
-  it('supports up to 3 times per day, de-duplicated', () => {
-    const r = planReminders(base({ times: ['21:00', '09:00', '21:00', '13:00', '18:00'] }));
+  it('Kegel v2: up to 4 times per day in any order, de-duplicated and sorted, never an error', () => {
+    const r = planReminders(base({ times: ['21:00', '09:00', '21:00', '13:00', '18:00', '22:30', 'xx'] }));
     const today = r.filter((x) => x.fireAt.getDate() === 15).map((x) => x.fireAt.getHours());
-    expect(today).toEqual([13, 18]); // 09:00 already passed; max 3 → 09,13,18
+    expect(today).toEqual([13, 18, 21]); // 09:00 already passed; max 4 → 09,13,18,21
+    expect(r.filter((x) => x.fireAt.getDate() === 16).map((x) => x.fireAt.getHours())).toEqual([9, 13, 18, 21]);
+    expect(planReminders(base({ times: ['xx'] }))).toEqual([]);
+  });
+
+  it('Kegel v2: "skip today" and vacation silence reminders; the weekly test moves past the vacation', () => {
+    const skip = planReminders(base({ times: ['12:00', '21:00'], skipDate: '2026-11-15' }));
+    expect(skip.some((x) => x.fireAt.getDate() === 15)).toBe(false);
+    expect(skip.some((x) => x.fireAt.getDate() === 16)).toBe(true);
+    const away = planReminders(base({ vacation: { from: '2026-11-16', to: '2026-11-18' }, weeklyTest: true, lastStrengthTest: '2026-11-09' }));
+    expect(away.filter((x) => x.kind === 'daily').map((x) => x.fireAt.getDate())).toEqual([15, 19, 20, 21]);
+    const test = away.find((x) => x.kind === 'weeklyTest')!;
+    expect(test.fireAt.getDate()).toBe(19);
   });
 
   it('returns nothing when disabled', () => {

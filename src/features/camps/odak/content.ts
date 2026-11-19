@@ -1,0 +1,174 @@
+import badgesJson from '@/content/camps/odak/badges.tr.json';
+import boundariesJson from '@/content/camps/odak/boundaries.tr.json';
+import checkinJson from '@/content/camps/odak/checkin.tr.json';
+import coachJson from '@/content/camps/odak/coach.tr.json';
+import diaryJson from '@/content/camps/odak/diary.tr.json';
+import onboardingJson from '@/content/camps/odak/onboarding.tr.json';
+import panelJson from '@/content/camps/odak/panel.tr.json';
+import libraryJson from '@/content/camps/odak/library.tr.json';
+import methodJson from '@/content/camps/odak/method.tr.json';
+import missionsJson from '@/content/camps/odak/missions.tr.json';
+import plansJson from '@/content/camps/odak/plans.tr.json';
+import rebuildJson from '@/content/camps/odak/rebuild.tr.json';
+import referralJson from '@/content/camps/odak/referral.tr.json';
+import relapseJson from '@/content/camps/odak/relapse.tr.json';
+import skillsJson from '@/content/camps/odak/skills.tr.json';
+import slipJson from '@/content/camps/odak/slip.tr.json';
+import statsJson from '@/content/camps/odak/stats.tr.json';
+import summaryJson from '@/content/camps/odak/summary.tr.json';
+import supportJson from '@/content/camps/odak/support.tr.json';
+import sosJson from '@/content/camps/odak/sos.tr.json';
+import sourcesJson from '@/content/camps/odak/sources.json';
+
+import type { CoachScenario } from '@/features/camps/core/coachEngine';
+
+import type { OdakLesson, OdakMission } from './engine/program';
+import type { OdakTriggerId } from './types';
+
+type Option = { id: string; emoji: string; label: string };
+type Scored = { value: number; label: string };
+
+export interface OdakSource {
+  id: string;
+  title: string;
+  org: string;
+  year: number;
+  url: string;
+  accessed: string;
+}
+
+export interface OdakOnboardingContent {
+  reviewed: boolean;
+  evidenceLevel: string;
+  sourceIds: string[];
+  age: { title: string; hint: string; adult: string; minor: string };
+  under18: { title: string; body: string[]; help: { id: string; emoji: string; title: string; text: string; phone?: string; lastVerified?: string; needsVerification?: boolean }[]; emergency: string };
+  facts: { title: string; items: { emoji: string; text: string }[] };
+  lock: { title: string; body: string };
+  reasons: { title: string; hint: string; options: Option[]; otherPlaceholder: string };
+  bps: { title: string; hint: string; placeholder: boolean; placeholderNote: string; items: string[]; options: Scored[]; threshold: number; resultHigh: string; resultLow: string; nonJudge: string };
+  freq: { title: string; hint: string; porn: string; mast: string; unit: string };
+  triggers: { title: string; hint: string; options: (Option & { id: OdakTriggerId })[] };
+  emotions: { title: string; hint: string; beforeTitle: string; afterTitle: string; before: Option[]; after: Option[] };
+  values: { title: string; hint: string; cards: Option[]; textPlaceholder: string };
+  moral: { title: string; statement: string; scale: string[]; note: string };
+  mood: { title: string; hint: string; phq: string[]; gad: string[]; options: Scored[]; threshold: number; resultHigh: string; resultLow: string };
+  attempts: { title: string; hint: string; options: Option[]; note: string };
+  goal: {
+    title: string;
+    hint: string;
+    porn: { title: string; options: Option[] };
+    mast: { title: string; options: Option[] };
+    weeklyMax: string;
+    weeklyUnit: string;
+    pauseTitle: string;
+    pauseUnit: string;
+    note: string;
+    undecidedNote: string;
+  };
+  risky: { title: string; hint: string; ranges: { id: string; label: string; from: string; to: string }[] };
+  plans: { title: string; hint: string; if: string; then: string; empty: string };
+  expert: { title: string; body: string; phone: string; phoneLabel: string; lastVerified: string; needsVerification: boolean; emergency: string };
+  summary: {
+    title: string;
+    goalsTitle: string;
+    valuesTitle: string;
+    plansTitle: string;
+    boundariesTitle: string;
+    boundaries: string[];
+    boundariesNote: string;
+    programTitle: string;
+    programIntro: string;
+    phases: { emoji: string; name: string; days: string; focus: string }[];
+    goalLabels: { porn: Record<string, string>; mast: Record<string, string> };
+    bpsAgain: string;
+  };
+}
+
+export interface OdakPlansContent {
+  reviewed: boolean;
+  evidenceLevel: string;
+  sourceIds: string[];
+  templates: Record<OdakTriggerId, { if: string; then: string[] }>;
+}
+
+export interface OdakPanelContent {
+  reviewed: boolean;
+  evidenceLevel: string;
+  sourceIds: string[];
+  targets: { porn: string; mast: string };
+  counter: { quit: string; zero: string; pause: string; pauseDone: string; reduce: string; reduceOver: string; detail: string };
+  undecided: { title: string; body: string };
+  value: { title: string; own: string };
+  log: { title: string; hint: string; options: Option[]; saved: string; slipTitle: string; slipBody: string; kept: string };
+  sosStub: { title: string };
+}
+
+/** Fills {name} placeholders of content strings. */
+export const fill = (text: string, vars: Record<string, string | number | undefined>) => text.replace(/\{(\w+)\}/g, (m, k: string) => (vars[k] === undefined ? m : String(vars[k])));
+
+export interface OdakSosContent {
+  reviewed: boolean;
+  evidenceLevel: string;
+  sourceIds: string[];
+  check: { title: string; hint: string; items: { id: 'tired' | 'hungry' | 'lonely' | 'loaded'; letter: string; emoji: string; label: string; tip: string }[]; intensity: string; intensityLabels: { low: string; high: string } };
+  relocate: { title: string; lead: string; seconds: number; steps: string[]; start: string; done: string };
+  tools: { title: string; hint: string; items: { id: string; emoji: string; title: string; desc: string }[] };
+  surf: { desc: string; prompts: string[]; done: string };
+  breath: { desc: string };
+  move: { desc: string; seconds: number; steps: string[]; start: string; done: string };
+  values: { desc: string; empty: string };
+  futureSelf: { desc: string; placeholder: string; save: string; edit: string; saved: string };
+  supporter: { desc: string; message: string; share: string };
+  end: { question: string; managed: string; hard: string; slipped: string; managedTitle: string; managedBody: string; hardBody: string; slippedTitle: string; slippedBody: string; count: string; logSlip: string; back: string };
+  emergency: string;
+}
+
+export interface OdakDiaryContent {
+  reviewed: boolean;
+  evidenceLevel: string;
+  sourceIds: string[];
+  title: string;
+  intro: string;
+  urge: { title: string; hint: string; intensity: string; trigger: string; dayy: string; outcome: string; managed: string; slipped: string; saved: string };
+  behavior: { title: string; hint: string; kind: string; trigger: string; before: string; after: string; satisfaction: string; satisfactionScale: string[]; save: string };
+  week: { title: string; empty: string; counts: string; riskyHour: string; riskyDay: string; topTrigger: string; bestTool: string; emotions: string; satisfaction: string; note: string };
+  days: string[];
+  list: { title: string; empty: string; urge: string; managed: string; still_hard: string; slipped: string };
+}
+
+/** Check-in, slip, relapse and referral texts (shapes inferred from the generated JSON). */
+export const ODAK_CHECKIN = checkinJson;
+export const ODAK_SLIP = slipJson;
+export const ODAK_RELAPSE = relapseJson;
+export const ODAK_REFERRAL = referralJson;
+export const ODAK_BOUNDARIES = boundariesJson;
+export const ODAK_MISSIONS = missionsJson.missions as OdakMission[];
+export const ODAK_SKILLS = skillsJson.lessons as OdakLesson[];
+export interface OdakStory {
+  id: string;
+  emoji: string;
+  title: string;
+  summary: string;
+  slides: { emoji: string; title: string; text: string }[];
+  sourceIds: string[];
+  evidenceLevel: string;
+  minutes: number;
+}
+export const ODAK_LIBRARY = libraryJson.stories as OdakStory[];
+export const ODAK_REBUILD = rebuildJson;
+export const ODAK_SUPPORT = supportJson;
+export const ODAK_SUMMARY = summaryJson;
+export const ODAK_STATS = statsJson;
+export const ODAK_BADGES = badgesJson;
+export const ODAK_METHOD = methodJson;
+export const ODAK_COACH = coachJson as unknown as { reviewed: boolean; evidenceLevel: string; sourceIds: string[]; disclaimer: string; scenarios: CoachScenario[] };
+
+export const ODAK_DIARY = diaryJson as unknown as OdakDiaryContent;
+export const ODAK_SOS = sosJson as unknown as OdakSosContent;
+export const ODAK_PANEL = panelJson as unknown as OdakPanelContent;
+export const ODAK_ONBOARDING = onboardingJson as unknown as OdakOnboardingContent;
+export const ODAK_PLANS = plansJson as unknown as OdakPlansContent;
+export const ODAK_SOURCES = sourcesJson as OdakSource[];
+export const ODAK_EMOJI = '🎯';
+export const ODAK_DAYS = 90;

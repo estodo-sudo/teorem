@@ -84,6 +84,22 @@ const config: ExpoConfig = {
         contactsPermission: 'ALO 171 Sigara Bırakma Danışma Hattı numarasını rehberine kaydetmek için rehber erişimi gerekiyor.',
       },
     ],
+    // Odak Kampı privacy: camp lock (Face ID / fingerprint / device code) and the keychain-held vault key.
+    // Neutral wording: the permission text never names the camp's topic.
+    // Odak Kampı (Android): periodic risky-hour reminder check.
+    'expo-background-task',
+    [
+      'expo-local-authentication',
+      {
+        faceIDPermission: 'Kilitli bölümleri Face ID ile açmak için kullanılır.',
+      },
+    ],
+    [
+      'expo-secure-store',
+      {
+        faceIDPermission: 'Kilitli bölümleri Face ID ile açmak için kullanılır.',
+      },
+    ],
   ],
   // EAS Update is used only to preview test versions in Expo Go during
   // development. The app never checks for updates on its own ('NEVER'), so

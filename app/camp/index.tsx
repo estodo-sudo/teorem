@@ -4,22 +4,22 @@ import { Image, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { CAMP_HEALTH, CAMP_MISSIONS, CAMP_ONBOARDING as ONB, CAMP_REWARDS, CAMP_SKILLS } from '@/features/camp/content';
-import { nextLesson } from '@/features/camp/engine/skills';
-import { cigarettesNotSmoked, slipsOf, smokeFreeDuration, totalSmokeFreeDays } from '@/features/camp/engine/counters';
-import { reasonOfDay, remainingUnit, splitDuration } from '@/features/camp/engine/format';
-import { HEALTH_MILESTONES, milestoneToCelebrate, nextHealthMilestone, reachedMilestones } from '@/features/camp/engine/milestones';
-import { currentPhase, daysSinceQuit, daysToNextPhase, programDay, quitStart } from '@/features/camp/engine/phase';
-import { missionForDay } from '@/features/camp/engine/plans';
-import { checkinDue, moodAlert } from '@/features/camp/engine/checkin';
-import { logsOfAttempt, REPORT_MIN_LOGS, todayCount } from '@/features/camp/engine/diary';
-import { moneySaved } from '@/features/camp/engine/savings';
-import { resistedCount } from '@/features/camp/engine/sos';
-import { campAttempt } from '@/features/camp/state';
-import { missionIsFree } from '@/features/camp/engine/premium';
+import { CAMP_HEALTH, CAMP_MISSIONS, CAMP_ONBOARDING as ONB, CAMP_REWARDS, CAMP_SKILLS } from '@/features/camps/smoking/content';
+import { nextLesson } from '@/features/camps/smoking/engine/skills';
+import { cigarettesNotSmoked, slipsOf, smokeFreeDuration, totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
+import { reasonOfDay, remainingUnit, splitDuration } from '@/features/camps/smoking/engine/format';
+import { HEALTH_MILESTONES, milestoneToCelebrate, nextHealthMilestone, reachedMilestones } from '@/features/camps/smoking/engine/milestones';
+import { currentPhase, daysSinceQuit, daysToNextPhase, programDay, quitStart } from '@/features/camps/smoking/engine/phase';
+import { missionForDay } from '@/features/camps/smoking/engine/plans';
+import { checkinDue, moodAlert } from '@/features/camps/smoking/engine/checkin';
+import { logsOfAttempt, REPORT_MIN_LOGS, todayCount } from '@/features/camps/smoking/engine/diary';
+import { moneySaved } from '@/features/camps/smoking/engine/savings';
+import { resistedCount } from '@/features/camps/smoking/engine/sos';
+import { campAttempt } from '@/features/camps/smoking/state';
+import { missionIsFree } from '@/features/camps/smoking/engine/premium';
 import { useAccess } from '@/features/purchases/useGate';
-import { canGraduate, earnedBadges, newBadges } from '@/features/camp/engine/stats';
-import { Alo171Card, fmtTL, MissionCard, PhaseTrack, PremiumLock, SafetyCard, StatTile, useCampDate } from '@/features/camp/ui';
+import { canGraduate, earnedBadges, newBadges } from '@/features/camps/smoking/engine/stats';
+import { Alo171Card, fmtTL, MissionCard, PhaseTrack, PremiumLock, SafetyCard, StatTile, useCampDate } from '@/features/camps/smoking/ui';
 import { CampusHero, SectionTitle, tint } from '@/features/campus/shared/ui';
 import { CelebrationCard } from '@/features/gamification/Celebration';
 import { goBack } from '@/lib/nav';
@@ -329,6 +329,13 @@ export default function CampPanel() {
       </View>
 
       <Alo171Card compact />
+
+      <View style={{ gap: 6, marginTop: 10, paddingTop: 14, borderTopWidth: 1, borderTopColor: t.colors.border }}>
+        <AppText variant="small" weight="800" muted>
+          ⚙️ {tr('camp.panel.settingsTitle')}
+        </AppText>
+        <Button label={tr('camp.settings.title')} icon="gear" variant="secondary" onPress={() => router.push('/camp/settings')} />
+      </View>
 
       {!celebrate && badge ? (
         <CelebrationCard

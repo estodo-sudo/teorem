@@ -3,10 +3,10 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Dialog, Header, Icon, Screen, useTheme } from '@/components';
-import { PlanEditor } from '@/features/camp/PlanEditor';
-import { CAMP_ONBOARDING as ONB, CAMP_PLANS } from '@/features/camp/content';
-import { triggerFrequency } from '@/features/camp/engine/diary';
-import type { TriggerId } from '@/features/camp/types';
+import { PlanEditor } from '@/features/camps/smoking/PlanEditor';
+import { CAMP_ONBOARDING as ONB, CAMP_PLANS } from '@/features/camps/smoking/content';
+import { triggerFrequency } from '@/features/camps/smoking/engine/diary';
+import type { TriggerId } from '@/features/camps/smoking/types';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

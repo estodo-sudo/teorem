@@ -1,0 +1,717 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "expert",
+ "sourceIds": [
+  "crosby2016",
+  "bothe2021",
+  "marlatt",
+  "briken2024",
+  "yedam"
+ ],
+ "disclaimer": "Koç önceden hazırlanmış bir rehberdir; insan veya yapay zekâ değildir. Tanı koymaz.",
+ "scenarios": [
+  {
+   "id": "urge",
+   "emoji": "🌊",
+   "title": "Şu an güçlü bir dürtü var",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Bunu benimle paylaşman çok değerli. Dürtü şu an ne kadar güçlü?",
+     "replies": [
+      {
+       "label": "Çok güçlü",
+       "next": "strong"
+      },
+      {
+       "label": "Orta",
+       "next": "mid"
+      },
+      {
+       "label": "Hafif ama geçmiyor",
+       "next": "mid"
+      }
+     ]
+    },
+    "strong": {
+     "text": "Güçlü dürtüler genelde birkaç dakika içinde zirve yapar ve sonra azalır. Önce yerinden kalk: odayı değiştir, ışığı aç ya da bir bardak su iç. Sonra ne yapmak istersin?",
+     "replies": [
+      {
+       "label": "Dürtü anı aracını aç",
+       "action": "sos"
+      },
+      {
+       "label": "Önce konuşalım",
+       "next": "talk"
+      }
+     ]
+    },
+    "mid": {
+     "text": "Dürtüyü fark etmen önemli bir adım. Şu an yorgun, aç, yalnız ya da gergin misin?",
+     "replies": [
+      {
+       "label": "Evet, biri var",
+       "next": "dayy"
+      },
+      {
+       "label": "Pek değil",
+       "next": "value"
+      }
+     ]
+    },
+    "dayy": {
+     "text": "Dürtünün altında çoğu zaman bir ihtiyaç vardır. O ihtiyaca iyi bakmak dürtüyü de hafifletir: biraz dinlenmek, bir şeyler yemek, birine yazmak ya da birkaç dakika nefes.",
+     "replies": [
+      {
+       "label": "Dürtü anı aracını aç",
+       "action": "sos"
+      },
+      {
+       "label": "Biraz daha iyiyim",
+       "next": "better"
+      }
+     ]
+    },
+    "value": {
+     "text": "Bu konuda nasıl biri olmak istediğini yazmıştın: “{value}”. Şu an bu dürtüye göre davranmak seni o değere yaklaştırır mı?",
+     "replies": [
+      {
+       "label": "Hayır, uzaklaştırır",
+       "next": "better"
+      },
+      {
+       "label": "Dürtü anı aracını aç",
+       "action": "sos"
+      }
+     ]
+    },
+    "talk": {
+     "text": "Dürtüyü bedeninin neresinde hissediyorsun? Sadece fark et; onunla savaşmana gerek yok. Dalga yükselecek ve alçalacak.",
+     "replies": [
+      {
+       "label": "Biraz hafifledi",
+       "next": "better"
+      },
+      {
+       "label": "Hâlâ çok güçlü",
+       "action": "sos"
+      }
+     ]
+    },
+    "better": {
+     "text": "Çok iyi. Bu güne kadar {managed} dürtü anını yönettin; bu da onlardan biri olabilir. İstersen kısa bir not al.",
+     "replies": [
+      {
+       "label": "Dürtüyü kaydet",
+       "action": "diary"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "sleepless",
+   "emoji": "🌙",
+   "title": "Gece uyuyamıyorum",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Gece uyuyamamak zor, ve gece geç saatler dürtülerin en güçlü olduğu zamandır. Telefon şu an yanında mı?",
+     "replies": [
+      {
+       "label": "Evet",
+       "next": "phone"
+      },
+      {
+       "label": "Hayır",
+       "next": "calm"
+      }
+     ]
+    },
+    "phone": {
+     "text": "Telefonu yataktan uzağa, mümkünse başka bir odaya bırakmak hem uykuya hem dürtüye iyi gelir. Bırakabilir misin?",
+     "replies": [
+      {
+       "label": "Bıraktım",
+       "next": "calm"
+      },
+      {
+       "label": "Zor geliyor",
+       "next": "hard"
+      }
+     ]
+    },
+    "hard": {
+     "text": "Anlıyorum. O zaman ekranı gri tonlamaya al ve sadece bu sohbeti bitirdikten sonra telefonu ters çevir. Küçük adımlar da sayılır.",
+     "replies": [
+      {
+       "label": "Tamam",
+       "next": "calm"
+      }
+     ]
+    },
+    "calm": {
+     "text": "Uyuyamıyorsan yataktan kalkıp loş ışıkta sakin bir şey yapmak (kitap, yavaş nefes) uykuyu kolaylaştırabilir. Birkaç dakika nefes egzersizi ister misin?",
+     "replies": [
+      {
+       "label": "Nefes için Dürtü anı aracını aç",
+       "action": "sos"
+      },
+      {
+       "label": "Uyku dersini okuyayım",
+       "action": "skill:sleep"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "slip-bad",
+   "emoji": "🤍",
+   "title": "Kaydım, kendimi berbat hissediyorum",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Bunu yazman cesaret ister. Şunu bil: bir kayma, bütün emeğinin silindiği anlamına gelmez. Şu an en çok ne hissediyorsun?",
+     "replies": [
+      {
+       "label": "Utanç",
+       "next": "shame"
+      },
+      {
+       "label": "Öfke, kendime kızgınım",
+       "next": "shame"
+      },
+      {
+       "label": "Boşluk",
+       "next": "empty"
+      }
+     ]
+    },
+    "shame": {
+     "text": "Kendine sert davranmak bir sonrakini kolaylaştırmaz; çoğu zaman zorlaştırır. Bir arkadaşın aynı durumda olsa ona ne söylerdin?",
+     "replies": [
+      {
+       "label": "Ona nazik davranırdım",
+       "next": "kind"
+      },
+      {
+       "label": "Bilmiyorum",
+       "next": "kind"
+      }
+     ]
+    },
+    "empty": {
+     "text": "Boşluk hissi çok yaygındır. Bu his geçicidir; şu an onu değiştirmeye çalışmadan sadece fark edebilirsin.",
+     "replies": [
+      {
+       "label": "Tamam",
+       "next": "kind"
+      }
+     ]
+    },
+    "kind": {
+     "text": "Aynı nezaketi kendine de gösterebilirsin: “Bu zor bir an. Hata yapabilirim; yine de yoluma devam ediyorum.” Birlikte ne olduğuna bakalım mı?",
+     "replies": [
+      {
+       "label": "Kayma adımlarına geç",
+       "action": "slip"
+      },
+      {
+       "label": "Utanç ve suçluluk dersi",
+       "action": "skill:shame"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "addicted",
+   "emoji": "❓",
+   "title": "Kendimi bağımlı hissediyorum, öyle miyim?",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Bu soruyu sormak, kendine dikkat ettiğini gösteriyor. Ben bir tanı koyamam; bunu ancak bir uzman değerlendirebilir. Ama birlikte düşünebiliriz.",
+     "replies": [
+      {
+       "label": "Devam et",
+       "next": "info"
+      }
+     ]
+    },
+    "info": {
+     "text": "Dünya Sağlık Örgütü bu konuda bir bağımlılık değil, “kompulsif cinsel davranış bozukluğu” tanımı kullanır. Ölçüt sıklık değil; isteğine rağmen kontrol edememek ve hayatının belirgin biçimde etkilenmesidir.",
+     "replies": [
+      {
+       "label": "Bu beni çok etkiliyor",
+       "next": "impact"
+      },
+      {
+       "label": "Daha çok değerlerimle çelişiyor",
+       "next": "moral"
+      }
+     ]
+    },
+    "impact": {
+     "text": "Hayatını belirgin biçimde etkiliyorsa bir uzmanla konuşmak gerçekten iyi gelebilir. Bu bir zayıflık değil, kendine yatırımdır.",
+     "replies": [
+      {
+       "label": "115'i ara",
+       "action": "call115"
+      },
+      {
+       "label": "Uzman ne zaman gerekir?",
+       "action": "library:when-expert"
+      }
+     ]
+    },
+    "moral": {
+     "text": "Araştırmalar, değerlerle çelişki ve utancın “bağımlıyım” hissini davranıştan bağımsız olarak büyütebildiğini gösteriyor. Bu senin hissini küçültmez; sadece ona farklı bir yerden bakmayı sağlar.",
+     "replies": [
+      {
+       "label": "Bu konuyu oku",
+       "action": "library:moral"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "harmful",
+   "emoji": "🩺",
+   "title": "Mastürbasyon zararlı mı?",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Güzel bir soru. Mastürbasyonun kendisi tıbben zararlı kabul edilmez; yaygın ve insan cinselliğinin doğal bir parçasıdır.",
+     "replies": [
+      {
+       "label": "Peki ne zaman sorun olur?",
+       "next": "when"
+      },
+      {
+       "label": "İnternette korkutucu şeyler okudum",
+       "next": "myths"
+      }
+     ]
+    },
+    "when": {
+     "text": "Sorun davranışın kendisi değil; kontrol edemediğini hissetmen, hayatının diğer alanlarının aksaması ya da kendi değerlerinle derin bir çelişki yaşaman. Bu yüzden hedefini sen seçersin.",
+     "replies": [
+      {
+       "label": "Tıbbi gerçekleri oku",
+       "action": "library:mast-facts"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    },
+    "myths": {
+     "text": "İnternetteki korkutucu ya da mucizevi iddiaların çoğu bilimsel kanıta dayanmıyor. Güvenilir kaynaklarla hazırlanmış bilgilere bakmak ister misin?",
+     "replies": [
+      {
+       "label": "İddiaları ve bilimi oku",
+       "action": "library:nofap-claims"
+      },
+      {
+       "label": "Tıbbi gerçekleri oku",
+       "action": "library:mast-facts"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "filter",
+   "emoji": "🧱",
+   "title": "Filtreyi aştım",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Olabilir; hiçbir filtre aşılmaz değildir. Filtre bir fren, asıl güç senin becerilerin ve planın. Şu an ne durumdasın?",
+     "replies": [
+      {
+       "label": "Aştım ama bir şey olmadı",
+       "next": "ok"
+      },
+      {
+       "label": "Aştım ve kaydım",
+       "next": "slip"
+      }
+     ]
+    },
+    "ok": {
+     "text": "Fark edip durman çok değerli. Filtreyi aşmaya iten an neydi? Saat, yer ya da duygu?",
+     "replies": [
+      {
+       "label": "Bunu kaydedeyim",
+       "action": "diary"
+      },
+      {
+       "label": "Sınırlarımı güçlendireyim",
+       "action": "boundaries"
+      }
+     ]
+    },
+    "slip": {
+     "text": "Kendine sert davranmana gerek yok. Bu, sınırlarının nerede zayıf olduğunu gösteren bir bilgi. Birlikte bakalım mı?",
+     "replies": [
+      {
+       "label": "Kayma adımlarına geç",
+       "action": "slip"
+      },
+      {
+       "label": "Sınırlarımı güçlendireyim",
+       "action": "boundaries"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "lonely",
+   "emoji": "🫂",
+   "title": "Yalnız hissediyorum",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Yalnızlık çok insani bir duygu ve dürtülerin en sık tetikleyicilerinden biri. Şu an konuşabileceğin biri var mı?",
+     "replies": [
+      {
+       "label": "Var",
+       "next": "reach"
+      },
+      {
+       "label": "Yok gibi",
+       "next": "nobody"
+      }
+     ]
+    },
+    "reach": {
+     "text": "Ona kısa bir mesaj atmak bile iyi gelebilir. Ayrıntı vermene gerek yok: “Şu an biraz zor bir an yaşıyorum, konuşabilir miyiz?”",
+     "replies": [
+      {
+       "label": "Dürtü anı aracından yaz",
+       "action": "sos"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    },
+    "nobody": {
+     "text": "Böyle hissetmek zor. Küçük adımlarla bağlantı kurmak mümkün: dışarıda insanların olduğu bir yere gitmek, bir kursa ya da topluluğa katılmak. Yeşilay 115 de konuşmak için arayabileceğin bir hat.",
+     "replies": [
+      {
+       "label": "Bağlantı dersini oku",
+       "action": "skill:connection"
+      },
+      {
+       "label": "115'i ara",
+       "action": "call115"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "stress",
+   "emoji": "😣",
+   "title": "Stresliyim",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Stres bir çıkış arar; dürtü de bu çıkışlardan biri olabilir. Şu an bedeninde nerede hissediyorsun?",
+     "replies": [
+      {
+       "label": "Göğsümde / omuzlarımda",
+       "next": "body"
+      },
+      {
+       "label": "Kafamda, düşünceler dönüyor",
+       "next": "mind"
+      }
+     ]
+    },
+    "body": {
+     "text": "İki dakika yavaş nefes ya da kısa bir hareket bedenindeki yükü azaltabilir. Hangisini denemek istersin?",
+     "replies": [
+      {
+       "label": "Nefes / hareket aracını aç",
+       "action": "sos"
+      },
+      {
+       "label": "Duygu düzenleme dersi",
+       "action": "skill:emotions"
+      }
+     ]
+    },
+    "mind": {
+     "text": "Dönen düşünceleri adlandırmak mesafe koyar: “Şu an … düşüncesini fark ediyorum.” Bunu bir dene; sonra ne hissettiğine bak.",
+     "replies": [
+      {
+       "label": "Düşünce dersini oku",
+       "action": "skill:defusion"
+      },
+      {
+       "label": "Biraz daha iyiyim",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "partner",
+   "emoji": "💬",
+   "title": "Partnerime söylemeli miyim?",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Bu senin kararın; söylemek zorunda değilsin. Ne seni bu soruyu düşünmeye itti?",
+     "replies": [
+      {
+       "label": "Dürüst olmak istiyorum",
+       "next": "honest"
+      },
+      {
+       "label": "İlişkimize zarar veriyor",
+       "next": "relationship"
+      },
+      {
+       "label": "Korkuyorum",
+       "next": "fear"
+      }
+     ]
+    },
+    "honest": {
+     "text": "Dürüstlük önemli bir değer. Hazır hissettiğinde sakin bir zaman seçip “ben” diliyle konuşmak işini kolaylaştırır: “Bu konuda zorlanıyorum ve üzerinde çalışıyorum.”",
+     "replies": [
+      {
+       "label": "Partnerle konuşmak içeriği",
+       "action": "library:partner"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    },
+    "relationship": {
+     "text": "İlişkiyi etkiliyorsa birlikte bir çift terapistinden ya da uzmandan destek almak sohbeti kolaylaştırabilir.",
+     "replies": [
+      {
+       "label": "Partnerle konuşmak içeriği",
+       "action": "library:partner"
+      },
+      {
+       "label": "115'i ara",
+       "action": "call115"
+      }
+     ]
+    },
+    "fear": {
+     "text": "Korkman çok anlaşılır. Acele etmene gerek yok. Önce kendin için netleşmek, sonra hazır hissettiğinde konuşmak da bir yoldur.",
+     "replies": [
+      {
+       "label": "Partnerle konuşmak içeriği",
+       "action": "library:partner"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "motivation",
+   "emoji": "🔋",
+   "title": "Motivasyonum yok",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Motivasyon iniş çıkış yapar; bu çok normal. Bu yolculuğa neden başlamıştın?",
+     "replies": [
+      {
+       "label": "Hatırlıyorum",
+       "next": "value"
+      },
+      {
+       "label": "Hatırlamıyorum",
+       "next": "remind"
+      }
+     ]
+    },
+    "remind": {
+     "text": "Bu konuda nasıl biri olmak istediğini yazmıştın: “{value}”. Bu hâlâ senin için önemli mi?",
+     "replies": [
+      {
+       "label": "Evet",
+       "next": "small"
+      },
+      {
+       "label": "Hedefimi gözden geçirmek istiyorum",
+       "next": "goal"
+      }
+     ]
+    },
+    "value": {
+     "text": "Güzel. Şu ana kadar {days} gündür hedefinle uyumlu yaşıyorsun ve {managed} dürtü anını yönettin. Bunlar senin emeğin.",
+     "replies": [
+      {
+       "label": "Bugün küçük bir adım",
+       "next": "small"
+      }
+     ]
+    },
+    "small": {
+     "text": "Bugün sadece küçük bir adım yeterli: günlük kontrolünü yapmak ya da bir dersi okumak. Hangisi?",
+     "replies": [
+      {
+       "label": "Günlük kontrol",
+       "action": "checkin"
+      },
+      {
+       "label": "Değerler dersi",
+       "action": "skill:values"
+      }
+     ]
+    },
+    "goal": {
+     "text": "Hedefini değiştirmek bir geri adım değildir. Belki şu an azaltma hedefi daha gerçekçidir; karar senin.",
+     "replies": [
+      {
+       "label": "Yeni kimlik dersi",
+       "action": "skill:identity"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "values-conflict",
+   "emoji": "🕊️",
+   "title": "Değerlerimle çelişiyorum",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Bu çelişki hissi, senin için neyin önemli olduğunu gösteriyor. Ben dini ya da ahlaki bir değerlendirme yapmam; ama değerlerine göre yaşamana yardım edebilirim.",
+     "replies": [
+      {
+       "label": "Devam et",
+       "next": "kind"
+      }
+     ]
+    },
+    "kind": {
+     "text": "Değerlerine bağlı olmak kendine sert davranmayı gerektirmez. Utanç değişimi zorlaştırır; şefkat ise değerlerine dönmeyi kolaylaştırır.",
+     "replies": [
+      {
+       "label": "Değerlerinle barışık olmak dersi",
+       "action": "skill:congruence"
+      },
+      {
+       "label": "Bugün ne yapabilirim?",
+       "next": "step"
+      }
+     ]
+    },
+    "step": {
+     "text": "Bugün değerlerine uygun küçük, kusursuz olması gerekmeyen bir adım seçebilirsin. Kusursuzluk değil, yön.",
+     "replies": [
+      {
+       "label": "Değerler ve maneviyat içeriği",
+       "action": "library:values-faith"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "expert",
+   "emoji": "🩺",
+   "title": "Uzmana gitmeli miyim?",
+   "start": "s",
+   "nodes": {
+    "s": {
+     "text": "Bunu düşünmen kendine iyi baktığını gösteriyor. Şunlardan biri senin için geçerli mi: işini, okulunu ya da ilişkilerini belirgin biçimde etkiliyor, uzun süredir kaygılı ya da çökkün hissediyorsun, ya da kendine zarar verme düşüncelerin var?",
+     "replies": [
+      {
+       "label": "Kendime zarar verme düşüncelerim var",
+       "next": "urgent"
+      },
+      {
+       "label": "Diğerlerinden biri",
+       "next": "yes"
+      },
+      {
+       "label": "Pek değil",
+       "next": "maybe"
+      }
+     ]
+    },
+    "urgent": {
+     "text": "Bunu paylaştığın için teşekkür ederim. Lütfen hemen 112'yi ara ya da en yakın acil servise başvur. Yalnız değilsin.",
+     "replies": [
+      {
+       "label": "112'yi ara",
+       "action": "call112"
+      },
+      {
+       "label": "115'i ara",
+       "action": "call115"
+      }
+     ]
+    },
+    "yes": {
+     "text": "O zaman bir uzmanla konuşmak gerçekten iyi gelebilir. Psikiyatri polikliniği ya da bir klinik psikolog ilk adım olabilir; Yeşilay 115 de ücretsiz danışmanlık verir.",
+     "replies": [
+      {
+       "label": "115'i ara",
+       "action": "call115"
+      },
+      {
+       "label": "Ne zaman uzmana başvurmalı?",
+       "action": "library:when-expert"
+      }
+     ]
+    },
+    "maybe": {
+     "text": "Şu an acil bir durum yok gibi görünüyor. Yine de istediğin zaman bir uzmanla konuşabilirsin; bunun için “çok kötü” olman gerekmez.",
+     "replies": [
+      {
+       "label": "Ne zaman uzmana başvurmalı?",
+       "action": "library:when-expert"
+      },
+      {
+       "label": "Teşekkürler",
+       "action": "end"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

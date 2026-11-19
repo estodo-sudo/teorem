@@ -14,7 +14,8 @@ export function requiredFirstRunRoute(p: Pick<UserProfile, 'disclaimerAcceptedAt
 const ALLOWED: Record<GateRoute, string[]> = {
   '/consent': ['consent', 'legal'],
   '/onboarding': ['onboarding', 'legal'],
-  '/tutorial': ['tutorial', 'legal'],
+  // Kegel v2: the muscle profile screening comes right before the tutorial (kegel/screening).
+  '/tutorial': ['tutorial', 'kegel', 'legal'],
 };
 
 export function isAllowedDuringFirstRun(gate: GateRoute, firstSegment: string | undefined): boolean {

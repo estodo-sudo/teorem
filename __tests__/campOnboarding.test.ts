@@ -1,16 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 
-import { CAMP_COACH, CAMP_LIBRARY, CAMP_REWARDS, CAMP_MISSIONS, CAMP_ONBOARDING, CAMP_PLANS, CAMP_SKILLS, CAMP_SOURCES, campSources } from '@/features/camp/content';
-import { lessonStatuses, nextLesson, quizScore, recommendedLessons } from '@/features/camp/engine/skills';
-import { fillTemplate, nodeText, parseAction, validateScenario } from '@/features/camp/engine/coach';
-import { CRISIS_BADGES, DAY_BADGES } from '@/features/camp/engine/stats';
-import { FREE_COACH_SCENARIOS, FREE_STORIES, isMinor, lessonIsFree, MEDICATION_SCENARIOS, MEDICATION_STORIES, missionIsFree, scenarioIsFree, storyIsFree } from '@/features/camp/engine/premium';
+import { CAMP_COACH, CAMP_LIBRARY, CAMP_REWARDS, CAMP_MISSIONS, CAMP_ONBOARDING, CAMP_PLANS, CAMP_SKILLS, CAMP_SOURCES, campSources } from '@/features/camps/smoking/content';
+import { lessonStatuses, nextLesson, quizScore, recommendedLessons } from '@/features/camps/smoking/engine/skills';
+import { fillTemplate, nodeText, parseAction, validateScenario } from '@/features/camps/smoking/engine/coach';
+import { CRISIS_BADGES, DAY_BADGES } from '@/features/camps/smoking/engine/stats';
+import { FREE_COACH_SCENARIOS, FREE_STORIES, isMinor, lessonIsFree, MEDICATION_SCENARIOS, MEDICATION_STORIES, missionIsFree, scenarioIsFree, storyIsFree } from '@/features/camps/smoking/engine/premium';
 import { hasAccess } from '@/features/purchases/gate';
-import { missionForDay } from '@/features/camp/engine/plans';
-import { buildProfile, defaultAnswers, effectivePerDay, parsePriceTRY, planTriggers, quitPlan, stepError, type Answers } from '@/features/camp/onboarding';
-import { currentPhase, programDay } from '@/features/camp/engine/phase';
-import { calendarDaysBetween } from '@/features/camp/engine/time';
+import { missionForDay } from '@/features/camps/smoking/engine/plans';
+import { buildProfile, defaultAnswers, effectivePerDay, parsePriceTRY, planTriggers, quitPlan, stepError, type Answers } from '@/features/camps/smoking/onboarding';
+import { currentPhase, programDay } from '@/features/camps/smoking/engine/phase';
+import { calendarDaysBetween } from '@/features/camps/core/time';
 import tr from '@/i18n/tr.json';
 
 const now = new Date(2026, 10, 17, 10, 0);
@@ -282,7 +282,7 @@ describe('free / premium split (K13)', () => {
 
 describe('camp accessibility (K13)', () => {
   const walk = (dir: string): string[] => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : e.name.endsWith('.tsx') ? [path.join(dir, e.name)] : []));
-  const files = [...walk(path.join(__dirname, '..', 'app', 'camp')), ...walk(path.join(__dirname, '..', 'src', 'features', 'camp'))];
+  const files = [...walk(path.join(__dirname, '..', 'app', 'camp')), ...walk(path.join(__dirname, '..', 'src', 'features', 'camps'))];
   it('every camp button has a role and a touch target of at least 48', () => {
     let checked = 0;
     for (const f of files) {

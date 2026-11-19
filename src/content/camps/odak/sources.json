@@ -1,0 +1,154 @@
+[
+ {
+  "id": "icd11",
+  "title": "ICD-11, 6C72 Compulsive sexual behaviour disorder",
+  "org": "Dünya Sağlık Örgütü (DSÖ)",
+  "year": 2022,
+  "url": "https://icd.who.int",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "briken2024",
+  "title": "Assessment and treatment of compulsive sexual behavior disorder: a sexual medicine perspective",
+  "org": "Briken P, Bőthe B, Carvalho J ve ark., Sexual Medicine Reviews",
+  "year": 2024,
+  "url": "https://academic.oup.com/smr",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "crosby2016",
+  "title": "Acceptance and commitment therapy for problematic Internet pornography use: A randomized trial",
+  "org": "Crosby JM, Twohig MP, Behavior Therapy 47(3):355–366",
+  "year": 2016,
+  "url": "https://doi.org/10.1016/j.beth.2016.02.001",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "twohig2010",
+  "title": "ACT as a treatment for problematic internet pornography viewing",
+  "org": "Twohig MP, Crosby JM, Behavior Therapy 41:285–295",
+  "year": 2010,
+  "url": "https://doi.org/10.1016/j.beth.2009.06.002",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "bothe2021",
+  "title": "Hands-off: Feasibility and preliminary results of a two-armed RCT of a web-based self-help tool to reduce problematic pornography use",
+  "org": "Bőthe B, Baumgartner C, Schaub MP, Demetrovics Z, Orosz G, J Behav Addict 10(4):1015–1035",
+  "year": 2021,
+  "url": "https://doi.org/10.1556/2006.2021.00070",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "meta2025",
+  "title": "Psychotherapy for problematic pornography use: A comprehensive meta-analysis",
+  "org": "J Behav Addict 14(2):630–643",
+  "year": 2025,
+  "url": "https://doi.org/10.1556/2006.2025.00018",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "roza2024",
+  "title": "Treatment Approaches for Problematic Pornography Use: A Systematic Review",
+  "org": "Roza TH ve ark., Arch Sex Behav 53(2):645–672",
+  "year": 2024,
+  "url": "https://doi.org/10.1007/s10508-023-02699-8",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "kraus2020",
+  "title": "Validation of a Brief Pornography Screen across multiple samples",
+  "org": "Kraus SW, Gola M, Grubbs JB ve ark., J Behav Addict 9(2):259–271",
+  "year": 2020,
+  "url": "https://doi.org/10.1556/2006.2020.00038",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "grubbs2019",
+  "title": "Self-reported addiction to pornography in a nationally representative sample: The roles of use habits, religiousness, and moral incongruence",
+  "org": "Grubbs JB, Kraus SW, Perry SL, J Behav Addict 8(1):88–93",
+  "year": 2019,
+  "url": "https://doi.org/10.1556/2006.7.2018.134",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "grubbs2019b",
+  "title": "Moral Incongruence and Pornography Use: A Critical Review and Integration",
+  "org": "Grubbs JB, Perry SL, J Sex Res",
+  "year": 2019,
+  "url": "https://doi.org/10.1080/00224499.2018.1427204",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "rowland2024",
+  "title": "Pornography and Sexual Dysfunction: Is There Any Relationship?",
+  "org": "Rowland DL, Cooper SE, Current Sexual Health Reports 16:19–34",
+  "year": 2024,
+  "url": "https://link.springer.com/journal/11930",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "dwulit2019",
+  "title": "The Potential Associations of Pornography Use with Sexual Dysfunctions",
+  "org": "Dwulit AD, Rzymski P, J Clin Med 8(7):914",
+  "year": 2019,
+  "url": "https://doi.org/10.3390/jcm8070914",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "spke9",
+  "title": "Siber Pornografi Kullanım Envanteri-9'un Türkçe Geçerlilik ve Güvenirlik Çalışması",
+  "org": "Bağımlılık Dergisi",
+  "year": 2023,
+  "url": "https://doi.org/10.51982/bagimli.1243882",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "marlatt",
+  "title": "Relapse Prevention: Maintenance Strategies in the Treatment of Addictive Behaviors",
+  "org": "Marlatt GA, Gordon JR (Guilford Press)",
+  "year": 1985,
+  "url": "https://www.guilford.com",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "phq2",
+  "title": "The Patient Health Questionnaire-2: validity of a two-item depression screener",
+  "org": "Kroenke K, Spitzer RL, Williams JB, Medical Care 41(11):1284–1292",
+  "year": 2003,
+  "url": "https://doi.org/10.1097/01.MLR.0000093487.78664.3C",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "gad2",
+  "title": "Anxiety disorders in primary care: prevalence, impairment, comorbidity, and detection (GAD-2)",
+  "org": "Kroenke K, Spitzer RL, Williams JB ve ark., Ann Intern Med 146(5):317–325",
+  "year": 2007,
+  "url": "https://doi.org/10.7326/0003-4819-146-5-200703060-00004",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "yedam",
+  "title": "Yeşilay Danışmanlık Merkezi (YEDAM) / 115 Danışma Hattı",
+  "org": "Türkiye Yeşilay Cemiyeti",
+  "year": 2026,
+  "url": "https://www.yedam.org.tr",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "apple",
+  "title": "App Store Review Guidelines 1.1.4 ve 1.4.1; FamilyControls / ManagedSettings / DeviceActivity",
+  "org": "Apple",
+  "year": 2026,
+  "url": "https://developer.apple.com/app-store/review/guidelines/",
+  "accessed": "2026-11-18"
+ },
+ {
+  "id": "gollwitzer2006",
+  "title": "Implementation intentions and goal achievement: A meta-analysis of effects and processes",
+  "org": "Gollwitzer PM, Sheeran P, Advances in Experimental Social Psychology",
+  "year": 2006,
+  "url": "https://doi.org/10.1016/S0065-2601(06)38002-1",
+  "accessed": "2026-11-18"
+ }
+]

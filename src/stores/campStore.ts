@@ -4,9 +4,9 @@ import { persist } from 'zustand/middleware';
 
 import { deepClone } from '@/lib/clone';
 import { makeId } from '@/lib/random';
-import { createMemoryCampRepo, type CampRepo } from '@/features/camp/repo';
-import { activateIfDue, currentAttempt, defaultCampState, emptyCampEvents, endAsRelapse, graduate, newAttempt, quitNow, sanitizeCampState, type CampState } from '@/features/camp/state';
-import type { CampEvents, CampProfile, CheckIn, CigaretteLog, CravingEvent, IfThenPlan, PriceEntry, RewardGoal } from '@/features/camp/types';
+import { createMemoryCampRepo, type CampRepo } from '@/features/camps/smoking/repo';
+import { activateIfDue, currentAttempt, defaultCampState, emptyCampEvents, endAsRelapse, graduate, newAttempt, quitNow, sanitizeCampState, type CampState } from '@/features/camps/smoking/state';
+import type { CampEvents, CampProfile, CheckIn, CigaretteLog, CravingEvent, IfThenPlan, PriceEntry, RewardGoal } from '@/features/camps/smoking/types';
 
 import { persistStorage } from './storage';
 
@@ -135,7 +135,7 @@ function getRepo(): CampRepo {
   if (!repo && Platform.OS === 'web') repo = createMemoryCampRepo(); // web is a development preview only
   if (!repo) {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { createSqliteCampRepo } = require('@/features/camp/db') as typeof import('@/features/camp/db');
+    const { createSqliteCampRepo } = require('@/features/camps/smoking/db') as typeof import('@/features/camps/smoking/db');
     try {
       const sqlite = createSqliteCampRepo();
       sqlite.loadAll(); // opens + migrates; throws if SQLite is unusable

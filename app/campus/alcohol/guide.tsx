@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Header, Screen } from '@/components';
 import { ALC } from '@/features/campus/alcohol/content';
-import { GuideStepView } from '@/features/campus/smoking/ui';
+import { GuideStepView } from '@/features/campus/shared/guide';
 import { goBack } from '@/lib/nav';
 
 /** Re-read the enrolment guide of the alcohol campus page by page. */

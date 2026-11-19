@@ -1,0 +1,163 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "rct",
+ "sourceIds": [
+  "crosby2016",
+  "twohig2010",
+  "bothe2021",
+  "meta2025",
+  "marlatt"
+ ],
+ "check": {
+  "title": "Şu an neredesin, ne hissediyorsun?",
+  "hint": "Kısa bir DAYY kontrolü. Doğru ya da yanlış yanıt yok.",
+  "items": [
+   {
+    "id": "tired",
+    "letter": "D",
+    "emoji": "😴",
+    "label": "Dinlenmemiş / yorgun",
+    "tip": "Yorgunken dürtüler güçlenir. Bu gece biraz erken yatmak iyi gelebilir."
+   },
+   {
+    "id": "hungry",
+    "letter": "A",
+    "emoji": "🍽️",
+    "label": "Aç",
+    "tip": "Açlık gerginliği artırır. Bir şeyler yemek ya da su içmek bedenini sakinleştirir."
+   },
+   {
+    "id": "lonely",
+    "letter": "Y",
+    "emoji": "🫥",
+    "label": "Yalnız",
+    "tip": "Yalnızlık en sık tetikleyicilerden biri. Birine yazmak ya da insanların olduğu bir yere gitmek yardımcı olabilir."
+   },
+   {
+    "id": "loaded",
+    "letter": "Y",
+    "emoji": "😣",
+    "label": "Yüklü (stres / öfke)",
+    "tip": "Gerginlik bir çıkış arar. Nefes ya da kısa bir hareket bu yükü azaltabilir."
+   }
+  ],
+  "intensity": "Dürtü şu an ne kadar güçlü?",
+  "intensityLabels": {
+   "low": "Hafif",
+   "high": "Çok güçlü"
+  }
+ },
+ "relocate": {
+  "title": "Önce davranış",
+  "lead": "Dürtüyle savaşmana gerek yok. Sadece şu an olduğun yerden kalk.",
+  "seconds": 60,
+  "steps": [
+   "Telefonu bırak",
+   "Odadan çık",
+   "Işığı aç",
+   "Bir bardak su iç"
+  ],
+  "start": "60 saniye mekân değiştir",
+  "done": "Yer değiştirdin. Bu küçük adım, dürtü ile davranış arasına mesafe koyar."
+ },
+ "tools": {
+  "title": "Bir araç seç",
+  "hint": "İstediğin kadarını dene. Birini bitirince başka birine geçebilirsin.",
+  "items": [
+   {
+    "id": "surf",
+    "emoji": "🌊",
+    "title": "Dürtü sörfü",
+    "desc": "3–5 dakikalık dalga"
+   },
+   {
+    "id": "breath",
+    "emoji": "🌬️",
+    "title": "Nefes",
+    "desc": "2 dakika yavaş nefes"
+   },
+   {
+    "id": "move",
+    "emoji": "🏃",
+    "title": "Hareket",
+    "desc": "2 dakikalık hızlı set"
+   },
+   {
+    "id": "values",
+    "emoji": "🧭",
+    "title": "Değerlerim",
+    "desc": "Kendi cümlelerin"
+   },
+   {
+    "id": "futureSelf",
+    "emoji": "✉️",
+    "title": "Gelecekteki ben",
+    "desc": "Kendine yazdığın mektup"
+   },
+   {
+    "id": "supporter",
+    "emoji": "💬",
+    "title": "Birine yaz",
+    "desc": "Hazır, nötr bir mesaj"
+   }
+  ]
+ },
+ "surf": {
+  "desc": "Dürtüyü yok etmeye çalışma; onu bir dalga gibi izle. Yükselecek, zirve yapacak ve alçalacak.",
+  "prompts": [
+   "Dürtüyü fark et. Şu an bir dürtü var; bu yalnızca bir his.",
+   "Bedeninde nerede hissediyorsun? Göğsünde mi, karnında mı, ellerinde mi?",
+   "İzle; yükselecek ve alçalacak. Ona göre hareket etmek zorunda değilsin.",
+   "Nefesin dalganın üstünde bir sörf tahtası gibi. Yavaş al, yavaş ver.",
+   "Dalga zirveye yaklaşıyor olabilir. Bu da geçecek.",
+   "Dalga alçalıyor. Sen hâlâ buradasın ve sen seçiyorsun."
+  ],
+  "done": "Dalgayı izledin. Dürtü geldi ve sen onu davranışa çevirmeden izlemeyi seçtin."
+ },
+ "breath": {
+  "desc": "Nefesini yavaşlatmak bedenini sakinleştirir. Kutu nefesi ya da 4-7-8 ile iki dakika."
+ },
+ "move": {
+  "desc": "Kısa bir hareket enerjiyi başka yöne çevirir. Her hareket 30 saniye; kendi temponda yap.",
+  "seconds": 120,
+  "steps": [
+   "Squat (çömelip kalkma)",
+   "Duvar şınavı",
+   "Yerinde tempolu yürüyüş",
+   "Kollarını ve omuzlarını esnet"
+  ],
+  "start": "2 dakikalık seti başlat",
+  "done": "Seti bitirdin. Bedenin şu an farklı hissediyor olabilir."
+ },
+ "values": {
+  "desc": "Bu konuda nasıl biri olmak istediğini kendin yazdın:",
+  "empty": "Henüz bir değer seçmedin. Panelden ekleyebilirsin."
+ },
+ "futureSelf": {
+  "desc": "Zor bir anda okuman için kendine bir mektup yaz. Ne hissettiğini ve neden bu yolda olduğunu hatırlat.",
+  "placeholder": "Sevgili ben, bu anı okuyorsan…",
+  "save": "Mektubu kaydet",
+  "edit": "Mektubu düzenle",
+  "saved": "Mektubun şifreli olarak kaydedildi."
+ },
+ "supporter": {
+  "desc": "Güvendiğin birine yaz. Mesaj nötr; ayrıntı içermez.",
+  "message": "Şu an zor bir an yaşıyorum, konuşabilir miyiz?",
+  "share": "Mesajı gönder"
+ },
+ "end": {
+  "question": "Şimdi nasılsın?",
+  "managed": "Geçti",
+  "hard": "Hâlâ zor",
+  "slipped": "Kaydım",
+  "managedTitle": "Bu anı yönettin",
+  "managedBody": "Dürtü geldi ve sen onu izlemeyi seçtin. Her yönettiğin an, bir sonrakini biraz daha kolaylaştırır.",
+  "hardBody": "Sorun değil; bazı dalgalar daha uzun sürer. Başka bir araç deneyelim: {tool}.",
+  "slippedTitle": "Bu, yolun bir parçası",
+  "slippedBody": "Kendine sert davranmak bir sonrakini kolaylaştırmaz. Bir kayma bütün emeğinin silindiği anlamına gelmez. İstersen ne olduğunu kaydedelim.",
+  "count": "Bu güne kadar {n} dürtü anını yönettin.",
+  "logSlip": "Kaydı ekle",
+  "back": "Panele dön"
+ },
+ "emergency": "Acil bir durumda 112'yi ara."
+}

@@ -1,0 +1,22 @@
+{
+ "title": "Kaynaklar ve Yöntem",
+ "intro": "Odak Kampı, problemli pornografi kullanımı ve kompulsif cinsel davranış üzerine yapılan araştırmalara dayanan bir öz-yardım programıdır. Tanı koymaz ve tedavinin yerine geçmez.",
+ "methodTitle": "Yöntem",
+ "method": [
+  "Kabul ve Kararlılık Terapisi (ACT): dürtüyle savaşmak yerine davranışı değerlere göre seçmek.",
+  "Bilişsel davranışçı yaklaşım (BDT): tetikleyici, düşünce, his ve davranış zincirini fark etmek.",
+  "Kendini izleme, ortam düzenleme ve Eğer–O zaman planları.",
+  "Kayma önleme: bir kaymayı utançla değil öğrenmeyle karşılamak.",
+  "6 haftalık çekirdek program ve 90. güne kadar pekiştirme."
+ ],
+ "evidenceTitle": "Kanıt düzeyleri",
+ "levels": {
+  "guideline": "Kılavuz / resmi tanım (ör. DSÖ ICD-11)",
+  "rct": "Randomize kontrollü çalışma",
+  "review": "Derleme ya da meta-analiz",
+  "expert": "Uzman görüşü / genel öneri"
+ },
+ "reviewNote": "Tüm içerikler yayından önce bir klinik psikolog ya da psikiyatrist tarafından incelenecektir. İnceleme tamamlanana kadar içerikler “incelenmedi” olarak işaretlidir.",
+ "sourcesTitle": "Kaynaklar",
+ "usedIn": "{n} içerikte kullanıldı"
+}

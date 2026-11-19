@@ -1,0 +1,106 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs",
+    "dorey2004_bjgp",
+    "dorey2005_bju",
+    "dorey2004_uronurs",
+    "miller1996_knack",
+    "aua_eau_pfmt",
+    "nebraska_hypertonic"
+  ],
+  "weekThemes": [
+    {
+      "week": 1,
+      "title": "1. Hafta: Kası tanı",
+      "text": "Kası bulmayı, sıkıp tamamen bırakmayı öğreniyorsun."
+    },
+    {
+      "week": 2,
+      "title": "2. Hafta: Kontrol",
+      "text": "Kasılmayı ve bırakmayı istediğin anda yapabilmek."
+    },
+    {
+      "week": 3,
+      "title": "3. Hafta: Güç",
+      "text": "Tutma süreleri ve kasılmanın gücü artıyor."
+    },
+    {
+      "week": 4,
+      "title": "4. Hafta: Toparlanma",
+      "text": "Hafif hafta (22.–30. gün): kasılma sayısı biraz azalır, süre aynı kalır. Kas dinlenerek güçlenir."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "general",
+      "emoji": "💪",
+      "title": "Genel Güç",
+      "text": "Dengeli tutma, hızlı sıkma ve yavaş sık–bırak çalışması.",
+      "sourceIds": [
+        "mkuh_nhs",
+        "papworth_nhs"
+      ]
+    },
+    {
+      "id": "erection",
+      "emoji": "⚡",
+      "title": "Sertleşme Desteği",
+      "text": "Tam güçte kasılmalar; her seansta yatarak, oturarak ve ayakta.",
+      "note": "Ev programı mantığı Dorey ve arkadaşlarının (2004–2005) çalışmalarından esinlenir. Tıbbi bir tedavi değildir.",
+      "sourceIds": [
+        "dorey2004_bjgp",
+        "dorey2005_bju"
+      ]
+    },
+    {
+      "id": "control",
+      "emoji": "🎚️",
+      "title": "Kontrol ve Zamanlama",
+      "text": "Hızlı kasılma ve tam bırakma koordinasyonu, nefesle eşleme, gevşeme farkındalığı.",
+      "note": "Amaç kontrol ve farkındalık kazanmaktır; belirli bir sonuç vaat edilmez.",
+      "sourceIds": [
+        "mkuh_nhs",
+        "papworth_nhs"
+      ]
+    },
+    {
+      "id": "bladder",
+      "emoji": "💧",
+      "title": "İdrar Kontrolü ve Damlama",
+      "text": "Yavaş tutma, hızlı kasılma, Knack pratiği ve idrar sonrası sıkma alışkanlığı.",
+      "sourceIds": [
+        "dorey2004_uronurs",
+        "miller1996_knack",
+        "mkuh_nhs",
+        "papworth_nhs"
+      ]
+    },
+    {
+      "id": "surgery",
+      "emoji": "🩹",
+      "title": "Prostat Ameliyatı Öncesi/Sonrası",
+      "text": "Hafif başlangıç, yatarak başlayıp ayakta ilerleme, Knack pratiği.",
+      "note": "Yalnızca doktorun onay verdiyse açılır. Sonda takılıyken egzersiz yapma.",
+      "requiresClearance": true,
+      "sourceIds": [
+        "aua_eau_pfmt",
+        "ics2022_knack",
+        "miller1996_knack"
+      ]
+    },
+    {
+      "id": "relax",
+      "emoji": "🌿",
+      "title": "Gevşeme Odaklı",
+      "text": "Bırakma, nazik ters Kegel ve beden farkındalığı.",
+      "note": "Pelvik tabanında gerginlik olabileceğini düşünüyorsan önerilir. Bir üroloji uzmanına veya pelvik taban fizyoterapistine danışman iyi olur.",
+      "sourceIds": [
+        "smsna_hypertonic",
+        "nebraska_hypertonic"
+      ]
+    }
+  ]
+}

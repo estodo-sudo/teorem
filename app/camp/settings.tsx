@@ -4,12 +4,12 @@ import { Platform, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Dialog, Header, Screen, SwitchRow, useTheme } from '@/components';
-import { deleteReasonPhoto } from '@/features/camp/device';
-import { daysSinceQuit } from '@/features/camp/engine/phase';
-import { priceAt } from '@/features/camp/engine/savings';
-import { parsePriceTRY } from '@/features/camp/onboarding';
-import { currentAttempt, MAX_PREP_DAYS, MIN_PREP_DAYS, quitDateIn } from '@/features/camp/state';
-import { fmtTL, NumberStepper, useCampDate } from '@/features/camp/ui';
+import { deleteReasonPhoto } from '@/features/camps/smoking/device';
+import { daysSinceQuit } from '@/features/camps/smoking/engine/phase';
+import { priceAt } from '@/features/camps/smoking/engine/savings';
+import { parsePriceTRY } from '@/features/camps/smoking/onboarding';
+import { currentAttempt, MAX_PREP_DAYS, MIN_PREP_DAYS, quitDateIn } from '@/features/camps/smoking/state';
+import { fmtTL, NumberStepper, useCampDate } from '@/features/camps/smoking/ui';
 import { SectionTitle } from '@/features/campus/shared/ui';
 import { hasNotificationPermission, requestNotificationPermission } from '@/features/reminders/permissions';
 import { syncReminders } from '@/features/reminders/scheduler';
@@ -30,7 +30,7 @@ export default function CampSettings() {
   const [priceText, setPriceText] = useState('');
   const [packSize, setPackSize] = useState(current?.packSize ?? 20);
   const [notice, setNotice] = useState<string | null>(null);
-  const [dialog, setDialog] = useState<null | 'quitNow' | 'reset1' | 'reset2'>(null);
+  const [dialog, setDialog] = useState<null | 'quitNow' | 'restart' | 'reset1' | 'reset2'>(null);
   const price = parsePriceTRY(priceText);
   const [permission, setPermission] = useState<boolean | null>(null);
   useEffect(() => {
@@ -155,7 +155,26 @@ export default function CampSettings() {
       <Button label={tr('camp.sources.title')} icon="book" variant="secondary" onPress={() => router.push('/camp/sources')} />
 
       <SectionTitle emoji="🗑️" title={tr('camp.settings.resetTitle')} />
+      <Button label={tr('camp.panel.restart')} variant="secondary" icon="play" onPress={() => setDialog('restart')} />
       <Button label={tr('camp.home.reset')} variant="ghost" icon="trash" onPress={() => setDialog('reset1')} />
+
+      <Dialog
+        visible={dialog === 'restart'}
+        title={tr('camp.panel.restartTitle')}
+        message={tr('camp.panel.restartBody')}
+        onDismiss={() => setDialog(null)}
+        actions={[
+          {
+            label: tr('camp.panel.restartConfirm'),
+            variant: 'primary',
+            onPress: () => {
+              setDialog(null);
+              router.push('/camp/onboarding');
+            },
+          },
+          { label: tr('common.cancel'), variant: 'ghost', onPress: () => setDialog(null) },
+        ]}
+      />
 
       <Dialog
         visible={dialog === 'quitNow'}

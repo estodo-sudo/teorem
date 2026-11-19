@@ -88,6 +88,14 @@ export const MIGRATIONS: Migration[] = [
       CREATE INDEX IF NOT EXISTS idx_camp_checkins_at ON camp_checkins(at);
     `,
   },
+  {
+    // Kegel v2: extra session / strength-test fields as JSON (track, preset, pauses, position, score…).
+    version: 3,
+    sql: `
+      ALTER TABLE workouts ADD COLUMN extra TEXT;
+      ALTER TABLE strength_tests ADD COLUMN extra TEXT;
+    `,
+  },
 ];
 
 export interface MigratableDb {
@@ -99,9 +107,7 @@ export interface MigratableDb {
 export function runMigrations(db: MigratableDb, migrations: Migration[] = MIGRATIONS): number {
   const row = db.getFirstSync<{ user_version: number }>('PRAGMA user_version');
   let current = row?.user_version ?? 0;
-  const pending = migrations
-    .filter((m) => m.version > current)
-    .sort((a, b) => a.version - b.version);
+  const pending = migrations.filter((m) => m.version > current).sort((a, b) => a.version - b.version);
   for (const m of pending) {
     db.execSync(`BEGIN;\n${m.sql}\nPRAGMA user_version = ${m.version};\nCOMMIT;`);
     current = m.version;

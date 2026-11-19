@@ -1,0 +1,291 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs",
+    "miller1996_knack",
+    "nebraska_hypertonic"
+  ],
+  "cues": [
+    {
+      "id": "sq_glutes",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Kalçanı sıkma."
+    },
+    {
+      "id": "sq_breath",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Nefesini tutma; nefes akmaya devam etsin."
+    },
+    {
+      "id": "sq_belly",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Karın gevşek kalsın."
+    },
+    {
+      "id": "sq_up",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "İçeri ve yukarı çek."
+    },
+    {
+      "id": "sq_legs",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Bacakların ve uyluğun gevşek kalsın."
+    },
+    {
+      "id": "sq_face",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Yüzün ve çenen rahat olsun."
+    },
+    {
+      "id": "sq_quiet",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Dışarıdan bakan biri bir şey fark etmemeli."
+    },
+    {
+      "id": "sq_gentle",
+      "phase": "squeeze",
+      "types": [
+        "slow_hold",
+        "endurance"
+      ],
+      "text": "Tutarken gücü sabit tut; titremeye başlarsa biraz azalt."
+    },
+    {
+      "id": "sq_full_release",
+      "phase": "squeeze",
+      "types": [
+        "slow_hold",
+        "max_contraction"
+      ],
+      "text": "Her tutmanın ardından tamamen bırak."
+    },
+    {
+      "id": "quick_sharp",
+      "phase": "squeeze",
+      "types": [
+        "quick_flick"
+      ],
+      "text": "Kısa ve net sık, hemen bırak."
+    },
+    {
+      "id": "quick_rhythm",
+      "phase": "squeeze",
+      "types": [
+        "quick_flick"
+      ],
+      "text": "Ritmi koru; hız değil netlik önemli."
+    },
+    {
+      "id": "quick_release",
+      "phase": "release",
+      "types": [
+        "quick_flick"
+      ],
+      "text": "Her sıkmadan sonra kas tamamen yerine insin."
+    },
+    {
+      "id": "max_strong",
+      "phase": "squeeze",
+      "types": [
+        "max_contraction"
+      ],
+      "text": "Olabildiğince güçlü sık, ama kalça ve karın devreye girmesin."
+    },
+    {
+      "id": "max_rest",
+      "phase": "release",
+      "types": [
+        "max_contraction"
+      ],
+      "text": "Güçlü kasılmadan sonra uzun dinlenme kası korur."
+    },
+    {
+      "id": "max_quality",
+      "phase": "squeeze",
+      "types": [
+        "max_contraction"
+      ],
+      "text": "Güç düşerse tekrarı bitirmek yerine iyi bir dinlenme ver."
+    },
+    {
+      "id": "el_floors",
+      "phase": "squeeze",
+      "types": [
+        "elevator"
+      ],
+      "text": "Yavaşça, saniye saniye artırarak sık; bir anda değil."
+    },
+    {
+      "id": "el_top",
+      "phase": "squeeze",
+      "types": [
+        "elevator"
+      ],
+      "text": "En güçlü noktada kısa tut, sonra yavaşça bırak."
+    },
+    {
+      "id": "el_down",
+      "phase": "release",
+      "types": [
+        "elevator"
+      ],
+      "text": "Bırakırken acele etme; kas yavaş yavaş insin."
+    },
+    {
+      "id": "end_steady",
+      "phase": "squeeze",
+      "types": [
+        "endurance"
+      ],
+      "text": "Orta güçte, uzun ve sakin tut."
+    },
+    {
+      "id": "end_breathe",
+      "phase": "squeeze",
+      "types": [
+        "endurance"
+      ],
+      "text": "Uzun tutmada nefes almayı unutma."
+    },
+    {
+      "id": "kn_before",
+      "phase": "squeeze",
+      "types": [
+        "knack"
+      ],
+      "text": "Öksürmeden hemen önce sık."
+    },
+    {
+      "id": "kn_hold",
+      "phase": "squeeze",
+      "types": [
+        "knack"
+      ],
+      "text": "Öksürük boyunca tut, sonra bırak."
+    },
+    {
+      "id": "kn_daily",
+      "phase": "squeeze",
+      "types": [
+        "knack"
+      ],
+      "text": "Günlük hayatta da hapşırma, öksürme veya ağır kaldırmadan önce sık."
+    },
+    {
+      "id": "rl_down",
+      "phase": "release",
+      "types": [
+        "release"
+      ],
+      "text": "Pelvik tabanı nazikçe aşağı bırak."
+    },
+    {
+      "id": "rl_no_push",
+      "phase": "release",
+      "types": [
+        "release"
+      ],
+      "text": "Ikınma değil, nazikçe bırak."
+    },
+    {
+      "id": "rl_soft",
+      "phase": "release",
+      "types": [
+        "release",
+        "breath"
+      ],
+      "text": "Karnını ve kalçanı da yumuşat."
+    },
+    {
+      "id": "rel_ground",
+      "phase": "release",
+      "types": [
+        "all"
+      ],
+      "text": "Tamamen bırak, kas yere iner gibi."
+    },
+    {
+      "id": "rel_shoulders",
+      "phase": "release",
+      "types": [
+        "all"
+      ],
+      "text": "Omuzlarını da bırak."
+    },
+    {
+      "id": "rel_jaw",
+      "phase": "release",
+      "types": [
+        "all",
+        "release",
+        "breath"
+      ],
+      "text": "Çeneni gevşet, dişlerini sıkma."
+    },
+    {
+      "id": "rel_equal",
+      "phase": "release",
+      "types": [
+        "all"
+      ],
+      "text": "Bırakmak da sıkmak kadar antrenmandır."
+    },
+    {
+      "id": "br_belly",
+      "phase": "breath",
+      "types": [
+        "breath",
+        "release"
+      ],
+      "text": "Burnundan al, karnın yükselsin."
+    },
+    {
+      "id": "br_long",
+      "phase": "breath",
+      "types": [
+        "breath",
+        "release"
+      ],
+      "text": "Nefes verişi alıştan biraz daha uzun olsun."
+    },
+    {
+      "id": "br_scan",
+      "phase": "breath",
+      "types": [
+        "breath"
+      ],
+      "text": "Bedeninde gergin bir yer varsa nefesle orayı yumuşat."
+    },
+    {
+      "id": "pain_stop",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Ağrı olursa dur; Kegel ağrı yapmamalı."
+    }
+  ]
+}

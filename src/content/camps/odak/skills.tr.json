@@ -1,0 +1,933 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "rct",
+ "sourceIds": [
+  "crosby2016",
+  "twohig2010",
+  "bothe2021",
+  "meta2025",
+  "marlatt"
+ ],
+ "lessons": [
+  {
+   "id": "values",
+   "order": 1,
+   "phase": "awareness",
+   "emoji": "🧭",
+   "title": "Neden buradasın? Değerlerin pusulası",
+   "summary": "Değişimin yönünü değerlerin gösterir.",
+   "slides": [
+    {
+     "emoji": "🧭",
+     "title": "Pusulan ne gösteriyor?",
+     "text": "Değerler, hayatta neyin önemli olduğunu gösteren pusulandır: ilişkin, sağlığın, odağın, inancın, emeğin. Hedefler bir gün biter; değerler hep yol gösterir."
+    },
+    {
+     "emoji": "🎯",
+     "title": "Kurallar değil, yön",
+     "text": "Kendini kurallarla zorlamak çoğu zaman tersine çalışır. Değerler ise “Bu davranış beni önem verdiğim şeye yaklaştırıyor mu?” diye sormana yardım eder."
+    },
+    {
+     "emoji": "✍️",
+     "title": "Somut cümleler",
+     "text": "“Odak” yerine “Akşamlarımı uyku ve derslerime ayırmak” gibi somut bir cümle, zor anda çok daha güçlü bir hatırlatıcıdır."
+    },
+    {
+     "emoji": "🌱",
+     "title": "Mükemmel olmak gerekmez",
+     "text": "Değerlere göre yaşamak her gün kusursuz olmak değil; her seferinde yönünü yeniden onlara çevirmektir."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Senin için en önemli iki değeri düşün. Her biri için bu hafta yapabileceğin küçük, somut bir davranış yaz."
+   },
+   "quiz": [
+    {
+     "q": "Değerler bu süreçte nasıl yardım eder?",
+     "options": [
+      "Dürtüyü tamamen yok eder",
+      "Davranışın beni önem verdiğim şeye yaklaştırıp yaklaştırmadığını sormamı sağlar",
+      "Kendimi suçlamam için bir ölçüdür"
+     ],
+     "answer": 1,
+     "explain": "Değerler dürtüyü silmez; ama hangi yöne gitmek istediğini hatırlatarak seçimini kolaylaştırır."
+    }
+   ],
+   "sourceIds": [
+    "crosby2016",
+    "twohig2010",
+    "bothe2021"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "cycle",
+   "order": 2,
+   "phase": "awareness",
+   "emoji": "🔄",
+   "title": "Dürtünün anatomisi",
+   "summary": "Tetikleyici → düşünce → his → dürtü → davranış.",
+   "slides": [
+    {
+     "emoji": "🔄",
+     "title": "Bir zincir",
+     "text": "Davranış genelde birden olmaz. Bir tetikleyici (yer, saat, duygu), ardından bir düşünce, bir his, bir dürtü ve sonunda davranış gelir."
+    },
+    {
+     "emoji": "🔍",
+     "title": "Zinciri görmek",
+     "text": "Zinciri tanıdıkça onu erken bir halkada kırmak kolaylaşır. Gece yatakta telefon bir tetikleyici olabilir; “Biraz bakarım” bir düşüncedir."
+    },
+    {
+     "emoji": "✂️",
+     "title": "Erken halkada müdahale",
+     "text": "En kolay müdahale çoğu zaman en baştadır: tetikleyiciyi değiştirmek (telefonu odadan çıkarmak) ya da düşünceyi fark etmek."
+    },
+    {
+     "emoji": "🧩",
+     "title": "Senin zincirin",
+     "text": "Herkesin zinciri biraz farklıdır. Günlüğün, senin zincirindeki halkaları görmene yardım eder."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Son zorlandığın anı düşün ve zincirini yaz: tetikleyici → düşünce → his → dürtü → davranış."
+   },
+   "quiz": [
+    {
+     "q": "Zinciri kırmak genelde nerede en kolaydır?",
+     "options": [
+      "En sonda, davranışın ortasında",
+      "Erken halkalarda: tetikleyici ya da düşüncede",
+      "Zincir kırılamaz"
+     ],
+     "answer": 1,
+     "explain": "Ne kadar erken fark edersen, değiştirmek o kadar kolay olur."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021",
+    "meta2025"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "monitoring",
+   "order": 3,
+   "phase": "awareness",
+   "emoji": "📓",
+   "title": "Kendini izlemek neden işe yarar?",
+   "summary": "Görmediğin örüntüyü değiştiremezsin.",
+   "slides": [
+    {
+     "emoji": "📓",
+     "title": "Fark etmek bir beceri",
+     "text": "Kendini izlemek, otomatik giden davranışları görünür kılar. Araştırmalar, düzenli kayıt tutmanın tek başına bile değişimi desteklediğini gösteriyor."
+    },
+    {
+     "emoji": "🕐",
+     "title": "Ne kaydedilir?",
+     "text": "Saat, yer, öncesindeki duygu ve sonrasında ne hissettiğin. Uzun yazmak gerekmez; birkaç dokunuş yeter."
+    },
+    {
+     "emoji": "🙅",
+     "title": "Yargı değil, veri",
+     "text": "Kayıt bir karne değil. Amaç kendini eleştirmek değil, örüntüyü görmek: “Demek ki gece yorgunken zorlanıyorum.”"
+    },
+    {
+     "emoji": "📊",
+     "title": "Haftalık bakış",
+     "text": "Haftalık özet, en riskli saatini ve en çok işe yarayan aracını gösterir. Planlarını buna göre ayarlarsın."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Bugün en az bir dürtü ya da davranış kaydı gir; sadece fark etmek için."
+   },
+   "quiz": [
+    {
+     "q": "Kayıt tutmanın amacı nedir?",
+     "options": [
+      "Kendimi yargılamak",
+      "Örüntüleri görüp planımı ona göre ayarlamak",
+      "Bir puan toplamak"
+     ],
+     "answer": 1,
+     "explain": "Kayıt bir veri kaynağıdır; ne zaman ve neden zorlandığını gösterir."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "environment",
+   "order": 4,
+   "phase": "boundaries",
+   "emoji": "🧱",
+   "title": "Ortamı tasarlamak",
+   "summary": "Frenler ve sürtünme.",
+   "slides": [
+    {
+     "emoji": "🧱",
+     "title": "Sürtünme",
+     "text": "Bir davranışı biraz zorlaştırmak bile sıklığını azaltır. Telefonu başka odada şarj etmek, tetikleyici uygulamayı bir klasöre taşımak birer frendir."
+    },
+    {
+     "emoji": "🚪",
+     "title": "Kolay olanı değiştir",
+     "text": "Ortam, irademizden daha güçlüdür. Bu yüzden zor anda direnmek yerine, zor anın gelme ihtimalini azaltmak daha akıllıcadır."
+    },
+    {
+     "emoji": "🔐",
+     "title": "Filtreler bir fren",
+     "text": "Telefonunun kendi filtresi ve uygulama zamanlayıcıları yardımcı olur. Hiçbir filtre aşılmaz değildir; asıl güç planında ve becerilerinde."
+    },
+    {
+     "emoji": "🌙",
+     "title": "Riskli saatler",
+     "text": "En riskli saatlerde ortamı önceden hazırlamak (ışık açık, telefon uzakta, bir etkinlik planlı) en büyük farkı yaratır."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "En riskli saatin için ortamında yapabileceğin bir değişikliği seç ve bu akşam uygula."
+   },
+   "quiz": [
+    {
+     "q": "Ortam düzenlemenin mantığı nedir?",
+     "options": [
+      "Zor anda daha çok direnmek",
+      "Zor anın gelme ihtimalini baştan azaltmak",
+      "Filtrelerin her şeyi çözmesi"
+     ],
+     "answer": 1,
+     "explain": "Sürtünme eklemek, karar anını kolaylaştırır."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021",
+    "apple"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "dayy",
+   "order": 5,
+   "phase": "boundaries",
+   "emoji": "🔋",
+   "title": "DAYY: dinlenmemiş, aç, yalnız, yüklü",
+   "summary": "Dört durum dürtüyü güçlendirir.",
+   "slides": [
+    {
+     "emoji": "🔋",
+     "title": "Dört durum",
+     "text": "Dinlenmemiş (yorgun), Aç, Yalnız ve Yüklü (stresli ya da öfkeli) olduğumuzda dürtüler daha güçlü gelir."
+    },
+    {
+     "emoji": "😴",
+     "title": "Yorgunluk ve gece",
+     "text": "Uykusuzluk, kendini düzenleme gücünü azaltır. Gece geç saatler bu yüzden en riskli dilimdir."
+    },
+    {
+     "emoji": "🫥",
+     "title": "Yalnızlık",
+     "text": "Yalnızlık sık görülen bir tetikleyicidir. Davranış kısa bir rahatlama sağlasa da çoğu zaman yalnızlığı gidermez."
+    },
+    {
+     "emoji": "🛠️",
+     "title": "Kökene bak",
+     "text": "Dürtü geldiğinde önce kendine sor: Hangisi? Bazen bir bardak su, kısa bir uyku ya da bir telefon görüşmesi dürtüyü değiştirir."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Bugün üç kez DAYY kontrolü yap ve her seferinde fark ettiğini not et."
+   },
+   "quiz": [
+    {
+     "q": "Yalnızken gelen bir dürtüde neye bakmak işe yarar?",
+     "options": [
+      "Dürtüyü bastırmaya",
+      "Asıl ihtiyaca: bağlantı kurmaya",
+      "Hiçbir şeye"
+     ],
+     "answer": 1,
+     "explain": "Dürtünün altındaki ihtiyacı karşılamak, onu daha kalıcı biçimde hafifletir."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021",
+    "marlatt"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "surfing",
+   "order": 6,
+   "phase": "skills",
+   "emoji": "🌊",
+   "title": "Dürtü sörfü",
+   "summary": "Dürtüyle kavga etmeden durabilmek.",
+   "slides": [
+    {
+     "emoji": "🌊",
+     "title": "Dalga gibi",
+     "text": "Dürtüler dalgalar gibidir: yükselir, zirve yapar ve alçalır. Ona göre hareket etmediğinde de geçer."
+    },
+    {
+     "emoji": "🥊",
+     "title": "Kavga etmek yorar",
+     "text": "Dürtüyü bastırmaya ya da düşünmemeye çalışmak çoğu zaman onu büyütür. ACT, dürtüyle savaşmak yerine onu izlemeyi önerir."
+    },
+    {
+     "emoji": "👀",
+     "title": "Bedende izle",
+     "text": "Dürtüyü bedeninde nerede hissettiğini fark et. Nefesini bir sörf tahtası gibi kullan; dalganın üstünde kal."
+    },
+    {
+     "emoji": "✅",
+     "title": "Seçim senin",
+     "text": "Dürtüyü hissetmek, ona göre davranmak zorunda olduğun anlamına gelmez. Hissetmek ve seçmek ayrı şeylerdir."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Bir dürtü geldiğinde Dürtü anı ekranındaki dalga sörfünü uygula ve dalganın nasıl değiştiğini not et."
+   },
+   "quiz": [
+    {
+     "q": "Dürtü sörfünde amaç nedir?",
+     "options": [
+      "Dürtüyü hemen yok etmek",
+      "Dürtüyü izleyip ona göre davranmadan geçmesine izin vermek",
+      "Dürtüyü düşünmemeye çalışmak"
+     ],
+     "answer": 1,
+     "explain": "Dürtüyü izlemek, onunla savaşmaktan daha az yorar ve davranışı seçmeni sağlar."
+    }
+   ],
+   "sourceIds": [
+    "crosby2016",
+    "twohig2010",
+    "meta2025"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "defusion",
+   "order": 7,
+   "phase": "skills",
+   "emoji": "💭",
+   "title": "Düşünce sadece düşüncedir",
+   "summary": "“Bir kereden bir şey olmaz”, “Zaten mahvettim”.",
+   "slides": [
+    {
+     "emoji": "💭",
+     "title": "Zihnin sesi",
+     "text": "Zor anlarda zihin ikna edici cümleler kurar: “Bir kereden bir şey olmaz.” “Zaten bozdum, artık fark etmez.”"
+    },
+    {
+     "emoji": "🏷️",
+     "title": "Adını koy",
+     "text": "Düşünceyle aranıza mesafe koymak için ona ad ver: “Şu an ‘bir kereden bir şey olmaz’ düşüncesini fark ediyorum.”"
+    },
+    {
+     "emoji": "📻",
+     "title": "Radyo gibi",
+     "text": "Düşünceleri arka planda çalan bir radyo gibi düşünebilirsin. Sesini duyarsın ama söylediği her şeyi yapmak zorunda değilsin."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Değerlere dön",
+     "text": "Düşünceyi fark ettikten sonra sor: “Bu düşünceyi takip etmek beni önem verdiğim şeye yaklaştırır mı?”"
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Bu hafta zihninin en sık kurduğu cümleyi yaz ve başına “Şu an … düşüncesini fark ediyorum” ekle."
+   },
+   "quiz": [
+    {
+     "q": "“Zaten mahvettim” düşüncesi geldiğinde ne yapmak işe yarar?",
+     "options": [
+      "Ona inanıp devam etmek",
+      "Onu bir düşünce olarak fark edip değerlerine dönmek",
+      "Kendini suçlamak"
+     ],
+     "answer": 1,
+     "explain": "Düşünceyi fark etmek, onun söylediğini yapmak zorunda olmadığını hatırlatır."
+    }
+   ],
+   "sourceIds": [
+    "crosby2016",
+    "twohig2010"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "acceptance",
+   "order": 8,
+   "phase": "skills",
+   "emoji": "🤲",
+   "title": "Kabul: rahatsız hisler için yer açmak",
+   "summary": "Hissi değiştirmeye çalışmadan taşımak.",
+   "slides": [
+    {
+     "emoji": "🤲",
+     "title": "Kabul pes etmek değildir",
+     "text": "Kabul, rahatsız bir hissi sevmek ya da ona boyun eğmek değil; onunla birlikte, değerlerine uygun davranabilmektir."
+    },
+    {
+     "emoji": "📦",
+     "title": "Yer açmak",
+     "text": "Gerginlik, sıkıntı ya da boşluk hissi geldiğinde onu bedeninde fark et ve ona biraz yer aç: “Bu his burada, ve ben bununla durabilirim.”"
+    },
+    {
+     "emoji": "⏳",
+     "title": "Hisler geçicidir",
+     "text": "Kaçmaya çalışmadığımızda hisler çoğu zaman beklediğimizden daha çabuk değişir."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Yön kaybolmaz",
+     "text": "Rahatsız his oradayken bile küçük bir değer adımı atabilirsin: bir yürüyüş, bir mesaj, bir sayfa kitap."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Rahatsız bir hissi 60 saniye boyunca değiştirmeye çalışmadan izle; sonra küçük bir değer adımı at."
+   },
+   "quiz": [
+    {
+     "q": "Kabul ne demektir?",
+     "options": [
+      "Rahatsız hissi sevmek",
+      "Rahatsız hisle birlikte durup değerlerime göre davranabilmek",
+      "Pes etmek"
+     ],
+     "answer": 1,
+     "explain": "Kabul, hisle savaşmadan seçimini yapabilmektir."
+    }
+   ],
+   "sourceIds": [
+    "crosby2016",
+    "twohig2010"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "emotions",
+   "order": 9,
+   "phase": "skills",
+   "emoji": "🌤️",
+   "title": "Duygu düzenleme",
+   "summary": "Stres, kaygı ve sıkıntı için yeni yollar.",
+   "slides": [
+    {
+     "emoji": "🌤️",
+     "title": "Bir başa çıkma yolu",
+     "text": "Davranış çoğu zaman zor duygulardan kısa süreli bir kaçış olur. Bu çok insani; ama uzun vadede duyguyu çözmez."
+    },
+    {
+     "emoji": "🧰",
+     "title": "Yeni araçlar",
+     "text": "Stres için nefes ya da hareket, kaygı için 5-4-3-2-1 farkındalık, sıkıntı için birine yazmak ya da küçük bir uğraş işe yarayabilir."
+    },
+    {
+     "emoji": "🏷️",
+     "title": "Duyguyu adlandır",
+     "text": "“Şu an gerginim” demek bile beynin duygu yükünü hafifletir."
+    },
+    {
+     "emoji": "📋",
+     "title": "Kendi listen",
+     "text": "Her duygu için bir ya da iki yeni yol belirlemek, zor anda ne yapacağını önceden bilmeni sağlar."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "En sık zorlandığın iki duygu için birer yeni başa çıkma yolu yaz ve birini bu hafta dene."
+   },
+   "quiz": [
+    {
+     "q": "Duyguyu adlandırmanın faydası nedir?",
+     "options": [
+      "Hiçbir faydası yoktur",
+      "Duygunun yükünü hafifletip seçim alanı açar",
+      "Duyguyu kalıcı hale getirir"
+     ],
+     "answer": 1,
+     "explain": "Adlandırmak, duyguyla aranıza küçük bir mesafe koyar."
+    }
+   ],
+   "sourceIds": [
+    "meta2025",
+    "bothe2021"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "shame",
+   "order": 10,
+   "phase": "skills",
+   "emoji": "🤍",
+   "title": "Utanç ve suçluluk farkı",
+   "summary": "Utanç neden işe yaramaz, öz-şefkat neden yarar?",
+   "slides": [
+    {
+     "emoji": "🤍",
+     "title": "İki farklı his",
+     "text": "Suçluluk “Yaptığım şey değerlerimle uyuşmadı” der. Utanç ise “Ben kötüyüm” der. İkisi aynı değildir."
+    },
+    {
+     "emoji": "🔁",
+     "title": "Utanç döngüsü",
+     "text": "Utanç, kişiyi kötü hissettirir; kötü his de yeniden kaçış arayışını tetikleyebilir. Araştırmalar, utancın değişimi zorlaştırdığını gösteriyor."
+    },
+    {
+     "emoji": "🫶",
+     "title": "Öz-şefkat",
+     "text": "Öz-şefkat, kendini mazur görmek değil; hatanı kabul edip kendine bir arkadaşına davrandığın gibi nazik davranmaktır."
+    },
+    {
+     "emoji": "🌱",
+     "title": "Sorumluluk ve nezaket",
+     "text": "“Bu zor bir an. Hata yapabilirim; yine de yoluma devam ediyorum.” Bu tutum, bir sonraki adımı atmayı kolaylaştırır."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Zor bir anda kendine söyleyeceğin nazik bir cümle yaz ve telefonuna not al."
+   },
+   "quiz": [
+    {
+     "q": "Utanç ile suçluluk arasındaki fark nedir?",
+     "options": [
+      "Hiçbir fark yoktur",
+      "Suçluluk davranışa, utanç kişinin kendisine yönelir",
+      "Utanç daha faydalıdır"
+     ],
+     "answer": 1,
+     "explain": "Davranışa odaklanan suçluluk değişime alan açar; kişiliğe yönelen utanç ise çoğu zaman tıkar."
+    }
+   ],
+   "sourceIds": [
+    "grubbs2019b",
+    "grubbs2019",
+    "marlatt"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "sleep",
+   "order": 11,
+   "phase": "rebuild",
+   "emoji": "🌙",
+   "title": "Uyku ve gece rutini",
+   "summary": "En riskli zaman dilimine hazırlık.",
+   "slides": [
+    {
+     "emoji": "🌙",
+     "title": "Neden gece?",
+     "text": "Gece yorgunluk artar, ortam sessizleşir ve telefon elimizdedir. Bu yüzden gece geç saatler en riskli dilimdir."
+    },
+    {
+     "emoji": "🛏️",
+     "title": "Sakin bir rutin",
+     "text": "Her gün benzer saatte yatmak, yatmadan önce ekranı kapatmak ve ışığı azaltmak uykuyu kolaylaştırır."
+    },
+    {
+     "emoji": "📵",
+     "title": "Yatak = uyku",
+     "text": "Telefonu yatağa götürmemek, yatağı uykuyla eşleştirir. Uyuyamıyorsan kalkıp loş ışıkta kitap okumak işe yarayabilir."
+    },
+    {
+     "emoji": "ℹ️",
+     "title": "Genel bilgi",
+     "text": "Bunlar genel uyku önerileridir, tıbbi tedavi değildir. Uyku sorunun uzun sürüyorsa bir hekime danış."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Bu akşam için üç adımlık bir gece rutini yaz ve uygula."
+   },
+   "quiz": [
+    {
+     "q": "Gece riskini azaltmanın en kolay yolu hangisidir?",
+     "options": [
+      "Yatağa telefonla girip direnmeye çalışmak",
+      "Telefonu yatak odası dışında bırakıp sakin bir rutin kurmak",
+      "Daha geç yatmak"
+     ],
+     "answer": 1,
+     "explain": "Ortamı önceden düzenlemek, gece karar vermeyi kolaylaştırır."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "connection",
+   "order": 12,
+   "phase": "rebuild",
+   "emoji": "🫂",
+   "title": "Yalnızlık ve bağlantı",
+   "summary": "İnsanlarla yeniden bağ kurmak.",
+   "slides": [
+    {
+     "emoji": "🫂",
+     "title": "Bağlantı ihtiyacı",
+     "text": "İnsan bağlantıya ihtiyaç duyar. Yalnızlık arttığında kısa süreli rahatlama arayışı da artabilir."
+    },
+    {
+     "emoji": "📱",
+     "title": "Küçük adımlar",
+     "text": "Bağlantı büyük adımlar gerektirmez: bir mesaj, kısa bir telefon, bir kahve, bir yürüyüş."
+    },
+    {
+     "emoji": "👥",
+     "title": "Topluluk",
+     "text": "Bir kurs, spor, gönüllülük ya da ilgi alanı grubu düzenli bağlantı için iyi bir yoldur."
+    },
+    {
+     "emoji": "💬",
+     "title": "Açık olmak",
+     "text": "Ayrıntı vermeden de güvendiğin birine zorlandığını söyleyebilirsin. Yalnız taşımadığın yük hafifler."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Bu hafta yüz yüze görüşmek için birine mesaj at ve bir gün belirle."
+   },
+   "quiz": [
+    {
+     "q": "Yalnızlık hissinde hangisi daha kalıcı yardım eder?",
+     "options": [
+      "Kısa süreli kaçış",
+      "Gerçek bağlantı kurmak",
+      "Daha çok ekran"
+     ],
+     "answer": 1,
+     "explain": "Bağlantı, dürtünün altındaki ihtiyacı karşılar."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021",
+    "meta2025"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "leisure",
+   "order": 13,
+   "phase": "rebuild",
+   "emoji": "🎨",
+   "title": "Boş zamanı yeniden tasarlamak",
+   "summary": "Hobiler, hareket ve üretkenlik.",
+   "slides": [
+    {
+     "emoji": "🎨",
+     "title": "Boşluk doldurulur",
+     "text": "Bir davranışı azalttığında açılan zaman boş kalırsa, eski alışkanlık o boşluğa geri dönmeye çalışır."
+    },
+    {
+     "emoji": "🏃",
+     "title": "Hareket",
+     "text": "Düzenli hareket stresi azaltır ve uykuyu iyileştirir. Uygulamadaki fitness ve nefes seansları da buna dahildir."
+    },
+    {
+     "emoji": "🛠️",
+     "title": "Anlamlı uğraşlar",
+     "text": "Bir şey öğrenmek, üretmek ya da başkasına yardım etmek, değerlerinle uyumlu bir doyum sağlar."
+    },
+    {
+     "emoji": "🗓️",
+     "title": "Planlamak",
+     "text": "Riskli saatlerine önceden bir etkinlik koymak, o saati “boş” olmaktan çıkarır."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Riskli saatlerinden biri için bu hafta yapacağın keyifli ya da anlamlı bir etkinlik planla."
+   },
+   "quiz": [
+    {
+     "q": "Açılan boş zamanı planlamak neden önemli?",
+     "options": [
+      "Önemli değildir",
+      "Plansız boşluk eski alışkanlığın geri dönmesini kolaylaştırır",
+      "Daha çok yorulmak için"
+     ],
+     "answer": 1,
+     "explain": "Planlı bir etkinlik, riskli saati yeni bir anlamla doldurur."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "sexuality",
+   "order": 14,
+   "phase": "rebuild",
+   "emoji": "🤝",
+   "title": "Sağlıklı cinsellik anlayışı",
+   "summary": "Kendine ve partnere saygı, gerçekçi beklentiler.",
+   "slides": [
+    {
+     "emoji": "🤝",
+     "title": "Doğal bir parça",
+     "text": "Cinsellik insan hayatının doğal bir parçasıdır. Mastürbasyonun kendisi tıbben zararlı kabul edilmez; önemli olan davranışın senin değerlerin ve hayat kalitenle uyumu."
+    },
+    {
+     "emoji": "🎬",
+     "title": "Gerçekçi beklentiler",
+     "text": "Pornografide gösterilenler çoğu zaman kurgudur ve gerçek ilişkileri yansıtmaz. Bunu bilmek, kendine ve partnerine yönelik beklentileri daha gerçekçi kılar."
+    },
+    {
+     "emoji": "💬",
+     "title": "Saygı ve iletişim",
+     "text": "Sağlıklı bir cinsel yaşamın temeli karşılıklı rıza, saygı ve açık iletişimdir."
+    },
+    {
+     "emoji": "🩺",
+     "title": "Endişelerin için",
+     "text": "Cinsel sağlıkla ilgili bir endişen varsa, internetteki iddialar yerine bir hekim ya da uzmanla konuşmak en doğrusudur."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Kendin için “saygı” ve “gerçekçi beklenti” üzerine bir ilke cümlesi yaz."
+   },
+   "quiz": [
+    {
+     "q": "Bu derste hangisi doğrudur?",
+     "options": [
+      "Ölçü, başkalarının ne düşündüğüdür",
+      "Önemli olan davranışın değerlerim ve hayat kalitemle uyumudur",
+      "Pornografi gerçek ilişkileri yansıtır"
+     ],
+     "answer": 1,
+     "explain": "Ölçü, kişinin kendi değerleri ve hayat kalitesidir."
+    }
+   ],
+   "sourceIds": [
+    "rowland2024",
+    "dwulit2019",
+    "briken2024"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "relapse",
+   "order": 15,
+   "phase": "consolidation",
+   "emoji": "🗺️",
+   "title": "Kayma önleme planı",
+   "summary": "Yüksek riskli durumlar haritası.",
+   "slides": [
+    {
+     "emoji": "🗺️",
+     "title": "Haritayı çiz",
+     "text": "Kayma önleme modeli, yüksek riskli durumları önceden tanımayı önerir: belirli saatler, yerler, duygular ve kişiler."
+    },
+    {
+     "emoji": "⚠️",
+     "title": "Erken uyarılar",
+     "text": "Kayma çoğu zaman küçük işaretlerle başlar: uykusuzluk, yalnızlık, “sadece bakacağım” düşüncesi."
+    },
+    {
+     "emoji": "📝",
+     "title": "Her durum için plan",
+     "text": "Her riskli durum için bir Eğer–O zaman planı hazırla. Önceden verilen karar, o anda verilen karardan çok daha kolaydır."
+    },
+    {
+     "emoji": "🔁",
+     "title": "Kayma ≠ son",
+     "text": "Bir kayma olursa “Zaten bozdum” düşüncesi kaymayı uzatabilir. Bir kayma, emeğin silindiği anlamına gelmez; ondan öğrenip devam edebilirsin."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "En riskli üç durumunu yaz ve her biri için bir Eğer–O zaman planı oluştur."
+   },
+   "quiz": [
+    {
+     "q": "Bir kaymadan sonra en yardımcı tutum hangisidir?",
+     "options": [
+      "“Zaten bozdum, fark etmez” demek",
+      "Ne olduğunu öğrenip planı güncellemek ve devam etmek",
+      "Her şeyi bırakmak"
+     ],
+     "answer": 1,
+     "explain": "Kaymayı bir öğrenme fırsatı olarak görmek, devam etmeyi kolaylaştırır."
+    }
+   ],
+   "sourceIds": [
+    "marlatt",
+    "bothe2021"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 4,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "identity",
+   "order": 16,
+   "phase": "consolidation",
+   "emoji": "🌟",
+   "title": "Yeni kimliğin",
+   "summary": "“Değerlerime göre yaşayan biriyim.”",
+   "slides": [
+    {
+     "emoji": "🌟",
+     "title": "Davranıştan kimliğe",
+     "text": "Tekrar eden küçük davranışlar zamanla kendimizi nasıl gördüğümüzü değiştirir."
+    },
+    {
+     "emoji": "🪞",
+     "title": "Kim olmak istiyorsun?",
+     "text": "“Bunu yapmamaya çalışan biri” yerine “Değerlerime göre yaşayan biri” olmak, odağı yasaktan yöne çevirir."
+    },
+    {
+     "emoji": "🧱",
+     "title": "Kanıtlar",
+     "text": "Bu süreçte yönettiğin her dürtü anı, kurduğun her sınır ve uyguladığın her plan bu yeni kimliğin kanıtıdır."
+    },
+    {
+     "emoji": "🌿",
+     "title": "Sürdürmek",
+     "text": "Kimlik bir kez kazanılıp biten bir şey değil; her gün küçük seçimlerle yeniden onaylanır."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "“Ben … biriyim” cümlesini değerlerine göre tamamla ve bu süreçten üç kanıt yaz."
+   },
+   "quiz": [
+    {
+     "q": "Kimlik odaklı düşünmenin faydası nedir?",
+     "options": [
+      "Odağı yasaklardan değerlere ve yöne çevirir",
+      "Hiçbir faydası yoktur",
+      "Mükemmel olmayı zorunlu kılar"
+     ],
+     "answer": 0,
+     "explain": "Kendini değerlerinle tanımlamak, davranışı daha doğal hale getirir."
+    }
+   ],
+   "sourceIds": [
+    "crosby2016",
+    "twohig2010",
+    "bothe2021"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 3,
+   "bonus": false,
+   "reviewed": false
+  },
+  {
+   "id": "congruence",
+   "order": 17,
+   "phase": "awareness",
+   "emoji": "🕊️",
+   "title": "Değerlerinle barışık olmak",
+   "summary": "Kusursuzluk değil, yön.",
+   "slides": [
+    {
+     "emoji": "🕊️",
+     "title": "Çelişki hissi",
+     "text": "Bir davranış değerlerinle çeliştiğinde içsel bir gerilim hissedebilirsin. Bu his, senin için neyin önemli olduğunu gösterir."
+    },
+    {
+     "emoji": "⚖️",
+     "title": "Kusursuzluk tuzağı",
+     "text": "Araştırmalar, yoğun ahlaki çelişki ve utancın kişinin kendini daha “kontrolsüz” algılamasına yol açabildiğini gösteriyor; bu algı her zaman davranış miktarıyla örtüşmez."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Yön yeter",
+     "text": "Amaç bir anda kusursuz olmak değil; her gün değerlerine biraz daha yakın yaşamak."
+    },
+    {
+     "emoji": "🫶",
+     "title": "Kendine nazik ol",
+     "text": "Değerlerin, inancın ya da ilkelerin ne olursa olsun, kendine nazik davranmak bu yolda en güçlü yardımcındır."
+    }
+   ],
+   "practice": {
+    "title": "Uygula",
+    "text": "Değerlerinden biri için bugün atabileceğin küçük, kusursuz olması gerekmeyen bir adım yaz."
+   },
+   "quiz": [
+    {
+     "q": "Bu derste vurgulanan nedir?",
+     "options": [
+      "Hemen kusursuz olmak",
+      "Kusursuzluk değil, değerlere doğru bir yön",
+      "Kendini sert biçimde eleştirmek"
+     ],
+     "answer": 1,
+     "explain": "Yön ve öz-şefkat, değişimi sürdürülebilir kılar."
+    }
+   ],
+   "sourceIds": [
+    "grubbs2019",
+    "grubbs2019b"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "bonus": true,
+   "reviewed": false
+  }
+ ]
+}

@@ -3,12 +3,12 @@ import { Pressable, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { CAMP_REWARDS } from '@/features/camp/content';
-import { parsePriceTRY } from '@/features/camp/onboarding';
-import { moneySaved } from '@/features/camp/engine/savings';
-import { goalProgress } from '@/features/camp/engine/stats';
-import { campAttempt } from '@/features/camp/state';
-import { fmtTL, PremiumLock } from '@/features/camp/ui';
+import { CAMP_REWARDS } from '@/features/camps/smoking/content';
+import { parsePriceTRY } from '@/features/camps/smoking/onboarding';
+import { moneySaved } from '@/features/camps/smoking/engine/savings';
+import { goalProgress } from '@/features/camps/smoking/engine/stats';
+import { campAttempt } from '@/features/camps/smoking/state';
+import { fmtTL, PremiumLock } from '@/features/camps/smoking/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { SectionTitle, tint } from '@/features/campus/shared/ui';
 import { CelebrationCard } from '@/features/gamification/Celebration';

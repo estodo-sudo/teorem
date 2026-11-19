@@ -7,17 +7,25 @@ import { defaultSettings, useSettingsStore } from '@/stores/settingsStore';
 import { defaultTraining, useTrainingStore } from '@/stores/trainingStore';
 import { restoreApp, snapshotApp, wipeApp } from '@/features/data/appData';
 import { defaultAlcState } from '@/features/campus/alcohol/logic';
-import { defaultPcState } from '@/features/campus/porn/logic';
 import { defaultBodyState } from '@/features/campus/body/logic';
-import { defaultMcState } from '@/features/campus/masturbation/logic';
-import { defaultSmokingState } from '@/features/campus/smoking/logic';
 import { defaultCampus, useCampusStore } from '@/stores/campusStore';
-import { defaultCampState, emptyCampEvents } from '@/features/camp/state';
-import { createMemoryCampRepo } from '@/features/camp/repo';
+import { defaultCampState, emptyCampEvents } from '@/features/camps/smoking/state';
+import { createMemoryCampRepo } from '@/features/camps/smoking/repo';
 import { setCampRepo, useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { defaultKegelData, useKegelStore } from '@/stores/kegelStore';
 
 const sample = (): AppSnapshot => ({
-  profile: { ...defaultProfile(), goals: ['endurance', 'bladder'], ageRange: '35-44', experience: 'some', activity: 'mid', onboardingDone: true, tutorialDone: true, disclaimerAcceptedAt: '2026-11-01T10:00:00.000Z', createdAt: '2026-11-01T10:00:00.000Z' },
+  profile: {
+    ...defaultProfile(),
+    goals: ['endurance', 'bladder'],
+    ageRange: '35-44',
+    experience: 'some',
+    activity: 'mid',
+    onboardingDone: true,
+    tutorialDone: true,
+    disclaimerAcceptedAt: '2026-11-01T10:00:00.000Z',
+    createdAt: '2026-11-01T10:00:00.000Z',
+  },
   settings: { ...defaultSettings(), hapticStrength: 3, reminderTimes: ['08:30', '21:00'], theme: 'dark', saveUnloadNotes: true },
   training: { ...defaultTraining(), level: 7, consecutiveOk: 2, planDayIndex: 12, lastAdvancedDate: '2026-11-14' },
   progress: {
@@ -27,39 +35,6 @@ const sample = (): AppSnapshot => ({
     lastMindSession: '2026-11-13',
   },
   campus: {
-    smoking: {
-      ...defaultSmokingState(),
-      setupDone: true,
-      quitAt: '2026-11-10T00:00:00.000Z',
-      cigsPerDay: 15,
-      packPrice: 95.5,
-      reasonIds: ['health', 'money'],
-      triggerIds: ['coffee'],
-      prepDoneIds: ['date', 'tell'],
-      stepDoneIds: ['why'],
-      cravings: [{ at: '2026-11-11T09:00:00.000Z', triggerId: 'coffee', passed: true }],
-      slips: ['2026-11-12T20:00:00.000Z'],
-      symptomLogs: [{ at: '2026-11-13T08:00:00.000Z', symptomId: 'sleep' }],
-      attempt: 2,
-    },
-    masturbation: {
-      ...defaultMcState(),
-      setupDone: true,
-      mode: 'control',
-      startedAt: '2026-11-01T20:00:00.000Z',
-      firstStartedAt: '2026-11-01T20:00:00.000Z',
-      baselineId: '10to14',
-      weeklyLimit: 3,
-      uses: ['2026-11-03T22:00:00.000Z'],
-      reasonIds: ['time'],
-      triggerIds: ['bed-phone'],
-      envDoneIds: ['phone-out'],
-      stepDoneIds: ['what'],
-      checkAnswers: [true, false, true, false, true, true],
-      checkValues: false,
-      urges: [{ at: '2026-11-05T23:00:00.000Z', triggerId: 'bed-phone', actionId: 'leave', passed: true }],
-      lapses: ['2026-11-08T23:30:00.000Z'],
-    },
     alcohol: {
       ...defaultAlcState(),
       setupDone: true,
@@ -72,19 +47,6 @@ const sample = (): AppSnapshot => ({
       reasonIds: ['sleep'],
       triggerIds: ['social'],
       drinks: [{ at: '2026-11-07T20:00:00.000Z', typeId: 'beer33', std: 1.3 }],
-    },
-    porn: {
-      ...defaultPcState(),
-      setupDone: true,
-      startedAt: '2026-11-03T09:00:00.000Z',
-      firstStartedAt: '2026-11-03T09:00:00.000Z',
-      goalDays: 30,
-      bps: [1, 2, 1, 0, 1],
-      valuesConflict: false,
-      valueIds: ['health', 'relationships'],
-      lapses: [{ at: '2026-11-06T23:40:00.000Z', deviceId: 'phone', feelingId: 'lonely', firstStepId: 'social' }],
-      activityIds: ['walk', 'call-friend', 'read'],
-      urges: [{ at: '2026-11-08T22:00:00.000Z', activityId: 'walk' }],
     },
     neck: {
       ...defaultBodyState(),
@@ -128,9 +90,36 @@ const sample = (): AppSnapshot => ({
       checkins: [{ id: 'h1', at: '2026-11-12T21:00:00.000Z', smoked: false, cravingCount: 3, mood: 4, symptoms: ['irritable'] }],
     },
   },
+  kegel: {
+    profile: { primaryTrack: 'bladder', hypertonicFlag: false, painFlag: false, screeningAnswers: [false, false, false, true, false, false, false, true], screenedAt: '2026-11-10T09:00:00.000Z' },
+    painReports: [{ id: 'pain1', at: '2026-11-13T20:00:00.000Z', sessionId: 'w0' }],
+    selfRatings: [{ id: 'sr1', at: '2026-11-14T09:00:00.000Z', track: 'bladder', answers: { dribble: 6, control: 7 } }],
+    functionalTasks: [{ id: '2026-11-14_stand', date: '2026-11-14', taskId: 'stand', done: true }],
+    surgeryClearance: { confirmedAt: '2026-11-09T09:00:00.000Z' },
+    screeningSkippedAt: null,
+  },
   history: {
     workouts: [
       { id: 'w1', date: '2026-11-14', finishedAt: '2026-11-14T20:05:00.000Z', level: 7, plannedSec: 300, actualSec: 296, exercises: [{ type: 'hold', completed: true, skipped: false }], feedback: 'ok', completed: true },
+      {
+        id: 'w2',
+        date: '2026-11-15',
+        finishedAt: '2026-11-15T20:05:00.000Z',
+        level: 7,
+        plannedSec: 300,
+        actualSec: 300,
+        exercises: [{ type: 'slow_hold', completed: true, skipped: false }],
+        feedback: 'ok',
+        completed: true,
+        track: 'bladder',
+        durationPreset: 'standard',
+        pauses: 1,
+        skippedBlocks: 0,
+        completionRate: 1,
+        isMicro: false,
+        contractions: 64,
+        deload: false,
+      },
     ],
     strengthTests: [{ id: 's1', date: '2026-11-10', holdBestMs: 5400, holdAttemptsMs: [5000, 5400, 5100], quickCount: 14 }],
     fitnessLogs: [{ id: 'f1', date: '2026-11-12', routineId: 'beginner', durationSec: 290 }],
@@ -148,7 +137,7 @@ describe('export / import', () => {
   it('includes format, schema version and app name; never the entitlement', () => {
     const b = buildExport(sample(), new Date('2026-11-15T00:00:00Z'));
     expect(b.format).toBe(EXPORT_FORMAT);
-    expect(b.schemaVersion).toBe(3);
+    expect(b.schemaVersion).toBe(4);
     expect(b.exportedAt).toBe('2026-11-15T00:00:00.000Z');
     expect(JSON.stringify(b)).not.toContain('entitlement');
   });
@@ -177,15 +166,25 @@ describe('export / import', () => {
     expect(r.data.camp).toEqual({ state: defaultCampState(), events: emptyCampEvents() });
   });
 
+  it('imports v3 backups (before Kegel v2): training migrated, level kept, empty kegel data', () => {
+    const { kegel: _kegel, ...v3 } = buildExport(sample());
+    const oldTraining = { level: 7, consecutiveOk: 2, planDayIndex: 12, planNumber: 2, lastAdvancedDate: '2026-11-14', repeatNextDay: false };
+    const r = parseImport(JSON.stringify({ ...v3, training: oldTraining, schemaVersion: 3 }));
+    if (!r.ok) throw new Error(r.error);
+    expect(r.data.kegel).toEqual(defaultKegelData());
+    expect(r.data.training).toMatchObject({ level: 7, planDayIndex: 12, planNumber: 2, track: 'general', durationPreset: 'standard', weekIndex: 6, dayIndex: 0 });
+    expect(r.data.history.workouts).toHaveLength(2);
+  });
+
   it('sanitizes a broken campus section instead of rejecting the file', () => {
     const b = buildExport(sample());
-    const r = parseImport(JSON.stringify({ ...b, campus: { smoking: { quitAt: 42, cigsPerDay: 'x' } } }));
+    // An old backup still carrying the removed smoking campus: that part is ignored.
+    const r = parseImport(JSON.stringify({ ...b, campus: { smoking: { quitAt: 42, cigsPerDay: 'x' }, masturbation: { mode: 'quit' }, porn: { goalDays: 30 }, alcohol: { mode: 42 } } }));
     if (!r.ok) throw new Error(r.error);
-    expect(r.data.campus.smoking).toEqual(defaultSmokingState());
-    // A backup made before the masturbation campus existed gets an empty one.
-    expect(r.data.campus.masturbation).toEqual(defaultMcState());
+    expect(r.data.campus).not.toHaveProperty('smoking');
+    expect(r.data.campus).not.toHaveProperty('masturbation');
+    expect(r.data.campus).not.toHaveProperty('porn');
     expect(r.data.campus.alcohol).toEqual(defaultAlcState());
-    expect(r.data.campus.porn).toEqual(defaultPcState());
     expect(r.data.campus.neck).toEqual(defaultBodyState());
     expect(r.data.campus.feet).toEqual(defaultBodyState());
   });
@@ -204,9 +203,10 @@ describe('export / import', () => {
     expect(useHistoryStore.getState().workouts).toEqual([]);
     expect(useProfileStore.getState().profile.onboardingDone).toBe(false);
     expect(useTrainingStore.getState().training.level).toBe(1);
-    expect(useCampusStore.getState().smoking).toEqual(defaultSmokingState());
+    expect(useCampusStore.getState().alcohol).toEqual(defaultAlcState());
     expect(useCampStore.getState().attempts).toEqual([]);
     expect(useCampEventsStore.getState().cigarettes).toEqual([]);
+    expect(useKegelStore.getState().profile).toBeNull();
     const r = parseImport(json);
     if (!r.ok) throw new Error(r.error);
     restoreApp(r.data);

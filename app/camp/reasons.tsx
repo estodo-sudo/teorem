@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Screen } from '@/components';
-import { CAMP_SOS as SOS } from '@/features/camp/content';
-import { ReasonsView } from '@/features/camp/sosTools';
+import { CAMP_SOS as SOS } from '@/features/camps/smoking/content';
+import { ReasonsView } from '@/features/camps/smoking/sosTools';
 import { goBack } from '@/lib/nav';
 import { useCampStore } from '@/stores/campStore';
 

@@ -3,11 +3,11 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Icon, ProgressRing, Screen, useTheme } from '@/components';
-import { CAMP_HEALTH } from '@/features/camp/content';
-import { remainingUnit } from '@/features/camp/engine/format';
-import { nextHealthMilestone, reachedMilestones } from '@/features/camp/engine/milestones';
-import { currentPhase, quitStart } from '@/features/camp/engine/phase';
-import { campAttempt } from '@/features/camp/state';
+import { CAMP_HEALTH } from '@/features/camps/smoking/content';
+import { remainingUnit } from '@/features/camps/smoking/engine/format';
+import { nextHealthMilestone, reachedMilestones } from '@/features/camps/smoking/engine/milestones';
+import { currentPhase, quitStart } from '@/features/camps/smoking/engine/phase';
+import { campAttempt } from '@/features/camps/smoking/state';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useClock } from '@/lib/useNow';

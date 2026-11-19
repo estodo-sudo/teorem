@@ -1,0 +1,35 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "review",
+ "sourceIds": [
+  "marlatt",
+  "bothe2021",
+  "roza2024"
+ ],
+ "panelTitle": "Son günler zor geçti",
+ "panelBody": "Birkaç gündür hedefinin dışındasın. Bu, yeniden başlamayı öğrenmek için bir fırsat.",
+ "panelButton": "Birlikte bakalım",
+ "intro": {
+  "title": "Yeniden başlamak bir beceridir",
+  "body": "Çoğu insan bir değişimi kalıcı yapana kadar birkaç kez dener. Her deneme, neyin işe yaradığını öğretir."
+ },
+ "learned": {
+  "title": "Bu süreçte öğrendiklerin",
+  "triggers": "En sık zorlandığın durumlar: {list}",
+  "tools": "İşe yarayan araçların: {list}",
+  "managed": "Yönettiğin dürtü anları: {n}",
+  "none": "Henüz yeterli kayıt yok. Bundan sonraki kayıtların sana yol gösterecek."
+ },
+ "goal": {
+  "title": "Hedefini gözden geçir",
+  "hint": "Hedefini değiştirmek bir geri adım değildir. Belki şu an azaltma hedefi daha gerçekçidir; karar senin.",
+  "keep": "Hedefimi koruyorum",
+  "save": "Hedefi kaydet"
+ },
+ "restart": {
+  "title": "Sınırlar aşamasından devam",
+  "body": "Programına Sınırlar aşamasından (8. gün) yeniden başlarsın: ortamını ve riskli saatlerini birlikte yeniden düzenleriz. Toplam günlerin, en uzun serin ve yönettiğin dürtü anları korunur.",
+  "button": "Sınırlar aşamasından devam et",
+  "done": "Hazırsın. Programın Sınırlar aşamasından devam ediyor."
+ }
+}

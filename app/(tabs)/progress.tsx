@@ -14,6 +14,8 @@ import { openGated } from '@/features/purchases/useGate';
 import { fromDateKey, toDateKey } from '@/lib/date';
 import { makeId } from '@/lib/random';
 import { useHistoryStore } from '@/stores/historyStore';
+import { scoreTrend, selfRatingDue, selfRatingQuestions, selfRatingTrend } from '@/features/training/strengthV2';
+import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 export default function ProgressTab() {
@@ -25,6 +27,8 @@ export default function ProgressTab() {
   const addNote = useHistoryStore((s) => s.addNote);
   const deleteNote = useHistoryStore((s) => s.deleteNote);
   const level = useTrainingStore((s) => s.training.level);
+  const track = useTrainingStore((s) => s.training.track);
+  const ratings = useKegelStore((s) => s.selfRatings);
   const streak = useStreak();
   const today = toDateKey();
   const [note, setNote] = useState('');
@@ -37,7 +41,12 @@ export default function ProgressTab() {
   const hold = holdTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const quick = quickTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const due = strengthTestDue(tests, today);
-  const progressNotes = notes.filter((n) => n.kind === 'progress').slice().reverse();
+  const score = scoreTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
+  const ratingDue = selfRatingDue(ratings, track, today);
+  const progressNotes = notes
+    .filter((n) => n.kind === 'progress')
+    .slice()
+    .reverse();
 
   const saveNote = () => {
     const text = note.trim();
@@ -77,12 +86,39 @@ export default function ProgressTab() {
       <ChartCard title={tr('progress.charts.quick')}>
         <LineChart data={quick} accessibilityLabel={tr('progress.charts.quick')} emptyText={tr('progress.charts.empty')} />
       </ChartCard>
+      <ChartCard title={tr('progress.charts.score')}>
+        <LineChart data={score} accessibilityLabel={tr('progress.charts.score')} emptyText={tr('progress.charts.empty')} />
+        <AppText variant="small" muted>
+          {tr('strength.scoreLabel')}
+        </AppText>
+      </ChartCard>
+
+      <Card style={{ gap: 10, borderColor: ratingDue ? t.colors.accent : t.colors.border }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+          <AppText variant="h2">📝</AppText>
+          <View style={{ flex: 1 }}>
+            <AppText variant="h3">{tr('kegel.selfRating.cardTitle')}</AppText>
+            <AppText variant="small" muted>
+              {ratingDue ? tr('kegel.selfRating.due') : tr('kegel.selfRating.notDue')}
+            </AppText>
+          </View>
+        </View>
+        <Button label={tr('kegel.selfRating.start')} variant={ratingDue ? 'accent' : 'secondary'} onPress={() => router.push('/kegel/self-rating')} />
+      </Card>
+      {selfRatingQuestions(track).map((q) => {
+        const data = selfRatingTrend(ratings, track, q.id).map((p) => ({ label: short(p.date), value: p.value }));
+        return data.length ? (
+          <ChartCard key={q.id} title={q.text}>
+            <LineChart data={data} accessibilityLabel={q.text} emptyText={tr('progress.charts.empty')} />
+            <AppText variant="small" muted>
+              {q.better === 'high' ? tr('kegel.selfRating.higherBetter') : tr('kegel.selfRating.lowerBetter')}
+            </AppText>
+          </ChartCard>
+        ) : null;
+      })}
+
       <ChartCard title={tr('progress.charts.weekly')}>
-        <BarChart
-          data={weeks.map((w) => ({ label: short(w.week), value: Math.round(w.minutes) }))}
-          unit={tr('progress.unitMin')}
-          accessibilityLabel={tr('progress.charts.weekly')}
-        />
+        <BarChart data={weeks.map((w) => ({ label: short(w.week), value: Math.round(w.minutes) }))} unit={tr('progress.unitMin')} accessibilityLabel={tr('progress.charts.weekly')} />
       </ChartCard>
       <ChartCard title={tr('progress.charts.calendar')}>
         <HeatMap

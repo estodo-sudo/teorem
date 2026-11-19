@@ -3,6 +3,7 @@ import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Icon, Screen, useTheme } from '@/components';
+import { CAMPS } from '@/features/camps/registry';
 import { CAMPUSES, CampusCard, campusEmoji, GlossaryCard, SeeAllCard } from '@/features/content/cards';
 import { GLOSSARY, STORIES } from '@/features/content/data';
 import { storyOfTheDay } from '@/features/content/daily';
@@ -11,7 +12,7 @@ import { openGated, useAccess } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useProgressStore } from '@/stores/progressStore';
 
-/** Campuses and "Neden, Nedir ve Ne Demek?" show this many rows, then a "see all" row. */
+/** Camps, campuses and "Neden, Nedir ve Ne Demek?" show this many rows, then a "see all" row. */
 const PREVIEW_ROWS = 3;
 
 export default function Discover() {
@@ -60,6 +61,22 @@ export default function Discover() {
           <BubbleRow items={STORIES.map((s) => ({ story: s, read: read.includes(s.id) }))} onOpen={openStory} />
         </View>
       </View>
+
+      <AppText variant="h2" style={{ marginTop: 8 }}>
+        {tr('camps.title')}
+      </AppText>
+      {CAMPS.slice(0, PREVIEW_ROWS).map((c) => (
+        <c.Card key={c.id} />
+      ))}
+      {CAMPS.length > PREVIEW_ROWS ? (
+        <SeeAllCard
+          label={tr('camps.seeAll')}
+          hint={tr('camps.moreCount', { count: CAMPS.length - PREVIEW_ROWS })}
+          emojis={CAMPS.slice(PREVIEW_ROWS).map((c) => c.emoji)}
+          moreCount={CAMPS.length - PREVIEW_ROWS}
+          onPress={() => router.push('/camps')}
+        />
+      ) : null}
 
       <AppText variant="h2" style={{ marginTop: 8 }}>
         {tr('courses.title')}

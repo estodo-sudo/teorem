@@ -1,0 +1,59 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "guideline",
+ "sourceIds": [
+  "yedam",
+  "briken2024"
+ ],
+ "title": "Destek ve profesyonel yardım",
+ "emergency": {
+  "title": "Acil durumda 112",
+  "text": "Kendine zarar verme düşüncelerin varsa ya da acil bir durumdaysan hemen 112'yi ara.",
+  "phone": "112",
+  "button": "112'yi ara"
+ },
+ "help": [
+  {
+   "id": "yedam",
+   "emoji": "📞",
+   "title": "Yeşilay Danışma Hattı 115 (YEDAM)",
+   "text": "Bağımlılık alanında kişilere, yakınlarına ve bilgi almak isteyenlere ücretsiz danışmanlık verir; teknoloji bağımlılığı alanında da hizmet verir ve gerekirse il merkezinde randevu planlar. Bu konudaki başvuruların kapsamını hatta sorabilirsin.",
+   "phone": "115",
+   "button": "115'i ara",
+   "lastVerified": "2026-11-18",
+   "needsVerification": true
+  },
+  {
+   "id": "mhrs",
+   "emoji": "🏥",
+   "title": "Psikiyatri randevusu (MHRS)",
+   "text": "Psikiyatri polikliniğinden ya da bir klinik psikologdan randevu alabilirsin. Hastane randevuları için ALO 182 (MHRS) hattını arayabilir ya da MHRS / e-Nabız uygulamasını kullanabilirsin.",
+   "phone": "182",
+   "button": "182'yi ara",
+   "lastVerified": "2026-11-18",
+   "needsVerification": true
+  }
+ ],
+ "expert": {
+  "title": "Ne zaman uzmana başvurmalı?",
+  "text": "Davranış işini, okulunu ya da ilişkilerini belirgin biçimde etkiliyorsa; uzun süredir kaygılı ya da çökkün hissediyorsan; ya da yalnız başa çıkmakta zorlanıyorsan bir uzmanla konuşmak iyi gelebilir."
+ },
+ "supporter": {
+  "title": "Destekçine yaz",
+  "desc": "Güvendiğin birine nötr bir mesaj gönder. Mesajlar ayrıntı içermez.",
+  "templates": [
+   "Şu an zor bir an yaşıyorum, konuşabilir miyiz?",
+   "Bu akşam biraz yalnız hissediyorum, kısa bir yürüyüşe çıkalım mı?",
+   "Bir hedef üzerinde çalışıyorum; ara sıra sana yazsam bana iyi gelir."
+  ],
+  "share": "Gönder"
+ },
+ "summary": {
+  "title": "Uzmana göster",
+  "desc": "Dürtü ve kayma istatistiklerin, tarama sonuçların ve tetikleyicilerinden oluşan bir özet. Bu telefonda üretilir; nereye göndereceğine sen karar verirsin.",
+  "privacy": "Özet dosyası şifresizdir. Yalnızca güvendiğin bir uzmanla, güvenli bir yoldan paylaş.",
+  "button": "Özeti oluştur ve paylaş",
+  "confirm": "Anladım, paylaş",
+  "failed": "Özet oluşturulamadı. Yeniden deneyebilirsin."
+ }
+}

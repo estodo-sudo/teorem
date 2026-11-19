@@ -1,0 +1,122 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs"
+  ],
+  "title": "Aylık öz değerlendirme",
+  "intro": "Bu sorular uygulamanın kendi basit öz değerlendirme sorularıdır; lisanslı bir klinik ölçek veya tıbbi ölçüm değildir. Ayda bir yanıtla, kendi gidişatını gör.",
+  "tracks": {
+    "erection": [
+      {
+        "id": "hardness",
+        "text": "Sertleşmenin sertliğinden memnuniyetim",
+        "minLabel": "Hiç memnun değilim",
+        "maxLabel": "Çok memnunum",
+        "better": "high"
+      },
+      {
+        "id": "maintain",
+        "text": "Sertleşmeyi sürdürmekten memnuniyetim",
+        "minLabel": "Hiç memnun değilim",
+        "maxLabel": "Çok memnunum",
+        "better": "high"
+      },
+      {
+        "id": "confidence",
+        "text": "Kendime güvenim",
+        "minLabel": "Çok düşük",
+        "maxLabel": "Çok yüksek",
+        "better": "high"
+      }
+    ],
+    "bladder": [
+      {
+        "id": "dribble",
+        "text": "Damlama sıklığı",
+        "minLabel": "Hiç olmuyor",
+        "maxLabel": "Her seferinde",
+        "better": "low"
+      },
+      {
+        "id": "control",
+        "text": "Kontrol hissim",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Tam kontrol",
+        "better": "high"
+      }
+    ],
+    "surgery": [
+      {
+        "id": "leak",
+        "text": "İdrar kaçırma sıklığı",
+        "minLabel": "Hiç olmuyor",
+        "maxLabel": "Çok sık",
+        "better": "low"
+      },
+      {
+        "id": "control",
+        "text": "Kontrol hissim",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Tam kontrol",
+        "better": "high"
+      },
+      {
+        "id": "confidence",
+        "text": "Günlük hayatta kendime güvenim",
+        "minLabel": "Çok düşük",
+        "maxLabel": "Çok yüksek",
+        "better": "high"
+      }
+    ],
+    "control": [
+      {
+        "id": "timing",
+        "text": "Zamanlama üzerindeki kontrol hissim",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Tam kontrol",
+        "better": "high"
+      },
+      {
+        "id": "awareness",
+        "text": "Kası fark etme ve bırakabilme hissim",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Çok net",
+        "better": "high"
+      }
+    ],
+    "general": [
+      {
+        "id": "control",
+        "text": "Pelvik taban kasımı kontrol hissim",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Tam kontrol",
+        "better": "high"
+      },
+      {
+        "id": "confidence",
+        "text": "Kendime güvenim",
+        "minLabel": "Çok düşük",
+        "maxLabel": "Çok yüksek",
+        "better": "high"
+      }
+    ],
+    "relax": [
+      {
+        "id": "tension",
+        "text": "Pelvik bölgede gerginlik veya rahatsızlık",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Çok fazla",
+        "better": "low"
+      },
+      {
+        "id": "letgo",
+        "text": "Kası bırakabilme hissim",
+        "minLabel": "Hiç yok",
+        "maxLabel": "Çok net",
+        "better": "high"
+      }
+    ]
+  }
+}

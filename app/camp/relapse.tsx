@@ -4,12 +4,12 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_CHECKIN as CHK, CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from '@/features/camp/content';
-import { learnings } from '@/features/camp/engine/checkin';
-import { totalSmokeFreeDays } from '@/features/camp/engine/counters';
-import { currentAttempt, MAX_PREP_DAYS, quitDateIn, RELAPSE_PREP_DAYS } from '@/features/camp/state';
-import type { ToolId } from '@/features/camp/types';
-import { NumberStepper, useCampDate } from '@/features/camp/ui';
+import { CAMP_CHECKIN as CHK, CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from '@/features/camps/smoking/content';
+import { learnings } from '@/features/camps/smoking/engine/checkin';
+import { totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
+import { currentAttempt, MAX_PREP_DAYS, quitDateIn, RELAPSE_PREP_DAYS } from '@/features/camps/smoking/state';
+import type { ToolId } from '@/features/camps/smoking/types';
+import { NumberStepper, useCampDate } from '@/features/camps/smoking/ui';
 import { SectionTitle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

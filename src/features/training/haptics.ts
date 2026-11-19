@@ -1,49 +1,84 @@
 import * as Haptics from 'expo-haptics';
 import { Platform, Vibration } from 'react-native';
 
+import { kegelHapticsNative as native } from '../../../modules/kegel-haptics';
 import type { HapticStrength } from '@/types';
 
-import { hapticPattern, type Cue, type IosHapticCall } from './hapticPatterns';
+import { androidWaveform, hapticEvents, iosFallbackCalls, onOffPattern, type Cue, type IosImpact } from './hapticPatterns';
 
 export type { Cue } from './hapticPatterns';
 
-const IMPACT: Record<string, Haptics.ImpactFeedbackStyle> = {
+/**
+ * Plays the vibration language (SPEC_KEGEL_V2 §7.4).
+ *  - Android: the kegel-haptics module plays amplitude waveforms (real rising / falling ramps); without
+ *    amplitude control an on/off pattern; without the module (Expo Go) RN Vibration.
+ *  - iOS: expo-haptics timed impacts (built in and reliable; no untested native code).
+ * If the module ever fails, it is switched off for the rest of the session and the fallback plays.
+ */
+
+const IMPACT: Record<IosImpact, Haptics.ImpactFeedbackStyle> = {
   light: Haptics.ImpactFeedbackStyle.Light,
   medium: Haptics.ImpactFeedbackStyle.Medium,
   heavy: Haptics.ImpactFeedbackStyle.Heavy,
   soft: Haptics.ImpactFeedbackStyle.Soft,
   rigid: Haptics.ImpactFeedbackStyle.Rigid,
 };
-const NOTIFY: Record<string, Haptics.NotificationFeedbackType> = {
-  success: Haptics.NotificationFeedbackType.Success,
-  warning: Haptics.NotificationFeedbackType.Warning,
-  error: Haptics.NotificationFeedbackType.Error,
-};
 
 const timers = new Set<ReturnType<typeof setTimeout>>();
 
-function runIos(call: IosHapticCall) {
-  const fire = () => {
-    if (call.type === 'impact') void Haptics.impactAsync(IMPACT[call.style]);
-    else if (call.type === 'notification') void Haptics.notificationAsync(NOTIFY[call.style]);
-    else void Haptics.selectionAsync();
-  };
-  if (call.delayMs <= 0) fire();
-  else {
-    const t = setTimeout(() => {
-      timers.delete(t);
-      fire();
-    }, call.delayMs);
-    timers.add(t);
+const safe = <T>(f: () => T, fallback: T): T => {
+  try {
+    return f();
+  } catch {
+    return fallback;
+  }
+};
+
+let support: { native: boolean; amplitude: boolean } | null = null;
+/** What this device can do (cached). */
+export function hapticSupport(): { native: boolean; amplitude: boolean } {
+  if (!support) {
+    const nativeOk = Boolean(native && safe(() => native!.isSupported(), false));
+    support = { native: nativeOk, amplitude: nativeOk && safe(() => native!.hasAmplitudeControl(), false) };
+  }
+  return support;
+}
+
+function iosFallback(cue: Cue, strength: HapticStrength) {
+  for (const c of iosFallbackCalls(hapticEvents(cue, strength))) {
+    const fire = () => void Haptics.impactAsync(IMPACT[c.style]).catch(() => undefined);
+    if (c.delayMs <= 0) fire();
+    else {
+      const t = setTimeout(() => {
+        timers.delete(t);
+        fire();
+      }, c.delayMs);
+      timers.add(t);
+    }
   }
 }
 
 /** Plays a semantic haptic cue honouring the user's strength setting. */
 export function playCue(cue: Cue, strength: HapticStrength) {
+  const events = hapticEvents(cue, strength);
+  if (!events.length) return;
   try {
-    const p = hapticPattern(cue, strength, Platform.OS);
-    if (p.platform === 'ios') p.calls.forEach(runIos);
-    else if (p.platform === 'android') Vibration.vibrate(p.pattern);
+    if (Platform.OS === 'ios') return iosFallback(cue, strength);
+    if (Platform.OS !== 'android') return;
+    const s = hapticSupport();
+    if (s.native) {
+      try {
+        if (s.amplitude) {
+          const w = androidWaveform(events);
+          if (w.timings.length) native!.vibrateWaveform(w.timings, w.amplitudes);
+        } else native!.vibratePattern(onOffPattern(events));
+        return;
+      } catch {
+        // The module failed: use the plain vibration from now on.
+        support = { native: false, amplitude: false };
+      }
+    }
+    Vibration.vibrate(onOffPattern(events));
   } catch {
     // Haptics are best-effort; never crash the workout.
   }
@@ -53,5 +88,10 @@ export function playCue(cue: Cue, strength: HapticStrength) {
 export function cancelHaptics() {
   timers.forEach(clearTimeout);
   timers.clear();
-  if (Platform.OS === 'android') Vibration.cancel();
+  try {
+    if (hapticSupport().native) native!.cancel();
+    else if (Platform.OS === 'android') Vibration.cancel();
+  } catch {
+    // ignore
+  }
 }

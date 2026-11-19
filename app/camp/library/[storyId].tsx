@@ -4,10 +4,10 @@ import { Linking, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_LIBRARY, CAMP_ONBOARDING, campSources } from '@/features/camp/content';
-import { isMinor, MEDICATION_STORIES, storyIsFree } from '@/features/camp/engine/premium';
+import { CAMP_LIBRARY, CAMP_ONBOARDING, campSources } from '@/features/camps/smoking/content';
+import { isMinor, MEDICATION_STORIES, storyIsFree } from '@/features/camps/smoking/engine/premium';
 import { useCampStore } from '@/stores/campStore';
-import { PremiumLock } from '@/features/camp/ui';
+import { PremiumLock } from '@/features/camps/smoking/ui';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';

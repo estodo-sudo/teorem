@@ -1,0 +1,115 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "review",
+ "sourceIds": [
+  "gollwitzer2006",
+  "bothe2021",
+  "crosby2016"
+ ],
+ "templates": {
+  "night_bed": {
+   "if": "gece yatağa telefonla girmek istersem",
+   "then": [
+    "Telefonu yatak odası dışında şarja takarım.",
+    "Yatmadan önce 10 dakika kitap okurum.",
+    "Uyku moduna alıp ışığı kapatırım."
+   ]
+  },
+  "alone_home": {
+   "if": "evde yalnız kalıp canım sıkılırsa",
+   "then": [
+    "Kısa bir yürüyüşe çıkarım.",
+    "Bir arkadaşımı ararım.",
+    "Önceden seçtiğim bir işe başlarım."
+   ]
+  },
+  "stress": {
+   "if": "gergin ve stresli hissedersem",
+   "then": [
+    "2 dakika yavaş nefes alırım.",
+    "Duş alır ya da yüzümü yıkarım.",
+    "Hissettiğimi bir cümleyle yazarım."
+   ]
+  },
+  "boredom": {
+   "if": "canım sıkılır ve amaçsızca gezinmeye başlarsam",
+   "then": [
+    "Telefonu bırakıp kalkar, odayı değiştiririm.",
+    "10 dakikalık bir hareket yaparım.",
+    "Yarım kalan bir işime dönerim."
+   ]
+  },
+  "loneliness": {
+   "if": "kendimi yalnız hissedersem",
+   "then": [
+    "Güvendiğim birine mesaj atarım.",
+    "Dışarıda insanların olduğu bir yere giderim.",
+    "Değer kartlarıma bakarım."
+   ]
+  },
+  "anxiety": {
+   "if": "kaygım yükselirse",
+   "then": [
+    "Dürtü sörfü aracını açarım.",
+    "5-4-3-2-1 farkındalık egzersizi yaparım.",
+    "Kısa bir yürüyüş yaparım."
+   ]
+  },
+  "sadness": {
+   "if": "üzgün hissedersem",
+   "then": [
+    "Kendime nazikçe ne hissettiğimi söylerim.",
+    "Sevdiğim bir müzik açarım.",
+    "Bir yakınımla konuşurum."
+   ]
+  },
+  "tired": {
+   "if": "çok yorgun hissedersem",
+   "then": [
+    "Ekranı kapatıp erkenden yatarım.",
+    "Bir bardak su içip dinlenirim.",
+    "Kısa bir duş alırım."
+   ]
+  },
+  "sleepless": {
+   "if": "uyuyamazsam",
+   "then": [
+    "Yataktan kalkıp loş ışıkta kitap okurum.",
+    "Nefes egzersizi yaparım.",
+    "Telefonu odanın dışına bırakırım."
+   ]
+  },
+  "after_argument": {
+   "if": "bir tartışmadan sonra kendimi kötü hissedersem",
+   "then": [
+    "10 dakika yürüyüp sakinleşirim.",
+    "Hissettiklerimi yazarım.",
+    "Bir arkadaşımla konuşurum."
+   ]
+  },
+  "social_media": {
+   "if": "sosyal medyada gezinirken dürtü gelirse",
+   "then": [
+    "Uygulamayı kapatıp telefonu bırakırım.",
+    "Hemen başka bir odaya geçerim.",
+    "SOS aracını açarım."
+   ]
+  },
+  "alcohol": {
+   "if": "alkol aldıktan sonra dürtü gelirse",
+   "then": [
+    "Telefonu başka bir odaya bırakırım.",
+    "Birinin yanında kalırım.",
+    "Su içip uyumaya giderim."
+   ]
+  },
+  "waking": {
+   "if": "sabah uyanınca yatakta oyalanırsam",
+   "then": [
+    "Hemen kalkıp perdeyi açarım.",
+    "Telefonu yataktan uzakta tutarım.",
+    "Güne kısa bir esneme ile başlarım."
+   ]
+  }
+ }
+}

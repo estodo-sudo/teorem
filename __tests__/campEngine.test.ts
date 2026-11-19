@@ -1,20 +1,20 @@
-import { cigarettesNotSmoked, smokeFreeDuration, totalSmokeFreeDays } from '@/features/camp/engine/counters';
-import { computeHSI, hsiLevel, showMedicationCard } from '@/features/camp/engine/hsi';
-import { HEALTH_MILESTONES, milestoneToCelebrate, nextHealthMilestone, reachedMilestones } from '@/features/camp/engine/milestones';
-import { reasonOfDay, remainingUnit, splitDuration } from '@/features/camp/engine/format';
-import { checkinDue, learnings, moodAlert } from '@/features/camp/engine/checkin';
-import { doctorSummary, summaryHtml, supporterText } from '@/features/camp/engine/summary';
-import { checkinSlotDays, planCampNotifications } from '@/features/camp/engine/notifications';
-import { canGraduate, cravingsPerDay, cumulativeSavings, earnedBadges, goalProgress, longestCheckinStreak, newBadges, smokeFreeCalendar, weeklyIntensity } from '@/features/camp/engine/stats';
-import { diaryReport, hourRange, logsByDay, logsOfAttempt, todayCount, triggerFrequency } from '@/features/camp/engine/diary';
-import { flipCard, gameWon, matchedPairs, newMatchGame, plansForTrigger, resistedCount, surfPromptIndex, waveAmplitude } from '@/features/camp/engine/sos';
-import { checkinsPerDay, currentPhase, daysToNextPhase, programDay } from '@/features/camp/engine/phase';
-import { autopilotLogs, cutDownPlan, missionForDay, riskyHours } from '@/features/camp/engine/plans';
-import { estimatedSavings, moneySaved, priceAt } from '@/features/camp/engine/savings';
-import { DAY_MS, HOUR_MS } from '@/features/camp/engine/time';
-import { activateIfDue, campAttempt, currentAttempt, defaultCampState, endAsRelapse, newAttempt, quitDateIn, quitNow, sanitizeCampEvents, sanitizeCampState, validQuitDate } from '@/features/camp/state';
-import type { CheckIn, CigaretteLog, CravingEvent, Mission, QuitAttempt } from '@/features/camp/types';
-import { createMemoryCampRepo } from '@/features/camp/repo';
+import { cigarettesNotSmoked, smokeFreeDuration, totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
+import { computeHSI, hsiLevel, showMedicationCard } from '@/features/camps/smoking/engine/hsi';
+import { HEALTH_MILESTONES, milestoneToCelebrate, nextHealthMilestone, reachedMilestones } from '@/features/camps/smoking/engine/milestones';
+import { reasonOfDay, remainingUnit, splitDuration } from '@/features/camps/smoking/engine/format';
+import { checkinDue, learnings, moodAlert } from '@/features/camps/smoking/engine/checkin';
+import { doctorSummary, summaryHtml, supporterText } from '@/features/camps/smoking/engine/summary';
+import { checkinSlotDays, planCampNotifications } from '@/features/camps/smoking/engine/notifications';
+import { canGraduate, cravingsPerDay, cumulativeSavings, earnedBadges, goalProgress, longestCheckinStreak, newBadges, smokeFreeCalendar, weeklyIntensity } from '@/features/camps/smoking/engine/stats';
+import { diaryReport, hourRange, logsByDay, logsOfAttempt, todayCount, triggerFrequency } from '@/features/camps/smoking/engine/diary';
+import { flipCard, gameWon, matchedPairs, newMatchGame, plansForTrigger, resistedCount, surfPromptIndex, waveAmplitude } from '@/features/camps/smoking/engine/sos';
+import { checkinsPerDay, currentPhase, daysToNextPhase, programDay } from '@/features/camps/smoking/engine/phase';
+import { autopilotLogs, cutDownPlan, missionForDay, riskyHours } from '@/features/camps/smoking/engine/plans';
+import { estimatedSavings, moneySaved, priceAt } from '@/features/camps/smoking/engine/savings';
+import { DAY_MS, HOUR_MS } from '@/features/camps/core/time';
+import { activateIfDue, campAttempt, currentAttempt, defaultCampState, endAsRelapse, newAttempt, quitDateIn, quitNow, sanitizeCampEvents, sanitizeCampState, validQuitDate } from '@/features/camps/smoking/state';
+import type { CheckIn, CigaretteLog, CravingEvent, Mission, QuitAttempt } from '@/features/camps/smoking/types';
+import { createMemoryCampRepo } from '@/features/camps/smoking/repo';
 import { setCampRepo, useCampEventsStore, useCampStore } from '@/stores/campStore';
 
 /** Local-time date helper (months 1-based). */

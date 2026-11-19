@@ -4,10 +4,10 @@ import { Linking, Pressable } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_SKILLS, campSources } from '@/features/camp/content';
-import { lessonIsFree } from '@/features/camp/engine/premium';
-import { quizScore } from '@/features/camp/engine/skills';
-import { PremiumLock } from '@/features/camp/ui';
+import { CAMP_SKILLS, campSources } from '@/features/camps/smoking/content';
+import { lessonIsFree } from '@/features/camps/smoking/engine/premium';
+import { quizScore } from '@/features/camps/smoking/engine/skills';
+import { PremiumLock } from '@/features/camps/smoking/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { tint } from '@/features/campus/shared/ui';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';

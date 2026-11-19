@@ -3,9 +3,9 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { CAMP_SKILLS } from '@/features/camp/content';
-import { lessonIsFree } from '@/features/camp/engine/premium';
-import { lessonStatuses, recommendedLessons } from '@/features/camp/engine/skills';
+import { CAMP_SKILLS } from '@/features/camps/smoking/content';
+import { lessonIsFree } from '@/features/camps/smoking/engine/premium';
+import { lessonStatuses, recommendedLessons } from '@/features/camps/smoking/engine/skills';
 import { useAccess } from '@/features/purchases/useGate';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';

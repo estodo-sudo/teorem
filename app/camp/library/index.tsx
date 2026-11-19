@@ -3,8 +3,8 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Icon, Screen, useTheme } from '@/components';
-import { CAMP_LIBRARY } from '@/features/camp/content';
-import { isMinor, MEDICATION_STORIES, storyIsFree } from '@/features/camp/engine/premium';
+import { CAMP_LIBRARY } from '@/features/camps/smoking/content';
+import { isMinor, MEDICATION_STORIES, storyIsFree } from '@/features/camps/smoking/engine/premium';
 import { useCampStore } from '@/stores/campStore';
 import { tint } from '@/features/campus/shared/ui';
 import { useAccess } from '@/features/purchases/useGate';

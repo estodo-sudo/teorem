@@ -1,0 +1,68 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "rct",
+ "sourceIds": [
+  "bothe2021",
+  "crosby2016",
+  "marlatt"
+ ],
+ "title": "Günlüğüm",
+ "intro": "Kendini izlemek değişimin ilk adımı. Kayıtların yalnızca bu telefonda, şifreli tutulur.",
+ "urge": {
+  "title": "Dürtü kaydı",
+  "hint": "Üç dokunuşta: ne kadar güçlü, ne oldu, ne yaptın.",
+  "intensity": "Ne kadar güçlüydü?",
+  "trigger": "Ne zaman / nerede? (isteğe bağlı)",
+  "dayy": "O an nasıldın? (isteğe bağlı)",
+  "outcome": "Ne yaptın?",
+  "managed": "Yönettim",
+  "slipped": "Kaydım",
+  "saved": "Kaydedildi. Fark etmek, yönetmenin yarısı."
+ },
+ "behavior": {
+  "title": "Davranış kaydı",
+  "hint": "Yargı yok. Ne olduğunu fark etmek bir sonraki sefere hazırlanmaktır.",
+  "kind": "Ne oldu?",
+  "trigger": "Hangi durumda? (isteğe bağlı)",
+  "before": "Önce ne hissediyordun? (isteğe bağlı)",
+  "after": "Sonra ne hissettin? (isteğe bağlı)",
+  "satisfaction": "Ne kadar tatmin etti? (isteğe bağlı)",
+  "satisfactionScale": [
+   "Hiç",
+   "Az",
+   "Orta",
+   "Oldukça",
+   "Çok"
+  ],
+  "save": "Kaydet"
+ },
+ "week": {
+  "title": "Bu haftanın özeti",
+  "empty": "Özet için bu hafta en az {min} kayıt gerekiyor. Şu an {n} kayıt var.",
+  "counts": "{urges} dürtü anı · {managed} yönetildi · {behaviors} davranış kaydı",
+  "riskyHour": "En riskli saat: {range}",
+  "riskyDay": "En riskli gün: {day}",
+  "topTrigger": "En sık durum: {trigger}",
+  "bestTool": "En çok işe yarayan araç: {tool}",
+  "emotions": "Genelde önce “{before}”, sonra “{after}” hissetmişsin.",
+  "satisfaction": "Ortalama tatmin: {avg}/5",
+  "note": "Bu özet farkındalık içindir; bir değerlendirme ya da not değildir."
+ },
+ "days": [
+  "Pazartesi",
+  "Salı",
+  "Çarşamba",
+  "Perşembe",
+  "Cuma",
+  "Cumartesi",
+  "Pazar"
+ ],
+ "list": {
+  "title": "Son kayıtlar",
+  "empty": "Henüz kayıt yok. Dürtü ya da davranış kaydı ekleyebilirsin.",
+  "urge": "Dürtü · {n}/10",
+  "managed": "yönetildi",
+  "still_hard": "zordu",
+  "slipped": "kayma"
+ }
+}

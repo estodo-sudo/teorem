@@ -25,18 +25,8 @@ export function BreathCircle({ size, target, durationMs, color, animKey, ringCol
   const style = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
   return (
     <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
-      <View
-        style={[
-          StyleSheet.absoluteFill,
-          { borderRadius: size / 2, borderWidth: 2, borderColor: ringColor, opacity: 0.5 },
-        ]}
-      />
-      <Animated.View
-        style={[
-          { width: size, height: size, borderRadius: size / 2, backgroundColor: color, opacity: 0.9 },
-          style,
-        ]}
-      />
+      <View style={[StyleSheet.absoluteFill, { borderRadius: size / 2, borderWidth: 2, borderColor: ringColor, opacity: 0.5 }]} />
+      <Animated.View style={[{ width: size, height: size, borderRadius: size / 2, backgroundColor: color, opacity: 0.9 }, style]} />
     </View>
   );
 }

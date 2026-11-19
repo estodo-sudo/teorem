@@ -45,8 +45,8 @@
       "desc": "1 saniye sık, 1 saniye gevşet. Hızlı ve kontrollü."
     },
     "elevator": {
-      "name": "Asansör",
-      "desc": "Üç kademede gittikçe daha güçlü sık, tepede bekle, kademe kademe bırak."
+      "name": "Yavaş Sık–Bırak",
+      "desc": "Kası birkaç saniyede yavaşça sık, en güçlü noktada kısa tut, sonra aynı yavaşlıkla bırak. Ortadaki daire de yavaşça büyür ve yavaşça küçülür."
     },
     "pulse": {
       "name": "Ritim",
@@ -59,6 +59,30 @@
     "relax": {
       "name": "Gevşeme ve Nefes",
       "desc": "Derin nefesle kasları bilinçli olarak serbest bırak."
+    },
+    "slow_hold": {
+      "name": "Uzun Sıkma",
+      "desc": "Sık ve tut, sonra tamamen bırak. Dinlenme en az tutma kadar sürer."
+    },
+    "quick_flick": {
+      "name": "Hızlı Sıkma",
+      "desc": "1 saniye hızlı sık, hemen tamamen bırak."
+    },
+    "max_contraction": {
+      "name": "Tam Güç",
+      "desc": "Olabildiğince güçlü ama kalçayı ve karnı katmadan kısa bir kasılma, ardından uzun dinlenme."
+    },
+    "knack": {
+      "name": "Knack Pratiği",
+      "desc": "“Öksür” komutundan hemen önce sık, öksürük boyunca tut, sonra bırak."
+    },
+    "release": {
+      "name": "Bırakma",
+      "desc": "Kası tamamen ve nazikçe bırak, yere iniyormuş gibi. Ikınma yok."
+    },
+    "breath": {
+      "name": "Nefes",
+      "desc": "4 saniye al, 6 saniye ver. Isınma ve soğuma için."
     }
   },
   "player": {
@@ -70,7 +94,13 @@
       "rest": "DİNLEN",
       "transition": "SIRADAKİ",
       "inhale": "NEFES AL",
-      "exhale": "NEFES VER"
+      "exhale": "NEFES VER",
+      "cough": "ÖKSÜR",
+      "hold": "TUT",
+      "letGo": "BIRAK",
+      "slowSqueeze": "YAVAŞÇA SIK",
+      "slowRelease": "YAVAŞÇA BIRAK",
+      "settle": "GEVŞE"
     },
     "stage": "{{stage}}. KAT",
     "getReady": "Hazırlan",
@@ -82,7 +112,7 @@
     "pause": "Duraklat",
     "resume": "Devam et",
     "restart": "Baştan başla",
-    "skip": "Egzersizi atla",
+    "skip": "Bloğu atla",
     "finish": "Bitir",
     "keepGoing": "Devam ediyorum",
     "progress": "Antrenman ilerlemesi",
@@ -90,15 +120,49 @@
     "helpTitle": "Doğru teknik",
     "helpTips": [
       "Karnını, kalçanı ve bacaklarını sıkma; sadece pelvik taban kası çalışsın.",
-      "Nefesini tutma. Sıkarken de gevşerken de rahatça nefes al.",
-      "Güçlü titreşim = SIK, çift hafif titreşim = GEVŞE. Ekrana bakmana gerek yok.",
-      "Gevşeme fazı en az sıkma kadar önemlidir; kası tamamen bırak."
+      "Nefesini tutma. Sıkarken de bırakırken de rahatça nefes al.",
+      "Yükselen titreşim = SIK, alçalan titreşim = BIRAK, hafif tıklar = saniye. Ekrana bakmana gerek yok.",
+      "Bırakma fazı en az sıkma kadar önemlidir; kası tamamen bırak.",
+      "Ekrana dokun: duraklat. Bir saniye basılı tut: bitir. Sola kaydır: bloğu atla. İki kez dokun: siyah ekran."
     ],
     "painWarning": "Ağrı, yanma veya rahatsızlık hissedersen hemen dur ve bir sağlık profesyoneline danış.",
     "interruptedTitle": "Antrenman duraklatıldı",
     "interruptedBody": "Uygulamadan çıktığın için antrenmanı durdurduk. Nasıl devam etmek istersin?",
     "finishTitle": "Antrenmanı bitir?",
-    "finishBody": "Şimdi bitirirsen bu seans tamamlanmamış olarak kaydedilir."
+    "finishBody": "Şimdi bitirirsen bu seans tamamlanmamış olarak kaydedilir.",
+    "voice": {
+      "squeeze": "Sık",
+      "release": "Bırak",
+      "cough": "Öksür",
+      "inhale": "Nefes al",
+      "exhale": "Nefes ver",
+      "letGo": "Nazikçe bırak",
+      "floor1": "Birinci kat",
+      "floor2": "İkinci kat",
+      "floor3": "Üçüncü kat",
+      "slowSqueeze": "Yavaşça sık",
+      "slowRelease": "Yavaşça bırak",
+      "hold": "Tut"
+    },
+    "restartBlock": "Bloğu baştan al",
+    "gestureHint": "Ekrana dokun: duraklat veya devam et. Bir saniye basılı tut: bitir. Sola kaydır: bloğu atla. İki kez dokun: siyah ekran.",
+    "positionNow": "Pozisyon: {{position}}",
+    "painButton": "Ağrı veya rahatsızlık",
+    "painTitle": "Seansı durdurduk",
+    "painBody": "Kegel ağrı yapmamalıdır. Bugün bırakma ve nefes egzersiziyle devam edebilirsin. Seviye artışı 7 gün duracak.",
+    "painRefer": "Bu hafta ikinci kez rahatsızlık bildirdin. Bir üroloji uzmanına veya pelvik taban fizyoterapistine danışmanı öneriyoruz. İstersen Gevşeme Odaklı programa geçebilirsin.",
+    "painRelease": "Bırakma ve nefesle devam et",
+    "painEnd": "Bugünlük bitir",
+    "skipTitle": "Bu bloğu atla?",
+    "skipBody": "Blok atlanırsa seviye artışında sayılmaz. Bu seansta bir daha sormayacağız.",
+    "startIn": "Bu pozisyonda başla",
+    "nextTitle": "Sıradaki: {{name}} ×{{reps}}",
+    "nextDetail": "{{hold}} sn sık · {{rest}} sn bırak",
+    "positionChange": "Pozisyon değişiyor: {{position}}",
+    "blackMode": "Siyah ekran modu",
+    "blackHint": "Çıkmak için iki kez dokun. Dokunarak duraklatabilirsin.",
+    "nextSlow": "{{slow}} sn yavaşça sık · {{top}} sn tut · {{slow}} sn yavaşça bırak",
+    "nextRelease": "3 sn gevşe · 6 sn tamamen bırak"
   },
   "feedback": {
     "doneTitle": "Harika, bugünkü antrenman tamam!",
@@ -107,7 +171,7 @@
     "level": "Seviye",
     "question": "Bugünkü antrenman nasıldı?",
     "submit": "Kaydet",
-    "note": "Cevabına göre zorluk seviyen otomatik ayarlanır.",
+    "note": "Cevabına göre zorluk otomatik ayarlanır. Seviye yoğunluğu artırır; seans süresini sen seçersin.",
     "option": {
       "easy": {
         "label": "Çok kolay",
@@ -115,29 +179,80 @@
       },
       "ok": {
         "label": "Uygun",
-        "hint": "Üst üste 3 kez uygunsa seviye artar."
+        "hint": "Üst üste 3 kez uygun ve neredeyse tamamı bittiyse seviye artar."
       },
       "hard": {
         "label": "Zor",
-        "hint": "Bir seviye geri alalım."
+        "hint": "Seviye aynı kalır; yarın daha kısa bir süre önerilir. Üst üste 2 kez zorsa bir seviye geri."
       },
       "failed": {
         "label": "Tamamlayamadım",
-        "hint": "Seviyeyi düşürüp yarın aynı günü tekrar edelim."
+        "hint": "Bir seviye geri alıp yarın aynı günü tekrar edelim."
       }
     },
-    "result": {
+    "technique": {
+      "question": "Teknik nasıldı? (isteğe bağlı)",
+      "sure": "Emindim",
+      "unsure": "Emin değildim",
+      "tips": [
+        {
+          "title": "Nefesini tutma",
+          "text": "Sıkarken de bırakırken de nefes akmaya devam etsin. Saymak için sesli say."
+        },
+        {
+          "title": "Kalça ve karın gevşek",
+          "text": "Elini karnına ve kalçana koy: sıkarken orada hareket olmamalı."
+        },
+        {
+          "title": "Ikınma",
+          "text": "Kas içeri ve yukarı çekilir; aşağı ittirmek yanlış yöndür."
+        },
+        {
+          "title": "Tamamen bırak",
+          "text": "Her tekrarın sonunda kas tamamen yerine insin; bırakma da antrenmandır."
+        }
+      ]
+    },
+    "summary": {
+      "title": "Seans özeti",
+      "microTitle": "Mikro set tamam",
+      "contractions": "Kasılma",
+      "holdTotal": "Toplam tutma",
+      "longest": "En uzun tutma",
+      "sec_one": "{{count}} sn",
+      "sec_other": "{{count}} sn",
+      "tomorrow": "YARIN",
+      "daily": "Günlük hedef",
+      "dailyCount": "{{done}}/{{target}}",
+      "dailyDone": "Bugünkü hedef tamam 🎯",
+      "dailyLeft": "Hedefe {{count}} seans kaldı; kısa bir mikro set de sayılır."
+    },
+    "outlook": {
       "up": {
-        "title": "Seviye {{level}}!",
-        "body": "Kasların güçleniyor. Bir sonraki antrenman biraz daha uzun olacak."
+        "title": "Seviye {{from}} → {{to}}",
+        "body": "Tutma süreleri biraz uzayacak; seans süren aynı kalacak."
       },
       "down": {
-        "title": "Seviye {{level}}",
+        "title": "Seviye {{from}} → {{to}}",
         "body": "Biraz geri adım atmak ilerlemenin parçası. Kendini zorlamadan devam et."
       },
       "same": {
-        "title": "Kaydedildi",
-        "body": "Seviye {{level}} ile devam ediyoruz. İstikrar en önemli şey."
+        "title": "Seviye aynı, harika gidiyorsun",
+        "body": "Seviye {{level}} ile devam. İstikrar en önemli şey."
+      },
+      "sameShorter": {
+        "title": "Seviye aynı kalıyor",
+        "body": "Zorlandığını söyledin. Yarın daha kısa bir süreyle denemek iyi gelebilir."
+      },
+      "locked": {
+        "title": "Seviye bu hafta sabit",
+        "body": "Rahatsızlık bildirdiğin için 7 gün seviye artışı yok. Kendini dinle."
+      },
+      "shorten": "Yarın {{preset}} süreyle yap",
+      "shortened": "Tamam: süre {{preset}} olarak ayarlandı.",
+      "steady": {
+        "title": "Seviye {{level}} ile devam",
+        "body": "Bugün zorlandıysan sorun değil. Yarın aynı seviyede, kendini zorlamadan devam et."
       }
     }
   },
@@ -237,27 +352,34 @@
         "O an içeri ve yukarı doğru kasılan bölge pelvik taban kasındır.",
         "Kası bulduktan sonra bu hissi idrar yapmadan, oturur ya da uzanmış hâlde tekrarla."
       ],
-      "warn": "Bunu egzersiz olarak tuvalette, idrar yaparken yapma. Mesanenin tam boşalmasını engelleyebilir."
+      "warn": "İdrar yaparken egzersiz yapma. Kası bulmak için idrarı kesmeyi yalnızca bir kez hayal et; bunu egzersiz olarak tekrarlamak mesanenin tam boşalmasını engelleyebilir."
     },
     "technique": {
       "title": "Doğru teknik",
       "body": [
         "Sadece pelvik taban kasını sık: karın, kalça ve bacaklar gevşek kalsın.",
         "Nefesini tutma; sakin ve düzenli nefes almaya devam et.",
-        "Her sıkmadan sonra kası tamamen gevşet. Gevşeme de egzersizin parçası."
+        "Her sıkmadan sonra kası tamamen bırak. Bırakma da egzersizin parçası."
       ],
-      "warn": "Ağrı veya rahatsızlık hissedersen dur. Sorun devam ederse bir sağlık profesyoneline danış."
+      "warn": "Kegel ağrı yapmamalıdır. Ağrı veya rahatsızlık hissedersen dur; antrenmanda sağ üstteki kalkan butonuna dokun."
     },
     "vibration": {
       "title": "Titreşim dili",
       "body": [
-        "Antrenmanı ekrana bakmadan yapabilirsin. Telefon sana titreşimle yol gösterir:",
-        "Güçlü tek titreşim = SIK. Sıkarken her saniye hafif bir tık hissedersin.",
-        "Çift hafif titreşim = GEVŞE. Üçlü titreşim = egzersiz bitti."
+        "Antrenmanı ekrana bakmadan yapabilirsin. Telefon sana titreşimle yol gösterir."
       ],
-      "trySqueeze": "SIK'ı dene",
-      "tryRelax": "GEVŞE'yi dene",
-      "cta": "Deneme setine geç"
+      "trySqueeze": "SIK’ı hisset (yükselen)",
+      "tryRelax": "BIRAK’ı hisset (alçalan)",
+      "cta": "Deneme setine geç",
+      "gameBody": "Önce iki titreşimi hisset. Sonra telefon rastgele birini çalacak: ne demek olduğunu seç. 4 sorunun hepsini bilince devam edersin.",
+      "question": "Soru {{n}} / {{total}}",
+      "play": "Titreşimi çal",
+      "playAgain": "Bir daha çal",
+      "ask": "Bu titreşim ne demek?",
+      "passed": "Hepsi doğru! Titreşim dilini öğrendin.",
+      "missed": "{{total}} sorudan {{right}} doğru. Bir kez daha hisset ve tekrar dene.",
+      "retry": "Tekrar dene",
+      "cannotFeel": "Titreşimi hissedemiyorum, geç"
     },
     "trial": {
       "title": "Deneme seti",
@@ -265,7 +387,7 @@
     },
     "check": {
       "title": "Yapabildin mi?",
-      "body": "Kası sıkıp gevşetmeyi hissedebildin mi?",
+      "body": "Kası sıkıp bırakmayı hissedebildin mi?",
       "yes": "Evet, yapabildim",
       "unsure": "Emin değilim"
     },
@@ -278,6 +400,86 @@
         "İlk günlerde hissetmek zor olabilir; bu çok normal ve pratikle kolaylaşır."
       ],
       "retry": "Tekrar dene"
+    },
+    "position": {
+      "title": "Başlangıç pozisyonu",
+      "body": [
+        "İlk hafta hep yatarak çalışırsın: kas bu pozisyonda en kolay hissedilir.",
+        "Haftalar ilerledikçe oturarak ve ayakta çalışmaya geçeceksin. Pozisyon değişince ekranda bir kart çıkar."
+      ]
+    },
+    "checklist": {
+      "title": "Doğru mu yapıyorum?",
+      "body": "Bir kez sık ve tut. Tutarken aşağıdakileri kontrol et; her biri için “evet” diyebiliyorsan işaretle.",
+      "items": {
+        "glutes": {
+          "title": "Kalçam gevşek",
+          "text": "Kalça kasların sıkılmıyor, oturduğun yerde yükselmiyorsun."
+        },
+        "belly": {
+          "title": "Karnım gevşek",
+          "text": "Elini karnına koy: sıkarken karın içeri çekilmiyor, sertleşmiyor."
+        },
+        "breath": {
+          "title": "Nefesim akıyor",
+          "text": "Sıkarken nefesini tutmuyorsun; rahatça alıp verebiliyorsun."
+        },
+        "legs": {
+          "title": "Bacaklarım gevşek",
+          "text": "Uyluk ve iç bacak kasların çalışmıyor, dizlerini birbirine bastırmıyorsun."
+        }
+      }
+    },
+    "release": {
+      "title": "Bırakma pratiği",
+      "body": "2 tekrar: 3 saniye sık, sonra 6 saniye boyunca tamamen bırak. Kas yere iner gibi gevşesin."
+    },
+    "releaseCheck": {
+      "title": "Bıraktığını hissettin mi?",
+      "body": "Sıkmanın ardından kasın tamamen gevşediğini, aşağı indiğini hissettin mi?",
+      "yes": "Evet, hissettim",
+      "unsure": "Emin değilim"
+    },
+    "releaseTips": {
+      "title": "Bırakmak için ipuçları",
+      "body": [
+        "Acele etme: kası yavaş yavaş, yere iner gibi bırak.",
+        "Omuzlarını ve çeneni de gevşet; gerginlik genelde birlikte gider.",
+        "Bırakırken ıkınma; sadece tutmayı bırak."
+      ]
+    },
+    "mistakes": {
+      "title": "Yaygın hatalar",
+      "items": [
+        {
+          "emoji": "😮‍💨",
+          "title": "Nefes tutmak",
+          "text": "Sıkarken nefesini tutma. Sayıları sesli saymak nefesin akmasına yardım eder."
+        },
+        {
+          "emoji": "🍑",
+          "title": "Kalçayı sıkmak",
+          "text": "Kalça, karın ve bacaklar devreye girerse pelvik taban daha az çalışır."
+        },
+        {
+          "emoji": "⬇️",
+          "title": "Ikınmak",
+          "text": "Kas içeri ve yukarı çekilir. Aşağı ittirmek yanlış yöndür; bırakırken de ıkınma."
+        },
+        {
+          "emoji": "🔁",
+          "title": "Aşırı tekrar",
+          "text": "Daha çok her zaman daha iyi değildir. Yorgun kas yanlış çalışır; uygulama günlük bir sınır koyar."
+        }
+      ]
+    },
+    "ready": {
+      "title": "Hazırsın!",
+      "body": [
+        "Kası buldun, titreşim dilini öğrendin, sıkmayı ve bırakmayı denedin.",
+        "İlk seansın Hızlı (3 dakika). Sonra süreyi sen seçersin; seviye geri bildirimine göre ayarlanır."
+      ],
+      "cta": "Hazırım"
     }
   },
   "legal": {
@@ -406,7 +608,16 @@
       "doneTitle": "Bugünkü antrenman tamam",
       "meta": "{{min}} dk · Seviye {{level}}",
       "repeat": "Tamamlayamadığın günü bir seviye daha kolay olarak tekrar ediyoruz.",
-      "again": "Bir seans daha"
+      "again": "Bir seans daha",
+      "duration": "Seans süresi",
+      "deload": "hafif hafta",
+      "targetA11y": "Günlük hedef: {{total}} seanstan {{done}} tamam",
+      "shorterHint": "Dün zorlandın; istersen bugün daha kısa süre seç.",
+      "micro": "Mikro set ({{sec}} sn)",
+      "capReached": "Bugünkü kasılma sınırına ulaştın. Yarın görüşürüz; istersen yalnızca bırakma ve nefes yapabilirsin.",
+      "capTitle": "Bugün yeterli",
+      "capBody": "Bugün kaslarını yeterince çalıştırdın; dinlenmek de antrenmanın parçası. Yarın görüşürüz. İstersen kasılma içermeyen bir bırakma ve nefes seansı yapabilirsin.",
+      "capRelease": "Bırakma seansı"
     },
     "challenges": "Cinsel Sağlık için Takviye",
     "strengthDue": "Haftalık güç testi zamanı",
@@ -425,13 +636,31 @@
     "title": "Antrenman",
     "planTitle": "Plan {{plan}}",
     "planProgress": "{{done}}/30 gün",
-    "planHint": "Her gün bir kutu ilerlersin. 30 gün bitince bir sonraki plan, kaldığın seviyeden otomatik başlar.",
+    "planHint": "Her gün bir adım ilerlersin. Bir güne dokun, o günün seansını gör. 30 gün bitince sonraki plan kaldığın seviyeden başlar.",
     "planA11y": "30 günlük plan, {{done}} gün tamamlandı",
     "dayDone": "Gün {{day}}, tamamlandı",
     "dayToday": "Gün {{day}}, bugün",
     "dayTodo": "Gün {{day}}",
     "exercisesTitle": "Egzersiz türleri",
-    "topicsTitle": "Merak edilenler"
+    "topicsTitle": "Merak edilenler",
+    "preset": {
+      "quick": "Hızlı (3 dk)",
+      "standard": "Standart (5 dk)",
+      "full": "Tam (8 dk)"
+    },
+    "roadmap": {
+      "title": "Plan {{plan}} · Yol haritası",
+      "level": "Seviye {{level}}",
+      "open": "Yol haritasının tamamı"
+    },
+    "preview": {
+      "title": "{{day}}. gün",
+      "meta": "{{time}} · {{count}} kasılma"
+    },
+    "functional": {
+      "title": "Bugünün günlük hayat görevleri",
+      "hint": "Seans dışında, gün içinde yapılır. Yaptıkça işaretle."
+    }
   },
   "achievements": {
     "title": "Kupalar",
@@ -545,7 +774,8 @@
       "quick": "Hızlı kasılma (10 sn)",
       "weekly": "Haftalık antrenman dakikası",
       "calendar": "Antrenman takvimi",
-      "empty": "İlk güç testinden sonra burada grafiğin oluşacak."
+      "empty": "İlk güç testinden sonra burada grafiğin oluşacak.",
+      "score": "Kas Skoru"
     },
     "heat": {
       "none": "Yok",
@@ -565,7 +795,7 @@
     "testA": "TEST A · TUTMA SÜRESİ",
     "testB": "TEST B · HIZLI KASILMA",
     "holdTitle": "Ne kadar tutabiliyorsun?",
-    "holdBody": "Kası sık ve butona BASILI TUT. Gevşediğin anda bırak. {{n}} deneme yapacaksın, en iyisi kaydedilir.",
+    "holdBody": "Kası sık ve butona basılı tut. Kas gevşediğinde ya da {{max}} saniye dolunca bırak. {{n}} deneme yapacağız, aralarda 20 saniye dinleneceksin; en iyisi kaydedilir.",
     "quickTitle": "10 saniyede kaç kez?",
     "quickBody": "{{sec}} saniyede kası kaç kez sıkıp gevşetebilirsin? Her sıkışta butona dokun. İlk dokunuşla süre başlar.",
     "honest": "Bu test bir tıbbi ölçüm değildir; sadece kendi gelişimini takip etmen için. Dürüst ve rahat ol, zorlama.",
@@ -584,7 +814,36 @@
     "doneTitle": "Test tamamlandı",
     "bestHold": "En iyi tutma",
     "quickCount": "Hızlı kasılma",
-    "doneBody": "Bir hafta sonra tekrar ölçerek gelişimini grafikte görebilirsin."
+    "doneBody": "Bir hafta sonra tekrar ölçerek gelişimini grafikte görebilirsin.",
+    "conditions": {
+      "title": "Her testte aynı koşul",
+      "body": "Sonuçların karşılaştırılabilir olması için testi her seferinde aynı şekilde yap:",
+      "items": [
+        "Oturarak, dik ve rahat",
+        "Seanstan önce, kasların dinlenmişken",
+        "Her hafta aşağı yukarı aynı saatte"
+      ]
+    },
+    "testC": "TEST C",
+    "restTitle": "Dinlen",
+    "restBody": "Kası tamamen bırak ve nefes al. Sıradaki denemeye dinlenmiş başla.",
+    "restSkip": "Hazırım",
+    "nextAttempt": "Sıradaki deneme",
+    "releaseTitle": "Bırakma farkındalığı",
+    "releaseBody": "Bu bir hız ölçümü değil, öz değerlendirmedir. Kası bir kez sık, sonra tamamen bıraktığını hissettiğinde dokun ve ne kadar tam bırakabildiğini puanla.",
+    "releaseDo": "Kası sık… şimdi tamamen bırak.",
+    "releaseTap": "Tamamen bıraktım",
+    "releaseRate": "Ne kadar tam bırakabildin?",
+    "releaseScale": "{{v}} / 5",
+    "releaseLow": "1 · Zorlandım",
+    "releaseHigh": "5 · Tamamen",
+    "releaseShort": "Bırakma",
+    "recordTitle": "Kişisel rekor!",
+    "record": "Rekor!",
+    "scoreTitle": "Kas Skoru",
+    "scoreBody": "İlk testine göre değişimin. 50 = başlangıç, 100 = iki katı.",
+    "scoreFirst": "İlk testin başlangıç ölçün oldu (50). Sonraki testler buna göre hesaplanır.",
+    "scoreLabel": "Kendi gelişim ölçün — tıbbi ölçüm değildir."
   },
   "reminders": {
     "discreet": {
@@ -608,8 +867,10 @@
       "testBody": "Haftalık pelvik taban güç testini yap ve gelişimini gör 📏"
     },
     "actions": {
-      "start": "Başla",
+      "start": "Başla (3 dk)",
+      "micro": "Mikro set (1 dk)",
       "snooze15": "15 dk ertele",
+      "skipToday": "Bugün atla",
       "snooze60": "1 saat ertele"
     }
   },
@@ -715,6 +976,17 @@
     },
     "allRow": "Hikâyeler"
   },
+  "camps": {
+    "title": "Kamplar",
+    "allTitle": "Tüm kamplar",
+    "subtitle": "Her kamp kendi paneliyle ilerler. Aynı anda birden fazla kampa katılabilirsin.",
+    "seeAll": "Hepsini gör",
+    "moreCount": "{{count}} kamp daha",
+    "ui": {
+      "plus": "artır",
+      "minus": "azalt"
+    }
+  },
   "courses": {
     "title": "Kampüsler",
     "progress": "{{done}}/{{total}} ders tamamlandı",
@@ -811,13 +1083,13 @@
       "level": "Seviye",
       "levelUp": "Seviyeyi artır",
       "levelDown": "Seviyeyi azalt",
-      "levelHint": "Seviye normalde geri bildirimine göre otomatik ayarlanır. Elle değiştirebilirsin; seviye arttıkça seans uzar.",
+      "levelHint": "Seviye normalde geri bildirimine göre otomatik ayarlanır. Seviye tutma sürelerini ve kasılmanın gücünü artırır; seansın süresini sen seçersin.",
       "applyLevel": "Seviye {{level}} olarak ayarla",
       "confirmTitle": "Seviye {{level}}?",
-      "confirmUp": "Günlük seansın yaklaşık {{from}} dakikadan {{to}} dakikaya çıkacak. Zorlanırsan geri bildirimle seviye tekrar ayarlanır.",
-      "confirmDown": "Günlük seansın yaklaşık {{from}} dakikadan {{to}} dakikaya inecek.",
+      "confirmUp": "Uzun sıkmada tutma süren {{from}} saniyeden {{to}} saniyeye çıkacak. Seans süresi değişmez. Zorlanırsan geri bildirimle seviye tekrar ayarlanır.",
+      "confirmDown": "Uzun sıkmada tutma süren {{from}} saniyeden {{to}} saniyeye inecek. Seans süresi değişmez.",
       "haptics": "Titreşim şiddeti",
-      "hapticsHint": "Seçince örnek bir \"SIK\" titreşimi hissedersin.",
+      "hapticsHint": "Seçince örnek bir “SIK” titreşimi hissedersin. Aşağıdan her deseni tek tek deneyebilirsin.",
       "strength": {
         "0": "Kapalı",
         "1": "Hafif",
@@ -825,11 +1097,64 @@
         "3": "Güçlü"
       },
       "sound": "Ses ipuçları",
-      "soundHint": "Faz geçişlerinde yumuşak tonlar (sessiz modda çalmaz).",
+      "soundHint": "Yükselen ton = sık, alçalan ton = bırak, kısa tık = saniye. Kulaklıkla daha iyi duyulur; sessiz modda çalmaz.",
       "discreet": "Gizli mod",
       "discreetHint": "Oynatıcıda yazı yerine yalnızca daire ve renkler gösterilir.",
       "perDay": "Günlük seans hedefi",
-      "perDayHint": "Seri için günde 1 seans yeterli. Daha fazlası isteğe bağlı."
+      "perDayHint": "1 ana seans ve gün içinde kısa mikro setler. Seri için günde 1 seans yeterli.",
+      "voice": "Sesli koç",
+      "voiceHint": "Telefonunun kendi Türkçe sesiyle kısa komutlar: “Sık”, “Bırak”. İnternet gerekmez.",
+      "voiceTry": "Sesi dene",
+      "langTitle": "Titreşim dilini dene",
+      "langHint": "Ekrana bakmadan antrenman yapabilmen için her faz farklı hissettirir. Dokun ve hisset.",
+      "langTry": "Dene",
+      "langAll": "Hepsini sırayla çal",
+      "langNative": "Bu cihazda gelişmiş titreşim (rampa ve yoğunluk) kullanılıyor.",
+      "langBasic": "Bu cihazda temel titreşim kullanılıyor; rampalar kısa darbelerle taklit edilir.",
+      "langOff": "Titreşim kapalı. Denemek için yukarıdan şiddet seç.",
+      "cue": {
+        "squeezeStart": {
+          "title": "Sık başlangıcı",
+          "text": "Yükselen rampa: “yukarı çek”."
+        },
+        "holdTick": {
+          "title": "Tutarken",
+          "text": "Her saniye hafif bir tık."
+        },
+        "holdTickFinal": {
+          "title": "Son 3 saniye",
+          "text": "Biraz daha güçlü tıklar: bitiş yaklaşıyor."
+        },
+        "releaseStart": {
+          "title": "Bırak başlangıcı",
+          "text": "Alçalan rampa ve yumuşak çift darbe."
+        },
+        "quickFlick": {
+          "title": "Hızlı sıkma",
+          "text": "Tek, keskin darbe."
+        },
+        "knackCough": {
+          "title": "Knack “öksür”",
+          "text": "Keskin çift darbe."
+        },
+        "blockChange": {
+          "title": "Blok değişimi",
+          "text": "Uzun – kısa."
+        },
+        "sessionEnd": {
+          "title": "Seans sonu",
+          "text": "Üç yükselen darbe."
+        },
+        "slowSqueeze": {
+          "title": "Yavaşça sık",
+          "text": "Uzun, yavaş yükselen titreşim."
+        },
+        "slowRelease": {
+          "title": "Yavaşça bırak",
+          "text": "Uzun, yavaş sönen titreşim."
+        }
+      },
+      "holdAt": "Uzun sıkma: {{sec}} sn"
     },
     "reminders": {
       "title": "Hatırlatıcılar",
@@ -841,10 +1166,18 @@
       "times": "Hatırlatma saatleri",
       "timeN": "{{n}}. hatırlatma",
       "remove": "{{n}}. hatırlatmayı sil",
-      "add": "Saat ekle (en fazla 3)",
-      "hint": "O günün antrenmanını tamamladığında kalan hatırlatmalar otomatik iptal edilir.",
+      "add": "Saat ekle (en fazla 4)",
+      "hint": "Saatleri istediğin sırayla ekleyebilirsin; otomatik sıralanır. Günlük hedefini tamamladığında kalan hatırlatmalar susar; tatil modunda hiç gelmez.",
       "noPermission": "Bildirim izni kapalı. Hatırlatmaları almak için izin ver.",
-      "allow": "Bildirimlere izin ver"
+      "allow": "Bildirimlere izin ver",
+      "presetsTitle": "Alışkanlığa bağla",
+      "presetsHint": "Zaten yaptığın bir şeye bağlamak hatırlamayı kolaylaştırır. Dokunarak ekle ya da çıkar (en fazla 4).",
+      "preset": {
+        "coffee": "Sabah kahvesiyle",
+        "lunch": "Öğle arası",
+        "dinner": "Akşam yemeği sonrası",
+        "bed": "Yatmadan önce"
+      }
     },
     "appearance": {
       "title": "Görünüm ve dil",
@@ -913,359 +1246,10 @@
     "sourcesTitle": "Kaynaklar",
     "next": "Sonraki madde"
   },
-  "smoking": {
-    "card": {
-      "setup": "Planını 2 dakikada oluştur",
-      "preparing": "Bırakma gününe {{count}} gün",
-      "smokeFree": "Dumansız {{count}}. gün"
-    },
-    "home": {
-      "smokeFreeLabel": "DUMANSIZ",
-      "days": "{{count}} gün",
-      "hoursMinutes": "{{hours}} sa {{minutes}} dk",
-      "saved": "Tasarruf",
-      "savedValue": "₺{{amount}}",
-      "savedNoPrice": "—",
-      "avoided": "İçilmeyen",
-      "avoidedValue": "{{count}} sigara",
-      "cravingsBeaten": "Atlatılan kriz",
-      "sos": "Canım çekiyor",
-      "sosHint": "5 dakikalık kriz modunu başlatır",
-      "ringTitle": "28 gün hedefi",
-      "ringValue": "{{done}}/28",
-      "ringBody": "28 gün dumansız kalanların kalıcı olarak bırakma olasılığı çok daha yüksek.",
-      "ringDone": "28 günü geçtin. Bu büyük bir başarı; planını korumaya devam et.",
-      "nextHealth": "Sıradaki sağlık kazanımı",
-      "allHealth": "Sağlık zaman çizelgesi",
-      "healthAllDone": "Zaman çizelgesindeki tüm kazanımlara ulaştın.",
-      "reasonsTitle": "Neden bırakıyorum?",
-      "plansTitle": "Eğer-o zaman planlarım",
-      "plansEmpty": "Henüz tetikleyici seçmedin. Planını düzenleyerek ekleyebilirsin.",
-      "plansIf": "Eğer: {{trigger}}",
-      "helpTitle": "Destek al",
-      "call": "{{phone}} ara",
-      "slipButton": "Bir sigara içtim",
-      "editPlan": "Planı düzenle",
-      "reset": "Kampüsü sıfırla",
-      "cravingSummary": "{{total}} krizin {{passed}} tanesini atlattın.",
-      "topTrigger": "En sık tetikleyicin: {{trigger}}",
-      "attempt": "{{count}}. deneme",
-      "sources": "Kaynaklar",
-      "disclaimerToggle": "Önemli bilgilendirme",
-      "disclaimer": "Genel bilgilendirme amaçlıdır, tıbbi tavsiye değildir. İçerik henüz uzman kontrolünden geçmemiştir. İlaç kullanmadan önce mutlaka doktoruna danış.",
-      "guideTitle": "Kampüs rehberi",
-      "guideBody": "Kayıt sırasında okuduğun {{count}} bölümlük rehber: hazırlık, bırakma günü, ilk hafta, krizler ve 28 gün. İstediğin zaman tekrar okuyabilirsin.",
-      "guideNow": "ŞU AN SANA EN UYGUN BÖLÜM",
-      "guideSuggested": "Şu an sana en uygun bölüm: {{title}}",
-      "guideOpen": "Rehberi baştan oku",
-      "insightsTitle": "Kriz karnen",
-      "insightsPeak": "En sık kriz zamanın: {{part}}. O saatlere yaklaşırken planını hatırla.",
-      "dayPart": {
-        "morning": "sabah",
-        "afternoon": "öğleden sonra",
-        "evening": "akşam",
-        "night": "gece"
-      }
-    },
-    "prep": {
-      "countdown": "Bırakma gününe",
-      "countdownValue": "{{count}} gün",
-      "quitDate": "Bırakma günün: {{date}}",
-      "title": "Hazırlık listesi",
-      "startNow": "Şimdi başlamak istiyorum",
-      "startNowTitle": "Bugün bırakıyor musun?",
-      "startNowBody": "Dumansız sayacın şu andan itibaren başlayacak.",
-      "ring": "{{done}}/{{total}}",
-      "homeHint": "Tüm maddeleri tamamlayana kadar bu liste burada kalır.",
-      "doneTitle": "Hazırlık tamamlandı",
-      "doneBody": "{{count}} adımın hepsini tamamladın. İyi hazırlanmak bırakma şansını artırır; planın, krizlerde ve zor anlarda yanında olacak."
-    },
-    "slip": {
-      "title": "Bir kayma, bir yenilgi değildir",
-      "save": "Kaydet ve devam et",
-      "secondTitle": "Bu 2. sigaran mı?",
-      "secondBody": "Bırakma gününden sonra bu denemede ikinci kez sigara içtiğini kaydetmek üzeresin. Doğru mu?",
-      "secondYes": "Evet, içtim",
-      "secondNo": "Hayır, yanlışlıkla bastım",
-      "endedTitle": "Bu deneme sona erdi",
-      "endedBody": "Sayacın sıfırlandı ve {{count}}. denemen şimdi başladı. Birçok kişi kalıcı olarak bırakmadan önce birkaç kez dener. Seni neyin zorladığını düşün ve planını gözden geçir; bu kez daha hazırlıklısın.",
-      "endedOk": "Yeni denemeye başla"
-    },
-    "resetDialog": {
-      "title": "Kampüsü sıfırla?",
-      "body": "Planın, sayacın ve kayıtların silinecek. Bu işlem geri alınamaz.",
-      "confirmTitle": "Emin misin?",
-      "confirmBody": "Sigara Bırakma Kampüsündeki tüm verilerin kalıcı olarak silinecek.",
-      "confirm": "Evet, sıfırla"
-    },
-    "setup": {
-      "header": "Bırakma planı",
-      "stepOf": "Adım {{n}} / {{total}}",
-      "reasonsTitle": "Neden bırakmak istiyorsun?",
-      "reasonsHint": "Bir veya birkaç neden seç. Zor anlarda bunları sana hatırlatacağız.",
-      "reasonsError": "Devam etmek için en az bir neden seç.",
-      "habitTitle": "Sigara alışkanlığın",
-      "perDay": "Günde kaç sigara içiyorsun?",
-      "perDayValue": "{{count}} sigara",
-      "decrease": "Azalt",
-      "increase": "Artır",
-      "price": "Bir paketin fiyatı (₺)",
-      "pricePlaceholder": "Örneğin 100",
-      "priceHint": "İstersen boş bırakabilirsin; o zaman tasarruf hesaplanmaz.",
-      "monthly": "Bu alışkanlık ayda yaklaşık ₺{{amount}} tutuyor.",
-      "triggersTitle": "Seni en çok ne tetikliyor?",
-      "triggersHint": "Seçtiklerin için hazır eğer-o zaman planları göreceksin.",
-      "dayTitle": "Ne zaman bırakıyorsun?",
-      "dayHint": "Önümüzdeki iki hafta içinde, yoğun olmayan bir gün en iyisidir.",
-      "keepDate": "Mevcut tarihi koru",
-      "keepDateDesc": "{{date}}",
-      "choice": {
-        "now": "Şimdi",
-        "nowDesc": "Sayaç hemen başlar",
-        "tomorrow": "Yarın",
-        "in3": "3 gün sonra",
-        "in7": "1 hafta sonra"
-      },
-      "summaryTitle": "Planın hazır",
-      "summaryDay": "Bırakma günü",
-      "summaryNow": "Şu an",
-      "summaryHabit": "Alışkanlık",
-      "summaryHabitValue": "Günde {{count}} sigara",
-      "summaryReasons": "Nedenlerin",
-      "summaryTriggers": "Tetikleyicilerin",
-      "none": "Seçilmedi",
-      "save": "Planı kaydet",
-      "start": "Başlayalım",
-      "privacy": "Verdiğin bilgiler yalnızca bu telefonda saklanır.",
-      "prepTitle": "Başlamadan önce hazırlan",
-      "prepHint": "Hazırlık, bırakma şansını artırır. Şimdi yapabildiklerini işaretle; kalanlar kampüs ana sayfanda tamamlanana kadar seni bekleyecek.",
-      "enrol": "Kampüse kaydol"
-    },
-    "craving": {
-      "title": "Kriz modu",
-      "intro": "Kriz genellikle birkaç dakikada geçer. Bu 5 dakikayı birlikte geçirelim.",
-      "remaining": "{{time}} kaldı",
-      "breatheIn": "Nefes al",
-      "breatheOut": "Nefes ver",
-      "tipOf": "{{n}}. adım / {{total}}",
-      "passedEarly": "Kriz geçti",
-      "reasonReminder": "Hatırla: {{reason}}",
-      "doneTitle": "5 dakikayı tamamladın",
-      "doneTitleEarly": "Harika, kriz geçti",
-      "doneBody": "Atlattığın her kriz bir sonrakini kolaylaştırır.",
-      "triggerQuestion": "Bu krizi ne tetikledi?",
-      "triggerOther": "Başka bir şey",
-      "savePassed": "Kaydet, içmedim",
-      "smoked": "Sigara içtim",
-      "again": "Hâlâ zor, 5 dakika daha",
-      "stillHard": "Krizler sık ve çok güçlüyse destek almak işini kolaylaştırır.",
-      "hold": "Tut"
-    },
-    "health": {
-      "title": "Sağlık zaman çizelgesi",
-      "intro": "Bıraktıktan sonra bedeninde genel olarak beklenen değişiklikler. Süreler kişiden kişiye değişebilir.",
-      "reached": "{{label}}, ulaşıldı",
-      "pending": "{{label}}, henüz ulaşılmadı",
-      "notStarted": "Zaman çizelgesi bırakma gününde başlar."
-    },
-    "guide": {
-      "title": "Kampüs rehberi",
-      "badge": "KAMPÜS REHBERİ · {{n}}/{{total}}",
-      "actionsTitle": "Bu adımda",
-      "finish": "Rehberi bitir"
-    },
-    "symptoms": {
-      "button": "Bu süreçte neler yaşanabilir?",
-      "buttonHint": "Yoksunluk belirtilerini ve neyin iyi gelebileceğini gösterir",
-      "homeSummary": "En sık yaşadığın: {{title}} · {{count}} kez",
-      "title": "Neler yaşanabilir?",
-      "timelineTitle": "Yoksunluk süreci",
-      "listTitle": "Olası belirtiler",
-      "listHint": "Bir belirtiye dokunarak ayrıntılarını gör. Yaşadığında \"Yaşadım\" diyerek kaydet; kaç kez yaşadığını burada takip edebilirsin.",
-      "total": "Toplam {{count}} kayıt",
-      "count": "{{count}} kez",
-      "countNone": "Henüz kaydetmedin",
-      "loggedTimes": "Bunu {{count}} kez yaşadın",
-      "tipsTitle": "Ne iyi gelebilir?",
-      "experienced": "Yaşadım",
-      "undo": "Geri al",
-      "cravingLink": "Yoğun sigara isteği mi? Kriz modunu aç",
-      "level": {
-        "1": "Hafif",
-        "2": "Orta",
-        "3": "En yoğun"
-      }
-    }
-  },
-  "mcampus": {
-    "card": {
-      "setup": "Kendi planını 3 dakikada oluştur",
-      "control": "Bu hafta {{used}}/{{limit}} hak",
-      "quit": "Tamamen kes · {{count}}. gün"
-    },
-    "home": {
-      "days": "{{count}} gün",
-      "urgesBeaten": "Atlatılan dürtü",
-      "daysShort": "{{count}} gün",
-      "sos": "Dürtü geldi",
-      "sosHint": "Dürtü anında yapacağın kısa bir eylem başlatır",
-      "calendarTitle": "Son 28 gün",
-      "legendClean": "Kontrollü",
-      "legendLapse": "Fire",
-      "legendToday": "Bugün",
-      "legendNone": "Başlamadan önce",
-      "urgeDot": "Dürtü atlatılan gün",
-      "urgeSummary": "{{total}} dürtünün {{passed}} tanesini atlattın.",
-      "topTrigger": "En sık tetikleyicin: {{trigger}}",
-      "topAction": "En çok işe yarayan: {{action}}",
-      "envTitle": "Ortam listesi",
-      "envHint": "Tamamladıkça dürtüler daha seyrek gelir. Liste bitene kadar burada kalır.",
-      "envRing": "{{done}}/{{total}}",
-      "envDoneTitle": "Ortamın hazır",
-      "envDoneBody": "{{count}} adımın hepsini tamamladın. Ortamını düzenlemek, kontrolü korumanın en etkili yollarındandır.",
-      "reasonsTitle": "Nedenlerim",
-      "plansTitle": "Eğer-o zaman planlarım",
-      "plansIf": "Eğer: {{trigger}}",
-      "plansEmpty": "Henüz tetikleyici seçmedin. Planını düzenleyerek ekleyebilirsin.",
-      "factsTitle": "Doğru bilinen yanlışlar",
-      "myth": "YANLIŞ",
-      "fact": "DOĞRUSU",
-      "checkTitle": "Öz değerlendirmen",
-      "checkScore": "{{score}}/{{total}} evet",
-      "guideTitle": "Kampüs rehberi",
-      "guideBody": "Kayıt sırasında okuduğun {{count}} bölümlük rehber. İstediğin zaman tekrar okuyabilirsin.",
-      "guideOpen": "Rehberi baştan oku",
-      "helpTitle": "Destek al",
-      "editPlan": "Planı düzenle",
-      "reset": "Kampüsü sıfırla",
-      "sources": "Kaynaklar",
-      "disclaimerToggle": "Önemli bilgilendirme",
-      "disclaimer": "Genel bilgilendirme amaçlıdır; tıbbi tavsiye ya da tanı değildir. İçerik henüz uzman kontrolünden geçmemiştir.",
-      "controlLabel": "KONTROL ALTINA AL · BU HAFTA",
-      "weekValue": "{{used}}/{{limit}}",
-      "weekLeft": "{{count}} hakkın kaldı",
-      "weekNone": "Bu haftaki hakların bitti",
-      "weekOver": "Bu hafta sınırı aştın",
-      "weekResets": "Yeni hafta pazartesi başlar",
-      "leftLabel": "Kalan hak",
-      "weeksWithin": "Sınır içinde hafta",
-      "limitLabel": "Haftalık hak",
-      "useButton": "Bir hakkımı kullandım",
-      "historyTitle": "Son haftalar",
-      "historyHint": "Çizgi haftalık sınırın; yeşil sınır içinde, kırmızı sınırın üstünde.",
-      "historyA11y": "{{week}} haftası: {{used}}/{{limit}}",
-      "quitLabel": "TAMAMEN KES",
-      "quitRing": "{{done}}/{{goal}}",
-      "goalOf": "Hedef: {{goal}} gün",
-      "attempt": "Deneme",
-      "daysLeft": "Kalan gün",
-      "lapseButton": "Fire verdim",
-      "quitDoneTitle": "{{goal}} günü tamamladın!",
-      "quitDoneBody": "Döngüyü kırmayı başardın. İstersen yeni bir tur başlat ya da kontrol yoluna geçerek bu dengeyi koru.",
-      "quitRestart": "Yeni bir tur başlat",
-      "switchControl": "Kontrol yoluna geç",
-      "legendUse": "Hak kullanıldı",
-      "legendOver": "Sınır aşıldı",
-      "actionsTitle": "Ne yapmak istiyorsun?",
-      "insightsTitle": "Dürtü karnen",
-      "planTitle": "Planın",
-      "harmsButton": "Aşırı mastürbasyonun zararları",
-      "harmsHint": "Ne zaman zarar verir, ne zaman vermez?"
-    },
-    "lapse": {
-      "title": "Fire mi verdin?",
-      "save": "Kaydet ve devam et",
-      "secondTitle": "Bu 2. firen mi?",
-      "secondBody": "Bu denemede ikinci kez fire verdiğini kaydetmek üzeresin. Doğru mu?",
-      "secondYes": "Evet, fire verdim",
-      "secondNo": "Hayır, yanlışlıkla bastım",
-      "endedTitle": "Bu deneme sona erdi",
-      "endedBody": "Sayacın sıfırlandı ve {{count}}. denemen şimdi başladı. Değişim çoğu zaman birkaç denemede gelir. Seni neyin zorladığını düşün ve planını gözden geçir; bu kez daha hazırlıklısın.",
-      "endedOk": "Yeni denemeye başla"
-    },
-    "resetDialog": {
-      "title": "Kampüsü sıfırla?",
-      "body": "Planın, serin ve kayıtların silinecek. Bu işlem geri alınamaz.",
-      "confirmTitle": "Emin misin?",
-      "confirmBody": "Mastürbasyon Bağımlılığı Kampüsündeki tüm verilerin kalıcı olarak silinecek.",
-      "confirm": "Evet, sıfırla"
-    },
-    "setup": {
-      "header": "Kampüs planı",
-      "stepOf": "Adım {{n}} / {{total}}",
-      "start": "Başlayalım",
-      "enrol": "Kampüse kaydol",
-      "save": "Planı kaydet",
-      "privacy": "Yanıtların yalnızca bu telefonda saklanır; hiçbir yere gönderilmez.",
-      "checkTitle": "Kısa öz değerlendirme",
-      "checkHint": "Son 6 ayı düşünerek yanıtla. İstersen bu adımı boş geçebilirsin.",
-      "yes": "Evet",
-      "no": "Hayır",
-      "checkResult": "Sonucun: {{score}}/{{total}}",
-      "reasonsTitle": "Neden ara vermek istiyorsun?",
-      "reasonsHint": "Birden fazla seçebilirsin. Dürtü anında bunlar sana hatırlatılacak.",
-      "reasonsError": "Devam etmek için en az bir neden seç.",
-      "triggersTitle": "Seni en çok ne tetikliyor?",
-      "triggersHint": "Seçtiklerin için hazır eğer-o zaman planları ana sayfanda görünür.",
-      "summaryTitle": "Planın hazır",
-      "summaryReasons": "Nedenlerin",
-      "summaryTriggers": "Tetikleyicilerin",
-      "none": "Seçilmedi",
-      "envTitle": "Ortamını hazırla",
-      "envHint": "Şimdi yapabildiklerini işaretle; kalanlar ana sayfanda tamamlanana kadar seni bekleyecek.",
-      "pathTitle": "Yolunu seç",
-      "pathHint": "İki yol da geçerli; sana uygun olanı seç. Daha sonra planını düzenleyerek değiştirebilirsin.",
-      "baselineTitle": "Şu an haftada kaç kez mastürbasyon yapıyorsun?",
-      "baselineHint": "Son birkaç haftanı düşün; dürüst bir tahmin yeterli. Haftalık hakkın buna göre belirlenir.",
-      "baselineLimit": "{{hint}} · Haftalık hakkın: {{count}}",
-      "quitGoalTitle": "Kaç gün ara vereceksin?",
-      "quitGoalHint": "En fazla 15 gün. Kısa ve ulaşılabilir bir hedef, uzun ve zorlayıcı bir hedeften daha çok işe yarar.",
-      "quitGoal": {
-        "7": "7 gün",
-        "7Desc": "Kısa bir başlangıç",
-        "10": "10 gün",
-        "10Desc": "Dengeli bir ara",
-        "15": "15 gün",
-        "15Desc": "En uzun hedef"
-      },
-      "summaryPath": "Yolun",
-      "summaryControl": "Kontrol altına al · haftada {{count}} hak",
-      "summaryQuit": "Tamamen kes · {{count}} gün",
-      "baselineError": "Devam etmek için şu anki sıklığını seç."
-    },
-    "urge": {
-      "title": "Dürtü geldi",
-      "pickTitle": "Şu an ne yapacaksın?",
-      "pickHint": "Bir eylem seç ve süre bitene kadar onu yap. Dürtü çoğu zaman bu sürede azalır.",
-      "minutes": "{{count}} dk",
-      "remaining": "{{time}} kaldı",
-      "stepsTitle": "Şimdi yap",
-      "reason": "Hatırla: {{reason}}",
-      "passedEarly": "Dürtü geçti",
-      "change": "Başka bir eylem seç",
-      "doneTitle": "Süre doldu",
-      "doneTitleEarly": "Harika, dürtü geçti",
-      "doneBody": "Her atlattığın dürtü bir sonrakini biraz daha kolaylaştırır.",
-      "triggerQuestion": "Bu dürtüyü ne tetikledi?",
-      "save": "Kaydet, geçti",
-      "again": "Hâlâ zor, başka bir eylem seç",
-      "lapsed": "Fire verdim",
-      "stillHard": "Dürtüler çok sık ve güçlüyse destek almak işini kolaylaştırır.",
-      "used": "Bir hakkımı kullandım"
-    },
-    "guide": {
-      "title": "Kampüs rehberi",
-      "finish": "Rehberi bitir"
-    },
-    "use": {
-      "title": "Bir hakkını kullanıyorsun",
-      "body": "Kaydettiğinde bu hafta {{used}}/{{limit}} hak kullanmış olacaksın. Hak kullanmak bir kayma değildir; amaç planladığın sıklıkta kalmak.",
-      "save": "Kaydet",
-      "overTitle": "Bu hafta sınırını aşıyorsun",
-      "overBody": "Haftalık {{limit}} hakkının hepsini kullandın. Yine de kaydedersen bu hafta sınırın dışında kalır; dürüst kayıt planını güçlendirir. Önce Dürtü geldi ekranını denemek ister misin?",
-      "overSave": "Yine de kaydet",
-      "tryUrge": "Dürtü geldi ekranını aç"
-    }
+  "campusShared": {
+    "guideBadge": "KAMPÜS REHBERİ · {{n}}/{{total}}",
+    "guideActionsTitle": "Bu adımda",
+    "hoursMinutes": "{{hours}} sa {{minutes}} dk"
   },
   "acampus": {
     "card": {
@@ -1382,143 +1366,6 @@
     "guide": {
       "title": "Kampüs rehberi",
       "finish": "Rehberi bitir"
-    }
-  },
-  "pcampus": {
-    "card": {
-      "setup": "Planını 3 dakikada oluştur",
-      "active": "Pornografisiz {{count}}. gün"
-    },
-    "home": {
-      "heroLabel": "PORNOGRAFİSİZ",
-      "ring": "{{done}}/{{goal}}",
-      "days": "{{count}} gün",
-      "hoursMinutes": "{{hours}} sa {{minutes}} dk",
-      "goalOf": "Hedef: {{goal}} gün",
-      "longest": "En uzun seri",
-      "urgesBeaten": "Atlatılan dürtü",
-      "statsInfo": "Bu sayılar ne anlatıyor?",
-      "statsInfoText": "Büyük sayı ve halka: son kaymandan (ya da başlangıçtan) bu yana geçen pornografisiz süre ve hedefin. En uzun seri: kampüse başladığından beri iki kayma arasındaki en uzun süre. Atlatılan dürtü: 'Dürtü anı' sayfasında bir etkinlik yapıp atlattığın dürtüler. Hedefe kalan gün: hedefine ulaşmak için kalan gün sayısı. Kayma olduğunda yalnızca sayaç yeniden başlar; diğerleri korunur.",
-      "urgeButton": "Dürtü anı",
-      "urgeHint": "Dürtü anında yapabileceğin şeyleri açar",
-      "lapseButton": "Kayma oldu",
-      "goalDoneTitle": "{{goal}} günü tamamladın!",
-      "goalDoneBody": "Bu büyük bir başarı. Yeni ve daha uzun bir hedef seçerek devam edebilirsin.",
-      "newGoal": "Yeni hedef seç",
-      "riskTitle": "Risk haritan",
-      "riskHint": "Kayma analizlerinden çıkan kişisel tablon.",
-      "riskEmpty": "Henüz kayma kaydın yok. Kayma olursa kısa bir analiz yapacaksın; burası seni en çok zorlayan cihazı, saati, duyguyu ve başlangıç noktasını gösterecek.",
-      "riskDevice": "Cihaz",
-      "riskTime": "Saat",
-      "riskFeeling": "Duygu",
-      "riskFirst": "Başlangıç",
-      "riskCount": "{{count}} kayma analizine göre",
-      "riskTimes": "{{count}} kez",
-      "recsTitle": "Sana özel öneriler",
-      "dayPart": {
-        "morning": "Sabah",
-        "afternoon": "Öğleden sonra",
-        "evening": "Akşam",
-        "night": "Gece"
-      },
-      "envTitle": "Dijital ortam listesi",
-      "envHint": "Tamamladıkça dürtüler daha seyrek gelir. Liste bitene kadar burada kalır.",
-      "envRing": "{{done}}/{{total}}",
-      "envDoneTitle": "Dijital ortamın hazır",
-      "envDoneBody": "{{count}} adımın hepsini tamamladın. Ortamını düzenlemek kontrolü korumanın en etkili yollarındandır.",
-      "factsTitle": "Doğru bilinen yanlışlar",
-      "myth": "YANLIŞ",
-      "fact": "DOĞRUSU",
-      "bpsTitle": "Tarama testi sonucun",
-      "bpsScore": "{{score}}/10",
-      "guideTitle": "Kampüs rehberi",
-      "guideBody": "Kayıt sırasında okuduğun {{count}} bölümlük rehber.",
-      "guideOpen": "Rehberi baştan oku",
-      "helpTitle": "Destek al",
-      "editPlan": "Planı düzenle",
-      "reset": "Kampüsü sıfırla",
-      "sources": "Kaynaklar",
-      "disclaimerToggle": "Önemli bilgilendirme",
-      "disclaimer": "Genel bilgilendirme amaçlıdır; tıbbi tavsiye ya da tanı değildir. İçerik henüz uzman kontrolünden geçmemiştir.",
-      "daysLeft": "Hedefe kalan gün",
-      "valuesTitle": "Değer pusulan",
-      "valuesHint": "Dürtü anında 'Seç' adımında bunlara yönel.",
-      "harmsButton": "Pornonun zararları",
-      "harmsHint": "Ne zaman zarar verir, ne zaman vermez?"
-    },
-    "lapse": {
-      "title": "Kayma oldu mu?",
-      "device": "Hangi cihazdaydın?",
-      "feeling": "Öncesinde ne hissediyordun?",
-      "firstStep": "İlk adım ne oldu?",
-      "optional": "Seçimler isteğe bağlı, ama ne kadar çok yanıtlarsan risk haritan o kadar doğru olur.",
-      "save": "Kaydet"
-    },
-    "resetDialog": {
-      "title": "Kampüsü sıfırla?",
-      "body": "Planın, sayacın ve kayıtların silinecek. Bu işlem geri alınamaz.",
-      "confirmTitle": "Emin misin?",
-      "confirmBody": "Özgür Zihin Kampüsündeki tüm verilerin kalıcı olarak silinecek.",
-      "confirm": "Evet, sıfırla"
-    },
-    "setup": {
-      "header": "Kampüs planı",
-      "stepOf": "Adım {{n}} / {{total}}",
-      "start": "Başlayalım",
-      "enrol": "Kampüse kaydol",
-      "save": "Planı kaydet",
-      "privacy": "Yanıtların yalnızca bu telefonda saklanır; hiçbir yere gönderilmez.",
-      "bpsTitle": "Kısa tarama testi",
-      "bpsResult": "Puanın: {{score}}/10",
-      "yes": "Evet",
-      "no": "Hayır",
-      "valuesTitle": "Değer pusulanı seç",
-      "valuesHint": "Senin için en önemli en fazla 3 değeri seç. Ana sayfanda durur ve dürtü anında neye yöneleceğini hatırlatır.",
-      "valuesError": "Devam etmek için en az bir değer seç.",
-      "valuesMax": "En fazla 3 değer seçebilirsin.",
-      "goalTitle": "Hedefin",
-      "goalHint": "Kaç gün pornografisiz kalmayı hedefliyorsun? Hedefine ulaştığında yenisini seçebilirsin.",
-      "goal": {
-        "7": "7 gün",
-        "7Desc": "İlk adım için kısa bir hedef",
-        "15": "15 gün",
-        "15Desc": "İki haftalık sağlam bir başlangıç",
-        "30": "30 gün",
-        "30Desc": "Yeni bir alışkanlık için dengeli bir süre",
-        "60": "60 gün",
-        "60Desc": "Alışkanlığı pekiştirmek için",
-        "90": "90 gün",
-        "90Desc": "Kalıcı bir değişim için"
-      },
-      "summaryTitle": "Planın hazır",
-      "summaryGoal": "Hedef",
-      "summaryValues": "Değer pusulan",
-      "summaryBps": "Tarama testi",
-      "none": "Seçilmedi",
-      "envTitle": "Dijital ortamını hazırla",
-      "envHint": "Şimdi yapabildiklerini işaretle; kalanlar ana sayfanda tamamlanana kadar seni bekleyecek.",
-      "activitiesTitle": "Yapmayı en çok sevdiğin günlük şeyler",
-      "activitiesHint": "En az 3 tane seç. Dürtü anında bunlar sana favori olarak, diğerleri ise ek öneri olarak gösterilecek.",
-      "activitiesError": "Devam etmek için en az 3 etkinlik seç.",
-      "activitiesCount": "{{count}} seçildi",
-      "summaryActivities": "Favori etkinliklerin"
-    },
-    "guide": {
-      "title": "Kampüs rehberi",
-      "finish": "Rehberi bitir"
-    },
-    "urge": {
-      "title": "Farklı şeylerle uğraş",
-      "intro": "Dürtü bir dalga gibidir: yükselir ve birkaç dakikada geçer. Şimdi ekranı bırak ve aşağıdakilerden birini yap. Bitirdiğinde 'Dürtü geçti'ye bas.",
-      "favorites": "Favorilerin",
-      "favoritesHint": "Kayıtta seçtiğin, yapmayı sevdiğin şeyler",
-      "favoritesEmpty": "Henüz favori seçmedin; planını düzenleyerek ekleyebilirsin.",
-      "others": "Diğer öneriler",
-      "done": "Dürtü geçti",
-      "doneTitle": "Harika, dürtüyü atlattın!",
-      "doneBody": "Her atlattığın dürtü bir sonrakini kolaylaştırır.",
-      "back": "Kampüse dön",
-      "lapsed": "Kayma oldu"
     }
   },
   "campusCommit": {
@@ -1923,7 +1770,12 @@
         "twice_weekly": "Kısa kontrol zamanı"
       },
       "checkinHint": "30 saniye: bugün nasıl geçti, hangi belirtiler var?",
-      "slip": "Kayma oldu"
+      "slip": "Kayma oldu",
+      "settingsTitle": "Kamp ayarları",
+      "restart": "Kampa baştan başla",
+      "restartTitle": "Kampa baştan başlansın mı?",
+      "restartBody": "Değerlendirmeyi yeniden yapıp yeni bir bırakma planıyla yeni bir deneme başlatırsın. Kayıtların, planların ve rozetlerin korunur.",
+      "restartConfirm": "Değerlendirmeye başla"
     },
     "health": {
       "title": "Sağlık iyileşme zaman çizelgesi",
@@ -2372,6 +2224,246 @@
       "reviewText": "Kamptaki içerikler yayın öncesinde bir göğüs hastalıkları uzmanı ya da sertifikalı sigara bırakma hekimi tarafından gözden geçirilecektir. Şu an tüm içerik \"henüz gözden geçirilmedi\" olarak işaretlidir.",
       "listTitle": "Kaynaklar ({{count}})",
       "accessed": "erişim {{date}}"
+    }
+  },
+  "odak": {
+    "title": "Odak Kampı",
+    "exit": {
+      "button": "Hızlı çık"
+    },
+    "lock": {
+      "title": "Odak Kampı kilitli",
+      "prompt": "Odak Kampı kilidini aç",
+      "deviceHint": "Telefonunun kilidiyle (yüz, parmak izi ya da kod) açabilirsin.",
+      "deviceFailed": "Kilit açılamadı. Yeniden deneyebilirsin.",
+      "unlock": "Kilidi aç",
+      "pinHint": "PIN kodunu gir.",
+      "pinWrong": "PIN yanlış. Yeniden dene.",
+      "pinEntered": "{{count}} hane girildi",
+      "wait": "Çok fazla yanlış deneme. {{count}} sn sonra yeniden deneyebilirsin.",
+      "delete": "Son haneyi sil",
+      "setupTitle": "PIN belirle",
+      "setupHint": "Telefonunda ekran kilidi yok. Odak Kampı için 4–6 haneli bir PIN belirle. Bu PIN yalnızca bu telefonda saklanır.",
+      "setupConfirm": "PIN’i tekrar gir",
+      "setupConfirmHint": "Doğrulamak için aynı PIN’i bir kez daha gir.",
+      "setupSave": "PIN’i kaydet",
+      "pinMismatch": "İki PIN aynı değil. Baştan belirle."
+    },
+    "privacy": {
+      "title": "Gizlilik ayarları",
+      "lock": "Kamp kilidi",
+      "lockDevice": "Kampa her girişte telefonunun kilidi (yüz, parmak izi ya da kod) sorulur. Uygulama arka plana gidince kamp yeniden kilitlenir.",
+      "lockPin": "Kampa her girişte PIN sorulur. Uygulama arka plana gidince kamp yeniden kilitlenir.",
+      "changePin": "PIN’i değiştir",
+      "changePinHint": "Yeni 4–6 haneli PIN’ini gir.",
+      "pinSaved": "Yeni PIN kaydedildi.",
+      "howTitle": "Verilerin nasıl korunuyor?",
+      "how": [
+        "Kayıtların yalnızca bu telefonda, AES-256 ile şifreli tutulur. Sunucu yok, hesap yok.",
+        "Şifreleme anahtarı telefonun güvenli anahtarlığında durur; yedeklere ve başka cihazlara geçmez.",
+        "Uygulama değiştiricide kamp ekranı gizlenir; kamp ekranlarının ekran görüntüsü alınamayabilir.",
+        "İki parmakla aşağı kaydırarak ya da köşedeki ev düğmesiyle hemen ana ekrana dönebilirsin.",
+        "Bildirimler her zaman nötr yazılır."
+      ],
+      "dataTitle": "Kamp verileri",
+      "wipe": "Odak Kampı verilerini sil",
+      "wipeTitle": "Tüm Odak Kampı verileri silinsin mi?",
+      "wipeBody": "Kayıtların, ayarların, PIN’in ve şifreleme anahtarın bu telefondan silinir.",
+      "wipeConfirmTitle": "Emin misin?",
+      "wipeConfirmBody": "Bu işlem geri alınamaz. Silinen veriler kurtarılamaz.",
+      "wipeConfirm": "Evet, kalıcı olarak sil",
+      "offTitle": "Kamp kilidi kapatılsın mı?",
+      "offBody": "Kilit kapalıyken telefonunu eline alan herkes kamp ekranlarını açabilir. Kayıtların yine şifreli tutulur.",
+      "offConfirm": "Kilidi kapat"
+    },
+    "onb": {
+      "question": "Soru {{n}}/{{total}}",
+      "optional": "İsteğe bağlı",
+      "progress": "Adım {{n}}/{{total}}",
+      "next": "İleri",
+      "skip": "Bu soruyu atla",
+      "toCommit": "Son adıma geç",
+      "enrol": "Kampa katıl",
+      "home": "Ana ekrana dön",
+      "call": "{{phone}}’i ara",
+      "lockDevice": "Kilit için telefonunun kendi kilidi kullanılacak.",
+      "lockPinReady": "PIN’in kaydedildi.",
+      "lockOff": "Kilit kapalı. İstediğin zaman Gizlilik ayarlarından açabilirsin.",
+      "pinSetup": "Telefonunda ekran kilidi yok; kamp için bir PIN belirle.",
+      "bpsYour": "Puanın: {{score}}/10",
+      "moodYour": "Ruh hali: {{phq}}/6 · Kaygı: {{gad}}/6",
+      "scaleOf": "{{n}}/5",
+      "emergency": "Acil bir durumda 112",
+      "err": {
+        "age": "Devam etmek için bir seçenek işaretle.",
+        "reasons": "En az bir seçenek işaretle.",
+        "bps": "Her madde için bir yanıt seç.",
+        "values": "En az bir değer seç ya da kendi cümleni yaz.",
+        "mood": "Dört maddenin her biri için bir yanıt seç.",
+        "goal": "İki başlık için de bir hedef seç.",
+        "goalNumber": "Seçtiğin hedef için geçerli bir sayı belirle.",
+        "lockPin": "Kilit açıkken önce bir PIN belirlemelisin ya da kilidi kapat."
+      }
+    },
+    "panel": {
+      "day": "{{day}}. gün / {{total}}",
+      "nextPhase": "Sonraki aşamaya {{count}} gün",
+      "sos": "Dürtü anı",
+      "sosHint": "Şu an zorlanıyorsan buraya dokun",
+      "missingTitle": "Kamp verilerin okunamadı",
+      "missingBody": "Bu telefonda kamp verilerini açacak anahtar yok. Bu, uygulama başka bir telefona yedekten taşındığında olur: anahtar güvenlik gereği cihazdan çıkmaz. Yeni bir kayıtla devam edebilirsin.",
+      "missingRestart": "Yeniden kayıt ol",
+      "managed": "{{count}} dürtü anını yönettin",
+      "diary": "Günlüğüm",
+      "boundaries": "Ortam ve dijital sınırlar",
+      "mission": "Bugünün görevi",
+      "missionComplete": "Tamamladım",
+      "missionDone": "Bugünün görevi tamam",
+      "lesson": "Günün beceri dersi",
+      "rebuild": "Yeniden İnşa",
+      "stats": "İstatistikler",
+      "rewards": "Rozetler",
+      "support": "Destek ve profesyonel yardım",
+      "sources": "Kaynaklar ve Yöntem",
+      "skillsProgress": "{{done}}/{{total}} ders tamamlandı"
+    },
+    "card": {
+      "setup": "Kendi planını oluştur",
+      "day": "{{day}}. gün / {{total}}",
+      "locked": "Kilitli"
+    },
+    "sos": {
+      "next": "Devam",
+      "toTools": "Araçlara geç",
+      "toEnd": "Şimdi nasılım?",
+      "toSlip": "Birlikte bakalım"
+    },
+    "shortcut": "Odak",
+    "skills": {
+      "title": "Beceri dersleri",
+      "intro": "{{done}}/{{total}} ders tamamlandı. Dersler aşamalarına göre açılır; önce önerilenden başla.",
+      "next": "SENİN İÇİN SIRADAKİ",
+      "minutes": "{{count}} dk",
+      "done": "Tamamlandı",
+      "upcoming": "{{phase}} aşamasında açılır",
+      "toPractice": "Uygulamaya geç",
+      "toQuiz": "Kısa kontrole geç",
+      "finish": "Dersi bitir",
+      "backToList": "Derslere dön",
+      "quizTitle": "Kısa kontrol",
+      "doneTitle": "Ders tamamlandı 🌿",
+      "sources": "Kaynaklar"
+    },
+    "library": {
+      "title": "Bilim Ne Diyor?",
+      "intro": "Mitler ve gerçekler, güvenilir kaynaklarla. {{read}}/{{total}} okundu. Bu bölüm her zaman ücretsiz.",
+      "read": "Okundu",
+      "finish": "Bitir",
+      "done": "Okudun. Aşağıda bu içeriğin kaynaklarını bulabilirsin.",
+      "back": "Kütüphaneye dön"
+    },
+    "coach": {
+      "title": "Koç ile konuş",
+      "hello": "Merhaba. Ben önceden hazırlanmış bir rehberim. Şu an ne hakkında konuşmak istersin?",
+      "pick": "Bir konu seç",
+      "another": "Başka bir konu",
+      "typing": "yazıyor…",
+      "bye": "Buradayım; istediğin zaman tekrar konuşabiliriz.",
+      "opened": "İlgili bölümü açtım. Hazır olduğunda buraya dönebilirsin.",
+      "noValue": "değerlerine uygun yaşamak",
+      "fromSos": "Koç ile konuş"
+    },
+    "premium": {
+      "text": "Bu bölüm aboneliğe dahildir. Dürtü anı aracı, kayma adımları, destek ekranı, “Bilim Ne Diyor?” ve temel sayaç her zaman ücretsiz kalır.",
+      "unlock": "Premium ile aç",
+      "mission": "90 günlük görev programı",
+      "lesson": "Bu ders aboneliğe dahildir",
+      "coach": "Koç’un tüm konuları",
+      "stats": "Ayrıntılı istatistikler",
+      "summary": "Uzmana özet (PDF)",
+      "reminder": "Riskli saat hatırlatıcısı",
+      "letter": "Gelecekteki ben mektubu yazmak"
+    },
+    "notif": {
+      "riskyTitle": "Odak zamanı yaklaşıyor 🎯",
+      "riskyBody": "Planın hazır mı?",
+      "checkinTitle": "Günlük kontrolün hazır",
+      "checkinBody": "30 saniyeni ayır.",
+      "weeklyTitle": "Haftalık özetin hazır",
+      "weeklyBody": "Bir haftaya birlikte bakalım.",
+      "actionSos": "SOS",
+      "actionPlan": "Planımı gör",
+      "switch": "Odak bildirimleri",
+      "switchHint": "Riskli saatlerden 15 dakika önce, günlük kontrol zamanında ve haftada bir. Metinler her zaman nötrdür; içerik ayrıntısı görünmez."
+    }
+  },
+  "kegel": {
+    "painNotice": "Ağrı olursa dur. Kegel ağrı yapmamalıdır.",
+    "screening": {
+      "skip": "Şimdilik atla",
+      "progress": "Soru {{step}} / {{total}}",
+      "startRelax": "Gevşeme odaklı başla",
+      "keepTrack": "Kendi hedefimle devam et"
+    },
+    "tracks": {
+      "title": "Program izi",
+      "intro": "Hedefine göre egzersiz karışımı değişir. İstediğin zaman değiştirebilirsin; seviyen korunur.",
+      "suggested": "Önerilen",
+      "needsClearance": "Doktor onayı gerekir",
+      "surgeryTitle": "Doktor onayı",
+      "surgeryText": "Prostat ameliyatı öncesi veya sonrası pelvik taban egzersizine ne zaman başlayacağına doktorun karar verir. Bu iz yalnızca doktorun onay verdiyse açılır.",
+      "catheter": "Sonda takılıyken egzersiz yapma.",
+      "doctorOk": "Doktorum bu egzersizlere başlamam için onay verdi.",
+      "openSurgery": "İzi aç",
+      "positionsTitle": "{{week}}. hafta pozisyonları",
+      "positionsHint": "Pozisyonlar haftalar ilerledikçe yatarak → oturarak → ayakta olarak zorlaşır.",
+      "functionalOn": "Günlük hayat görevleri de açıldı: ayağa kalkarken, merdivende önce sık.",
+      "screen": "Kas profili taramasını yap",
+      "rescreen": "Kas profilini yenile"
+    },
+    "card": {
+      "track": "PROGRAM İZİ",
+      "change": "Değiştir",
+      "positions": "Bu hafta: {{list}}",
+      "screenTitle": "Kas profilini tamamla",
+      "screenText": "8 kısa soru (1 dakika). Sana uygun programı seçmemize yardım eder; tanı değildir.",
+      "rescreenTitle": "Taramayı yenileme zamanı",
+      "rescreenText": "Gevşeme izindesin. İki haftada bir kısa taramayla programını güncel tutalım.",
+      "screenStart": "Başla",
+      "later": "Daha sonra"
+    },
+    "selfRating": {
+      "track": "İz: {{track}}",
+      "cardTitle": "Aylık öz değerlendirme",
+      "due": "Bu ayın değerlendirmesi hazır (1 dakika).",
+      "notDue": "Bu ay yaptın. Bir sonraki ay hatırlatacağız.",
+      "start": "Değerlendir",
+      "higherBetter": "Yüksek değer daha iyi.",
+      "lowerBetter": "Düşük değer daha iyi."
+    },
+    "vacation": {
+      "title": "Seri koruma ve tatil",
+      "freezes": "Bu ay {{left}}/{{total}} seri dondurma hakkın var. Bir iki gün kaçırırsan otomatik kullanılır; serin bozulmaz.",
+      "hint": "Tatil modunda ({{min}}–{{max}} gün) serin korunur ve hatırlatmalar susar.",
+      "length": "Tatil süresi",
+      "days_one": "{{count}} gün",
+      "days_other": "{{count}} gün",
+      "startLabel": "Başlangıç",
+      "today": "Bugün",
+      "tomorrow": "Yarın",
+      "start": "Tatil modunu başlat",
+      "end": "Tatili bitir",
+      "onNow": "Tatildesin: {{to}} tarihine kadar serin korunuyor, hatırlatma yok.",
+      "planned": "Tatil planlandı: {{from}} – {{to}}.",
+      "cardNote": "Tatil modundasın: serin korunuyor. İstersen yine de antrenman yapabilirsin."
+    },
+    "return": {
+      "frozen_one": "❄️ Dün bir seri dondurma kullanıldı; serin korunuyor.",
+      "frozen_other": "❄️ {{count}} seri dondurma kullanıldı; serin korunuyor.",
+      "gentle_one": "Hoş geldin! Kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
+      "gentle_other": "Hoş geldin! {{count}} gün ara verdin; kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
+      "rewarm_one": "Uzun bir aradan sonra kısa bir yeniden ısınma seansıyla başlıyoruz (3 dk, seviye −2).",
+      "rewarm_other": "{{count}} günlük aradan sonra kısa bir yeniden ısınma seansıyla başlıyoruz (3 dk, seviye −2)."
     }
   }
 }

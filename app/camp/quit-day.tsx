@@ -3,9 +3,9 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { CAMP_MISSIONS } from '@/features/camp/content';
-import { currentAttempt } from '@/features/camp/state';
-import { Alo171Card, useCampDate } from '@/features/camp/ui';
+import { CAMP_MISSIONS } from '@/features/camps/smoking/content';
+import { currentAttempt } from '@/features/camps/smoking/state';
+import { Alo171Card, useCampDate } from '@/features/camps/smoking/ui';
 import { CampusHero, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampStore } from '@/stores/campStore';

@@ -1,0 +1,59 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "smsna_hypertonic",
+    "nebraska_hypertonic",
+    "mkuh_nhs",
+    "papworth_nhs"
+  ],
+  "title": "Kas profili",
+  "intro": "Son 1 ayı düşünerek 8 kısa soruyu Evet ya da Hayır ile yanıtla. Bu bir tanı değildir; yalnızca sana uygun programı seçmek için kullanılır. Yanıtların yalnızca bu telefonda kalır.",
+  "questions": [
+    {
+      "id": "pelvic_pain",
+      "text": "Pelviste, perinede (makat ile testisler arası), kasıkta veya makatta süregelen ağrı ya da baskı hissin var mı?",
+      "pain": true
+    },
+    {
+      "id": "sitting_pain",
+      "text": "Uzun süre oturunca artan bir ağrın var mı?",
+      "pain": true
+    },
+    {
+      "id": "ejaculation_pain",
+      "text": "Boşalma sırasında veya sonrasında ağrı oluyor mu?",
+      "pain": true
+    },
+    {
+      "id": "urgency",
+      "text": "Sık ve ani idrar ihtiyacı yaşıyor musun?"
+    },
+    {
+      "id": "incomplete",
+      "text": "Mesaneni tam boşaltamama hissi ya da idrara başlamakta zorlanma oluyor mu?"
+    },
+    {
+      "id": "constipation",
+      "text": "Kabızlık veya ıkınma ihtiyacı yaşıyor musun?"
+    },
+    {
+      "id": "clenching",
+      "text": "Stres altındayken kalçanı ya da karnını farkında olmadan sıktığın oluyor mu?"
+    },
+    {
+      "id": "dribble",
+      "text": "İdrar yaptıktan sonra damlama oluyor mu?",
+      "note": "Bu, kas zayıflığının bir işareti olabilir; gerginlik puanına girmez."
+    }
+  ],
+  "result": {
+    "relaxTitle": "Gevşeme odaklı başlamanı öneriyoruz",
+    "relaxText": "Yanıtların, pelvik tabanın gerginlik taşıyor olabileceğini gösteriyor. Bu durumda yalnızca sıkma egzersizleri rahatsızlığı artırabilir. Gevşeme odaklı başlamanı ve bir üroloji uzmanına veya pelvik taban fizyoterapistine danışmanı öneriyoruz.",
+    "relaxNote": "Bu bir öneri; programı sen seçersin. Gevşeme izinde tutma süreleri kısa tutulur ve 2 haftada bir taramayı yenilemeni isteriz.",
+    "okTitle": "Profilin hazır",
+    "okText": "Yanıtlarında gerginliğe işaret eden belirgin bir durum yok. Hedefine uygun programla başlayabilirsin.",
+    "dribbleText": "İdrar sonrası damlama için İdrar Kontrolü izi ve “idrar sonrası 2 kez sık” alışkanlığı yardımcı olabilir.",
+    "painNotice": "Ağrı olursa dur. Kegel ağrı yapmamalıdır; rahatsızlık hissedersen sağ üstteki kalkan butonuna dokun."
+  }
+}

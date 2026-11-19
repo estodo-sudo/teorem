@@ -4,15 +4,15 @@ import { Linking, Pressable, ScrollView, View, type ScrollViewInstance } from 'r
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_COACH, CAMP_ONBOARDING as ONB } from '@/features/camp/content';
-import { nodeText, parseAction, type CoachReply, type CoachScenario, type CoachVars } from '@/features/camp/engine/coach';
-import { totalSmokeFreeDays } from '@/features/camp/engine/counters';
-import { isMinor, MEDICATION_SCENARIOS, scenarioIsFree } from '@/features/camp/engine/premium';
+import { CAMP_COACH, CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
+import { nodeText, parseAction, type CoachReply, type CoachScenario, type CoachVars } from '@/features/camps/smoking/engine/coach';
+import { totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
+import { isMinor, MEDICATION_SCENARIOS, scenarioIsFree } from '@/features/camps/smoking/engine/premium';
 import { useAccess } from '@/features/purchases/useGate';
-import { currentPhase } from '@/features/camp/engine/phase';
-import { moneySaved } from '@/features/camp/engine/savings';
-import { campAttempt } from '@/features/camp/state';
-import { fmtTL } from '@/features/camp/ui';
+import { currentPhase } from '@/features/camps/smoking/engine/phase';
+import { moneySaved } from '@/features/camps/smoking/engine/savings';
+import { campAttempt } from '@/features/camps/smoking/state';
+import { fmtTL } from '@/features/camps/smoking/ui';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

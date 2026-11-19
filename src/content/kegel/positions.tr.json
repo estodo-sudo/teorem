@@ -1,0 +1,34 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs"
+  ],
+  "positions": [
+    {
+      "id": "lying",
+      "emoji": "🛏️",
+      "title": "Yatarak",
+      "text": "Sırtüstü uzan, dizlerini bük, ayak tabanların yerde. Kas en kolay bu pozisyonda hissedilir."
+    },
+    {
+      "id": "sitting",
+      "emoji": "🪑",
+      "title": "Oturarak",
+      "text": "Sandalyede dik otur, ayakların yerde, dizlerin hafif aralık. Kalçana yaslanma, omuzların gevşek."
+    },
+    {
+      "id": "standing",
+      "emoji": "🧍",
+      "title": "Ayakta",
+      "text": "Ayakların omuz genişliğinde, dizlerin kilitli değil. Ağırlığın iki ayağına eşit dağılsın."
+    },
+    {
+      "id": "functional",
+      "emoji": "🚶",
+      "title": "Günlük hayatta",
+      "text": "Yürürken, merdiven çıkarken veya ayağa kalkarken: hareketten hemen önce sık."
+    }
+  ]
+}

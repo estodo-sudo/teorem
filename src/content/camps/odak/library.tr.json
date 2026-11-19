@@ -1,0 +1,500 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "review",
+ "sourceIds": [
+  "icd11",
+  "briken2024",
+  "roza2024",
+  "rowland2024",
+  "grubbs2019"
+ ],
+ "stories": [
+  {
+   "id": "csbd",
+   "emoji": "📘",
+   "title": "KCDB nedir, ne değildir?",
+   "summary": "Dünya Sağlık Örgütü'nün tanımı.",
+   "slides": [
+    {
+     "emoji": "📘",
+     "title": "Resmi tanım",
+     "text": "Dünya Sağlık Örgütü'nün ICD-11 sınıflamasında “Kompulsif Cinsel Davranış Bozukluğu” (6C72) yer alır. Tanımın özü: yoğun ve tekrarlayan cinsel dürtüleri kontrol edememe."
+    },
+    {
+     "emoji": "🧩",
+     "title": "Ölçüt sıklık değil",
+     "text": "Belirleyici olan bir davranışın ne kadar sık yapıldığı değil; kişinin isteğine rağmen kontrol edememesi, olumsuz sonuçlara ve az doyuma rağmen sürmesi ve belirgin sıkıntı ya da işlev kaybıdır."
+    },
+    {
+     "emoji": "🔖",
+     "title": "Bağımlılık değil",
+     "text": "ICD-11 bu durumu bir bağımlılık olarak değil, dürtü kontrol bozuklukları arasında sınıflandırır. “Mastürbasyon bağımlılığı” diye resmi bir tanı yoktur."
+    },
+    {
+     "emoji": "🩺",
+     "title": "Tanıyı kim koyar?",
+     "text": "Bir tanı ancak bir ruh sağlığı uzmanının değerlendirmesiyle konur. Bu uygulama tanı koymaz; yalnızca kendi durumunu görmene ve hedefine ilerlemene yardım eder."
+    }
+   ],
+   "sourceIds": [
+    "icd11",
+    "briken2024"
+   ],
+   "evidenceLevel": "guideline",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "mast-facts",
+   "emoji": "🌱",
+   "title": "Mastürbasyon: tıbbi gerçekler",
+   "summary": "Doğal bir davranış ve ne zaman sorun olur?",
+   "slides": [
+    {
+     "emoji": "🌱",
+     "title": "Yaygın ve doğal",
+     "text": "Mastürbasyon her yaşta yaygın bir davranıştır ve insan cinselliğinin doğal bir parçasıdır."
+    },
+    {
+     "emoji": "🩺",
+     "title": "Tıbben zararlı değil",
+     "text": "Mastürbasyonun kendisi tıbben zararlı kabul edilmez. Görme, kas, hafıza ya da genel sağlık üzerine korkutucu iddialar bilimsel olarak desteklenmez."
+    },
+    {
+     "emoji": "⚖️",
+     "title": "Sorun ne zaman başlar?",
+     "text": "Sorun davranışın kendisi değil; kişinin kontrol edemediğini hissetmesi, hayatının diğer alanlarının aksaması ya da kendi değerleriyle derin bir çelişki yaşamasıdır."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Hedef senin",
+     "text": "Bu yüzden kampta mastürbasyonla ilgili hedefi sen seçersin: hedef koymamak, azaltmak ya da bir süre ara vermek. Hiçbiri diğerinden “daha doğru” değildir."
+    }
+   ],
+   "sourceIds": [
+    "briken2024",
+    "icd11"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "nofap-claims",
+   "emoji": "🔬",
+   "title": "NoFap ve benzeri iddialar: bilim ne diyor?",
+   "summary": "Uzun süre boşalmamanın vaatleri.",
+   "slides": [
+    {
+     "emoji": "🔬",
+     "title": "İnternetteki vaatler",
+     "text": "Bazı internet toplulukları, uzun süre boşalmamanın hormonları kalıcı biçimde değiştirdiğini, olağanüstü enerji, kas ya da çekicilik kazandırdığını öne sürer."
+    },
+    {
+     "emoji": "📉",
+     "title": "Kanıt yok",
+     "text": "Bu iddiaları destekleyen sağlam bilimsel kanıt yoktur. Kısa süreli ve küçük hormon dalgalanmaları gösteren birkaç çalışma, bu büyük vaatleri desteklemez."
+    },
+    {
+     "emoji": "⚠️",
+     "title": "Neden önemli?",
+     "text": "Gerçekçi olmayan vaatler, beklenti karşılanmadığında hayal kırıklığı ve utanç yaratabilir. Bu da değişimi kolaylaştırmaz, zorlaştırır."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Gerçek kazanç",
+     "text": "Gerçek kazanç; kontrol duygusu, zamanını ve dikkatini değerlerine ayırabilmek, daha iyi uyku ve ilişkilerdir. Bunlar ölçülebilir ve sana aittir."
+    }
+   ],
+   "sourceIds": [
+    "briken2024",
+    "roza2024"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "erection",
+   "emoji": "🧪",
+   "title": "Pornografi ve sertleşme sorunu",
+   "summary": "Kanıtlar ne gösteriyor?",
+   "slides": [
+    {
+     "emoji": "🧪",
+     "title": "Güçlü bir ilişki kanıtlanmadı",
+     "text": "Güncel derlemeler, pornografi kullanımı ile sertleşme sorunu arasında güçlü ve doğrudan bir ilişki olduğu iddialarının genel olarak desteklenmediğini gösteriyor."
+    },
+    {
+     "emoji": "🔗",
+     "title": "Dolaylı bağlantılar",
+     "text": "Bağlantı varsa bile dolaylı olabilir: performans kaygısı, beden memnuniyetsizliği, gerçekçi olmayan beklentiler ya da ilişki sorunları."
+    },
+    {
+     "emoji": "🫀",
+     "title": "Diğer nedenler",
+     "text": "Sertleşme sorunlarının damar sağlığı, diyabet, sigara, uyku, ilaçlar ve stres gibi pek çok nedeni olabilir."
+    },
+    {
+     "emoji": "🩺",
+     "title": "Ne yapmalı?",
+     "text": "Sertleşmeyle ilgili bir endişen varsa korkutucu internet iddiaları yerine bir üroloğa ya da hekime başvurmak en doğru adımdır."
+    }
+   ],
+   "sourceIds": [
+    "rowland2024",
+    "dwulit2019"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "moral",
+   "emoji": "⚖️",
+   "title": "Ahlaki çelişki ve utanç",
+   "summary": "“Bağımlıyım” hissi neden bazen davranıştan büyüktür?",
+   "slides": [
+    {
+     "emoji": "⚖️",
+     "title": "İlginç bir bulgu",
+     "text": "Araştırmalar, pornografiyi ahlaken yanlış bulup yine de kullananların, kullanımları az ya da ortalama olsa bile kendilerini “bağımlı” görme eğiliminde olduğunu gösteriyor."
+    },
+    {
+     "emoji": "🧠",
+     "title": "Algı ve davranış",
+     "text": "Bu algı, davranışın miktarından çok değerlerle yaşanan çelişkiyle ve utançla ilişkilidir."
+    },
+    {
+     "emoji": "🤍",
+     "title": "Utanç değil, yön",
+     "text": "Utanç bu hissi büyütür ve değişimi zorlaştırır. Değerlerini ciddiye alıp kendine nazik davranmak ise uzun vadede daha çok işe yarar."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Senin değerlerin",
+     "text": "Kampın amacı seni yargılamak değil; kendi değerlerinle uyumlu yaşamana yardım etmektir. Değerlerin, inancın dahil, sana aittir."
+    }
+   ],
+   "sourceIds": [
+    "grubbs2019",
+    "grubbs2019b"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "urges-pass",
+   "emoji": "🌊",
+   "title": "Dürtüler neden geçer?",
+   "summary": "Bir dalganın yükselip alçalması.",
+   "slides": [
+    {
+     "emoji": "🌊",
+     "title": "Dalga gibi",
+     "text": "Dürtüler genelde kısa sürede zirve yapar ve sonra azalır. Ona göre hareket etmediğinde de bu iniş gerçekleşir."
+    },
+    {
+     "emoji": "🔁",
+     "title": "Her yönetilen an",
+     "text": "Bir dürtüyü davranışa çevirmeden izlemek, beynin “bu dürtü geçebilir” bilgisini öğrenmesine yardım eder."
+    },
+    {
+     "emoji": "🥊",
+     "title": "Bastırmak işe yaramaz",
+     "text": "Dürtüyü düşünmemeye zorlamak onu çoğu zaman güçlendirir. İzlemek ve yer açmak daha etkilidir."
+    },
+    {
+     "emoji": "📉",
+     "title": "Gerçekçi beklenti",
+     "text": "Araştırmalara göre tedaviyle davranış belirgin biçimde azalabilir; dürtünün kendisi ise daha yavaş değişir. Amaç dürtüyü yok etmek değil, davranışı yönetmektir."
+    }
+   ],
+   "sourceIds": [
+    "crosby2016",
+    "meta2025"
+   ],
+   "evidenceLevel": "rct",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "slips-normal",
+   "emoji": "🔁",
+   "title": "Kayma neden normaldir?",
+   "summary": "Değişimin inişli çıkışlı yolu.",
+   "slides": [
+    {
+     "emoji": "🔁",
+     "title": "Değişim doğrusal değildir",
+     "text": "Bir alışkanlığı değiştiren hemen herkes yol boyunca kaymalar yaşar. Bu, sürecin olağan bir parçasıdır."
+    },
+    {
+     "emoji": "🧱",
+     "title": "Perhiz ihlali etkisi",
+     "text": "Kayma sonrasında “Zaten bozdum, artık fark etmez” düşüncesi çok yaygındır ve kaymayı uzatır. Bunu tanımak, ona kapılmamayı kolaylaştırır."
+    },
+    {
+     "emoji": "📚",
+     "title": "Öğrenme fırsatı",
+     "text": "Her kayma, hangi durumun zor olduğunu gösterir. Planını bu bilgiyle güncellemek, bir sonraki seferi kolaylaştırır."
+    },
+    {
+     "emoji": "🌱",
+     "title": "Emeğin silinmez",
+     "text": "Bu yüzden kampta bir kayma toplam günlerini, en uzun serini ve yönettiğin dürtü anlarını silmez."
+    }
+   ],
+   "sourceIds": [
+    "marlatt",
+    "bothe2021"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "when-expert",
+   "emoji": "🩺",
+   "title": "Ne zaman uzmana başvurmalı?",
+   "summary": "Profesyonel desteğin işaretleri.",
+   "slides": [
+    {
+     "emoji": "🩺",
+     "title": "Destek almak güçtür",
+     "text": "Bir uzmandan destek almak bir zayıflık değil; kendine yatırım yapmaktır."
+    },
+    {
+     "emoji": "🚩",
+     "title": "Dikkat edilecek işaretler",
+     "text": "Davranış işini, okulunu ya da ilişkilerini belirgin biçimde etkiliyorsa; uzun süredir kaygı ya da çökkünlük hissediyorsan; zorlantılı düşünceler yaşıyorsan bir uzmanla konuşmak iyi gelebilir."
+    },
+    {
+     "emoji": "🏥",
+     "title": "Nereye?",
+     "text": "Psikiyatri polikliniği ya da bir klinik psikolog ilk adım olabilir. Yeşilay Danışma Hattı 115 de ücretsiz danışmanlık verir."
+    },
+    {
+     "emoji": "🆘",
+     "title": "Acil durum",
+     "text": "Kendine zarar verme düşüncelerin varsa ya da acil bir durumdaysan hemen 112'yi ara."
+    }
+   ],
+   "sourceIds": [
+    "briken2024",
+    "yedam"
+   ],
+   "evidenceLevel": "guideline",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "mood-link",
+   "emoji": "🌧️",
+   "title": "Kaygı, depresyon ve kompulsif davranış",
+   "summary": "Birbirini besleyen bir döngü.",
+   "slides": [
+    {
+     "emoji": "🌧️",
+     "title": "Sık birlikte görülür",
+     "text": "Kaygı, depresyon ve kontrol etmekte zorlanılan davranışlar sıklıkla birlikte görülür ve birbirini besleyebilir."
+    },
+    {
+     "emoji": "🔄",
+     "title": "Kısa rahatlama, uzun yük",
+     "text": "Davranış zor duygulardan kısa süreli bir kaçış sağlayabilir; ardından gelen suçluluk ya da boşluk hissi ise ruh halini daha da düşürebilir."
+    },
+    {
+     "emoji": "🛠️",
+     "title": "İkisine birden bakmak",
+     "text": "Ruh halini iyileştiren adımlar (uyku, hareket, bağlantı, gerektiğinde tedavi) davranış üzerinde de olumlu etki yaratabilir."
+    },
+    {
+     "emoji": "🩺",
+     "title": "Destek",
+     "text": "Ruh halin uzun süredir düşükse bu kamp tek başına yeterli olmayabilir; bir uzmanla konuşmak önemli bir adımdır."
+    }
+   ],
+   "sourceIds": [
+    "briken2024",
+    "phq2",
+    "gad2"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "partner",
+   "emoji": "💬",
+   "title": "Partnerle konuşmak",
+   "summary": "Açık ve saygılı bir sohbet için.",
+   "slides": [
+    {
+     "emoji": "💬",
+     "title": "Konuşmak zorunda değilsin",
+     "text": "Bu konuyu partnerinle paylaşıp paylaşmamak senin kararın. Paylaşmak isteyebilirsin; hazır olmayabilirsin de."
+    },
+    {
+     "emoji": "🕰️",
+     "title": "Doğru an",
+     "text": "Sakin, acele olmayan bir zaman seç. Suçlama ya da savunma yerine “ben” diliyle konuş: “Bu konuda zorlanıyorum ve üzerinde çalışıyorum.”"
+    },
+    {
+     "emoji": "👂",
+     "title": "Dinlemek",
+     "text": "Partnerinin de duyguları olacaktır. Onları dinlemek ve anlamaya çalışmak güveni güçlendirir."
+    },
+    {
+     "emoji": "🤝",
+     "title": "Birlikte destek",
+     "text": "Gerekirse bir çift terapisti ya da uzman bu sohbeti kolaylaştırabilir."
+    }
+   ],
+   "sourceIds": [
+    "briken2024"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "families",
+   "emoji": "👨‍👩‍👧",
+   "title": "Gençler ve aileler için kaynaklar",
+   "summary": "Bir yakınına yardım etmek istersen.",
+   "slides": [
+    {
+     "emoji": "👨‍👩‍👧",
+     "title": "Bu kamp yetişkinler için",
+     "text": "Bu kamp 18 yaş ve üzeri içindir. Bir gence yardım etmek istiyorsan yaşına uygun kaynaklar daha doğru olur."
+    },
+    {
+     "emoji": "🗣️",
+     "title": "Yargısız konuşmak",
+     "text": "Gençlerle bu konuyu konuşurken utandırmadan, sakin ve merakla yaklaşmak güven oluşturur."
+    },
+    {
+     "emoji": "🏫",
+     "title": "Okul ve uzmanlar",
+     "text": "Okul rehber öğretmenleri ve psikolojik danışmanlar ilk başvuru noktası olabilir."
+    },
+    {
+     "emoji": "📞",
+     "title": "Yeşilay 115",
+     "text": "YEDAM, çocuk ve ergenler ile ailelerine de ücretsiz danışmanlık verir."
+    }
+   ],
+   "sourceIds": [
+    "yedam"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "sleep-control",
+   "emoji": "🌙",
+   "title": "Uyku ve dürtü kontrolü",
+   "summary": "Yorgun beyin daha zor fren yapar.",
+   "slides": [
+    {
+     "emoji": "🌙",
+     "title": "Uyku ve kendini düzenleme",
+     "text": "Uykusuzluk, dürtüleri yönetme ve plan yapma becerisini zayıflatır. Bu yüzden gece geç saatler en riskli dilimdir."
+    },
+    {
+     "emoji": "📵",
+     "title": "Ekran ve uyku",
+     "text": "Yatakta ekran kullanımı hem uykuyu geciktirir hem de riskli bir ortam yaratır."
+    },
+    {
+     "emoji": "🛏️",
+     "title": "Küçük adımlar",
+     "text": "Düzenli yatış saati, telefonu odadan çıkarmak ve sakin bir gece rutini fark edilir bir değişim yaratabilir."
+    },
+    {
+     "emoji": "ℹ️",
+     "title": "Genel bilgi",
+     "text": "Bunlar genel önerilerdir; uzun süren uyku sorunlarında bir hekime danış."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "filters",
+   "emoji": "🧱",
+   "title": "Dijital sınırlar ve filtreler",
+   "summary": "Gerçekçi beklentiler.",
+   "slides": [
+    {
+     "emoji": "🧱",
+     "title": "Filtre bir frendir",
+     "text": "Filtreler ve uygulama sınırları otomatik davranışı yavaşlatır ve zor anlarda zaman kazandırır."
+    },
+    {
+     "emoji": "🔓",
+     "title": "Aşılmaz değildir",
+     "text": "Hiçbir filtre aşılmaz değildir. Filtreye tek başına güvenmek, aşıldığında hayal kırıklığı yaratabilir."
+    },
+    {
+     "emoji": "🛠️",
+     "title": "Becerilerle birlikte",
+     "text": "Filtreler en iyi; değerler, planlar, dürtü sörfü ve destekle birlikte işe yarar."
+    },
+    {
+     "emoji": "📱",
+     "title": "Telefonun kendi araçları",
+     "text": "iPhone'da Ekran Süresi, Android'de Dijital Denge, ek bir uygulamaya gerek kalmadan iyi bir başlangıçtır."
+    }
+   ],
+   "sourceIds": [
+    "bothe2021",
+    "apple"
+   ],
+   "evidenceLevel": "review",
+   "minutes": 3,
+   "reviewed": false
+  },
+  {
+   "id": "values-faith",
+   "emoji": "🕊️",
+   "title": "Değerler ve maneviyat",
+   "summary": "Kendi değerlerinle uyumlu yaşamak.",
+   "slides": [
+    {
+     "emoji": "🕊️",
+     "title": "Herkesin değerleri",
+     "text": "Bazıları için inanç ve maneviyat, bazıları için ilişkiler, sağlık ya da özgürlük ön plandadır. Hepsi saygıyı hak eder."
+    },
+    {
+     "emoji": "🧭",
+     "title": "Uygulama hüküm vermez",
+     "text": "Bu uygulama dini ya da ahlaki bir değerlendirme yapmaz. Değerlerini sen yazarsın; uygulama yalnızca onları sana hatırlatır."
+    },
+    {
+     "emoji": "🤍",
+     "title": "Utanç yerine şefkat",
+     "text": "Değerlerine bağlı olmak, kendine sert davranmayı gerektirmez. Şefkatli bir tutum, değerlerine göre yaşamayı kolaylaştırır."
+    },
+    {
+     "emoji": "🌱",
+     "title": "Kusursuzluk değil, yön",
+     "text": "Amaç bir anda kusursuz olmak değil; her gün değerlerine biraz daha yakın yaşamaktır."
+    }
+   ],
+   "sourceIds": [
+    "grubbs2019b"
+   ],
+   "evidenceLevel": "expert",
+   "minutes": 3,
+   "reviewed": false
+  }
+ ]
+}

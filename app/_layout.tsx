@@ -8,6 +8,7 @@ import { AppEffects } from '@/features/app/AppEffects';
 import { ErrorScreen } from '@/features/app/ErrorScreen';
 import { isAllowedDuringFirstRun, requiredFirstRunRoute } from '@/features/app/gate';
 import { setLanguage } from '@/i18n';
+import '@/features/camps/odak/boundaries/reminderTask';
 import { useCampEventsStore } from '@/stores/campStore';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
@@ -62,9 +63,6 @@ export default function RootLayout() {
           <Stack.Screen name="strength-test" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="fitness/[routineId]" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="story/[storyId]" options={{ presentation: 'fullScreenModal', animation: 'fade' }} />
-          <Stack.Screen name="campus/smoking/craving" options={{ presentation: 'fullScreenModal' }} />
-          <Stack.Screen name="campus/masturbation/urge" options={{ presentation: 'fullScreenModal' }} />
-          <Stack.Screen name="campus/porn/urge" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="campus/neck/routine" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="campus/feet/routine" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="camp/sos" options={{ presentation: 'fullScreenModal' }} />

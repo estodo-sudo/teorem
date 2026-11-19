@@ -1,0 +1,28 @@
+{
+ "title": "Odak Kampı – kişisel özet",
+ "subtitle": "Kullanıcının kendi kayıtlarından, cihazda üretilmiştir. Tanı aracı değildir.",
+ "note": "Bu özet bir öz-yardım programındaki kayıtlara dayanır; klinik bir değerlendirme yerine geçmez. Tarama ölçeklerinin yorumu uzmana aittir.",
+ "rows": {
+  "date": "Özet tarihi",
+  "day": "Program günü",
+  "phase": "Aşama",
+  "goal": "Hedef",
+  "fitTotal": "Hedefe uygun toplam gün",
+  "longest": "En uzun seri",
+  "current": "Mevcut seri",
+  "urges": "Kaydedilen dürtü anı (toplam)",
+  "managed": "Yönetilen dürtü anı",
+  "urgeIntensity": "Ortalama dürtü şiddeti (1–10)",
+  "slipDays14": "Son 14 günde kayma günü",
+  "slipDays30": "Son 30 günde kayma günü",
+  "triggers": "En sık durumlar",
+  "tools": "En çok işe yarayan araçlar",
+  "bps": "Kısa Pornografi Taraması (BPS)",
+  "phq2": "PHQ-2 (son ölçüm)",
+  "gad2": "GAD-2 (son ölçüm)",
+  "mood": "Ortalama ruh hali (son 14 gün, 1–5)",
+  "sleep": "Ortalama uyku kalitesi (son 14 gün, 1–5)"
+ },
+ "none": "Kayıt yok",
+ "dayN": "{n}. gün"
+}

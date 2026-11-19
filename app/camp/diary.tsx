@@ -4,10 +4,10 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Dialog, Header, Icon, Screen, useTheme } from '@/components';
-import { CAMP_ONBOARDING as ONB } from '@/features/camp/content';
-import { diaryReport, hourRange, logsByDay, logsOfAttempt, REPORT_MIN_LOGS, todayCount } from '@/features/camp/engine/diary';
-import { currentAttempt } from '@/features/camp/state';
-import { HourChart, useCampDate } from '@/features/camp/ui';
+import { CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
+import { diaryReport, hourRange, logsByDay, logsOfAttempt, REPORT_MIN_LOGS, todayCount } from '@/features/camps/smoking/engine/diary';
+import { currentAttempt } from '@/features/camps/smoking/state';
+import { HourChart, useCampDate } from '@/features/camps/smoking/ui';
 import { InfoToggle, SectionTitle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

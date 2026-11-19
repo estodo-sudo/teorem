@@ -4,21 +4,12 @@ import { useEffect, useState } from 'react';
 import { BackHandler, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import {
-  AppText,
-  Button,
-  Card,
-  ChoiceCard,
-  Header,
-  ProgressBar,
-  Screen,
-  TimeStepper,
-  useTheme,
-} from '@/components';
+import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, TimeStepper, useTheme } from '@/components';
 import { PlanArt } from '@/components/Illustrations';
 import { APP_NAME, PLAN_LENGTH_DAYS } from '@/config/app';
 import { requestNotificationPermission } from '@/features/reminders/permissions';
 import { generateSession } from '@/features/training/generateSession';
+import { initialTrack } from '@/features/training/kegelProfile';
 import { startingLevelFor } from '@/features/training/levels';
 import { toDateKey } from '@/lib/date';
 import { useProfileStore } from '@/stores/profileStore';
@@ -65,10 +56,11 @@ export default function Onboarding() {
   const next = () => setStep((s) => Math.min(STEPS - 1, s + 1));
 
   const finish = () => {
-    useTrainingStore.getState().update({ level });
+    useTrainingStore.getState().update({ level, track: initialTrack(goals) });
     useSettingsStore.getState().update({ reminderTimes: [time], remindersEnabled: notifAsked !== false });
     useProfileStore.getState().update({ goals, ageRange: age, experience: exp, activity, onboardingDone: true });
-    router.replace('/tutorial');
+    // Kegel v2: the muscle profile screening comes before the tutorial (spec §12).
+    router.replace({ pathname: '/kegel/screening', params: { from: 'onboarding' } });
   };
 
   const canContinue = [true, goals.length > 0, !!age, !!exp, !!activity, true, true][step];
@@ -98,23 +90,14 @@ export default function Onboarding() {
         />
       </>
     ) : (
-      <Button
-        label={step === STEPS - 1 ? tr('onboarding.plan.cta') : tr('common.continue')}
-        size="lg"
-        variant="accent"
-        disabled={!canContinue}
-        onPress={step === STEPS - 1 ? finish : next}
-      />
+      <Button label={step === STEPS - 1 ? tr('onboarding.plan.cta') : tr('common.continue')} size="lg" variant="accent" disabled={!canContinue} onPress={step === STEPS - 1 ? finish : next} />
     );
 
   return (
     <Screen footer={footer}>
       <View style={{ gap: 12 }}>
         {step > 0 ? <Header onBack={() => setStep(step - 1)} /> : <View style={{ height: 48 }} />}
-        <ProgressBar
-          value={(step + 1) / STEPS}
-          accessibilityLabel={tr('onboarding.progress', { step: step + 1, total: STEPS })}
-        />
+        <ProgressBar value={(step + 1) / STEPS} accessibilityLabel={tr('onboarding.progress', { step: step + 1, total: STEPS })} />
       </View>
 
       {step === 0 ? (
@@ -135,14 +118,7 @@ export default function Onboarding() {
       {step === 1 ? (
         <Question title={tr('onboarding.goals.title')} hint={tr('onboarding.goals.hint')}>
           {GOALS.map((g) => (
-            <ChoiceCard
-              key={g.value}
-              multi
-              emoji={g.emoji}
-              label={tr(`goal.${g.value}`)}
-              selected={goals.includes(g.value)}
-              onPress={() => toggleGoal(g.value)}
-            />
+            <ChoiceCard key={g.value} multi emoji={g.emoji} label={tr(`goal.${g.value}`)} selected={goals.includes(g.value)} onPress={() => toggleGoal(g.value)} />
           ))}
         </Question>
       ) : null}
@@ -158,13 +134,7 @@ export default function Onboarding() {
       {step === 3 ? (
         <Question title={tr('onboarding.experience.title')}>
           {EXPERIENCE.map((e) => (
-            <ChoiceCard
-              key={e}
-              label={tr(`onboarding.experience.${e}.label`)}
-              description={tr(`onboarding.experience.${e}.hint`)}
-              selected={exp === e}
-              onPress={() => setExp(e)}
-            />
+            <ChoiceCard key={e} label={tr(`onboarding.experience.${e}.label`)} description={tr(`onboarding.experience.${e}.hint`)} selected={exp === e} onPress={() => setExp(e)} />
           ))}
         </Question>
       ) : null}
@@ -172,13 +142,7 @@ export default function Onboarding() {
       {step === 4 ? (
         <Question title={tr('onboarding.activity.title')} hint={tr('onboarding.activity.hint')}>
           {ACTIVITY.map((a) => (
-            <ChoiceCard
-              key={a}
-              label={tr(`onboarding.activity.${a}.label`)}
-              description={tr(`onboarding.activity.${a}.hint`)}
-              selected={activity === a}
-              onPress={() => setActivity(a)}
-            />
+            <ChoiceCard key={a} label={tr(`onboarding.activity.${a}.label`)} description={tr(`onboarding.activity.${a}.hint`)} selected={activity === a} onPress={() => setActivity(a)} />
           ))}
         </Question>
       ) : null}
@@ -206,7 +170,7 @@ export default function Onboarding() {
               <Mini label={tr('onboarding.plan.start')} value={tr('common.level', { level })} />
               <Mini
                 label={tr('onboarding.plan.daily')}
-                value={tr('common.minutes', { count: Math.round(generateSession(level, 0, toDateKey()).plannedSec / 60) })}
+                value={tr('common.minutes', { count: Math.round(generateSession({ track: 'general', level, durationPreset: 'standard', dayIndex: 0, weekIndex: 0, hypertonic: false, seed: toDateKey() }).plannedSec / 60) })}
               />
               <Mini label={tr('onboarding.plan.reminder')} value={notifAsked === false ? '—' : time} />
             </View>

@@ -1,0 +1,665 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "expert",
+ "sourceIds": [
+  "icd11",
+  "briken2024",
+  "bothe2021",
+  "crosby2016",
+  "kraus2020",
+  "grubbs2019",
+  "phq2",
+  "gad2",
+  "yedam"
+ ],
+ "age": {
+  "title": "Yaşın",
+  "hint": "Bu kamp yalnızca yetişkinler içindir.",
+  "adult": "18 yaşındayım ya da daha büyüğüm",
+  "minor": "18 yaşından küçüğüm"
+ },
+ "under18": {
+  "title": "Bu kamp 18 yaş ve üzeri için",
+  "body": [
+   "Bu konuyu merak etmen ya da bir şeyleri değiştirmek istemen çok doğal. Yalnız değilsin.",
+   "Bu kamp yetişkinler için hazırlandı. Senin yaşına uygun destek almak en iyisi."
+  ],
+  "help": [
+   {
+    "id": "adult",
+    "emoji": "🤝",
+    "title": "Güvendiğin bir yetişkin",
+    "text": "Annen, baban, bir yakının ya da güvendiğin bir büyüğünle konuşmak ilk adım olabilir."
+   },
+   {
+    "id": "school",
+    "emoji": "🏫",
+    "title": "Okul rehber öğretmeni",
+    "text": "Okulundaki rehber öğretmen ya da psikolojik danışman gizlilik içinde seni dinler."
+   },
+   {
+    "id": "yedam",
+    "emoji": "📞",
+    "title": "Yeşilay Danışma Hattı 115",
+    "text": "YEDAM, çocuk ve ergenlere de ücretsiz danışmanlık verir. Arayıp konuşabilirsin.",
+    "phone": "115",
+    "lastVerified": "2026-11-18",
+    "needsVerification": true
+   }
+  ],
+  "emergency": "Acil bir durumda 112'yi ara."
+ },
+ "facts": {
+  "title": "Bilmen gerekenler",
+  "items": [
+   {
+    "emoji": "🩺",
+    "text": "Bu bir tanı aracı değildir. Sana bir etiket koymaz; yalnızca kendi durumunu görmene yardım eder."
+   },
+   {
+    "emoji": "🌱",
+    "text": "Cinsellik ve mastürbasyon insan doğasının bir parçasıdır. Buradaki amaç, davranışı kendi istediğin yere getirmen."
+   },
+   {
+    "emoji": "🤍",
+    "text": "Utanç değişimi zorlaştırır. Burada yargı yok; her adım bir öğrenme fırsatı."
+   },
+   {
+    "emoji": "🔒",
+    "text": "Her şey bu telefonda, kilit arkasında ve şifreli kalır. Sunucu yok, hesap yok."
+   }
+  ]
+ },
+ "lock": {
+  "title": "Kamp kilidi",
+  "body": "Kampa her girişte telefonunun kilidi (yüz, parmak izi ya da kod) sorulur; telefonunda kilit yoksa kendi PIN'ini belirlersin. Uygulama arka plana gidince kamp yeniden kilitlenir."
+ },
+ "reasons": {
+  "title": "Seni buraya getiren ne?",
+  "hint": "Birden fazla seçebilirsin.",
+  "options": [
+   {
+    "id": "porn_control",
+    "emoji": "📵",
+    "label": "Pornografi izlemeyi kontrol edemiyorum"
+   },
+   {
+    "id": "mast_freq",
+    "emoji": "🔁",
+    "label": "Mastürbasyon sıklığım beni rahatsız ediyor"
+   },
+   {
+    "id": "time",
+    "emoji": "⏳",
+    "label": "Zaman kaybı (uyku, iş, ders)"
+   },
+   {
+    "id": "relationship",
+    "emoji": "💞",
+    "label": "İlişkime zarar veriyor"
+   },
+   {
+    "id": "values",
+    "emoji": "🧭",
+    "label": "Değerlerimle çelişiyor"
+   },
+   {
+    "id": "feel_bad",
+    "emoji": "🌧️",
+    "label": "Kendimi kötü hissediyorum (utanç / suçluluk)"
+   },
+   {
+    "id": "coping",
+    "emoji": "🌀",
+    "label": "Kaygı ya da stresle başa çıkma yöntemim haline geldi"
+   },
+   {
+    "id": "other",
+    "emoji": "✏️",
+    "label": "Diğer"
+   }
+  ],
+  "otherPlaceholder": "Kendi cümlenle yaz (isteğe bağlı)"
+ },
+ "bps": {
+  "title": "Kısa tarama (son 6 ay)",
+  "hint": "Kısa Pornografi Taraması (BPS). Doğru ya da yanlış yanıt yok.",
+  "placeholder": true,
+  "placeholderNote": "Bu ölçeğin maddeleri, resmi Türkçe çevirisi ve kullanım izni teyit edilince eklenecek. Şimdilik yer tutucu gösteriliyor.",
+  "items": [
+   "BPS maddesi 1 (resmi Türkçe çeviri teyidi bekleniyor)",
+   "BPS maddesi 2 (resmi Türkçe çeviri teyidi bekleniyor)",
+   "BPS maddesi 3 (resmi Türkçe çeviri teyidi bekleniyor)",
+   "BPS maddesi 4 (resmi Türkçe çeviri teyidi bekleniyor)",
+   "BPS maddesi 5 (resmi Türkçe çeviri teyidi bekleniyor)"
+  ],
+  "options": [
+   {
+    "value": 0,
+    "label": "Hiç"
+   },
+   {
+    "value": 1,
+    "label": "Bazen"
+   },
+   {
+    "value": 2,
+    "label": "Sık sık"
+   }
+  ],
+  "threshold": 4,
+  "resultHigh": "Yanıtların, kullanımının seni zorladığını gösteriyor olabilir. Bir uzmanla konuşmak faydalı olabilir.",
+  "resultLow": "Yanıtların yüksek bir zorlanmaya işaret etmiyor. Yine de rahatsız olduğun bir şey varsa bu kamp sana yardımcı olabilir.",
+  "nonJudge": "Bu bir tanı değildir. Sadece bugün nerede olduğunu gösterir; 42. ve 90. günde yeniden bakıp kendi ilerlemeni görebilirsin."
+ },
+ "freq": {
+  "title": "Son 2 haftada kaç gün?",
+  "hint": "Yaklaşık bir sayı yeterli. Bu bilgi yalnızca kendi başlangıç noktanı görmen için.",
+  "porn": "Pornografi izlediğin gün sayısı",
+  "mast": "Mastürbasyon yaptığın gün sayısı",
+  "unit": "gün"
+ },
+ "triggers": {
+  "title": "En çok hangi durumlarda oluyor?",
+  "hint": "Birden fazla seçebilirsin. Bunlar ilk planlarının konusu olacak.",
+  "options": [
+   {
+    "id": "night_bed",
+    "emoji": "🌙",
+    "label": "Gece yatakta telefonla"
+   },
+   {
+    "id": "alone_home",
+    "emoji": "🏠",
+    "label": "Yalnız evdeyken"
+   },
+   {
+    "id": "stress",
+    "emoji": "😣",
+    "label": "Stres / gerginlik"
+   },
+   {
+    "id": "boredom",
+    "emoji": "🥱",
+    "label": "Can sıkıntısı"
+   },
+   {
+    "id": "loneliness",
+    "emoji": "🫥",
+    "label": "Yalnızlık"
+   },
+   {
+    "id": "anxiety",
+    "emoji": "😟",
+    "label": "Kaygı"
+   },
+   {
+    "id": "sadness",
+    "emoji": "😔",
+    "label": "Üzüntü"
+   },
+   {
+    "id": "tired",
+    "emoji": "😮‍💨",
+    "label": "Yorgunluk"
+   },
+   {
+    "id": "sleepless",
+    "emoji": "🛌",
+    "label": "Uykusuzluk"
+   },
+   {
+    "id": "after_argument",
+    "emoji": "💢",
+    "label": "Tartışma sonrası"
+   },
+   {
+    "id": "social_media",
+    "emoji": "📱",
+    "label": "Sosyal medyada gezinirken"
+   },
+   {
+    "id": "alcohol",
+    "emoji": "🍺",
+    "label": "Alkol sonrası"
+   },
+   {
+    "id": "waking",
+    "emoji": "🌅",
+    "label": "Sabah uyanınca"
+   }
+  ]
+ },
+ "emotions": {
+  "title": "Önce ve sonra ne hissediyorsun?",
+  "hint": "Sonrasındaki duyguyu fark etmek, davranışın sana gerçekte ne kazandırdığını görmene yardım eder.",
+  "beforeTitle": "Genelde önce…",
+  "afterTitle": "Genelde sonra…",
+  "before": [
+   {
+    "id": "stressed",
+    "emoji": "😣",
+    "label": "Gergin"
+   },
+   {
+    "id": "anxious",
+    "emoji": "😟",
+    "label": "Kaygılı"
+   },
+   {
+    "id": "bored",
+    "emoji": "🥱",
+    "label": "Sıkılmış"
+   },
+   {
+    "id": "lonely",
+    "emoji": "🫥",
+    "label": "Yalnız"
+   },
+   {
+    "id": "sad",
+    "emoji": "😔",
+    "label": "Üzgün"
+   },
+   {
+    "id": "tired",
+    "emoji": "😮‍💨",
+    "label": "Yorgun"
+   },
+   {
+    "id": "angry",
+    "emoji": "😠",
+    "label": "Öfkeli"
+   },
+   {
+    "id": "curious",
+    "emoji": "🤔",
+    "label": "Meraklı"
+   },
+   {
+    "id": "neutral",
+    "emoji": "😐",
+    "label": "Belirli bir duygu yok"
+   }
+  ],
+  "after": [
+   {
+    "id": "relieved",
+    "emoji": "😮‍💨",
+    "label": "Rahatlamış"
+   },
+   {
+    "id": "empty",
+    "emoji": "🕳️",
+    "label": "Boşlukta"
+   },
+   {
+    "id": "guilty",
+    "emoji": "😞",
+    "label": "Suçlu"
+   },
+   {
+    "id": "ashamed",
+    "emoji": "🙈",
+    "label": "Utanmış"
+   },
+   {
+    "id": "regret",
+    "emoji": "😕",
+    "label": "Pişman"
+   },
+   {
+    "id": "tired",
+    "emoji": "😴",
+    "label": "Yorgun"
+   },
+   {
+    "id": "calm",
+    "emoji": "😌",
+    "label": "Sakin"
+   },
+   {
+    "id": "neutral",
+    "emoji": "😐",
+    "label": "Bir şey değişmedi"
+   }
+  ]
+ },
+ "values": {
+  "title": "Bu konuda nasıl biri olmak istiyorsun?",
+  "hint": "Senin için önemli olan değerleri seç ve istersen kendi cümlenle yaz. Zor anlarda sana bunları hatırlatacağız.",
+  "cards": [
+   {
+    "id": "honesty",
+    "emoji": "🤝",
+    "label": "Dürüstlük"
+   },
+   {
+    "id": "commitment",
+    "emoji": "💞",
+    "label": "İlişkime bağlılık"
+   },
+   {
+    "id": "self_respect",
+    "emoji": "🌟",
+    "label": "Öz saygı"
+   },
+   {
+    "id": "focus",
+    "emoji": "🎯",
+    "label": "Odak"
+   },
+   {
+    "id": "health",
+    "emoji": "💪",
+    "label": "Sağlık"
+   },
+   {
+    "id": "faith",
+    "emoji": "🕊️",
+    "label": "İnanç / maneviyat"
+   },
+   {
+    "id": "family",
+    "emoji": "🏡",
+    "label": "Aile"
+   },
+   {
+    "id": "productivity",
+    "emoji": "🛠️",
+    "label": "Üretkenlik"
+   },
+   {
+    "id": "learning",
+    "emoji": "📚",
+    "label": "Öğrenme"
+   },
+   {
+    "id": "freedom",
+    "emoji": "🦋",
+    "label": "Özgürlük"
+   },
+   {
+    "id": "connection",
+    "emoji": "🫂",
+    "label": "Yakınlık ve bağ"
+   },
+   {
+    "id": "responsibility",
+    "emoji": "🧱",
+    "label": "Sorumluluk"
+   }
+  ],
+  "textPlaceholder": "Örnek: Zamanımı ve dikkatimi önem verdiğim şeylere vermek istiyorum."
+ },
+ "moral": {
+  "title": "Değerlerinle uyum",
+  "statement": "Bu davranış değerlerimle çelişiyor.",
+  "scale": [
+   "Hiç katılmıyorum",
+   "Katılmıyorum",
+   "Kararsızım",
+   "Katılıyorum",
+   "Tamamen katılıyorum"
+  ],
+  "note": "Bu yanıt yalnızca içeriği sana göre sıralamak için kullanılır; seni yargılamak için değil."
+ },
+ "mood": {
+  "title": "Son 2 haftada ruh halin",
+  "hint": "Son 2 hafta içinde aşağıdaki sorunlar seni ne sıklıkla rahatsız etti?",
+  "phq": [
+   "Bir şeyler yapmaya karşı ilgi ya da istek duymamak",
+   "Kendini çökkün, depresif ya da umutsuz hissetmek"
+  ],
+  "gad": [
+   "Sinirli, kaygılı ya da çok gergin hissetmek",
+   "Endişelenmeyi durduramamak ya da kontrol edememek"
+  ],
+  "options": [
+   {
+    "value": 0,
+    "label": "Hiç"
+   },
+   {
+    "value": 1,
+    "label": "Birkaç gün"
+   },
+   {
+    "value": 2,
+    "label": "Günlerin yarısından fazlası"
+   },
+   {
+    "value": 3,
+    "label": "Neredeyse her gün"
+   }
+  ],
+  "threshold": 3,
+  "resultHigh": "Son günlerin zor geçmiş olabilir. Bir uzmanla konuşmak iyi gelebilir; bu kamp bunun yerine geçmez ama yanında olabilir.",
+  "resultLow": "Teşekkürler. Ruh halin bu süreçte önemli; günlük kontrollerde de soracağız."
+ },
+ "attempts": {
+  "title": "Daha önce denedin mi? Ne oldu?",
+  "hint": "Birden fazla seçebilirsin. Önceki denemeler bu kez neye dikkat edeceğimizi gösterir.",
+  "options": [
+   {
+    "id": "first",
+    "emoji": "✨",
+    "label": "İlk kez deniyorum"
+   },
+   {
+    "id": "short",
+    "emoji": "⏱️",
+    "label": "Kısa sürede bıraktım"
+   },
+   {
+    "id": "slip_quit",
+    "emoji": "↩️",
+    "label": "Bir kayma sonrası tamamen bıraktım"
+   },
+   {
+    "id": "filter",
+    "emoji": "🧱",
+    "label": "Filtre koydum ama aştım"
+   },
+   {
+    "id": "shame",
+    "emoji": "🌧️",
+    "label": "Utanç beni daha kötü yaptı"
+   }
+  ],
+  "note": "Daha önce denemiş olmak çok değerli: Neyin işe yaramadığını biliyorsun."
+ },
+ "goal": {
+  "title": "Hedefini seç",
+  "hint": "Her davranış için ayrı seçersin. Hiçbir hedef diğerinden daha doğru değil; istediğin zaman değiştirebilirsin.",
+  "porn": {
+   "title": "Pornografi",
+   "options": [
+    {
+     "id": "quit",
+     "emoji": "🛑",
+     "label": "Tamamen bırakmak"
+    },
+    {
+     "id": "reduce",
+     "emoji": "📉",
+     "label": "Azaltmak (haftalık üst sınır)"
+    },
+    {
+     "id": "undecided",
+     "emoji": "🤔",
+     "label": "Henüz karar vermedim"
+    }
+   ]
+  },
+  "mast": {
+   "title": "Mastürbasyon",
+   "options": [
+    {
+     "id": "none",
+     "emoji": "➖",
+     "label": "Hedefim yok (sadece pornografi)"
+    },
+    {
+     "id": "reduce",
+     "emoji": "📉",
+     "label": "Azaltmak (haftalık üst sınır)"
+    },
+    {
+     "id": "pause",
+     "emoji": "⏸️",
+     "label": "Belirli bir süre ara vermek"
+    },
+    {
+     "id": "undecided",
+     "emoji": "🤔",
+     "label": "Henüz karar vermedim"
+    }
+   ]
+  },
+  "weeklyMax": "Haftada en fazla",
+  "weeklyUnit": "gün",
+  "pauseTitle": "Ne kadar süre?",
+  "pauseUnit": "gün",
+  "note": "Mastürbasyonun kendisi tıbben zararlı kabul edilmez. Hedefin, senin değerlerin ve hayat kaliten için ne istediğine göre belirlenmeli.",
+  "undecidedNote": "Karar vermemiş olmak da bir başlangıç. İlk hafta kendini izleyerek ne istediğini netleştirebilirsin."
+ },
+ "risky": {
+  "title": "En riskli saatlerin",
+  "hint": "Birden fazla aralık seçebilirsin. Bildirimler ve sınır planın bu saatlere göre ayarlanır.",
+  "ranges": [
+   {
+    "id": "06-09",
+    "label": "06:00–09:00",
+    "from": "06:00",
+    "to": "09:00"
+   },
+   {
+    "id": "09-12",
+    "label": "09:00–12:00",
+    "from": "09:00",
+    "to": "12:00"
+   },
+   {
+    "id": "12-15",
+    "label": "12:00–15:00",
+    "from": "12:00",
+    "to": "15:00"
+   },
+   {
+    "id": "15-18",
+    "label": "15:00–18:00",
+    "from": "15:00",
+    "to": "18:00"
+   },
+   {
+    "id": "18-21",
+    "label": "18:00–21:00",
+    "from": "18:00",
+    "to": "21:00"
+   },
+   {
+    "id": "21-23",
+    "label": "21:00–23:00",
+    "from": "21:00",
+    "to": "23:00"
+   },
+   {
+    "id": "23-01",
+    "label": "23:00–01:00",
+    "from": "23:00",
+    "to": "01:00"
+   },
+   {
+    "id": "01-06",
+    "label": "01:00–06:00",
+    "from": "01:00",
+    "to": "06:00"
+   }
+  ]
+ },
+ "plans": {
+  "title": "İlk 3 planın",
+  "hint": "En sık zorlandığın durumlar için \"Eğer… o zaman…\" planı seç. Önceden karar vermek, o anda karar vermekten çok daha kolaydır.",
+  "if": "Eğer",
+  "then": "O zaman",
+  "empty": "Bir durum seçmedin. Planlarını daha sonra kamp panelinden ekleyebilirsin."
+ },
+ "expert": {
+  "title": "Bir uzmanla konuşmak iyi gelebilir",
+  "body": "Psikiyatri polikliniği ya da bir klinik psikologdan randevu alabilirsin. Yeşilay Danışma Hattı 115 de ücretsiz danışmanlık verir; konunun kapsamını hatta sorabilirsin.",
+  "phone": "115",
+  "phoneLabel": "115'i ara",
+  "lastVerified": "2026-11-18",
+  "needsVerification": true,
+  "emergency": "Acil bir durumda 112'yi ara."
+ },
+ "summary": {
+  "title": "Planın hazır",
+  "goalsTitle": "Hedeflerin",
+  "valuesTitle": "Değerlerin",
+  "plansTitle": "İlk planların",
+  "boundariesTitle": "Ortamını düzenle",
+  "boundaries": [
+   "Telefonu yatak odası dışında şarj et.",
+   "Gece ekranı gri tonlamaya al.",
+   "Çalışma ve yatma alanını ayır.",
+   "Riskli saatlerine başka bir etkinlik planla."
+  ],
+  "boundariesNote": "Hiçbir filtre aşılmaz değildir. Filtre bir fren; asıl güç senin becerilerin ve planın.",
+  "programTitle": "Programın",
+  "programIntro": "6 haftalık çekirdek program, ardından 90. güne kadar pekiştirme.",
+  "phases": [
+   {
+    "emoji": "🔍",
+    "name": "Farkındalık",
+    "days": "1–7. gün",
+    "focus": "Kendini izleme, tetikleyiciler, değerler, ortam düzenleme"
+   },
+   {
+    "emoji": "🧱",
+    "name": "Sınırlar",
+    "days": "8–14. gün",
+    "focus": "Ortam ve dijital sınırlar, riskli saat planları"
+   },
+   {
+    "emoji": "🌊",
+    "name": "Beceriler",
+    "days": "15–28. gün",
+    "focus": "Dürtü sörfü, düşüncelerden ayrışma, duygu düzenleme"
+   },
+   {
+    "emoji": "🏗️",
+    "name": "Yeniden İnşa",
+    "days": "29–42. gün",
+    "focus": "Sağlıklı rutinler, bağlantı, anlam, uyku, hareket"
+   },
+   {
+    "emoji": "🔗",
+    "name": "Pekiştirme",
+    "days": "43–90. gün",
+    "focus": "Kayma önleme, kimlik, haftalık görevler"
+   },
+   {
+    "emoji": "🌿",
+    "name": "Bakım",
+    "days": "90. günden sonra",
+    "focus": "Aylık kontrol, mezuniyet"
+   }
+  ],
+  "goalLabels": {
+   "porn": {
+    "quit": "Pornografi: tamamen bırakmak",
+    "reduce": "Pornografi: haftada en fazla {n} gün",
+    "undecided": "Pornografi: henüz karar vermedim"
+   },
+   "mast": {
+    "none": "Mastürbasyon: hedef yok",
+    "reduce": "Mastürbasyon: haftada en fazla {n} gün",
+    "pause": "Mastürbasyon: {n} gün ara",
+    "undecided": "Mastürbasyon: henüz karar vermedim"
+   }
+  },
+  "bpsAgain": "Kısa taramayı 42. ve 90. günde yeniden yapacağız; yalnızca kendi ilerlemeni görmen için."
+ }
+}

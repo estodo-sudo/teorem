@@ -7,16 +7,19 @@ import i18n from '@/i18n';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useSettingsStore } from '@/stores/settingsStore';
+import { useTrainingStore } from '@/stores/trainingStore';
 
-import { campNotificationRequests, handleCampResponse, setupCampCategory } from '@/features/camp/campNotifications';
+import { campNotifRequests, handleCampNotifResponse, setupCampNotifiers } from '@/features/camps/core/campNotifications';
+import { campNotifiers } from '@/features/camps/registry';
 
 import { planReminders, snoozeDate } from './plan';
 
 const CATEGORY = 'daily-workout';
 const CHANNEL = 'reminders';
 const ACTION_START = 'start';
+const ACTION_MICRO = 'micro';
 const ACTION_SNOOZE_15 = 'snooze15';
-const ACTION_SNOOZE_60 = 'snooze60';
+const ACTION_SKIP_TODAY = 'skipToday';
 
 let initialized = false;
 
@@ -44,20 +47,24 @@ export async function initNotifications() {
       });
     }
     await Notifications.setNotificationCategoryAsync(CATEGORY, [
+      // Kegel v2 (§13): start (3 min), micro set (1 min), snooze 15 min, skip today.
       { identifier: ACTION_START, buttonTitle: i18n.t('reminders.actions.start'), options: { opensAppToForeground: true } },
+      { identifier: ACTION_MICRO, buttonTitle: i18n.t('reminders.actions.micro'), options: { opensAppToForeground: true } },
       { identifier: ACTION_SNOOZE_15, buttonTitle: i18n.t('reminders.actions.snooze15'), options: { opensAppToForeground: false } },
-      { identifier: ACTION_SNOOZE_60, buttonTitle: i18n.t('reminders.actions.snooze60'), options: { opensAppToForeground: false } },
+      { identifier: ACTION_SKIP_TODAY, buttonTitle: i18n.t('reminders.actions.skipToday'), options: { opensAppToForeground: false } },
     ]);
-    // Sigarasız Kamp notifications have their own actions (SOS, check-in, snooze).
-    await setupCampCategory();
+    // Camp notifications have their own actions (e.g. SOS, check-in, snooze).
+    await setupCampNotifiers(campNotifiers());
   } catch {
     // Notifications are optional; never block the app.
   }
 }
 
+/** Today's target (main session + micro sets) reached → the rest of today's reminders stay quiet. */
 function completedToday(): boolean {
   const today = toDateKey();
-  return useHistoryStore.getState().workouts.some((w) => w.date === today && w.completed);
+  const done = useHistoryStore.getState().workouts.filter((w) => w.date === today && w.completed).length;
+  return done >= useTrainingStore.getState().training.dailyTarget;
 }
 
 function lastStrengthTest(): string | null {
@@ -81,6 +88,8 @@ export function syncReminders(): Promise<void> {
         times: s.reminderTimes,
         enabled: s.remindersEnabled,
         completedToday: completedToday(),
+        skipDate: s.reminderSkipDate ?? null,
+        vacation: useTrainingStore.getState().training.vacation,
         discreet: s.discreetNotifications,
         weeklyTest: s.weeklyTestReminder,
         lastStrengthTest: lastStrengthTest(),
@@ -101,8 +110,8 @@ export function syncReminders(): Promise<void> {
           },
         });
       }
-      // Sigarasız Kamp: phase-aware camp notifications share this sync (it cancels everything first).
-      for (const c of campNotificationRequests()) {
+      // Camps: phase-aware camp notifications share this sync (it cancels everything first).
+      for (const c of campNotifRequests(campNotifiers())) {
         await Notifications.scheduleNotificationAsync({
           identifier: c.identifier,
           content: c.content,
@@ -133,7 +142,7 @@ async function snooze(minutes: number) {
 }
 
 export function handleNotificationResponse(res: Notifications.NotificationResponse) {
-  if (handleCampResponse(res)) {
+  if (handleCampNotifResponse(campNotifiers(), res)) {
     if (res.actionIdentifier !== Notifications.DEFAULT_ACTION_IDENTIFIER) void Notifications.dismissNotificationAsync(res.notification.request.identifier).catch(() => {});
     return;
   }
@@ -142,11 +151,15 @@ export function handleNotificationResponse(res: Notifications.NotificationRespon
     case ACTION_SNOOZE_15:
       void snooze(15);
       break;
-    case ACTION_SNOOZE_60:
-      void snooze(60);
+    case ACTION_SKIP_TODAY:
+      useSettingsStore.getState().update({ reminderSkipDate: toDateKey() });
+      void syncReminders();
       break;
     case ACTION_START:
-      router.push({ pathname: '/workout/[sessionId]', params: { sessionId: toDateKey() } });
+      router.push({ pathname: '/workout/[sessionId]', params: { sessionId: 'quick' } });
+      break;
+    case ACTION_MICRO:
+      router.push({ pathname: '/workout/[sessionId]', params: { sessionId: 'micro' } });
       break;
     default:
       if (kind === 'weeklyTest') router.push('/strength-test');

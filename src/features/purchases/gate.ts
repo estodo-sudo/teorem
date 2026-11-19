@@ -6,8 +6,11 @@ import {
   type PaywallMode,
 } from '@/config/monetization';
 
-/** `camp`: Sigarasız Kamp premium parts (its crisis tools, counters and help lines are always free). */
-export type GatedFeature = 'workout' | 'fitness' | 'courses' | 'stories' | 'mind' | 'strengthTest' | 'camp';
+/**
+ * `camp`: Sigarasız Kamp premium parts (its crisis tools, counters and help lines are always free).
+ * `odak`: Odak Kampı premium parts (SOS, slip flow, support, library and the basic counter are always free).
+ */
+export type GatedFeature = 'workout' | 'fitness' | 'courses' | 'stories' | 'mind' | 'strengthTest' | 'camp' | 'odak';
 
 export interface GateContext {
   mode: PaywallMode;
@@ -40,6 +43,7 @@ export function hasAccess(feature: GatedFeature, c: GateContext): boolean {
     case 'courses':
     case 'fitness':
     case 'camp':
+    case 'odak':
       return false;
   }
 }

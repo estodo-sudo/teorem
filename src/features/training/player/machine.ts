@@ -45,10 +45,7 @@ export interface PlayerState<P extends TimedPhase = TimedPhase> {
 }
 
 export type PlayerEvent<P extends TimedPhase = TimedPhase> =
-  | { type: 'phaseStart'; index: number; phase: P; resumed?: boolean }
-  | { type: 'second'; index: number; phase: P; second: number }
-  | { type: 'exerciseComplete'; exerciseIndex: number }
-  | { type: 'completed'; endedEarly: boolean };
+  { type: 'phaseStart'; index: number; phase: P; resumed?: boolean } | { type: 'second'; index: number; phase: P; second: number } | { type: 'exerciseComplete'; exerciseIndex: number } | { type: 'completed'; endedEarly: boolean };
 
 export interface Step<P extends TimedPhase> {
   state: PlayerState<P>;
@@ -236,6 +233,21 @@ export function skipExercise<P extends TimedPhase>(s: PlayerState<P>, now: numbe
   };
 }
 
+/** Restarts the current exercise (group) from its first non-transition phase, paused or running. */
+export function restartExercise<P extends TimedPhase & { kind?: string }>(s: PlayerState<P>, now: number): Step<P> {
+  if (s.status !== 'running' && s.status !== 'paused') return { state: s, events: [] };
+  const cur = currentPhase(s);
+  if (!cur) return { state: s, events: [] };
+  let first = s.index;
+  while (first > 0 && (s.phases[first - 1] as P).exerciseIndex === cur.exerciseIndex) first--;
+  while (first < s.index && (s.phases[first] as P).kind === 'transition') first++;
+  const phase = s.phases[first] as P;
+  return {
+    state: { ...s, status: 'running', index: first, phaseOffsetMs: 0, checkpointAt: now, activeMs: activeTime(s, now), lastSecond: 0 },
+    events: [{ type: 'phaseStart', index: first, phase }],
+  };
+}
+
 /** Ends the session immediately (user pressed "Finish"). */
 export function finish<P extends TimedPhase>(s: PlayerState<P>, now: number): Step<P> {
   if (s.status === 'completed' || s.status === 'idle') {
@@ -257,10 +269,7 @@ export function finish<P extends TimedPhase>(s: PlayerState<P>, now: number): St
 }
 
 /** Per-exercise outcome once the player is completed (or ended early). */
-export function exerciseOutcomes<P extends TimedPhase>(
-  s: PlayerState<P>,
-  exerciseCount: number,
-): { completed: boolean; skipped: boolean }[] {
+export function exerciseOutcomes<P extends TimedPhase>(s: PlayerState<P>, exerciseCount: number): { completed: boolean; skipped: boolean }[] {
   const out: { completed: boolean; skipped: boolean }[] = [];
   for (let i = 0; i < exerciseCount; i++) {
     const skipped = s.skippedExercises.includes(i);

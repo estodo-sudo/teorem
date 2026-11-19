@@ -1,0 +1,58 @@
+{
+ "reviewed": false,
+ "evidenceLevel": "expert",
+ "sourceIds": [
+  "bothe2021",
+  "crosby2016",
+  "marlatt"
+ ],
+ "targets": {
+  "porn": "Pornografi",
+  "mast": "Mastürbasyon"
+ },
+ "counter": {
+  "quit": "{n} gündür hedefinde",
+  "zero": "Bugünü kaydettin; yarın serin yeniden başlıyor",
+  "pause": "Ara: {n}/{limit}. gün",
+  "pauseDone": "{limit} günlük aranı tamamladın 🌿",
+  "reduce": "Bu hafta {used}/{limit} gün",
+  "reduceOver": "Bu hafta {used}/{limit} gün · Sınırın biraz üstündesin; yarın yeni bir gün.",
+  "detail": "Hedefine uygun toplam {total} gün · En uzun seri {longest} gün"
+ },
+ "undecided": {
+  "title": "Kendini izleme",
+  "body": "Henüz bir sayı hedefi seçmedin. Bu hafta {n} kayıt girdin; kayıtların, ne istediğini netleştirmene yardım eder."
+ },
+ "value": {
+  "title": "Değerlerinden biri",
+  "own": "Kendine yazdığın cümle:"
+ },
+ "log": {
+  "title": "Bir davranış kaydet",
+  "hint": "Yargı yok. Kayıt, örüntünü görmene yardım eder; yalnızca bu telefonda, şifreli tutulur.",
+  "options": [
+   {
+    "id": "porn",
+    "emoji": "📵",
+    "label": "Pornografi"
+   },
+   {
+    "id": "mast",
+    "emoji": "🔁",
+    "label": "Mastürbasyon"
+   },
+   {
+    "id": "both",
+    "emoji": "➕",
+    "label": "İkisi birlikte"
+   }
+  ],
+  "saved": "Kaydedildi. Dürüstçe kaydetmek de bir beceri.",
+  "slipTitle": "Bu, yolun bir parçası",
+  "slipBody": "Kendine sert davranmak bir sonrakini kolaylaştırmaz. Birlikte bakalım: ne olduğunu fark etmek bir sonraki sefere hazırlanmaktır.",
+  "kept": "Bir kayma bütün emeğinin silindiği anlamına gelmez: toplam {total} gün hedefine uygun geçti, en uzun serin {longest} gün."
+ },
+ "sosStub": {
+  "title": "Dürtü anı"
+ }
+}

@@ -3,6 +3,15 @@ import { hashString } from '@/lib/random';
 
 export const REMINDER_HORIZON_DAYS = 7;
 export const STRENGTH_TEST_EVERY_DAYS = 7;
+/** Kegel v2: 1–4 reminder times, in any order (sorted automatically, never an error). */
+export const MAX_REMINDER_TIMES = 4;
+/** Habit anchors (SPEC_KEGEL_V2 §13). */
+export const REMINDER_PRESETS = [
+  { id: 'coffee', time: '08:00' },
+  { id: 'lunch', time: '12:30' },
+  { id: 'dinner', time: '20:00' },
+  { id: 'bed', time: '22:30' },
+] as const;
 export const DISCREET_MESSAGE_COUNT = 6;
 export const EXPLICIT_MESSAGE_COUNT = 4;
 
@@ -20,11 +29,15 @@ export interface PlannedReminder {
 
 export interface ReminderInput {
   now: Date;
-  /** "HH:MM" entries (1..3). */
+  /** "HH:MM" entries (1..4, any order). */
   times: string[];
   enabled: boolean;
-  /** Main workout already completed today → skip today's remaining reminders. */
+  /** Today's target (main session + micro sets) reached → skip today's remaining reminders. */
   completedToday: boolean;
+  /** "Skip today" from a notification (date key). */
+  skipDate?: string | null;
+  /** Vacation mode: no reminders on these days (date keys, inclusive). */
+  vacation?: { from: string; to: string };
   discreet: boolean;
   weeklyTest: boolean;
   /** Date key of the last strength test (null = never). */
@@ -48,14 +61,19 @@ export function planReminders(input: ReminderInput): PlannedReminder[] {
   if (!input.enabled || input.times.length === 0) return [];
   const horizon = input.horizonDays ?? REMINDER_HORIZON_DAYS;
   const today = toDateKey(input.now);
-  const times = Array.from(new Set(input.times)).sort().slice(0, 3);
+  const times = Array.from(new Set(input.times.filter((x) => /^\d{2}:\d{2}$/.test(x))))
+    .sort()
+    .slice(0, MAX_REMINDER_TIMES);
+  if (!times.length) return [];
+  const away = (day: string) => Boolean(input.vacation && day >= input.vacation.from && day <= input.vacation.to);
   const out: PlannedReminder[] = [];
   const style = input.discreet ? 'discreet' : 'explicit';
   const count = input.discreet ? DISCREET_MESSAGE_COUNT : EXPLICIT_MESSAGE_COUNT;
 
   for (let d = 0; d < horizon; d++) {
     const day = addDays(today, d);
-    if (d === 0 && input.completedToday) continue;
+    if (d === 0 && (input.completedToday || input.skipDate === today)) continue;
+    if (away(day)) continue;
     times.forEach((time, i) => {
       const fireAt = at(day, time);
       if (fireAt.getTime() <= input.now.getTime()) return;
@@ -73,9 +91,7 @@ export function planReminders(input: ReminderInput): PlannedReminder[] {
   if (input.weeklyTest) {
     const first = times[0]!;
     // First day (from today) on which the last test is ≥ 7 days old.
-    const dueKey = input.lastStrengthTest
-      ? addDays(input.lastStrengthTest, STRENGTH_TEST_EVERY_DAYS)
-      : addDays(today, 1);
+    const dueKey = input.lastStrengthTest ? addDays(input.lastStrengthTest, STRENGTH_TEST_EVERY_DAYS) : addDays(today, 1);
     let key = daysBetween(today, dueKey) < 0 ? today : dueKey;
     let fireAt = at(key, first);
     if (fireAt.getTime() <= input.now.getTime()) {
@@ -84,6 +100,10 @@ export function planReminders(input: ReminderInput): PlannedReminder[] {
     }
     // Shift 30 min after the daily reminder so they don't collide.
     fireAt = new Date(fireAt.getTime() + 30 * 60_000);
+    while (away(key)) {
+      key = addDays(key, 1);
+      fireAt = new Date(at(key, first).getTime() + 30 * 60_000);
+    }
     if (daysBetween(today, key) < horizon + STRENGTH_TEST_EVERY_DAYS) {
       out.push({
         id: `test-${key}`,

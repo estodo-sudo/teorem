@@ -4,11 +4,11 @@ import { Linking, Pressable, ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from '@/features/camp/content';
-import { plansForTrigger, resistedCount } from '@/features/camp/engine/sos';
-import { IntensityScale, DelayTimer, FourECard, MatchGameView, ReasonsView, SosBreath, UrgeSurf } from '@/features/camp/sosTools';
-import { currentAttempt } from '@/features/camp/state';
-import type { ToolId, TriggerId } from '@/features/camp/types';
+import { CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from '@/features/camps/smoking/content';
+import { plansForTrigger, resistedCount } from '@/features/camps/smoking/engine/sos';
+import { IntensityScale, DelayTimer, FourECard, MatchGameView, ReasonsView, SosBreath, UrgeSurf } from '@/features/camps/smoking/sosTools';
+import { currentAttempt } from '@/features/camps/smoking/state';
+import type { ToolId, TriggerId } from '@/features/camps/smoking/types';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';

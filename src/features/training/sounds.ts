@@ -1,13 +1,17 @@
 import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-audio';
 
 /** Optional soft tone cues (off by default). Respects the silent switch. */
-export type SoundCue = 'contract' | 'relax' | 'done' | 'breathe';
+/** v2 (SPEC_KEGEL_V2 §7.4): rising tone = squeeze, falling tone = release, tick = second. */
+export type SoundCue = 'contract' | 'relax' | 'done' | 'breathe' | 'rise' | 'fall' | 'tick';
 
 const SOURCES: Record<SoundCue, number> = {
   contract: require('../../../assets/sounds/contract.wav'),
   relax: require('../../../assets/sounds/relax.wav'),
   done: require('../../../assets/sounds/done.wav'),
   breathe: require('../../../assets/sounds/breathe.wav'),
+  rise: require('../../../assets/sounds/rise.wav'),
+  fall: require('../../../assets/sounds/fall.wav'),
+  tick: require('../../../assets/sounds/tick.wav'),
 };
 
 let players: Partial<Record<SoundCue, AudioPlayer>> = {};
@@ -51,9 +55,11 @@ export function releaseSounds() {
   players = {};
 }
 
-export function soundForPhaseStart(kind: string, stage?: number): SoundCue | null {
-  if (kind === 'contract' && (!stage || stage === 1)) return 'contract';
-  if (kind === 'relax' || kind === 'rest') return 'relax';
+export function soundForPhaseStart(kind: string, stage?: number, variant?: string): SoundCue | null {
+  if (variant === 'top' || variant === 'settle') return null;
+  if (variant === 'slowDown') return 'fall';
+  if ((kind === 'contract' || kind === 'cough') && (!stage || stage === 1)) return 'rise';
+  if (kind === 'relax' || kind === 'rest') return 'fall';
   if (kind === 'inhale') return 'breathe';
   return null;
 }

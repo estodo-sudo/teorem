@@ -1,6 +1,8 @@
 import { DarkTheme, DefaultTheme, router, Stack, ThemeProvider, useSegments, type ErrorBoundaryProps } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
 import { useEffect, useState } from 'react';
+import { Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useTheme } from '@/components';
@@ -35,7 +37,12 @@ export default function RootLayout() {
     if (gate && blocked) router.replace(gate);
   }, [gate, blocked]);
 
+  // Inter ships inside the app bundle (assets), nothing is fetched from the network.
+  const [fontsReady, fontError] = useFonts({ Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold });
   const navTheme = theme.dark ? DarkTheme : DefaultTheme;
+  // Native: the bundled faces load in a few ms, so wait for them (no flash of the system font).
+  // Web preview: render at once and let the faces swap in.
+  if (!fontsReady && !fontError && Platform.OS !== 'web') return null;
   return (
     <SafeAreaProvider>
       <ThemeProvider
@@ -47,7 +54,7 @@ export default function RootLayout() {
             card: theme.colors.surface,
             text: theme.colors.text,
             border: theme.colors.border,
-            primary: theme.colors.accent,
+            primary: theme.colors.primary,
           },
         }}
       >

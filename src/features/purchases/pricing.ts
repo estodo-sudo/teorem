@@ -49,6 +49,14 @@ export function monthlyEquivalent(offer: Offer, locale = 'tr-TR'): string | null
   return formatMoney(Math.floor(perMonth * 100) / 100, offer.currency, locale);
 }
 
+/** Real weekly-equivalent of a plan (store price only, rounded down); null for weekly, lifetime or unknown prices. */
+export function weeklyEquivalent(offer: Offer, locale = 'tr-TR'): string | null {
+  if (offer.price == null || !offer.currency) return null;
+  const perWeek = { weekly: NaN, monthly: (offer.price * 12) / 52, yearly: offer.price / 52, lifetime: NaN }[offer.key];
+  if (!Number.isFinite(perWeek)) return null;
+  return formatMoney(Math.floor(perWeek * 100) / 100, offer.currency, locale);
+}
+
 /**
  * Honest saving of yearly vs paying monthly for 12 months, in whole percent.
  * null when prices are missing, currencies differ, or there is no saving.
@@ -59,6 +67,21 @@ export function yearlySavingPercent(yearly: Offer | undefined, monthly: Offer | 
   const full = monthly.price * 12;
   if (full <= 0 || yearly.price >= full) return null;
   return Math.floor(((full - yearly.price) / full) * 100);
+}
+
+/**
+ * How much more (+) or less (−) `other` costs per month than `selected`, store prices only.
+ * null when a price or currency is missing, currencies differ, a plan is lifetime, or the difference is 0.
+ */
+export function monthlyDifference(other: Offer, selected: Offer, locale = 'tr-TR'): { sign: '+' | '-'; amount: string } | null {
+  const per = (o: Offer) => (o.price == null ? NaN : { weekly: (o.price * 52) / 12, monthly: o.price, yearly: o.price / 12, lifetime: NaN }[o.key]);
+  if (!other.currency || other.currency !== selected.currency) return null;
+  const diff = per(other) - per(selected);
+  if (!Number.isFinite(diff)) return null;
+  // Round down to the cent so a difference is never overstated.
+  const cents = Math.floor(Math.abs(diff) * 100);
+  if (cents === 0) return null;
+  return { sign: diff > 0 ? '+' : '-', amount: formatMoney(cents / 100, other.currency, locale) };
 }
 
 export function trialEndDate(now: Date, days: number): Date {

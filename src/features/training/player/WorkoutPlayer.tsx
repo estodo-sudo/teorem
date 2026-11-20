@@ -5,9 +5,11 @@ import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
 import { AppText, Dialog, Icon, useTheme, type IconName } from '@/components';
+import { lightTheme } from '@/config/theme';
+import { IconTile } from '@/components/ui';
 import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useSettingsStore } from '@/stores/settingsStore';
-import type { ExerciseType } from '@/types';
+import type { ExerciseType, Position } from '@/types';
 
 import { cancelHaptics, playCue } from '../haptics';
 import { cueForHoldSecond, cueForPhase } from '../hapticPatterns';
@@ -18,8 +20,11 @@ import { activeTime, currentPhase, exerciseOutcomes, remainingInPhase, type Play
 import { MuscleSphere } from './MuscleSphere';
 import { blockSegments, cueText, firstPosition, nextPreview, positionCard, segmentFill } from './playerUi';
 import { usePlayerGestures } from './usePlayerGestures';
-import { sphereTarget, sphereWord } from './sphereMotion';
+import { sphereWord } from './sphereMotion';
 import { usePlayer } from './usePlayer';
+
+/** Neutral position icons (ui-v3): lying, sitting, standing, functional (everyday). */
+const POSITION_ICON: Record<Position, IconName> = { lying: 'bed', sitting: 'chair', standing: 'body', functional: 'pulse' };
 
 export interface PlayerResult {
   actualSec: number;
@@ -45,7 +50,7 @@ interface Props {
 }
 
 /**
- * Kegel player v2 (SPEC_KEGEL_V2 §7.1, §7.3): segmented block bar, block name and rep counter,
+ * Kegel player v2 (SPEC_KEGEL_V2 §7.1, §7.3), ui-v3 dark focus look (SPEC_UI_V3 §7.4): segmented block bar, block name and rep counter,
  * position icon; the Kas Küresi in the middle; a rotating technique cue and large controls below.
  * Gestures: tap anywhere = pause / resume, hold 1 s = "finish?", swipe left = skip block (asks once),
  * double tap = black screen (only vibration and optional sound stay). The pain button stops at once.
@@ -184,8 +189,6 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const sphereSize = Math.min(width * 0.78, height * 0.46, 340);
   const label = phaseLabel(phase, tr, elapsedMs, exercise?.type);
   // v1 colouring: squeeze colour while squeezing (also the slow release), plain text colour when relaxing.
-  const tone = sphereTarget(phase, exercise?.type).tone;
-  const labelColor = tone === 'accent' ? t.colors.contract : tone === 'breath' ? t.colors.breathe : t.colors.text;
   const secondsLeft = Math.ceil(remainingMs / 1000);
   const posMs = (state.startOffsets[state.index] ?? state.totalMs) + Math.min(phase.durationMs, elapsedMs);
   const segments = useMemo(() => blockSegments(session.phases), [session.phases]);
@@ -231,31 +234,33 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   // Gesture layer: tap / double tap / hold 1 s / swipe left on the whole screen.
   const pan = usePlayerGestures({ onTap: toggle, onDoubleTap: () => setBlack((b) => !b), onLongPress: askFinish, onSwipeLeft: askSkip });
 
-  const colors = { neutral: t.colors.primary, accent: t.colors.contract, cool: t.colors.relax, breath: t.colors.breathe, ring: t.colors.accent, track: t.colors.border, paused: t.colors.locked };
+  const f = t.focus;
+  const colors = { neutral: f.idle, accent: f.orbEdge, cool: f.relax, breath: t.tokens.breathe, ring: f.orbEdge, track: f.track, paused: f.paused, glow: f.glow, highlight: f.orbCenter };
+  const overall = state.totalMs > 0 ? Math.min(1, (state.status === 'completed' ? state.totalMs : posMs) / state.totalMs) : 0;
 
   return (
     <View style={styles.flex} {...pan.panHandlers} accessibilityHint={tr('player.gestureHint')}>
-      {/* Top: segmented bar, block name + rep counter, position icon, pain button */}
-      <View style={{ gap: 10 }}>
-        <SegmentBar fills={fills} active={segments.findIndex((s) => s.exerciseIndex === phase.exerciseIndex)} color={t.colors.accent} track={t.colors.border} label={tr('player.progress')} />
+      {/* Top: thin segmented bar; block name + rep counter; position, help and pain icons (44 px each) */}
+      <View style={{ gap: t.space.md }}>
+        <SegmentBar fills={fills} active={segments.findIndex((s) => s.exerciseIndex === phase.exerciseIndex)} color={f.text} track={f.track} label={tr('player.progress')} />
         <View style={styles.rowBetween}>
           <View style={{ flex: 1 }}>
             {!discreet ? (
-              <AppText variant="h3" numberOfLines={1}>
+              <AppText variant="title3" color={f.text}>
                 {blockName}
               </AppText>
             ) : null}
             {!discreet && counter ? (
-              <AppText muted accessibilityLiveRegion="polite">
+              <AppText variant="footnote" tabular color={f.dim} accessibilityLiveRegion="polite">
                 {counter}
               </AppText>
             ) : null}
           </View>
-          <View accessible accessibilityLabel={tr('player.positionNow', { position: positionCard(position).title })} style={{ paddingHorizontal: 6 }}>
-            <AppText variant="h2">{positionCard(position).emoji}</AppText>
+          <View accessible accessibilityRole="image" accessibilityLabel={tr('player.positionNow', { position: positionCard(position).title })} style={styles.iconBtn}>
+            <Icon name={POSITION_ICON[position]} color={f.icon} size="lg" />
           </View>
-          <IconButton icon="help" label={tr('player.help')} onPress={() => setHelpOpen(true)} color={t.colors.textMuted} />
-          {!minimal ? <IconButton icon="shield" label={tr('player.painButton')} onPress={onPain} color={t.colors.danger} /> : null}
+          <IconButton icon="help" label={tr('player.help')} onPress={() => setHelpOpen(true)} color={f.icon} />
+          {!minimal ? <IconButton icon="painCare" label={tr('player.painButton')} onPress={onPain} color={f.icon} /> : null}
         </View>
       </View>
 
@@ -263,20 +268,20 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
       <View style={styles.center} accessible accessibilityLabel={`${label}. ${secondsLeft}`} accessibilityLiveRegion="assertive">
         <MuscleSphere size={sphereSize} phase={phase} exerciseType={exercise?.type} phaseKey={state.index} elapsedMs={elapsedMs} paused={paused} finished={state.status === 'completed' && !state.endedEarly} colors={colors}>
           {phase.durationMs >= 1000 && !paused ? (
-            <AppText variant="display" color="#FFFFFF" center style={styles.shadow}>
+            <AppText variant="display" tabular color={f.text} center style={styles.shadow}>
               {secondsLeft}
             </AppText>
           ) : null}
         </MuscleSphere>
       </View>
-      {/* v1: the phase word under the circle, in the phase colour. */}
-      <View style={{ minHeight: 64, justifyContent: 'center' }}>
+      {/* The phase word under the sphere: calm white title, not coloured (ui-v3). */}
+      <View style={{ minHeight: 44, justifyContent: 'center' }}>
         {paused ? (
-          <AppText variant="display" center color={t.colors.textMuted}>
+          <AppText variant="title1" weight="600" center color={f.dim}>
             {tr('player.paused')}
           </AppText>
         ) : !discreet ? (
-          <AppText variant="display" center color={labelColor} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.6} accessibilityElementsHidden importantForAccessibility="no">
+          <AppText variant="title1" weight="600" center color={f.text} accessibilityElementsHidden importantForAccessibility="no">
             {label}
           </AppText>
         ) : null}
@@ -285,17 +290,17 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
       {/* Bottom: rotating technique cue + controls */}
       <View style={{ minHeight: 44, justifyContent: 'center', paddingHorizontal: 8 }}>
         {cue ? (
-          <AppText muted center numberOfLines={2}>
+          <AppText variant="callout" center color={f.dim}>
             {cue}
           </AppText>
         ) : null}
       </View>
       <View style={styles.controls}>
-        {!minimal ? <IconButton icon="skip" label={tr('player.skip')} onPress={askSkip} color={t.colors.text} /> : <View style={{ width: 56 }} />}
-        <Pressable accessibilityRole="button" accessibilityLabel={paused ? tr('player.resume') : tr('player.pause')} onPress={toggle} style={({ pressed }) => [styles.mainBtn, { backgroundColor: t.colors.accent, opacity: pressed ? 0.85 : 1 }]}>
-          <Icon name={paused ? 'play' : 'pause'} color={t.colors.accentText} size={36} />
+        {!minimal ? <IconButton icon="skip" label={tr('player.skip')} onPress={askSkip} color={f.dim} /> : <View style={styles.iconBtn} />}
+        <Pressable accessibilityRole="button" accessibilityLabel={paused ? tr('player.resume') : tr('player.pause')} onPress={toggle} style={({ pressed }) => [styles.mainBtn, { backgroundColor: f.control, opacity: pressed ? 0.8 : 1 }]}>
+          <Icon name={paused ? 'play' : 'pause'} color={f.text} size={32} />
         </Pressable>
-        {!minimal ? <IconButton icon="stop" label={tr('player.finish')} onPress={askFinish} color={t.colors.text} /> : <View style={{ width: 56 }} />}
+        {!minimal ? <IconButton icon="stop" label={tr('player.finish')} onPress={askFinish} color={f.dim} /> : <View style={styles.iconBtn} />}
       </View>
 
       {/* Start: the position card; between blocks: "Next" with a mini preview (and the position change) */}
@@ -303,7 +308,14 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
       {preview && running ? <NextCard key={state.index} block={preview.block} positionChanged={preview.positionChanged} /> : null}
 
       {/* Black (discreet) mode: everything hidden, gestures still work */}
-      {black ? <View style={[StyleSheet.absoluteFill, { backgroundColor: '#000000', margin: -40 }]} {...pan.panHandlers} accessible accessibilityLabel={tr('player.blackMode')} accessibilityHint={tr('player.blackHint')} /> : null}
+      {black ? (
+        <View style={[StyleSheet.absoluteFill, { backgroundColor: f.black, margin: -40 }]} {...pan.panHandlers} accessible accessibilityLabel={tr('player.blackMode')} accessibilityHint={tr('player.blackHint')}>
+          {/* Only a 2 px progress line stays visible. */}
+          <View pointerEvents="none" style={{ position: 'absolute', top: 40, left: 40, right: 40, height: 2, backgroundColor: f.control }}>
+            <View style={{ width: `${overall * 100}%`, height: '100%', backgroundColor: f.dim }} />
+          </View>
+        </View>
+      ) : null}
 
       <Dialog
         visible={interrupted}
@@ -349,8 +361,8 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
           {(tr('player.helpTips', { returnObjects: true }) as string[]).map((tip) => (
             <AppText key={tip}>• {tip}</AppText>
           ))}
-          <View style={[styles.warn, { backgroundColor: t.dark ? '#3A2414' : '#FFF1E6', borderRadius: t.radius.md }]}>
-            <AppText weight="700" color={t.colors.danger}>
+          <View style={[styles.warn, { backgroundColor: t.tokens.destructiveSoft, borderRadius: t.radius.md }]}>
+            <AppText weight="600" color={t.tokens.destructive}>
               {tr('player.painWarning')}
             </AppText>
           </View>
@@ -364,9 +376,9 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
 function SegmentBar({ fills, active, color, track, label }: { fills: number[]; active: number; color: string; track: string; label: string }) {
   const done = fills.filter((f) => f >= 1).length;
   return (
-    <View style={{ flexDirection: 'row', gap: 4, height: 8 }} accessible accessibilityRole="progressbar" accessibilityLabel={label} accessibilityValue={{ min: 0, max: fills.length, now: done }}>
+    <View style={{ flexDirection: 'row', gap: 4, height: 3 }} accessible accessibilityRole="progressbar" accessibilityLabel={label} accessibilityValue={{ min: 0, max: fills.length, now: done }}>
       {fills.map((f, i) => (
-        <View key={i} style={{ flex: 1, borderRadius: 4, backgroundColor: track, overflow: 'hidden', opacity: i === active || f >= 1 ? 1 : 0.7 }}>
+        <View key={i} style={{ flex: 1, borderRadius: 2, backgroundColor: track, overflow: 'hidden', opacity: i === active || f >= 1 ? 1 : 0.6 }}>
           <View style={{ width: `${f * 100}%`, height: '100%', backgroundColor: color }} />
         </View>
       ))}
@@ -374,23 +386,23 @@ function SegmentBar({ fills, active, color, track, label }: { fills: number[]; a
   );
 }
 
-/** Position card at the start (§5): illustration emoji + one sentence. */
+/** Position card at the start (§5): position icon + one sentence. */
 function PositionCardView({ position, title, notice }: { position: SessionBlock['position']; title: string; notice?: string }) {
   const t = useTheme();
   const card = positionCard(position);
   return (
-    <View pointerEvents="none" style={[styles.sheet, { backgroundColor: t.colors.surface, borderColor: t.colors.border }]}>
-      <AppText variant="display">{card.emoji}</AppText>
+    <View pointerEvents="none" style={[styles.sheet, { backgroundColor: t.tokens.card, borderColor: t.tokens.border, borderRadius: t.radius.lg, padding: t.space.lg, gap: t.space.md }]}>
+      <IconTile icon={POSITION_ICON[position]} size="lg" />
       <View style={{ flex: 1, gap: 2 }}>
-        <AppText variant="small" weight="800" muted>
+        <AppText variant="caption" muted>
           {title}
         </AppText>
-        <AppText weight="800">{card.title}</AppText>
-        <AppText variant="small" muted>
+        <AppText variant="title3">{card.title}</AppText>
+        <AppText variant="footnote" muted>
           {card.text}
         </AppText>
         {notice ? (
-          <AppText variant="small" weight="800" color={t.colors.danger}>
+          <AppText variant="footnote" weight="600" color={t.tokens.destructive}>
             {notice}
           </AppText>
         ) : null}
@@ -405,8 +417,8 @@ function NextCard({ block, positionChanged }: { block: SessionBlock; positionCha
   const { t: tr } = useTranslation();
   const y = useSharedValue(90);
   useEffect(() => {
-    y.value = withTiming(0, { duration: 250, easing: Easing.out(Easing.cubic) });
-  }, [y]);
+    y.value = withTiming(0, { duration: t.motion.normal, easing: Easing.out(Easing.cubic) });
+  }, [y, t.motion.normal]);
   const style = useAnimatedStyle(() => ({ transform: [{ translateY: y.value }], opacity: 1 - y.value / 90 }));
   const card = positionCard(block.position);
   const detail = block.slowSec
@@ -415,18 +427,21 @@ function NextCard({ block, positionChanged }: { block: SessionBlock; positionCha
       ? tr('player.nextDetail', { hold: block.holdSec, rest: block.restSec })
       : tr('player.nextRelease');
   return (
-    <Animated.View pointerEvents="none" style={[styles.sheet, { backgroundColor: t.colors.surface, borderColor: positionChanged ? t.colors.accent : t.colors.border }, style]}>
-      <MiniPreview type={block.type} color={t.colors.contract} calm={t.colors.breathe} />
+    <Animated.View pointerEvents="none" style={[styles.sheet, { backgroundColor: t.tokens.card, borderColor: positionChanged ? t.tokens.primary : t.tokens.border, borderRadius: t.radius.lg, padding: t.space.lg, gap: t.space.md }, style]}>
+      <MiniPreview type={block.type} color={t.focus.orbEdge} calm={t.tokens.breathe} />
       <View style={{ flex: 1, gap: 2 }}>
-        <AppText weight="800">{tr('player.nextTitle', { name: tr(`exercise.${block.type}.name`), reps: block.reps })}</AppText>
-        <AppText variant="small" muted>
+        <AppText variant="title3">{tr('player.nextTitle', { name: tr(`exercise.${block.type}.name`), reps: block.reps })}</AppText>
+        <AppText variant="footnote" muted>
           {detail}
         </AppText>
-        <AppText variant="small" weight={positionChanged ? '800' : '400'} color={positionChanged ? t.colors.accent : undefined} muted={!positionChanged}>
-          {card.emoji} {positionChanged ? tr('player.positionChange', { position: card.title }) : card.title}
-        </AppText>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs }}>
+          <Icon name={POSITION_ICON[block.position]} size="sm" color={positionChanged ? t.tokens.primary : t.tokens.mutedForeground} />
+          <AppText variant="footnote" weight={positionChanged ? '600' : '400'} color={positionChanged ? t.tokens.primary : t.tokens.mutedForeground}>
+            {positionChanged ? tr('player.positionChange', { position: card.title }) : card.title}
+          </AppText>
+        </View>
         {positionChanged ? (
-          <AppText variant="small" muted>
+          <AppText variant="footnote" muted>
             {card.text}
           </AppText>
         ) : null}
@@ -456,7 +471,7 @@ function MiniPreview({ type, color, calm }: { type: ExerciseType; color: string;
 function IconButton({ icon, label, onPress, color }: { icon: IconName; label: string; onPress: () => void; color: string }) {
   return (
     <Pressable accessibilityRole="button" accessibilityLabel={label} onPress={onPress} hitSlop={8} style={({ pressed }) => [styles.iconBtn, { opacity: pressed ? 0.6 : 1 }]}>
-      <Icon name={icon} color={color} size={28} />
+      <Icon name={icon} color={color} size="lg" />
     </Pressable>
   );
 }
@@ -470,10 +485,10 @@ const styles = StyleSheet.create({
   flex: { flex: 1, justifyContent: 'space-between' },
   rowBetween: { flexDirection: 'row', alignItems: 'center' },
   center: { alignItems: 'center', justifyContent: 'center', flex: 1 },
-  shadow: { textShadowColor: 'rgba(0,0,0,0.35)', textShadowRadius: 8, textShadowOffset: { width: 0, height: 1 } },
+  shadow: { textShadowColor: lightTheme.veil.shadow, textShadowRadius: 8, textShadowOffset: { width: 0, height: 1 } },
   controls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', paddingVertical: 12 },
-  mainBtn: { width: 88, height: 88, borderRadius: 44, alignItems: 'center', justifyContent: 'center' },
-  iconBtn: { width: 56, height: 56, alignItems: 'center', justifyContent: 'center' },
+  mainBtn: { width: 72, height: 72, borderRadius: 36, alignItems: 'center', justifyContent: 'center' },
+  iconBtn: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   warn: { padding: 12, marginTop: 4 },
-  sheet: { position: 'absolute', left: 0, right: 0, bottom: 120, flexDirection: 'row', alignItems: 'center', gap: 12, padding: 14, borderRadius: 16, borderWidth: 2 },
+  sheet: { position: 'absolute', left: 0, right: 0, bottom: 120, flexDirection: 'row', alignItems: 'center', borderWidth: 1 },
 });

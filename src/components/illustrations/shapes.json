@@ -1,0 +1,643 @@
+{
+ "onboarding-welcome": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 92,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M36.0 110.0 A44 44 0 0 1 124.0 110.0",
+    "stroke": "line",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 76.0,
+    "r": 9.0,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M62.0 120.0 Q80.0 88.0 98.0 120.0",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 30,
+    "y1": 132,
+    "x2": 130,
+    "y2": 132,
+    "stroke": "line",
+    "w": 2
+   }
+  ]
+ },
+ "onboarding-goals": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 40,
+    "fill": null,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 22,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 5,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 118,
+    "y1": 42,
+    "x2": 86,
+    "y2": 74,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 118,
+    "y1": 42,
+    "x2": 118,
+    "y2": 54,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 118,
+    "y1": 42,
+    "x2": 106,
+    "y2": 42,
+    "stroke": "fg",
+    "w": 2
+   }
+  ]
+ },
+ "onboarding-plan": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 40,
+    "y1": 116,
+    "x2": 66,
+    "y2": 96,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 66,
+    "y1": 96,
+    "x2": 92,
+    "y2": 84,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 92,
+    "y1": 84,
+    "x2": 120,
+    "y2": 56,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 40,
+    "y": 116,
+    "r": 6,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 66,
+    "y": 96,
+    "r": 6,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 92,
+    "y": 84,
+    "r": 6,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 120,
+    "y": 56,
+    "r": 8,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   }
+  ]
+ },
+ "empty-progress": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 42,
+    "y1": 112,
+    "x2": 118,
+    "y2": 112,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 56,
+    "y1": 112,
+    "x2": 56,
+    "y2": 92,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 80,
+    "y1": 112,
+    "x2": 80,
+    "y2": 76,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 104,
+    "y1": 112,
+    "x2": 104,
+    "y2": 60,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 104,
+    "y": 52,
+    "r": 4,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   }
+  ]
+ },
+ "empty-history": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M50 52 H104 V112 H50 Z",
+    "stroke": "line",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 60,
+    "y1": 70,
+    "x2": 94,
+    "y2": 70,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 60,
+    "y1": 84,
+    "x2": 86,
+    "y2": 84,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 98,
+    "y1": 104,
+    "x2": 120,
+    "y2": 82,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 98,
+    "y": 104,
+    "r": 3,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   }
+  ]
+ },
+ "empty-trophies": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M80.0 38.0 A42 42 0 0 1 80.0 122.0",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M80 50 L106 65 L106 95 L80 110 L54 95 L54 65 Z",
+    "stroke": "line",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 6,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   }
+  ]
+ },
+ "session-complete": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 36,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M64 80 L76 92 L98 68",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   }
+  ]
+ },
+ "paywall-hero": {
+  "tone": "kegel",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 40,
+    "fill": null,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M80 104 C60 96 60 66 80 54 C100 66 100 96 80 104 Z",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 80,
+    "y1": 104,
+    "x2": 80,
+    "y2": 70,
+    "stroke": "fg",
+    "w": 2
+   }
+  ]
+ },
+ "mind-breathing": {
+  "tone": "mind",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 44,
+    "fill": null,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 30,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 14,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 4,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   }
+  ]
+ },
+ "camp-smokefree-welcome": {
+  "tone": "smokefree",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M50.0 104.0 A30 30 0 0 1 110.0 104.0",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 40,
+    "y1": 104,
+    "x2": 120,
+    "y2": 104,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M44 68 Q64 58 84 68 T124 68",
+    "stroke": "line",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M52 84 Q68 76 84 84",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   }
+  ]
+ },
+ "camp-focus-welcome": {
+  "tone": "focus",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 18,
+    "fill": null,
+    "stroke": "fg",
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 4,
+    "fill": "fg",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 46,
+    "y": 56,
+    "r": 3,
+    "fill": "line",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 118,
+    "y": 60,
+    "r": 3,
+    "fill": "line",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 50,
+    "y": 108,
+    "r": 3,
+    "fill": "line",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "c",
+    "x": 114,
+    "y": 106,
+    "r": 3,
+    "fill": "line",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 54,
+    "y1": 62,
+    "x2": 66,
+    "y2": 70,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 110,
+    "y1": 66,
+    "x2": 96,
+    "y2": 72,
+    "stroke": "line",
+    "w": 2
+   }
+  ]
+ },
+ "campus-welcome": {
+  "tone": "campus",
+  "shapes": [
+   {
+    "t": "c",
+    "x": 80,
+    "y": 80,
+    "r": 58,
+    "fill": "soft",
+    "stroke": null,
+    "w": 2
+   },
+   {
+    "t": "p",
+    "d": "M54 112 V76 A26 26 0 0 1 106 76 V112",
+    "stroke": "fg",
+    "fill": null,
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 40,
+    "y1": 112,
+    "x2": 120,
+    "y2": 112,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 80,
+    "y1": 112,
+    "x2": 72,
+    "y2": 132,
+    "stroke": "line",
+    "w": 2
+   },
+   {
+    "t": "l",
+    "x1": 80,
+    "y1": 112,
+    "x2": 88,
+    "y2": 132,
+    "stroke": "line",
+    "w": 2
+   }
+  ]
+ }
+}

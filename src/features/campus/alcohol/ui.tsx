@@ -17,7 +17,7 @@ export function DrinkSheet({ visible, onPick, onClose }: { visible: boolean; onP
   const { t: tr } = useTranslation();
   return (
     <Dialog visible={visible} title={tr('acampus.drinkSheet.title')} message={tr('acampus.drinkSheet.hint')} onDismiss={onClose} actions={[{ label: tr('common.close'), variant: 'ghost', onPress: onClose }]}>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {ALC.drinks.map((d) => (
           <Pressable
             key={d.id}
@@ -36,7 +36,7 @@ export function DrinkSheet({ visible, onPick, onClose }: { visible: boolean; onP
             })}
           >
             <AppText weight="800">
-              {d.emoji} {d.title}
+              {d.title}
             </AppText>
             <AppText variant="tiny" muted>
               {d.detail}
@@ -59,8 +59,8 @@ export function DayBars({ days, locale }: { days: { key: string; std: number; be
   const barArea = height - 18;
   const maxVal = Math.max(DAILY_MAX, ...days.map((d) => d.std)) * 1.15;
   return (
-    <View style={{ gap: 8 }}>
-      <View style={{ height, flexDirection: 'row', alignItems: 'flex-end', gap: 8 }}>
+    <View style={{ gap: t.space.sm }}>
+      <View style={{ height, flexDirection: 'row', alignItems: 'flex-end', gap: t.space.sm }}>
         <View pointerEvents="none" style={{ position: 'absolute', left: 0, right: 0, bottom: (DAILY_MAX / maxVal) * barArea, borderTopWidth: 2, borderStyle: 'dashed', borderColor: t.colors.warning, opacity: 0.7 }} />
         {days.map((d, i) => {
           const color = d.before ? t.colors.border : d.std === 0 ? t.colors.success : d.std > DAILY_MAX ? t.colors.danger : t.colors.primary;
@@ -75,12 +75,12 @@ export function DayBars({ days, locale }: { days: { key: string; std: number; be
               <AppText variant="tiny" weight="800" muted>
                 {d.before ? '–' : d.std === 0 ? '0' : fmt(d.std)}
               </AppText>
-              <View style={{ width: 24, height: d.std === 0 ? 6 : Math.max(6, (d.std / maxVal) * barArea), borderRadius: 8, backgroundColor: today ? tint(color, 'AA') : color }} />
+              <View style={{ width: 24, height: d.std === 0 ? 6 : Math.max(6, (d.std / maxVal) * barArea), borderRadius: t.radius.sm, backgroundColor: today ? tint(color, 'AA') : color }} />
             </View>
           );
         })}
       </View>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
         {days.map((d, i) => (
           <AppText key={d.key} variant="tiny" muted center style={{ flex: 1 }} weight={i === days.length - 1 ? '800' : undefined}>
             {fromDateKey(d.key).toLocaleDateString(locale, { weekday: 'short' })}
@@ -98,9 +98,9 @@ export function WithdrawalBanner() {
   const w = ALC.withdrawal;
   const amatem = ALC.help.find((h) => h.id === 'amatem');
   return (
-    <View style={{ gap: 8, padding: 16, borderRadius: t.radius.lg, borderWidth: 2, borderColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '14') }}>
+    <View style={{ gap: t.space.sm, padding: t.space.lg, borderRadius: t.radius.lg, borderWidth: 2, borderColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '14') }}>
       <AppText variant="h3" color={t.colors.danger}>
-        ⚠️ {w.riskTitle}
+        {w.riskTitle}
       </AppText>
       <AppText variant="small">{w.riskText}</AppText>
       <AppText variant="small" weight="700">

@@ -11,6 +11,7 @@ import { PremiumLock } from '@/features/camps/smoking/ui';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 /** One library story, then its sources and the "not medical advice" note. */
 export default function CampLibraryStory() {
@@ -52,8 +53,8 @@ export default function CampLibraryStory() {
   return (
     <Screen footer={<Button label={tr('camp.library.back')} size="lg" variant="primary" onPress={back} />}>
       <Header title={story.title} onBack={back} />
-      <View style={{ alignItems: 'center', gap: 6, marginTop: 16 }}>
-        <AppText variant="display">{story.emoji}</AppText>
+      <View style={{ alignItems: 'center', gap: 6, marginTop: t.space.lg }}>
+        <IconTile icon={story.icon} tone="smokefree" size="lg" round />
         <AppText variant="h2" center>
           {story.title}
         </AppText>

@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { chooseTrack, saveScreening, SCREENING } from '@/features/training/kegelProfile';
 import type { ScreeningResult } from '@/features/training/schedule';
 import { goBack } from '@/lib/nav';
@@ -56,8 +57,8 @@ export default function ScreeningScreen() {
           )
         }
       >
-        <View style={{ gap: 12, marginTop: 24 }}>
-          <AppText variant="display">{relax ? '🌿' : '✅'}</AppText>
+        <View style={{ gap: t.space.md, marginTop: t.space.xl }}>
+          <IconTile icon={relax ? 'leaf' : 'success'} tone="kegel" size="lg" round />
           <AppText variant="h1">{relax ? R.relaxTitle : R.okTitle}</AppText>
           <AppText variant="h3" weight="500">
             {relax ? R.relaxText : R.okText}
@@ -91,8 +92,8 @@ export default function ScreeningScreen() {
         }
       >
         {onboarding ? <View style={{ height: 48 }} /> : <Header onBack={() => goBack('/(tabs)/training')} />}
-        <View style={{ gap: 12, marginTop: 8 }}>
-          <AppText variant="display">🧭</AppText>
+        <View style={{ gap: t.space.md, marginTop: t.space.sm }}>
+          <IconTile icon="compass" tone="kegel" size="lg" round />
           <AppText variant="h1">{SCREENING.title}</AppText>
           <AppText variant="h3" weight="500">
             {SCREENING.intro}
@@ -105,20 +106,20 @@ export default function ScreeningScreen() {
   const q = Q[step]!;
   return (
     <Screen>
-      <View style={{ gap: 12 }}>
+      <View style={{ gap: t.space.md }}>
         <Header onBack={() => setStep(step - 1)} />
         <ProgressBar value={(step + 1) / Q.length} accessibilityLabel={tr('kegel.screening.progress', { step: step + 1, total: Q.length })} />
         <AppText variant="small" muted>
           {tr('kegel.screening.progress', { step: step + 1, total: Q.length })}
         </AppText>
       </View>
-      <AppText variant="h2" style={{ marginTop: 16 }}>
+      <AppText variant="h2" style={{ marginTop: t.space.lg }}>
         {q.text}
       </AppText>
       {q.note ? <AppText muted>{q.note}</AppText> : null}
-      <View style={{ gap: 10, marginTop: 8 }} accessibilityRole="radiogroup">
-        <ChoiceCard emoji="👍" label={tr('common.yes')} selected={answers[step] === true} onPress={() => answer(true)} />
-        <ChoiceCard emoji="👎" label={tr('common.no')} selected={answers[step] === false} onPress={() => answer(false)} />
+      <View style={{ gap: 10, marginTop: t.space.sm }} accessibilityRole="radiogroup">
+        <ChoiceCard icon="thumbsUp" label={tr('common.yes')} selected={answers[step] === true} onPress={() => answer(true)} />
+        <ChoiceCard icon="thumbsDown" label={tr('common.no')} selected={answers[step] === false} onPress={() => answer(false)} />
       </View>
     </Screen>
   );

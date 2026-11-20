@@ -22,12 +22,7 @@ export default function AppearanceSettings() {
       </Card>
       <Card style={{ gap: 10 }}>
         <AppText variant="h3">{tr('settings.appearance.language')}</AppText>
-        <Segmented<'tr'>
-          accessibilityLabel={tr('settings.appearance.language')}
-          value="tr"
-          onChange={() => update({ language: 'tr' })}
-          options={[{ value: 'tr', label: 'Türkçe' }]}
-        />
+        <Segmented<'tr'> accessibilityLabel={tr('settings.appearance.language')} value="tr" onChange={() => update({ language: 'tr' })} options={[{ value: 'tr', label: 'Türkçe' }]} />
         <AppText variant="small" muted>
           {tr('settings.appearance.languageHint')}
         </AppText>

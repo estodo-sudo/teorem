@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { View } from 'react-native';
 
 import { AppText, Card, Header, Screen, useTheme } from '@/components';
@@ -5,6 +6,7 @@ import { ODAK_BADGES as B } from '@/features/camps/odak/content';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
 import { goBack } from '@/lib/nav';
+import { Medallion } from '@/features/gamification/Medallion';
 
 /** Rozetler (SPEC_ODAK_KAMPI 5.13): earned ones are never taken back. */
 export default function OdakRewards() {
@@ -19,8 +21,8 @@ export default function OdakRewards() {
         {B.items.map((b) => {
           const on = earned.has(b.id);
           return (
-            <Card key={b.id} style={{ width: '47%', gap: 4, alignItems: 'center', opacity: on ? 1 : 0.45, borderColor: on ? t.colors.success : t.colors.border }} accessibilityLabel={`${b.title}. ${on ? b.desc : B.locked}`}>
-              <AppText variant="display">{on ? b.emoji : '🔒'}</AppText>
+            <Card key={b.id} style={{ width: '47%', gap: t.space.xs, alignItems: 'center', borderColor: on ? t.colors.success : t.colors.border }} accessibilityLabel={`${b.title}. ${on ? b.desc : B.locked}`}>
+              <Medallion icon={b.icon as IconName} earned={on} progress={0} tone="focus" size={72} />
               <AppText weight="800" center>
                 {b.title}
               </AppText>

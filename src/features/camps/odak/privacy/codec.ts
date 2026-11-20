@@ -1,6 +1,6 @@
 /**
  * Text ⇄ bytes without relying on TextEncoder/TextDecoder (not on every JS engine). Turkish text
- * and emoji survive the round trip.
+ * and icon survive the round trip.
  */
 export function utf8Encode(text: string): Uint8Array {
   const out: number[] = [];

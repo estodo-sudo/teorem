@@ -1,8 +1,11 @@
+import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, ProgressBar, Screen, Segmented, useTheme } from '@/components';
+import { AppText, Header, Screen, useTheme } from '@/components';
+import { Button, Illustration, OptionCard, Tabs } from '@/components/ui';
+import { ThemeOverride } from '@/components/useTheme';
 import { BREATH_DURATIONS_MIN, breathingPhases, type BreathPatternId, type BreathPhase } from '@/features/mind/breathing';
 import { cancelHaptics, playCue } from '@/features/training/haptics';
 import { BreathCircle } from '@/features/training/player/BreathCircle';
@@ -13,6 +16,10 @@ import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useProgressStore } from '@/stores/progressStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 
+/**
+ * Nefes — ui-v3 (SPEC_UI_V3 §7.12): calm mind-tone setup (pattern cards + duration), then the same dark
+ * focus surface as the Kegel player with a softly growing / shrinking ring. Timing and haptics unchanged.
+ */
 export default function Breathing() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -23,32 +30,40 @@ export default function Breathing() {
   if (running) return <BreathSession pattern={pattern} minutes={minutes} onExit={() => setRunning(false)} />;
 
   return (
-    <Screen footer={<Button label={tr('common.start')} size="lg" variant="accent" icon="play" onPress={() => setRunning(true)} />}>
+    <Screen contentStyle={{ gap: t.space.xl }} footer={<Button label={tr('common.start')} size="lg" icon="play" onPress={() => setRunning(true)} fullWidth />}>
       <Header title={tr('mind.breathing.title')} close />
-      <AppText muted>{tr('mind.breathing.intro')}</AppText>
-      <AppText variant="h3">{tr('mind.breathing.pattern')}</AppText>
-      <View style={{ gap: 10 }}>
-        {(['box', '478'] as const).map((p) => (
-          <Card key={p} onPress={() => setPattern(p)} accessibilityLabel={tr(`mind.breathing.${p}.name`)} style={{ borderColor: pattern === p ? t.colors.accent : t.colors.border, borderWidth: 2 }}>
-            <AppText weight="700">{tr(`mind.breathing.${p}.name`)}</AppText>
-            <AppText variant="small" muted>
-              {tr(`mind.breathing.${p}.desc`)}
-            </AppText>
-          </Card>
-        ))}
+      <View style={{ alignItems: 'center' }}>
+        <Illustration name="mind-breathing" size={128} />
       </View>
-      <AppText variant="h3">{tr('mind.breathing.duration')}</AppText>
-      <Segmented
-        accessibilityLabel={tr('mind.breathing.duration')}
-        options={BREATH_DURATIONS_MIN.map((m) => ({ value: m, label: tr('common.minutes', { count: m }) }))}
-        value={minutes}
-        onChange={setMinutes}
-      />
+      <AppText variant="body" muted>
+        {tr('mind.breathing.intro')}
+      </AppText>
+      <View style={{ gap: t.space.md }}>
+        <AppText variant="title3">{tr('mind.breathing.pattern')}</AppText>
+        <View style={{ gap: t.space.sm }} accessibilityRole="radiogroup">
+          {(['box', '478'] as const).map((p) => (
+            <OptionCard key={p} icon={p === 'box' ? 'stop' : 'wind'} label={tr(`mind.breathing.${p}.name`)} description={tr(`mind.breathing.${p}.desc`)} selected={pattern === p} onPress={() => setPattern(p)} />
+          ))}
+        </View>
+      </View>
+      <View style={{ gap: t.space.md }}>
+        <AppText variant="title3">{tr('mind.breathing.duration')}</AppText>
+        <Tabs<string> label={tr('mind.breathing.duration')} items={BREATH_DURATIONS_MIN.map((m) => ({ value: String(m), label: tr('common.minutes', { count: m }) }))} value={String(minutes)} onChange={(v) => setMinutes(Number(v))} />
+      </View>
     </Screen>
   );
 }
 
-function BreathSession({ pattern, minutes, onExit }: { pattern: BreathPatternId; minutes: number; onExit: () => void }) {
+function BreathSession(props: { pattern: BreathPatternId; minutes: number; onExit: () => void }) {
+  return (
+    <ThemeOverride dark>
+      <StatusBar style="light" />
+      <BreathSessionBody {...props} />
+    </ThemeOverride>
+  );
+}
+
+function BreathSessionBody({ pattern, minutes, onExit }: { pattern: BreathPatternId; minutes: number; onExit: () => void }) {
   useSafeKeepAwake();
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -86,22 +101,24 @@ function BreathSession({ pattern, minutes, onExit }: { pattern: BreathPatternId;
   return (
     <Screen scroll={false} edges={['top', 'bottom']}>
       <Header title={tr(`mind.breathing.${pattern}.name`)} close onBack={onExit} />
-      <ProgressBar value={progress(state, now)} color={t.colors.breathe} accessibilityLabel={tr('player.progress')} />
+      <View accessible accessibilityRole="progressbar" accessibilityLabel={tr('player.progress')} accessibilityValue={{ min: 0, max: 100, now: Math.round(progress(state, now) * 100) }} style={{ height: 3, borderRadius: 2, backgroundColor: t.focus.track, overflow: 'hidden' }}>
+        <View style={{ width: `${progress(state, now) * 100}%`, height: '100%', backgroundColor: t.focus.dim }} />
+      </View>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <BreathCircle
           size={size}
           target={done ? 0.7 : target}
           durationMs={phase?.kind === 'inhale' || phase?.kind === 'exhale' ? phase.durationMs : 300}
-          color={t.colors.breathe}
+          color={t.tone.mind.fg}
           animKey={state.index}
-          ringColor={t.colors.border}
+          ringColor={t.focus.track}
         />
         <View style={{ position: 'absolute', alignItems: 'center' }} pointerEvents="none">
-          <AppText variant="h1" color="#FFFFFF" accessibilityLiveRegion="polite">
-            {done ? '🌿' : tr(`mind.breathing.phase.${phase?.kind ?? 'inhale'}`)}
+          <AppText variant="title1" weight="600" color={t.focus.text} accessibilityLiveRegion="polite">
+            {done ? tr('common.done') : tr(`mind.breathing.phase.${phase?.kind ?? 'inhale'}`)}
           </AppText>
           {!done ? (
-            <AppText variant="h2" color="#FFFFFF">
+            <AppText variant="title2" tabular color={t.focus.dim}>
               {Math.ceil(remainingInPhase(state, now) / 1000)}
             </AppText>
           ) : null}
@@ -109,17 +126,19 @@ function BreathSession({ pattern, minutes, onExit }: { pattern: BreathPatternId;
       </View>
       {done ? (
         <View style={{ gap: 10 }}>
-          <AppText variant="h2" center>
+          <AppText variant="title2" center>
             {tr('mind.breathing.done')}
           </AppText>
-          <Button label={tr('common.done')} variant="accent" size="lg" onPress={onExit} />
+          <Button label={tr('common.done')} size="lg" onPress={onExit} fullWidth />
         </View>
       ) : (
         <Button
           label={state.status === 'paused' ? tr('player.resume') : tr('player.pause')}
           variant="secondary"
+          size="lg"
           icon={state.status === 'paused' ? 'play' : 'pause'}
           onPress={state.status === 'paused' ? player.resume : player.pause}
+          fullWidth
         />
       )}
     </Screen>

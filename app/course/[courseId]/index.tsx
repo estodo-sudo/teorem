@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { COURSES } from '@/features/content/data';
 import { useProgressStore } from '@/stores/progressStore';
 
@@ -28,7 +29,7 @@ export default function CourseScreen() {
     <Screen>
       <Header title={course.title} />
       <View style={{ alignItems: 'center', gap: 6 }}>
-        <AppText variant="display">{course.emoji}</AppText>
+        <IconTile icon={course.icon} tone="knowledge" size="lg" round />
         <AppText muted center>
           {course.description}
         </AppText>
@@ -38,8 +39,8 @@ export default function CourseScreen() {
         {tr('courses.progress', { done: done.length, total: course.lessons.length })}
       </AppText>
       {complete ? (
-        <Card style={{ alignItems: 'center', gap: 4, borderColor: t.colors.accent }}>
-          <AppText variant="h1">🏅</AppText>
+        <Card style={{ alignItems: 'center', gap: t.space.xs, borderColor: t.colors.accent }}>
+          <IconTile icon="medal" tone="knowledge" size="lg" round />
           <AppText weight="800">{tr('courses.badge')}</AppText>
           <AppText variant="small" muted center>
             {tr('courses.badgeBody')}
@@ -54,10 +55,10 @@ export default function CourseScreen() {
             key={l.id}
             onPress={() => router.push({ pathname: '/course/[courseId]/[lessonId]', params: { courseId: course.id, lessonId: l.id } })}
             accessibilityLabel={`${i + 1}. ${l.title}${isDone ? `, ${tr('courses.completed')}` : ''}`}
-            style={{ flexDirection: 'row', alignItems: 'center', gap: 12, borderColor: i === nextIdx ? t.colors.accent : t.colors.border }}
+            style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, borderColor: i === nextIdx ? t.colors.accent : t.colors.border }}
           >
             <View style={{ width: 36, height: 36, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: isDone ? t.colors.success : t.colors.surfaceAlt }}>
-              {isDone ? <Icon name="check" color="#FFFFFF" size={20} strokeWidth={3} /> : <AppText weight="800">{i + 1}</AppText>}
+              {isDone ? <Icon name="check" color={t.tokens.primaryForeground} size={20} strokeWidth={3} /> : <AppText weight="800">{i + 1}</AppText>}
             </View>
             <View style={{ flex: 1 }}>
               <AppText weight="700">{l.title}</AppText>

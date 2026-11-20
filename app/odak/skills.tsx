@@ -12,6 +12,7 @@ import { useOdakStore } from '@/features/camps/odak/store';
 import { lessonIsFree } from '@/features/camps/odak/engine/premium';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 /** Skill lessons (ACT + CBT + mindfulness), in recommended order; later phases' lessons open with their phase. */
 export default function OdakSkills() {
@@ -37,9 +38,9 @@ export default function OdakSkills() {
             key={l.id}
             onPress={open ? () => router.push({ pathname: '/odak/skills/[lessonId]', params: { lessonId: l.id } }) : undefined}
             accessibilityLabel={`${l.title}. ${isDone ? tr('odak.skills.done') : open ? tr('odak.skills.minutes', { count: l.minutes }) : tr('odak.skills.upcoming', { phase: phaseName })}`}
-            style={{ flexDirection: 'row', gap: 12, alignItems: 'center', opacity: open ? 1 : 0.55, borderColor: next?.id === l.id ? t.colors.accent : t.colors.border, borderWidth: next?.id === l.id ? 2 : 1 }}
+            style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'center', opacity: open ? 1 : 0.55, borderColor: next?.id === l.id ? t.colors.accent : t.colors.border, borderWidth: next?.id === l.id ? 2 : 1 }}
           >
-            <AppText variant="h1">{l.emoji}</AppText>
+            <IconTile icon={l.icon} tone="focus" size="lg" round />
             <View style={{ flex: 1, gap: 2 }}>
               {next?.id === l.id ? (
                 <AppText variant="tiny" weight="800" color={t.colors.accent}>

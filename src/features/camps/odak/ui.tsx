@@ -1,8 +1,9 @@
+import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { Linking, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, useTheme } from '@/components';
+import { AppText, Button, Card, Icon, useTheme } from '@/components';
 import { tint } from '@/features/campus/shared/ui';
 
 import { ODAK_ONBOARDING as ONB } from './content';
@@ -13,8 +14,8 @@ export function ExpertCard({ lead }: { lead?: string }) {
   const { t: tr } = useTranslation();
   const e = ONB.expert;
   return (
-    <Card style={{ gap: 8, borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
-      <AppText variant="h3">🤝 {e.title}</AppText>
+    <Card style={{ gap: t.space.sm, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
+      <AppText variant="h3">{e.title}</AppText>
       {lead ? <AppText variant="small">{lead}</AppText> : null}
       <AppText variant="small">{e.body}</AppText>
       <Button label={e.phoneLabel} icon="bell" variant="secondary" onPress={() => void Linking.openURL(`tel:${e.phone}`)} />
@@ -32,9 +33,9 @@ export function ExpertCard({ lead }: { lead?: string }) {
 export function ScaleRow({ label, options, value, onChange }: { label: string; options: { value: number; label: string }[]; value: number | null; onChange: (v: number) => void }) {
   const t = useTheme();
   return (
-    <View style={{ gap: 8 }} accessibilityRole="radiogroup" accessibilityLabel={label}>
+    <View style={{ gap: t.space.sm }} accessibilityRole="radiogroup" accessibilityLabel={label}>
       <AppText weight="700">{label}</AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {options.map((o) => {
           const selected = value === o.value;
           return (
@@ -66,10 +67,10 @@ export function ScaleRow({ label, options, value, onChange }: { label: string; o
 }
 
 /** Wrapping pills for multi-select lists (emotions, values, time ranges). */
-export function PillGroup({ items, selected, onToggle }: { items: { id: string; emoji?: string; label: string }[]; selected: string[]; onToggle: (id: string) => void }) {
+export function PillGroup({ items, selected, onToggle }: { items: { id: string; icon?: IconName; label: string }[]; selected: string[]; onToggle: (id: string) => void }) {
   const t = useTheme();
   return (
-    <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
       {items.map((it) => {
         const on = selected.includes(it.id);
         return (
@@ -91,7 +92,7 @@ export function PillGroup({ items, selected, onToggle }: { items: { id: string; 
               backgroundColor: on ? t.colors.primary : t.colors.surface,
             }}
           >
-            {it.emoji ? <AppText>{it.emoji}</AppText> : null}
+            {it.icon ? <Icon name={it.icon} size="md" /> : null}
             <AppText variant="small" weight="700" color={on ? t.colors.primaryText : t.colors.text}>
               {it.label}
             </AppText>
@@ -107,7 +108,7 @@ export function OdakPhaseTrack({ index }: { index: number }) {
   const t = useTheme();
   const phases = ONB.summary.phases;
   return (
-    <View style={{ flexDirection: 'row', gap: 4 }} accessible accessibilityLabel={`${index + 1}/${phases.length} · ${phases[index]?.name ?? ''}`}>
+    <View style={{ flexDirection: 'row', gap: t.space.xs }} accessible accessibilityLabel={`${index + 1}/${phases.length} · ${phases[index]?.name ?? ''}`}>
       {phases.map((p, i) => (
         <View key={p.name} style={{ flex: 1, height: 8, borderRadius: 4, backgroundColor: i < index ? t.colors.success : i === index ? t.colors.accent : t.colors.surfaceAlt }} />
       ))}
@@ -120,8 +121,8 @@ export function OdakLock({ title }: { title: string }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   return (
-    <Card style={{ gap: 8, borderWidth: 1.5, borderColor: tint(t.colors.accent, '88'), backgroundColor: tint(t.colors.accent, '0D') }}>
-      <AppText weight="800">🔒 {title}</AppText>
+    <Card style={{ gap: t.space.sm, borderWidth: 1.5, borderColor: tint(t.colors.accent, '88'), backgroundColor: tint(t.colors.accent, '0D') }}>
+      <AppText weight="800">{title}</AppText>
       <AppText variant="small" muted>
         {tr('odak.premium.text')}
       </AppText>

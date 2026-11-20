@@ -44,15 +44,15 @@ export default function OdakStats() {
     <Screen>
       <Header title={S.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
 
-      <Card style={{ alignItems: 'center', gap: 4 }}>
+      <Card style={{ alignItems: 'center', gap: t.space.xs }}>
         <AppText variant="display" color={t.colors.success}>
           {managedCount(urges)}
         </AppText>
-        <AppText weight="800">🌿 {S.managedTitle}</AppText>
+        <AppText weight="800">{S.managedTitle}</AppText>
       </Card>
 
-      <Card style={{ gap: 8 }}>
-        <AppText variant="h3">📅 {S.calendarTitle}</AppText>
+      <Card style={{ gap: t.space.sm }}>
+        <AppText variant="h3">{S.calendarTitle}</AppText>
         <View style={{ gap: 3 }} accessible accessibilityLabel={S.calendarTitle}>
           {cal.map((row, i) => (
             <View key={i} style={{ flexDirection: 'row', gap: 3 }}>
@@ -69,8 +69,8 @@ export default function OdakStats() {
 
       {premium ? (
         <>
-          <Card style={{ gap: 8 }}>
-            <AppText variant="h3">🌊 {S.urgesTitle}</AppText>
+          <Card style={{ gap: t.space.sm }}>
+            <AppText variant="h3">{S.urgesTitle}</AppText>
             <MiniBars values={weeks.map((w) => w.count)} labels={weeks.map((_, i) => fill(S.weekShort, { n: i + 1 }))} a11y={S.urgesTitle} valueLabels />
             <AppText weight="700" variant="small">
               {S.intensityTitle}
@@ -78,8 +78,8 @@ export default function OdakStats() {
             <MiniBars values={weeks.map((w) => w.avg)} color={t.colors.accent} a11y={S.intensityTitle} valueLabels height={70} />
           </Card>
 
-          <Card style={{ gap: 8 }}>
-            <AppText variant="h3">⏰ {S.heatTitle}</AppText>
+          <Card style={{ gap: t.space.sm }}>
+            <AppText variant="h3">{S.heatTitle}</AppText>
             {heatMax === 0 ? (
               <AppText variant="small" muted>
                 {S.heatEmpty}
@@ -123,7 +123,7 @@ export default function OdakStats() {
           </Card>
 
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">📍 {S.triggersTitle}</AppText>
+            <AppText variant="h3">{S.triggersTitle}</AppText>
             {triggers.length ? (
               triggers.map((x) => (
                 <AppText key={x.id} variant="small">
@@ -138,7 +138,7 @@ export default function OdakStats() {
           </Card>
 
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">🛠️ {S.toolsTitle}</AppText>
+            <AppText variant="h3">{S.toolsTitle}</AppText>
             {tools.length ? (
               tools.slice(0, 4).map((x) => (
                 <AppText key={x.tool} variant="small">
@@ -157,7 +157,7 @@ export default function OdakStats() {
           </Card>
 
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">💭 {S.emotionsTitle}</AppText>
+            <AppText variant="h3">{S.emotionsTitle}</AppText>
             {pairs.length ? (
               pairs.map((p) => (
                 <AppText key={`${p.before}-${p.after}`} variant="small">
@@ -172,7 +172,7 @@ export default function OdakStats() {
           </Card>
 
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">📈 {S.bpsTitle}</AppText>
+            <AppText variant="h3">{S.bpsTitle}</AppText>
             {bps.length ? (
               bps.map((b, i) => (
                 <AppText key={i} variant="small">

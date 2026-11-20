@@ -14,6 +14,7 @@ import { SectionTitle, tint } from '@/features/campus/shared/ui';
 import { CelebrationCard } from '@/features/gamification/Celebration';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { Medallion } from '@/features/gamification/Medallion';
 
 /** Badges (earned / still to earn) and the reward jar filled by the money not spent on cigarettes. */
 export default function CampRewards() {
@@ -31,13 +32,13 @@ export default function CampRewards() {
   const unlocked = (id: string) => camp.badges.find((b) => b.id === id && b.unlockedAt);
   // A goal the savings just reached is celebrated once, then marked.
   const reached = !premium ? undefined : camp.rewards.find((r) => !r.reachedAt && goalProgress(saved, r.amountTRY) >= 1);
-  const field = { minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 12, color: t.colors.text, fontSize: 16 } as const;
+  const field = { minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: t.space.md, color: t.colors.text, fontSize: t.type.body.fontSize } as const;
 
   return (
     <Screen>
       <Header title={tr('camp.rewards.title')} onBack={() => goBack('/camp')} />
 
-      <SectionTitle emoji="🐷" title={tr('camp.rewards.jarTitle')} hint={CAMP_REWARDS.jar.intro} />
+      <SectionTitle tone="smokefree" icon="piggy" title={tr('camp.rewards.jarTitle')} hint={CAMP_REWARDS.jar.intro} />
       {premium ? (
         <>
           <Card style={{ alignItems: 'center', gap: 2, backgroundColor: tint(t.colors.success, '14') }}>
@@ -51,10 +52,10 @@ export default function CampRewards() {
           {camp.rewards.map((r) => {
             const p = goalProgress(saved, r.amountTRY);
             return (
-              <Card key={r.id} style={{ gap: 8, borderWidth: r.reachedAt ? 2 : 1, borderColor: r.reachedAt ? t.colors.success : t.colors.border }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <Card key={r.id} style={{ gap: t.space.sm, borderWidth: r.reachedAt ? 2 : 1, borderColor: r.reachedAt ? t.colors.success : t.colors.border }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
                   <AppText weight="800" style={{ flex: 1 }}>
-                    {r.reachedAt ? '🎉 ' : '🎯 '}
+                    {r.reachedAt ? '' : ''}
                     {r.title}
                   </AppText>
                   <AppText variant="small" weight="700" muted>
@@ -77,7 +78,7 @@ export default function CampRewards() {
               </Card>
             );
           })}
-          <Card style={{ gap: 8 }}>
+          <Card style={{ gap: t.space.sm }}>
             <AppText weight="800">{tr('camp.rewards.add')}</AppText>
             <TextInput
               value={title}
@@ -116,8 +117,8 @@ export default function CampRewards() {
         <PremiumLock title={tr('camp.premium.jar')} />
       )}
 
-      <SectionTitle emoji="🏅" title={tr('camp.rewards.badgesTitle')} hint={tr('camp.stats.badgesHint', { earned: camp.badges.filter((b) => b.unlockedAt).length, total: CAMP_REWARDS.badges.length })} />
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <SectionTitle tone="smokefree" icon="medal" title={tr('camp.rewards.badgesTitle')} hint={tr('camp.stats.badgesHint', { earned: camp.badges.filter((b) => b.unlockedAt).length, total: CAMP_REWARDS.badges.length })} />
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {CAMP_REWARDS.badges.map((b) => {
           const on = Boolean(unlocked(b.id));
           return (
@@ -127,18 +128,17 @@ export default function CampRewards() {
                 width: '31%',
                 flexGrow: 1,
                 alignItems: 'center',
-                gap: 4,
+                gap: t.space.xs,
                 padding: 10,
                 borderRadius: t.radius.lg,
                 borderWidth: 1.5,
-                borderColor: on ? t.colors.accent : t.colors.border,
+                borderColor: on ? t.tokens.primary : t.colors.border,
                 backgroundColor: on ? tint(t.colors.accent, '14') : t.colors.surface,
-                opacity: on ? 1 : 0.5,
               }}
               accessible
               accessibilityLabel={`${b.title}. ${b.desc}. ${on ? tr('camp.rewards.earned') : tr('camp.rewards.notEarned')}`}
             >
-              <AppText style={{ fontSize: 30, lineHeight: 36 }}>{on ? b.emoji : '🔒'}</AppText>
+              <Medallion icon={b.icon} earned={on} progress={0} tone="smokefree" size={72} />
               <AppText variant="tiny" weight="800" center>
                 {b.title}
               </AppText>
@@ -151,7 +151,7 @@ export default function CampRewards() {
         <CelebrationCard
           celebrationKey={reached.id}
           kicker={tr('camp.rewards.reachedKicker')}
-          emoji="🎁"
+          icon="gift"
           title={reached.title}
           desc={tr('camp.rewards.reachedBody', { amount: fmtTL(reached.amountTRY) })}
           cta={tr('camp.panel.gainCta')}

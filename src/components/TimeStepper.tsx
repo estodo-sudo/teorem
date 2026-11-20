@@ -51,7 +51,7 @@ function Col({ t, v, onUp, onDown, label }: { t: Theme; v: number; onUp: () => v
       <Pressable onPress={onUp} style={[styles.btn, { backgroundColor: t.colors.surfaceAlt }]} accessibilityLabel={`${label} +`}>
         <Icon name="plus" color={t.colors.text} />
       </Pressable>
-      <AppText variant="display" style={{ marginVertical: 8 }}>
+      <AppText variant="display" style={{ marginVertical: t.space.sm }}>
         {String(v).padStart(2, '0')}
       </AppText>
       <Pressable onPress={onDown} style={[styles.btn, { backgroundColor: t.colors.surfaceAlt }]} accessibilityLabel={`${label} −`}>

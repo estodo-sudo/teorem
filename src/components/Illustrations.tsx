@@ -41,8 +41,8 @@ export function FindMuscleArt({ size = 200 }: { size?: number }) {
   return (
     <Svg width={size} height={size * 0.8} viewBox="0 0 200 160" accessibilityRole="image">
       <Path d="M100 15 C 130 60, 150 85, 150 110 a50 50 0 0 1 -100 0 C 50 85, 70 60, 100 15z" fill={t.colors.breathe} opacity={0.85} />
-      <Rect x={82} y={88} width={12} height={40} rx={4} fill="#FFFFFF" />
-      <Rect x={106} y={88} width={12} height={40} rx={4} fill="#FFFFFF" />
+      <Rect x={82} y={88} width={12} height={40} rx={4} fill={t.tokens.card} />
+      <Rect x={106} y={88} width={12} height={40} rx={4} fill={t.tokens.card} />
     </Svg>
   );
 }

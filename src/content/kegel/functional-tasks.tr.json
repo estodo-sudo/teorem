@@ -10,7 +10,7 @@
   "tasks": [
     {
       "id": "stand_up",
-      "emoji": "🪑",
+      "icon": "chair", "tone": "kegel",
       "title": "Ayağa kalkarken önce sık",
       "text": "Bugün oturduğun yerden 3 kez kalkarken, kalkmadan hemen önce kası sık.",
       "tracks": [
@@ -19,7 +19,7 @@
     },
     {
       "id": "stairs",
-      "emoji": "🪜",
+      "icon": "trendUp", "tone": "kegel",
       "title": "Merdivende sık",
       "text": "Bugün merdiven çıkarken ilk 3 basamakta kası hafifçe sık.",
       "tracks": [
@@ -28,7 +28,7 @@
     },
     {
       "id": "after_urine",
-      "emoji": "🚻",
+      "icon": "doorClosed", "tone": "kegel",
       "title": "İdrar sonrası 2 kez sık",
       "text": "İdrarın bittikten sonra 2 kez sık ve bırak; damlamayı azaltmaya yardım eder.",
       "tracks": [
@@ -39,7 +39,7 @@
     },
     {
       "id": "cough_knack",
-      "emoji": "🤧",
+      "icon": "thermometer", "tone": "kegel",
       "title": "Öksürmeden önce sık (Knack)",
       "text": "Bugün öksürürken ya da hapşırırken hemen önce kası sık.",
       "tracks": [
@@ -50,7 +50,7 @@
     },
     {
       "id": "lift",
-      "emoji": "📦",
+      "icon": "box", "tone": "kegel",
       "title": "Kaldırmadan önce sık",
       "text": "Çanta, kutu ya da bir şey kaldırmadan hemen önce kası sık, kaldırırken nefes ver.",
       "tracks": [
@@ -59,7 +59,7 @@
     },
     {
       "id": "walk",
-      "emoji": "🚶",
+      "icon": "footprints", "tone": "kegel",
       "title": "Yürürken 5 hafif sıkma",
       "text": "Yürüyüş sırasında 5 kez hafifçe sık ve tamamen bırak.",
       "tracks": [
@@ -68,7 +68,7 @@
     },
     {
       "id": "red_light",
-      "emoji": "🚦",
+      "icon": "alert", "tone": "kegel",
       "title": "Kırmızı ışıkta 3 sıkma",
       "text": "Trafikte ya da sırada beklerken 3 yavaş sıkma yap, aralarında tamamen bırak.",
       "tracks": [
@@ -77,7 +77,7 @@
     },
     {
       "id": "kettle",
-      "emoji": "☕",
+      "icon": "coffee", "tone": "kegel",
       "title": "Su ısınırken 5 hızlı sıkma",
       "text": "Çay ya da kahve suyu ısınırken 5 hızlı sıkma yap.",
       "tracks": [
@@ -86,7 +86,7 @@
     },
     {
       "id": "teeth",
-      "emoji": "🪥",
+      "icon": "sparkle", "tone": "kegel",
       "title": "Diş fırçalarken tut",
       "text": "Diş fırçalarken 2 kez 5 saniye tut, sonra bırak.",
       "tracks": [
@@ -95,7 +95,7 @@
     },
     {
       "id": "phone_call",
-      "emoji": "📞",
+      "icon": "phone", "tone": "kegel",
       "title": "Telefonda dik dur",
       "text": "Bir telefon görüşmesinde dik dur ve 3 kez hafifçe sık.",
       "tracks": [
@@ -104,7 +104,7 @@
     },
     {
       "id": "sit_posture",
-      "emoji": "🧘",
+      "icon": "flower", "tone": "kegel",
       "title": "Oturuşunu kontrol et",
       "text": "Bugün 3 kez oturuşuna bak: dik otur, kalçanı sıkmadan pelvik tabanı hafifçe kaldır.",
       "tracks": [
@@ -113,7 +113,7 @@
     },
     {
       "id": "elevator_wait",
-      "emoji": "🛗",
+      "icon": "arrowUpDown", "tone": "kegel",
       "title": "Beklerken yavaş sık–bırak",
       "text": "Asansör ya da otobüs beklerken 3 kez yavaşça sık, kısa tut ve yavaşça bırak.",
       "tracks": [
@@ -123,7 +123,7 @@
     },
     {
       "id": "max_morning",
-      "emoji": "⚡",
+      "icon": "zap", "tone": "kegel",
       "title": "Sabah 3 tam güç",
       "text": "Sabah kalkınca ayakta 3 tam güç kasılma yap, aralarında uzun dinlen.",
       "tracks": [
@@ -132,7 +132,7 @@
     },
     {
       "id": "standing_hold",
-      "emoji": "🧍",
+      "icon": "body", "tone": "kegel",
       "title": "Ayakta 5 saniye tut",
       "text": "Gün içinde ayaktayken 3 kez 5 saniye tut, tamamen bırak.",
       "tracks": [
@@ -142,7 +142,7 @@
     },
     {
       "id": "breath_sync",
-      "emoji": "🌬️",
+      "icon": "wind", "tone": "kegel",
       "title": "Nefesle eşle",
       "text": "Nefes verirken sık, alırken bırak: 5 tekrar.",
       "tracks": [
@@ -151,7 +151,7 @@
     },
     {
       "id": "release_scan",
-      "emoji": "🌿",
+      "icon": "leaf", "tone": "kegel",
       "title": "Gün içinde bırak",
       "text": "Bugün 3 kez dur ve pelvik tabanını, kalçanı, çeneni bilinçli olarak gevşet.",
       "tracks": [
@@ -161,7 +161,7 @@
     },
     {
       "id": "quick_control",
-      "emoji": "🎚️",
+      "icon": "sliders", "tone": "kegel",
       "title": "10 hızlı, tam bırak",
       "text": "10 hızlı sıkma yap; her birinden sonra kasın tamamen bırakıldığını hisset.",
       "tracks": [
@@ -170,7 +170,7 @@
     },
     {
       "id": "evening_breath",
-      "emoji": "🌙",
+      "icon": "moon", "tone": "kegel",
       "title": "Yatmadan nefes",
       "text": "Yatmadan önce 6 yavaş nefes: verirken pelvik tabanı yumuşakça bırak.",
       "tracks": [
@@ -180,7 +180,7 @@
     },
     {
       "id": "desk_release",
-      "emoji": "💻",
+      "icon": "laptop", "tone": "kegel",
       "title": "Masa başında bırak",
       "text": "Uzun oturduysan kalk, omuzlarını ve kalçanı gevşet, 3 derin nefes al.",
       "tracks": [
@@ -190,7 +190,7 @@
     },
     {
       "id": "toilet_relax",
-      "emoji": "🚽",
+      "icon": "moon", "tone": "kegel",
       "title": "Tuvalette ıkınma",
       "text": "Tuvalette ıkınmadan, nefes vererek ve gevşeyerek boşaltmaya dikkat et.",
       "tracks": [
@@ -200,7 +200,7 @@
     },
     {
       "id": "stress_check",
-      "emoji": "😌",
+      "icon": "smile", "tone": "kegel",
       "title": "Stres anında kontrol",
       "text": "Gergin bir anda kalçanı ya da karnını sıkıp sıkmadığına bak; sıkıyorsan bırak.",
       "tracks": [
@@ -210,7 +210,7 @@
     },
     {
       "id": "shoe_tie",
-      "emoji": "👟",
+      "icon": "footprints", "tone": "kegel",
       "title": "Ayakkabı bağlarken",
       "text": "Eğilmeden ya da ayakkabı bağlamadan önce kası hafifçe sık.",
       "tracks": [
@@ -221,7 +221,7 @@
     },
     {
       "id": "get_out_bed",
-      "emoji": "🛏️",
+      "icon": "bed", "tone": "kegel",
       "title": "Yataktan kalkarken",
       "text": "Sabah yataktan kalkarken önce kası sık, sonra kalk.",
       "tracks": [

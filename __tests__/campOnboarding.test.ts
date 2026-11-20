@@ -209,7 +209,7 @@ describe('coach (K9)', () => {
   it('finds broken scenarios', () => {
     const bad = {
       id: 'x',
-      emoji: '',
+      icon: 'leaf' as const,
       title: '',
       start: 'a',
       nodes: {

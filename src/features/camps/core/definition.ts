@@ -1,9 +1,20 @@
+import type { IconName } from '@/components/Icon';
 import type { Href } from 'expo-router';
 import type { ComponentType } from 'react';
 
 import type { CampNotifier } from './campNotifications';
 import type { CheckinCadence } from './checkinEngine';
 import type { PhaseModel } from './phaseEngine';
+
+/** What the Keşfet camp card shows. `day` is set while the programme is running. */
+export interface CampSummary {
+  joined: boolean;
+  day?: number;
+  total: number;
+  progress: number;
+  status: string;
+  locked?: boolean;
+}
 
 /**
  * A camp = definition + content + its own screens; the engines in this folder do the rest.
@@ -13,7 +24,7 @@ export interface CampDefinition<P extends string = string> {
   id: string;
   /** i18n key of the camp name (privacy-sensitive camps use a neutral name). */
   titleKey: string;
-  emoji: string;
+  icon: IconName;
   /** Programme length in days. */
   days: number;
   /** The camp's panel. */
@@ -35,6 +46,8 @@ export interface CampDefinition<P extends string = string> {
   privacy: 'standard' | 'high';
   /** Row in the "Kamplar" list. */
   Card: ComponentType;
+  /** Keşfet wide card (SPEC_KESFET_V2 §4.3): joined or not, the day and progress, one status line. */
+  useSummary: () => CampSummary;
   /** Local notifications of the camp. */
   notifier?: CampNotifier;
 }

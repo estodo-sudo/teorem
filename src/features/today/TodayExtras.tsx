@@ -1,21 +1,31 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Linking, Pressable, View } from 'react-native';
+import { Linking, ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Icon, useTheme } from '@/components';
-import { CHALLENGES, NUTRITION_DAYS, NUTRITION_PLAN, STORIES } from '@/features/content/data';
+import { AppText, Icon, useTheme, type IconName } from '@/components';
+import { Card, IconTile, Progress, ScalePressable, Sheet } from '@/components/ui';
+import type { ModuleTone } from '@/config/theme';
+import { CHALLENGES, NUTRITION_DAYS, NUTRITION_PLAN, STORIES, type StoryCategory } from '@/features/content/data';
 import { nutritionDayIndex, nutritionTasksForDay, storyOfTheDay } from '@/features/content/daily';
-import { StoryBubble } from '@/features/content/StoryBubble';
 import { recommendedRoutine, routineDurationSec } from '@/features/fitness/routines';
-import { strengthTestDue } from '@/features/progress/stats';
 import { openGated } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
-import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
 import { useProgressStore } from '@/stores/progressStore';
+import type { ChallengeCategory } from '@/types';
 
-/** Secondary cards on the Today screen. */
+const STORY_ICON: Record<StoryCategory, IconName> = { menHealth: 'shield', relationships: 'user', nutrition: 'leaf', sleep: 'moon', stress: 'wind', exercise: 'body' };
+const FOOD_ICON: Record<ChallengeCategory, IconName> = { snack: 'leaf', fruit: 'sun', plate: 'layers' };
+
+/** Size of a "Senin için" card (§7.1.4). */
+const CARD_W = 240;
+const CARD_H = 140;
+
+/**
+ * "Senin için" — ui-v3 (SPEC_UI_V3 §7.1.4): one horizontal row of small cards (story of the day,
+ * suggested routine, nutrition tip, camps). The nutrition list (information only) opens in a sheet.
+ */
 export function TodayExtras() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -23,127 +33,117 @@ export function TodayExtras() {
   const startedAt = useProfileStore((s) => s.profile.createdAt);
   const read = useProgressStore((s) => s.content.readStoryIds);
   const activity = useProfileStore((s) => s.profile.activity);
-  const tests = useHistoryStore((s) => s.strengthTests);
+  const [foodOpen, setFoodOpen] = useState(false);
 
-  // Today's 3 foods come from the 28-day plan, counted from the first app day (information only, nothing to tick).
   const dayIdx = nutritionDayIndex(toDateKey(new Date(startedAt)), today, NUTRITION_DAYS);
-
   const story = storyOfTheDay(today, STORIES, read);
   const routine = recommendedRoutine(activity);
-  const due = strengthTestDue(tests, today);
-  const [openId, setOpenId] = useState<string | null>(null);
-  const challenges = nutritionTasksForDay(NUTRITION_PLAN, CHALLENGES, dayIdx);
+  const foods = nutritionTasksForDay(NUTRITION_PLAN, CHALLENGES, dayIdx);
 
   return (
-    <View style={{ gap: 16 }}>
-      {due ? (
-        <Card onPress={() => openGated('strengthTest', '/strength-test')} accessibilityLabel={tr('today.strengthDue')} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, borderColor: t.colors.accent }}>
-          <AppText variant="h2">📏</AppText>
-          <View style={{ flex: 1 }}>
-            <AppText weight="700">{tr('today.strengthDue')}</AppText>
-            <AppText variant="small" muted>
-              {tr('today.strengthDueBody')}
-            </AppText>
-          </View>
-          <Icon name="chevron" color={t.colors.textMuted} size={18} />
-        </Card>
-      ) : null}
+    <View style={{ gap: t.space.md }}>
+      <AppText variant="title2" accessibilityRole="header">
+        {tr('today.forYou')}
+      </AppText>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -t.space.gutter }} contentContainerStyle={{ paddingHorizontal: t.space.gutter, gap: t.space.md }}>
+        {story ? (
+          <ForYouCard
+            icon={STORY_ICON[story.category]}
+            tone="knowledge"
+            kicker={tr('today.forYouStory')}
+            title={story.title}
+            meta={tr('stories.minutes', { count: story.minutes })}
+            onPress={() => openGated('stories', { pathname: '/story/[storyId]', params: { storyId: story.id } })}
+          />
+        ) : null}
+        <ForYouCard
+          icon="body"
+          tone="kegel"
+          kicker={tr('today.forYouFitness')}
+          title={tr('today.fitness', { name: routine.name })}
+          meta={tr('common.minutes', { count: Math.round(routineDurationSec(routine) / 60) })}
+          onPress={() => openGated('fitness', { pathname: '/fitness/[routineId]', params: { routineId: routine.id } })}
+        />
+        {foods.length ? <ForYouCard icon="leaf" tone="campus" kicker={tr('today.nutritionTitle')} title={tr('today.nutritionSub')} meta={tr('today.challengesHint', { day: dayIdx + 1, total: NUTRITION_DAYS })} onPress={() => setFoodOpen(true)} /> : null}
+        <ForYouCard icon="compass" tone="smokefree" kicker={tr('today.campTitle')} title={tr('today.campSub')} meta={tr('today.campOpen')} onPress={() => router.push('/camps')} />
+      </ScrollView>
 
-      {challenges.length ? (
-        <Card style={{ gap: 12 }}>
-          <View style={{ gap: 2 }}>
-            <AppText variant="h3">{tr('today.challenges')}</AppText>
-            <AppText variant="small" muted>
-              {tr('today.challengesHint', { day: dayIdx + 1, total: NUTRITION_DAYS })}
-            </AppText>
-          </View>
-          {challenges.map((c) => {
-            const open = openId === c.id;
-            return (
-              <View key={c.id} style={{ gap: 8 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, minHeight: 48 }}>
-                  <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>
-                    <AppText variant="h3">{c.emoji}</AppText>
-                  </View>
-                  <View style={{ flex: 1 }}>
-                    <AppText weight="700">{c.text}</AppText>
-                    <AppText variant="tiny" muted>
-                      {tr(`challengeCategory.${c.category}`)}
-                    </AppText>
-                  </View>
-                  <Pressable
-                    onPress={() => setOpenId(open ? null : c.id)}
-                    accessibilityRole="button"
-                    accessibilityState={{ expanded: open }}
-                    accessibilityLabel={tr('today.challengeWhyA11y', { task: c.text })}
-                    hitSlop={8}
-                    style={({ pressed }) => ({
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      gap: 4,
-                      paddingHorizontal: 10,
-                      minHeight: 32,
-                      borderRadius: t.radius.pill,
-                      backgroundColor: open ? t.colors.info : t.colors.surfaceAlt,
-                      opacity: pressed ? 0.8 : 1,
-                    })}
-                  >
-                    <AppText variant="tiny">💡</AppText>
-                    <AppText variant="tiny" weight="800" color={open ? t.colors.infoText : t.colors.text}>
-                      {tr('today.challengeWhy')}
-                    </AppText>
-                  </Pressable>
-                </View>
-                {open ? (
-                  <View style={{ marginLeft: 56, padding: 12, gap: 6, borderRadius: t.radius.lg, borderTopLeftRadius: 4, backgroundColor: t.colors.surfaceAlt, borderLeftWidth: 3, borderLeftColor: t.colors.info }}>
-                    <AppText variant="small">{c.why}</AppText>
-                    <Pressable onPress={() => void Linking.openURL(c.source.url)} accessibilityRole="link">
-                      <AppText variant="tiny" muted>
-                        {tr('today.challengeSource', { title: c.source.title })}
-                      </AppText>
-                    </Pressable>
-                  </View>
-                ) : null}
+      <Sheet visible={foodOpen} onClose={() => setFoodOpen(false)} title={tr('today.nutritionTitle')} description={tr('today.challengesHint', { day: dayIdx + 1, total: NUTRITION_DAYS })}>
+        <FoodList dayIdx={dayIdx} />
+      </Sheet>
+    </View>
+  );
+}
+
+function ForYouCard({ icon, tone, kicker, title, meta, onPress }: { icon: IconName; tone: ModuleTone; kicker: string; title: string; meta: string; onPress: () => void }) {
+  const t = useTheme();
+  return (
+    <Card onPress={onPress} accessibilityLabel={`${kicker}. ${title}. ${meta}`} style={{ width: CARD_W, minHeight: CARD_H, padding: t.space.lg, gap: t.space.sm, justifyContent: 'space-between' }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
+        <IconTile icon={icon} tone={tone} />
+        <AppText variant="caption" muted style={{ flex: 1 }}>
+          {kicker}
+        </AppText>
+      </View>
+      <AppText variant="title3">{title}</AppText>
+      <AppText variant="footnote" muted>
+        {meta}
+      </AppText>
+    </Card>
+  );
+}
+
+/** Today's 3 foods (information only, nothing to tick); "Neden?" opens the reason and the source. */
+function FoodList({ dayIdx }: { dayIdx: number }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  const [openId, setOpenId] = useState<string | null>(null);
+  const items = nutritionTasksForDay(NUTRITION_PLAN, CHALLENGES, dayIdx);
+  return (
+    <View style={{ gap: t.space.md }}>
+      <Progress value={(dayIdx + 1) / NUTRITION_DAYS} label={tr('today.challengesHint', { day: dayIdx + 1, total: NUTRITION_DAYS })} />
+      {items.map((c, i) => {
+        const open = openId === c.id;
+        return (
+          <View key={c.id} style={{ gap: t.space.sm, paddingTop: i ? t.space.md : 0, borderTopWidth: i ? t.border.thin : 0, borderTopColor: t.tokens.border }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: t.touch }}>
+              <IconTile icon={FOOD_ICON[c.category]} tone="campus" />
+              <View style={{ flex: 1 }}>
+                <AppText variant="bodyStrong">{c.text}</AppText>
+                <AppText variant="footnote" muted>
+                  {tr(`challengeCategory.${c.category}`)}
+                </AppText>
               </View>
-            );
-          })}
-          <AppText variant="tiny" muted>
-            {tr('today.challengesNote')}
-          </AppText>
-        </Card>
-      ) : null}
-
-      {story ? (
-        <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-          <StoryBubble showLabel={false} story={story} read={read.includes(story.id)} onPress={() => openGated('stories', { pathname: '/story/[storyId]', params: { storyId: story.id } })} />
-          <View style={{ flex: 1, gap: 2 }}>
-            <AppText variant="small" weight="700" color={t.colors.accent}>
-              {tr('stories.ofTheDay')}
-            </AppText>
-            <AppText weight="700">{story.title}</AppText>
-            <AppText variant="small" muted>
-              {tr('stories.minutes', { count: story.minutes })}
-            </AppText>
+              <ScalePressable
+                onPress={() => setOpenId(open ? null : c.id)}
+                accessibilityRole="button"
+                accessibilityState={{ expanded: open }}
+                accessibilityLabel={tr('today.challengeWhyA11y', { task: c.text })}
+                hitSlop={(t.touch - 36) / 2}
+                style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs, paddingHorizontal: t.space.md, minHeight: 36, borderRadius: t.radius.pill, backgroundColor: open ? t.tokens.primarySoft : t.tokens.muted }}
+              >
+                <Icon name={open ? 'chevronUp' : 'info'} size="sm" color={open ? t.tokens.primary : t.tokens.mutedForeground} />
+                <AppText variant="footnote" style={{ fontWeight: '500', color: open ? t.tokens.primary : t.tokens.foreground }}>
+                  {tr('today.challengeWhy')}
+                </AppText>
+              </ScalePressable>
+            </View>
+            {open ? (
+              <View style={{ gap: t.space.xs, padding: t.space.md, borderRadius: t.radius.md, backgroundColor: t.tokens.muted }}>
+                <AppText variant="callout">{c.why}</AppText>
+                <ScalePressable onPress={() => void Linking.openURL(c.source.url)} accessibilityRole="link" accessibilityLabel={tr('today.challengeSource', { title: c.source.title })} style={{ minHeight: t.touch, justifyContent: 'center' }}>
+                  <AppText variant="footnote" muted style={{ textDecorationLine: 'underline' }}>
+                    {tr('today.challengeSource', { title: c.source.title })}
+                  </AppText>
+                </ScalePressable>
+              </View>
+            ) : null}
           </View>
-        </Card>
-      ) : null}
-
-      <Card onPress={() => openGated('fitness', { pathname: '/fitness/[routineId]', params: { routineId: routine.id } })} accessibilityLabel={tr('today.fitness', { name: routine.name })} style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-        <AppText variant="h2">🏋️</AppText>
-        <View style={{ flex: 1 }}>
-          <AppText variant="small" weight="700" color={t.colors.accent}>
-            {tr('today.fitnessLabel')}
-          </AppText>
-          <AppText weight="700">{tr('today.fitness', { name: routine.name })}</AppText>
-          <AppText variant="small" muted>
-            {tr('common.minutes', { count: Math.round(routineDurationSec(routine) / 60) })}
-          </AppText>
-        </View>
-        <Icon name="chevron" color={t.colors.textMuted} size={18} />
-      </Card>
-
-      <Button label={tr('today.breathing')} variant="secondary" icon="wind" onPress={() => openGated('mind', '/mind/breathing')} />
-      <Button label={tr('today.achievements')} variant="ghost" icon="trophy" onPress={() => router.push('/achievements')} />
+        );
+      })}
+      <AppText variant="footnote" muted>
+        {tr('today.challengesNote')}
+      </AppText>
     </View>
   );
 }

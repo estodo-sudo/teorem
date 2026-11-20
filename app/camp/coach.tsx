@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Linking, Pressable, ScrollView, View, type ScrollViewInstance } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { CAMP_COACH, CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
 import { nodeText, parseAction, type CoachReply, type CoachScenario, type CoachVars } from '@/features/camps/smoking/engine/coach';
 import { totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
@@ -95,8 +95,8 @@ export default function CampCoach() {
   const bubble = (m: Msg, i: number) => {
     const mine = m.from === 'me';
     return (
-      <View key={i} style={{ alignSelf: mine ? 'flex-end' : 'flex-start', maxWidth: '86%', flexDirection: 'row', gap: 8, alignItems: 'flex-end' }}>
-        {!mine ? <AppText>🧑‍🏫</AppText> : null}
+      <View key={i} style={{ alignSelf: mine ? 'flex-end' : 'flex-start', maxWidth: '86%', flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-end' }}>
+        {!mine ? <Icon name="user" size="md" color={t.tone.smokefree.fg} /> : null}
         <View
           style={{
             flexShrink: 1,
@@ -123,7 +123,7 @@ export default function CampCoach() {
       accessibilityRole="button"
       style={{
         minHeight: 48,
-        paddingHorizontal: 16,
+        paddingHorizontal: t.space.lg,
         paddingVertical: 10,
         borderRadius: t.radius.pill,
         borderWidth: 1.5,
@@ -143,27 +143,27 @@ export default function CampCoach() {
   return (
     <Screen scroll={false}>
       <Header title={tr('camp.coach.title')} onBack={() => goBack('/camp')} />
-      <Card style={{ paddingVertical: 8, backgroundColor: tint(t.colors.warning, '14') }}>
-        <AppText variant="tiny">ℹ️ {CAMP_COACH.disclaimer}</AppText>
+      <Card style={{ paddingVertical: t.space.sm, backgroundColor: tint(t.colors.warning, '14') }}>
+        <AppText variant="tiny">{CAMP_COACH.disclaimer}</AppText>
       </Card>
-      <ScrollView ref={scroll} contentContainerStyle={{ gap: 10, paddingVertical: 8 }} onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })} accessibilityLiveRegion="polite">
+      <ScrollView ref={scroll} contentContainerStyle={{ gap: 10, paddingVertical: t.space.sm }} onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })} accessibilityLiveRegion="polite">
         {msgs.length === 0 && !scenario ? bubble({ from: 'coach', text: tr('camp.coach.hello') }, -1) : null}
         {msgs.map(bubble)}
         {typing ? (
           <AppText variant="small" muted>
-            🧑‍🏫 {tr('camp.coach.typing')}
+            {tr('camp.coach.typing')}
           </AppText>
         ) : null}
         {!typing && node ? node.replies.map((r, i) => choice(r.label, () => choose(r), `${nodeId}-${i}`)) : null}
         {!typing && !scenario ? (
-          <View style={{ gap: 8, marginTop: 4 }}>
+          <View style={{ gap: t.space.sm, marginTop: t.space.xs }}>
             <AppText variant="small" weight="800" muted>
               {msgs.length ? tr('camp.coach.another') : tr('camp.coach.pick')}
             </AppText>
             {CAMP_COACH.scenarios
               .filter((s) => !(minor && MEDICATION_SCENARIOS.includes(s.id)))
-              .map((s) => (premium || scenarioIsFree(s.id) ? choice(`${s.emoji} ${s.title}`, () => start(s), s.id) : choice(`🔒 ${s.title}`, () => router.push({ pathname: '/paywall', params: { source: 'camp' } }), s.id)))}
-            {choice(`📞 ${tr('camp.ui.call171')}`, () => void Linking.openURL('tel:171'), 'alo')}
+              .map((s) => (premium || scenarioIsFree(s.id) ? choice(`${s.title}`, () => start(s), s.id) : choice(`${s.title}`, () => router.push({ pathname: '/paywall', params: { source: 'camp' } }), s.id)))}
+            {choice(`${tr('camp.ui.call171')}`, () => void Linking.openURL('tel:171'), 'alo')}
           </View>
         ) : null}
       </ScrollView>

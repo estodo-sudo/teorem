@@ -58,8 +58,8 @@ export default function CampRelapse() {
       <Header title={CHK.relapse.title} onBack={back} />
       <AppText>{CHK.relapse.intro}</AppText>
 
-      <SectionTitle emoji="🧭" title={CHK.relapse.learned} hint={tr('camp.relapse.attempt', { n: attempt.attemptNo })} />
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <SectionTitle tone="smokefree" icon="compass" title={CHK.relapse.learned} hint={tr('camp.relapse.attempt', { n: attempt.attemptNo })} />
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
         <Card style={{ flex: 1, alignItems: 'center', gap: 2 }}>
           <AppText variant="h2" color={t.colors.success}>
             {l.smokeFreeDays}
@@ -82,7 +82,7 @@ export default function CampRelapse() {
           <AppText weight="800">{tr('camp.relapse.hard')}</AppText>
           {l.hardTriggers.map((x) => (
             <AppText key={x.trigger} variant="small">
-              {trig(x.trigger)?.emoji} {trig(x.trigger)?.label} · {tr('camp.diary.times', { count: x.count })}
+              {trig(x.trigger)?.label} · {tr('camp.diary.times', { count: x.count })}
             </AppText>
           ))}
         </Card>
@@ -108,7 +108,7 @@ export default function CampRelapse() {
         </Card>
       ) : null}
 
-      <SectionTitle emoji="📅" title={CHK.relapse.plan} hint={CHK.relapse.planHint} />
+      <SectionTitle tone="smokefree" icon="calendar" title={CHK.relapse.plan} hint={CHK.relapse.planHint} />
       <Card style={{ gap: 10 }}>
         <NumberStepper label={tr('camp.onb.method.inDays')} value={days} onChange={setDays} min={RELAPSE_PREP_DAYS} max={MAX_PREP_DAYS} unit={tr('camp.onb.method.daysUnit')} quick={[3, 5, 7]} />
         <AppText variant="small" weight="700" center>

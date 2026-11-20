@@ -91,7 +91,8 @@ describe('player screen v2 helpers (spec 7.1, 7.3)', () => {
     }
     expect(src).toMatch(/AppState\.addEventListener/);
     expect(src).toMatch(/restartBlock/);
-    expect(src).toMatch(/backgroundColor: '#000000'/);
+    // Black (discreet) mode: pure black from the focus tokens, only a thin progress line stays.
+    expect(src).toMatch(/backgroundColor: f\.black/);
     expect(src).toMatch(/painButton/);
     expect(src).toMatch(/useSafeKeepAwake\(\)/);
   });

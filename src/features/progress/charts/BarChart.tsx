@@ -36,10 +36,10 @@ export function BarChart({ data, height = 160, unit = '', accessibilityLabel }: 
       {w > 0 ? (
         <Svg width={w} height={height}>
           {[0, 0.5, 1].map((f) => (
-            <Line key={f} x1={padL} x2={w} y1={y(yMax * f)} y2={y(yMax * f)} stroke={t.colors.border} strokeWidth={1} />
+            <Line key={f} x1={padL} x2={w} y1={y(yMax * f)} y2={y(yMax * f)} stroke={t.tokens.border} strokeWidth={1} />
           ))}
           {[0, yMax / 2, yMax].map((v) => (
-            <SvgText key={v} x={padL - 6} y={y(v) + 4} fontSize={10} fill={t.colors.textMuted} textAnchor="end">
+            <SvgText key={v} x={padL - 6} y={y(v) + 4} fontSize={t.type.caption.fontSize - 1} fontFamily={t.family.regular} fill={t.tokens.mutedForeground} textAnchor="end">
               {Number.isInteger(v) ? v : v.toFixed(1)}
             </SvgText>
           ))}
@@ -52,11 +52,11 @@ export function BarChart({ data, height = 160, unit = '', accessibilityLabel }: 
             const x1 = cx + barW / 2;
             const base = padT + plotH;
             const path = h > 0 ? `M${x0},${base} V${top + r} Q${x0},${top} ${x0 + r},${top} H${x1 - r} Q${x1},${top} ${x1},${top + r} V${base} Z` : '';
-            return path ? <Path key={i} d={path} fill={t.colors.accent} opacity={i === shown ? 1 : 0.55} /> : null;
+            return path ? <Path key={i} d={path} fill={t.tokens.primary} opacity={i === shown ? 1 : 0.55} /> : null;
           })}
           {data.map((d, i) =>
             i === 0 || i === data.length - 1 ? (
-              <SvgText key={`l${i}`} x={padL + slot * i + slot / 2} y={height - 6} fontSize={10} fill={t.colors.textMuted} textAnchor="middle">
+              <SvgText key={`l${i}`} x={padL + slot * i + slot / 2} y={height - 6} fontSize={t.type.caption.fontSize - 1} fontFamily={t.family.regular} fill={t.tokens.mutedForeground} textAnchor="middle">
                 {d.label}
               </SvgText>
             ) : null,
@@ -65,9 +65,9 @@ export function BarChart({ data, height = 160, unit = '', accessibilityLabel }: 
             <SvgText
               x={Math.min(Math.max(padL + slot * shown + slot / 2, padL + 20), w - 20)}
               y={Math.max(12, y(data[shown]!.value) - 6)}
-              fontSize={12}
-              fontWeight="700"
-              fill={t.colors.text}
+              fontSize={t.type.caption.fontSize}
+              fontFamily={t.family.semibold}
+              fill={t.tokens.foreground}
               textAnchor="middle"
             >
               {`${data[shown]!.value}${unit}`}

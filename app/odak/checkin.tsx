@@ -4,6 +4,7 @@ import { TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { ODAK_CHECKIN as C } from '@/features/camps/odak/content';
 import { buildCheckin, lowMoodAlert, VALUE_ACTION_MAX } from '@/features/camps/odak/engine/checkin';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
@@ -40,15 +41,15 @@ export default function OdakCheckin() {
     return (
       <Screen
         footer={
-          <View style={{ gap: 8 }}>
+          <View style={{ gap: t.space.sm }}>
             {!saved.onGoal ? <Button label={C.toSlip} size="lg" onPress={() => router.replace({ pathname: '/odak/slip', params: { from: 'checkin' } })} /> : null}
             <Button label={tr('common.done')} size="lg" variant={saved.onGoal ? 'primary' : 'ghost'} onPress={() => goBack('/odak')} />
           </View>
         }
       >
         <Header title={C.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
-        <Card style={{ alignItems: 'center', gap: 8, padding: 20 }}>
-          <AppText variant="display">🌿</AppText>
+        <Card style={{ alignItems: 'center', gap: t.space.sm, padding: t.space.gutter }}>
+          <IconTile icon="leaf" tone="focus" size="lg" round />
           <AppText center accessibilityLiveRegion="polite">
             {saved.onGoal ? C.done : C.doneSlip}
           </AppText>
@@ -83,7 +84,7 @@ export default function OdakCheckin() {
         placeholder={C.value.placeholder}
         accessibilityLabel={C.value.q}
         placeholderTextColor={t.colors.textMuted}
-        style={{ minHeight: 52, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 14, color: t.colors.text, fontSize: 16 }}
+        style={{ minHeight: 52, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 14, color: t.colors.text, fontSize: t.type.body.fontSize }}
       />
     </Screen>
   );

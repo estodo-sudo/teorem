@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { useEffect } from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSequence, withSpring, withTiming } from 'react-native-reanimated';
@@ -9,6 +10,7 @@ import { useProgressStore } from '@/stores/progressStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 
 import { ACHIEVEMENTS } from './achievements';
+import { IconTile } from '@/components/ui';
 
 /** Global overlay that celebrates newly unlocked achievements one by one. */
 export function Celebration() {
@@ -18,14 +20,14 @@ export function Celebration() {
   const id = queue[0];
   const def = ACHIEVEMENTS.find((a) => a.id === id);
   if (!id || !def) return null;
-  return <CelebrationCard celebrationKey={id} kicker={tr('achievements.unlocked')} emoji={def.emoji} title={tr(`achievements.items.${def.id}.title`)} desc={tr(`achievements.items.${def.id}.desc`)} cta={tr('achievements.great')} onClose={shift} />;
+  return <CelebrationCard celebrationKey={id} kicker={tr('achievements.unlocked')} icon={def.icon} title={tr(`achievements.items.${def.id}.title`)} desc={tr(`achievements.items.${def.id}.desc`)} cta={tr('achievements.great')} onClose={shift} />;
 }
 
 /**
  * The celebration modal itself (animated medal, haptic cue). Shared by achievements and other
  * milestones such as the smoke-free camp's health gains. `celebrationKey` restarts the animation.
  */
-export function CelebrationCard({ celebrationKey, kicker, emoji, title, desc, cta, onClose }: { celebrationKey: string; kicker: string; emoji: string; title: string; desc: string; cta: string; onClose: () => void }) {
+export function CelebrationCard({ celebrationKey, kicker, icon, title, desc, cta, onClose }: { celebrationKey: string; kicker: string; icon: IconName; title: string; desc: string; cta: string; onClose: () => void }) {
   const t = useTheme();
   const strength = useSettingsStore((s) => s.settings.hapticStrength);
   const scale = useSharedValue(0.3);
@@ -47,8 +49,8 @@ export function CelebrationCard({ celebrationKey, kicker, emoji, title, desc, ct
           <AppText variant="small" weight="700" color={t.colors.accent} center>
             {kicker}
           </AppText>
-          <Animated.View style={[styles.medal, { backgroundColor: t.dark ? t.colors.surfaceAlt : '#FFF3EB', borderColor: t.colors.accent }, style]}>
-            <AppText style={{ fontSize: 56, lineHeight: 68 }}>{emoji}</AppText>
+          <Animated.View style={[styles.medal, { backgroundColor: t.tokens.highlightSoft, borderColor: t.tokens.highlight }, style]}>
+            <IconTile icon={icon} tone="kegel" size="lg" round />
           </Animated.View>
           <AppText variant="h2" center accessibilityRole="header">
             {title}

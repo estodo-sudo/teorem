@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- onboarding-welcome: placeholder. Sakin bir başlangıç: güneşin doğuşu gibi yükselen yay, ortada soyut ve yüzsüz bir figür. -->
+  <circle cx="80" cy="92" r="58" fill="#E2EFEC" stroke="none" stroke-width="2"/>
+  <path d="M36.0 110.0 A44 44 0 0 1 124.0 110.0" fill="none" stroke="#9AA0A6" stroke-width="2"/>
+  <circle cx="80" cy="76.0" r="9.0" fill="none" stroke="#1E6B66" stroke-width="2"/>
+  <path d="M62.0 120.0 Q80.0 88.0 98.0 120.0" fill="none" stroke="#1E6B66" stroke-width="2"/>
+  <line x1="30" y1="132" x2="130" y2="132" stroke="#9AA0A6" stroke-width="2"/>
+</svg>

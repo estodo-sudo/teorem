@@ -15,52 +15,52 @@
   "options": [
    {
     "id": "walk",
-    "emoji": "🚶",
+    "icon": "footprints", "tone": "focus",
     "label": "Yürüyüş"
    },
    {
     "id": "shower",
-    "emoji": "🚿",
+    "icon": "shower", "tone": "focus",
     "label": "Duş"
    },
    {
     "id": "book",
-    "emoji": "📖",
+    "icon": "book", "tone": "focus",
     "label": "Kitap"
    },
    {
     "id": "call",
-    "emoji": "📞",
+    "icon": "phone", "tone": "focus",
     "label": "Birini aramak"
    },
    {
     "id": "kegel",
-    "emoji": "💪",
+    "icon": "dumbbell", "tone": "focus",
     "label": "Kegel seansı"
    },
    {
     "id": "breath",
-    "emoji": "🌬️",
+    "icon": "wind", "tone": "focus",
     "label": "Nefes egzersizi"
    },
    {
     "id": "fitness",
-    "emoji": "🏃",
+    "icon": "footprints", "tone": "focus",
     "label": "Fitness"
    },
    {
     "id": "hobby",
-    "emoji": "🎨",
+    "icon": "palette", "tone": "focus",
     "label": "Bir uğraş"
    },
    {
     "id": "music",
-    "emoji": "🎧",
+    "icon": "headphones", "tone": "focus",
     "label": "Müzik"
    },
    {
     "id": "sleep",
-    "emoji": "😴",
+    "icon": "moon", "tone": "focus",
     "label": "Erken yatmak"
    }
   ]
@@ -114,25 +114,25 @@
   "items": [
    {
     "id": "kegel",
-    "emoji": "💪",
+    "icon": "dumbbell", "tone": "focus",
     "label": "Kegel antrenmanı",
     "route": "/training"
    },
    {
     "id": "breathing",
-    "emoji": "🌬️",
+    "icon": "wind", "tone": "focus",
     "label": "Nefes egzersizi",
     "route": "/mind/breathing"
    },
    {
     "id": "bodyScan",
-    "emoji": "🧘",
+    "icon": "flower", "tone": "focus",
     "label": "Beden taraması",
     "route": "/mind/body-scan"
    },
    {
     "id": "fitness",
-    "emoji": "🏃",
+    "icon": "footprints", "tone": "focus",
     "label": "Kasık Fitness",
     "route": "/training"
    }

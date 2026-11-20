@@ -79,7 +79,7 @@ describe('release checks (spec 17)', () => {
     let checked = 0;
     for (const f of kegelCode.filter((x) => x.endsWith('.tsx'))) {
       const src = fs.readFileSync(f, 'utf8');
-      for (const m of src.matchAll(/<Pressable\b([\s\S]*?)(?<!=)>/g)) {
+      for (const m of src.matchAll(/<(?:Scale)?Pressable\b([\s\S]*?)(?<!=)>/g)) {
         checked += 1;
         expect([path.basename(f), m[1]!.includes('accessibilityRole')]).toEqual([path.basename(f), true]);
         for (const n of m[1]!.matchAll(/(?:minHeight|height|width): (\d+)/g)) expect([path.basename(f), Number(n[1])]).toEqual([path.basename(f), Math.max(48, Number(n[1]))]);

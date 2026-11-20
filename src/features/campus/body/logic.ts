@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 /**
  * Exercise campuses (Dik Boyun / Güçlü Kemer) — pure logic shared by both.
  *
@@ -17,7 +18,7 @@ export const MEASURE_EVERY_DAYS = 7;
 
 export interface BodyExercise {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   steps: string[];
   reps: number;

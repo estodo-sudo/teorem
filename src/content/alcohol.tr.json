@@ -1,62 +1,71 @@
 {
   "id": "alcohol",
-  "title": "Alkol Bağımlılığı Kampüsü",
-  "emoji": "🥃",
+  "title": "Alkolsüz Kamp",
+  "icon": "glass",
+  "tone": "campus",
   "description": "Ne kadar içtiğini gör, güvenli bir hedef seç ve içkiyle ilişkini yeniden kur.",
   "reviewed": false,
   "drinks": [
     {
       "id": "beer33",
-      "emoji": "🍺",
+      "icon": "glass",
+      "tone": "campus",
       "title": "Bira",
       "detail": "33 cl · %5",
       "std": 1.3
     },
     {
       "id": "beer50",
-      "emoji": "🍺",
+      "icon": "glass",
+      "tone": "campus",
       "title": "Büyük bira",
       "detail": "50 cl · %5",
       "std": 2.0
     },
     {
       "id": "wine",
-      "emoji": "🍷",
+      "icon": "glass",
+      "tone": "campus",
       "title": "Şarap",
       "detail": "1 kadeh · 15 cl",
       "std": 1.5
     },
     {
       "id": "raki1",
-      "emoji": "🥛",
+      "icon": "milk",
+      "tone": "campus",
       "title": "Rakı (tek)",
       "detail": "4 cl · %45",
       "std": 1.4
     },
     {
       "id": "raki2",
-      "emoji": "🥛",
+      "icon": "milk",
+      "tone": "campus",
       "title": "Rakı (duble)",
       "detail": "8 cl · %45",
       "std": 2.8
     },
     {
       "id": "spirit",
-      "emoji": "🥃",
+      "icon": "glass",
+      "tone": "campus",
       "title": "Viski, votka, cin",
       "detail": "4 cl · %40",
       "std": 1.3
     },
     {
       "id": "shot",
-      "emoji": "🔥",
+      "icon": "flame",
+      "tone": "campus",
       "title": "Shot",
       "detail": "3 cl · %40",
       "std": 0.9
     },
     {
       "id": "cocktail",
-      "emoji": "🍸",
+      "icon": "glass",
+      "tone": "campus",
       "title": "Kokteyl",
       "detail": "≈ 6 cl sert içki",
       "std": 1.9
@@ -157,7 +166,7 @@
         "id": "high",
         "max": 12,
         "title": "Yüksek risk",
-        "text": "Puanın yüksek riskli içmeye ve olası bir alkol kullanım bozukluğuna işaret ediyor. Kampüse ek olarak bir hekimle görüşmen önemli."
+        "text": "Puanın yüksek riskli içmeye ve olası bir alkol kullanım bozukluğuna işaret ediyor. Kampa ek olarak bir hekimle görüşmen önemli."
       }
     ],
     "disclaimer": "AUDIT-C bir tarama testidir, tanı koymaz. Dünya Sağlık Örgütü'nün geliştirdiği AUDIT testinin kısa sürümüdür."
@@ -188,7 +197,8 @@
   },
   "paths": {
     "cut": {
-      "emoji": "📉",
+      "icon": "trendDown",
+      "tone": "campus",
       "title": "Azalt",
       "text": "Haftalık bir standart içki sınırı belirler ve haftada birkaç gün hiç içmezsin.",
       "points": [
@@ -198,7 +208,8 @@
       ]
     },
     "quit": {
-      "emoji": "🚫",
+      "icon": "ban",
+      "tone": "campus",
       "title": "Bırak",
       "text": "Belirli bir süre boyunca hiç içmezsin. Alkolsüz geçen bir ay, sonraki aylarda daha az içmeye yardımcı olabilir.",
       "points": [
@@ -223,91 +234,107 @@
   "reasons": [
     {
       "id": "health",
-      "emoji": "❤️",
+      "icon": "heart",
+      "tone": "campus",
       "label": "Sağlığım için"
     },
     {
       "id": "sleep",
-      "emoji": "😴",
+      "icon": "moon",
+      "tone": "campus",
       "label": "Daha iyi uyumak"
     },
     {
       "id": "sex",
-      "emoji": "🔥",
+      "icon": "flame",
+      "tone": "campus",
       "label": "Cinsel sağlığım için"
     },
     {
       "id": "money",
-      "emoji": "💰",
+      "icon": "wallet",
+      "tone": "campus",
       "label": "Para biriktirmek"
     },
     {
       "id": "family",
-      "emoji": "👨‍👩‍👧",
+      "icon": "users",
+      "tone": "campus",
       "label": "Ailem ve ilişkilerim"
     },
     {
       "id": "work",
-      "emoji": "💼",
+      "icon": "briefcase",
+      "tone": "campus",
       "label": "İşime ve odaklanmama"
     },
     {
       "id": "mood",
-      "emoji": "🧠",
+      "icon": "brain",
+      "tone": "campus",
       "label": "Ruh hâlimi dengelemek"
     },
     {
       "id": "control",
-      "emoji": "🧭",
+      "icon": "compass",
+      "tone": "campus",
       "label": "Kontrolün bende olması"
     }
   ],
   "triggers": [
     {
       "id": "social",
-      "emoji": "🎉",
+      "icon": "party",
+      "tone": "campus",
       "label": "Arkadaş ortamı ve davetler",
       "plan": "Davete gitmeden önce kaç içki içeceğime ya da hiç içmeyeceğime karar veririm; elimde hep alkolsüz bir içecek olur."
     },
     {
       "id": "raki-table",
-      "emoji": "🍽️",
+      "icon": "utensils",
+      "tone": "campus",
       "label": "Rakı sofrası",
       "plan": "Sofrada önceden belirlediğim sınırı aşmam; rakının yanında bol su ve yemekle yavaş giderim ya da şalgam, ayran tercih ederim."
     },
     {
       "id": "stress",
-      "emoji": "😣",
+      "icon": "frown",
+      "tone": "campus",
       "label": "İş çıkışı stres",
       "plan": "İşten çıkınca eve dönmeden kısa bir yürüyüş yapar ya da spor yaparım; stresi içkiyle değil hareketle atarım."
     },
     {
       "id": "alone",
-      "emoji": "🏠",
+      "icon": "home",
+      "tone": "campus",
       "label": "Akşam evde yalnız",
       "plan": "Evde alkol bulundurmam; akşamları için önceden bir plan yaparım: yemek, dizi, arama ya da yürüyüş."
     },
     {
       "id": "weekend",
-      "emoji": "📅",
+      "icon": "calendar",
+      "tone": "campus",
       "label": "Hafta sonu",
       "plan": "Hafta sonu programıma alkolün merkezde olmadığı etkinlikler koyarım: kahvaltı, doğa, spor."
     },
     {
       "id": "match",
-      "emoji": "⚽",
+      "icon": "pulse",
+      "tone": "campus",
       "label": "Maç izlerken",
       "plan": "Maçı alkolsüz bira ya da başka bir içecekle izlerim; yanımda atıştırmalık bulundururum."
     },
     {
       "id": "sleep",
-      "emoji": "🌙",
+      "icon": "moon",
+      "tone": "campus",
       "label": "Uyumak için içmek",
       "plan": "Uyumak için içmem; alkol uykuyu bölüp kalitesini düşürür. Yatmadan önce ekranı bırakır, ılık bir duş alırım."
     },
     {
       "id": "conflict",
-      "emoji": "🌧️",
+      "icon": "cloudRain",
+      "tone": "campus",
       "label": "Tartışma ya da üzüntü",
       "plan": "Üzgün ya da öfkeliyken içki yerine güvendiğim biriyle konuşur ya da duygumu bir kâğıda yazarım."
     }
@@ -315,49 +342,57 @@
   "tips": [
     {
       "id": "home",
-      "emoji": "🏠",
+      "icon": "home",
+      "tone": "campus",
       "title": "Evde alkol bulundurma",
       "text": "Ulaşması zorlaştıkça daha az içilir. Alışverişte içki almamak, akşamları otomatik olarak içmenin önüne geçer."
     },
     {
       "id": "decide",
-      "emoji": "📝",
+      "icon": "notebook",
+      "tone": "campus",
       "title": "İçmeden önce karar ver",
       "text": "Başlamadan kaç standart içki içeceğine karar ver ve her birini o anda kaydet. Sınırına geldiğinde alkolsüz bir içeceğe geç."
     },
     {
       "id": "water",
-      "emoji": "💧",
+      "icon": "droplet",
+      "tone": "campus",
       "title": "Her içkinin arasına su",
       "text": "Her kadehin ardından bir bardak su ya da alkolsüz içecek iç. Hem hızını düşürür hem susuzluğu giderir; susuzluk çoğu zaman daha fazla içmeye yol açar."
     },
     {
       "id": "food",
-      "emoji": "🍽️",
+      "icon": "utensils",
+      "tone": "campus",
       "title": "Aç karnına içme",
       "text": "Yemekle ve yavaş iç. Midede yemek olması alkolün kana geçişini yavaşlatır."
     },
     {
       "id": "smaller",
-      "emoji": "🥤",
+      "icon": "cup",
+      "tone": "campus",
       "title": "Daha küçük, daha hafif",
       "text": "Büyük bira yerine küçük, duble yerine tek seç. Daha düşük alkollü ya da alkolsüz seçenekler aynı keyfi daha az alkolle verir."
     },
     {
       "id": "free-days",
-      "emoji": "📅",
+      "icon": "calendar",
+      "tone": "campus",
       "title": "Alkolsüz günleri önceden planla",
       "text": "Haftanın hangi günlerinin alkolsüz olacağını baştan belirle; iş günleri iyi bir başlangıçtır. Planlanan alkolsüz gün, kendiliğinden gelen günden daha kolay korunur."
     },
     {
       "id": "routine",
-      "emoji": "🔄",
+      "icon": "rotate",
+      "tone": "campus",
       "title": "Alışkanlığın yerini doldur",
       "text": "İçtiğin saatlere yeni bir rutin koy: iş çıkışı yürüyüş, maçta sevdiğin alkolsüz bir içecek, akşam bir hobi. Boş kalan zaman en sık içilen zamandır."
     },
     {
       "id": "no",
-      "emoji": "🙋",
+      "icon": "hand",
+      "tone": "campus",
       "title": "Kısa ve net hayır",
       "text": "Israr edilirse 'Hayır, teşekkürler' yeterlidir; açıklama yapmak zorunda değilsin. Elinde alkolsüz bir içecek olması ısrarı baştan azaltır."
     }
@@ -365,7 +400,7 @@
   "info": {
     "std": {
       "title": "Standart içki nedir?",
-      "text": "Farklı içkileri karşılaştırmanın ortak birimidir: 1 standart içki 10 gram saf alkoldür. Hesap: hacim (ml) × alkol oranı × 0,789 ÷ 10. Örnekler: küçük bira (33 cl) 1,3 · kadeh şarap 1,5 · tek rakı 1,4 · duble rakı 2,8. Kampüs bu hesabı senin yerine yapar."
+      "text": "Farklı içkileri karşılaştırmanın ortak birimidir: 1 standart içki 10 gram saf alkoldür. Hesap: hacim (ml) × alkol oranı × 0,789 ÷ 10. Örnekler: küçük bira (33 cl) 1,3 · kadeh şarap 1,5 · tek rakı 1,4 · duble rakı 2,8. Kamp bu hesabı senin yerine yapar."
     },
     "audit": {
       "title": "AUDIT-C nedir?",
@@ -377,7 +412,7 @@
     },
     "statsQuit": {
       "title": "Bu sayılar ne anlatıyor?",
-      "text": "Halka ve büyük sayı: son içkinden bu yana geçen alkolsüz gün ve hedefin. En uzun ara: kampüse başladığından beri iki içki arasındaki en uzun süre. Alkolsüz gün ve bu hafta: pazartesiden beri hiç içmediğin günler ve içtiğin toplam standart içki. Bir içki kaydettiğinde alkolsüz sayaç yeniden başlar."
+      "text": "Halka ve büyük sayı: son içkinden bu yana geçen alkolsüz gün ve hedefin. En uzun ara: kampa başladığından beri iki içki arasındaki en uzun süre. Alkolsüz gün ve bu hafta: pazartesiden beri hiç içmediğin günler ve içtiğin toplam standart içki. Bir içki kaydettiğinde alkolsüz sayaç yeniden başlar."
     }
   },
   "sexual": [
@@ -426,7 +461,8 @@
   "steps": [
     {
       "id": "what",
-      "emoji": "🥃",
+      "icon": "glass",
+      "tone": "campus",
       "title": "Alkol ve sen",
       "summary": "Önce ne kadar içtiğini dürüstçe görmek, değişimin ilk adımıdır.",
       "sections": [
@@ -436,7 +472,7 @@
         },
         {
           "title": "Standart içki nedir?",
-          "text": "Farklı içkileri karşılaştırmanın yolu standart içkidir: 10 gram saf alkol. Bir küçük bira yaklaşık 1,3, bir kadeh şarap 1,5, bir tek rakı 1,4 standart içkidir. Kampüs bu hesabı senin yerine yapar."
+          "text": "Farklı içkileri karşılaştırmanın yolu standart içkidir: 10 gram saf alkol. Bir küçük bira yaklaşık 1,3, bir kadeh şarap 1,5, bir tek rakı 1,4 standart içkidir. Kamp bu hesabı senin yerine yapar."
         },
         {
           "title": "Kısa test",
@@ -450,7 +486,8 @@
     },
     {
       "id": "safety",
-      "emoji": "🛡️",
+      "icon": "shield",
+      "tone": "campus",
       "title": "Güvenle bırakmak",
       "summary": "Ağır içicilikte ani bırakma tehlikeli olabilir; önce güvenliğini kontrol et.",
       "sections": [
@@ -473,7 +510,8 @@
     },
     {
       "id": "track",
-      "emoji": "📒",
+      "icon": "notebook",
+      "tone": "campus",
       "title": "Günlük tut",
       "summary": "Ölçtüğün şeyi değiştirebilirsin.",
       "sections": [
@@ -483,11 +521,11 @@
         },
         {
           "title": "Nasıl kaydedilir?",
-          "text": "İçtiğin her içkiyi türüne dokunarak kaydet; kampüs standart içkiyi hesaplar, günlük ve haftalık toplamını gösterir. Kaydı içtiğin anda yapmak, akşam sonunda tahmin etmekten çok daha doğrudur."
+          "text": "İçtiğin her içkiyi türüne dokunarak kaydet; kamp standart içkiyi hesaplar, günlük ve haftalık toplamını gösterir. Kaydı içtiğin anda yapmak, akşam sonunda tahmin etmekten çok daha doğrudur."
         },
         {
           "title": "Alkolsüz günler",
-          "text": "Haftada birkaç gün hiç içmemek, alışkanlığı kırmanın ve bedenin toparlanmasının en basit yoludur. Kampüs alkolsüz günlerini kendiliğinden sayar."
+          "text": "Haftada birkaç gün hiç içmemek, alışkanlığı kırmanın ve bedenin toparlanmasının en basit yoludur. Kamp alkolsüz günlerini kendiliğinden sayar."
         }
       ],
       "actions": [
@@ -496,7 +534,8 @@
     },
     {
       "id": "situations",
-      "emoji": "🧭",
+      "icon": "compass",
+      "tone": "campus",
       "title": "Riskli durumlar ve hayır demek",
       "summary": "İçki çoğu zaman belirli durumlarda gelir; önceden hazırlıklı ol.",
       "sections": [
@@ -520,7 +559,8 @@
     },
     {
       "id": "body",
-      "emoji": "🌱",
+      "icon": "sprout",
+      "tone": "campus",
       "title": "Bedenin ve cinsel sağlığın",
       "summary": "Daha az içmenin faydaları kısa sürede hissedilir.",
       "sections": [
@@ -543,7 +583,8 @@
     },
     {
       "id": "support",
-      "emoji": "🤝",
+      "icon": "handshake",
+      "tone": "campus",
       "title": "Destek",
       "summary": "Alkol sorunu bir irade zayıflığı değil, tedavi edilebilir bir sağlık sorunudur.",
       "sections": [

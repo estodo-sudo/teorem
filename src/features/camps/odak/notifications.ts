@@ -8,7 +8,7 @@ import { planOdakNotifications, type PlannedOdakNotif } from './engine/notificat
 import { useOdakLockStore } from './privacy/lockStore';
 
 /**
- * Odak Kampı notifications: always neutral ("Odak zamanı yaklaşıyor 🎯", "Günlük kontrolün hazır"),
+ * Odak Kampı notifications: always neutral ("Odak zamanı yaklaşıyor ", "Günlük kontrolün hazır"),
  * never any content detail, with "SOS" and "Planımı gör" actions. Taps open the camp behind its lock.
  */
 export const ODAK_CATEGORY = 'odak';

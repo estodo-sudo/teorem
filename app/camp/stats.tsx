@@ -48,11 +48,11 @@ export default function CampStats() {
     <Screen>
       <Header title={tr('camp.stats.title')} onBack={() => goBack('/camp')} />
 
-      <SectionTitle emoji="📅" title={tr('camp.stats.calendar')} hint={tr('camp.stats.calendarHint')} />
+      <SectionTitle tone="smokefree" icon="calendar" title={tr('camp.stats.calendar')} hint={tr('camp.stats.calendarHint')} />
       {attempt && quitDone ? (
-        <Card style={{ gap: 4 }}>
+        <Card style={{ gap: t.space.xs }}>
           {smokeFreeCalendar(attempt, ev.cigarettes, now, 13).map((row, w) => (
-            <View key={w} style={{ flexDirection: 'row', gap: 4 }}>
+            <View key={w} style={{ flexDirection: 'row', gap: t.space.xs }}>
               {row.map((c, i) => (
                 <View key={i} style={[{ flex: 1, aspectRatio: 1, maxHeight: 26, borderRadius: 5 }, cell(c)]} />
               ))}
@@ -79,7 +79,7 @@ export default function CampStats() {
 
       {premium ? (
         <>
-          <SectionTitle emoji="🌊" title={tr('camp.stats.cravings')} hint={tr('camp.stats.cravingsHint', { count: resistedCount(ev.cravings) })} />
+          <SectionTitle tone="smokefree" icon="waves" title={tr('camp.stats.cravings')} hint={tr('camp.stats.cravingsHint', { count: resistedCount(ev.cravings) })} />
           <Card>
             <MiniBars
               values={perDay.map((d) => d.count)}
@@ -89,7 +89,7 @@ export default function CampStats() {
             />
           </Card>
 
-          <SectionTitle emoji="📉" title={tr('camp.stats.intensity')} hint={tr('camp.stats.intensityHint')} />
+          <SectionTitle tone="smokefree" icon="trendDown" title={tr('camp.stats.intensity')} hint={tr('camp.stats.intensityHint')} />
           <Card>
             <MiniBars
               values={intensity}
@@ -100,8 +100,8 @@ export default function CampStats() {
             />
           </Card>
 
-          <SectionTitle emoji="⚡" title={tr('camp.stats.triggers')} />
-          <Card style={{ gap: 8 }}>
+          <SectionTitle tone="smokefree" icon="zap" title={tr('camp.stats.triggers')} />
+          <Card style={{ gap: t.space.sm }}>
             {triggers.length ? (
               triggers.map((x) => {
                 const o = ONB.triggers.find((y) => y.id === x.trigger)!;
@@ -109,7 +109,7 @@ export default function CampStats() {
                   <View key={x.trigger} style={{ gap: 3 }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                       <AppText variant="small" weight="700">
-                        {o.emoji} {o.label}
+                        {o.label}
                       </AppText>
                       <AppText variant="small" muted>
                         {x.count}
@@ -130,7 +130,7 @@ export default function CampStats() {
 
           {savings.length ? (
             <>
-              <SectionTitle emoji="💰" title={tr('camp.stats.savings')} hint={tr('camp.stats.savingsHint', { amount: fmtTL(savings[savings.length - 1]!.amount) })} />
+              <SectionTitle tone="smokefree" icon="wallet" title={tr('camp.stats.savings')} hint={tr('camp.stats.savingsHint', { amount: fmtTL(savings[savings.length - 1]!.amount) })} />
               <Card>
                 <MiniBars values={savings.map((p) => p.amount)} color={t.colors.success} a11y={tr('camp.stats.savingsHint', { amount: fmtTL(savings[savings.length - 1]!.amount) })} />
               </Card>
@@ -141,12 +141,12 @@ export default function CampStats() {
         <PremiumLock title={tr('camp.premium.stats')} />
       )}
 
-      <SectionTitle emoji="🏅" title={tr('camp.stats.badges')} hint={tr('camp.stats.badgesHint', { earned, total: CAMP_REWARDS.badges.length })} />
+      <SectionTitle tone="smokefree" icon="medal" title={tr('camp.stats.badges')} hint={tr('camp.stats.badgesHint', { earned, total: CAMP_REWARDS.badges.length })} />
       <Button label={tr('camp.rewards.title')} icon="trophy" variant="secondary" onPress={() => router.push('/camp/rewards')} />
 
       {prep && prep.total ? (
         <>
-          <SectionTitle emoji="🕒" title={tr('camp.stats.prepHours')} hint={tr('camp.stats.prepHoursHint', { count: prep.total })} />
+          <SectionTitle tone="smokefree" icon="clock" title={tr('camp.stats.prepHours')} hint={tr('camp.stats.prepHoursHint', { count: prep.total })} />
           <Card style={{ backgroundColor: tint(t.colors.primary, '08') }}>
             <HourChart hours={prep.hours} top={prep.topHours.map((h) => h.hour)} />
           </Card>

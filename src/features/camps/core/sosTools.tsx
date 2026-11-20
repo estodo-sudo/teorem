@@ -5,6 +5,7 @@ import Svg, { Path } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ProgressBar, useTheme } from '@/components';
+import { Slider } from '@/components/ui/Blocks';
 import { tint } from '@/features/campus/shared/ui';
 import { breathingPhases, type BreathPatternId, type BreathPhase } from '@/features/mind/breathing';
 import { cancelHaptics, playCue } from '@/features/training/haptics';
@@ -18,49 +19,9 @@ import { BREATH_MINUTES, surfPromptIndex, SURF_MINUTES, waveAmplitude } from './
 
 /** Shared SOS tools (any camp passes its own texts). */
 
-/** 1–10 intensity scale: ten tappable steps, adjustable for screen readers. */
+/** 1–10 intensity (SPEC_UI_V3 §5 Slider): a thick-track slider with a big value and the end labels; a selection haptic per step. */
 export function IntensityScale({ value, onChange, label, labels }: { value: number | null; onChange: (v: number) => void; label: string; labels: { low: string; high: string } }) {
-  const t = useTheme();
-  return (
-    <View style={{ gap: 6 }}>
-      <View
-        style={{ flexDirection: 'row', gap: 4 }}
-        accessible
-        accessibilityRole="adjustable"
-        accessibilityLabel={label}
-        accessibilityValue={{ min: 1, max: 10, now: value ?? undefined, text: value ? `${value} / 10` : '' }}
-        accessibilityActions={[{ name: 'increment' }, { name: 'decrement' }]}
-        onAccessibilityAction={(e) => onChange(Math.min(10, Math.max(1, (value ?? 5) + (e.nativeEvent.actionName === 'increment' ? 1 : -1))))}
-      >
-        {Array.from({ length: 10 }, (_, i) => {
-          const n = i + 1;
-          const on = value !== null && n <= value;
-          // Calm colours from green to orange; never alarming red.
-          const c = n <= 3 ? t.colors.success : n <= 7 ? t.colors.warning : t.colors.accent;
-          return (
-            <Pressable
-              key={n}
-              onPress={() => onChange(n)}
-              importantForAccessibility="no"
-              style={{ flex: 1, height: 48, borderRadius: 8, alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 6, backgroundColor: on ? c : t.colors.surfaceAlt, borderWidth: value === n ? 2 : 0, borderColor: t.colors.text }}
-            >
-              <AppText variant="tiny" weight="800" color={on ? '#FFFFFF' : t.colors.textMuted}>
-                {n}
-              </AppText>
-            </Pressable>
-          );
-        })}
-      </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <AppText variant="tiny" muted>
-          {labels.low}
-        </AppText>
-        <AppText variant="tiny" muted>
-          {labels.high}
-        </AppText>
-      </View>
-    </View>
-  );
+  return <Slider value={value} onChange={onChange} min={1} max={10} label={label} minLabel={labels.low} maxLabel={labels.high} />;
 }
 
 /** A plain countdown with start / pause. */
@@ -129,7 +90,7 @@ export function UrgeSurf({ onUsed, text }: { onUsed: () => void; text: { desc: s
           {prompt}
         </AppText>
       </Card>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
         <AppText variant="h2" style={{ minWidth: 70 }} accessibilityLabel={tr('camp.sos.timeLeft', { time: mmss(cd.left) })}>
           {mmss(cd.left)}
         </AppText>
@@ -138,7 +99,7 @@ export function UrgeSurf({ onUsed, text }: { onUsed: () => void; text: { desc: s
         </View>
       </View>
       {!cd.running && cd.elapsed === 0 ? (
-        <View style={{ flexDirection: 'row', gap: 8 }}>
+        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
           {SURF_MINUTES.map((m) => (
             <Pressable
               key={m}
@@ -177,13 +138,13 @@ export function SosBreath({ onUsed, desc }: { onUsed: () => void; desc: string }
   const [pattern, setPattern] = useState<BreathPatternId>('box');
   const [running, setRunning] = useState(false);
   return (
-    <View style={{ gap: 12 }}>
+    <View style={{ gap: t.space.md }}>
       <AppText muted>{desc}</AppText>
       {running ? (
         <BreathRun pattern={pattern} onDone={() => setRunning(false)} />
       ) : (
         <>
-          <View style={{ flexDirection: 'row', gap: 8 }}>
+          <View style={{ flexDirection: 'row', gap: t.space.sm }}>
             {(['box', '478'] as const).map((p) => (
               <Pressable
                 key={p}
@@ -237,16 +198,16 @@ function BreathRun({ pattern, onDone }: { pattern: BreathPatternId; onDone: () =
   const done = state.status === 'completed';
   const target = phase?.kind === 'inhale' || phase?.kind === 'holdIn' ? 1 : 0.5;
   return (
-    <View style={{ gap: 12, alignItems: 'center' }}>
+    <View style={{ gap: t.space.md, alignItems: 'center' }}>
       <ProgressBar value={progress(state, now)} color={t.colors.breathe} />
       <View>
         <BreathCircle size={200} target={done ? 0.7 : target} durationMs={phase?.kind === 'inhale' || phase?.kind === 'exhale' ? phase.durationMs : 300} color={t.colors.breathe} animKey={state.index} ringColor={t.colors.border} />
         <View style={{ position: 'absolute', inset: 0, alignItems: 'center', justifyContent: 'center' }} pointerEvents="none">
-          <AppText variant="h2" color="#FFFFFF" accessibilityLiveRegion="polite">
-            {done ? '🌿' : tr(`mind.breathing.phase.${phase?.kind ?? 'inhale'}`)}
+          <AppText variant="h2" color={t.tokens.primaryForeground} accessibilityLiveRegion="polite">
+            {done ? tr('common.done') : tr(`mind.breathing.phase.${phase?.kind ?? 'inhale'}`)}
           </AppText>
           {!done ? (
-            <AppText variant="h2" color="#FFFFFF">
+            <AppText variant="h2" color={t.tokens.primaryForeground}>
               {Math.ceil(remainingInPhase(state, now) / 1000)}
             </AppText>
           ) : null}

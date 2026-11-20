@@ -48,7 +48,7 @@ export function Dialog({ visible, title, message, children, actions, onDismiss }
               {children}
             </ScrollView>
           ) : null}
-          <View style={{ gap: 10, marginTop: 8 }}>
+          <View style={{ gap: 10, marginTop: t.space.sm }}>
             {actions.map((a) => (
               <Button key={a.label} label={a.label} onPress={a.onPress} variant={a.variant ?? 'secondary'} />
             ))}

@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { CAMP_MISSIONS } from '@/features/camps/smoking/content';
 import { currentAttempt } from '@/features/camps/smoking/state';
 import { Alo171Card, useCampDate } from '@/features/camps/smoking/ui';
@@ -27,18 +28,16 @@ export default function CampQuitDay() {
     <Screen>
       <Header title={tr('camp.quitDay.title')} onBack={() => goBack('/camp')} />
       <CampusHero color={t.colors.accent}>
-        <AppText variant="display" center>
-          🚩
-        </AppText>
-        <AppText variant="h1" center color="#FFFFFF" accessibilityRole="header">
+        <IconTile icon="flag" tone="smokefree" size="lg" round />
+        <AppText variant="h1" center color={t.tokens.primaryForeground} accessibilityRole="header">
           {QD.title}
         </AppText>
-        <AppText center color="#FFFFFF" style={{ opacity: 0.92 }}>
+        <AppText center color={t.tokens.primaryForeground} style={{ opacity: 0.92 }}>
           {attempt?.status === 'preparing' ? tr('camp.quitDay.upcoming', { date: fmtDate(attempt.plannedQuitDate) }) : QD.intro}
         </AppText>
       </CampusHero>
 
-      <Card style={{ gap: 6, borderWidth: 2, borderColor: t.colors.accent, backgroundColor: tint(t.colors.accent, '12') }}>
+      <Card style={{ gap: 6, borderWidth: 2, borderColor: t.colors.border, backgroundColor: tint(t.colors.accent, '12') }}>
         <AppText variant="h2" color={t.colors.accent} center>
           {QD.rule}
         </AppText>
@@ -56,7 +55,7 @@ export default function CampQuitDay() {
         </View>
         <ProgressBar value={count / QD.checklist.length} height={6} />
       </View>
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {QD.checklist.map((c) => {
           const on = done.includes(c.id);
           return (
@@ -68,7 +67,7 @@ export default function CampQuitDay() {
               accessibilityState={{ checked: on }}
               style={{
                 flexDirection: 'row',
-                gap: 12,
+                gap: t.space.md,
                 alignItems: 'center',
                 padding: 14,
                 borderRadius: t.radius.lg,
@@ -77,8 +76,8 @@ export default function CampQuitDay() {
                 backgroundColor: on ? tint(t.colors.success, '14') : t.colors.surface,
               }}
             >
-              <View style={{ width: 28, height: 28, borderRadius: 8, borderWidth: 2, borderColor: on ? t.colors.success : t.colors.border, backgroundColor: on ? t.colors.success : 'transparent', alignItems: 'center', justifyContent: 'center' }}>
-                {on ? <Icon name="check" color="#FFFFFF" size={16} strokeWidth={3} /> : null}
+              <View style={{ width: 28, height: 28, borderRadius: t.radius.sm, borderWidth: 2, borderColor: on ? t.colors.success : t.colors.border, backgroundColor: on ? t.colors.success : 'transparent', alignItems: 'center', justifyContent: 'center' }}>
+                {on ? <Icon name="check" color={t.tokens.primaryForeground} size={16} strokeWidth={3} /> : null}
               </View>
               <AppText weight="700" style={{ flex: 1 }}>
                 {c.text}
@@ -88,7 +87,7 @@ export default function CampQuitDay() {
         })}
       </View>
       {all ? (
-        <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.success }}>
+        <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText weight="800" color={t.colors.success}>
             {tr('camp.quitDay.ready')}
           </AppText>

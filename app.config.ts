@@ -57,6 +57,7 @@ const config: ExpoConfig = {
       },
     ],
     'expo-sqlite',
+    'expo-font',
     'expo-localization',
     'expo-sharing',
     'expo-audio',

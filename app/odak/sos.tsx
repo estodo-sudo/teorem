@@ -1,9 +1,12 @@
 import { router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, ScrollView, Share, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
+import { ThemeOverride } from '@/components/useTheme';
 import { IntensityScale, mmss, SosBreath, UrgeSurf, useCountdown } from '@/features/camps/core/sosTools';
 import { fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, ODAK_SOS as SOS } from '@/features/camps/odak/content';
 import { buildUrge, dayyCount, LETTER_MAX, managedCount, nextTool, noDayy, SOS_TOOLS, type Dayy } from '@/features/camps/odak/engine/sos';
@@ -20,8 +23,18 @@ type Step = 'check' | 'relocate' | 'tools' | 'end' | 'result';
 /**
  * "Dürtü anı" (SOS, SPEC_ODAK_KAMPI 5.2): DAYY check + intensity → move first (60 s) → tools →
  * "Şimdi nasılsın?" → managed / still hard (another tool) / slipped (no judgement). Always free.
+ * ui-v3 (SPEC_UI_V3 §7.13): always dark and calm, big slider, big tool cards, focus (indigo) tone.
  */
 export default function OdakSos() {
+  return (
+    <ThemeOverride dark>
+      <StatusBar style="light" />
+      <OdakSosBody />
+    </ThemeOverride>
+  );
+}
+
+function OdakSosBody() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const urges = useOdakStore((s) => s.urges);
@@ -64,7 +77,7 @@ export default function OdakSos() {
     ) : step === 'relocate' ? (
       <Button label={tr('odak.sos.toTools')} size="lg" onPress={() => setStep('tools')} />
     ) : step === 'tools' ? (
-      <Button label={tr('odak.sos.toEnd')} size="lg" variant="accent" onPress={() => setStep('end')} />
+      <Button label={tr('odak.sos.toEnd')} size="lg" onPress={() => setStep('end')} />
     ) : step === 'result' ? (
       <Button label={SOS.end.back} size="lg" onPress={() => goBack('/odak')} />
     ) : undefined;
@@ -81,21 +94,21 @@ export default function OdakSos() {
           <AppText muted>{SOS.check.hint}</AppText>
           <View style={{ gap: 10 }}>
             {SOS.check.items.map((it) => (
-              <ChoiceCard key={it.id} multi emoji={it.emoji} label={`${it.letter} · ${it.label}`} selected={dayy[it.id]} onPress={() => setDayy((d) => ({ ...d, [it.id]: !d[it.id] }))} />
+              <ChoiceCard key={it.id} multi icon={it.icon} label={`${it.letter} · ${it.label}`} selected={dayy[it.id]} onPress={() => setDayy((d) => ({ ...d, [it.id]: !d[it.id] }))} />
             ))}
           </View>
           {dayyCount(dayy) ? (
-            <Card style={{ gap: 6, borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+            <Card style={{ gap: 6, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted }}>
               {SOS.check.items
                 .filter((it) => dayy[it.id])
                 .map((it) => (
                   <AppText key={it.id} variant="small">
-                    {it.emoji} {it.tip}
+                    {it.tip}
                   </AppText>
                 ))}
             </Card>
           ) : null}
-          <AppText weight="800">{SOS.check.intensity}</AppText>
+          <AppText variant="title3">{SOS.check.intensity}</AppText>
           <IntensityScale value={before} onChange={setBefore} label={SOS.check.intensity} labels={SOS.check.intensityLabels} />
         </>
       ) : null}
@@ -108,13 +121,13 @@ export default function OdakSos() {
             {SOS.tools.title}
           </AppText>
           {hardNote ? (
-            <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
-              <AppText variant="small">{hardNote}</AppText>
+            <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted }}>
+              <AppText variant="callout">{hardNote}</AppText>
             </Card>
           ) : (
             <AppText muted>{SOS.tools.hint}</AppText>
           )}
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8 }}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -t.space.gutter }} contentContainerStyle={{ gap: t.space.sm, paddingHorizontal: t.space.gutter }}>
             {SOS_TOOLS.map((id) => {
               const it = SOS.tools.items.find((x) => x.id === id)!;
               const on = tool === id;
@@ -125,13 +138,13 @@ export default function OdakSos() {
                   accessibilityRole="tab"
                   accessibilityState={{ selected: on }}
                   accessibilityLabel={`${it.title}. ${it.desc}`}
-                  style={{ width: 128, minHeight: 88, padding: 12, gap: 4, borderRadius: t.radius.lg, borderWidth: 2, borderColor: on ? t.colors.primary : t.colors.border, backgroundColor: on ? tint(t.colors.primary, '1F') : t.colors.surface }}
+                  style={{ width: 128, minHeight: 112, padding: t.space.md, gap: t.space.sm, borderRadius: t.radius.lg, borderWidth: on ? t.border.medium : t.border.thin, borderColor: on ? t.tokens.primary : t.tokens.border, backgroundColor: on ? t.tokens.primarySoft : t.tokens.card }}
                 >
-                  <AppText variant="h2">{it.emoji}</AppText>
-                  <AppText weight="800" variant="small">
+                  <IconTile icon={it.icon} tone="focus" />
+                  <AppText variant="footnote" style={{ fontWeight: '600' }}>
                     {it.title}
                   </AppText>
-                  {used.includes(id) ? <Icon name="check" color={t.colors.success} size={14} strokeWidth={3} /> : null}
+                  {used.includes(id) ? <Icon name="check" color={t.tokens.primary} size="sm" /> : null}
                 </Pressable>
               );
             })}
@@ -142,7 +155,7 @@ export default function OdakSos() {
           {tool === 'values' ? <ValuesView key="values" onUsed={onValuesUsed} /> : null}
           {tool === 'futureSelf' ? <FutureSelf key="future" onUsed={onFutureUsed} /> : null}
           {tool === 'supporter' ? <Supporter key="supporter" onUsed={() => use('supporter')} /> : null}
-          <Button label={`🧑‍🏫 ${tr('odak.coach.fromSos')}`} variant="ghost" onPress={() => router.push({ pathname: '/odak/coach', params: { scenario: 'urge' } })} />
+          <Button label={`${tr('odak.coach.fromSos')}`} variant="ghost" onPress={() => router.push({ pathname: '/odak/coach', params: { scenario: 'urge' } })} />
         </>
       ) : null}
 
@@ -162,13 +175,13 @@ export default function OdakSos() {
 
       {step === 'result' && result ? (
         result.outcome === 'managed' ? (
-          <Card style={{ gap: 10, alignItems: 'center', padding: 20 }}>
-            <AppText variant="display">🌿</AppText>
+          <Card style={{ gap: 10, alignItems: 'center', padding: t.space.gutter }}>
+            <IconTile icon="leaf" tone="focus" size="lg" round />
             <AppText variant="h2" center accessibilityRole="header">
               {SOS.end.managedTitle}
             </AppText>
             <AppText center>{SOS.end.managedBody}</AppText>
-            <AppText weight="800" center color={t.colors.success} accessibilityLiveRegion="polite">
+            <AppText weight="800" center color={t.tokens.success} accessibilityLiveRegion="polite">
               {fill(SOS.end.count, { n: managedCount(urges) })}
             </AppText>
           </Card>
@@ -179,7 +192,7 @@ export default function OdakSos() {
                 {SOS.end.slippedTitle}
               </AppText>
               <AppText>{SOS.end.slippedBody}</AppText>
-              <AppText weight="800" color={t.colors.success}>
+              <AppText weight="800" color={t.tokens.success}>
                 {fill(SOS.end.count, { n: managedCount(urges) })}
               </AppText>
             </Card>
@@ -187,14 +200,14 @@ export default function OdakSos() {
             {slipLogged ? (
               <Card>
                 <AppText variant="small" weight="700">
-                  ✓ {P.log.saved}
+                  {P.log.saved}
                 </AppText>
               </Card>
             ) : (
-              <Card style={{ gap: 8 }}>
+              <Card style={{ gap: t.space.sm }}>
                 <AppText weight="800">{SOS.end.logSlip}</AppText>
                 {P.log.options.map((o) => (
-                  <ChoiceCard key={o.id} emoji={o.emoji} label={o.label} selected={false} onPress={() => void logSlip(o.id as BehaviorKind)} />
+                  <ChoiceCard key={o.id} icon={o.icon} label={o.label} selected={false} onPress={() => void logSlip(o.id as BehaviorKind)} />
                 ))}
               </Card>
             )}
@@ -230,7 +243,7 @@ function Relocate({ onUsed }: { onUsed: () => void }) {
         </View>
       </View>
       {cd.finished ? (
-        <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.success }}>
+        <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText weight="700">{SOS.relocate.done}</AppText>
         </Card>
       ) : (
@@ -247,7 +260,7 @@ function Relocate({ onUsed }: { onUsed: () => void }) {
           }}
         />
       )}
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {SOS.relocate.steps.map((s) => (
           <ChoiceCard key={s} multi label={s} selected={done.includes(s)} onPress={() => setDone((d) => (d.includes(s) ? d.filter((x) => x !== s) : [...d, s]))} />
         ))}
@@ -264,7 +277,7 @@ function Move({ onUsed }: { onUsed: () => void }) {
   const per = SOS.move.seconds / SOS.move.steps.length;
   const current = Math.min(SOS.move.steps.length - 1, Math.floor(cd.elapsed / per));
   return (
-    <View style={{ gap: 12 }}>
+    <View style={{ gap: t.space.md }}>
       <AppText muted>{SOS.move.desc}</AppText>
       <AppText variant="display" center style={{ fontSize: 48, lineHeight: 56 }} accessibilityLabel={tr('camp.sos.timeLeft', { time: mmss(cd.left) })}>
         {mmss(cd.left)}
@@ -273,7 +286,7 @@ function Move({ onUsed }: { onUsed: () => void }) {
       {SOS.move.steps.map((s, i) => {
         const active = (cd.running || cd.elapsed > 0) && !cd.finished && i === current;
         return (
-          <View key={s} style={{ flexDirection: 'row', gap: 10, alignItems: 'center', padding: 12, borderRadius: t.radius.md, backgroundColor: active ? tint(t.colors.primary, '1F') : t.colors.surface }}>
+          <View key={s} style={{ flexDirection: 'row', gap: 10, alignItems: 'center', padding: t.space.md, borderRadius: t.radius.md, backgroundColor: active ? tint(t.colors.primary, '1F') : t.colors.surface }}>
             <AppText weight="800" color={active ? t.colors.primary : t.colors.textMuted}>
               {i + 1}
             </AppText>
@@ -284,7 +297,7 @@ function Move({ onUsed }: { onUsed: () => void }) {
         );
       })}
       {cd.finished ? (
-        <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.success }}>
+        <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText weight="700">{SOS.move.done}</AppText>
         </Card>
       ) : (
@@ -318,13 +331,13 @@ function ValuesView({ onUsed }: { onUsed: () => void }) {
       {cards.length || profile?.valuesText ? (
         <>
           {profile?.valuesText ? (
-            <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+            <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
               <AppText variant="h3">“{profile.valuesText}”</AppText>
             </Card>
           ) : null}
           {cards.map((c) => (
             <Card key={c.id} style={{ flexDirection: 'row', gap: 10, alignItems: 'center' }}>
-              <AppText variant="h2">{c.emoji}</AppText>
+              <IconTile icon={c.icon} tone="focus" />
               <AppText weight="800">{c.label}</AppText>
             </Card>
           ))}
@@ -365,7 +378,7 @@ function FutureSelf({ onUsed }: { onUsed: () => void }) {
             placeholder={SOS.futureSelf.placeholder}
             accessibilityLabel={SOS.futureSelf.placeholder}
             placeholderTextColor={t.colors.textMuted}
-            style={{ minHeight: 160, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, padding: 14, color: t.colors.text, fontSize: 16, textAlignVertical: 'top' }}
+            style={{ minHeight: 160, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, padding: 14, color: t.colors.text, fontSize: t.type.body.fontSize, textAlignVertical: 'top' }}
           />
           <Button
             label={SOS.futureSelf.save}
@@ -384,11 +397,11 @@ function FutureSelf({ onUsed }: { onUsed: () => void }) {
         </>
       ) : (
         <>
-          <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+          <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
             <AppText>{letter?.text}</AppText>
           </Card>
           {saved ? (
-            <AppText variant="small" weight="700" color={t.colors.success}>
+            <AppText variant="small" weight="700" color={t.tokens.success}>
               ✓ {SOS.futureSelf.saved}
             </AppText>
           ) : null}
@@ -405,7 +418,7 @@ function Supporter({ onUsed }: { onUsed: () => void }) {
   return (
     <View style={{ gap: 10 }}>
       <AppText muted>{SOS.supporter.desc}</AppText>
-      <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+      <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
         <AppText variant="h3">“{SOS.supporter.message}”</AppText>
       </Card>
       <Button

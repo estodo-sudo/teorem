@@ -25,7 +25,7 @@ export function PinPad({ title, hint, error, disabled, onSubmit, submitLabel }: 
     onSubmit(p);
   };
   return (
-    <View style={{ gap: 16, alignItems: 'center' }}>
+    <View style={{ gap: t.space.lg, alignItems: 'center' }}>
       <AppText variant="h2" center accessibilityRole="header">
         {title}
       </AppText>
@@ -34,9 +34,9 @@ export function PinPad({ title, hint, error, disabled, onSubmit, submitLabel }: 
           {hint}
         </AppText>
       ) : null}
-      <View style={{ flexDirection: 'row', gap: 12, minHeight: 20 }} accessible accessibilityLabel={tr('odak.lock.pinEntered', { count: pin.length })}>
+      <View style={{ flexDirection: 'row', gap: t.space.md, minHeight: 20 }} accessible accessibilityLabel={tr('odak.lock.pinEntered', { count: pin.length })}>
         {Array.from({ length: Math.max(PIN_MIN, pin.length) }, (_, i) => (
-          <View key={i} style={{ width: 16, height: 16, borderRadius: 8, borderWidth: 2, borderColor: t.colors.primary, backgroundColor: i < pin.length ? t.colors.primary : 'transparent' }} />
+          <View key={i} style={{ width: 16, height: 16, borderRadius: t.radius.sm, borderWidth: 2, borderColor: t.colors.primary, backgroundColor: i < pin.length ? t.colors.primary : 'transparent' }} />
         ))}
       </View>
       {error ? (
@@ -44,7 +44,7 @@ export function PinPad({ title, hint, error, disabled, onSubmit, submitLabel }: 
           {error}
         </AppText>
       ) : null}
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: 3 * 72 + 2 * 12, gap: 12 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: 3 * 72 + 2 * 12, gap: t.space.md }}>
         {KEYS.map((k, i) =>
           k === '' ? (
             <View key={i} style={{ width: 72, height: 64 }} />

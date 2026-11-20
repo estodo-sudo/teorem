@@ -28,7 +28,7 @@ export function NumberStepper({ value, onChange, min, max, step = 1, unit, quick
   return (
     <View style={{ gap: 14, alignItems: 'center' }}>
       <View
-        style={{ flexDirection: 'row', alignItems: 'center', gap: 20 }}
+        style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.gutter }}
         accessible
         accessibilityRole="adjustable"
         accessibilityLabel={label}
@@ -50,7 +50,7 @@ export function NumberStepper({ value, onChange, min, max, step = 1, unit, quick
         {btn(1)}
       </View>
       {quick ? (
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: t.space.sm }}>
           {quick.map((q) => {
             const selected = q === value;
             return (
@@ -63,7 +63,7 @@ export function NumberStepper({ value, onChange, min, max, step = 1, unit, quick
                 style={{
                   minWidth: 52,
                   minHeight: 48,
-                  paddingHorizontal: 12,
+                  paddingHorizontal: t.space.md,
                   borderRadius: t.radius.pill,
                   borderWidth: 1.5,
                   borderColor: selected ? t.colors.primary : t.colors.border,
@@ -90,12 +90,12 @@ export function MiniBars({ values, labels, color, height = 90, a11y, valueLabels
   const max = Math.max(1, ...values.map((v) => v ?? 0));
   const c = color ?? t.colors.primary;
   return (
-    <View style={{ gap: 4 }} accessible accessibilityLabel={a11y}>
+    <View style={{ gap: t.space.xs }} accessible accessibilityLabel={a11y}>
       <View style={{ flexDirection: 'row', alignItems: 'flex-end', height, gap: 3 }}>
         {values.map((v, i) => (
           <View key={i} style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end', gap: 2 }}>
             {valueLabels && v !== null ? (
-              <AppText variant="tiny" muted numberOfLines={1}>
+              <AppText variant="tiny" muted>
                 {String(v).replace('.', ',')}
               </AppText>
             ) : null}
@@ -115,7 +115,7 @@ export function MiniBars({ values, labels, color, height = 90, a11y, valueLabels
       {labels ? (
         <View style={{ flexDirection: 'row', gap: 3 }}>
           {labels.map((l, i) => (
-            <AppText key={i} variant="tiny" muted center style={{ flex: 1 }} numberOfLines={1}>
+            <AppText key={i} variant="tiny" muted center style={{ flex: 1 }}>
               {l ?? ''}
             </AppText>
           ))}

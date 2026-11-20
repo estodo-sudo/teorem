@@ -4,7 +4,8 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Header, Icon, Screen, useTheme, type IconName } from '@/components';
+import { Badge, Button, Card, IconTile, ScalePressable, StatRow } from '@/components/ui';
 import { checkAchievements } from '@/features/gamification/service';
 import { bestHold } from '@/features/progress/stats';
 import { playCue } from '@/features/training/haptics';
@@ -26,6 +27,7 @@ type Phase = 'conditions' | 'introA' | 'hold' | 'rest' | 'introB' | 'quick' | 'i
  * B — quick: tap once per full squeeze-and-release for 10 s.
  * C — release awareness (relaxation track only): a 1–5 self rating, not a speed test.
  * Results: personal records (confetti + vibration) and the optional Kas Skoru (own progress, not medical).
+ * ui-v3 look (SPEC_UI_V3 §7.11): chair icon tile, the conditions as a checklist, calm primary controls.
  */
 export default function StrengthTest() {
   const t = useTheme();
@@ -113,18 +115,19 @@ export default function StrengthTest() {
   }, [phase]);
 
   const intro = (kicker: string, title: string, body: string, onReady: () => void) => (
-    <View style={{ gap: 12 }}>
-      <AppText variant="small" weight="700" color={t.colors.accent}>
+    <View style={{ gap: t.space.lg }}>
+      <AppText variant="caption" muted style={{ letterSpacing: 0.4, textTransform: 'uppercase' }}>
         {kicker}
       </AppText>
-      <AppText variant="h1">{title}</AppText>
-      <AppText>{body}</AppText>
-      <Card>
-        <AppText variant="small" muted>
+      <AppText variant="title1">{title}</AppText>
+      <AppText variant="body">{body}</AppText>
+      <View style={{ flexDirection: 'row', gap: t.space.md, padding: t.space.lg, borderRadius: t.radius.lg, backgroundColor: t.tokens.infoSoft }}>
+        <Icon name="info" size="md" color={t.tokens.info} />
+        <AppText variant="callout" style={{ flex: 1 }}>
           {tr('strength.honest')}
         </AppText>
-      </Card>
-      <Button label={tr('strength.ready')} size="lg" variant="accent" onPress={onReady} />
+      </View>
+      <Button label={tr('strength.ready')} size="lg" onPress={onReady} fullWidth />
     </View>
   );
 
@@ -133,16 +136,25 @@ export default function StrengthTest() {
       <Header title={tr('strength.title')} close />
 
       {phase === 'conditions' ? (
-        <View style={{ gap: 12 }}>
-          <AppText variant="display">{positionCard(TEST_POSITION).emoji}</AppText>
-          <AppText variant="h1">{tr('strength.conditions.title')}</AppText>
-          <AppText>{tr('strength.conditions.body')}</AppText>
-          {(tr('strength.conditions.items', { returnObjects: true }) as string[]).map((x) => (
-            <AppText key={x} weight="700">
-              ✓ {x}
-            </AppText>
-          ))}
-          <Button label={tr('common.continue')} size="lg" variant="accent" onPress={() => setPhase('introA')} />
+        <View style={{ gap: t.space.lg }}>
+          <IconTile icon={positionCard(TEST_POSITION).icon} size="lg" />
+          <AppText variant="title1">{tr('strength.conditions.title')}</AppText>
+          <AppText variant="body" muted>
+            {tr('strength.conditions.body')}
+          </AppText>
+          <Card style={{ paddingHorizontal: t.space.lg }}>
+            {(tr('strength.conditions.items', { returnObjects: true }) as string[]).map((x, i) => (
+              <View key={x} style={{ minHeight: 56, flexDirection: 'row', alignItems: 'center', gap: t.space.md, borderTopWidth: i ? t.border.thin : 0, borderTopColor: t.tokens.border }}>
+                <View style={{ width: 24, height: 24, borderRadius: 12, backgroundColor: t.tokens.primarySoft, alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon name="check" size={14} color={t.tokens.primary} />
+                </View>
+                <AppText variant="body" style={{ flex: 1 }}>
+                  {x}
+                </AppText>
+              </View>
+            ))}
+          </Card>
+          <Button label={tr('common.continue')} size="lg" onPress={() => setPhase('introA')} fullWidth />
         </View>
       ) : null}
 
@@ -152,10 +164,10 @@ export default function StrengthTest() {
 
       {phase === 'hold' ? (
         <View style={{ flex: 1, gap: 16 }}>
-          <AppText variant="h2" center>
+          <AppText variant="title2" center>
             {tr('strength.attempt', { n: Math.min(attempts.length + 1, HOLD_ATTEMPTS), total: HOLD_ATTEMPTS })}
           </AppText>
-          <AppText muted center>
+          <AppText variant="callout" muted center>
             {pressStart !== null ? tr('strength.holdingHint') : tr('strength.holdHint')}
           </AppText>
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -169,14 +181,14 @@ export default function StrengthTest() {
                 playCue('squeezeStart', strength);
               }}
               onPressOut={() => endHold(Date.now())}
-              style={[styles.big, { backgroundColor: t.colors.primary, overflow: 'hidden' }]}
+              style={[styles.big, { backgroundColor: t.tokens.primary, overflow: 'hidden' }]}
             >
-              {/* Fills from the bottom up over the 60 s. */}
-              <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: `${(holdMs / HOLD_MAX_MS) * 100}%`, backgroundColor: t.colors.contract }} />
-              <AppText variant="display" color="#FFFFFF">
+              {/* Fills from the bottom up over the 60 s (a darker layer over the primary disc). */}
+              <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: `${(holdMs / HOLD_MAX_MS) * 100}%`, backgroundColor: t.tokens.foreground, opacity: 0.22 }} />
+              <AppText variant="display" tabular color={t.tokens.primaryForeground}>
                 {(holdMs / 1000).toFixed(1)}
               </AppText>
-              <AppText color="#FFFFFF" weight="700">
+              <AppText variant="bodyStrong" color={t.tokens.primaryForeground}>
                 {pressStart !== null ? tr('strength.release') : tr('strength.pressHold')}
               </AppText>
             </Pressable>
@@ -186,20 +198,22 @@ export default function StrengthTest() {
       ) : null}
 
       {phase === 'rest' ? (
-        <View style={{ gap: 16, alignItems: 'center', marginTop: 24 }}>
-          <AppText variant="h2">{tr('strength.restTitle')}</AppText>
-          <AppText variant="display">{restLeft}</AppText>
-          <AppText muted center>
+        <View style={{ gap: t.space.lg, alignItems: 'center', marginTop: t.space.xl }}>
+          <AppText variant="title2">{tr('strength.restTitle')}</AppText>
+          <AppText variant="display" tabular>
+            {restLeft}
+          </AppText>
+          <AppText variant="callout" muted center>
             {tr('strength.restBody')}
           </AppText>
           <Attempts attempts={attempts} />
-          <Button label={restLeft > 0 ? tr('strength.restSkip') : tr('strength.nextAttempt')} variant={restLeft > 0 ? 'secondary' : 'accent'} size="lg" onPress={() => (setRestStart(null), setPhase('hold'))} />
+          <Button label={restLeft > 0 ? tr('strength.restSkip') : tr('strength.nextAttempt')} variant={restLeft > 0 ? 'secondary' : 'primary'} size="lg" onPress={() => (setRestStart(null), setPhase('hold'))} fullWidth />
         </View>
       ) : null}
 
       {phase === 'quick' ? (
         <View style={{ flex: 1, gap: 16 }}>
-          <AppText variant="h2" center>
+          <AppText variant="title2" center tabular>
             {quickStart === null ? tr('strength.tapToStart') : tr('strength.secondsLeft', { sec: quickLeft })}
           </AppText>
           <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -212,12 +226,12 @@ export default function StrengthTest() {
                 setTaps(tapsRef.current);
                 playCue('quickFlick', strength);
               }}
-              style={[styles.big, { backgroundColor: t.colors.accent }]}
+              style={[styles.big, { backgroundColor: t.tokens.primary }]}
             >
-              <AppText variant="display" color={t.colors.accentText}>
+              <AppText variant="display" tabular color={t.tokens.primaryForeground}>
                 {taps}
               </AppText>
-              <AppText color={t.colors.accentText} weight="700">
+              <AppText variant="bodyStrong" color={t.tokens.primaryForeground}>
                 {tr('strength.tap')}
               </AppText>
             </Pressable>
@@ -226,70 +240,84 @@ export default function StrengthTest() {
       ) : null}
 
       {phase === 'release' ? (
-        <View style={{ gap: 14 }}>
-          <AppText variant="h2">{released ? tr('strength.releaseRate') : tr('strength.releaseDo')}</AppText>
+        <View style={{ gap: t.space.lg }}>
+          <AppText variant="title2">{released ? tr('strength.releaseRate') : tr('strength.releaseDo')}</AppText>
           {!released ? (
-            <Button label={tr('strength.releaseTap')} size="lg" variant="accent" onPress={() => (setReleased(true), playCue('releaseStart', strength))} />
+            <Button label={tr('strength.releaseTap')} size="lg" onPress={() => (setReleased(true), playCue('releaseStart', strength))} fullWidth />
           ) : (
             <>
               <View style={{ flexDirection: 'row', gap: 8 }} accessibilityRole="radiogroup">
                 {([1, 2, 3, 4, 5] as const).map((v) => (
-                  <Pressable
+                  <ScalePressable
                     key={v}
                     onPress={() => setReleaseRating(v)}
                     accessibilityRole="radio"
                     accessibilityState={{ selected: releaseRating === v }}
                     accessibilityLabel={tr('strength.releaseScale', { v })}
-                    style={{ flex: 1, minHeight: 56, borderRadius: t.radius.md, borderWidth: 2, borderColor: releaseRating === v ? t.colors.accent : t.colors.border, alignItems: 'center', justifyContent: 'center' }}
+                    style={{ flex: 1, minHeight: 56, borderRadius: t.radius.md, borderWidth: releaseRating === v ? t.border.medium : t.border.thin, borderColor: releaseRating === v ? t.tokens.primary : t.tokens.border, backgroundColor: releaseRating === v ? t.tokens.primarySoft : t.tokens.card, alignItems: 'center', justifyContent: 'center' }}
                   >
-                    <AppText variant="h2">{v}</AppText>
-                  </Pressable>
+                    <AppText variant="title2" tabular color={releaseRating === v ? t.tokens.primary : t.tokens.foreground}>
+                      {v}
+                    </AppText>
+                  </ScalePressable>
                 ))}
               </View>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <AppText variant="small" muted>
+                <AppText variant="footnote" muted>
                   {tr('strength.releaseLow')}
                 </AppText>
-                <AppText variant="small" muted>
+                <AppText variant="footnote" muted>
                   {tr('strength.releaseHigh')}
                 </AppText>
               </View>
-              <Button label={tr('common.continue')} size="lg" variant="accent" disabled={!releaseRating} onPress={() => setPhase('done')} />
+              <Button label={tr('common.continue')} size="lg" disabled={!releaseRating} onPress={() => setPhase('done')} fullWidth />
             </>
           )}
         </View>
       ) : null}
 
       {phase === 'done' ? (
-        <View style={{ gap: 12 }}>
+        <View style={{ gap: t.space.lg }}>
           {records.hold || records.quick ? <Confetti /> : null}
-          <AppText variant="display" center>
-            {records.hold || records.quick ? '🏅' : '💪'}
-          </AppText>
-          <AppText variant="h1" center>
+          <View style={{ alignItems: 'center' }}>
+            <IconTile icon={records.hold || records.quick ? 'medal' : 'dumbbell'} size="lg" round background={records.hold || records.quick ? t.tokens.highlightSoft : undefined} color={records.hold || records.quick ? t.tokens.foreground : undefined} />
+          </View>
+          <AppText variant="title1" center>
             {records.hold || records.quick ? tr('strength.recordTitle') : tr('strength.doneTitle')}
           </AppText>
-          <Card style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-            <Stat value={`${(result.holdBestMs / 1000).toFixed(1)} sn`} label={tr('strength.bestHold')} record={records.hold} />
-            <Stat value={String(taps)} label={tr('strength.quickCount')} record={records.quick} />
-            {releaseRating ? <Stat value={`${releaseRating}/5`} label={tr('strength.releaseShort')} /> : null}
+          <Card style={{ padding: t.space.lg, gap: t.space.md }}>
+            <StatRow
+              stats={[
+                { value: `${(result.holdBestMs / 1000).toFixed(1)} sn`, label: tr('strength.bestHold') },
+                { value: String(taps), label: tr('strength.quickCount') },
+                ...(releaseRating ? [{ value: `${releaseRating}/5`, label: tr('strength.releaseShort') }] : []),
+              ]}
+            />
+            {records.hold || records.quick ? (
+              <View style={{ flexDirection: 'row', gap: t.space.sm, flexWrap: 'wrap' }}>
+                {records.hold ? <Badge variant="highlight" label={`${tr('strength.bestHold')} · ${tr('strength.record')}`} /> : null}
+                {records.quick ? <Badge variant="highlight" label={`${tr('strength.quickCount')} · ${tr('strength.record')}`} /> : null}
+              </View>
+            ) : null}
           </Card>
-          <Card style={{ gap: 4 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: 8 }}>
-              <AppText variant="h2">{score}</AppText>
-              <AppText weight="800">{tr('strength.scoreTitle')}</AppText>
+          <Card style={{ padding: t.space.gutter, gap: t.space.xs }}>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline', gap: t.space.sm }}>
+              <AppText variant="title1" tabular>
+                {score}
+              </AppText>
+              <AppText variant="title3">{tr('strength.scoreTitle')}</AppText>
             </View>
-            <AppText variant="small" muted>
+            <AppText variant="callout" muted>
               {previous.length ? tr('strength.scoreBody') : tr('strength.scoreFirst')}
             </AppText>
-            <AppText variant="small" weight="700" muted>
+            <AppText variant="footnote" muted>
               {tr('strength.scoreLabel')}
             </AppText>
           </Card>
-          <AppText muted center>
+          <AppText variant="callout" muted center>
             {tr('strength.doneBody')}
           </AppText>
-          <Button label={tr('common.save')} size="lg" variant="accent" onPress={save} />
+          <Button label={tr('common.save')} size="lg" onPress={save} fullWidth />
         </View>
       ) : null}
     </Screen>
@@ -301,7 +329,7 @@ function Attempts({ attempts }: { attempts: number[] }) {
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 16 }}>
       {attempts.map((a, i) => (
-        <AppText key={i} weight="700">
+        <AppText key={i} variant="footnote" tabular style={{ fontWeight: '600' }}>
           {tr('strength.attemptResult', { n: i + 1, sec: (a / 1000).toFixed(1) })}
         </AppText>
       ))}
@@ -309,37 +337,20 @@ function Attempts({ attempts }: { attempts: number[] }) {
   );
 }
 
-function Stat({ value, label, record }: { value: string; label: string; record?: boolean }) {
-  const t = useTheme();
-  const { t: tr } = useTranslation();
-  return (
-    <View style={{ alignItems: 'center' }}>
-      <AppText variant="h2">{value}</AppText>
-      <AppText variant="small" muted>
-        {label}
-      </AppText>
-      {record ? (
-        <AppText variant="small" weight="800" color={t.colors.accent}>
-          {tr('strength.record')}
-        </AppText>
-      ) : null}
-    </View>
-  );
-}
-
 /** Short confetti burst for a personal record. */
 function Confetti() {
-  const pieces = ['🎉', '✨', '🎊', '⭐', '✨', '🎉'];
+  const pieces: IconName[] = ['party', 'sparkle', 'party', 'star', 'sparkle', 'party'];
   return (
     <View pointerEvents="none" style={{ height: 0 }}>
       {pieces.map((p, i) => (
-        <Piece key={i} emoji={p} index={i} />
+        <Piece key={i} icon={p} index={i} />
       ))}
     </View>
   );
 }
 
-function Piece({ emoji, index }: { emoji: string; index: number }) {
+function Piece({ icon, index }: { icon: IconName; index: number }) {
+  const t = useTheme();
   const y = useSharedValue(0);
   const o = useSharedValue(1);
   useEffect(() => {
@@ -347,7 +358,11 @@ function Piece({ emoji, index }: { emoji: string; index: number }) {
     o.value = withDelay(500, withTiming(0, { duration: 500 }));
   }, [y, o, index]);
   const style = useAnimatedStyle(() => ({ opacity: o.value, transform: [{ translateY: y.value }, { translateX: (index - 2.5) * 34 }] }));
-  return <Animated.Text style={[{ position: 'absolute', left: '50%', top: 80, fontSize: 28 }, style]}>{emoji}</Animated.Text>;
+  return (
+    <Animated.View style={[{ position: 'absolute', left: '50%', top: 80 }, style]}>
+      <Icon name={icon} size="xl" color={t.tokens.highlight} />
+    </Animated.View>
+  );
 }
 
 const styles = StyleSheet.create({

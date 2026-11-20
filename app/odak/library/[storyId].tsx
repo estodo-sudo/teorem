@@ -9,6 +9,7 @@ import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 /** One library story: slides in the shared story player, then its sources. */
 export default function OdakStory() {
@@ -43,8 +44,8 @@ export default function OdakStory() {
   return (
     <Screen footer={<Button label={tr('odak.library.back')} size="lg" onPress={() => router.replace('/odak/library')} />}>
       <Header title={story.title} onBack={back} right={<QuickExitButton />} />
-      <Card style={{ alignItems: 'center', gap: 8, padding: 20 }}>
-        <AppText variant="display">{story.emoji}</AppText>
+      <Card style={{ alignItems: 'center', gap: t.space.sm, padding: t.space.gutter }}>
+        <IconTile icon={story.icon} tone="focus" size="lg" round />
         <AppText weight="800" center>
           {tr('odak.library.done')}
         </AppText>

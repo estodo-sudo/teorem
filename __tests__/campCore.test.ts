@@ -145,7 +145,7 @@ describe('coach engine', () => {
   it('checks scenarios', () => {
     const s: CoachScenario = {
       id: 'x',
-      emoji: '',
+      icon: 'leaf',
       title: '',
       start: 'a',
       nodes: {

@@ -1,9 +1,11 @@
 [
   {
     "id": "kegel",
-    "emoji": "🎯",
+    "icon": "target",
+    "tone": "knowledge",
     "title": "Kegel Nedir ve Pelvik Kas Nerede?",
     "summary": "Pelvik taban, leğen kemiğinin tabanında hamak gibi uzanan kas katmanıdır. Kegel bu kası sıkıp gevşeterek çalıştırmaktır.",
+    "shortSummary": "Pelvik taban kası ve onu çalıştırmanın yolu",
     "sections": [
       {
         "title": "Pelvik taban nerede?",
@@ -42,9 +44,11 @@
   },
   {
     "id": "premature-ejaculation",
-    "emoji": "⏱️",
+    "icon": "timer",
+    "tone": "knowledge",
     "title": "Erken boşalma neden olur?",
     "summary": "Boşalmanın istenenden çok daha önce olması ve kontrol edilememesi. Sık görülür ve çoğu zaman geliştirilebilir.",
+    "shortSummary": "Sık görülür ve çoğu zaman geliştirilebilir",
     "sections": [
       {
         "title": "Ne zaman erken boşalma denir?",
@@ -79,9 +83,11 @@
   },
   {
     "id": "erectile-dysfunction",
-    "emoji": "🩺",
+    "icon": "stethoscope",
+    "tone": "knowledge",
     "title": "Sertleşememek neden olur?",
     "summary": "Cinsel ilişki için yeterli sertliğe ulaşamamak ya da onu koruyamamak. Yaygındır ve sıklıkla damar sağlığıyla ilgilidir.",
+    "shortSummary": "Yaygındır; çoğu zaman damar sağlığıyla ilgili",
     "sections": [
       {
         "title": "Ne zaman sorun sayılır?",
@@ -105,7 +111,7 @@
       },
       {
         "title": "Uygulamada",
-        "text": "Uzun Sıkma ve Dayanıklılık egzersizleri sertliği korumaya yardım eden kasları çalıştırır. Sigara içiyorsan Sigara Bırakma Kampüsü de bu yolda destek olur."
+        "text": "Uzun Sıkma ve Dayanıklılık egzersizleri sertliği korumaya yardım eden kasları çalıştırır. Sigara içiyorsan Sigarasız Kamp de bu yolda destek olur."
       },
       {
         "title": "Kaynaklar",
@@ -116,9 +122,11 @@
   },
   {
     "id": "masturbation",
-    "emoji": "🧠",
+    "icon": "brain",
+    "tone": "knowledge",
     "title": "Mastürbasyon bağımlılığı var mı?",
     "summary": "Mastürbasyon normal ve yaygın bir davranıştır. Sorun sıklıktan çok kontrolün kaybedilmesi ve hayatın olumsuz etkilenmesidir.",
+    "shortSummary": "Sorun sıklık değil, kontrolün kaybı",
     "sections": [
       {
         "title": "Mastürbasyon zararlı mı?",
@@ -149,9 +157,11 @@
   },
   {
     "id": "lasting-longer",
-    "emoji": "🕰️",
+    "icon": "clock",
+    "tone": "knowledge",
     "title": "Uzun ilişki kuramamak",
     "summary": "Çoğu zaman sorun süre değil beklentidir. Gerçek ortalamaları bilmek ve kontrolü geliştirmek işe yarar.",
+    "shortSummary": "Çoğu zaman sorun süre değil, beklentidir",
     "sections": [
       {
         "title": "Gerçek ortalama ne?",
@@ -186,9 +196,11 @@
   },
   {
     "id": "partner-satisfaction",
-    "emoji": "💞",
+    "icon": "handshake",
+    "tone": "knowledge",
     "title": "Partnerini tatmin edemediğini düşünmek",
     "summary": "Yaygın bir kaygıdır ve çoğu zaman gerçeği yansıtmaz. Tatmini belirleyen süre ya da boyuttan çok iletişim ve yakınlıktır.",
+    "shortSummary": "Tatmini iletişim ve yakınlık belirler",
     "sections": [
       {
         "title": "Bu kaygı neden yaygın?",
@@ -223,9 +235,11 @@
   },
   {
     "id": "morning-erection",
-    "emoji": "🌅",
+    "icon": "sunrise",
+    "tone": "knowledge",
     "title": "Sabah sertleşmesi neden olur?",
     "summary": "Uyku sırasında kendiliğinden olan sertleşmelerdir. Sağlıklı bir damar ve sinir sisteminin doğal bir işaretidir.",
+    "shortSummary": "Sağlıklı damar ve sinirlerin doğal işareti",
     "sections": [
       {
         "title": "Neden olur?",
@@ -256,9 +270,11 @@
   },
   {
     "id": "low-desire",
-    "emoji": "🌡️",
+    "icon": "thermometer",
+    "tone": "knowledge",
     "title": "Cinsel isteksizlik neden olur?",
     "summary": "İstek zaman zaman herkeste azalır. Uzun süre devam ediyorsa genellikle stres, uyku, ruh hâli, ilişki ya da hormonlarla ilgilidir.",
+    "shortSummary": "Stres, uyku ve ilişki isteği etkileyebilir",
     "sections": [
       {
         "title": "Ne zaman sorun sayılır?",
@@ -289,9 +305,11 @@
   },
   {
     "id": "dribble",
-    "emoji": "💧",
+    "icon": "droplet",
+    "tone": "knowledge",
     "title": "İdrar damlaması ve kaçırma neden olur?",
     "summary": "İdrardan sonra gelen son damlalar ve ani sıkışmalar çok yaygındır. Pelvik taban kasları burada doğrudan rol oynar.",
+    "shortSummary": "Son damlalar yaygındır; pelvik taban yardım eder",
     "sections": [
       {
         "title": "İdrar sonrası damlama",
@@ -326,9 +344,11 @@
   },
   {
     "id": "tight-pelvic-floor",
-    "emoji": "🪢",
+    "icon": "link",
+    "tone": "knowledge",
     "title": "Gergin pelvik taban ve pelvik ağrı",
     "summary": "Pelvik taban kası yalnızca zayıf değil, sürekli gergin de olabilir. Bu durum ağrıya, idrar ve cinsel sorunlara yol açabilir.",
+    "shortSummary": "Kas zayıf değil, sürekli gergin olabilir",
     "sections": [
       {
         "title": "Gergin kas ne demek?",
@@ -363,9 +383,11 @@
   },
   {
     "id": "after-prostate-surgery",
-    "emoji": "🏥",
+    "icon": "hospital",
+    "tone": "knowledge",
     "title": "Prostat ameliyatı sonrası pelvik taban",
     "summary": "Prostat ameliyatından sonra idrar kaçırma sık görülür ve çoğu zaman aylar içinde azalır. Pelvik taban egzersizleri bu süreçte yaygın olarak önerilir.",
+    "shortSummary": "Kaçırma sık görülür, çoğu zaman azalır",
     "sections": [
       {
         "title": "Neden kaçırma olur?",
@@ -400,9 +422,11 @@
   },
   {
     "id": "level",
-    "emoji": "📶",
+    "icon": "signal",
+    "tone": "knowledge",
     "title": "Seviye ne demek?",
     "summary": "Antrenmanının zorluğu. 1'den 30'a kadar ilerler.",
+    "shortSummary": "Antrenmanının zorluğu: 1 ile 30 arası",
     "sections": [
       {
         "title": "Kısaca",
@@ -425,9 +449,11 @@
   },
   {
     "id": "plan",
-    "emoji": "🗓️",
+    "icon": "calendar",
+    "tone": "knowledge",
     "title": "30 günlük plan nedir?",
     "summary": "Her gün bir antrenmandan oluşan, ilerlemeni takip eden plan.",
+    "shortSummary": "Her gün bir antrenmandan oluşan plan",
     "sections": [
       {
         "title": "Kısaca",
@@ -446,9 +472,11 @@
   },
   {
     "id": "exercises",
-    "emoji": "🧩",
+    "icon": "puzzle",
+    "tone": "knowledge",
     "title": "Egzersiz türleri ne demek?",
     "summary": "Antrenmanlarda karşına çıkan altı farklı egzersiz.",
+    "shortSummary": "Antrenmanlardaki altı farklı egzersiz",
     "sections": [
       {
         "title": "Uzun Sıkma",
@@ -479,9 +507,11 @@
   },
   {
     "id": "vibration",
-    "emoji": "📳",
+    "icon": "vibrate",
+    "tone": "knowledge",
     "title": "Titreşim dili nedir?",
     "summary": "Ekrana bakmadan antrenman yapmanı sağlayan titreşim işaretleri.",
+    "shortSummary": "Ekrana bakmadan çalışmanı sağlayan işaretler",
     "sections": [
       {
         "title": "SIK",
@@ -504,9 +534,11 @@
   },
   {
     "id": "streak",
-    "emoji": "🔥",
+    "icon": "flame",
+    "tone": "knowledge",
     "title": "Seri nedir?",
     "summary": "Günlük antrenmanı üst üste kaç gün tamamladığın.",
+    "shortSummary": "Kaç gün üst üste antrenman yaptığın",
     "sections": [
       {
         "title": "Kısaca",
@@ -525,9 +557,11 @@
   },
   {
     "id": "strength-test",
-    "emoji": "💪",
+    "icon": "dumbbell",
+    "tone": "knowledge",
     "title": "Güç testi nedir?",
     "summary": "Gelişimini görmen için haftada bir yapılan kısa ölçüm.",
+    "shortSummary": "Haftada bir yapılan kısa gelişim ölçümü",
     "sections": [
       {
         "title": "Test A · Tutma süresi",
@@ -546,9 +580,11 @@
   },
   {
     "id": "discreet",
-    "emoji": "🕶️",
+    "icon": "glasses",
+    "tone": "knowledge",
     "title": "Gizli mod ne demek?",
     "summary": "Antrenman ekranında yazı yerine yalnızca daire ve renklerin görünmesi.",
+    "shortSummary": "Yazı yerine yalnızca daire ve renkler",
     "sections": [
       {
         "title": "Gizli oynatıcı",
@@ -563,9 +599,11 @@
   },
   {
     "id": "privacy",
-    "emoji": "🔒",
+    "icon": "lock",
+    "tone": "knowledge",
     "title": "Verilerim nerede saklanır?",
     "summary": "Tüm verilerin yalnızca bu telefonda durur.",
+    "shortSummary": "Tüm verilerin yalnızca bu telefonda",
     "sections": [
       {
         "title": "Sunucu yok",

@@ -10,6 +10,7 @@ import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { checkAchievements } from '@/features/gamification/service';
 import { useProgressStore } from '@/stores/progressStore';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 export default function LessonScreen() {
   const t = useTheme();
@@ -42,8 +43,8 @@ export default function LessonScreen() {
     const score = quizScore(answers, correct);
     return (
       <Screen footer={<Button label={tr('common.continue')} size="lg" variant="accent" onPress={close} />}>
-        <View style={{ alignItems: 'center', gap: 10, marginTop: 40 }}>
-          <AppText variant="display">{score === 1 ? '🏆' : score >= 0.5 ? '👏' : '📖'}</AppText>
+        <View style={{ alignItems: 'center', gap: 10, marginTop: t.space.xxxl }}>
+          <IconTile icon={score === 1 ? 'trophy' : score >= 0.5 ? 'thumbsUp' : 'book'} tone="knowledge" size="lg" round />
           <AppText variant="h1" center>
             {tr('courses.resultTitle', { correct: Math.round(score * correct.length), total: correct.length })}
           </AppText>
@@ -96,7 +97,7 @@ export default function LessonScreen() {
           <ChoiceCard
             key={o}
             label={o}
-            emoji={revealed ? (i === q.answer ? '✅' : i === picked ? '❌' : undefined) : undefined}
+            icon={revealed ? (i === q.answer ? 'success' : i === picked ? 'close' : undefined) : undefined}
             selected={picked === i}
             onPress={() => {
               if (revealed) return;

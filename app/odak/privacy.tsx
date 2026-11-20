@@ -87,7 +87,7 @@ export default function OdakPrivacy() {
         )
       ) : null}
 
-      <Card style={{ gap: 8 }}>
+      <Card style={{ gap: t.space.sm }}>
         <AppText variant="h3">{tr('odak.privacy.howTitle')}</AppText>
         {(tr('odak.privacy.how', { returnObjects: true }) as string[]).map((line) => (
           <AppText key={line} variant="small">
@@ -98,7 +98,7 @@ export default function OdakPrivacy() {
 
       <Button label={tr('odak.panel.sources')} icon="book" variant="secondary" onPress={() => router.push('/odak/sources')} />
 
-      <AppText variant="h3" style={{ marginTop: 8 }}>
+      <AppText variant="h3" style={{ marginTop: t.space.sm }}>
         {tr('odak.privacy.dataTitle')}
       </AppText>
       <Button label={tr('odak.privacy.wipe')} variant="ghost" icon="trash" onPress={() => setDialog('wipe1')} />

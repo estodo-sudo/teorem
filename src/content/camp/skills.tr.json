@@ -8,7 +8,7 @@
   "lessons": [
     {
       "id": "values",
-      "emoji": "🧭",
+      "icon": "compass", "tone": "smokefree",
       "title": "Değerlerin",
       "summary": "Sigarasız hayatta neye önem veriyorsun?",
       "relapse": [],
@@ -18,22 +18,22 @@
       ],
       "slides": [
         {
-          "emoji": "🧭",
+          "icon": "compass", "tone": "smokefree",
           "title": "Pusulan ne gösteriyor?",
           "text": "Değerler, hayatta neyin önemli olduğunu gösteren pusulandır: sağlık, aile, özgürlük, merak, emek. Hedefler bir gün biter, değerler hep yol gösterir."
         },
         {
-          "emoji": "💡",
+          "icon": "bulb", "tone": "smokefree",
           "title": "Neden önemli?",
           "text": "İstek geldiğinde \"Bu sigara beni önem verdiğim şeye yaklaştırır mı, uzaklaştırır mı?\" diye sormak, kararını kolaylaştırır."
         },
         {
-          "emoji": "👨‍👩‍👧",
+          "icon": "users", "tone": "smokefree",
           "title": "Somut hale getir",
           "text": "\"Sağlık\" yerine \"Kızımla koşabilmek\" gibi somut bir cümle, zor anda daha güçlü bir hatırlatıcıdır."
         },
         {
-          "emoji": "🌱",
+          "icon": "sprout", "tone": "smokefree",
           "title": "Mükemmel olmak gerekmez",
           "text": "Değerlere göre yaşamak her gün kusursuz olmak değil; her seferinde yönünü yeniden onlara çevirmektir."
         }
@@ -60,7 +60,7 @@
     },
     {
       "id": "wave",
-      "emoji": "🌊",
+      "icon": "waves", "tone": "smokefree",
       "title": "İstek bir dalgadır",
       "summary": "İsteğin doğası: yükselir, zirve yapar, söner.",
       "relapse": [
@@ -73,23 +73,23 @@
       ],
       "slides": [
         {
-          "emoji": "🌊",
+          "icon": "waves", "tone": "smokefree",
           "title": "İstek nasıl davranır?",
           "text": "Sigara isteği bir dalga gibidir: yükselir, zirveye ulaşır ve sonra alçalır. Çoğu istek birkaç dakika içinde zirve yapar."
         },
         {
-          "emoji": "⏱️",
+          "icon": "timer", "tone": "smokefree",
           "title": "Zaman senden yana",
           "text": "İsteğe hemen karşılık vermediğinde dalga kendiliğinden söner. Her seferinde beynin, isteğin geçebileceğini öğrenir."
         },
         {
-          "emoji": "📉",
+          "icon": "trendDown", "tone": "smokefree",
           "title": "Zamanla seyrekleşir",
           "text": "İlk günlerde istekler sık ve güçlüdür. Haftalar geçtikçe hem sıklıkları hem şiddetleri azalır.",
           "didYouKnow": "Yoksunluk belirtileri genellikle ilk hafta en yoğundur ve ilk ay içinde belirgin şekilde azalır."
         },
         {
-          "emoji": "🏄",
+          "icon": "waves", "tone": "smokefree",
           "title": "Savaşmak yerine sörf",
           "text": "İstekle savaşmak onu büyütebilir. Onu fark edip üzerinde durmak, dalganın geçmesine izin vermektir."
         }
@@ -116,7 +116,7 @@
     },
     {
       "id": "surf",
-      "emoji": "🏄",
+      "icon": "waves", "tone": "smokefree",
       "title": "Dalga sörfü pratiği",
       "summary": "İstekle birlikte durabilmeyi rehberli pratikle öğren.",
       "relapse": [
@@ -128,22 +128,22 @@
       ],
       "slides": [
         {
-          "emoji": "👀",
+          "icon": "eye", "tone": "smokefree",
           "title": "1. Fark et",
           "text": "İstek geldiğinde kendine söyle: \"Şu an sigara isteği hissediyorum.\" Adını koymak, isteğe kapılmadan onu görmeni sağlar."
         },
         {
-          "emoji": "🫁",
+          "icon": "wind", "tone": "smokefree",
           "title": "2. Bedende bul",
           "text": "İsteği bedeninin neresinde hissediyorsun? Göğüs, boğaz, eller, mide? Hissin şeklini, sıcaklığını, yoğunluğunu merakla incele."
         },
         {
-          "emoji": "🌬️",
+          "icon": "wind", "tone": "smokefree",
           "title": "3. Nefesle eşlik et",
           "text": "Nefesin doğal aksın. Her nefeste isteğe biraz daha yer aç; onu itmeye ya da kovmaya çalışma."
         },
         {
-          "emoji": "📈",
+          "icon": "trendUp", "tone": "smokefree",
           "title": "4. Dalgayı izle",
           "text": "His artabilir, değişebilir, azalabilir. Sadece izle. Zirve geçtiğinde, sigara içmeden bir dalgayı atlatmış olursun."
         }
@@ -170,7 +170,7 @@
     },
     {
       "id": "thoughts",
-      "emoji": "💭",
+      "icon": "thought", "tone": "smokefree",
       "title": "Düşünceler sadece düşüncedir",
       "summary": "\"Bir tane bir şey olmaz\" düşüncesinden mesafe al.",
       "relapse": [
@@ -182,22 +182,22 @@
       ],
       "slides": [
         {
-          "emoji": "💭",
+          "icon": "thought", "tone": "smokefree",
           "title": "Zihnin konuşur",
           "text": "Bırakma sürecinde zihin ikna edici cümleler kurar: \"Bir tane bir şey olmaz\", \"Bugün hak ettin\", \"Bu stresle bırakılmaz\"."
         },
         {
-          "emoji": "🔍",
+          "icon": "search", "tone": "smokefree",
           "title": "Düşünce ≠ gerçek",
           "text": "Bir düşüncenin aklına gelmesi, onun doğru olduğu ya da ona uyman gerektiği anlamına gelmez."
         },
         {
-          "emoji": "🏷️",
+          "icon": "tag", "tone": "smokefree",
           "title": "Etiketle",
           "text": "Düşünceyi şöyle söyle: \"Aklıma 'bir tane bir şey olmaz' düşüncesi geliyor.\" Bu küçük cümle düşünceyle arana mesafe koyar."
         },
         {
-          "emoji": "🚗",
+          "icon": "car", "tone": "smokefree",
           "title": "Arka koltuktaki yolcu",
           "text": "Düşünceleri arabanın arka koltuğundaki yolcular gibi düşün. Konuşabilirler, ama direksiyon sende.",
           "didYouKnow": "\"Bir tane\"den sonra yeniden başlamak, bırakmayı denemiş kişilerin en sık anlattığı deneyimlerden biridir."
@@ -225,7 +225,7 @@
     },
     {
       "id": "body",
-      "emoji": "🫀",
+      "icon": "heartPulse", "tone": "smokefree",
       "title": "Bedensel hisleri kabul",
       "summary": "Gerginlik, huzursuzluk ve boşluk hissiyle durabilmek.",
       "relapse": [
@@ -238,22 +238,22 @@
       ],
       "slides": [
         {
-          "emoji": "🫀",
+          "icon": "heartPulse", "tone": "smokefree",
           "title": "Bedenin konuşur",
           "text": "Bırakınca gerginlik, huzursuzluk, ellerde boşluk ya da midede bir sıkışma hissedebilirsin. Bunlar yoksunluğun normal parçalarıdır."
         },
         {
-          "emoji": "🧲",
+          "icon": "magnet", "tone": "smokefree",
           "title": "Direnç büyütür",
           "text": "Rahatsız edici bir hissi hemen gidermeye çalışmak çoğu zaman onu daha belirgin kılar."
         },
         {
-          "emoji": "🛋️",
+          "icon": "sofa", "tone": "smokefree",
           "title": "Yer aç",
           "text": "Hissi düzeltmek yerine ona yer açmayı dene: \"Bu his burada olabilir, onunla birlikte de günümü sürdürebilirim.\""
         },
         {
-          "emoji": "🌤️",
+          "icon": "cloudSun", "tone": "smokefree",
           "title": "Geçicidir",
           "text": "Bedensel yoksunluk hisleri genellikle birkaç hafta içinde azalır. Her geçen gün vücudun nikotinsiz dengeye alışır."
         }
@@ -280,7 +280,7 @@
     },
     {
       "id": "emotions",
-      "emoji": "🌦️",
+      "icon": "cloudSun", "tone": "smokefree",
       "title": "Duygularla çalışmak",
       "summary": "Stres, öfke ve can sıkıntısı (sigara olmadan).",
       "relapse": [
@@ -293,22 +293,22 @@
       ],
       "slides": [
         {
-          "emoji": "🌦️",
+          "icon": "cloudSun", "tone": "smokefree",
           "title": "Sigara bir duygu aracıydı",
           "text": "Birçok kişi sigarayı stres, öfke ya da sıkıntıyla baş etmek için kullanır. Bırakınca bu duygular daha görünür hale gelir."
         },
         {
-          "emoji": "🧯",
+          "icon": "shield", "tone": "smokefree",
           "title": "Sigara stresi çözmez",
           "text": "Sigaranın rahatlatıyor gibi gelmesi, büyük ölçüde nikotin yoksunluğunu gidermesinden kaynaklanır. Bıraktıktan bir süre sonra birçok kişi daha sakin hisseder."
         },
         {
-          "emoji": "🗣️",
+          "icon": "speech", "tone": "smokefree",
           "title": "Duyguya ad koy",
           "text": "\"Şu an öfkeliyim\" ya da \"canım sıkılıyor\" demek, duyguyla arana küçük bir mesafe koyar ve seçim yapmanı kolaylaştırır."
         },
         {
-          "emoji": "🧰",
+          "icon": "wrench", "tone": "smokefree",
           "title": "Yeni araçlar",
           "text": "Kısa bir yürüyüş, nefes egzersizi, biriyle konuşmak ya da duyguyu yazmak; sigaranın yerini alabilecek yollardır."
         }
@@ -335,7 +335,7 @@
     },
     {
       "id": "willingness",
-      "emoji": "🚪",
+      "icon": "door", "tone": "smokefree",
       "title": "İsteklilik",
       "summary": "Önem verdiğin şey için rahatsızlığa yer açmak.",
       "relapse": [],
@@ -345,22 +345,22 @@
       ],
       "slides": [
         {
-          "emoji": "🚪",
+          "icon": "door", "tone": "smokefree",
           "title": "İsteklilik nedir?",
           "text": "İsteklilik, önem verdiğin bir şey için rahatsız edici duygu ve düşüncelere yer açmaya razı olmaktır."
         },
         {
-          "emoji": "⛰️",
+          "icon": "mountain", "tone": "smokefree",
           "title": "Dağa tırmanmak gibi",
           "text": "Zirveye çıkmak isteyen biri yorgunluğu sevmez, ama ona razı olur. Sigarasız hayat da bazı zor anlara razı olmayı gerektirir."
         },
         {
-          "emoji": "🎚️",
+          "icon": "sliders", "tone": "smokefree",
           "title": "Ya hep ya hiç değil",
           "text": "İsteklilik bir anahtar gibidir: aç ya da kapat. İsteği azaltmaya çalışmak yerine ona kapıyı açmayı seçebilirsin."
         },
         {
-          "emoji": "🧭",
+          "icon": "compass", "tone": "smokefree",
           "title": "Değerlerinle bağla",
           "text": "\"Bu zorluğa neden razıyım?\" sorusunun cevabı değerlerindedir."
         }
@@ -387,7 +387,7 @@
     },
     {
       "id": "withdrawal",
-      "emoji": "📆",
+      "icon": "calendar", "tone": "smokefree",
       "title": "Yoksunlukta ne beklemeli?",
       "summary": "Belirtiler, süreleri ve başa çıkma yolları.",
       "relapse": [
@@ -399,23 +399,23 @@
       ],
       "slides": [
         {
-          "emoji": "📆",
+          "icon": "calendar", "tone": "smokefree",
           "title": "İlk günler",
           "text": "Belirtiler genellikle bırakmadan sonraki ilk birkaç günde zirve yapar. İlk hafta en zor dönemdir."
         },
         {
-          "emoji": "😤",
+          "icon": "angry", "tone": "smokefree",
           "title": "Sık görülen belirtiler",
           "text": "Sigara isteği, sinirlilik, huzursuzluk, odaklanma güçlüğü, uyku sorunları ve iştah artışı en sık yaşananlardır."
         },
         {
-          "emoji": "📉",
+          "icon": "trendDown", "tone": "smokefree",
           "title": "Ne kadar sürer?",
           "text": "Çoğu belirti ilk ay içinde belirgin şekilde azalır. Sinirlilik ilk haftada en yoğundur ve 2–4 hafta sürebilir.",
           "didYouKnow": "Yoksunluk belirtileri vücudun nikotinsiz yaşamaya alıştığının işaretidir; geçicidir."
         },
         {
-          "emoji": "🛠️",
+          "icon": "wrench", "tone": "smokefree",
           "title": "Başa çıkma",
           "text": "Günlük kontroldeki belirti ipuçları her belirti için kısa öneriler sunar. Destek almak da yoksunluğu kolaylaştırır."
         }
@@ -442,7 +442,7 @@
     },
     {
       "id": "weight",
-      "emoji": "⚖️",
+      "icon": "scale", "tone": "smokefree",
       "title": "Kilo alma endişesi",
       "summary": "Gerçekler ve küçük stratejiler.",
       "relapse": [
@@ -454,22 +454,22 @@
       ],
       "slides": [
         {
-          "emoji": "⚖️",
+          "icon": "scale", "tone": "smokefree",
           "title": "Bir endişe, bir gerçek",
           "text": "Bıraktıktan sonra bazı kişiler biraz kilo alabilir. Bunun nedenleri arasında iştahın artması ve metabolizmadaki küçük değişiklikler vardır."
         },
         {
-          "emoji": "❤️",
+          "icon": "heart", "tone": "smokefree",
           "title": "Kazanç daha büyük",
           "text": "Sigarayı bırakmanın sağlığa faydaları, birkaç kilonun olası etkilerinden çok daha büyüktür."
         },
         {
-          "emoji": "🍎",
+          "icon": "apple", "tone": "smokefree",
           "title": "Küçük stratejiler",
           "text": "Öğün atlamamak, elinin altında meyve ve sebze bulundurmak, su içmek ve her gün biraz hareket etmek yardımcı olur."
         },
         {
-          "emoji": "🎯",
+          "icon": "target", "tone": "smokefree",
           "title": "Önce dumansız kal",
           "text": "İlk haftalarda önceliğin dumansız kalmak. Beslenmeye dair büyük değişiklikleri, kendini daha güçlü hissettiğinde yapabilirsin."
         }
@@ -496,7 +496,7 @@
     },
     {
       "id": "social",
-      "emoji": "👥",
+      "icon": "users", "tone": "smokefree",
       "title": "Sosyal baskı ve \"hayır\" demek",
       "summary": "Arkadaş ortamları ve teklifler.",
       "relapse": [
@@ -509,22 +509,22 @@
       ],
       "slides": [
         {
-          "emoji": "👥",
+          "icon": "users", "tone": "smokefree",
           "title": "Ortamlar tetikler",
           "text": "Sigara içilen arkadaş ortamları, düğünler, kahvehaneler ve alkollü buluşmalar güçlü tetikleyicilerdir."
         },
         {
-          "emoji": "🙅",
+          "icon": "ban", "tone": "smokefree",
           "title": "Kısa ve net",
           "text": "\"Teşekkürler, bıraktım\" yeterlidir. Açıklama yapmak zorunda değilsin."
         },
         {
-          "emoji": "🗺️",
+          "icon": "map", "tone": "smokefree",
           "title": "Önceden planla",
           "text": "Ortama girmeden önce ne içeceğini, nerede duracağını ve teklif gelirse ne diyeceğini düşün."
         },
         {
-          "emoji": "🍺",
+          "icon": "glass", "tone": "smokefree",
           "title": "Alkol dikkat",
           "text": "Alkol kararlılığı zayıflatabilir. İlk haftalarda alkollü ortamlardan kaçınmak ya da sınırlı tutmak işini kolaylaştırır."
         }
@@ -551,7 +551,7 @@
     },
     {
       "id": "slip",
-      "emoji": "🌱",
+      "icon": "sprout", "tone": "smokefree",
       "title": "Kayma çöküş değildir",
       "summary": "Öz-şefkat ve geri dönmek.",
       "relapse": [
@@ -563,22 +563,22 @@
       ],
       "slides": [
         {
-          "emoji": "🌱",
+          "icon": "sprout", "tone": "smokefree",
           "title": "Kayma olabilir",
           "text": "Bir ya da birkaç sigara içmek, bırakma sürecinde sık yaşanır. Bu, yolculuğun bittiği anlamına gelmez."
         },
         {
-          "emoji": "🧱",
+          "icon": "blocks", "tone": "smokefree",
           "title": "\"Zaten bozdum\" tuzağı",
           "text": "En büyük risk, bir sigaradan sonra \"artık bozdum\" diyerek tamamen bırakmaktan vazgeçmektir."
         },
         {
-          "emoji": "🤲",
+          "icon": "painCare", "tone": "smokefree",
           "title": "Öz-şefkat",
           "text": "Kendine bir arkadaşına davranır gibi davran. Kendini suçlamak yerine ne olduğunu anlamaya çalış."
         },
         {
-          "emoji": "🧭",
+          "icon": "compass", "tone": "smokefree",
           "title": "Öğren ve devam et",
           "text": "Kaymanın tetikleyicisini bul, onun için yeni bir plan yap ve programa devam et. Toplam dumansız günlerin korunur."
         }
@@ -605,7 +605,7 @@
     },
     {
       "id": "identity",
-      "emoji": "🪪",
+      "icon": "idCard", "tone": "smokefree",
       "title": "Yeni kimliğin",
       "summary": "\"Ben sigara içmeyen biriyim.\"",
       "relapse": [],
@@ -615,22 +615,22 @@
       ],
       "slides": [
         {
-          "emoji": "🪪",
+          "icon": "idCard", "tone": "smokefree",
           "title": "Kimlik değişir",
           "text": "\"Sigarayı bırakmaya çalışan biri\" ile \"sigara içmeyen biri\" arasında küçük ama güçlü bir fark vardır."
         },
         {
-          "emoji": "🗣️",
+          "icon": "speech", "tone": "smokefree",
           "title": "Dilini değiştir",
           "text": "\"İçemem\" yerine \"İçmiyorum\" demek, seçimin sana ait olduğunu hatırlatır."
         },
         {
-          "emoji": "🔁",
+          "icon": "repeat", "tone": "smokefree",
           "title": "Her seçim bir oy",
           "text": "Her sigarasız gün, olmak istediğin kişi için verilmiş bir oy gibidir. Oylar biriktikçe yeni kimliğin güçlenir."
         },
         {
-          "emoji": "🌄",
+          "icon": "sunrise", "tone": "smokefree",
           "title": "Uzun vade",
           "text": "Zamanla sigara, hayatının bir parçası olmaktan çıkar. Bu kampın sonunda bile yeni alışkanlıklarını sürdürmek önemlidir."
         }
@@ -657,7 +657,7 @@
     },
     {
       "id": "sexual-health",
-      "emoji": "💞",
+      "icon": "handshake", "tone": "smokefree",
       "title": "Sigara, damar ve cinsel sağlık",
       "summary": "Bonus ders: bırakmanın damarlara ve cinsel sağlığa etkisi.",
       "relapse": [],
@@ -669,22 +669,22 @@
       ],
       "slides": [
         {
-          "emoji": "🩸",
+          "icon": "droplet", "tone": "smokefree",
           "title": "Sigara damarları etkiler",
           "text": "Sigara dumanındaki maddeler damar iç yüzeyine zarar verir ve damarları daraltabilir. Bu, kan akışını azaltır."
         },
         {
-          "emoji": "💞",
+          "icon": "handshake", "tone": "smokefree",
           "title": "Cinsel sağlıkla bağlantı",
           "text": "Sertleşme, penise yeterli kan akışına bağlıdır. Bu nedenle sigara, sertleşme sorunları için bilinen risk etkenlerinden biridir."
         },
         {
-          "emoji": "📈",
+          "icon": "trendUp", "tone": "smokefree",
           "title": "Bırakınca",
           "text": "Sigarayı bırakmak dolaşımı iyileştirir. Bazı kişilerde zamanla cinsel sağlıkta da iyileşme görülebilir; ancak bu kişiden kişiye değişir."
         },
         {
-          "emoji": "🩺",
+          "icon": "stethoscope", "tone": "smokefree",
           "title": "Ne zaman hekime?",
           "text": "Süregelen sertleşme sorunları kalp ve damar sağlığıyla ilgili olabilir. Bu durumda bir hekime danışmak önemlidir."
         }

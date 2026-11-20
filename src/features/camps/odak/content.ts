@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import badgesJson from '@/content/camps/odak/badges.tr.json';
 import boundariesJson from '@/content/camps/odak/boundaries.tr.json';
 import checkinJson from '@/content/camps/odak/checkin.tr.json';
@@ -25,7 +26,7 @@ import type { CoachScenario } from '@/features/camps/core/coachEngine';
 import type { OdakLesson, OdakMission } from './engine/program';
 import type { OdakTriggerId } from './types';
 
-type Option = { id: string; emoji: string; label: string };
+type Option = { id: string; icon: IconName; label: string };
 type Scored = { value: number; label: string };
 
 export interface OdakSource {
@@ -42,8 +43,8 @@ export interface OdakOnboardingContent {
   evidenceLevel: string;
   sourceIds: string[];
   age: { title: string; hint: string; adult: string; minor: string };
-  under18: { title: string; body: string[]; help: { id: string; emoji: string; title: string; text: string; phone?: string; lastVerified?: string; needsVerification?: boolean }[]; emergency: string };
-  facts: { title: string; items: { emoji: string; text: string }[] };
+  under18: { title: string; body: string[]; help: { id: string; icon: IconName; title: string; text: string; phone?: string; lastVerified?: string; needsVerification?: boolean }[]; emergency: string };
+  facts: { title: string; items: { icon: IconName; text: string }[] };
   lock: { title: string; body: string };
   reasons: { title: string; hint: string; options: Option[]; otherPlaceholder: string };
   bps: { title: string; hint: string; placeholder: boolean; placeholderNote: string; items: string[]; options: Scored[]; threshold: number; resultHigh: string; resultLow: string; nonJudge: string };
@@ -79,7 +80,7 @@ export interface OdakOnboardingContent {
     boundariesNote: string;
     programTitle: string;
     programIntro: string;
-    phases: { emoji: string; name: string; days: string; focus: string }[];
+    phases: { icon: IconName; name: string; days: string; focus: string }[];
     goalLabels: { porn: Record<string, string>; mast: Record<string, string> };
     bpsAgain: string;
   };
@@ -111,9 +112,9 @@ export interface OdakSosContent {
   reviewed: boolean;
   evidenceLevel: string;
   sourceIds: string[];
-  check: { title: string; hint: string; items: { id: 'tired' | 'hungry' | 'lonely' | 'loaded'; letter: string; emoji: string; label: string; tip: string }[]; intensity: string; intensityLabels: { low: string; high: string } };
+  check: { title: string; hint: string; items: { id: 'tired' | 'hungry' | 'lonely' | 'loaded'; letter: string; icon: IconName; label: string; tip: string }[]; intensity: string; intensityLabels: { low: string; high: string } };
   relocate: { title: string; lead: string; seconds: number; steps: string[]; start: string; done: string };
-  tools: { title: string; hint: string; items: { id: string; emoji: string; title: string; desc: string }[] };
+  tools: { title: string; hint: string; items: { id: string; icon: IconName; title: string; desc: string }[] };
   surf: { desc: string; prompts: string[]; done: string };
   breath: { desc: string };
   move: { desc: string; seconds: number; steps: string[]; start: string; done: string };
@@ -147,10 +148,10 @@ export const ODAK_MISSIONS = missionsJson.missions as OdakMission[];
 export const ODAK_SKILLS = skillsJson.lessons as OdakLesson[];
 export interface OdakStory {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   summary: string;
-  slides: { emoji: string; title: string; text: string }[];
+  slides: { icon: IconName; title: string; text: string }[];
   sourceIds: string[];
   evidenceLevel: string;
   minutes: number;
@@ -170,5 +171,5 @@ export const ODAK_PANEL = panelJson as unknown as OdakPanelContent;
 export const ODAK_ONBOARDING = onboardingJson as unknown as OdakOnboardingContent;
 export const ODAK_PLANS = plansJson as unknown as OdakPlansContent;
 export const ODAK_SOURCES = sourcesJson as OdakSource[];
-export const ODAK_EMOJI = '🎯';
+export const ODAK_ICON = 'target';
 export const ODAK_DAYS = 90;

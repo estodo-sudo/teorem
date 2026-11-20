@@ -3,32 +3,32 @@
     "id": "pf-basics",
     "title": "Erkeklerde pelvik taban",
     "category": "menHealth",
-    "emoji": "🧭",
+    "icon": "compass", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🧭",
+        "icon": "compass", "tone": "knowledge",
         "title": "Görünmeyen kas grubu",
         "text": "Pelvik taban, leğen kemiğinin altında hamak gibi uzanan kaslardan oluşur. Çoğu erkek varlığından bile haberdar değildir."
       },
       {
-        "emoji": "🛡️",
+        "icon": "shield", "tone": "knowledge",
         "title": "Ne işe yarar?",
         "text": "Mesaneyi ve bağırsakları destekler, idrar ve gaz kontrolüne yardımcı olur, cinsel fonksiyonda da rol oynar."
       },
       {
-        "emoji": "📉",
+        "icon": "trendDown", "tone": "knowledge",
         "title": "Zamanla zayıflayabilir",
         "text": "Yaş, uzun süre oturmak, kronik öksürük, fazla kilo veya bazı ameliyatlar bu kasları zayıflatabilir.",
         "didYouKnow": "Pelvik taban egzersizleri, prostat ameliyatı sonrası idrar kontrolünü desteklemek için sıkça önerilen yöntemlerdendir."
       },
       {
-        "emoji": "💪",
+        "icon": "dumbbell", "tone": "knowledge",
         "title": "Çalıştırılabilir",
         "text": "Diğer kaslar gibi düzenli ve doğru egzersizle güçlenebilir. Anahtar kelime: istikrar."
       },
       {
-        "emoji": "🩺",
+        "icon": "stethoscope", "tone": "knowledge",
         "title": "Ne zaman doktora?",
         "text": "Ağrı, idrarda kan, ani idrar kaçırma veya yeni başlayan sertleşme sorunlarında egzersizden önce bir doktora danış."
       }
@@ -49,31 +49,31 @@
     "id": "kegel-mistakes",
     "title": "En sık yapılan 5 Kegel hatası",
     "category": "menHealth",
-    "emoji": "⚠️",
+    "icon": "warning", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🙅",
+        "icon": "ban", "tone": "knowledge",
         "title": "1. Yanlış kası sıkmak",
         "text": "Karın, kalça veya bacakları sıkmak çok yaygındır. Pelvik taban hareketi içeriden ve küçüktür."
       },
       {
-        "emoji": "😮‍💨",
+        "icon": "wind", "tone": "knowledge",
         "title": "2. Nefesi tutmak",
         "text": "Sıkarken nefesi tutmak karın içi basıncı artırır. Sakin nefes almaya devam et."
       },
       {
-        "emoji": "🔁",
+        "icon": "repeat", "tone": "knowledge",
         "title": "3. Gevşemeyi atlamak",
         "text": "Kası tamamen bırakmak, sıkmak kadar önemlidir. Sürekli gergin bir kas da sorun yaratabilir."
       },
       {
-        "emoji": "🚽",
+        "icon": "moon", "tone": "knowledge",
         "title": "4. Tuvalette egzersiz",
         "text": "İdrarı yarıda kesmek kası bulmak için bir fikir verebilir ama düzenli egzersiz olarak yapılmamalı."
       },
       {
-        "emoji": "📆",
+        "icon": "calendar", "tone": "knowledge",
         "title": "5. Çabuk vazgeçmek",
         "text": "Kas gücündeki değişim haftalar içinde gelişir. Kısa ama düzenli seanslar, seyrek uzun seanslardan daha faydalıdır."
       }
@@ -94,27 +94,27 @@
     "id": "erection-blood",
     "title": "Sertleşme ve damar sağlığı",
     "category": "menHealth",
-    "emoji": "❤️",
+    "icon": "heart", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "❤️",
+        "icon": "heart", "tone": "knowledge",
         "title": "Kalp ve damarlar",
         "text": "Sertleşme büyük ölçüde sağlıklı kan akışına bağlıdır. Bu yüzden damar sağlığını etkileyen her şey önemlidir."
       },
       {
-        "emoji": "🚬",
+        "icon": "ban", "tone": "knowledge",
         "title": "Risk faktörleri",
         "text": "Sigara, yüksek tansiyon, diyabet, yüksek kolesterol ve hareketsizlik sertleşme sorunlarıyla ilişkilendirilir."
       },
       {
-        "emoji": "🏃",
+        "icon": "footprints", "tone": "knowledge",
         "title": "Yaşam tarzı",
         "text": "Düzenli egzersiz, dengeli beslenme ve sigarayı bırakmak genel damar sağlığını destekler.",
         "didYouKnow": "Yeni başlayan sertleşme sorunları bazen kalp-damar hastalıklarının erken bir işareti olabilir; bu yüzden doktorla konuşmak önemlidir."
       },
       {
-        "emoji": "🧩",
+        "icon": "puzzle", "tone": "knowledge",
         "title": "Pelvik tabanın yeri",
         "text": "Bazı çalışmalar pelvik taban egzersizlerinin sertleşme sorunlarında destekleyici olabileceğini gösteriyor; ancak tek başına bir tedavi değildir."
       }
@@ -139,26 +139,26 @@
     "id": "bladder-control",
     "title": "Mesane kontrolü üzerine",
     "category": "menHealth",
-    "emoji": "💧",
+    "icon": "droplet", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "💧",
+        "icon": "droplet", "tone": "knowledge",
         "title": "Sık rastlanır",
         "text": "İdrar kaçırma özellikle yaş ilerledikçe ve prostat ameliyatı sonrasında erkeklerde de görülebilir."
       },
       {
-        "emoji": "⏳",
+        "icon": "hourglass", "tone": "knowledge",
         "title": "Damla kaçırma",
         "text": "İdrar yaptıktan sonra birkaç damla kaçırmak yaygındır. Bitirdikten sonra pelvik tabanı birkaç kez sıkmak yardımcı olabilir."
       },
       {
-        "emoji": "☕",
+        "icon": "coffee", "tone": "knowledge",
         "title": "Tetikleyiciler",
         "text": "Kafein, alkol ve gazlı içecekler bazı kişilerde mesaneyi uyarabilir. Kendi tetikleyicilerini gözlemle."
       },
       {
-        "emoji": "🩺",
+        "icon": "stethoscope", "tone": "knowledge",
         "title": "Değerlendirme şart",
         "text": "Yeni başlayan veya artan idrar kaçırma bir sağlık profesyoneli tarafından değerlendirilmelidir."
       }
@@ -183,26 +183,26 @@
     "id": "talk-partner",
     "title": "Partnerinle konuşmak",
     "category": "relationships",
-    "emoji": "💬",
+    "icon": "chat", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "💬",
+        "icon": "chat", "tone": "knowledge",
         "title": "Sessizlik ağırlaştırır",
         "text": "Cinsel konularda yaşanan zorluklar konuşulmadığında kaygı ve yanlış anlamalar büyüyebilir."
       },
       {
-        "emoji": "🕰️",
+        "icon": "clock", "tone": "knowledge",
         "title": "Doğru zaman",
         "text": "Yatak odası dışında, sakin ve acelesiz bir an seçmek konuşmayı kolaylaştırır."
       },
       {
-        "emoji": "🙋",
+        "icon": "hand", "tone": "knowledge",
         "title": "Ben dili",
         "text": "\"Sen hiç…\" yerine \"Ben son zamanlarda … hissediyorum\" demek savunmayı azaltır."
       },
       {
-        "emoji": "🤝",
+        "icon": "handshake", "tone": "knowledge",
         "title": "Ekip olmak",
         "text": "Sorunu ortak bir konu olarak görmek, çözüm arayışını birlikte yapmanızı sağlar.",
         "didYouKnow": "Araştırmalar, ilişki doyumunda iletişimin cinsel sıklıktan daha belirleyici olabileceğini gösteriyor."
@@ -224,26 +224,26 @@
     "id": "performance-anxiety",
     "title": "Performans kaygısı",
     "category": "relationships",
-    "emoji": "🎭",
+    "icon": "drama", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🎭",
+        "icon": "drama", "tone": "knowledge",
         "title": "Çok yaygın",
         "text": "Performans kaygısı pek çok erkeğin hayatının bir döneminde yaşadığı bir durumdur."
       },
       {
-        "emoji": "🔄",
+        "icon": "rotate", "tone": "knowledge",
         "title": "Kısır döngü",
         "text": "Bir kez yaşanan zorluk, sonraki seferde endişeye; endişe de vücudun gevşemesini zorlaştırarak yeni zorluklara yol açabilir."
       },
       {
-        "emoji": "🌬️",
+        "icon": "wind", "tone": "knowledge",
         "title": "Bedeni sakinleştirmek",
         "text": "Yavaş nefes, odağı sonuçtan duyulara kaydırmak ve beklentileri azaltmak döngüyü kırmaya yardımcı olabilir."
       },
       {
-        "emoji": "🧠",
+        "icon": "brain", "tone": "knowledge",
         "title": "Destek almak",
         "text": "Kaygı sürekli hâle geldiyse cinsel sağlık konusunda deneyimli bir uzmanla konuşmak faydalı olabilir."
       }
@@ -264,26 +264,26 @@
     "id": "intimacy-beyond",
     "title": "Yakınlık sadece cinsellik değil",
     "category": "relationships",
-    "emoji": "🫶",
+    "icon": "heart", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🫶",
+        "icon": "heart", "tone": "knowledge",
         "title": "Geniş bir kavram",
         "text": "Yakınlık; dokunma, sohbet, birlikte gülmek ve birbirine zaman ayırmak gibi pek çok şeyi kapsar."
       },
       {
-        "emoji": "📵",
+        "icon": "phoneOff", "tone": "knowledge",
         "title": "Ekransız zaman",
         "text": "Günde birkaç dakikalık telefonsuz sohbet, bağ kurmanın basit bir yoludur."
       },
       {
-        "emoji": "🎯",
+        "icon": "target", "tone": "knowledge",
         "title": "Baskıyı azaltmak",
         "text": "Yakınlığı yalnızca cinsel birleşmeye indirgememek, performans baskısını hafifletebilir."
       },
       {
-        "emoji": "🗓️",
+        "icon": "calendar", "tone": "knowledge",
         "title": "Küçük ritüeller",
         "text": "Haftada bir birlikte yürüyüş, ortak bir yemek ya da sadece sarılarak geçirilen birkaç dakika bağı güçlendirebilir."
       }
@@ -304,26 +304,26 @@
     "id": "water",
     "title": "Su ve mesane",
     "category": "nutrition",
-    "emoji": "🥤",
+    "icon": "cup", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🥤",
+        "icon": "cup", "tone": "knowledge",
         "title": "Az içmek çözüm değil",
         "text": "İdrar kaçırma endişesiyle su içmeyi azaltmak idrarı yoğunlaştırarak mesaneyi daha çok tahriş edebilir."
       },
       {
-        "emoji": "📏",
+        "icon": "ruler", "tone": "knowledge",
         "title": "Ne kadar?",
         "text": "Genel öneri gün boyunca düzenli sıvı almaktır; ihtiyaç kilo, hava ve aktiviteye göre değişir."
       },
       {
-        "emoji": "🌙",
+        "icon": "moon", "tone": "knowledge",
         "title": "Akşam düzeni",
         "text": "Gece sık tuvalete kalkıyorsan, sıvının çoğunu gündüz almayı ve yatmadan önceki saatlerde azaltmayı deneyebilirsin."
       },
       {
-        "emoji": "🔎",
+        "icon": "search", "tone": "knowledge",
         "title": "İpucu",
         "text": "Açık sarı idrar genellikle yeterli sıvı aldığının işaretidir."
       }
@@ -344,26 +344,26 @@
     "id": "plate",
     "title": "Damar dostu tabak",
     "category": "nutrition",
-    "emoji": "🥗",
+    "icon": "salad", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🥗",
+        "icon": "salad", "tone": "knowledge",
         "title": "Yarısı sebze",
         "text": "Tabağın yarısını sebze ve meyveyle doldurmak basit ve etkili bir başlangıç."
       },
       {
-        "emoji": "🌾",
+        "icon": "wheat", "tone": "knowledge",
         "title": "Tam tahıl",
         "text": "Beyaz ekmek ve pirinç yerine tam tahıllı seçenekler lif alımını artırır."
       },
       {
-        "emoji": "🫒",
+        "icon": "leaf", "tone": "knowledge",
         "title": "Yağ seçimi",
         "text": "Zeytinyağı, kuruyemiş ve balık gibi sağlıklı yağ kaynaklarını tercih et; işlenmiş et ve kızartmaları sınırla."
       },
       {
-        "emoji": "🧂",
+        "icon": "utensils", "tone": "knowledge",
         "title": "Tuz ve şeker",
         "text": "Fazla tuz tansiyonu, fazla şeker kilo ve kan şekerini etkileyebilir.",
         "didYouKnow": "WHO, günlük tuz alımının 5 gramın altında tutulmasını önerir."
@@ -385,26 +385,26 @@
     "id": "alcohol",
     "title": "Alkol ve performans",
     "category": "nutrition",
-    "emoji": "🍷",
+    "icon": "glass", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🍷",
+        "icon": "glass", "tone": "knowledge",
         "title": "Kısa vadede",
         "text": "Alkol bazı kişilerde rahatlatıcı gibi görünse de fazlası sertleşmeyi ve hissetmeyi zorlaştırabilir."
       },
       {
-        "emoji": "📆",
+        "icon": "calendar", "tone": "knowledge",
         "title": "Uzun vadede",
         "text": "Düzenli ve yüksek miktarda alkol hormonları, uykuyu ve damar sağlığını olumsuz etkileyebilir."
       },
       {
-        "emoji": "🧮",
+        "icon": "calculator", "tone": "knowledge",
         "title": "Azaltma fikirleri",
         "text": "Alkolsüz günler belirlemek, küçük bardak kullanmak ve her içkinin arasına su koymak işe yarayabilir."
       },
       {
-        "emoji": "🩺",
+        "icon": "stethoscope", "tone": "knowledge",
         "title": "Ne zaman yardım?",
         "text": "Alkolü azaltmakta zorlanıyorsan bu konuda destek veren sağlık hizmetlerinden yardım almak güçlü bir adımdır."
       }
@@ -425,26 +425,26 @@
     "id": "sleep-hormones",
     "title": "Uyku ve hormonlar",
     "category": "sleep",
-    "emoji": "😴",
+    "icon": "moon", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "😴",
+        "icon": "moon", "tone": "knowledge",
         "title": "Gece yenilenme",
         "text": "Vücudun pek çok hormonu uyku sırasında düzenlenir."
       },
       {
-        "emoji": "⏱️",
+        "icon": "timer", "tone": "knowledge",
         "title": "Kısa uyku",
         "text": "Bazı çalışmalarda kısıtlı uykunun genç erkeklerde testosteron düzeylerini düşürebildiği gözlenmiştir."
       },
       {
-        "emoji": "🛏️",
+        "icon": "bed", "tone": "knowledge",
         "title": "Hedef",
         "text": "Yetişkinlerin çoğu için gecede 7–9 saat uyku önerilir."
       },
       {
-        "emoji": "🔋",
+        "icon": "battery", "tone": "knowledge",
         "title": "Enerji ve istek",
         "text": "Yorgunluk cinsel isteği ve ruh hâlini doğrudan etkileyebilir; uyku bu yüzden bir öncelik."
       }
@@ -465,26 +465,26 @@
     "id": "sleep-routine",
     "title": "Daha iyi uyku için akşam rutini",
     "category": "sleep",
-    "emoji": "🌙",
+    "icon": "moon", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🌙",
+        "icon": "moon", "tone": "knowledge",
         "title": "Sabit saat",
         "text": "Her gün aynı saatte yatıp kalkmak iç saatini düzenler — hafta sonu da."
       },
       {
-        "emoji": "📱",
+        "icon": "smartphone", "tone": "knowledge",
         "title": "Ekran molası",
         "text": "Yatmadan 30–60 dakika önce ekranları bırakmak uykuya geçişi kolaylaştırabilir."
       },
       {
-        "emoji": "☕",
+        "icon": "coffee", "tone": "knowledge",
         "title": "Kafein saati",
         "text": "Kafeinin etkisi saatlerce sürebilir; öğleden sonra kahveyi azaltmayı dene."
       },
       {
-        "emoji": "🌬️",
+        "icon": "wind", "tone": "knowledge",
         "title": "Gevşeme",
         "text": "Yatakta 4-7-8 nefesi veya beden taraması zihni yavaşlatmana yardımcı olabilir."
       }
@@ -505,26 +505,26 @@
     "id": "night-bathroom",
     "title": "Gece tuvalete kalkmak",
     "category": "sleep",
-    "emoji": "🚽",
+    "icon": "moon", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🚽",
+        "icon": "moon", "tone": "knowledge",
         "title": "Noktüri",
         "text": "Gece birden fazla kez tuvalete kalkmaya noktüri denir ve yaşla birlikte daha sık görülür."
       },
       {
-        "emoji": "🥤",
+        "icon": "cup", "tone": "knowledge",
         "title": "Akşam sıvısı",
         "text": "Akşam saatlerinde özellikle kafeinli ve alkollü içecekleri azaltmak fark yaratabilir."
       },
       {
-        "emoji": "🩺",
+        "icon": "stethoscope", "tone": "knowledge",
         "title": "Altta yatan nedenler",
         "text": "Prostat büyümesi, diyabet veya uyku apnesi gibi durumlar noktüriye yol açabilir; sık oluyorsa doktora danış."
       },
       {
-        "emoji": "🛏️",
+        "icon": "bed", "tone": "knowledge",
         "title": "Yatmadan önce",
         "text": "Yatmadan hemen önce tuvalete gitmek ve gün içinde pelvik taban egzersizlerine devam etmek bazı kişilere yardımcı olabilir."
       }
@@ -545,26 +545,26 @@
     "id": "stress-body",
     "title": "Stres bedende nasıl hissedilir?",
     "category": "stress",
-    "emoji": "🌪️",
+    "icon": "tornado", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🌪️",
+        "icon": "tornado", "tone": "knowledge",
         "title": "Savaş ya da kaç",
         "text": "Stres anında vücut alarm durumuna geçer: kalp hızlanır, kaslar gerilir, nefes sığlaşır."
       },
       {
-        "emoji": "🧱",
+        "icon": "blocks", "tone": "knowledge",
         "title": "Gergin kaslar",
         "text": "Uzun süreli stres boyun, omuz ve hatta pelvik taban kaslarında istemsiz gerginliğe yol açabilir."
       },
       {
-        "emoji": "🌬️",
+        "icon": "wind", "tone": "knowledge",
         "title": "Fren pedalı",
         "text": "Yavaş ve uzun nefes vermek, vücudun sakinleşme sistemini devreye sokmanın en kolay yollarından biridir."
       },
       {
-        "emoji": "🧘",
+        "icon": "flower", "tone": "knowledge",
         "title": "Küçük molalar",
         "text": "Gün içinde 1–2 dakikalık nefes molaları birikimli bir etki yaratabilir."
       }
@@ -585,26 +585,26 @@
     "id": "worry-time",
     "title": "Endişe zamanı tekniği",
     "category": "stress",
-    "emoji": "🗒️",
+    "icon": "notebook", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🗒️",
+        "icon": "notebook", "tone": "knowledge",
         "title": "Erteleme",
         "text": "Endişeler gün boyu gelir; her geldiğinde bir kenara not edip \"bunu endişe zamanımda düşüneceğim\" diyebilirsin."
       },
       {
-        "emoji": "⏰",
+        "icon": "alarm", "tone": "knowledge",
         "title": "15 dakika",
         "text": "Her gün aynı saatte 15 dakikalık bir \"endişe zamanı\" belirle ve notlarına o zaman bak."
       },
       {
-        "emoji": "✍️",
+        "icon": "pen", "tone": "knowledge",
         "title": "Yazıya dökmek",
         "text": "Düşünceleri yazmak onları somutlaştırır ve kafada dönmelerini azaltabilir. Zihin Boşaltma aracını deneyebilirsin."
       },
       {
-        "emoji": "🔍",
+        "icon": "search", "tone": "knowledge",
         "title": "Çözülebilir mi?",
         "text": "Endişe zamanında her madde için sor: Bununla ilgili bugün atabileceğim küçük bir adım var mı? Yoksa bırakmayı dene."
       }
@@ -625,26 +625,26 @@
     "id": "mindfulness",
     "title": "Farkındalık nedir?",
     "category": "stress",
-    "emoji": "🍃",
+    "icon": "leaf", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🍃",
+        "icon": "leaf", "tone": "knowledge",
         "title": "Şimdi ve burada",
         "text": "Farkındalık, dikkatini yargılamadan şu anki deneyimine vermektir."
       },
       {
-        "emoji": "☕",
+        "icon": "coffee", "tone": "knowledge",
         "title": "Günlük hayatta",
         "text": "Bir fincan çayı içerken sadece sıcaklığına, kokusuna ve tadına odaklanmak bile bir farkındalık pratiğidir."
       },
       {
-        "emoji": "🔁",
+        "icon": "repeat", "tone": "knowledge",
         "title": "Dikkat kaçar",
         "text": "Zihin dağılır; bu başarısızlık değil. Fark edip nazikçe geri dönmek pratiğin kendisidir."
       },
       {
-        "emoji": "⏱️",
+        "icon": "timer", "tone": "knowledge",
         "title": "Kısa başla",
         "text": "Günde 2–3 dakikalık pratik bile başlangıç için yeterli. Nefes aracındaki 1 dakikalık seçenekle deneyebilirsin."
       }
@@ -665,27 +665,27 @@
     "id": "move-more",
     "title": "Daha çok hareket",
     "category": "exercise",
-    "emoji": "🚶",
+    "icon": "footprints", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🚶",
+        "icon": "footprints", "tone": "knowledge",
         "title": "Öneri",
         "text": "WHO yetişkinler için haftada en az 150–300 dakika orta yoğunlukta aerobik aktivite öneriyor."
       },
       {
-        "emoji": "🧩",
+        "icon": "puzzle", "tone": "knowledge",
         "title": "Parçalara böl",
         "text": "Günde 3 kez 10 dakikalık yürüyüş de sayılır."
       },
       {
-        "emoji": "🪑",
+        "icon": "chair", "tone": "knowledge",
         "title": "Oturmayı kes",
         "text": "Uzun süre oturuyorsan her saat birkaç dakika kalkıp hareket et.",
         "didYouKnow": "Az hareket bile hiç hareketsizlikten iyidir."
       },
       {
-        "emoji": "❤️",
+        "icon": "heart", "tone": "knowledge",
         "title": "Neden önemli?",
         "text": "Düzenli hareket kalp-damar sağlığını, uykuyu ve ruh hâlini destekler."
       }
@@ -702,26 +702,26 @@
     "id": "core-hips",
     "title": "Kalça ve gövde neden önemli?",
     "category": "exercise",
-    "emoji": "🏋️",
+    "icon": "dumbbell", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🏋️",
+        "icon": "dumbbell", "tone": "knowledge",
         "title": "Bir ekip",
         "text": "Pelvik taban; karın, sırt ve kalça kaslarıyla birlikte çalışan bir sistemin parçasıdır."
       },
       {
-        "emoji": "🌉",
+        "icon": "map", "tone": "knowledge",
         "title": "Köprü ve squat",
         "text": "Kalça kaslarını çalıştıran hareketler gövdenin stabilitesini destekler."
       },
       {
-        "emoji": "📲",
+        "icon": "smartphone", "tone": "knowledge",
         "title": "Uygulamada",
         "text": "Kasık Fitness bölümündeki kısa rutinler bu kas gruplarını hedefler."
       },
       {
-        "emoji": "🧘",
+        "icon": "flower", "tone": "knowledge",
         "title": "Esneklik de önemli",
         "text": "Kalça ve iç bacak esnemeleri bölgedeki gerginliği azaltmaya yardımcı olabilir; esnemeyi zorlamadan yap."
       }
@@ -742,26 +742,26 @@
     "id": "cycling",
     "title": "Bisiklet ve pelvik bölge",
     "category": "exercise",
-    "emoji": "🚴",
+    "icon": "bike", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🚴",
+        "icon": "bike", "tone": "knowledge",
         "title": "Uzun sürüşler",
         "text": "Uzun süre sert bir selede oturmak bazı kişilerde perine bölgesinde uyuşma ve basıya yol açabilir."
       },
       {
-        "emoji": "🪑",
+        "icon": "chair", "tone": "knowledge",
         "title": "Sele ayarı",
         "text": "Doğru sele yüksekliği ve şekli, ara ara ayağa kalkmak ve mola vermek basıncı azaltabilir."
       },
       {
-        "emoji": "🩺",
+        "icon": "stethoscope", "tone": "knowledge",
         "title": "Dikkat",
         "text": "Uyuşma veya his kaybı geçmiyorsa sürüşü azalt ve bir sağlık profesyoneline danış."
       },
       {
-        "emoji": "🔄",
+        "icon": "rotate", "tone": "knowledge",
         "title": "Dengeli antrenman",
         "text": "Bisikleti seviyorsan bırakman gerekmez; kalça ve gövde güçlendirme, esneme ve molalarla dengelemek iyi bir fikir."
       }
@@ -782,26 +782,26 @@
     "id": "smoking",
     "title": "Sigara ve cinsel sağlık",
     "category": "menHealth",
-    "emoji": "🚭",
+    "icon": "ban", "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "emoji": "🚭",
+        "icon": "ban", "tone": "knowledge",
         "title": "Damarlar",
         "text": "Sigara damarlara zarar vererek kan akışını azaltabilir; bu da sertleşmeyi olumsuz etkileyebilir."
       },
       {
-        "emoji": "📈",
+        "icon": "trendUp", "tone": "knowledge",
         "title": "Bırakmanın faydası",
         "text": "Sigarayı bırakmak birçok sağlık riskini zamanla azaltır; vücut iyileşmeye ilk günlerden başlar."
       },
       {
-        "emoji": "🤝",
+        "icon": "handshake", "tone": "knowledge",
         "title": "Destek",
         "text": "Bırakma sürecinde profesyonel destek ve bırakma programları başarı şansını artırabilir."
       },
       {
-        "emoji": "💡",
+        "icon": "bulb", "tone": "knowledge",
         "title": "Tetikleyicileri tanı",
         "text": "Kahve, stres veya belirli ortamlar sigara isteğini tetikleyebilir. Bu anlar için önceden bir alternatif (nefes, yürüyüş) planla."
       }

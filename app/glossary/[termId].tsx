@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Icon, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { GLOSSARY } from '@/features/content/data';
 
 /** How a section is presented, from its title (content is Turkish). */
@@ -48,17 +49,17 @@ export default function GlossaryTermScreen() {
     <Screen>
       <Header />
 
-      <View style={{ alignItems: 'center', gap: 10, paddingVertical: 4 }}>
+      <View style={{ alignItems: 'center', gap: 10, paddingVertical: t.space.xs }}>
         <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: tint(t.colors.primary, '33'), alignItems: 'center', justifyContent: 'center' }}>
-          <AppText variant="display">{term.emoji}</AppText>
+          <IconTile icon={term.icon} tone="knowledge" size="lg" round />
         </View>
         <AppText variant="h1" center accessibilityRole="header">
           {term.title}
         </AppText>
-        <AppText muted center style={{ paddingHorizontal: 8 }}>
+        <AppText muted center style={{ paddingHorizontal: t.space.sm }}>
           {term.summary}
         </AppText>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingVertical: 6, borderRadius: t.radius.pill, backgroundColor: t.colors.surfaceAlt }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: t.space.md, paddingVertical: 6, borderRadius: t.radius.pill, backgroundColor: t.colors.surfaceAlt }}>
           <Icon name="book" color={t.colors.textMuted} size={14} />
           <AppText variant="tiny" weight="700" muted>
             {tr('glossary.meta', { sections: body.length, minutes: readMinutes(term.sections.map((s) => s.text)) })}
@@ -73,7 +74,7 @@ export default function GlossaryTermScreen() {
             const step = stepOf(i);
             const lastInfo = !body.slice(i + 1).some((x) => roleOf(x.title) === 'info');
             return (
-              <View key={s.title} style={{ flexDirection: 'row', gap: 12 }}>
+              <View key={s.title} style={{ flexDirection: 'row', gap: t.space.md }}>
                 <View style={{ alignItems: 'center', width: 30 }}>
                   <View style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: t.colors.primary, alignItems: 'center', justifyContent: 'center' }}>
                     <AppText variant="small" weight="800" color={t.colors.primaryText}>
@@ -92,14 +93,14 @@ export default function GlossaryTermScreen() {
             );
           }
           const color = role === 'action' ? t.colors.success : role === 'caution' ? t.colors.warning : t.colors.primary;
-          const emoji = role === 'action' ? '✅' : role === 'caution' ? '⚠️' : '🎯';
+          const icon = role === 'action' ? 'success' : role === 'caution' ? 'warning' : 'target';
           return (
             <View
               key={s.title}
-              style={{ gap: 8, padding: 16, borderRadius: t.radius.lg, backgroundColor: tint(color), borderWidth: 1, borderColor: tint(color, '55') }}
+              style={{ gap: t.space.sm, padding: t.space.lg, borderRadius: t.radius.lg, backgroundColor: tint(color), borderWidth: 1, borderColor: tint(color, '55') }}
             >
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                <AppText>{emoji}</AppText>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
+                <Icon name={icon} size="md" />
                 <AppText variant="h3" accessibilityRole="header" color={role === 'app' ? t.colors.text : color}>
                   {s.title}
                 </AppText>
@@ -111,8 +112,8 @@ export default function GlossaryTermScreen() {
       </View>
 
       {sources ? (
-        <View style={{ flexDirection: 'row', gap: 10, paddingTop: 12, borderTopWidth: 1, borderTopColor: t.colors.border }}>
-          <AppText variant="small">📚</AppText>
+        <View style={{ flexDirection: 'row', gap: 10, paddingTop: t.space.md, borderTopWidth: 1, borderTopColor: t.colors.border }}>
+          <Icon name="book" size="md" color={t.tone.knowledge.fg} />
           <View style={{ flex: 1, gap: 2 }}>
             <AppText variant="tiny" weight="800" muted>
               {tr('glossary.sourcesTitle').toLocaleUpperCase('tr-TR')}
@@ -128,10 +129,10 @@ export default function GlossaryTermScreen() {
         <Card
           onPress={() => router.replace({ pathname: '/glossary/[termId]', params: { termId: next.id } })}
           accessibilityLabel={`${tr('glossary.next')}: ${next.title}`}
-          style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 4 }}
+          style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, marginTop: t.space.xs }}
         >
           <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>
-            <AppText variant="h3">{next.emoji}</AppText>
+            <IconTile icon={next.icon} tone="knowledge" />
           </View>
           <View style={{ flex: 1, gap: 2 }}>
             <AppText variant="tiny" weight="800" color={t.colors.primary}>

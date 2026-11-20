@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { ODAK_DIARY as D, fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P } from '@/features/camps/odak/content';
 import { goalCounters, touches } from '@/features/camps/odak/engine/goals';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
@@ -43,7 +44,7 @@ export default function OdakLogBehavior() {
     return (
       <Screen
         footer={
-          <View style={{ gap: 8 }}>
+          <View style={{ gap: t.space.sm }}>
             {saved.isSlip ? <Button label={tr('odak.sos.toSlip')} size="lg" onPress={() => router.replace({ pathname: '/odak/slip', params: { from: 'log' } })} /> : null}
             <Button label={tr('common.done')} size="lg" variant={saved.isSlip ? 'ghost' : 'primary'} onPress={() => goBack('/odak')} />
           </View>
@@ -56,13 +57,11 @@ export default function OdakLogBehavior() {
               {P.log.slipTitle}
             </AppText>
           ) : (
-            <AppText variant="display" center>
-              🌿
-            </AppText>
+            <IconTile icon="leaf" tone="focus" size="lg" round />
           )}
           <AppText>{saved.isSlip ? P.log.slipBody : P.log.saved}</AppText>
           {c && (c.total > 0 || c.longest > 0) ? (
-            <View style={{ padding: 12, borderRadius: t.radius.md, backgroundColor: tint(t.colors.success, '1A') }}>
+            <View style={{ padding: t.space.md, borderRadius: t.radius.md, backgroundColor: tint(t.colors.success, '1A') }}>
               <AppText variant="small" weight="700">
                 {fill(P.log.kept, { total: c.total, longest: c.longest })}
               </AppText>
@@ -78,9 +77,9 @@ export default function OdakLogBehavior() {
       <Header title={D.behavior.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
       <AppText muted>{D.behavior.hint}</AppText>
       <AppText weight="800">{D.behavior.kind}</AppText>
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {P.log.options.map((o) => (
-          <ChoiceCard key={o.id} emoji={o.emoji} label={o.label} selected={kind === o.id} onPress={() => setKind(o.id as BehaviorKind)} />
+          <ChoiceCard key={o.id} icon={o.icon} label={o.label} selected={kind === o.id} onPress={() => setKind(o.id as BehaviorKind)} />
         ))}
       </View>
       <AppText weight="800">{D.behavior.trigger}</AppText>

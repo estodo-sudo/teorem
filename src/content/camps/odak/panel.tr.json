@@ -14,7 +14,7 @@
   "quit": "{n} gündür hedefinde",
   "zero": "Bugünü kaydettin; yarın serin yeniden başlıyor",
   "pause": "Ara: {n}/{limit}. gün",
-  "pauseDone": "{limit} günlük aranı tamamladın 🌿",
+  "pauseDone": "{limit} günlük aranı tamamladın",
   "reduce": "Bu hafta {used}/{limit} gün",
   "reduceOver": "Bu hafta {used}/{limit} gün · Sınırın biraz üstündesin; yarın yeni bir gün.",
   "detail": "Hedefine uygun toplam {total} gün · En uzun seri {longest} gün"
@@ -33,17 +33,17 @@
   "options": [
    {
     "id": "porn",
-    "emoji": "📵",
+    "icon": "phoneOff", "tone": "focus",
     "label": "Pornografi"
    },
    {
     "id": "mast",
-    "emoji": "🔁",
+    "icon": "repeat", "tone": "focus",
     "label": "Mastürbasyon"
    },
    {
     "id": "both",
-    "emoji": "➕",
+    "icon": "plus", "tone": "focus",
     "label": "İkisi birlikte"
    }
   ],

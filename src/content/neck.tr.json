@@ -1,7 +1,8 @@
 {
   "id": "neck",
-  "title": "Dik Boyun Kampüsü (Boyun Düzleşmesi)",
-  "emoji": "🦒",
+  "title": "Dik Boyun Antrenmanı (Boyun Düzleşmesi)",
+  "icon": "body",
+  "tone": "campus",
   "description": "Öne eğik baş duruşunu ve boyun düzleşmesini günlük kısa bir rutinle düzelt.",
   "reviewed": false,
   "weeks": 8,
@@ -31,7 +32,7 @@
       }
     ],
     "title": "Önce bir doktora görün",
-    "text": "Seçtiğin belirtiler, egzersize başlamadan önce bir hekim değerlendirmesi gerektirebilir. Bu kampüsün rutinleri bu durumlar için tasarlanmadı.",
+    "text": "Seçtiğin belirtiler, egzersize başlamadan önce bir hekim değerlendirmesi gerektirebilir. Bu antrenmanın rutinleri bu durumlar için tasarlanmadı.",
     "ok": "Kırmızı bayrak belirtmedin. Egzersiz sırasında ağrın orta ya da şiddetli düzeye çıkarsa o hareketi hafiflet ya da bırak."
   },
   "selfTest": {
@@ -125,7 +126,8 @@
   "exercises": [
     {
       "id": "chin-tuck",
-      "emoji": "🙂",
+      "icon": "smile",
+      "tone": "campus",
       "title": "Çene içe çekme",
       "steps": [
         "Dik otur, gözlerin karşıya baksın.",
@@ -141,7 +143,8 @@
     },
     {
       "id": "wall-tuck",
-      "emoji": "🧱",
+      "icon": "blocks",
+      "tone": "campus",
       "title": "Duvarda çene içe çekme",
       "steps": [
         "Sırtını duvara daya, topukların duvardan bir adım önde olsun.",
@@ -156,7 +159,8 @@
     },
     {
       "id": "deep-flexor",
-      "emoji": "🛏️",
+      "icon": "bed",
+      "tone": "campus",
       "title": "Yatarak derin boyun kası çalışması",
       "steps": [
         "Sırtüstü yat, dizlerini bük.",
@@ -171,7 +175,8 @@
     },
     {
       "id": "scap-squeeze",
-      "emoji": "🔙",
+      "icon": "undo",
+      "tone": "campus",
       "title": "Kürek kemiği sıkıştırma",
       "steps": [
         "Dik otur ya da ayakta dur, kolların yanda olsun.",
@@ -186,7 +191,8 @@
     },
     {
       "id": "wall-angel",
-      "emoji": "👼",
+      "icon": "smile",
+      "tone": "campus",
       "title": "Duvar melekleri",
       "steps": [
         "Sırtın ve başın duvara değsin, kollarını 'kale direği' gibi yanlara aç.",
@@ -201,7 +207,8 @@
     },
     {
       "id": "chair-extension",
-      "emoji": "🪑",
+      "icon": "chair",
+      "tone": "campus",
       "title": "Sandalyede sırt açma",
       "steps": [
         "Arkalığı alçak bir sandalyeye otur, ellerini ensende birleştir.",
@@ -216,7 +223,8 @@
     },
     {
       "id": "doorway",
-      "emoji": "🚪",
+      "icon": "door",
+      "tone": "campus",
       "title": "Kapı aralığında göğüs germe",
       "steps": [
         "Bir kapı aralığında dur, ön kollarını kasanın iki yanına omuz hizasında yerleştir.",
@@ -231,7 +239,8 @@
     },
     {
       "id": "side-stretch",
-      "emoji": "↔️",
+      "icon": "arrowUpDown",
+      "tone": "campus",
       "title": "Boyun yan germe",
       "steps": [
         "Dik otur, bir elinle sandalyenin kenarını tut.",
@@ -302,7 +311,8 @@
   "steps": [
     {
       "id": "what",
-      "emoji": "🦒",
+      "icon": "body",
+      "tone": "campus",
       "title": "Boyun düzleşmesi nedir?",
       "summary": "Boynun doğal hafif kavisinin azalması ve başın öne kayması.",
       "sections": [
@@ -325,7 +335,8 @@
     },
     {
       "id": "evidence",
-      "emoji": "📈",
+      "icon": "trendUp",
+      "tone": "campus",
       "title": "Egzersiz işe yarıyor mu?",
       "summary": "Evet; özellikle düzenli ve birkaç hafta sürdürülen programlar.",
       "sections": [
@@ -335,7 +346,7 @@
         },
         {
           "title": "Hangi egzersizler?",
-          "text": "En çok araştırılanlar derin boyun kaslarını çalıştıran çene içe çekme hareketleri, sırtın üst kısmını ve kürek kemiklerini güçlendiren hareketler ve göğüs kaslarını germedir. Kampüsün günlük rutini bunlardan oluşur."
+          "text": "En çok araştırılanlar derin boyun kaslarını çalıştıran çene içe çekme hareketleri, sırtın üst kısmını ve kürek kemiklerini güçlendiren hareketler ve göğüs kaslarını germedir. Antrenmanın günlük rutini bunlardan oluşur."
         }
       ],
       "actions": [
@@ -344,7 +355,8 @@
     },
     {
       "id": "routine",
-      "emoji": "⏱️",
+      "icon": "timer",
+      "tone": "campus",
       "title": "Günlük rutin",
       "summary": "Yaklaşık 12 dakika; zamanlayıcı seni adım adım yönlendirir.",
       "sections": [
@@ -363,7 +375,8 @@
     },
     {
       "id": "ergonomics",
-      "emoji": "💻",
+      "icon": "laptop",
+      "tone": "campus",
       "title": "Gün içindeki duruşun",
       "summary": "Günde 12 dakikalık rutin, kalan saatlerdeki duruşla birlikte işe yarar.",
       "sections": [
@@ -382,7 +395,8 @@
     },
     {
       "id": "track",
-      "emoji": "📏",
+      "icon": "ruler",
+      "tone": "campus",
       "title": "İlerlemeni ölç",
       "summary": "Haftada bir duvar testiyle baş–duvar mesafeni kaydet.",
       "sections": [

@@ -1,8 +1,9 @@
 [
   {
     "id": "pf101",
-    "title": "Pelvik Taban Kampüsü",
-    "emoji": "🎓",
+    "title": "Pelvik Taban Antrenmanı",
+    "icon": "graduation",
+    "tone": "knowledge",
     "reviewed": false,
     "description": "Anatomiden doğru tekniğe, pelvik taban hakkında bilmen gereken temel bilgiler.",
     "lessons": [
@@ -11,22 +12,26 @@
         "title": "Anatomi: Nerede, ne yapar?",
         "slides": [
           {
-            "emoji": "🦴",
+            "icon": "bone",
+            "tone": "knowledge",
             "title": "Leğen kemiğinin tabanı",
             "text": "Pelvik taban kasları, kuyruk sokumundan kasık kemiğine kadar uzanan kas ve bağ dokusundan oluşur."
           },
           {
-            "emoji": "🛡️",
+            "icon": "shield",
+            "tone": "knowledge",
             "title": "Destek görevi",
             "text": "Mesane ve bağırsaklar gibi organları aşağıdan destekler."
           },
           {
-            "emoji": "🚪",
+            "icon": "door",
+            "tone": "knowledge",
             "title": "Kapı görevi",
             "text": "İdrar ve dışkı çıkışını kontrol eden sfinkterlerle birlikte çalışır."
           },
           {
-            "emoji": "⚡",
+            "icon": "zap",
+            "tone": "knowledge",
             "title": "Cinsel fonksiyon",
             "text": "Sertleşme sırasında kan akışının korunmasına ve boşalma refleksine katkıda bulunan kaslar da bu gruptadır."
           }
@@ -70,22 +75,26 @@
         "title": "Neden önemli?",
         "slides": [
           {
-            "emoji": "💧",
+            "icon": "droplet",
+            "tone": "knowledge",
             "title": "İdrar kontrolü",
             "text": "Güçlü ve koordineli pelvik taban, ani basınç anlarında (öksürük, hapşırık, ağır kaldırma) idrar kontrolüne yardımcı olur."
           },
           {
-            "emoji": "🏥",
+            "icon": "hospital",
+            "tone": "knowledge",
             "title": "Ameliyat sonrası",
             "text": "Prostat ameliyatı sonrası dönemde pelvik taban egzersizleri sık önerilen destekleyici yaklaşımlardandır."
           },
           {
-            "emoji": "🔬",
+            "icon": "microscope",
+            "tone": "knowledge",
             "title": "Cinsel sağlık",
             "text": "Bazı çalışmalar düzenli pelvik taban egzersizinin sertleşme ve boşalma kontrolü üzerinde olumlu etkiler gösterebildiğini bildiriyor; sonuçlar kişiden kişiye değişir."
           },
           {
-            "emoji": "🧍",
+            "icon": "body",
+            "tone": "knowledge",
             "title": "Gövde dengesi",
             "text": "Pelvik taban, karın ve sırt kaslarıyla birlikte gövde stabilitesine katkı verir."
           }
@@ -133,22 +142,26 @@
         "title": "Doğru teknik",
         "slides": [
           {
-            "emoji": "🎯",
+            "icon": "target",
+            "tone": "knowledge",
             "title": "İzole et",
             "text": "Sadece pelvik taban kasını sık; karın, kalça ve uyluklar gevşek kalsın."
           },
           {
-            "emoji": "⬆️",
+            "icon": "arrowUp",
+            "tone": "knowledge",
             "title": "İçeri ve yukarı",
             "text": "Hareketi içeri ve yukarı doğru bir çekiş gibi düşün. Dışarıdan bakan biri fark etmemeli."
           },
           {
-            "emoji": "🌬️",
+            "icon": "wind",
+            "tone": "knowledge",
             "title": "Nefes",
             "text": "Sıkarken nefesini tutma. Nefes verirken sıkmak bazı kişilere daha kolay gelir."
           },
           {
-            "emoji": "🔓",
+            "icon": "lockOpen",
+            "tone": "knowledge",
             "title": "Tam gevşeme",
             "text": "Her tekrardan sonra kası tamamen bırak. Gevşeme süresi en az sıkma süresi kadar olsun."
           }
@@ -202,22 +215,26 @@
         "title": "Sık yapılan hatalar",
         "slides": [
           {
-            "emoji": "🏋️",
+            "icon": "dumbbell",
+            "tone": "knowledge",
             "title": "Fazlası iyi değil",
             "text": "Çok uzun ve çok sık seanslar kası yorabilir. Önerilen programa sadık kalmak daha iyidir."
           },
           {
-            "emoji": "🚽",
+            "icon": "moon",
+            "tone": "knowledge",
             "title": "Tuvalet hatası",
             "text": "İdrarı yarıda kesmeyi egzersiz olarak yapmak mesanenin tam boşalmamasına neden olabilir."
           },
           {
-            "emoji": "😣",
+            "icon": "frown",
+            "tone": "knowledge",
             "title": "Ağrıya rağmen devam",
             "text": "Ağrı bir uyarı işaretidir. Ağrı varsa dur ve bir sağlık profesyoneline danış."
           },
           {
-            "emoji": "🎲",
+            "icon": "dice",
+            "tone": "knowledge",
             "title": "Düzensizlik",
             "text": "Haftada bir uzun seans yerine her gün kısa seanslar daha etkilidir."
           }
@@ -261,22 +278,26 @@
         "title": "İlerleme beklentisi",
         "slides": [
           {
-            "emoji": "📆",
+            "icon": "calendar",
+            "tone": "knowledge",
             "title": "Haftalar sürer",
             "text": "Kas gücünde değişim genellikle birkaç hafta ile birkaç ay arasında fark edilir."
           },
           {
-            "emoji": "📏",
+            "icon": "ruler",
+            "tone": "knowledge",
             "title": "Ölç ve gör",
             "text": "Haftalık güç testi, küçük değişimleri görmene yardımcı olur."
           },
           {
-            "emoji": "🔁",
+            "icon": "repeat",
+            "tone": "knowledge",
             "title": "Kalıcılık",
             "text": "Kazanımları korumak için egzersize uzun vadede devam etmek gerekir."
           },
           {
-            "emoji": "🩺",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Değişim yoksa",
             "text": "Birkaç ay düzenli egzersize rağmen şikâyetlerin sürüyorsa bir uzmana (ürolog veya pelvik taban fizyoterapisti) başvur."
           }
@@ -319,8 +340,9 @@
   },
   {
     "id": "sexual-health",
-    "title": "Cinsel Sağlık Kampüsü",
-    "emoji": "🩺",
+    "title": "Cinsel Sağlık Antrenmanı",
+    "icon": "stethoscope",
+    "tone": "knowledge",
     "reviewed": false,
     "description": "Genel, eğitici ve tıbbi dille cinsel sağlığın temel konuları.",
     "lessons": [
@@ -329,22 +351,26 @@
         "title": "Cinsel sağlık nedir?",
         "slides": [
           {
-            "emoji": "🌐",
+            "icon": "globe",
+            "tone": "knowledge",
             "title": "Geniş bir tanım",
             "text": "Dünya Sağlık Örgütü cinsel sağlığı yalnızca hastalığın olmaması değil; fiziksel, duygusal, zihinsel ve sosyal iyilik hâli olarak tanımlar."
           },
           {
-            "emoji": "🤝",
+            "icon": "handshake",
+            "tone": "knowledge",
             "title": "Saygı ve rıza",
             "text": "Sağlıklı cinsellik karşılıklı saygı, güven ve rızaya dayanır."
           },
           {
-            "emoji": "🧠",
+            "icon": "brain",
+            "tone": "knowledge",
             "title": "Beden ve zihin",
             "text": "Cinsel fonksiyon; hormonlar, damarlar, sinirler ve duygusal durumun birlikte çalışmasıyla oluşur."
           },
           {
-            "emoji": "🩺",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Konuşulabilir",
             "text": "Cinsel sağlık sorunları sağlık profesyonellerinin her gün karşılaştığı, konuşulabilir konulardır."
           }
@@ -384,22 +410,26 @@
         "title": "Sertleşme nasıl oluşur?",
         "slides": [
           {
-            "emoji": "🧠",
+            "icon": "brain",
+            "tone": "knowledge",
             "title": "Başlangıç",
             "text": "Uyarılma beyinde ve sinir sisteminde başlar, sinyaller pelvik bölgeye iletilir."
           },
           {
-            "emoji": "🩸",
+            "icon": "droplet",
+            "tone": "knowledge",
             "title": "Kan akışı",
             "text": "Penisteki süngerimsi dokulara kan akışı artar ve sertleşme oluşur."
           },
           {
-            "emoji": "🔒",
+            "icon": "lock",
+            "tone": "knowledge",
             "title": "Koruma",
             "text": "Pelvik taban kasları dahil çeşitli mekanizmalar kanın bölgede kalmasına yardımcı olur."
           },
           {
-            "emoji": "⚖️",
+            "icon": "scale",
+            "tone": "knowledge",
             "title": "Dengeyi bozanlar",
             "text": "Damar hastalıkları, bazı ilaçlar, hormon bozuklukları, stres ve yorgunluk bu süreci etkileyebilir."
           }
@@ -443,22 +473,26 @@
         "title": "Sertleşme sorunları",
         "slides": [
           {
-            "emoji": "📊",
+            "icon": "chart",
+            "tone": "knowledge",
             "title": "Yaygın bir durum",
             "text": "Ara sıra yaşanan sertleşme sorunları çok yaygındır ve genellikle endişe gerektirmez."
           },
           {
-            "emoji": "🔁",
+            "icon": "repeat",
+            "tone": "knowledge",
             "title": "Sürekli ise",
             "text": "Sorun sık tekrarlıyorsa veya yeni başladıysa bir doktora danışmak önemlidir; bazen başka sağlık sorunlarının işareti olabilir."
           },
           {
-            "emoji": "🧰",
+            "icon": "wrench",
+            "tone": "knowledge",
             "title": "Seçenekler",
             "text": "Yaşam tarzı değişiklikleri, psikolojik destek, ilaçlar ve diğer tıbbi tedaviler doktorla değerlendirilebilir."
           },
           {
-            "emoji": "💊",
+            "icon": "pill",
+            "tone": "knowledge",
             "title": "Kendi kendine ilaç yok",
             "text": "Reçetesiz ve kaynağı belirsiz ürünler ciddi riskler taşıyabilir; ilaç kullanımı mutlaka doktor kontrolünde olmalı."
           }
@@ -502,22 +536,26 @@
         "title": "Boşalma kontrolü",
         "slides": [
           {
-            "emoji": "⏱️",
+            "icon": "timer",
+            "tone": "knowledge",
             "title": "Kişiden kişiye",
             "text": "Boşalma süresi kişiden kişiye ve durumdan duruma değişir; tek bir 'normal' süre yoktur."
           },
           {
-            "emoji": "😟",
+            "icon": "frown",
+            "tone": "knowledge",
             "title": "Ne zaman sorun?",
             "text": "Kişi veya partneri için sürekli sıkıntı yaratıyorsa bir sağlık profesyoneliyle konuşmak faydalı olabilir."
           },
           {
-            "emoji": "🧩",
+            "icon": "puzzle",
+            "tone": "knowledge",
             "title": "Pelvik tabanın rolü",
             "text": "Boşalma refleksinde pelvik taban kasları görev alır; bazı çalışmalar bu kasların eğitiminin kontrolü destekleyebileceğini gösteriyor."
           },
           {
-            "emoji": "🧠",
+            "icon": "brain",
+            "tone": "knowledge",
             "title": "Kaygı etkisi",
             "text": "Performans kaygısı durumu zorlaştırabilir; gevşeme ve iletişim önemli parçalardır."
           }
@@ -561,22 +599,26 @@
         "title": "Ne zaman doktora gitmeli?",
         "slides": [
           {
-            "emoji": "🚩",
+            "icon": "flag",
+            "tone": "knowledge",
             "title": "Uyarı işaretleri",
             "text": "Ağrı, idrarda veya menide kan, testislerde şişlik ya da sertlik fark edersen beklemeden doktora başvur."
           },
           {
-            "emoji": "🆕",
+            "icon": "sparkle",
+            "tone": "knowledge",
             "title": "Yeni başlayan sorunlar",
             "text": "Yeni ortaya çıkan sertleşme veya idrar sorunları değerlendirilmelidir."
           },
           {
-            "emoji": "🗣️",
+            "icon": "speech",
+            "tone": "knowledge",
             "title": "Hazırlık",
             "text": "Belirtilerini, ne zaman başladığını ve kullandığın ilaçları önceden not almak görüşmeyi kolaylaştırır."
           },
           {
-            "emoji": "🧑‍⚕️",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Kime?",
             "text": "Aile hekimi iyi bir başlangıç noktasıdır; gerekirse üroloji veya diğer uzmanlıklara yönlendirir."
           }
@@ -623,8 +665,9 @@
   },
   {
     "id": "stress-sleep",
-    "title": "Stres, Uyku ve Performans Kampüsü",
-    "emoji": "🌙",
+    "title": "Stres, Uyku ve Performans Antrenmanı",
+    "icon": "moon",
+    "tone": "knowledge",
     "reviewed": false,
     "description": "Zihin, uyku ve beden arasındaki bağ ve günlük hayatta uygulanabilecek alışkanlıklar.",
     "lessons": [
@@ -633,22 +676,26 @@
         "title": "Stresin bedendeki izleri",
         "slides": [
           {
-            "emoji": "🌪️",
+            "icon": "tornado",
+            "tone": "knowledge",
             "title": "Alarm sistemi",
             "text": "Stres anında salgılanan hormonlar vücudu harekete hazırlar; kısa süreli stres normaldir."
           },
           {
-            "emoji": "📆",
+            "icon": "calendar",
+            "tone": "knowledge",
             "title": "Uzun süreli stres",
             "text": "Sürekli stres uyku, sindirim, bağışıklık ve cinsel istek üzerinde olumsuz etki yapabilir."
           },
           {
-            "emoji": "🧱",
+            "icon": "blocks",
+            "tone": "knowledge",
             "title": "Kas gerginliği",
             "text": "Omuzlar, çene ve pelvik bölge stresle birlikte istemsizce gerilebilir."
           },
           {
-            "emoji": "🔍",
+            "icon": "search",
+            "tone": "knowledge",
             "title": "Fark etmek",
             "text": "Gün içinde kendine 'Şu an nerem gergin?' diye sormak ilk adımdır."
           }
@@ -692,22 +739,26 @@
         "title": "Nefesin gücü",
         "slides": [
           {
-            "emoji": "🌬️",
+            "icon": "wind",
+            "tone": "knowledge",
             "title": "Yavaş nefes",
             "text": "Nefes vermeyi uzatmak, vücudun sakinleşme yanıtını destekler."
           },
           {
-            "emoji": "🔲",
+            "icon": "stop",
+            "tone": "knowledge",
             "title": "Kutu nefesi",
             "text": "4 sn al, 4 sn tut, 4 sn ver, 4 sn bekle. Odaklanmak için kullanılabilir."
           },
           {
-            "emoji": "🌙",
+            "icon": "moon",
+            "tone": "knowledge",
             "title": "4-7-8",
             "text": "4 sn al, 7 sn tut, 8 sn ver. Uykuya geçişte bazı kişilere yardımcı olur."
           },
           {
-            "emoji": "📲",
+            "icon": "smartphone",
+            "tone": "knowledge",
             "title": "Uygula",
             "text": "Uygulamadaki Nefes aracı, titreşimle ekrana bakmadan nefes almanı sağlar."
           }
@@ -751,22 +802,26 @@
         "title": "Uyku hijyeni",
         "slides": [
           {
-            "emoji": "⏰",
+            "icon": "alarm",
+            "tone": "knowledge",
             "title": "Düzen",
             "text": "Her gün aynı saatte yatıp kalkmak en etkili uyku alışkanlıklarından biridir."
           },
           {
-            "emoji": "🌑",
+            "icon": "moon",
+            "tone": "knowledge",
             "title": "Ortam",
             "text": "Karanlık, sessiz ve serin bir yatak odası uykuyu kolaylaştırır."
           },
           {
-            "emoji": "📵",
+            "icon": "phoneOff",
+            "tone": "knowledge",
             "title": "Ekranlar",
             "text": "Yatmadan önce ekran süresini azaltmak zihnin yavaşlamasına yardımcı olur."
           },
           {
-            "emoji": "🛏️",
+            "icon": "bed",
+            "tone": "knowledge",
             "title": "Yatak sadece uyku için",
             "text": "Uyuyamıyorsan yatakta kıvranmak yerine kalkıp sakin bir şeyle uğraşmak ve uykun gelince dönmek önerilir."
           }
@@ -810,22 +865,26 @@
         "title": "Performans kaygısıyla başa çıkmak",
         "slides": [
           {
-            "emoji": "🎭",
+            "icon": "drama",
+            "tone": "knowledge",
             "title": "Normal bir deneyim",
             "text": "Kaygı herkesin yaşayabileceği bir duygudur; varlığı bir sorun olduğun anlamına gelmez."
           },
           {
-            "emoji": "🎯",
+            "icon": "target",
+            "tone": "knowledge",
             "title": "Sonuçtan sürece",
             "text": "Dikkati 'başarmalıyım' düşüncesinden anlık duyulara ve paylaşıma kaydırmak baskıyı azaltabilir."
           },
           {
-            "emoji": "💬",
+            "icon": "chat",
+            "tone": "knowledge",
             "title": "Paylaşmak",
             "text": "Partnerle açık iletişim, beklentileri hafifletir."
           },
           {
-            "emoji": "🧑‍⚕️",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Profesyonel destek",
             "text": "Kaygı sürekli hâle geldiyse cinsel sağlık konusunda deneyimli bir uzman yardımcı olabilir."
           }
@@ -869,22 +928,26 @@
         "title": "Sürdürülebilir alışkanlıklar",
         "slides": [
           {
-            "emoji": "🧱",
+            "icon": "blocks",
+            "tone": "knowledge",
             "title": "Küçük adımlar",
             "text": "Büyük değişiklikler yerine küçük ve sürdürülebilir adımlar daha kalıcıdır."
           },
           {
-            "emoji": "🔗",
+            "icon": "link",
+            "tone": "knowledge",
             "title": "Alışkanlık zinciri",
             "text": "Yeni alışkanlığı mevcut bir rutine bağla: örneğin dişlerini fırçaladıktan sonra 5 dakikalık antrenman."
           },
           {
-            "emoji": "🔥",
+            "icon": "flame",
+            "tone": "knowledge",
             "title": "Seri ama esnek",
             "text": "Seri motive eder; bir gün kaçırırsan kendini suçlamadan ertesi gün devam et."
           },
           {
-            "emoji": "🎉",
+            "icon": "party",
+            "tone": "knowledge",
             "title": "Kutla",
             "text": "Küçük ilerlemeleri fark etmek ve kutlamak motivasyonu canlı tutar."
           }
@@ -927,8 +990,9 @@
   },
   {
     "id": "lifestyle",
-    "title": "Yaşam Tarzı Kampüsü",
-    "emoji": "🥗",
+    "title": "Yaşam Tarzı Antrenmanı",
+    "icon": "salad",
+    "tone": "knowledge",
     "reviewed": false,
     "description": "Hareket, beslenme, alkol, sigara ve düzenli kontrollerin pelvik taban ve cinsel sağlıkla bağlantısı.",
     "lessons": [
@@ -937,22 +1001,26 @@
         "title": "Hareketin etkisi",
         "slides": [
           {
-            "emoji": "🚶",
+            "icon": "footprints",
+            "tone": "knowledge",
             "title": "Az da olsa hareket",
             "text": "Gün içinde oturma süresini bölmek ve kısa yürüyüşler yapmak genel sağlığı destekler."
           },
           {
-            "emoji": "📅",
+            "icon": "calendar",
+            "tone": "knowledge",
             "title": "Haftalık hedef",
             "text": "Yetişkinler için haftada en az 150 dakika orta yoğunlukta fiziksel aktivite önerilir."
           },
           {
-            "emoji": "❤️",
+            "icon": "heart",
+            "tone": "knowledge",
             "title": "Kalp ve damarlar",
             "text": "Düzenli hareket kalp-damar sağlığını destekler; sağlıklı kan akışı cinsel sağlık için de önemlidir."
           },
           {
-            "emoji": "🧩",
+            "icon": "puzzle",
+            "tone": "knowledge",
             "title": "Kegel ile birlikte",
             "text": "Kegel antrenmanı genel egzersizin yerini tutmaz; ikisi birbirini tamamlar."
           }
@@ -996,22 +1064,26 @@
         "title": "Beslenme",
         "slides": [
           {
-            "emoji": "🥦",
+            "icon": "salad",
+            "tone": "knowledge",
             "title": "Çeşitlilik",
             "text": "Sebze, meyve, baklagil ve tam tahıllardan zengin bir beslenme genel sağlığı destekler."
           },
           {
-            "emoji": "🧂",
+            "icon": "utensils",
+            "tone": "knowledge",
             "title": "Tuz ve şeker",
             "text": "Fazla tuz, şeker ve işlenmiş gıdayı azaltmak kalp-damar sağlığı için önerilir."
           },
           {
-            "emoji": "💧",
+            "icon": "droplet",
+            "tone": "knowledge",
             "title": "Su",
             "text": "Yeterli sıvı almak önemlidir; idrar kaçırma kaygısıyla su içmeyi kısmak mesaneyi rahatsız edebilir."
           },
           {
-            "emoji": "🌾",
+            "icon": "wheat",
+            "tone": "knowledge",
             "title": "Lif ve kabızlık",
             "text": "Lifli beslenme kabızlığı azaltabilir; ıkınmak pelvik tabana ek yük bindirir."
           }
@@ -1059,22 +1131,26 @@
         "title": "Alkol ve sigara",
         "slides": [
           {
-            "emoji": "🍺",
+            "icon": "glass",
+            "tone": "knowledge",
             "title": "Alkol",
             "text": "Fazla alkol idrar söktürücü etki yapabilir ve sertleşme sorunlarına katkıda bulunabilir."
           },
           {
-            "emoji": "🚭",
+            "icon": "ban",
+            "tone": "knowledge",
             "title": "Sigara",
             "text": "Sigara damarlara zarar verir; damar sağlığı sertleşme için önemli bir etkendir."
           },
           {
-            "emoji": "📉",
+            "icon": "trendDown",
+            "tone": "knowledge",
             "title": "Azaltmak da değerli",
             "text": "Tamamen bırakmak en iyisidir; ancak azaltmak bile sağlık açısından fark yaratabilir."
           },
           {
-            "emoji": "🤝",
+            "icon": "handshake",
+            "tone": "knowledge",
             "title": "Destek almak",
             "text": "Sigarayı bırakma ve alkolü azaltma konusunda destek hatları ve uzmanlar yardımcı olabilir."
           }
@@ -1122,22 +1198,26 @@
         "title": "Kilo ve karın içi basınç",
         "slides": [
           {
-            "emoji": "⚖️",
+            "icon": "scale",
+            "tone": "knowledge",
             "title": "Karın bölgesi",
             "text": "Karın bölgesindeki fazla kilo, pelvik tabana sürekli ek basınç bindirebilir."
           },
           {
-            "emoji": "🔗",
+            "icon": "link",
+            "tone": "knowledge",
             "title": "Ortak risk",
             "text": "Fazla kilo; kalp-damar hastalıkları ve sertleşme sorunlarıyla ortak risk etkenlerini paylaşır."
           },
           {
-            "emoji": "🐢",
+            "icon": "turtle",
+            "tone": "knowledge",
             "title": "Yavaş ve kalıcı",
             "text": "Hızlı diyetler yerine sürdürülebilir küçük değişiklikler daha kalıcı sonuç verir."
           },
           {
-            "emoji": "🧑‍⚕️",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Kişisel plan",
             "text": "Kilo vermek istiyorsan bir sağlık profesyoneliyle sana uygun bir plan oluşturmak en güvenli yoldur."
           }
@@ -1181,22 +1261,26 @@
         "title": "Düzenli kontroller",
         "slides": [
           {
-            "emoji": "🩺",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Erken uyarı",
             "text": "Sertleşme sorunları bazen kalp-damar hastalığı veya diyabet gibi durumların erken işareti olabilir."
           },
           {
-            "emoji": "🚩",
+            "icon": "flag",
+            "tone": "knowledge",
             "title": "Ne zaman başvurmalı?",
             "text": "İdrarda kan, ağrı, ani idrar sorunları veya uzun süren sertleşme sorunlarında bir doktora başvur."
           },
           {
-            "emoji": "🗣️",
+            "icon": "speech",
+            "tone": "knowledge",
             "title": "Çekinme",
             "text": "Doktorlar bu konuları her gün konuşur; açık olmak doğru yardımı almanı kolaylaştırır."
           },
           {
-            "emoji": "📱",
+            "icon": "smartphone",
+            "tone": "knowledge",
             "title": "Uygulamanın yeri",
             "text": "Bu uygulama bir antrenman yardımcısıdır; muayene ve tedavinin yerini tutmaz."
           }
@@ -1243,8 +1327,9 @@
   },
   {
     "id": "daily-life",
-    "title": "Günlük Hayat Kampüsü",
-    "emoji": "🏃",
+    "title": "Günlük Hayat Antrenmanı",
+    "icon": "footprints",
+    "tone": "knowledge",
     "reviewed": false,
     "description": "Pelvik taban kasını gün içinde doğru kullanmak ve motivasyonu uzun süre korumak.",
     "lessons": [
@@ -1253,22 +1338,26 @@
         "title": "Farklı pozisyonlarda",
         "slides": [
           {
-            "emoji": "🛋️",
+            "icon": "sofa",
+            "tone": "knowledge",
             "title": "Önce uzanarak",
             "text": "Başlangıçta sırtüstü uzanarak çalışmak kası bulmayı kolaylaştırır."
           },
           {
-            "emoji": "🪑",
+            "icon": "chair",
+            "tone": "knowledge",
             "title": "Sonra oturarak",
             "text": "Kası rahatça bulduğunda oturarak da yapabilirsin; masa başında kimse fark etmez."
           },
           {
-            "emoji": "🧍",
+            "icon": "body",
+            "tone": "knowledge",
             "title": "En son ayakta",
             "text": "Ayakta yapmak daha zordur ama günlük hayattaki kullanıma en yakın pozisyondur."
           },
           {
-            "emoji": "🔁",
+            "icon": "repeat",
+            "tone": "knowledge",
             "title": "Teknik aynı",
             "text": "Pozisyon değişse de kural aynı: karın ve kalça gevşek, nefes serbest, tam gevşeme."
           }
@@ -1312,22 +1401,26 @@
         "title": "Öksürmeden önce sık",
         "slides": [
           {
-            "emoji": "🤧",
+            "icon": "thermometer",
+            "tone": "knowledge",
             "title": "Ani basınç",
             "text": "Öksürük, hapşırık ve gülme karın içi basıncı aniden artırır."
           },
           {
-            "emoji": "⏱️",
+            "icon": "timer",
+            "tone": "knowledge",
             "title": "Bir an önce",
             "text": "Bu anlardan hemen önce pelvik taban kasını kısaca sıkmak idrar kontrolüne yardımcı olabilir."
           },
           {
-            "emoji": "🏋️",
+            "icon": "dumbbell",
+            "tone": "knowledge",
             "title": "Ağır kaldırırken",
             "text": "Bir şey kaldırmadan önce kası sıkmak ve nefesini tutmamak aynı mantıkla çalışır."
           },
           {
-            "emoji": "🎯",
+            "icon": "target",
+            "tone": "knowledge",
             "title": "Alışkanlık hâline getir",
             "text": "Tekrar ettikçe bu küçük sıkma otomatik bir alışkanlığa dönüşebilir."
           }
@@ -1371,22 +1464,26 @@
         "title": "Tuvalet sonrası damlama",
         "slides": [
           {
-            "emoji": "💧",
+            "icon": "droplet",
+            "tone": "knowledge",
             "title": "Yaygın bir durum",
             "text": "İdrar bittikten sonra birkaç damla gelmesi erkeklerde sık görülen bir durumdur."
           },
           {
-            "emoji": "⬆️",
+            "icon": "arrowUp",
+            "tone": "knowledge",
             "title": "Sık ve boşalt",
             "text": "İdrar bittikten sonra pelvik taban kasını güçlüce sıkmak, kanalda kalan idrarın çıkmasına yardımcı olabilir."
           },
           {
-            "emoji": "🚫",
+            "icon": "ban",
+            "tone": "knowledge",
             "title": "Yarıda kesme değil",
             "text": "Bu, idrarı yarıda kesmekle aynı şey değildir; idrar tamamen bittikten sonra yapılır."
           },
           {
-            "emoji": "🩺",
+            "icon": "stethoscope",
+            "tone": "knowledge",
             "title": "Değişiklik varsa",
             "text": "Damlama yeni başladıysa veya artıyorsa bir doktora danış."
           }
@@ -1430,22 +1527,26 @@
         "title": "Duruş ve nefes",
         "slides": [
           {
-            "emoji": "🧘",
+            "icon": "flower",
+            "tone": "knowledge",
             "title": "Dik ama rahat",
             "text": "Dik ama gergin olmayan bir duruş, pelvik taban kasını doğru kullanmayı kolaylaştırır."
           },
           {
-            "emoji": "🌬️",
+            "icon": "wind",
+            "tone": "knowledge",
             "title": "Diyafram ile uyum",
             "text": "Nefes alırken pelvik taban hafifçe aşağı iner, nefes verirken yukarı toparlanır."
           },
           {
-            "emoji": "🔄",
+            "icon": "rotate",
+            "tone": "knowledge",
             "title": "Nefes verirken sık",
             "text": "Bu yüzden birçok kişi sıkmayı nefes verirken daha kolay bulur."
           },
           {
-            "emoji": "😮‍💨",
+            "icon": "wind",
+            "tone": "knowledge",
             "title": "Gevşerken nefes al",
             "text": "Gevşeme fazında yavaşça nefes almak kasın tamamen bırakmasına yardımcı olur."
           }
@@ -1489,22 +1590,26 @@
         "title": "Plato ve motivasyon",
         "slides": [
           {
-            "emoji": "📈",
+            "icon": "trendUp",
+            "tone": "knowledge",
             "title": "İlerleme düz değildir",
             "text": "Bazı haftalar hızlı, bazı haftalar yavaş ilerlersin; bu normaldir."
           },
           {
-            "emoji": "🧪",
+            "icon": "flask",
+            "tone": "knowledge",
             "title": "Ölçüme güven",
             "text": "Hissin değişse bile haftalık güç testi gerçek eğilimi görmene yardım eder."
           },
           {
-            "emoji": "🎚️",
+            "icon": "sliders",
+            "tone": "knowledge",
             "title": "Zorluğu bildir",
             "text": "Seanslar çok kolay ya da çok zor geliyorsa geri bildirim ver; seviye buna göre ayarlanır."
           },
           {
-            "emoji": "🔥",
+            "icon": "flame",
+            "tone": "knowledge",
             "title": "Kendine nazik ol",
             "text": "Bir gün kaçırmak her şeyi bitirmez; önemli olan geri dönmektir."
           }

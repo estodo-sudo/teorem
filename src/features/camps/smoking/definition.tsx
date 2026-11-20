@@ -1,26 +1,24 @@
 import { router } from 'expo-router';
-import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Icon, ProgressBar, useTheme } from '@/components';
-import type { CampDefinition } from '@/features/camps/core/definition';
+import type { CampDefinition, CampSummary } from '@/features/camps/core/definition';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 
 import { campNotificationRequests, handleCampResponse, setupCampCategory } from './campNotifications';
-import { CAMP_DAYS, CAMP_EMOJI } from './content';
+import { CAMP_DAYS, CAMP_ICON } from './content';
 import { smokingCadence } from './engine/checkin';
 import { totalSmokeFreeDays } from './engine/counters';
 import { daysSinceQuit, SMOKING_PHASES } from './engine/phase';
 import { DAY_BADGES, CRISIS_BADGES } from './engine/stats';
 import { currentAttempt, latestAttempt } from './state';
 import type { CampPhase, ToolId } from './types';
+import { RowCard } from '@/features/content/RowCard';
 
 /**
  * Sigarasız Kamp row in the "Kamplar" list. Opens without the paywall: the assessment, counters and
  * crisis tools of this camp are always free (premium parts are gated inside the camp).
  */
-export function SmokingCampCard() {
-  const t = useTheme();
+export function useSmokingSummary(): CampSummary {
   const { t: tr } = useTranslation();
   const s = useCampStore((x) => x);
   const cigs = useCampEventsStore((x) => x.cigarettes);
@@ -38,21 +36,14 @@ export function SmokingCampCard() {
     status = tr('camp.card.graduated');
     progress = 1;
   }
-  return (
-    <Card onPress={() => router.push('/camp')} accessibilityLabel={`${tr('camp.title')}, ${status}`} style={{ gap: 8 }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-        <AppText variant="h1">{CAMP_EMOJI}</AppText>
-        <View style={{ flex: 1 }}>
-          <AppText variant="h3">{tr('camp.title')}</AppText>
-          <AppText variant="small" weight="700" color={t.colors.primary}>
-            {status}
-          </AppText>
-        </View>
-        <Icon name="chevron" color={t.colors.textMuted} size={18} />
-      </View>
-      <ProgressBar value={progress} height={6} />
-    </Card>
-  );
+  const day = a && a.status !== 'preparing' ? Math.min(CAMP_DAYS, Math.max(1, totalSmokeFreeDays(a, cigs, now))) : undefined;
+  return { joined: Boolean(a || last), day, total: CAMP_DAYS, progress, status };
+}
+
+export function SmokingCampCard() {
+  const { t: tr } = useTranslation();
+  const { status, progress } = useSmokingSummary();
+  return <RowCard icon={CAMP_ICON} tone="smokefree" title={tr('camp.title')} status={status} progress={progress} onPress={() => router.push('/camp')} />;
 }
 
 const SOS_TOOLS: ToolId[] = ['surf', 'breath', 'delay', 'four_e', 'reasons', 'game', 'coach', 'call171'];
@@ -61,7 +52,7 @@ const SOS_TOOLS: ToolId[] = ['surf', 'breath', 'delay', 'four_e', 'reasons', 'ga
 export const SMOKING_CAMP: CampDefinition<CampPhase> = {
   id: 'smoking',
   titleKey: 'camp.title',
-  emoji: CAMP_EMOJI,
+  icon: CAMP_ICON,
   days: CAMP_DAYS,
   route: '/camp',
   phases: SMOKING_PHASES,
@@ -86,5 +77,6 @@ export const SMOKING_CAMP: CampDefinition<CampPhase> = {
   ageRule: 'all',
   privacy: 'standard',
   Card: SmokingCampCard,
+  useSummary: useSmokingSummary,
   notifier: { setup: setupCampCategory, requests: campNotificationRequests, handleResponse: handleCampResponse },
 };

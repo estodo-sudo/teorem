@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Linking, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, SwitchRow, useTheme } from '@/components';
+import { AppText, Button, Card, ChoiceCard, Header, Icon, ProgressBar, Screen, SwitchRow, useTheme } from '@/components';
 import { NumberStepper } from '@/features/camps/core/ui';
 import { ODAK_ONBOARDING as ONB, ODAK_PLANS } from '@/features/camps/odak/content';
 import { bpsScore, onboardingReferral, twoItemScore } from '@/features/camps/odak/engine/screening';
@@ -37,6 +37,7 @@ import type { OdakTriggerId, Score5 } from '@/features/camps/odak/types';
 import { ExpertCard, PillGroup, ScaleRow } from '@/features/camps/odak/ui';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 const toggle = <T,>(arr: T[], v: T) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
 const setAt = <T,>(arr: T[], i: number, v: T) => arr.map((x, j) => (j === i ? v : x));
@@ -148,7 +149,7 @@ export default function OdakOnboarding() {
         {u.help.map((h) => (
           <Card key={h.id} style={{ gap: 6 }}>
             <AppText variant="h3">
-              {h.emoji} {h.title}
+              {h.title}
             </AppText>
             <AppText variant="small">{h.text}</AppText>
             {h.phone ? <Button label={tr('odak.onb.call', { phone: h.phone })} variant="secondary" icon="bell" onPress={() => void Linking.openURL(`tel:${h.phone}`)} /> : null}
@@ -170,7 +171,7 @@ export default function OdakOnboarding() {
   const optional = SKIPPABLE.includes(step);
   const nextLabel = isLast ? tr('odak.onb.enrol') : step === 'summary' ? tr('odak.onb.toCommit') : tr('odak.onb.next');
   const title = (text: string, hint?: string) => (
-    <View style={{ gap: 4 }}>
+    <View style={{ gap: t.space.xs }}>
       {qNo >= 0 ? (
         <AppText variant="tiny" weight="800" color={t.colors.primary}>
           {tr('odak.onb.question', { n: qNo + 1, total: QUESTIONS.length })}
@@ -192,7 +193,7 @@ export default function OdakOnboarding() {
       placeholderTextColor={t.colors.textMuted}
       maxLength={maxLength}
       multiline
-      style={{ minHeight: 64, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, padding: 14, color: t.colors.text, fontSize: 16, textAlignVertical: 'top' }}
+      style={{ minHeight: 64, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, padding: 14, color: t.colors.text, fontSize: t.type.body.fontSize, textAlignVertical: 'top' }}
     />
   );
   const goalLabel = (kind: 'porn' | 'mast', id: string, n?: number) => (ONB.summary.goalLabels[kind][id] ?? '').replace('{n}', String(n ?? ''));
@@ -223,8 +224,8 @@ export default function OdakOnboarding() {
         <>
           {title(ONB.facts.title)}
           {ONB.facts.items.map((f) => (
-            <Card key={f.text} style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start' }}>
-              <AppText variant="h2">{f.emoji}</AppText>
+            <Card key={f.text} style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'flex-start' }}>
+              <IconTile icon={f.icon} tone="focus" />
               <AppText style={{ flex: 1 }}>{f.text}</AppText>
             </Card>
           ))}
@@ -241,7 +242,7 @@ export default function OdakOnboarding() {
             </AppText>
           ) : secured === null ? null : secured ? (
             <Card>
-              <AppText variant="small">🔒 {tr('odak.onb.lockDevice')}</AppText>
+              <AppText variant="small">{tr('odak.onb.lockDevice')}</AppText>
             </Card>
           ) : pinReady ? (
             <Card>
@@ -268,7 +269,7 @@ export default function OdakOnboarding() {
           {title(ONB.reasons.title, ONB.reasons.hint)}
           <View style={{ gap: 10 }}>
             {ONB.reasons.options.map((o) => (
-              <ChoiceCard key={o.id} multi emoji={o.emoji} label={o.label} selected={a.reasons.includes(o.id as Answers['reasons'][number])} onPress={() => set({ reasons: toggle(a.reasons, o.id as Answers['reasons'][number]) })} />
+              <ChoiceCard key={o.id} multi icon={o.icon} label={o.label} selected={a.reasons.includes(o.id as Answers['reasons'][number])} onPress={() => set({ reasons: toggle(a.reasons, o.id as Answers['reasons'][number]) })} />
             ))}
           </View>
           {a.reasons.includes('other') ? input(a.reasonOther, (v) => set({ reasonOther: v }), ONB.reasons.otherPlaceholder, REASON_OTHER_MAX) : null}
@@ -279,7 +280,7 @@ export default function OdakOnboarding() {
         <>
           {title(ONB.bps.title, ONB.bps.hint)}
           {ONB.bps.placeholder ? (
-            <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
+            <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
               <AppText variant="small">{ONB.bps.placeholderNote}</AppText>
             </Card>
           ) : null}
@@ -322,7 +323,7 @@ export default function OdakOnboarding() {
           {title(ONB.triggers.title, ONB.triggers.hint)}
           <View style={{ gap: 10 }}>
             {ONB.triggers.options.map((o) => (
-              <ChoiceCard key={o.id} multi emoji={o.emoji} label={o.label} selected={a.triggers.includes(o.id)} onPress={() => set({ triggers: toggle(a.triggers, o.id) })} />
+              <ChoiceCard key={o.id} multi icon={o.icon} label={o.label} selected={a.triggers.includes(o.id)} onPress={() => set({ triggers: toggle(a.triggers, o.id) })} />
             ))}
           </View>
         </>
@@ -353,7 +354,7 @@ export default function OdakOnboarding() {
           {title(ONB.moral.title)}
           <Card style={{ gap: 10 }}>
             <AppText weight="800">“{ONB.moral.statement}”</AppText>
-            <View style={{ gap: 8 }}>
+            <View style={{ gap: t.space.sm }}>
               {ONB.moral.scale.map((label, i) => (
                 <ChoiceCard key={label} label={`${i + 1} · ${label}`} selected={a.moral === i + 1} onPress={() => set({ moral: (i + 1) as Score5 })} />
               ))}
@@ -391,7 +392,7 @@ export default function OdakOnboarding() {
           {title(ONB.attempts.title, ONB.attempts.hint)}
           <View style={{ gap: 10 }}>
             {ONB.attempts.options.map((o) => (
-              <ChoiceCard key={o.id} multi emoji={o.emoji} label={o.label} selected={a.attempts.includes(o.id as Answers['attempts'][number])} onPress={() => set({ attempts: toggle(a.attempts, o.id as Answers['attempts'][number]) })} />
+              <ChoiceCard key={o.id} multi icon={o.icon} label={o.label} selected={a.attempts.includes(o.id as Answers['attempts'][number])} onPress={() => set({ attempts: toggle(a.attempts, o.id as Answers['attempts'][number]) })} />
             ))}
           </View>
           <AppText variant="small" muted>
@@ -406,14 +407,14 @@ export default function OdakOnboarding() {
           <Card style={{ gap: 10 }}>
             <AppText variant="h3">{ONB.goal.porn.title}</AppText>
             {ONB.goal.porn.options.map((o) => (
-              <ChoiceCard key={o.id} emoji={o.emoji} label={o.label} selected={a.porn === o.id} onPress={() => set({ porn: o.id as Answers['porn'] })} />
+              <ChoiceCard key={o.id} icon={o.icon} label={o.label} selected={a.porn === o.id} onPress={() => set({ porn: o.id as Answers['porn'] })} />
             ))}
             {a.porn === 'reduce' ? <NumberStepper label={ONB.goal.weeklyMax} value={a.pornWeeklyMax} onChange={(v) => set({ pornWeeklyMax: v })} min={PORN_WEEKLY.min} max={PORN_WEEKLY.max} unit={ONB.goal.weeklyUnit} /> : null}
           </Card>
           <Card style={{ gap: 10 }}>
             <AppText variant="h3">{ONB.goal.mast.title}</AppText>
             {ONB.goal.mast.options.map((o) => (
-              <ChoiceCard key={o.id} emoji={o.emoji} label={o.label} selected={a.mast === o.id} onPress={() => set({ mast: o.id as Answers['mast'] })} />
+              <ChoiceCard key={o.id} icon={o.icon} label={o.label} selected={a.mast === o.id} onPress={() => set({ mast: o.id as Answers['mast'] })} />
             ))}
             {a.mast === 'reduce' ? <NumberStepper label={ONB.goal.weeklyMax} value={a.mastWeeklyMax} onChange={(v) => set({ mastWeeklyMax: v })} min={MAST_WEEKLY.min} max={MAST_WEEKLY.max} unit={ONB.goal.weeklyUnit} /> : null}
             {a.mast === 'pause' ? (
@@ -423,7 +424,7 @@ export default function OdakOnboarding() {
               </>
             ) : null}
           </Card>
-          <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+          <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
             <AppText variant="small">{ONB.goal.note}</AppText>
           </Card>
           {a.porn === 'undecided' || a.mast === 'undecided' ? (
@@ -458,11 +459,10 @@ export default function OdakOnboarding() {
           ) : (
             drafts.map((d) => {
               const tpl = ODAK_PLANS.templates[d.trigger];
-              const trig = ONB.triggers.options.find((o) => o.id === d.trigger)!;
               return (
                 <Card key={d.trigger} style={{ gap: 10 }}>
                   <AppText weight="800" color={t.colors.accent}>
-                    {trig.emoji} {ONB.plans.if} {tpl.if}…
+                    {ONB.plans.if} {tpl.if}…
                   </AppText>
                   <AppText variant="small" weight="700" muted>
                     {ONB.plans.then}
@@ -481,17 +481,17 @@ export default function OdakOnboarding() {
         <>
           {title(ONB.summary.title)}
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">🎯 {ONB.summary.goalsTitle}</AppText>
+            <AppText variant="h3">{ONB.summary.goalsTitle}</AppText>
             <AppText>{goalLabel('porn', a.porn ?? 'undecided', a.pornWeeklyMax)}</AppText>
             <AppText>{goalLabel('mast', a.mast ?? 'undecided', a.mast === 'pause' ? a.mastPauseDays : a.mastWeeklyMax)}</AppText>
           </Card>
-          <Card style={{ gap: 8 }}>
-            <AppText variant="h3">🧭 {ONB.summary.valuesTitle}</AppText>
+          <Card style={{ gap: t.space.sm }}>
+            <AppText variant="h3">{ONB.summary.valuesTitle}</AppText>
             <PillGroup items={ONB.values.cards.filter((c) => a.values.includes(c.id))} selected={a.values} onToggle={() => undefined} />
             {a.valuesText.trim() ? <AppText style={{ fontStyle: 'italic' }}>“{a.valuesText.trim()}”</AppText> : null}
           </Card>
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">📝 {ONB.summary.plansTitle}</AppText>
+            <AppText variant="h3">{ONB.summary.plansTitle}</AppText>
             {drafts.length ? (
               drafts.map((d) => (
                 <AppText key={d.trigger} variant="small">
@@ -505,7 +505,7 @@ export default function OdakOnboarding() {
             )}
           </Card>
           <Card style={{ gap: 6 }}>
-            <AppText variant="h3">🏠 {ONB.summary.boundariesTitle}</AppText>
+            <AppText variant="h3">{ONB.summary.boundariesTitle}</AppText>
             {ONB.summary.boundaries.map((b) => (
               <AppText key={b} variant="small">
                 • {b}
@@ -515,14 +515,14 @@ export default function OdakOnboarding() {
               {ONB.summary.boundariesNote}
             </AppText>
           </Card>
-          <Card style={{ gap: 8 }}>
-            <AppText variant="h3">🗺️ {ONB.summary.programTitle}</AppText>
+          <Card style={{ gap: t.space.sm }}>
+            <AppText variant="h3">{ONB.summary.programTitle}</AppText>
             <AppText variant="small" muted>
               {ONB.summary.programIntro}
             </AppText>
             {ONB.summary.phases.map((p) => (
               <View key={p.name} style={{ flexDirection: 'row', gap: 10 }}>
-                <AppText>{p.emoji}</AppText>
+                <Icon name={p.icon} size="md" />
                 <View style={{ flex: 1 }}>
                   <AppText weight="800">
                     {p.name} · {p.days}

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Linking, Pressable, ScrollView, View, type ScrollViewInstance } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Card, Header, Icon, Screen, useTheme } from '@/components';
 import type { CoachReply, CoachScenario } from '@/features/camps/core/coachEngine';
 import { ODAK_COACH, ODAK_ONBOARDING as ONB } from '@/features/camps/odak/content';
 import { ACTION_ROUTES, odakNodeText, parseOdakAction, type OdakCoachVars } from '@/features/camps/odak/engine/coach';
@@ -88,8 +88,8 @@ export default function OdakCoach() {
   const bubble = (m: Msg, i: number) => {
     const mine = m.from === 'me';
     return (
-      <View key={i} style={{ alignSelf: mine ? 'flex-end' : 'flex-start', maxWidth: '86%', flexDirection: 'row', gap: 8, alignItems: 'flex-end' }}>
-        {!mine ? <AppText>🧑‍🏫</AppText> : null}
+      <View key={i} style={{ alignSelf: mine ? 'flex-end' : 'flex-start', maxWidth: '86%', flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-end' }}>
+        {!mine ? <Icon name="user" size="md" color={t.tone.focus.fg} /> : null}
         <View
           style={{
             flexShrink: 1,
@@ -117,7 +117,7 @@ export default function OdakCoach() {
       accessibilityLabel={label}
       style={{
         minHeight: 48,
-        paddingHorizontal: 16,
+        paddingHorizontal: t.space.lg,
         paddingVertical: 10,
         borderRadius: t.radius.pill,
         borderWidth: 1.5,
@@ -137,24 +137,24 @@ export default function OdakCoach() {
   return (
     <Screen scroll={false}>
       <Header title={tr('odak.coach.title')} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
-      <Card style={{ paddingVertical: 8, backgroundColor: tint(t.colors.warning, '14') }}>
-        <AppText variant="tiny">ℹ️ {ODAK_COACH.disclaimer}</AppText>
+      <Card style={{ paddingVertical: t.space.sm, backgroundColor: tint(t.colors.warning, '14') }}>
+        <AppText variant="tiny">{ODAK_COACH.disclaimer}</AppText>
       </Card>
-      <ScrollView ref={scroll} contentContainerStyle={{ gap: 10, paddingVertical: 8 }} onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })} accessibilityLiveRegion="polite">
+      <ScrollView ref={scroll} contentContainerStyle={{ gap: 10, paddingVertical: t.space.sm }} onContentSizeChange={() => scroll.current?.scrollToEnd({ animated: true })} accessibilityLiveRegion="polite">
         {msgs.length === 0 && !scenario ? bubble({ from: 'coach', text: tr('odak.coach.hello') }, -1) : null}
         {msgs.map(bubble)}
         {typing ? (
           <AppText variant="small" muted>
-            🧑‍🏫 {tr('odak.coach.typing')}
+            {tr('odak.coach.typing')}
           </AppText>
         ) : null}
         {!typing && node ? node.replies.map((r, i) => choice(r.label, () => choose(r), `${nodeId}-${i}`)) : null}
         {!typing && !scenario ? (
-          <View style={{ gap: 8, marginTop: 4 }}>
+          <View style={{ gap: t.space.sm, marginTop: t.space.xs }}>
             <AppText variant="small" weight="800" muted>
               {msgs.length ? tr('odak.coach.another') : tr('odak.coach.pick')}
             </AppText>
-            {ODAK_COACH.scenarios.map((s) => (premium || scenarioIsFree(s.id) ? choice(`${s.emoji} ${s.title}`, () => start(s), s.id) : choice(`🔒 ${s.title}`, () => router.push({ pathname: '/paywall', params: { source: 'odak' } }), s.id)))}
+            {ODAK_COACH.scenarios.map((s) => (premium || scenarioIsFree(s.id) ? choice(`${s.title}`, () => start(s), s.id) : choice(`${s.title}`, () => router.push({ pathname: '/paywall', params: { source: 'odak' } }), s.id)))}
           </View>
         ) : null}
       </ScrollView>

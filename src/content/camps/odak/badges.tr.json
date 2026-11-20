@@ -6,97 +6,97 @@
  "items": [
   {
    "id": "days-1",
-   "emoji": "🌱",
+   "icon": "sprout", "tone": "focus",
    "title": "İlk gün",
    "desc": "Hedefine uygun ilk günün."
   },
   {
    "id": "days-3",
-   "emoji": "🌿",
+   "icon": "leaf", "tone": "focus",
    "title": "3 gün",
    "desc": "Hedefine uygun 3 gün."
   },
   {
    "id": "days-7",
-   "emoji": "🍀",
+   "icon": "clover", "tone": "focus",
    "title": "Bir hafta",
    "desc": "Hedefine uygun 7 gün."
   },
   {
    "id": "days-14",
-   "emoji": "🌳",
+   "icon": "tree", "tone": "focus",
    "title": "İki hafta",
    "desc": "Hedefine uygun 14 gün."
   },
   {
    "id": "days-30",
-   "emoji": "🏔️",
+   "icon": "mountain", "tone": "focus",
    "title": "30 gün",
    "desc": "Hedefine uygun 30 gün."
   },
   {
    "id": "days-60",
-   "emoji": "🌄",
+   "icon": "sunrise", "tone": "focus",
    "title": "60 gün",
    "desc": "Hedefine uygun 60 gün."
   },
   {
    "id": "days-90",
-   "emoji": "🌅",
+   "icon": "sunrise", "tone": "focus",
    "title": "90 gün",
    "desc": "Hedefine uygun 90 gün."
   },
   {
    "id": "urges-10",
-   "emoji": "🌊",
+   "icon": "waves", "tone": "focus",
    "title": "10 dalga",
    "desc": "10 dürtü anını yönettin."
   },
   {
    "id": "urges-50",
-   "emoji": "🏄",
+   "icon": "waves", "tone": "focus",
    "title": "50 dalga",
    "desc": "50 dürtü anını yönettin."
   },
   {
    "id": "urges-100",
-   "emoji": "🐬",
+   "icon": "fish", "tone": "focus",
    "title": "100 dalga",
    "desc": "100 dürtü anını yönettin."
   },
   {
    "id": "first-plan",
-   "emoji": "📝",
+   "icon": "notebook", "tone": "focus",
    "title": "İlk plan",
    "desc": "İlk Eğer–O zaman planını yaptın."
   },
   {
    "id": "boundaries",
-   "emoji": "🧱",
+   "icon": "blocks", "tone": "focus",
    "title": "Sınırlar kuruldu",
    "desc": "Dijital sınırlarını kurdun."
   },
   {
    "id": "checkin-7",
-   "emoji": "📅",
+   "icon": "calendar", "tone": "focus",
    "title": "7 gün kontrol",
    "desc": "7 gün kesintisiz günlük kontrol."
   },
   {
    "id": "all-skills",
-   "emoji": "🎓",
+   "icon": "graduation", "tone": "focus",
    "title": "Tüm dersler",
    "desc": "16 beceri dersinin hepsini tamamladın."
   },
   {
    "id": "comeback",
-   "emoji": "🔁",
+   "icon": "repeat", "tone": "focus",
    "title": "Geri dönüş",
    "desc": "Bir kaymadan sonra 7 gün devam ettin. Öz-şefkat işe yarıyor."
   },
   {
    "id": "graduate",
-   "emoji": "🎖️",
+   "icon": "medal", "tone": "focus",
    "title": "Mezuniyet",
    "desc": "90 günlük programı tamamladın."
   }

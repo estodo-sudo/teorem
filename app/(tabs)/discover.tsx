@@ -1,20 +1,29 @@
 import { router } from 'expo-router';
-import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Icon, Screen, useTheme } from '@/components';
+import { AppText, Screen, useTheme } from '@/components';
+import { exploreImage } from '@/content/explore/images';
+import type { CampDefinition } from '@/features/camps/core/definition';
 import { CAMPS } from '@/features/camps/registry';
-import { CAMPUSES, CampusCard, campusEmoji, GlossaryCard, SeeAllCard } from '@/features/content/cards';
-import { GLOSSARY, STORIES } from '@/features/content/data';
+import { CAMPUSES, type CampusEntry } from '@/features/content/cards';
+import { GLOSSARY, STORIES, type Course, type GlossaryTerm, type Story } from '@/features/content/data';
 import { storyOfTheDay } from '@/features/content/daily';
-import { StoryBubble } from '@/features/content/StoryBubble';
+import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, ProgramCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
+import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
+import { ALC, useAlcSummary, useBodySummary, useCourseSummary, type ProgramSummary } from '@/features/content/explore/summaries';
 import { openGated, useAccess } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useProgressStore } from '@/stores/progressStore';
 
-/** Camps, campuses and "Neden, Nedir ve Ne Demek?" show this many rows, then a "see all" row. */
-const PREVIEW_ROWS = 3;
+type CampItem = { kind: 'camp'; def: CampDefinition } | { kind: 'alcohol' };
+const CAMP_ITEMS: CampItem[] = [...CAMPS.map((def) => ({ kind: 'camp' as const, def })), { kind: 'alcohol' }];
+const PROGRAMS = CAMPUSES.filter((c): c is Exclude<CampusEntry, { kind: 'alcohol' }> => c.kind !== 'alcohol');
 
+/**
+ * Keşfet v2 (SPEC_KESFET_V2): the story of the day, then four horizontal strips — Bilgi Hikâyeleri
+ * (posters), Kamplar (incl. Alkolsüz Kamp), Antrenmanlar and "Neden, Nedir ve Ne Demek?" (two-row grid).
+ * Every strip shows all of its items; no "see all". Photos are bundled, with a tone-gradient fallback.
+ */
 export default function Discover() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -22,104 +31,146 @@ export default function Discover() {
   const access = useAccess();
   const read = content.readStoryIds;
   const daily = storyOfTheDay(toDateKey(), STORIES, read);
-  const favorites = STORIES.filter((s) => content.favoriteStoryIds.includes(s.id));
   const openStory = (id: string) => openGated('stories', { pathname: '/story/[storyId]', params: { storyId: id } });
+  const readCount = read.filter((id) => STORIES.some((s) => s.id === id)).length;
+  // Unread stories first, read ones at the end (§4.2).
+  const stories = [...STORIES.filter((s) => !read.includes(s.id)), ...STORIES.filter((s) => read.includes(s.id))];
+  const a11y = (title: string, count: number) => tr('discover.listA11y', { title, count });
 
   return (
-    <Screen>
-      <AppText variant="h1" accessibilityRole="header">
+    <Screen contentStyle={{ gap: t.space.xxl }}>
+      <AppText variant="title1" accessibilityRole="header">
         {tr('discover.title')}
       </AppText>
 
-      <View style={{ gap: 8 }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <AppText variant="h2">{tr('stories.title')}</AppText>
-          <AppText muted>{tr('stories.readCount', { read: read.filter((id) => STORIES.some((s) => s.id === id)).length, total: STORIES.length })}</AppText>
-        </View>
-        {daily ? (
-          <Card onPress={() => openStory(daily.id)} accessibilityLabel={`${tr('stories.ofTheDay')}: ${daily.title}`} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: t.colors.primary, borderColor: t.colors.primary }}>
-            <AppText variant="h1">{daily.emoji}</AppText>
-            <View style={{ flex: 1 }}>
-              <AppText variant="small" weight="700" color={t.colors.primaryText} style={{ opacity: 0.8 }}>
-                {tr('stories.ofTheDay')}
-              </AppText>
-              <AppText weight="800" color={t.colors.primaryText}>
-                {daily.title}
-              </AppText>
-            </View>
-            <Icon name={access('stories') ? 'play' : 'lock'} color={t.colors.primaryText} size={20} />
-          </Card>
-        ) : null}
-        {favorites.length ? (
-          <>
-            <AppText variant="h3">{tr('stories.favorites')}</AppText>
-            <BubbleRow items={favorites.map((s) => ({ story: s, read: read.includes(s.id) }))} onOpen={openStory} />
-          </>
-        ) : null}
-        <View style={{ gap: 6 }}>
-          <AppText variant="h3">{tr('stories.allRow')}</AppText>
-          <BubbleRow items={STORIES.map((s) => ({ story: s, read: read.includes(s.id) }))} onOpen={openStory} />
-        </View>
-      </View>
-
-      <AppText variant="h2" style={{ marginTop: 8 }}>
-        {tr('camps.title')}
-      </AppText>
-      {CAMPS.slice(0, PREVIEW_ROWS).map((c) => (
-        <c.Card key={c.id} />
-      ))}
-      {CAMPS.length > PREVIEW_ROWS ? (
-        <SeeAllCard
-          label={tr('camps.seeAll')}
-          hint={tr('camps.moreCount', { count: CAMPS.length - PREVIEW_ROWS })}
-          emojis={CAMPS.slice(PREVIEW_ROWS).map((c) => c.emoji)}
-          moreCount={CAMPS.length - PREVIEW_ROWS}
-          onPress={() => router.push('/camps')}
+      {daily ? (
+        <FeaturedStoryCard
+          title={daily.title}
+          kicker={tr('stories.ofTheDay')}
+          meta={tr('stories.minutes', { count: daily.minutes })}
+          image={exploreImage('stories', daily.id)}
+          icon={daily.icon}
+          tone={daily.tone ?? 'knowledge'}
+          locked={!access('stories')}
+          onPress={() => openStory(daily.id)}
         />
       ) : null}
 
-      <AppText variant="h2" style={{ marginTop: 8 }}>
-        {tr('courses.title')}
-      </AppText>
-      {CAMPUSES.slice(0, PREVIEW_ROWS).map((c) => (
-        <CampusCard key={c.id} entry={c} />
-      ))}
-      {CAMPUSES.length > PREVIEW_ROWS ? (
-        <SeeAllCard
-          label={tr('courses.seeAll')}
-          hint={tr('courses.moreCount', { count: CAMPUSES.length - PREVIEW_ROWS })}
-          emojis={CAMPUSES.slice(PREVIEW_ROWS).map(campusEmoji)}
-          moreCount={CAMPUSES.length - PREVIEW_ROWS}
-          onPress={() => router.push('/course')}
-        />
-      ) : null}
+      <HorizontalSection<Story>
+        id="stories"
+        title={tr('stories.title')}
+        right={tr('stories.readCount', { read: readCount, total: STORIES.length })}
+        items={stories}
+        itemWidth={CARD.poster.w}
+        listLabel={a11y(tr('stories.title'), STORIES.length)}
+        keyOf={(s) => s.id}
+        render={(s) => <StoryPosterCard title={s.title} read={read.includes(s.id)} readLabel={tr('discover.read')} image={exploreImage('stories', s.id)} icon={s.icon} tone={s.tone ?? 'knowledge'} onPress={() => openStory(s.id)} />}
+      />
 
-      <AppText variant="h2" style={{ marginTop: 8 }}>
-        {tr('glossary.title')}
-      </AppText>
-      <AppText muted>{tr('glossary.subtitle')}</AppText>
-      {GLOSSARY.slice(0, PREVIEW_ROWS).map((g) => (
-        <GlossaryCard key={g.id} term={g} detail="short" />
-      ))}
-      {GLOSSARY.length > PREVIEW_ROWS ? (
-        <SeeAllCard
-          label={tr('glossary.seeAll')}
-          hint={tr('glossary.moreCount', { count: GLOSSARY.length - PREVIEW_ROWS })}
-          emojis={GLOSSARY.slice(PREVIEW_ROWS).map((g) => g.emoji)}
-          moreCount={GLOSSARY.length - PREVIEW_ROWS}
-          onPress={() => router.push('/glossary')}
-        />
-      ) : null}
+      <HorizontalSection<CampItem>
+        id="camps"
+        title={tr('camps.title')}
+        right={tr('discover.campCount', { count: CAMP_ITEMS.length })}
+        items={CAMP_ITEMS}
+        itemWidth={CARD.camp.w}
+        listLabel={a11y(tr('camps.title'), CAMP_ITEMS.length)}
+        keyOf={(c) => (c.kind === 'camp' ? c.def.id : 'alcohol')}
+        render={(c) => (c.kind === 'camp' ? <CampItemCard def={c.def} /> : <AlcoholCampCard />)}
+      />
+
+      <HorizontalSection<(typeof PROGRAMS)[number]>
+        id="programs"
+        title={tr('courses.title')}
+        hint={tr('courses.subtitle')}
+        right={tr('discover.programCount', { count: PROGRAMS.length })}
+        items={PROGRAMS}
+        itemWidth={CARD.program.w}
+        listLabel={a11y(tr('courses.title'), PROGRAMS.length)}
+        keyOf={(p) => p.id}
+        render={(p) => (p.kind === 'body' ? <BodyProgram id={p.id} /> : <CourseProgram course={p.course} />)}
+      />
+
+      <HorizontalSection<GlossaryTerm>
+        id="glossary"
+        title={tr('glossary.title')}
+        hint={tr('glossary.subtitle')}
+        right={tr('discover.termCount', { count: GLOSSARY.length })}
+        items={GLOSSARY}
+        rows={2}
+        itemWidth={CARD.glossary.w}
+        listLabel={a11y(tr('glossary.title'), GLOSSARY.length)}
+        keyOf={(g) => g.id}
+        render={(g) => (
+          <GlossaryCompactCard
+            title={g.title}
+            summary={g.shortSummary ?? g.summary}
+            image={exploreImage('glossary', g.id)}
+            icon={g.icon}
+            tone="knowledge"
+            onPress={() => router.push({ pathname: '/glossary/[termId]', params: { termId: g.id } })}
+          />
+        )}
+      />
     </Screen>
   );
 }
 
-function BubbleRow({ items, onOpen }: { items: { story: (typeof STORIES)[number]; read: boolean }[]; onOpen: (id: string) => void }) {
+function CampItemCard({ def }: { def: CampDefinition }) {
+  const { t: tr } = useTranslation();
+  const s = def.useSummary();
+  const tone = def.id === 'odak' ? 'focus' : 'smokefree';
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 4 }}>
-      {items.map(({ story, read }) => (
-        <StoryBubble key={story.id} story={story} read={read} onPress={() => onOpen(story.id)} />
-      ))}
-    </ScrollView>
+    <CampWideCard
+      title={tr(def.titleKey)}
+      description={tr(`discover.campDesc.${def.id}`)}
+      lengthLabel={tr('camps.length', { count: def.days })}
+      image={exploreImage('camps', def.id)}
+      icon={def.icon}
+      tone={tone}
+      joined={s.joined}
+      day={s.day}
+      total={s.total}
+      progress={s.progress}
+      status={s.status}
+      locked={s.locked}
+      startLabel={tr('discover.start')}
+      continueLabel={tr('discover.continue')}
+      dayLabel={s.day ? tr('discover.dayOf', { day: s.day, total: s.total }) : undefined}
+      onPress={() => router.push(def.route)}
+    />
   );
 }
+
+/** Alkolsüz Kamp: the alcohol programme, shown among the camps (route and data stay /campus/alcohol). */
+function AlcoholCampCard() {
+  const { t: tr } = useTranslation();
+  const s = useAlcSummary();
+  return (
+    <CampWideCard
+      title={ALC.title}
+      description={tr('discover.campDesc.alcohol')}
+      lengthLabel={tr('camps.length', { count: s.total })}
+      image={exploreImage('camps', 'alcohol')}
+      icon={ALC.icon}
+      tone="campus"
+      joined={s.joined}
+      day={s.day}
+      total={s.total}
+      progress={s.progress}
+      status={s.status}
+      startLabel={tr('discover.start')}
+      continueLabel={tr('discover.continue')}
+      dayLabel={s.day ? tr('discover.dayOf', { day: s.day, total: s.total }) : undefined}
+      onPress={() => openGated('courses', '/campus/alcohol')}
+    />
+  );
+}
+
+function ProgramTile({ p }: { p: ProgramSummary }) {
+  const onPress = () =>
+    p.route.kind === 'body' ? openGated('courses', `/campus/${p.route.id}`) : openGated('courses', { pathname: '/course/[courseId]', params: { courseId: p.route.id } });
+  return <ProgramCard title={p.title} lengthLabel={p.length} progressLabel={p.progressLabel} progress={p.progress} image={exploreImage('programs', p.key)} icon={p.icon} tone={p.tone} locked={p.locked} onPress={onPress} />;
+}
+
+const BodyProgram = ({ id }: { id: 'neck' | 'feet' }) => <ProgramTile p={useBodySummary(id)} />;
+const CourseProgram = ({ course }: { course: Course }) => <ProgramTile p={useCourseSummary(course)} />;

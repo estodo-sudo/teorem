@@ -15,7 +15,7 @@
  "help": [
   {
    "id": "yedam",
-   "emoji": "📞",
+   "icon": "phone", "tone": "focus",
    "title": "Yeşilay Danışma Hattı 115 (YEDAM)",
    "text": "Bağımlılık alanında kişilere, yakınlarına ve bilgi almak isteyenlere ücretsiz danışmanlık verir; teknoloji bağımlılığı alanında da hizmet verir ve gerekirse il merkezinde randevu planlar. Bu konudaki başvuruların kapsamını hatta sorabilirsin.",
    "phone": "115",
@@ -25,7 +25,7 @@
   },
   {
    "id": "mhrs",
-   "emoji": "🏥",
+   "icon": "hospital", "tone": "focus",
    "title": "Psikiyatri randevusu (MHRS)",
    "text": "Psikiyatri polikliniğinden ya da bir klinik psikologdan randevu alabilirsin. Hastane randevuları için ALO 182 (MHRS) hattını arayabilir ya da MHRS / e-Nabız uygulamasını kullanabilirsin.",
    "phone": "182",

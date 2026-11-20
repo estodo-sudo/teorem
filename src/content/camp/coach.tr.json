@@ -10,7 +10,7 @@
   "scenarios": [
     {
       "id": "craving",
-      "emoji": "🌊",
+      "icon": "waves", "tone": "smokefree",
       "title": "Şu an canım çekiyor",
       "start": "s",
       "nodes": {
@@ -116,7 +116,7 @@
     },
     {
       "id": "stress",
-      "emoji": "😣",
+      "icon": "frown", "tone": "smokefree",
       "title": "Stresliyim",
       "start": "s",
       "nodes": {
@@ -219,7 +219,7 @@
     },
     {
       "id": "offered",
-      "emoji": "🚬",
+      "icon": "ban", "tone": "smokefree",
       "title": "Biri sigara uzattı",
       "start": "s",
       "nodes": {
@@ -309,7 +309,7 @@
     },
     {
       "id": "weight",
-      "emoji": "⚖️",
+      "icon": "scale", "tone": "smokefree",
       "title": "Kilo alıyorum endişesi",
       "start": "s",
       "nodes": {
@@ -378,7 +378,7 @@
     },
     {
       "id": "sleep",
-      "emoji": "🌙",
+      "icon": "moon", "tone": "smokefree",
       "title": "Uyuyamıyorum",
       "start": "s",
       "nodes": {
@@ -438,7 +438,7 @@
     },
     {
       "id": "had-one",
-      "emoji": "🌱",
+      "icon": "sprout", "tone": "smokefree",
       "title": "Bir tane içtim",
       "start": "s",
       "nodes": {
@@ -494,7 +494,7 @@
     },
     {
       "id": "alcohol",
-      "emoji": "🍺",
+      "icon": "glass", "tone": "smokefree",
       "title": "Alkol olan bir ortama gidiyorum",
       "start": "s",
       "nodes": {
@@ -553,7 +553,7 @@
     },
     {
       "id": "motivation",
-      "emoji": "🔋",
+      "icon": "battery", "tone": "smokefree",
       "title": "Motivasyonum düştü",
       "start": "s",
       "nodes": {
@@ -635,7 +635,7 @@
     },
     {
       "id": "medication",
-      "emoji": "💊",
+      "icon": "pill", "tone": "smokefree",
       "title": "İlaç kullanmalı mıyım?",
       "start": "s",
       "nodes": {
@@ -682,7 +682,7 @@
     },
     {
       "id": "why-hard",
-      "emoji": "🤔",
+      "icon": "thought", "tone": "smokefree",
       "title": "Neden bu kadar zor?",
       "start": "s",
       "nodes": {

@@ -1,9 +1,10 @@
+import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
 import { todayCount, triggerFrequency } from '@/features/camps/smoking/engine/diary';
 import { MIN_MS } from '@/features/camps/core/time';
@@ -12,14 +13,15 @@ import type { Score5, TriggerId } from '@/features/camps/smoking/types';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { IconTile } from '@/components/ui';
 
 const AGO = [0, 15, 30, 60] as const;
-const MOODS: { v: Score5; emoji: string }[] = [
-  { v: 1, emoji: '😣' },
-  { v: 2, emoji: '😕' },
-  { v: 3, emoji: '😐' },
-  { v: 4, emoji: '🙂' },
-  { v: 5, emoji: '😄' },
+const MOODS: { v: Score5; icon: IconName }[] = [
+  { v: 1, icon: 'frown' },
+  { v: 2, icon: 'frown' },
+  { v: 3, icon: 'meh' },
+  { v: 4, icon: 'smile' },
+  { v: 5, icon: 'laugh' },
 ];
 
 /**
@@ -61,7 +63,7 @@ export default function CampLogCigarette() {
     return (
       <Screen
         footer={
-          <View style={{ gap: 8 }}>
+          <View style={{ gap: t.space.sm }}>
             <Button label={tr('camp.log.done')} size="lg" variant="primary" onPress={back} />
             <Button
               label={tr('camp.log.another')}
@@ -80,7 +82,7 @@ export default function CampLogCigarette() {
       >
         <Header title={tr('camp.log.title')} close onBack={back} />
         <View style={{ alignItems: 'center', gap: 10, marginTop: 30 }}>
-          <AppText variant="display">{slip ? '🌱' : '📝'}</AppText>
+          <IconTile icon={slip ? 'sprout' : 'notebook'} tone="smokefree" size="lg" round />
           <AppText variant="h1" center accessibilityRole="header">
             {slip ? tr('camp.log.slipSavedTitle') : tr('camp.log.savedTitle')}
           </AppText>
@@ -109,10 +111,10 @@ export default function CampLogCigarette() {
 
   const chip = (on: boolean) => ({
     minHeight: 48,
-    paddingHorizontal: 12,
+    paddingHorizontal: t.space.md,
     borderRadius: t.radius.pill,
     borderWidth: 1.5,
-    borderColor: on ? t.colors.accent : t.colors.border,
+    borderColor: on ? t.tokens.primary : t.colors.border,
     backgroundColor: on ? tint(t.colors.accent, '1A') : t.colors.surface,
     flexDirection: 'row' as const,
     alignItems: 'center' as const,
@@ -123,7 +125,7 @@ export default function CampLogCigarette() {
     <Screen footer={<Button label={tr('camp.log.save')} size="lg" variant="primary" icon="check" onPress={save} />}>
       <Header title={tr('camp.log.title')} close onBack={back} />
       {slip ? (
-        <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+        <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText variant="small">{tr('camp.log.slipNote')}</AppText>
         </Card>
       ) : (
@@ -131,7 +133,7 @@ export default function CampLogCigarette() {
       )}
 
       <AppText weight="800">{tr('camp.log.when')}</AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {AGO.map((m) => (
           <Pressable key={m} onPress={() => setAgo(m)} accessibilityRole="radio" accessibilityState={{ selected: ago === m }} style={chip(ago === m)}>
             <AppText variant="small" weight="700">
@@ -142,13 +144,13 @@ export default function CampLogCigarette() {
       </View>
 
       <AppText weight="800">{tr('camp.log.trigger')}</AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {shown.map((id) => {
           const x = label(id);
           const on = trigger === id;
           return (
             <Pressable key={id} onPress={() => setTrigger(on ? null : id)} accessibilityRole="radio" accessibilityState={{ selected: on }} style={chip(on)}>
-              <AppText>{x.emoji}</AppText>
+              <Icon name={x.icon} size="md" />
               <AppText variant="small" weight="700">
                 {x.label}
               </AppText>
@@ -215,11 +217,11 @@ export default function CampLogCigarette() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderWidth: 2,
-                borderColor: on ? t.colors.accent : 'transparent',
+                borderColor: on ? t.tokens.primary : 'transparent',
                 backgroundColor: on ? tint(t.colors.accent, '1A') : t.colors.surfaceAlt,
               }}
             >
-              <AppText style={{ fontSize: 28, lineHeight: 34 }}>{m.emoji}</AppText>
+              <IconTile icon={m.icon} tone="smokefree" size="lg" round />
             </Pressable>
           );
         })}
@@ -233,7 +235,7 @@ export default function CampLogCigarette() {
         placeholder={tr('camp.log.tagPlaceholder')}
         placeholderTextColor={t.colors.textMuted}
         accessibilityLabel={tr('camp.log.tag')}
-        style={{ minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 14, color: t.colors.text, fontSize: 16 }}
+        style={{ minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 14, color: t.colors.text, fontSize: t.type.body.fontSize }}
       />
     </Screen>
   );

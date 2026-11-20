@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { router, type Href } from 'expo-router';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +28,7 @@ export default function OdakRebuild() {
       <Header title={R.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
       <AppText muted>{R.intro}</AppText>
 
-      <AppText variant="h3">⏰ {R.planner.title}</AppText>
+      <AppText variant="h3">{R.planner.title}</AppText>
       {ranges.length ? (
         <>
           <AppText variant="small" muted>
@@ -36,24 +37,24 @@ export default function OdakRebuild() {
           {ranges.map((range) => {
             const k = rangeKey(range);
             return (
-              <Card key={k} style={{ gap: 8 }}>
+              <Card key={k} style={{ gap: t.space.sm }}>
                 <AppText weight="800">{label(range.from, range.to)}</AppText>
-                <PillGroup items={R.planner.options} selected={r.activities[k] ?? []} onToggle={(id) => save({ activities: toggleActivity(r.activities, k, id, R.planner.max) })} />
+                <PillGroup items={R.planner.options as { id: string; icon?: IconName; label: string }[]} selected={r.activities[k] ?? []} onToggle={(id) => save({ activities: toggleActivity(r.activities, k, id, R.planner.max) })} />
               </Card>
             );
           })}
         </>
       ) : (
-        <Card style={{ gap: 8 }}>
+        <Card style={{ gap: t.space.sm }}>
           <AppText variant="small">{R.planner.empty}</AppText>
           <Button label={tr('odak.panel.boundaries')} variant="secondary" onPress={() => router.push('/odak/boundaries')} />
         </Card>
       )}
 
       <AppText variant="h3" style={{ marginTop: 6 }}>
-        🌙 {R.sleep.title}
+        {R.sleep.title}
       </AppText>
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {R.sleep.items.map((it) => (
           <ChoiceCard key={it.id} multi label={it.label} selected={r.sleep.includes(it.id)} onPress={() => save({ sleep: toggleItem(r.sleep, it.id) })} />
         ))}
@@ -62,8 +63,8 @@ export default function OdakRebuild() {
         {R.sleep.note}
       </AppText>
 
-      <Card style={{ gap: 8, borderLeftWidth: 4, borderLeftColor: t.colors.primary, marginTop: 6 }}>
-        <AppText variant="h3">🫂 {R.connection.title}</AppText>
+      <Card style={{ gap: t.space.sm, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted, marginTop: 6 }}>
+        <AppText variant="h3">{R.connection.title}</AppText>
         <AppText>{connectionTask(R.connection.tasks, now)}</AppText>
         <ChoiceCard multi label={R.connection.done} selected={done} onPress={() => save({ connectionWeeks: toggleItem(r.connectionWeeks, weekKeyOf(now)) })} />
         {done ? (
@@ -74,14 +75,14 @@ export default function OdakRebuild() {
       </Card>
 
       <AppText variant="h3" style={{ marginTop: 6 }}>
-        🧰 {R.bridge.title}
+        {R.bridge.title}
       </AppText>
       <AppText variant="small" muted>
         {R.bridge.hint}
       </AppText>
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {R.bridge.items.map((it) => (
-          <Button key={it.id} label={`${it.emoji} ${it.label}`} variant="secondary" onPress={() => router.push(it.route as Href)} />
+          <Button key={it.id} label={`${it.label}`} variant="secondary" onPress={() => router.push(it.route as Href)} />
         ))}
       </View>
     </Screen>

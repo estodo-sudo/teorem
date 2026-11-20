@@ -4,7 +4,7 @@
     {
       "id": "sn01",
       "category": "snack",
-      "emoji": "🌰",
+      "icon": "nut", "tone": "campus",
       "text": "Bir avuç ceviz ye.",
       "why": "Arjinin ve bitkisel omega-3 içerir; damar sağlığını destekler.",
       "source": {
@@ -15,7 +15,7 @@
     {
       "id": "sn02",
       "category": "snack",
-      "emoji": "🥜",
+      "icon": "nut", "tone": "campus",
       "text": "Bir avuç tuzsuz antep fıstığı ye.",
       "why": "Arjinin ve antioksidanlardan zengindir.",
       "source": {
@@ -26,7 +26,7 @@
     {
       "id": "sn03",
       "category": "snack",
-      "emoji": "🌰",
+      "icon": "nut", "tone": "campus",
       "text": "Bir avuç çiğ badem ye.",
       "why": "Magnezyum ve E vitamini kaynağıdır.",
       "source": {
@@ -37,7 +37,7 @@
     {
       "id": "sn04",
       "category": "snack",
-      "emoji": "🎃",
+      "icon": "nut", "tone": "campus",
       "text": "Yoğurduna ya da salatana 1 yemek kaşığı kabak çekirdeği ekle.",
       "why": "Testosteron üretimi için gerekli çinkonun iyi kaynaklarındandır.",
       "source": {
@@ -48,7 +48,7 @@
     {
       "id": "sn05",
       "category": "snack",
-      "emoji": "🍫",
+      "icon": "cookie", "tone": "campus",
       "text": "1–2 kare %70+ kakaolu bitter çikolata ye.",
       "why": "Kakao flavanolleri damar iç yüzeyinin işlevini destekler.",
       "source": {
@@ -59,7 +59,7 @@
     {
       "id": "sn06",
       "category": "snack",
-      "emoji": "🌰",
+      "icon": "nut", "tone": "campus",
       "text": "1 adet Brezilya cevizi ye; fazlasını değil.",
       "why": "Tek tanesi günlük selenyum ihtiyacını karşılar; selenyum üreme sağlığı için önemlidir.",
       "source": {
@@ -70,7 +70,7 @@
     {
       "id": "sn07",
       "category": "snack",
-      "emoji": "🥜",
+      "icon": "nut", "tone": "campus",
       "text": "Bir avuç kaju ye.",
       "why": "Çinko ve magnezyum içerir.",
       "source": {
@@ -81,7 +81,7 @@
     {
       "id": "sn08",
       "category": "snack",
-      "emoji": "🌻",
+      "icon": "flower", "tone": "campus",
       "text": "Bir avuç tuzsuz ay çekirdeği ye.",
       "why": "E vitamini ve çinko kaynağıdır.",
       "source": {
@@ -92,7 +92,7 @@
     {
       "id": "sn09",
       "category": "snack",
-      "emoji": "🫘",
+      "icon": "bean", "tone": "campus",
       "text": "Ara öğünde bir avuç leblebi ye.",
       "why": "Bitkisel protein, arjinin ve folat sağlar.",
       "source": {
@@ -103,7 +103,7 @@
     {
       "id": "sn10",
       "category": "snack",
-      "emoji": "🌾",
+      "icon": "wheat", "tone": "campus",
       "text": "Yoğurduna 1 tatlı kaşığı öğütülmüş keten tohumu ekle.",
       "why": "Bitkisel omega-3 ve lif içerir.",
       "source": {
@@ -114,7 +114,7 @@
     {
       "id": "sn11",
       "category": "snack",
-      "emoji": "🥄",
+      "icon": "utensils", "tone": "campus",
       "text": "Yoğurduna ya da sütüne 1 tatlı kaşığı chia tohumu ekle.",
       "why": "Omega-3, lif ve magnezyum içerir.",
       "source": {
@@ -125,7 +125,7 @@
     {
       "id": "sn12",
       "category": "snack",
-      "emoji": "☕",
+      "icon": "coffee", "tone": "campus",
       "text": "Sütüne 1 tatlı kaşığı şekersiz kakao ekle.",
       "why": "Saf kakao, flavanollerin en yoğun kaynaklarındandır.",
       "source": {
@@ -136,7 +136,7 @@
     {
       "id": "sn13",
       "category": "snack",
-      "emoji": "🍵",
+      "icon": "coffee", "tone": "campus",
       "text": "1–2 fincan yeşil çay iç.",
       "why": "Kateşin adlı flavonoidlerden zengindir.",
       "source": {
@@ -147,7 +147,7 @@
     {
       "id": "fr01",
       "category": "fruit",
-      "emoji": "🫐",
+      "icon": "apple", "tone": "campus",
       "text": "Bir kase yaban mersini ye.",
       "why": "Antosiyaninden zengin meyveler, daha düşük ereksiyon sorunu riskiyle ilişkilendirildi.",
       "source": {
@@ -158,7 +158,7 @@
     {
       "id": "fr02",
       "category": "fruit",
-      "emoji": "🍓",
+      "icon": "apple", "tone": "campus",
       "text": "Bir kase çilek ye.",
       "why": "Çilek, flavonoid araştırmasında en çok katkı sağlayan meyvelerdendi.",
       "source": {
@@ -169,7 +169,7 @@
     {
       "id": "fr03",
       "category": "fruit",
-      "emoji": "🔴",
+      "icon": "circle", "tone": "campus",
       "text": "Yarım nar ye.",
       "why": "Polifenollerden zengindir; damar sağlığını destekler.",
       "source": {
@@ -180,7 +180,7 @@
     {
       "id": "fr04",
       "category": "fruit",
-      "emoji": "🍉",
+      "icon": "apple", "tone": "campus",
       "text": "Birkaç dilim karpuz ye; mevsimi değilse bir kase çilekle değiştir.",
       "why": "Vücutta arjinine dönüşen sitrülin içerir.",
       "source": {
@@ -191,7 +191,7 @@
     {
       "id": "fr05",
       "category": "fruit",
-      "emoji": "🍊",
+      "icon": "citrus", "tone": "campus",
       "text": "Bir portakal ye.",
       "why": "Turunçgil flavanonları daha düşük ereksiyon sorunu riskiyle ilişkilendirildi.",
       "source": {
@@ -202,7 +202,7 @@
     {
       "id": "fr06",
       "category": "fruit",
-      "emoji": "🍎",
+      "icon": "apple", "tone": "campus",
       "text": "Bir elma ye.",
       "why": "Elma, flavonoid araştırmasında öne çıkan meyvelerdendi.",
       "source": {
@@ -213,7 +213,7 @@
     {
       "id": "fr07",
       "category": "fruit",
-      "emoji": "🍌",
+      "icon": "apple", "tone": "campus",
       "text": "Bir muz ye.",
       "why": "Potasyum ve magnezyum, kan basıncının dengesine katkı sağlar.",
       "source": {
@@ -224,7 +224,7 @@
     {
       "id": "fr08",
       "category": "fruit",
-      "emoji": "🍇",
+      "icon": "grape", "tone": "campus",
       "text": "Bir avuç kırmızı ya da siyah üzüm ye.",
       "why": "Kabuğu antosiyanin ve resveratrol içerir.",
       "source": {
@@ -235,7 +235,7 @@
     {
       "id": "fr09",
       "category": "fruit",
-      "emoji": "🍒",
+      "icon": "apple", "tone": "campus",
       "text": "Bir kase kiraz ya da vişne ye; mevsimi değilse kurusundan bir avuç.",
       "why": "Antosiyaninden zengindir.",
       "source": {
@@ -246,7 +246,7 @@
     {
       "id": "fr10",
       "category": "fruit",
-      "emoji": "🫐",
+      "icon": "apple", "tone": "campus",
       "text": "Bir avuç böğürtlen ya da dut ye.",
       "why": "Antosiyanin ve lif kaynağıdır.",
       "source": {
@@ -257,7 +257,7 @@
     {
       "id": "fr11",
       "category": "fruit",
-      "emoji": "🥑",
+      "icon": "apple", "tone": "campus",
       "text": "Yarım avokado ye.",
       "why": "Sağlıklı yağ, folat ve magnezyum içerir.",
       "source": {
@@ -268,7 +268,7 @@
     {
       "id": "fr12",
       "category": "fruit",
-      "emoji": "🍊",
+      "icon": "citrus", "tone": "campus",
       "text": "İki mandalina ye.",
       "why": "Flavanon ve C vitamini kaynağıdır.",
       "source": {
@@ -279,7 +279,7 @@
     {
       "id": "fr13",
       "category": "fruit",
-      "emoji": "🍐",
+      "icon": "apple", "tone": "campus",
       "text": "Bir armut ye.",
       "why": "Armut, flavonoid araştırmasında elmayla birlikte öne çıkan meyvelerdendi.",
       "source": {
@@ -290,7 +290,7 @@
     {
       "id": "fr14",
       "category": "fruit",
-      "emoji": "🥝",
+      "icon": "apple", "tone": "campus",
       "text": "Bir kivi ye.",
       "why": "Bir tanesi günlük C vitamini ihtiyacının büyük kısmını karşılar.",
       "source": {
@@ -301,7 +301,7 @@
     {
       "id": "pl01",
       "category": "plate",
-      "emoji": "🟣",
+      "icon": "circle", "tone": "campus",
       "text": "Öğününe kırmızı pancar ekle.",
       "why": "Doğal nitrat içerir; nitrat, damarları gevşeten nitrik okside dönüşür.",
       "source": {
@@ -312,7 +312,7 @@
     {
       "id": "pl02",
       "category": "plate",
-      "emoji": "🥬",
+      "icon": "salad", "tone": "campus",
       "text": "Salatana bir avuç roka ekle.",
       "why": "Nitrattan en zengin yeşilliklerdendir.",
       "source": {
@@ -323,7 +323,7 @@
     {
       "id": "pl03",
       "category": "plate",
-      "emoji": "🥬",
+      "icon": "salad", "tone": "campus",
       "text": "Bir öğününe ıspanak ekle.",
       "why": "Nitrat, folat ve magnezyum kaynağıdır.",
       "source": {
@@ -334,7 +334,7 @@
     {
       "id": "pl04",
       "category": "plate",
-      "emoji": "🥦",
+      "icon": "salad", "tone": "campus",
       "text": "Bir porsiyon brokoli ye.",
       "why": "Folat ve C vitamini içerir.",
       "source": {
@@ -345,7 +345,7 @@
     {
       "id": "pl05",
       "category": "plate",
-      "emoji": "🍅",
+      "icon": "apple", "tone": "campus",
       "text": "Bir öğünde domates ye.",
       "why": "Likopen içerir; Akdeniz tipi beslenmenin temelidir.",
       "source": {
@@ -356,7 +356,7 @@
     {
       "id": "pl06",
       "category": "plate",
-      "emoji": "🫒",
+      "icon": "leaf", "tone": "campus",
       "text": "Salatana bir kaşık zeytinyağı ekle.",
       "why": "Zeytinyağı temelli Akdeniz diyeti, bir çalışmada erektil fonksiyonu iyileştirdi.",
       "source": {
@@ -367,7 +367,7 @@
     {
       "id": "pl07",
       "category": "plate",
-      "emoji": "🥚",
+      "icon": "egg", "tone": "campus",
       "text": "Kahvaltında yumurta ye.",
       "why": "D vitamini, B12 ve kaliteli protein sağlar.",
       "source": {
@@ -378,7 +378,7 @@
     {
       "id": "pl08",
       "category": "plate",
-      "emoji": "🐟",
+      "icon": "fish", "tone": "campus",
       "text": "Bir öğünde somon ya da uskumru ye.",
       "why": "Omega-3 ve D vitamini kaynağıdır.",
       "source": {
@@ -389,7 +389,7 @@
     {
       "id": "pl09",
       "category": "plate",
-      "emoji": "🐟",
+      "icon": "fish", "tone": "campus",
       "text": "Bir öğünde hamsi ya da sardalya ye.",
       "why": "Omega-3 açısından zengin, ekonomik balıklardır.",
       "source": {
@@ -400,7 +400,7 @@
     {
       "id": "pl10",
       "category": "plate",
-      "emoji": "🫘",
+      "icon": "bean", "tone": "campus",
       "text": "Bir öğünde nohut ye.",
       "why": "Arjinin, çinko ve folat içerir.",
       "source": {
@@ -411,7 +411,7 @@
     {
       "id": "pl11",
       "category": "plate",
-      "emoji": "🥣",
+      "icon": "soup", "tone": "campus",
       "text": "Bir kase mercimek çorbası iç.",
       "why": "Folat, çinko ve bitkisel protein sağlar.",
       "source": {
@@ -422,7 +422,7 @@
     {
       "id": "pl12",
       "category": "plate",
-      "emoji": "🍗",
+      "icon": "drumstick", "tone": "campus",
       "text": "Bir öğünde hindi ya da tavuk göğsü ye.",
       "why": "Arjinin ve çinko kaynağıdır.",
       "source": {
@@ -433,7 +433,7 @@
     {
       "id": "pl13",
       "category": "plate",
-      "emoji": "🦪",
+      "icon": "fish", "tone": "campus",
       "text": "Bir öğünde midye ya da karides ye.",
       "why": "Kabuklu deniz ürünleri çinkonun en zengin kaynaklarındandır.",
       "source": {

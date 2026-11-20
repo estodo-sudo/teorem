@@ -36,7 +36,7 @@ export default function CampHealth() {
       <Header title={tr('camp.health.title')} onBack={() => goBack('/camp')} />
       <AppText muted>{CAMP_HEALTH.intro}</AppText>
       {!active ? (
-        <Card style={{ gap: 4, borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+        <Card style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText variant="small">{tr('camp.health.notYet')}</AppText>
         </Card>
       ) : null}
@@ -56,23 +56,23 @@ export default function CampHealth() {
             >
               <View style={{ alignItems: 'center', width: 56 }}>
                 <ProgressRing size={56} stroke={5} value={done ? 1 : isNext && next ? next.progress : 0} color={color} trackColor={tint(color, '26')}>
-                  {done ? <Icon name="check" color={t.colors.success} size={22} strokeWidth={3} /> : <AppText>{item.emoji}</AppText>}
+                  {done ? <Icon name="check" color={t.colors.success} size={22} strokeWidth={3} /> : <Icon name={item.icon} size="md" />}
                 </ProgressRing>
                 {i < CAMP_HEALTH.items.length - 1 ? <View style={{ width: 2, flex: 1, minHeight: 18, backgroundColor: done ? t.colors.success : t.colors.border }} /> : null}
               </View>
-              <View style={{ flex: 1, paddingBottom: 18, gap: 4 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <View style={{ flex: 1, paddingBottom: 18, gap: t.space.xs }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm, flexWrap: 'wrap' }}>
                   <AppText weight="800" color={color}>
                     {item.label}
                   </AppText>
                   {done ? (
-                    <View style={{ paddingHorizontal: 8, paddingVertical: 2, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.success, '26') }}>
+                    <View style={{ paddingHorizontal: t.space.sm, paddingVertical: 2, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.success, '26') }}>
                       <AppText variant="tiny" weight="800" color={t.colors.success}>
                         {tr('camp.health.reached')}
                       </AppText>
                     </View>
                   ) : left ? (
-                    <View style={{ paddingHorizontal: 8, paddingVertical: 2, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.primary, '22') }}>
+                    <View style={{ paddingHorizontal: t.space.sm, paddingVertical: 2, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.primary, '22') }}>
                       <AppText variant="tiny" weight="800" color={t.colors.primary}>
                         {tr('camp.health.left', { left: tr(`camp.dur.${left.unit}`, { count: left.value }) })}
                       </AppText>

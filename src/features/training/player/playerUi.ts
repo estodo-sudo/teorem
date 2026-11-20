@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import positionsJson from '@/content/kegel/positions.tr.json';
 import type { Position } from '@/types';
 
@@ -8,7 +9,7 @@ import type { GeneratedSession, Phase, SessionBlock } from '../types';
 
 export interface PositionCard {
   id: Position;
-  emoji: string;
+  icon: IconName;
   title: string;
   text: string;
 }

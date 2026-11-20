@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Dialog, Header, Icon, Screen, Segmented, SwitchRow, useTheme } from '@/components';
+import { AppText, Button, Card, Dialog, Header, Icon, RowGroup, Screen, Segmented, SwitchRow, useTheme } from '@/components';
 import { cancelHaptics, hapticSupport, playCue } from '@/features/training/haptics';
 import { cueLengthMs, PREVIEW_CUES, type Cue } from '@/features/training/hapticPatterns';
 import { findTurkishVoice, speak } from '@/features/training/voice';
@@ -71,11 +71,11 @@ export default function TrainingSettings() {
         </AppText>
       </Card>
 
-      <Card style={{ paddingVertical: 4 }}>
+      <RowGroup>
         <SwitchRow label={tr('settings.training.sound')} description={tr('settings.training.soundHint')} value={settings.soundCues} onChange={(v) => update({ soundCues: v })} />
         <VoiceCoachRow />
         <SwitchRow label={tr('settings.training.discreet')} description={tr('settings.training.discreetHint')} value={settings.discreetPlayer} onChange={(v) => update({ discreetPlayer: v })} />
-      </Card>
+      </RowGroup>
 
       <HapticLanguageCard />
 

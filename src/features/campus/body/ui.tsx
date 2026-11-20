@@ -4,6 +4,7 @@ import Svg, { Ellipse, Path } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Dialog, Icon, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { tint } from '@/features/campus/shared/ui';
 import { useNow } from '@/lib/useNow';
 import { useCampusStore } from '@/stores/campusStore';
@@ -30,7 +31,7 @@ export function useDosage() {
   };
 }
 
-/** Expandable exercise row: emoji, title and dosage; opens to the steps and a tip. */
+/** Expandable exercise row: icon, title and dosage; opens to the steps and a tip. */
 export function ExerciseRow({ ex, n }: { ex: BodyExercise; n: number }) {
   const t = useTheme();
   const dose = useDosage();
@@ -59,7 +60,7 @@ export function ExerciseRow({ ex, n }: { ex: BodyExercise; n: number }) {
             justifyContent: 'center',
           }}
         >
-          <AppText variant="h3">{ex.emoji}</AppText>
+          <IconTile icon={ex.icon} tone="campus" />
         </View>
         <View style={{ flex: 1, gap: 2 }}>
           <AppText weight="800">
@@ -115,7 +116,7 @@ export function ExerciseSteps({ ex, style }: { ex: BodyExercise; style?: object 
             backgroundColor: tint(t.colors.warning, '1A'),
           }}
         >
-          <AppText variant="small">💡</AppText>
+          <Icon name="bulb" size="md" color={t.tone.campus.fg} />
           <AppText variant="small" style={{ flex: 1 }}>
             {ex.tip}
           </AppText>
@@ -138,7 +139,7 @@ export function LoadChart({ loads }: { loads: { deg: number; kg: number; label: 
           <View key={l.deg} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
             <View style={{ width: 34, alignItems: 'center' }}>
               <View style={{ transform: [{ rotate: `${l.deg}deg` }] }}>
-                <AppText>🙂</AppText>
+                <Icon name="smile" size="md" color={t.tone.campus.fg} />
               </View>
             </View>
             <AppText variant="small" weight="700" style={{ width: 34 }}>
@@ -246,7 +247,7 @@ export function ProgramGrid({ grid, currentWeek }: { grid: DayCell[][]; currentW
                 cell(c),
               ]}
             >
-              {c === 'done' ? <Icon name="check" color="#FFFFFF" size={13} strokeWidth={3} /> : null}
+              {c === 'done' ? <Icon name="check" color={t.tokens.primaryForeground} size={13} strokeWidth={3} /> : null}
             </View>
           ))}
         </View>
@@ -300,7 +301,7 @@ export function MeasureBars({ measures, unit }: { measures: BodyMeasure[]; unit:
         const d = new Date(m.at);
         return (
           <View key={m.at} style={{ flex: 1, alignItems: 'center', gap: 4 }} accessible accessibilityLabel={`${d.getDate()}.${d.getMonth() + 1}: ${fmtMeasure(m.value, unit)}`}>
-            <AppText variant="tiny" weight="800" color={last ? t.colors.primary : t.colors.textMuted} numberOfLines={1}>
+            <AppText variant="tiny" weight="800" color={last ? t.colors.primary : t.colors.textMuted}>
               {fmtMeasure(m.value, '').trim()}
             </AppText>
             <View
@@ -312,7 +313,7 @@ export function MeasureBars({ measures, unit }: { measures: BodyMeasure[]; unit:
                 backgroundColor: last ? t.colors.primary : tint(t.colors.primary, '55'),
               }}
             />
-            <AppText variant="tiny" muted numberOfLines={1}>
+            <AppText variant="tiny" muted>
               {`${d.getDate()}.${d.getMonth() + 1}`}
             </AppText>
           </View>
@@ -470,7 +471,7 @@ export function BodyChecklist({ items, doneIds, onToggle }: { items: BodyContent
                 marginTop: 1,
               }}
             >
-              {done ? <Icon name="check" color="#FFFFFF" size={16} strokeWidth={3} /> : null}
+              {done ? <Icon name="check" color={t.tokens.primaryForeground} size={16} strokeWidth={3} /> : null}
             </View>
             <View style={{ flex: 1, gap: 2 }}>
               <AppText

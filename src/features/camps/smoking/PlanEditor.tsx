@@ -17,9 +17,9 @@ export function PlanEditor({ trigger, onDone, saveLabel }: { trigger: TriggerId;
   const [pick, setPick] = useState<number | 'custom'>(0);
   const [own, setOwn] = useState('');
   const thenText = pick === 'custom' ? own.trim() : tpl.then[pick]!;
-  const field = { minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 12, color: t.colors.text, fontSize: 16 } as const;
+  const field = { minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: t.space.md, color: t.colors.text, fontSize: t.type.body.fontSize } as const;
   return (
-    <View style={{ gap: 8 }}>
+    <View style={{ gap: t.space.sm }}>
       <AppText variant="small" weight="800" color={t.colors.accent}>
         {tr('camp.plan.if')}
       </AppText>
@@ -37,7 +37,7 @@ export function PlanEditor({ trigger, onDone, saveLabel }: { trigger: TriggerId;
       <AppText variant="tiny" muted>
         {tr('camp.triggers.acceptNote')}
       </AppText>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
         <Button
           label={saveLabel ?? tr('camp.triggers.savePlan')}
           variant="primary"

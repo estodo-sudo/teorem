@@ -1,56 +1,69 @@
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Header, ProgressBar, Screen, useTheme } from '@/components';
-import { ACHIEVEMENTS } from '@/features/gamification/achievements';
+import { AppText, Header, Screen, useTheme } from '@/components';
+import { Card, Illustration, Progress } from '@/components/ui';
+import { ACHIEVEMENTS, type AchievementDef } from '@/features/gamification/achievements';
+import { Medallion } from '@/features/gamification/Medallion';
 import { buildAchievementContext } from '@/features/gamification/service';
 import { useProgressStore } from '@/stores/progressStore';
 
+/** Kupalar — ui-v3 medallion grid (SPEC_UI_V3 §4.3, §7.11): earned count and bar on top, three per row. */
 export default function Achievements() {
   const t = useTheme();
-  const { t: tr, i18n } = useTranslation();
+  const { t: tr } = useTranslation();
   const unlocked = useProgressStore((s) => s.achievements);
   const ctx = buildAchievementContext();
   const count = ACHIEVEMENTS.filter((a) => unlocked[a.id]).length;
+  const summary = tr('achievements.summaryShort', { count, total: ACHIEVEMENTS.length });
 
   return (
     <Screen>
       <Header title={tr('achievements.title')} />
-      <AppText muted center>
-        {tr('achievements.summary', { count, total: ACHIEVEMENTS.length })}
-      </AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
-        {ACHIEVEMENTS.map((a) => {
-          const at = unlocked[a.id];
-          const p = a.progress(ctx);
-          return (
-            <Card
-              key={a.id}
-              accessibilityLabel={`${tr(`achievements.items.${a.id}.title`)}. ${at ? tr('achievements.earned') : tr('achievements.locked')}`}
-              style={{ width: '48%', flexGrow: 1, alignItems: 'center', gap: 6, opacity: at ? 1 : 0.6 }}
-            >
-              <View style={{ width: 64, height: 64, borderRadius: 32, alignItems: 'center', justifyContent: 'center', backgroundColor: at ? (t.dark ? t.colors.surfaceAlt : '#FFF3EB') : t.colors.locked }}>
-                <AppText style={{ fontSize: 30, lineHeight: 38, opacity: at ? 1 : 0.35 }}>{a.emoji}</AppText>
-              </View>
-              <AppText weight="700" center variant="small">
-                {tr(`achievements.items.${a.id}.title`)}
-              </AppText>
-              <AppText variant="tiny" muted center>
-                {tr(`achievements.items.${a.id}.desc`)}
-              </AppText>
-              {at ? (
-                <AppText variant="tiny" color={t.colors.accent} weight="700">
-                  {new Date(at).toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US')}
-                </AppText>
-              ) : (
-                <View style={{ alignSelf: 'stretch' }}>
-                  <ProgressBar value={p} height={6} />
-                </View>
-              )}
-            </Card>
-          );
-        })}
+      <Card style={{ padding: t.space.gutter, gap: t.space.md }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.lg }}>
+          {count === 0 ? <Illustration name="empty-trophies" size={72} /> : null}
+          <AppText variant="title2" tabular style={{ flex: 1 }}>
+            {summary}
+          </AppText>
+        </View>
+        <Progress value={count / ACHIEVEMENTS.length} label={summary} tone="highlight" />
+      </Card>
+      <View accessibilityRole="list" style={{ flexDirection: 'row', flexWrap: 'wrap', rowGap: t.space.xl }}>
+        {ACHIEVEMENTS.map((a) => (
+          <Item key={a.id} a={a} at={unlocked[a.id]} progress={a.progress(ctx)} />
+        ))}
       </View>
     </Screen>
+  );
+}
+
+function Item({ a, at, progress }: { a: AchievementDef; at?: string; progress: number }) {
+  const t = useTheme();
+  const { t: tr, i18n } = useTranslation();
+  const title = tr(`achievements.items.${a.id}.title`);
+  const target = a.target ?? 1;
+  const value = Math.min(target, Math.floor(progress * target + 1e-9));
+  const progressText = at
+    ? new Date(at).toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'short' })
+    : a.target
+      ? a.unit
+        ? tr('achievements.progress', { value, target, unit: tr(`achievements.unit.${a.unit}`) })
+        : tr('achievements.progressPlain', { value, target })
+      : tr('achievements.percent', { pct: Math.round(progress * 100) });
+  return (
+    <View
+      accessible
+      accessibilityLabel={at ? tr('achievements.earnedA11y', { title, date: progressText }) : tr('achievements.lockedA11y', { title, progress: progressText })}
+      style={{ width: '33.33%', alignItems: 'center', gap: t.space.xs, paddingHorizontal: t.space.xs }}
+    >
+      <Medallion icon={a.icon} earned={Boolean(at)} progress={progress} ribbon={a.target ? String(a.target) : undefined} />
+      <AppText variant="footnote" center style={{ fontWeight: '500' }}>
+        {title}
+      </AppText>
+      <AppText variant="caption" muted center tabular style={{ fontWeight: '400' }}>
+        {progressText}
+      </AppText>
+    </View>
   );
 }

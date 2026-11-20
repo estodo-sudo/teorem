@@ -15,6 +15,7 @@ import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 export default function FitnessRoutine() {
   const { routineId } = useLocalSearchParams<{ routineId: string }>();
@@ -108,7 +109,7 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
     return (
       <Screen footer={<Button label={tr('common.done')} size="lg" variant="accent" onPress={() => goBack()} />}>
         <View style={{ alignItems: 'center', gap: 12, marginTop: 60 }}>
-          <AppText variant="display">{state.endedEarly ? '👍' : '🏅'}</AppText>
+          <IconTile icon={state.endedEarly ? 'thumbsUp' : 'medal'} tone="kegel" size="lg" round />
           <AppText variant="h1" center>
             {state.endedEarly ? tr('fitness.partial') : tr('fitness.done')}
           </AppText>
@@ -150,7 +151,7 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
         <Card style={{ gap: 4 }}>
           <AppText>{ex.desc}</AppText>
           <AppText variant="small" muted>
-            💡 {ex.cue}
+            {ex.cue}
           </AppText>
         </Card>
       ) : null}

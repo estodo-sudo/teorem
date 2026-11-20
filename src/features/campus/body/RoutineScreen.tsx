@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -15,6 +16,8 @@ import { useSettingsStore } from '@/stores/settingsStore';
 import { BODY } from './content';
 import { buildTimeline, routineMinutes, type BodyId, type Phase } from './logic';
 import { ExerciseRow, ExerciseSteps, useDosage } from './ui';
+import { IconTile } from '@/components/ui';
+import { ThemeOverride } from '@/components/useTheme';
 
 /** Guided daily routine: an overview, then each exercise with a get-ready / hold / rest timer. */
 export function BodyRoutineScreen({ id }: { id: BodyId }) {
@@ -42,7 +45,13 @@ export function BodyRoutineScreen({ id }: { id: BodyId }) {
       </Screen>
     );
   }
-  return <RoutinePlayer id={id} onExit={back} />;
+  // The routine player uses the same dark focus surface as the Kegel player (SPEC_UI_V3 §7.14).
+  return (
+    <ThemeOverride dark>
+      <StatusBar style="light" />
+      <RoutinePlayer id={id} onExit={back} />
+    </ThemeOverride>
+  );
 }
 
 function RoutinePlayer({ id, onExit }: { id: BodyId; onExit: () => void }) {
@@ -89,7 +98,7 @@ function RoutinePlayer({ id, onExit }: { id: BodyId; onExit: () => void }) {
       <Screen footer={<Button label={tr('body.routine.back')} size="lg" variant="primary" onPress={onExit} />}>
         <Header title={tr('body.routine.title')} close onBack={onExit} />
         <View style={{ alignItems: 'center', gap: 10, marginTop: 40 }}>
-          <AppText variant="display">{full ? '🎉' : result.done > 0 ? '👏' : '🌱'}</AppText>
+          <IconTile icon={full ? 'party' : result.done > 0 ? 'thumbsUp' : 'sprout'} tone="campus" size="lg" round />
           <AppText variant="h1" center accessibilityRole="header">
             {full ? tr('body.routine.doneTitle') : tr('body.routine.partialTitle')}
           </AppText>
@@ -147,7 +156,7 @@ function RoutinePlayer({ id, onExit }: { id: BodyId; onExit: () => void }) {
       <ScrollView contentContainerStyle={{ gap: 16, paddingBottom: 12 }} showsVerticalScrollIndicator={false}>
         <View style={{ alignItems: 'center', gap: 4 }}>
           <AppText variant="h1" center accessibilityRole="header">
-            {ex.emoji} {ex.title}
+            {ex.title}
           </AppText>
           <AppText variant="small" muted center>
             {dose(ex)}

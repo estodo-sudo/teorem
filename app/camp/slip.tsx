@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { CAMP_CHECKIN as CHK, CAMP_ONBOARDING as ONB } from '@/features/camps/smoking/content';
 import { totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
 import { PlanEditor } from '@/features/camps/smoking/PlanEditor';
@@ -46,7 +47,7 @@ export default function CampSlip() {
     paddingHorizontal: 14,
     borderRadius: t.radius.pill,
     borderWidth: 1.5,
-    borderColor: on ? t.colors.accent : t.colors.border,
+    borderColor: on ? t.tokens.primary : t.colors.border,
     backgroundColor: on ? tint(t.colors.accent, '1A') : t.colors.surface,
     alignItems: 'center' as const,
     justifyContent: 'center' as const,
@@ -77,8 +78,8 @@ export default function CampSlip() {
 
       {step === 'welcome' ? (
         <>
-          <View style={{ alignItems: 'center', gap: 8 }}>
-            <AppText variant="display">🌱</AppText>
+          <View style={{ alignItems: 'center', gap: t.space.sm }}>
+            <IconTile icon="sprout" tone="smokefree" size="lg" round />
             <AppText variant="h1" center accessibilityRole="header">
               {CHK.slip.welcomeTitle}
             </AppText>
@@ -87,7 +88,7 @@ export default function CampSlip() {
           {!alreadyLogged ? (
             <>
               <AppText weight="800">{CHK.slip.howMany}</AppText>
-              <View style={{ flexDirection: 'row', gap: 8 }}>
+              <View style={{ flexDirection: 'row', gap: t.space.sm }}>
                 {COUNTS.map((n) => (
                   <Pressable key={n} onPress={() => setCount(n)} accessibilityRole="radio" accessibilityState={{ selected: count === n }} style={[chip(count === n), { flex: 1 }]}>
                     <AppText weight="800">{n === 4 ? tr('camp.checkin.orMore', { n: 4 }) : String(n)}</AppText>
@@ -104,12 +105,12 @@ export default function CampSlip() {
           <AppText variant="h2" accessibilityRole="header">
             {CHK.slip.what}
           </AppText>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
             {triggers.map((x) => {
               const on = trigger === x.id;
               return (
                 <Pressable key={x.id} onPress={() => setTrigger(on ? null : x.id)} accessibilityRole="radio" accessibilityState={{ selected: on }} style={chip(on)}>
-                  <AppText>{x.emoji}</AppText>
+                  <Icon name={x.icon} size="md" />
                   <AppText variant="small" weight="700">
                     {x.label}
                   </AppText>
@@ -128,9 +129,9 @@ export default function CampSlip() {
                   accessibilityRole="radio"
                   accessibilityState={{ selected: on }}
                   accessibilityLabel={m.label}
-                  style={{ alignItems: 'center', gap: 4, width: 62, paddingVertical: 8, borderRadius: t.radius.lg, borderWidth: 2, borderColor: on ? t.colors.accent : 'transparent' }}
+                  style={{ alignItems: 'center', gap: t.space.xs, width: 62, paddingVertical: t.space.sm, borderRadius: t.radius.lg, borderWidth: 2, borderColor: on ? t.tokens.primary : 'transparent' }}
                 >
-                  <AppText style={{ fontSize: 30, lineHeight: 36 }}>{m.emoji}</AppText>
+                  <IconTile icon={m.icon} tone="smokefree" size="lg" round />
                   <AppText variant="tiny" weight="700" center>
                     {m.label}
                   </AppText>
@@ -155,8 +156,8 @@ export default function CampSlip() {
 
       {step === 'done' ? (
         <>
-          <View style={{ alignItems: 'center', gap: 8, marginTop: 20 }}>
-            <AppText variant="display">💪</AppText>
+          <View style={{ alignItems: 'center', gap: t.space.sm, marginTop: t.space.gutter }}>
+            <IconTile icon="dumbbell" tone="smokefree" size="lg" round />
             <AppText variant="h1" center accessibilityRole="header">
               {CHK.slip.doneTitle}
             </AppText>

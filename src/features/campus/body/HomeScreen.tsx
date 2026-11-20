@@ -56,14 +56,14 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
       {s.redFlagIds.length ? (
         <Card
           style={{
-            gap: 4,
+            gap: t.space.xs,
             borderWidth: 2,
             borderColor: t.colors.danger,
             backgroundColor: tint(t.colors.danger, '10'),
           }}
         >
           <AppText weight="800" color={t.colors.danger}>
-            ⚠️ {c.redFlags.title}
+            {c.redFlags.title}
           </AppText>
           <AppText variant="small">{tr('body.home.flagsReminder')}</AppText>
         </Card>
@@ -74,17 +74,17 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
           style={{
             alignSelf: 'flex-start',
             paddingHorizontal: 10,
-            paddingVertical: 4,
+            paddingVertical: t.space.xs,
             borderRadius: t.radius.pill,
-            backgroundColor: 'rgba(255,255,255,0.16)',
+            backgroundColor: t.veil.mid,
           }}
         >
           <AppText variant="tiny" weight="800" color={onHero} style={{ letterSpacing: 1 }}>
-            {c.emoji} {tr(`body.home.heroLabel.${id}`)}
+            {tr(`body.home.heroLabel.${id}`)}
           </AppText>
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 18 }}>
-          <ProgressRing size={112} stroke={11} value={Math.min(1, weekDays / c.weeklyTarget)} color={t.colors.success} trackColor="rgba(255,255,255,0.18)">
+          <ProgressRing size={112} stroke={11} value={Math.min(1, weekDays / c.weeklyTarget)} color={t.colors.success} trackColor={t.veil.strong}>
             <AppText variant="h3" weight="800" color={onHero}>
               {tr('body.home.ring', {
                 done: Math.min(weekDays, c.weeklyTarget),
@@ -92,7 +92,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
               })}
             </AppText>
           </ProgressRing>
-          <View style={{ flex: 1, gap: 4 }}>
+          <View style={{ flex: 1, gap: t.space.xs }}>
             <AppText variant="tiny" weight="800" color={onHero} style={{ opacity: 0.85 }}>
               {tr('body.home.programLabel')}
             </AppText>
@@ -104,7 +104,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
             </AppText>
           </View>
         </View>
-        <View style={{ flexDirection: 'row', gap: 8 }}>
+        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
           <HeroStat label={tr('body.home.streak')} value={tr('body.home.days', { count: streakDays(s, now) })} color={onHero} />
           <HeroStat label={tr('body.home.total')} value={String(routineDays(s).size)} color={onHero} />
           <HeroStat label={c.measure.title} value={last ? fmtMeasure(last.value, c.measure.unit) : '—'} color={onHero} />
@@ -129,19 +129,19 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
           }}
         >
           <AppText variant="h3" color={t.colors.success}>
-            🎉 {tr('body.home.finishedTitle', { weeks: c.weeks })}
+            {tr('body.home.finishedTitle', { weeks: c.weeks })}
           </AppText>
           <AppText variant="small">{tr('body.home.finishedBody')}</AppText>
         </Card>
       ) : null}
 
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {today ? (
           <Card
             style={{
               flexDirection: 'row',
               alignItems: 'center',
-              gap: 12,
+              gap: t.space.md,
               borderColor: t.colors.success,
               borderWidth: 2,
               backgroundColor: tint(t.colors.success, '14'),
@@ -157,7 +157,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
                 justifyContent: 'center',
               }}
             >
-              <Icon name="check" color="#FFFFFF" size={24} strokeWidth={3} />
+              <Icon name="check" color={t.tokens.primaryForeground} size={24} strokeWidth={3} />
             </View>
             <View style={{ flex: 1 }}>
               <AppText variant="h3" color={t.colors.success}>
@@ -172,7 +172,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
         <Button label={today ? tr('body.home.again') : tr('body.home.startRoutine', { minutes })} icon="play" variant={today ? 'secondary' : 'accent'} size="lg" onPress={() => router.push(`/campus/${id}/routine`)} />
       </View>
 
-      <SectionTitle emoji="📅" title={tr('body.home.calendarTitle')} hint={tr('body.home.calendarHint', { goal: c.weeklyTarget })} />
+      <SectionTitle icon="calendar" title={tr('body.home.calendarTitle')} hint={tr('body.home.calendarHint', { goal: c.weeklyTarget })} />
       <Card style={{ gap: 10 }}>
         <ProgramGrid grid={programGrid(s, c.weeks, now)} currentWeek={week} />
         <AppText variant="tiny" muted>
@@ -183,14 +183,14 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
       </Card>
 
       <SectionTitle
-        emoji={id === 'neck' ? '📏' : '⏱️'}
+        icon={id === 'neck' ? 'ruler' : 'timer'}
         title={tr('body.home.measureTitle')}
         hint={c.measure.title}
         right={
           due ? (
             <View
               style={{
-                paddingHorizontal: 8,
+                paddingHorizontal: t.space.sm,
                 paddingVertical: 3,
                 borderRadius: t.radius.pill,
                 backgroundColor: tint(t.colors.warning, '33'),
@@ -203,7 +203,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
           ) : undefined
         }
       />
-      <Card style={{ gap: 12 }}>
+      <Card style={{ gap: t.space.md }}>
         {measures.length ? <MeasureBars measures={measures} unit={c.measure.unit} /> : <AppText muted>{tr('body.home.measureEmpty')}</AppText>}
         {trend ? (
           <View
@@ -224,7 +224,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
             </AppText>
           </View>
         ) : null}
-        <View style={{ flexDirection: 'row', gap: 8 }}>
+        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
           <Button label={tr('body.home.measureAdd')} icon="plus" variant={due ? 'primary' : 'secondary'} onPress={() => setMeasureOpen(true)} style={{ flex: 1 }} />
           {measures.length ? <Button label={tr('body.home.measureUndo')} variant="ghost" onPress={() => useCampusStore.getState().undoBodyMeasure(id)} /> : null}
         </View>
@@ -232,21 +232,21 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
       </Card>
 
       <SectionTitle
-        emoji="🏋️"
+        icon="dumbbell"
         title={tr('body.home.exercisesTitle')}
         hint={tr('body.home.exercisesHint', {
           count: c.exercises.length,
           minutes,
         })}
       />
-      <View style={{ gap: 8 }}>
+      <View style={{ gap: t.space.sm }}>
         {c.exercises.map((e, i) => (
           <ExerciseRow key={e.id} ex={e} n={i + 1} />
         ))}
       </View>
 
       <SectionTitle
-        emoji={id === 'neck' ? '💻' : '👟'}
+        icon={id === 'neck' ? 'laptop' : 'footprints'}
         title={tr(`body.setup.checkTitle.${id}`)}
         hint={tr('body.home.checkCount', {
           done: checkDone,
@@ -255,11 +255,11 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
       />
       <BodyChecklist items={c.checklist} doneIds={s.checkDoneIds} onToggle={(v) => useCampusStore.getState().toggleBodyCheck(id, v)} />
 
-      <SectionTitle emoji="🧪" title={tr('body.home.testTitle')} />
+      <SectionTitle icon="flask" title={tr('body.home.testTitle')} />
       <TestResult id={id} answers={s.answers} />
 
-      <SectionTitle emoji="💡" title={tr('body.home.factsTitle')} />
-      <View style={{ gap: 8 }}>
+      <SectionTitle icon="bulb" title={tr('body.home.factsTitle')} />
+      <View style={{ gap: t.space.sm }}>
         {c.facts.map((f) => {
           const open = openFact === f.id;
           return (
@@ -278,7 +278,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
               >
                 <View
                   style={{
-                    paddingHorizontal: 8,
+                    paddingHorizontal: t.space.sm,
                     paddingVertical: 3,
                     borderRadius: t.radius.pill,
                     backgroundColor: tint(t.colors.danger, '26'),
@@ -300,7 +300,7 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
                   style={{
                     marginHorizontal: 14,
                     marginBottom: 14,
-                    padding: 12,
+                    padding: t.space.md,
                     gap: 6,
                     borderRadius: t.radius.md,
                     backgroundColor: tint(t.colors.success, '14'),
@@ -319,13 +319,13 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
         })}
       </View>
 
-      <SectionTitle emoji="📘" title={tr('body.home.guideTitle')} hint={tr('body.home.guideBody', { count: c.steps.length })} />
+      <SectionTitle icon="book" title={tr('body.home.guideTitle')} hint={tr('body.home.guideBody', { count: c.steps.length })} />
       <Button label={tr('body.home.guideOpen')} icon="book" variant="secondary" onPress={() => router.push(`/campus/${id}/guide`)} />
 
-      <SectionTitle emoji="🤝" title={tr('body.home.helpTitle')} />
+      <SectionTitle icon="handshake" title={tr('body.home.helpTitle')} />
       <GroupCard>
         {c.help.map((h) => (
-          <View key={h.id} style={{ gap: 4 }}>
+          <View key={h.id} style={{ gap: t.space.xs }}>
             <AppText weight="800">{h.title}</AppText>
             <AppText variant="small" muted>
               {h.text}
@@ -354,10 +354,10 @@ export function BodyHomeScreen({ id }: { id: BodyId }) {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            gap: 4,
+            gap: t.space.xs,
             alignSelf: 'flex-start',
             minHeight: t.touch,
-            marginTop: 4,
+            marginTop: t.space.xs,
           }}
         >
           <AppText variant="tiny" weight="700" muted>

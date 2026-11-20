@@ -1,7 +1,8 @@
 {
   "id": "feet",
-  "title": "Güçlü Kemer Kampüsü (Düz Taban)",
-  "emoji": "🦶",
+  "title": "Güçlü Kemer Antrenmanı (Düz Taban)",
+  "icon": "footprints",
+  "tone": "campus",
   "description": "Ayak kaslarını güçlendir, dengeni geliştir ve ayak kemerini destekle.",
   "reviewed": false,
   "weeks": 8,
@@ -101,7 +102,8 @@
   "exercises": [
     {
       "id": "short-foot",
-      "emoji": "🦶",
+      "icon": "footprints",
+      "tone": "campus",
       "title": "Kısa ayak egzersizi",
       "steps": [
         "Otur, ayağın yerde düz dursun.",
@@ -116,7 +118,8 @@
     },
     {
       "id": "toe-yoga",
-      "emoji": "🧘",
+      "icon": "flower",
+      "tone": "campus",
       "title": "Parmak yogası",
       "steps": [
         "Ayağın yerde dursun.",
@@ -131,7 +134,8 @@
     },
     {
       "id": "towel",
-      "emoji": "🧺",
+      "icon": "basket",
+      "tone": "campus",
       "title": "Havlu toplama",
       "steps": [
         "Yere bir havlu ser, ayağını üzerine koy.",
@@ -146,7 +150,8 @@
     },
     {
       "id": "marble",
-      "emoji": "🔴",
+      "icon": "circle",
+      "tone": "campus",
       "title": "Küçük nesne toplama",
       "steps": [
         "Yere birkaç bilye, kalem ya da şişe kapağı koy.",
@@ -160,7 +165,8 @@
     },
     {
       "id": "heel-raise",
-      "emoji": "⬆️",
+      "icon": "arrowUp",
+      "tone": "campus",
       "title": "Topuk kaldırma",
       "steps": [
         "Ayakta dur, gerekirse duvara tutun.",
@@ -175,7 +181,8 @@
     },
     {
       "id": "calf",
-      "emoji": "🦵",
+      "icon": "body",
+      "tone": "campus",
       "title": "Baldır germe",
       "steps": [
         "Duvara karşı dur, bir bacağını arkaya al, topuğun yerde kalsın.",
@@ -190,7 +197,8 @@
     },
     {
       "id": "balance",
-      "emoji": "🧍",
+      "icon": "body",
+      "tone": "campus",
       "title": "Tek ayak denge",
       "steps": [
         "Yalın ayak dur, bir ayağını kaldır.",
@@ -204,7 +212,8 @@
     },
     {
       "id": "barefoot",
-      "emoji": "🌿",
+      "icon": "leaf",
+      "tone": "campus",
       "title": "Yalın ayak yürüyüş",
       "steps": [
         "Güvenli bir yüzeyde (halı, çim, kum) yalın ayak yürü.",
@@ -274,7 +283,8 @@
   "steps": [
     {
       "id": "what",
-      "emoji": "🦶",
+      "icon": "footprints",
+      "tone": "campus",
       "title": "Düz taban nedir?",
       "summary": "Ayakta dururken ayağın iç kemerinin çökmesi ya da belirgin olmaması.",
       "sections": [
@@ -293,7 +303,8 @@
     },
     {
       "id": "when",
-      "emoji": "🩺",
+      "icon": "stethoscope",
+      "tone": "campus",
       "title": "Ne zaman önemlidir?",
       "summary": "Ağrı yapmayan düz taban çoğu zaman sorun değildir.",
       "sections": [
@@ -312,7 +323,8 @@
     },
     {
       "id": "evidence",
-      "emoji": "📈",
+      "icon": "trendUp",
+      "tone": "campus",
       "title": "Egzersiz ne sağlar?",
       "summary": "Ayak kaslarını ve dengeyi güçlendirir; etki için sabır gerekir.",
       "sections": [
@@ -322,7 +334,7 @@
         },
         {
           "title": "Denge ve güç",
-          "text": "Topuk kaldırma, baldır germe ve tek ayak denge çalışmaları ayağın ve bacağın birlikte çalışmasını destekler. Kampüs bu yüzden 8 haftalık bir program önerir."
+          "text": "Topuk kaldırma, baldır germe ve tek ayak denge çalışmaları ayağın ve bacağın birlikte çalışmasını destekler. Antrenman bu yüzden 8 haftalık bir program önerir."
         }
       ],
       "actions": [
@@ -331,7 +343,8 @@
     },
     {
       "id": "routine",
-      "emoji": "⏱️",
+      "icon": "timer",
+      "tone": "campus",
       "title": "Günlük rutin",
       "summary": "Yaklaşık 15 dakika; zamanlayıcı seni adım adım yönlendirir.",
       "sections": [
@@ -350,7 +363,8 @@
     },
     {
       "id": "track",
-      "emoji": "⏱️",
+      "icon": "timer",
+      "tone": "campus",
       "title": "İlerlemeni ölç",
       "summary": "Haftada bir tek ayak denge süreni kaydet.",
       "sections": [

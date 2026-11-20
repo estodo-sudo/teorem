@@ -15,28 +15,28 @@
    {
     "id": "tired",
     "letter": "D",
-    "emoji": "😴",
+    "icon": "moon", "tone": "focus",
     "label": "Dinlenmemiş / yorgun",
     "tip": "Yorgunken dürtüler güçlenir. Bu gece biraz erken yatmak iyi gelebilir."
    },
    {
     "id": "hungry",
     "letter": "A",
-    "emoji": "🍽️",
+    "icon": "utensils", "tone": "focus",
     "label": "Aç",
     "tip": "Açlık gerginliği artırır. Bir şeyler yemek ya da su içmek bedenini sakinleştirir."
    },
    {
     "id": "lonely",
     "letter": "Y",
-    "emoji": "🫥",
+    "icon": "eyeOff", "tone": "focus",
     "label": "Yalnız",
     "tip": "Yalnızlık en sık tetikleyicilerden biri. Birine yazmak ya da insanların olduğu bir yere gitmek yardımcı olabilir."
    },
    {
     "id": "loaded",
     "letter": "Y",
-    "emoji": "😣",
+    "icon": "frown", "tone": "focus",
     "label": "Yüklü (stres / öfke)",
     "tip": "Gerginlik bir çıkış arar. Nefes ya da kısa bir hareket bu yükü azaltabilir."
    }
@@ -66,37 +66,37 @@
   "items": [
    {
     "id": "surf",
-    "emoji": "🌊",
+    "icon": "waves", "tone": "focus",
     "title": "Dürtü sörfü",
     "desc": "3–5 dakikalık dalga"
    },
    {
     "id": "breath",
-    "emoji": "🌬️",
+    "icon": "wind", "tone": "focus",
     "title": "Nefes",
     "desc": "2 dakika yavaş nefes"
    },
    {
     "id": "move",
-    "emoji": "🏃",
+    "icon": "footprints", "tone": "focus",
     "title": "Hareket",
     "desc": "2 dakikalık hızlı set"
    },
    {
     "id": "values",
-    "emoji": "🧭",
+    "icon": "compass", "tone": "focus",
     "title": "Değerlerim",
     "desc": "Kendi cümlelerin"
    },
    {
     "id": "futureSelf",
-    "emoji": "✉️",
+    "icon": "mail", "tone": "focus",
     "title": "Gelecekteki ben",
     "desc": "Kendine yazdığın mektup"
    },
    {
     "id": "supporter",
-    "emoji": "💬",
+    "icon": "chat", "tone": "focus",
     "title": "Birine yaz",
     "desc": "Hazır, nötr bir mesaj"
    }

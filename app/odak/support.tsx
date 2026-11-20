@@ -11,7 +11,6 @@ import { ODAK_PHASE_ORDER, odakPhase, programDay } from '@/features/camps/odak/e
 import { summaryNumbers } from '@/features/camps/odak/engine/stats';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
-import { tint } from '@/features/campus/shared/ui';
 import { OdakLock } from '@/features/camps/odak/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
@@ -75,16 +74,16 @@ export default function OdakSupport() {
     <Screen>
       <Header title={S.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
 
-      <Card style={{ gap: 8, borderLeftWidth: 4, borderLeftColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '10') }}>
-        <AppText variant="h3">🆘 {S.emergency.title}</AppText>
+      <Card style={{ gap: t.space.sm, backgroundColor: t.tokens.destructiveSoft, borderColor: t.tokens.destructiveSoft }}>
+        <AppText variant="h3">{S.emergency.title}</AppText>
         <AppText variant="small">{S.emergency.text}</AppText>
         <Button label={S.emergency.button} variant="danger" onPress={() => call(S.emergency.phone)} />
       </Card>
 
       {S.help.map((h) => (
-        <Card key={h.id} style={{ gap: 8 }}>
+        <Card key={h.id} style={{ gap: t.space.sm }}>
           <AppText variant="h3">
-            {h.emoji} {h.title}
+            {h.title}
           </AppText>
           <AppText variant="small">{h.text}</AppText>
           <Button label={h.button} icon="bell" variant="secondary" onPress={() => call(h.phone)} />
@@ -95,12 +94,12 @@ export default function OdakSupport() {
       ))}
 
       <Card style={{ gap: 6 }}>
-        <AppText variant="h3">🩺 {S.expert.title}</AppText>
+        <AppText variant="h3">{S.expert.title}</AppText>
         <AppText variant="small">{S.expert.text}</AppText>
       </Card>
 
-      <Card style={{ gap: 8 }}>
-        <AppText variant="h3">💬 {S.supporter.title}</AppText>
+      <Card style={{ gap: t.space.sm }}>
+        <AppText variant="h3">{S.supporter.title}</AppText>
         <AppText variant="small" muted>
           {S.supporter.desc}
         </AppText>
@@ -112,8 +111,8 @@ export default function OdakSupport() {
         ))}
       </Card>
 
-      <Card style={{ gap: 8 }}>
-        <AppText variant="h3">📄 {S.summary.title}</AppText>
+      <Card style={{ gap: t.space.sm }}>
+        <AppText variant="h3">{S.summary.title}</AppText>
         <AppText variant="small">{S.summary.desc}</AppText>
         {premium ? <Button label={S.summary.button} icon="book" disabled={!goal} onPress={() => setConfirm(true)} /> : <OdakLock title={tr('odak.premium.summary')} />}
         {failed ? (

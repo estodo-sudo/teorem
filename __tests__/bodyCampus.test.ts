@@ -51,7 +51,7 @@ describe('body campus content', () => {
 describe('routine timeline', () => {
   const ex = (o: Partial<BodyExercise>): BodyExercise => ({
     id: 'x',
-    emoji: '',
+    icon: 'leaf',
     title: '',
     steps: [],
     reps: 3,

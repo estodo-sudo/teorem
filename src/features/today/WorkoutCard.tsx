@@ -1,25 +1,34 @@
 import { useState } from 'react';
 import { View } from 'react-native';
+import Animated, { FadeInDown, ReduceMotion } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Dialog, Icon, Segmented, useTheme } from '@/components';
+import { AppText, Icon, useTheme, type IconName } from '@/components';
+import { Button, Card, IconTile, Ring, ScalePressable, Sheet, Tabs } from '@/components/ui';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
 import { openGated } from '@/features/purchases/useGate';
 import { generateMicroSet } from '@/features/training/generateSession';
 import { todayPlanDay, todayWeekIndex } from '@/features/training/plan';
-import { capStatus, isOnVacation, sessionAllowed } from '@/features/training/schedule';
+import { positionCard } from '@/features/training/player/playerUi';
+import { capStatus, isOnVacation } from '@/features/training/schedule';
 import { buildTodaySession, contractionsToday } from '@/features/training/service';
-import { DURATION_ORDER } from '@/features/training/tracks';
+import { DURATION_ORDER, DURATION_SEC, KEGEL_TRACKS } from '@/features/training/tracks';
+import type { SessionBlock } from '@/features/training/types';
+import { useSessionStarter } from '@/features/training/useSessionStarter';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
-import type { DurationPreset } from '@/types';
+import type { DurationPreset, KegelExerciseType } from '@/types';
+
+/** Neutral icon per exercise (Lucide). */
+const BLOCK_ICON: Record<KegelExerciseType, IconName> = { slow_hold: 'clock', quick_flick: 'pulse', max_contraction: 'target', elevator: 'layers', endurance: 'clock', knack: 'wind', release: 'leaf', breath: 'wind' };
 
 /**
- * Today's Kegel card (SPEC_KEGEL_V2 §6.2, §6.3, §11.5): duration chips (Quick / Standard / Full),
- * start, the daily target (main session + micro sets) and a one-minute micro set. Over the daily
- * contraction cap more sessions lock ("enough for today"); a release session still opens.
+ * Today's Kegel card — ui-v3 (SPEC_UI_V3 §7.1): one layer. Day / track kicker, title, the daily target
+ * ring, the duration control, a one-line summary (the exercises open in a sheet), the primary "Başla"
+ * and two small secondary actions (micro set, breathing). Behaviour unchanged (SPEC_KEGEL_V2 §6.2, §6.3,
+ * §11.5): micro set, daily target, the contraction cap ("enough for today" → release session), notices.
  */
 export function WorkoutCard() {
   const t = useTheme();
@@ -29,7 +38,7 @@ export function WorkoutCard() {
   const workouts = useHistoryStore((s) => s.workouts);
   const hypertonic = useKegelStore((s) => s.profile?.hypertonicFlag ?? false);
   const painFlag = useKegelStore((s) => s.profile?.painFlag ?? false);
-  const [capOpen, setCapOpen] = useState(false);
+  const [blocksOpen, setBlocksOpen] = useState(false);
   const todays = workouts.filter((w) => w.date === today);
   const doneCount = todays.filter((w) => w.completed).length;
   const mainDone = todays.some((w) => w.completed && !w.isMicro);
@@ -40,96 +49,127 @@ export function WorkoutCard() {
   const day = todayPlanDay(training, today) + 1;
   const preset = training.nextPresetOnce ?? training.durationPreset;
   const onVacation = isOnVacation(today, training.vacation);
+  const track = KEGEL_TRACKS.find((x) => x.id === training.track) ?? KEGEL_TRACKS[0]!;
+  const blocks = session.blocks;
+  const firstMain = blocks.find((b) => b.type !== 'release' && b.type !== 'breath') ?? blocks[0];
+  const position = firstMain ? positionCard(firstMain.position).title : '';
+  const target = training.dailyTarget;
 
-  const go = (sessionId: string, contractions: number) => {
-    if (!sessionAllowed(used, contractions, training.level)) return setCapOpen(true);
-    openGated('workout', { pathname: '/workout/[sessionId]', params: { sessionId } });
-  };
-  const setPreset = (p: DurationPreset) => {
-    const st = useTrainingStore.getState();
-    st.update({ durationPreset: p, nextPresetOnce: undefined, suggestShorter: undefined });
-  };
+  const { go, dialog } = useSessionStarter();
+  const setPreset = (p: DurationPreset) => useTrainingStore.getState().update({ durationPreset: p, nextPresetOnce: undefined, suggestShorter: undefined });
+
+  const notices: { key: string; text: string; tone: 'alert' | 'info' }[] = [];
+  if (training.returnNotice && training.returnNotice.date === today) notices.push({ key: 'return', text: tr(`kegel.return.${training.returnNotice.kind}`, { count: training.returnNotice.days }), tone: 'info' });
+  if (onVacation) notices.push({ key: 'vacation', text: tr('kegel.vacation.cardNote'), tone: 'info' });
+  if (painFlag) notices.push({ key: 'pain', text: tr('kegel.painNotice'), tone: 'alert' });
+  if (training.suggestShorter && !mainDone) notices.push({ key: 'shorter', text: tr('today.workout.shorterHint'), tone: 'info' });
+  if (training.repeatNextDay && !mainDone) notices.push({ key: 'repeat', text: tr('today.workout.repeat'), tone: 'info' });
+  if (cap.locked) notices.push({ key: 'cap', text: tr('today.workout.capReached'), tone: 'info' });
 
   return (
-    <Card style={{ gap: 14, backgroundColor: t.colors.primary, borderColor: t.colors.primary }}>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-        <AppText variant="small" weight="700" color={t.colors.primaryText} style={{ opacity: 0.8 }}>
-          {tr('today.workout.plan', { plan: training.planNumber, day, total: PLAN_LENGTH_DAYS })}
-        </AppText>
-        <AppText variant="small" weight="700" color={t.colors.primaryText} accessibilityLabel={tr('today.workout.targetA11y', { done: doneCount, total: training.dailyTarget })}>
-          {tr('today.workout.sessions', { done: Math.min(doneCount, training.dailyTarget), total: training.dailyTarget })}
-        </AppText>
-      </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-        {mainDone ? (
-          <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.success, alignItems: 'center', justifyContent: 'center' }}>
-            <Icon name="check" color="#FFFFFF" size={26} strokeWidth={3} />
-          </View>
-        ) : null}
-        <View style={{ flex: 1 }}>
-          <AppText variant="h2" color={t.colors.primaryText}>
-            {mainDone ? tr('today.workout.doneTitle') : tr('today.workout.title')}
-          </AppText>
-          <AppText color={t.colors.primaryText} style={{ opacity: 0.85 }}>
-            {tr('today.workout.meta', { min: Math.max(1, Math.round(session.plannedSec / 60)), level: session.level })}
+    <Card style={{ padding: t.space.gutter, gap: t.space.lg }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
+        <View style={{ flex: 1, gap: t.space.xs }}>
+          <AppText variant="caption" muted>
+            {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS, track: track.title })}
             {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
           </AppText>
+          <AppText variant="title2" accessibilityRole="header">
+            {mainDone ? tr('today.workout.doneTitle') : tr('today.workout.title')}
+          </AppText>
         </View>
+        <Ring size={56} label="" center={`${Math.min(doneCount, target)}/${target}`} value={doneCount / Math.max(1, target)} />
       </View>
 
       {!mainDone ? (
-        <View style={{ backgroundColor: t.colors.surface, borderRadius: t.radius.md }}>
-          <Segmented<DurationPreset> accessibilityLabel={tr('today.workout.duration')} value={preset} onChange={setPreset} options={DURATION_ORDER.map((p) => ({ value: p, label: tr(`training.preset.${p}`) }))} />
+        <Tabs<DurationPreset> label={tr('today.workout.duration')} value={preset} onChange={setPreset} items={DURATION_ORDER.map((p) => ({ value: p, label: tr('common.minutes', { count: DURATION_SEC[p] / 60 }) }))} />
+      ) : null}
+
+      <ScalePressable
+        onPress={() => setBlocksOpen(true)}
+        accessibilityRole="button"
+        accessibilityLabel={`${tr('today.workout.summary', { count: blocks.length, position })}. ${tr('today.workout.summaryA11y')}`}
+        style={{ minHeight: t.touch, flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}
+      >
+        <Icon name="layers" size="md" color={t.tokens.mutedForeground} />
+        <AppText variant="callout" muted style={{ flex: 1 }}>
+          {tr('today.workout.summary', { count: blocks.length, position })}
+        </AppText>
+        <Icon name="chevron" size="md" color={t.tokens.subtle} />
+      </ScalePressable>
+
+      {notices.length ? (
+        <View style={{ gap: t.space.sm }}>
+          {notices.map((n) => (
+            <View key={n.key} style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start' }} accessibilityRole={n.tone === 'alert' ? 'alert' : undefined}>
+              <Icon name={n.tone === 'alert' ? 'alert' : 'info'} size="sm" color={n.tone === 'alert' ? t.tokens.destructive : t.tokens.mutedForeground} />
+              <AppText variant="footnote" style={{ flex: 1, color: n.tone === 'alert' ? t.tokens.destructive : t.tokens.mutedForeground }}>
+                {n.text}
+              </AppText>
+            </View>
+          ))}
         </View>
       ) : null}
-      {training.suggestShorter && !mainDone ? (
-        <AppText variant="small" color={t.colors.primaryText} style={{ opacity: 0.85 }}>
-          {tr('today.workout.shorterHint')}
-        </AppText>
-      ) : null}
-      {training.returnNotice && training.returnNotice.date === today ? (
-        <AppText variant="small" weight="700" color={t.colors.primaryText} accessibilityRole="alert">
-          {tr(`kegel.return.${training.returnNotice.kind}`, { count: training.returnNotice.days })}
-        </AppText>
-      ) : null}
-      {onVacation ? (
-        <AppText variant="small" weight="700" color={t.colors.primaryText}>
-          🏖️ {tr('kegel.vacation.cardNote')}
-        </AppText>
-      ) : null}
-      {painFlag ? (
-        <AppText variant="small" weight="700" color={t.colors.primaryText} accessibilityRole="alert">
-          ⚠️ {tr('kegel.painNotice')}
-        </AppText>
-      ) : null}
-      {training.repeatNextDay && !mainDone ? (
-        <AppText variant="small" color={t.colors.primaryText} style={{ opacity: 0.85 }}>
-          {tr('today.workout.repeat')}
-        </AppText>
-      ) : null}
 
-      {mainDone ? (
-        <Button label={tr('today.workout.again')} variant="secondary" icon="play" onPress={() => go(today, session.contractions)} />
-      ) : (
-        <Button label={tr('common.start')} size="lg" variant="accent" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" />
-      )}
-      <Button label={tr('today.workout.micro', { sec: micro.plannedSec })} variant="secondary" icon="pulse" onPress={() => go('micro', micro.contractions)} />
-      {cap.locked ? (
-        <AppText variant="small" color={t.colors.primaryText} style={{ opacity: 0.85 }}>
-          {tr('today.workout.capReached')}
-        </AppText>
-      ) : null}
+      <View style={{ gap: t.space.sm }}>
+        {mainDone ? (
+          <Button label={tr('today.workout.again')} variant="secondary" icon="play" size="lg" onPress={() => go(today, session.contractions)} fullWidth />
+        ) : (
+          <Button label={tr('common.start')} size="lg" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" fullWidth />
+        )}
+        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
+          <View style={{ flex: 1 }}>
+            <Button label={tr('today.workout.microShort', { sec: micro.plannedSec })} variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Button label={tr('today.workout.breathShort')} variant="secondary" size="sm" onPress={() => openGated('mind', '/mind/breathing')} fullWidth />
+          </View>
+        </View>
+      </View>
 
-      <Dialog
-        visible={capOpen}
-        title={tr('today.workout.capTitle')}
-        message={tr('today.workout.capBody')}
-        onDismiss={() => setCapOpen(false)}
-        actions={[
-          { label: tr('today.workout.capRelease'), variant: 'accent', onPress: () => (setCapOpen(false), openGated('workout', { pathname: '/workout/[sessionId]', params: { sessionId: 'release' } })) },
-          { label: tr('common.close'), onPress: () => setCapOpen(false) },
-        ]}
-      />
+      <Sheet visible={blocksOpen} onClose={() => setBlocksOpen(false)} title={tr('today.workout.contents')} description={tr('today.workout.contentsCount', { count: blocks.length })}>
+        <View accessibilityRole="list">
+          {blocks.map((b, i) => (
+            <Animated.View key={`${session.id}-${i}`} entering={FadeInDown.delay(Math.min(i, t.motion.staggerMax) * t.motion.stagger).duration(t.motion.normal).reduceMotion(ReduceMotion.System)}>
+              <BlockRow block={b} divider={i > 0} />
+            </Animated.View>
+          ))}
+        </View>
+      </Sheet>
+
+      {dialog}
     </Card>
+  );
+}
+
+/** One exercise row: icon tile, name and reps, timing and position. */
+function BlockRow({ block, divider }: { block: SessionBlock; divider?: boolean }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  const timing = block.slowSec
+    ? tr('player.nextSlow', { slow: block.slowSec, top: (block.holdSec ?? 0) - block.slowSec })
+    : block.holdSec !== undefined
+      ? tr('player.nextDetail', { hold: block.holdSec, rest: block.restSec })
+      : tr('player.nextRelease');
+  const name = tr(`exercise.${block.type}.name`);
+  const pos = positionCard(block.position).title;
+  const calm = block.type === 'release' || block.type === 'breath';
+  return (
+    <View
+      accessibilityRole="text"
+      accessible
+      accessibilityLabel={`${name}, ${tr('today.workout.reps', { count: block.reps })}. ${timing}. ${pos}`}
+      style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, paddingVertical: t.space.md, borderTopWidth: divider ? t.border.thin : 0, borderTopColor: t.tokens.border }}
+    >
+      <IconTile icon={BLOCK_ICON[block.type]} tone={calm ? 'mind' : 'kegel'} />
+      <View style={{ flex: 1, gap: 2 }}>
+        <AppText variant="bodyStrong">
+          {name} · {tr('today.workout.reps', { count: block.reps })}
+        </AppText>
+        <AppText variant="footnote" muted>
+          {timing} · {pos}
+        </AppText>
+      </View>
+    </View>
   );
 }

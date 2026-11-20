@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { useNow } from '@/lib/useNow';
 
 import { tint } from './ui';
@@ -29,10 +30,10 @@ export function CommitmentView() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   return (
-    <View style={{ gap: 18, paddingTop: 8 }}>
+    <View style={{ gap: 18, paddingTop: t.space.sm }}>
       <View style={{ alignItems: 'center', gap: 10 }}>
         <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: tint(t.colors.accent, '26'), alignItems: 'center', justifyContent: 'center' }}>
-          <AppText variant="display">🔑</AppText>
+          <IconTile icon="key" tone="campus" size="lg" round />
         </View>
         <AppText variant="h1" center accessibilityRole="header">
           {tr('campusCommit.title')}
@@ -41,12 +42,12 @@ export function CommitmentView() {
           {tr('campusCommit.lead')}
         </AppText>
       </View>
-      <View style={{ gap: 12, padding: 18, borderRadius: t.radius.xl, backgroundColor: t.colors.surface, borderWidth: 1, borderColor: t.colors.border }}>
+      <View style={{ gap: t.space.md, padding: 18, borderRadius: t.radius.xl, backgroundColor: t.colors.surface, borderWidth: 1, borderColor: t.colors.border }}>
         <AppText style={{ lineHeight: 24 }}>{tr('campusCommit.p1')}</AppText>
         <AppText style={{ lineHeight: 24 }}>{tr('campusCommit.p2')}</AppText>
       </View>
-      <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center', padding: 14, borderRadius: t.radius.lg, backgroundColor: tint(t.colors.accent, '14'), borderLeftWidth: 3, borderLeftColor: t.colors.accent }}>
-        <AppText variant="h3">🤝</AppText>
+      <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center', padding: 14, borderRadius: t.radius.lg, backgroundColor: t.tokens.muted }}>
+        <IconTile icon="handshake" tone="campus" />
         <AppText weight="800" style={{ flex: 1 }}>
           {tr('campusCommit.pledge')}
         </AppText>

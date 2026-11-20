@@ -1,12 +1,14 @@
+import type { IconName } from '@/components/Icon';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, useTheme } from '@/components';
+import { AppText, Icon, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 
-/** One guide section of a campus: emoji, title, summary, numbered sections and "in this step" actions. */
+/** One guide section of a campus: icon, title, summary, numbered sections and "in this step" actions. */
 export interface GuideStep {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   summary: string;
   sections: { title: string; text: string }[];
@@ -14,7 +16,7 @@ export interface GuideStep {
 }
 
 /** Selectable pill. */
-export function Chip({ label, emoji, selected, onPress }: { label: string; emoji?: string; selected: boolean; onPress: () => void }) {
+export function Chip({ label, icon, selected, onPress }: { label: string; icon?: IconName; selected: boolean; onPress: () => void }) {
   const t = useTheme();
   return (
     <Pressable
@@ -34,7 +36,7 @@ export function Chip({ label, emoji, selected, onPress }: { label: string; emoji
         backgroundColor: selected ? t.colors.primary : t.colors.surface,
       }}
     >
-      {emoji ? <AppText>{emoji}</AppText> : null}
+      {icon ? <Icon name={icon} size="md" /> : null}
       <AppText weight="700" variant="small" color={selected ? t.colors.primaryText : t.colors.text}>
         {label}
       </AppText>
@@ -47,14 +49,14 @@ export function GuideStepView({ step, n, total }: { step: GuideStep; n: number; 
   const t = useTheme();
   const { t: tr } = useTranslation();
   return (
-    <View style={{ gap: 16 }}>
-      <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: 4, borderRadius: t.radius.pill, backgroundColor: t.colors.surfaceAlt }}>
+    <View style={{ gap: t.space.lg }}>
+      <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: t.space.xs, borderRadius: t.radius.pill, backgroundColor: t.colors.surfaceAlt }}>
         <AppText variant="tiny" weight="800" color={t.colors.primary}>
           {tr('campusShared.guideBadge', { n, total })}
         </AppText>
       </View>
       <View style={{ alignItems: 'center', gap: 6 }}>
-        <AppText variant="display">{step.emoji}</AppText>
+        <IconTile icon={step.icon} tone="campus" size="lg" round />
         <AppText variant="h1" center accessibilityRole="header">
           {step.title}
         </AppText>
@@ -63,13 +65,13 @@ export function GuideStepView({ step, n, total }: { step: GuideStep; n: number; 
         </AppText>
       </View>
       {step.sections.map((sec, i) => (
-        <View key={sec.title} style={{ flexDirection: 'row', gap: 12 }}>
-          <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center', marginTop: 2 }}>
+        <View key={sec.title} style={{ flexDirection: 'row', gap: t.space.md }}>
+          <View style={{ width: 28, height: 28, borderRadius: t.radius.button, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center', marginTop: 2 }}>
             <AppText variant="small" weight="800">
               {i + 1}
             </AppText>
           </View>
-          <View style={{ flex: 1, gap: 4 }}>
+          <View style={{ flex: 1, gap: t.space.xs }}>
             <AppText variant="h3" accessibilityRole="header">
               {sec.title}
             </AppText>
@@ -78,10 +80,10 @@ export function GuideStepView({ step, n, total }: { step: GuideStep; n: number; 
         </View>
       ))}
       {step.actions.length ? (
-        <View style={{ gap: 8, padding: 16, borderRadius: t.radius.lg, borderWidth: 2, borderColor: t.colors.primary, backgroundColor: t.colors.surface }}>
+        <View style={{ gap: t.space.sm, padding: t.space.lg, borderRadius: t.radius.lg, borderWidth: 2, borderColor: t.colors.primary, backgroundColor: t.colors.surface }}>
           <AppText variant="h3">{tr('campusShared.guideActionsTitle')}</AppText>
           {step.actions.map((a) => (
-            <View key={a} style={{ flexDirection: 'row', gap: 8 }}>
+            <View key={a} style={{ flexDirection: 'row', gap: t.space.sm }}>
               <AppText weight="800" color={t.colors.primary}>
                 →
               </AppText>

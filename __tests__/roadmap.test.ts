@@ -117,8 +117,10 @@ describe('functional tasks (spec 5)', () => {
   it('screens: roadmap, chips and texts are wired', () => {
     expect(fs.existsSync(path.join(root, 'app', 'kegel', 'plan.tsx'))).toBe(true);
     const card = fs.readFileSync(path.join(root, 'src', 'features', 'today', 'WorkoutCard.tsx'), 'utf8');
-    expect(card).toMatch(/Segmented<DurationPreset>/);
-    expect(card).toMatch(/sessionId: 'release'/);
+    expect(card).toMatch(/Tabs<DurationPreset>/);
+    // The cap dialog (→ release-only session) lives in the shared starter used by the card.
+    expect(card).toMatch(/useSessionStarter\(\)/);
+    expect(fs.readFileSync(path.join(root, 'src', 'features', 'training', 'useSessionStarter.tsx'), 'utf8')).toMatch(/sessionId: 'release'/);
     const w = (tr as unknown as { today: { workout: Record<string, string> } }).today.workout;
     expect(w.capBody).toMatch(/Yarın görüşürüz/);
   });

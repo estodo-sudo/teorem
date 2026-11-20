@@ -27,19 +27,19 @@
   "help": [
    {
     "id": "adult",
-    "emoji": "🤝",
+    "icon": "handshake", "tone": "focus",
     "title": "Güvendiğin bir yetişkin",
     "text": "Annen, baban, bir yakının ya da güvendiğin bir büyüğünle konuşmak ilk adım olabilir."
    },
    {
     "id": "school",
-    "emoji": "🏫",
+    "icon": "school", "tone": "focus",
     "title": "Okul rehber öğretmeni",
     "text": "Okulundaki rehber öğretmen ya da psikolojik danışman gizlilik içinde seni dinler."
    },
    {
     "id": "yedam",
-    "emoji": "📞",
+    "icon": "phone", "tone": "focus",
     "title": "Yeşilay Danışma Hattı 115",
     "text": "YEDAM, çocuk ve ergenlere de ücretsiz danışmanlık verir. Arayıp konuşabilirsin.",
     "phone": "115",
@@ -53,19 +53,19 @@
   "title": "Bilmen gerekenler",
   "items": [
    {
-    "emoji": "🩺",
+    "icon": "stethoscope", "tone": "focus",
     "text": "Bu bir tanı aracı değildir. Sana bir etiket koymaz; yalnızca kendi durumunu görmene yardım eder."
    },
    {
-    "emoji": "🌱",
+    "icon": "sprout", "tone": "focus",
     "text": "Cinsellik ve mastürbasyon insan doğasının bir parçasıdır. Buradaki amaç, davranışı kendi istediğin yere getirmen."
    },
    {
-    "emoji": "🤍",
+    "icon": "heart", "tone": "focus",
     "text": "Utanç değişimi zorlaştırır. Burada yargı yok; her adım bir öğrenme fırsatı."
    },
    {
-    "emoji": "🔒",
+    "icon": "lock", "tone": "focus",
     "text": "Her şey bu telefonda, kilit arkasında ve şifreli kalır. Sunucu yok, hesap yok."
    }
   ]
@@ -80,42 +80,42 @@
   "options": [
    {
     "id": "porn_control",
-    "emoji": "📵",
+    "icon": "phoneOff", "tone": "focus",
     "label": "Pornografi izlemeyi kontrol edemiyorum"
    },
    {
     "id": "mast_freq",
-    "emoji": "🔁",
+    "icon": "repeat", "tone": "focus",
     "label": "Mastürbasyon sıklığım beni rahatsız ediyor"
    },
    {
     "id": "time",
-    "emoji": "⏳",
+    "icon": "hourglass", "tone": "focus",
     "label": "Zaman kaybı (uyku, iş, ders)"
    },
    {
     "id": "relationship",
-    "emoji": "💞",
+    "icon": "handshake", "tone": "focus",
     "label": "İlişkime zarar veriyor"
    },
    {
     "id": "values",
-    "emoji": "🧭",
+    "icon": "compass", "tone": "focus",
     "label": "Değerlerimle çelişiyor"
    },
    {
     "id": "feel_bad",
-    "emoji": "🌧️",
+    "icon": "cloudRain", "tone": "focus",
     "label": "Kendimi kötü hissediyorum (utanç / suçluluk)"
    },
    {
     "id": "coping",
-    "emoji": "🌀",
+    "icon": "wind", "tone": "focus",
     "label": "Kaygı ya da stresle başa çıkma yöntemim haline geldi"
    },
    {
     "id": "other",
-    "emoji": "✏️",
+    "icon": "pencil", "tone": "focus",
     "label": "Diğer"
    }
   ],
@@ -165,67 +165,67 @@
   "options": [
    {
     "id": "night_bed",
-    "emoji": "🌙",
+    "icon": "moon", "tone": "focus",
     "label": "Gece yatakta telefonla"
    },
    {
     "id": "alone_home",
-    "emoji": "🏠",
+    "icon": "home", "tone": "focus",
     "label": "Yalnız evdeyken"
    },
    {
     "id": "stress",
-    "emoji": "😣",
+    "icon": "frown", "tone": "focus",
     "label": "Stres / gerginlik"
    },
    {
     "id": "boredom",
-    "emoji": "🥱",
+    "icon": "moon", "tone": "focus",
     "label": "Can sıkıntısı"
    },
    {
     "id": "loneliness",
-    "emoji": "🫥",
+    "icon": "eyeOff", "tone": "focus",
     "label": "Yalnızlık"
    },
    {
     "id": "anxiety",
-    "emoji": "😟",
+    "icon": "frown", "tone": "focus",
     "label": "Kaygı"
    },
    {
     "id": "sadness",
-    "emoji": "😔",
+    "icon": "frown", "tone": "focus",
     "label": "Üzüntü"
    },
    {
     "id": "tired",
-    "emoji": "😮‍💨",
+    "icon": "wind", "tone": "focus",
     "label": "Yorgunluk"
    },
    {
     "id": "sleepless",
-    "emoji": "🛌",
+    "icon": "bed", "tone": "focus",
     "label": "Uykusuzluk"
    },
    {
     "id": "after_argument",
-    "emoji": "💢",
+    "icon": "angry", "tone": "focus",
     "label": "Tartışma sonrası"
    },
    {
     "id": "social_media",
-    "emoji": "📱",
+    "icon": "smartphone", "tone": "focus",
     "label": "Sosyal medyada gezinirken"
    },
    {
     "id": "alcohol",
-    "emoji": "🍺",
+    "icon": "glass", "tone": "focus",
     "label": "Alkol sonrası"
    },
    {
     "id": "waking",
-    "emoji": "🌅",
+    "icon": "sunrise", "tone": "focus",
     "label": "Sabah uyanınca"
    }
   ]
@@ -238,89 +238,89 @@
   "before": [
    {
     "id": "stressed",
-    "emoji": "😣",
+    "icon": "frown", "tone": "focus",
     "label": "Gergin"
    },
    {
     "id": "anxious",
-    "emoji": "😟",
+    "icon": "frown", "tone": "focus",
     "label": "Kaygılı"
    },
    {
     "id": "bored",
-    "emoji": "🥱",
+    "icon": "moon", "tone": "focus",
     "label": "Sıkılmış"
    },
    {
     "id": "lonely",
-    "emoji": "🫥",
+    "icon": "eyeOff", "tone": "focus",
     "label": "Yalnız"
    },
    {
     "id": "sad",
-    "emoji": "😔",
+    "icon": "frown", "tone": "focus",
     "label": "Üzgün"
    },
    {
     "id": "tired",
-    "emoji": "😮‍💨",
+    "icon": "wind", "tone": "focus",
     "label": "Yorgun"
    },
    {
     "id": "angry",
-    "emoji": "😠",
+    "icon": "angry", "tone": "focus",
     "label": "Öfkeli"
    },
    {
     "id": "curious",
-    "emoji": "🤔",
+    "icon": "thought", "tone": "focus",
     "label": "Meraklı"
    },
    {
     "id": "neutral",
-    "emoji": "😐",
+    "icon": "meh", "tone": "focus",
     "label": "Belirli bir duygu yok"
    }
   ],
   "after": [
    {
     "id": "relieved",
-    "emoji": "😮‍💨",
+    "icon": "wind", "tone": "focus",
     "label": "Rahatlamış"
    },
    {
     "id": "empty",
-    "emoji": "🕳️",
+    "icon": "circle", "tone": "focus",
     "label": "Boşlukta"
    },
    {
     "id": "guilty",
-    "emoji": "😞",
+    "icon": "frown", "tone": "focus",
     "label": "Suçlu"
    },
    {
     "id": "ashamed",
-    "emoji": "🙈",
+    "icon": "eyeOff", "tone": "focus",
     "label": "Utanmış"
    },
    {
     "id": "regret",
-    "emoji": "😕",
+    "icon": "frown", "tone": "focus",
     "label": "Pişman"
    },
    {
     "id": "tired",
-    "emoji": "😴",
+    "icon": "moon", "tone": "focus",
     "label": "Yorgun"
    },
    {
     "id": "calm",
-    "emoji": "😌",
+    "icon": "smile", "tone": "focus",
     "label": "Sakin"
    },
    {
     "id": "neutral",
-    "emoji": "😐",
+    "icon": "meh", "tone": "focus",
     "label": "Bir şey değişmedi"
    }
   ]
@@ -331,62 +331,62 @@
   "cards": [
    {
     "id": "honesty",
-    "emoji": "🤝",
+    "icon": "handshake", "tone": "focus",
     "label": "Dürüstlük"
    },
    {
     "id": "commitment",
-    "emoji": "💞",
+    "icon": "handshake", "tone": "focus",
     "label": "İlişkime bağlılık"
    },
    {
     "id": "self_respect",
-    "emoji": "🌟",
+    "icon": "star", "tone": "focus",
     "label": "Öz saygı"
    },
    {
     "id": "focus",
-    "emoji": "🎯",
+    "icon": "target", "tone": "focus",
     "label": "Odak"
    },
    {
     "id": "health",
-    "emoji": "💪",
+    "icon": "dumbbell", "tone": "focus",
     "label": "Sağlık"
    },
    {
     "id": "faith",
-    "emoji": "🕊️",
+    "icon": "bird", "tone": "focus",
     "label": "İnanç / maneviyat"
    },
    {
     "id": "family",
-    "emoji": "🏡",
+    "icon": "home", "tone": "focus",
     "label": "Aile"
    },
    {
     "id": "productivity",
-    "emoji": "🛠️",
+    "icon": "wrench", "tone": "focus",
     "label": "Üretkenlik"
    },
    {
     "id": "learning",
-    "emoji": "📚",
+    "icon": "book", "tone": "focus",
     "label": "Öğrenme"
    },
    {
     "id": "freedom",
-    "emoji": "🦋",
+    "icon": "feather", "tone": "focus",
     "label": "Özgürlük"
    },
    {
     "id": "connection",
-    "emoji": "🫂",
+    "icon": "handshake", "tone": "focus",
     "label": "Yakınlık ve bağ"
    },
    {
     "id": "responsibility",
-    "emoji": "🧱",
+    "icon": "blocks", "tone": "focus",
     "label": "Sorumluluk"
    }
   ],
@@ -443,27 +443,27 @@
   "options": [
    {
     "id": "first",
-    "emoji": "✨",
+    "icon": "sparkle", "tone": "focus",
     "label": "İlk kez deniyorum"
    },
    {
     "id": "short",
-    "emoji": "⏱️",
+    "icon": "timer", "tone": "focus",
     "label": "Kısa sürede bıraktım"
    },
    {
     "id": "slip_quit",
-    "emoji": "↩️",
+    "icon": "undo", "tone": "focus",
     "label": "Bir kayma sonrası tamamen bıraktım"
    },
    {
     "id": "filter",
-    "emoji": "🧱",
+    "icon": "blocks", "tone": "focus",
     "label": "Filtre koydum ama aştım"
    },
    {
     "id": "shame",
-    "emoji": "🌧️",
+    "icon": "cloudRain", "tone": "focus",
     "label": "Utanç beni daha kötü yaptı"
    }
   ],
@@ -477,17 +477,17 @@
    "options": [
     {
      "id": "quit",
-     "emoji": "🛑",
+     "icon": "hand", "tone": "focus",
      "label": "Tamamen bırakmak"
     },
     {
      "id": "reduce",
-     "emoji": "📉",
+     "icon": "trendDown", "tone": "focus",
      "label": "Azaltmak (haftalık üst sınır)"
     },
     {
      "id": "undecided",
-     "emoji": "🤔",
+     "icon": "thought", "tone": "focus",
      "label": "Henüz karar vermedim"
     }
    ]
@@ -497,22 +497,22 @@
    "options": [
     {
      "id": "none",
-     "emoji": "➖",
+     "icon": "minus", "tone": "focus",
      "label": "Hedefim yok (sadece pornografi)"
     },
     {
      "id": "reduce",
-     "emoji": "📉",
+     "icon": "trendDown", "tone": "focus",
      "label": "Azaltmak (haftalık üst sınır)"
     },
     {
      "id": "pause",
-     "emoji": "⏸️",
+     "icon": "pause", "tone": "focus",
      "label": "Belirli bir süre ara vermek"
     },
     {
      "id": "undecided",
-     "emoji": "🤔",
+     "icon": "thought", "tone": "focus",
      "label": "Henüz karar vermedim"
     }
    ]
@@ -611,37 +611,37 @@
   "programIntro": "6 haftalık çekirdek program, ardından 90. güne kadar pekiştirme.",
   "phases": [
    {
-    "emoji": "🔍",
+    "icon": "search", "tone": "focus",
     "name": "Farkındalık",
     "days": "1–7. gün",
     "focus": "Kendini izleme, tetikleyiciler, değerler, ortam düzenleme"
    },
    {
-    "emoji": "🧱",
+    "icon": "blocks", "tone": "focus",
     "name": "Sınırlar",
     "days": "8–14. gün",
     "focus": "Ortam ve dijital sınırlar, riskli saat planları"
    },
    {
-    "emoji": "🌊",
+    "icon": "waves", "tone": "focus",
     "name": "Beceriler",
     "days": "15–28. gün",
     "focus": "Dürtü sörfü, düşüncelerden ayrışma, duygu düzenleme"
    },
    {
-    "emoji": "🏗️",
+    "icon": "construction", "tone": "focus",
     "name": "Yeniden İnşa",
     "days": "29–42. gün",
     "focus": "Sağlıklı rutinler, bağlantı, anlam, uyku, hareket"
    },
    {
-    "emoji": "🔗",
+    "icon": "link", "tone": "focus",
     "name": "Pekiştirme",
     "days": "43–90. gün",
     "focus": "Kayma önleme, kimlik, haftalık görevler"
    },
    {
-    "emoji": "🌿",
+    "icon": "leaf", "tone": "focus",
     "name": "Bakım",
     "days": "90. günden sonra",
     "focus": "Aylık kontrol, mezuniyet"

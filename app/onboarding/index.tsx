@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { BackHandler, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, TimeStepper, useTheme } from '@/components';
-import { PlanArt } from '@/components/Illustrations';
+import { AppText, Icon, Screen, TimeStepper, useTheme, type IconName } from '@/components';
+import { Badge, Button, Card, Illustration, IconTile, OptionCard, ScalePressable, SegmentedSteps, type IllustrationName } from '@/components/ui';
 import { APP_NAME, PLAN_LENGTH_DAYS } from '@/config/app';
 import { requestNotificationPermission } from '@/features/reminders/permissions';
 import { generateSession } from '@/features/training/generateSession';
@@ -17,19 +17,33 @@ import { useSettingsStore } from '@/stores/settingsStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { ActivityLevel, AgeRange, Experience, Goal } from '@/types';
 
-const GOALS: { value: Goal; emoji: string }[] = [
-  { value: 'endurance', emoji: '⏱️' },
-  { value: 'bladder', emoji: '💧' },
-  { value: 'erection', emoji: '⚡' },
-  { value: 'confidence', emoji: '🦁' },
-  { value: 'general', emoji: '🌿' },
-  { value: 'postSurgery', emoji: '🩹' },
+/** Neutral icons only (ui-v2): nothing that hints at the body part or at sex. */
+const GOALS: { value: Goal; icon: IconName }[] = [
+  { value: 'endurance', icon: 'clock' },
+  { value: 'bladder', icon: 'droplet' },
+  { value: 'erection', icon: 'pulse' },
+  { value: 'confidence', icon: 'star' },
+  { value: 'general', icon: 'leaf' },
+  { value: 'postSurgery', icon: 'shield' },
 ];
 const AGES: AgeRange[] = ['16-24', '25-34', '35-44', '45-54', '55+'];
-const EXPERIENCE: Experience[] = ['none', 'some', 'regular'];
-const ACTIVITY: ActivityLevel[] = ['low', 'mid', 'high'];
+const EXPERIENCE: { value: Experience; icon: IconName }[] = [
+  { value: 'none', icon: 'leaf' },
+  { value: 'some', icon: 'layers' },
+  { value: 'regular', icon: 'target' },
+];
+const ACTIVITY: { value: ActivityLevel; icon: IconName }[] = [
+  { value: 'low', icon: 'body' },
+  { value: 'mid', icon: 'pulse' },
+  { value: 'high', icon: 'trophy' },
+];
 const STEPS = 7;
 
+/**
+ * Onboarding — ui-v3 (SPEC_UI_V3 §7.9): a thin progress bar with "1 / 7", a header zone (illustration +
+ * title1 + body) on the welcome, goals and plan steps, 64 px selection cards and one pinned primary
+ * button. Questions, order and saved data unchanged.
+ */
 export default function Onboarding() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -73,7 +87,8 @@ export default function Onboarding() {
         <Button
           label={tr('onboarding.reminder.allow')}
           size="lg"
-          variant="accent"
+          icon="bell"
+          fullWidth
           onPress={async () => {
             const ok = await requestNotificationPermission();
             setNotifAsked(ok);
@@ -83,6 +98,7 @@ export default function Onboarding() {
         <Button
           label={tr('onboarding.reminder.skip')}
           variant="ghost"
+          fullWidth
           onPress={() => {
             setNotifAsked(false);
             next();
@@ -90,43 +106,66 @@ export default function Onboarding() {
         />
       </>
     ) : (
-      <Button label={step === STEPS - 1 ? tr('onboarding.plan.cta') : tr('common.continue')} size="lg" variant="accent" disabled={!canContinue} onPress={step === STEPS - 1 ? finish : next} />
+      <Button label={step === STEPS - 1 ? tr('onboarding.plan.cta') : tr('common.continue')} size="lg" fullWidth icon={step === STEPS - 1 ? 'play' : undefined} disabled={!canContinue} onPress={step === STEPS - 1 ? finish : next} />
     );
+
+  const dailyMin = Math.round(generateSession({ track: 'general', level, durationPreset: 'standard', dayIndex: 0, weekIndex: 0, hypertonic: false, seed: toDateKey() }).plannedSec / 60);
 
   return (
     <Screen footer={footer}>
-      <View style={{ gap: 12 }}>
-        {step > 0 ? <Header onBack={() => setStep(step - 1)} /> : <View style={{ height: 48 }} />}
-        <ProgressBar value={(step + 1) / STEPS} accessibilityLabel={tr('onboarding.progress', { step: step + 1, total: STEPS })} />
+      {/* Top: back + segmented step bar */}
+      <View style={{ flexDirection: 'row', alignItems: 'flex-end', gap: t.space.md }}>
+        {step > 0 ? (
+          <ScalePressable
+            onPress={() => setStep(step - 1)}
+            accessibilityRole="button"
+            accessibilityLabel={tr('onboarding.back')}
+            style={{ width: t.touch, height: t.touch, borderRadius: t.radius.pill, alignItems: 'center', justifyContent: 'center', backgroundColor: t.tokens.muted }}
+          >
+            <Icon name="back" size="md" color={t.tokens.foreground} />
+          </ScalePressable>
+        ) : null}
+        <View style={{ flex: 1, paddingBottom: step > 0 ? t.space.sm : 0 }}>
+          <SegmentedSteps total={STEPS} current={step} label={tr('onboarding.progress', { step: step + 1, total: STEPS })} />
+        </View>
       </View>
 
       {step === 0 ? (
-        <View style={{ gap: 16, marginTop: 24 }}>
-          <AppText variant="display">👋</AppText>
-          <AppText variant="h1">{tr('onboarding.welcome.title', { app: APP_NAME })}</AppText>
-          <AppText variant="h3" weight="500">
-            {tr('onboarding.welcome.body')}
-          </AppText>
-          <Card style={{ gap: 6 }}>
-            <AppText weight="700">⏱️ {tr('onboarding.welcome.point1')}</AppText>
-            <AppText weight="700">📳 {tr('onboarding.welcome.point2')}</AppText>
-            <AppText weight="700">🔒 {tr('onboarding.welcome.point3')}</AppText>
+        <View style={{ gap: t.space.xl }}>
+          <HeaderZone illustration="onboarding-welcome" kicker={tr('onboarding.welcome.kicker')} title={tr('onboarding.welcome.title', { app: APP_NAME })} body={tr('onboarding.welcome.body')} />
+          <Card style={{ paddingHorizontal: t.space.lg }}>
+            <CheckRow icon="clock" text={tr('onboarding.welcome.point1')} />
+            <CheckRow icon="vibrate" text={tr('onboarding.welcome.point2')} divider />
+            <CheckRow icon="lock" text={tr('onboarding.welcome.point3')} divider />
           </Card>
         </View>
       ) : null}
 
       {step === 1 ? (
-        <Question title={tr('onboarding.goals.title')} hint={tr('onboarding.goals.hint')}>
+        <Question multi illustration="onboarding-goals" title={tr('onboarding.goals.title')} hint={tr('onboarding.goals.hint')}>
           {GOALS.map((g) => (
-            <ChoiceCard key={g.value} multi emoji={g.emoji} label={tr(`goal.${g.value}`)} selected={goals.includes(g.value)} onPress={() => toggleGoal(g.value)} />
+            <OptionCard key={g.value} multi icon={g.icon} label={tr(`goal.${g.value}`)} selected={goals.includes(g.value)} onPress={() => toggleGoal(g.value)} />
           ))}
+          {/* Live count + chip summary of the picks */}
+          <View style={{ gap: t.space.sm, paddingTop: t.space.xs }} accessibilityLiveRegion="polite">
+            <AppText variant="footnote" muted>
+              {goals.length ? tr('onboarding.goals.selected', { count: goals.length }) : tr('onboarding.goals.none')}
+            </AppText>
+            {goals.length ? (
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.xs }}>
+                {GOALS.filter((g) => goals.includes(g.value)).map((g) => (
+                  <Badge key={g.value} icon={g.icon} label={tr(`goal.${g.value}`)} />
+                ))}
+              </View>
+            ) : null}
+          </View>
         </Question>
       ) : null}
 
       {step === 2 ? (
         <Question title={tr('onboarding.age.title')}>
           {AGES.map((a) => (
-            <ChoiceCard key={a} label={a === '55+' ? tr('onboarding.age.55') : a} selected={age === a} onPress={() => setAge(a)} />
+            <OptionCard key={a} icon="user" label={a === '55+' ? tr('onboarding.age.55') : a} selected={age === a} onPress={() => setAge(a)} />
           ))}
         </Question>
       ) : null}
@@ -134,7 +173,7 @@ export default function Onboarding() {
       {step === 3 ? (
         <Question title={tr('onboarding.experience.title')}>
           {EXPERIENCE.map((e) => (
-            <ChoiceCard key={e} label={tr(`onboarding.experience.${e}.label`)} description={tr(`onboarding.experience.${e}.hint`)} selected={exp === e} onPress={() => setExp(e)} />
+            <OptionCard key={e.value} icon={e.icon} label={tr(`onboarding.experience.${e.value}.label`)} description={tr(`onboarding.experience.${e.value}.hint`)} selected={exp === e.value} onPress={() => setExp(e.value)} />
           ))}
         </Question>
       ) : null}
@@ -142,65 +181,108 @@ export default function Onboarding() {
       {step === 4 ? (
         <Question title={tr('onboarding.activity.title')} hint={tr('onboarding.activity.hint')}>
           {ACTIVITY.map((a) => (
-            <ChoiceCard key={a} label={tr(`onboarding.activity.${a}.label`)} description={tr(`onboarding.activity.${a}.hint`)} selected={activity === a} onPress={() => setActivity(a)} />
+            <OptionCard key={a.value} icon={a.icon} label={tr(`onboarding.activity.${a.value}.label`)} description={tr(`onboarding.activity.${a.value}.hint`)} selected={activity === a.value} onPress={() => setActivity(a.value)} />
           ))}
         </Question>
       ) : null}
 
       {step === 5 ? (
         <Question title={tr('onboarding.reminder.title')} hint={tr('onboarding.reminder.hint')}>
-          <Card style={{ paddingVertical: 24 }}>
+          <Card style={{ paddingVertical: t.space.xl }}>
             <TimeStepper value={time} onChange={setTime} />
           </Card>
-          <AppText variant="small" muted>
-            {tr('onboarding.reminder.privacy')}
-          </AppText>
+          <View style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start' }}>
+            <Icon name="lock" size="sm" color={t.tokens.mutedForeground} />
+            <AppText variant="footnote" muted style={{ flex: 1 }}>
+              {tr('onboarding.reminder.privacy')}
+            </AppText>
+          </View>
         </Question>
       ) : null}
 
       {step === 6 ? (
-        <View style={{ gap: 16, marginTop: 8 }}>
-          <AppText variant="h1">{tr('onboarding.plan.title')}</AppText>
-          <AppText variant="h3" weight="500">
-            {tr('onboarding.plan.body', { level, days: PLAN_LENGTH_DAYS })}
-          </AppText>
-          <Card style={{ alignItems: 'center', gap: 12 }}>
-            <PlanArt level={level} />
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignSelf: 'stretch' }}>
-              <Mini label={tr('onboarding.plan.start')} value={tr('common.level', { level })} />
-              <Mini
-                label={tr('onboarding.plan.daily')}
-                value={tr('common.minutes', { count: Math.round(generateSession({ track: 'general', level, durationPreset: 'standard', dayIndex: 0, weekIndex: 0, hypertonic: false, seed: toDateKey() }).plannedSec / 60) })}
-              />
-              <Mini label={tr('onboarding.plan.reminder')} value={notifAsked === false ? '—' : time} />
-            </View>
+        <View style={{ gap: t.space.xl }}>
+          <HeaderZone illustration="onboarding-plan" title={tr('onboarding.plan.title')} body={tr('onboarding.plan.body', { level, days: PLAN_LENGTH_DAYS })} />
+          <Card style={{ paddingHorizontal: t.space.lg }}>
+            <SummaryRow label={tr('onboarding.plan.goals')} value={goals.map((g) => tr(`goal.${g}`)).join(', ')} />
+            <SummaryRow label={tr('onboarding.plan.start')} value={tr('common.level', { level })} divider />
+            <SummaryRow label={tr('onboarding.plan.daily')} value={tr('common.minutes', { count: dailyMin })} divider />
+            <SummaryRow label={tr('onboarding.plan.reminder')} value={notifAsked === false ? tr('onboarding.plan.reminderOff') : time} off={notifAsked === false} divider />
           </Card>
-          <AppText muted>{tr('onboarding.plan.next')}</AppText>
+          <View style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start' }}>
+            <Icon name="info" size="sm" color={t.tokens.mutedForeground} />
+            <AppText variant="footnote" muted style={{ flex: 1 }}>
+              {tr('onboarding.plan.next')}
+            </AppText>
+          </View>
         </View>
       ) : null}
-      <View style={{ height: t.spacing(2) }} />
     </Screen>
   );
 }
 
-function Question({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
+/** Header zone (§7.9): illustration (160 px) + title1 + body. */
+function HeaderZone({ illustration, kicker, title, body }: { illustration?: IllustrationName; kicker?: string; title: string; body?: string }) {
+  const t = useTheme();
   return (
-    <View style={{ gap: 12, marginTop: 8 }}>
-      <AppText variant="h1" accessibilityRole="header">
+    <View style={{ gap: t.space.md }}>
+      {illustration ? (
+        <View style={{ alignItems: 'center' }}>
+          <Illustration name={illustration} size={160} />
+        </View>
+      ) : null}
+      {kicker ? (
+        <AppText variant="caption" muted>
+          {kicker}
+        </AppText>
+      ) : null}
+      <AppText variant="title1" accessibilityRole="header">
         {title}
       </AppText>
-      {hint ? <AppText muted>{hint}</AppText> : null}
-      <View style={{ gap: 10 }}>{children}</View>
+      {body ? (
+        <AppText variant="body" muted>
+          {body}
+        </AppText>
+      ) : null}
     </View>
   );
 }
 
-function Mini({ label, value }: { label: string; value: string }) {
+function Question({ title, hint, multi, illustration, children }: { title: string; hint?: string; multi?: boolean; illustration?: IllustrationName; children: ReactNode }) {
+  const t = useTheme();
   return (
-    <View style={{ alignItems: 'center' }}>
-      <AppText variant="h3">{value}</AppText>
-      <AppText variant="tiny" muted>
+    <View style={{ gap: t.space.lg }}>
+      <HeaderZone illustration={illustration} title={title} body={hint} />
+      <View style={{ gap: t.space.sm }} accessibilityRole={multi ? undefined : 'radiogroup'}>
+        {children}
+      </View>
+    </View>
+  );
+}
+
+/** Welcome checklist row: icon tile + text + check. */
+function CheckRow({ icon, text, divider }: { icon: IconName; text: string; divider?: boolean }) {
+  const t = useTheme();
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 64, borderTopWidth: divider ? t.border.thin : 0, borderTopColor: t.tokens.border }}>
+      <IconTile icon={icon} />
+      <AppText variant="body" style={{ flex: 1 }}>
+        {text}
+      </AppText>
+      <Icon name="check" size="md" color={t.tokens.primary} />
+    </View>
+  );
+}
+
+function SummaryRow({ label, value, off, divider }: { label: string; value: string; off?: boolean; divider?: boolean }) {
+  const t = useTheme();
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 56, paddingVertical: t.space.sm, borderTopWidth: divider ? t.border.thin : 0, borderTopColor: t.tokens.border }} accessible accessibilityLabel={`${label}: ${value}`}>
+      <AppText variant="callout" muted>
         {label}
+      </AppText>
+      <AppText variant="bodyStrong" style={{ flex: 1, textAlign: 'right', color: off ? t.tokens.mutedForeground : t.tokens.foreground }}>
+        {value}
       </AppText>
     </View>
   );

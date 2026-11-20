@@ -2,64 +2,99 @@ import { router } from 'expo-router';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, useTheme } from '@/components';
+import { AppText, Icon, useTheme } from '@/components';
+import { Button, Card, IconTile, Progress } from '@/components/ui';
 import { toDateKey } from '@/lib/date';
 import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 import { needsScreening, rescreenReminder } from './kegelProfile';
-import { todayWeekIndex } from './plan';
+import { todayPlanDay, todayWeekIndex } from './plan';
 import { positionCard } from './player/playerUi';
+import { roadmapNodes, weekTheme } from './roadmap';
+import { TRACK_ICON } from './trackIcons';
 import { KEGEL_TRACKS, positionsFor } from './tracks';
 
 /**
- * Training tab: the active track (change it), this week's positions, and — once — the muscle profile
- * screening for users who have not done it (existing users after the update included).
+ * Program header (SPEC_UI_V3 §7.2.1): the active track (change it), level, this week's theme and the
+ * week's progress bar; this week's positions underneath.
  */
 export function TrackCard() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const training = useTrainingStore((s) => s.training);
-  const profile = useKegelStore((s) => s.profile);
-  const skipped = useKegelStore((s) => s.screeningSkippedAt);
+  const today = toDateKey();
   const track = KEGEL_TRACKS.find((x) => x.id === training.track) ?? KEGEL_TRACKS[0]!;
-  const week = todayWeekIndex(training, toDateKey());
-  const ask = needsScreening({ profile, screeningSkippedAt: skipped });
-  const rescreen = rescreenReminder({ profile }, training.track);
+  const week = todayWeekIndex(training, today);
+  const planWeek = Math.min(3, Math.floor(todayPlanDay(training, today) / 7));
+  const strip = roadmapNodes(training, today).filter((n) => n.week === planWeek);
+  const done = strip.filter((n) => n.state === 'done').length;
+  const weekLabel = tr('training.weekProgress', { done, total: strip.length });
 
   return (
-    <View style={{ gap: 10 }}>
-      {ask || rescreen ? (
-        <Card style={{ gap: 8, borderLeftWidth: 4, borderLeftColor: t.colors.breathe }}>
-          <AppText weight="800">{rescreen ? tr('kegel.card.rescreenTitle') : tr('kegel.card.screenTitle')}</AppText>
-          <AppText variant="small" muted>
-            {rescreen ? tr('kegel.card.rescreenText') : tr('kegel.card.screenText')}
+    <Card style={{ padding: t.space.gutter, gap: t.space.lg }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
+        <IconTile icon={TRACK_ICON[track.id]} size="lg" />
+        <View style={{ flex: 1, gap: 2 }}>
+          <AppText variant="caption" muted>
+            {tr('training.activeTrack')}
           </AppText>
-          <View style={{ flexDirection: 'row', gap: 8 }}>
-            <Button label={tr('kegel.card.screenStart')} variant="accent" style={{ flex: 1 }} onPress={() => router.push('/kegel/screening')} />
-            {ask ? <Button label={tr('kegel.card.later')} variant="ghost" style={{ flex: 1 }} onPress={() => useKegelStore.getState().skipScreening(new Date().toISOString())} /> : null}
-          </View>
-        </Card>
-      ) : null}
-      <Card style={{ gap: 6 }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-          <AppText variant="h2">{track.emoji}</AppText>
-          <View style={{ flex: 1 }}>
-            <AppText variant="small" weight="800" muted>
-              {tr('kegel.card.track')}
-            </AppText>
-            <AppText weight="800">{track.title}</AppText>
-          </View>
-          <Button label={tr('kegel.card.change')} variant="secondary" onPress={() => router.push('/kegel/tracks')} />
+          <AppText variant="title3">{track.title}</AppText>
         </View>
-        <AppText variant="small" muted>
+        <Button label={tr('kegel.card.change')} size="sm" variant="ghost" onPress={() => router.push('/kegel/tracks')} />
+      </View>
+      <View style={{ gap: t.space.sm }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: t.space.sm, flexWrap: 'wrap' }}>
+          <AppText variant="callout">{tr('training.levelTheme', { level: training.level, theme: weekTheme(planWeek).title })}</AppText>
+          <AppText variant="footnote" muted tabular>
+            {weekLabel}
+          </AppText>
+        </View>
+        <Progress value={strip.length ? done / strip.length : 0} label={weekLabel} />
+      </View>
+      <View style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start' }}>
+        <Icon name="body" size="sm" color={t.tokens.mutedForeground} />
+        <AppText variant="footnote" muted style={{ flex: 1 }}>
           {tr('kegel.card.positions', {
             list: positionsFor(training.track, week)
               .map((p) => positionCard(p).title)
               .join(' · '),
           })}
         </AppText>
-      </Card>
+      </View>
+    </Card>
+  );
+}
+
+/** Muscle profile screening (§7.2.6): an info-tinted card, shown until it is done or skipped. */
+export function MuscleProfileCard() {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  const training = useTrainingStore((s) => s.training);
+  const profile = useKegelStore((s) => s.profile);
+  const skipped = useKegelStore((s) => s.screeningSkippedAt);
+  const ask = needsScreening({ profile, screeningSkippedAt: skipped });
+  const rescreen = rescreenReminder({ profile }, training.track);
+  if (!ask && !rescreen) return null;
+  return (
+    <View style={{ backgroundColor: t.tokens.infoSoft, borderRadius: t.radius.lg, padding: t.space.gutter, gap: t.space.md }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
+        <IconTile icon="info" tone="mind" background={t.tokens.card} color={t.tokens.info} />
+        <AppText variant="title3" style={{ flex: 1 }}>
+          {rescreen ? tr('kegel.card.rescreenTitle') : tr('kegel.card.screenTitle')}
+        </AppText>
+      </View>
+      <AppText variant="callout">{rescreen ? tr('kegel.card.rescreenText') : tr('kegel.card.screenText')}</AppText>
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
+        <View style={{ flex: 1 }}>
+          <Button label={tr('kegel.card.screenStart')} variant="outline" onPress={() => router.push('/kegel/screening')} fullWidth />
+        </View>
+        {ask ? (
+          <View style={{ flex: 1 }}>
+            <Button label={tr('kegel.card.later')} variant="ghost" onPress={() => useKegelStore.getState().skipScreening(new Date().toISOString())} fullWidth />
+          </View>
+        ) : null}
+      </View>
     </View>
   );
 }

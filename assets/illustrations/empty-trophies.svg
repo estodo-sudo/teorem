@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- empty-trophies: placeholder. Boş bir altıgen madalyon çerçevesi ve etrafında yarım ilerleme halkası. -->
+  <circle cx="80" cy="80" r="58" fill="#E2EFEC" stroke="none" stroke-width="2"/>
+  <path d="M80.0 38.0 A42 42 0 0 1 80.0 122.0" fill="none" stroke="#1E6B66" stroke-width="2"/>
+  <path d="M80 50 L106 65 L106 95 L80 110 L54 95 L54 65 Z" fill="none" stroke="#9AA0A6" stroke-width="2"/>
+  <circle cx="80" cy="80" r="6" fill="#1E6B66" stroke="none" stroke-width="2"/>
+</svg>

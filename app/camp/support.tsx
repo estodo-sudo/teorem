@@ -3,6 +3,7 @@ import { Linking, Pressable, Share, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { CAMP_CHECKIN, CAMP_ONBOARDING as ONB, CAMP_SUPPORT as SUP } from '@/features/camps/smoking/content';
 import { exportDoctorSummary } from '@/features/camps/smoking/device';
 import { totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
@@ -65,8 +66,8 @@ export default function CampSupport() {
       <Header title={tr('camp.support.title')} onBack={() => goBack('/camp')} />
 
       <Pressable onPress={() => call('112')} accessibilityRole="button" accessibilityLabel={`${SUP.emergency.title}. ${SUP.emergency.text}`}>
-        <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 2, borderColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '10') }}>
-          <AppText variant="h2">🚑</AppText>
+        <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, borderWidth: 2, borderColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '10') }}>
+          <IconTile icon="phone" tone="smokefree" />
           <View style={{ flex: 1, gap: 2 }}>
             <AppText weight="800" color={t.colors.danger}>
               {SUP.emergency.title}
@@ -77,7 +78,7 @@ export default function CampSupport() {
       </Pressable>
 
       <Card style={{ gap: 10, borderWidth: 2, borderColor: t.colors.success }}>
-        <AppText variant="h3">📞 {SUP.alo171.title}</AppText>
+        <AppText variant="h3">{SUP.alo171.title}</AppText>
         <AppText variant="small" weight="700">
           {SUP.alo171.hours}
         </AppText>
@@ -91,12 +92,12 @@ export default function CampSupport() {
       </Card>
 
       <Card style={{ gap: 6 }}>
-        <AppText variant="h3">🏥 {SUP.clinics.title}</AppText>
+        <AppText variant="h3">{SUP.clinics.title}</AppText>
         <AppText variant="small">{isMinor(camp.profile?.ageRange) ? ONB.under18 : SUP.clinics.text}</AppText>
       </Card>
 
-      <Card style={{ gap: 8 }}>
-        <AppText variant="h3">💚 {SUP.yesilay.title}</AppText>
+      <Card style={{ gap: t.space.sm }}>
+        <AppText variant="h3">{SUP.yesilay.title}</AppText>
         <AppText variant="small">{SUP.yesilay.text}</AppText>
         <Button label={tr('camp.support.callYesilay', { number: SUP.yesilay.number })} variant="secondary" onPress={() => call(SUP.yesilay.number)} />
       </Card>
@@ -104,11 +105,11 @@ export default function CampSupport() {
         {tr('camp.support.lastVerified', { date: SUP.lastVerified })}
       </AppText>
 
-      <SectionTitle emoji="🤝" title={tr('camp.support.supporterTitle')} hint={SUP.supporter.intro} />
+      <SectionTitle tone="smokefree" icon="handshake" title={tr('camp.support.supporterTitle')} hint={SUP.supporter.intro} />
       {SUP.supporter.messages.map((m) => {
         const text = supporterText(m.text, vars);
         return (
-          <Card key={m.id} style={{ gap: 8 }}>
+          <Card key={m.id} style={{ gap: t.space.sm }}>
             <AppText variant="tiny" weight="800" color={t.colors.primary}>
               {m.label.toLocaleUpperCase('tr')}
             </AppText>
@@ -118,7 +119,7 @@ export default function CampSupport() {
         );
       })}
 
-      <SectionTitle emoji="🩺" title={tr('camp.support.doctorTitle')} hint={SUP.doctor.intro} />
+      <SectionTitle tone="smokefree" icon="stethoscope" title={tr('camp.support.doctorTitle')} hint={SUP.doctor.intro} />
       {premium ? (
         <Button label={exportState === 'busy' ? tr('camp.support.doctorBusy') : tr('camp.support.doctorButton')} icon="book" variant="primary" disabled={!camp.profile || exportState === 'busy'} onPress={() => void exportSummary()} />
       ) : (

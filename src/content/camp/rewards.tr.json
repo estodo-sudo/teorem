@@ -7,103 +7,103 @@
   "badges": [
     {
       "id": "days-1",
-      "emoji": "🌅",
+      "icon": "sunrise", "tone": "smokefree",
       "title": "İlk gün",
       "desc": "İlk dumansız gününü tamamladın."
     },
     {
       "id": "days-3",
-      "emoji": "⛰️",
+      "icon": "mountain", "tone": "smokefree",
       "title": "Zirve atlatıldı",
       "desc": "Üç gün: yoksunluğun en yoğun günlerini geride bıraktın."
     },
     {
       "id": "days-7",
-      "emoji": "🛡️",
+      "icon": "shield", "tone": "smokefree",
       "title": "Bir hafta",
       "desc": "Kritik haftayı tamamladın."
     },
     {
       "id": "days-14",
-      "emoji": "💪",
+      "icon": "dumbbell", "tone": "smokefree",
       "title": "İki hafta",
       "desc": "İki haftadır dumansızsın."
     },
     {
       "id": "days-30",
-      "emoji": "🌙",
+      "icon": "moon", "tone": "smokefree",
       "title": "Bir ay",
       "desc": "Bir ay dumansız: büyük bir eşik."
     },
     {
       "id": "days-60",
-      "emoji": "🌱",
+      "icon": "sprout", "tone": "smokefree",
       "title": "İki ay",
       "desc": "Yeni alışkanlıkların kök salıyor."
     },
     {
       "id": "days-90",
-      "emoji": "🎓",
+      "icon": "graduation", "tone": "smokefree",
       "title": "90 gün",
       "desc": "Kampın tamamını dumansız tamamladın."
     },
     {
       "id": "days-180",
-      "emoji": "🌟",
+      "icon": "star", "tone": "smokefree",
       "title": "Altı ay",
       "desc": "Yarım yıl dumansız."
     },
     {
       "id": "days-365",
-      "emoji": "🏆",
+      "icon": "trophy", "tone": "smokefree",
       "title": "Bir yıl",
       "desc": "Bir yıl dumansız. Muhteşem."
     },
     {
       "id": "crisis-10",
-      "emoji": "🌊",
+      "icon": "waves", "tone": "smokefree",
       "title": "10 kriz",
       "desc": "On isteği sigara içmeden atlattın."
     },
     {
       "id": "crisis-50",
-      "emoji": "🏄",
+      "icon": "waves", "tone": "smokefree",
       "title": "50 kriz",
       "desc": "Elli dalganın üzerinde sörf yaptın."
     },
     {
       "id": "crisis-100",
-      "emoji": "🐋",
+      "icon": "fish", "tone": "smokefree",
       "title": "100 kriz",
       "desc": "Yüz krizi atlattın; artık dalgaları tanıyorsun."
     },
     {
       "id": "first-plan",
-      "emoji": "🧩",
+      "icon": "puzzle", "tone": "smokefree",
       "title": "İlk plan",
       "desc": "İlk Eğer–O zaman planını yaptın."
     },
     {
       "id": "all-skills",
-      "emoji": "📚",
+      "icon": "book", "tone": "smokefree",
       "title": "Tüm dersler",
       "desc": "Bütün beceri derslerini tamamladın."
     },
     {
       "id": "checkin-7",
-      "emoji": "📋",
+      "icon": "clipboard", "tone": "smokefree",
       "title": "7 gün kontrol",
       "desc": "Yedi gün art arda günlük kontrol yaptın."
     },
     {
       "id": "saved-1000",
-      "emoji": "💰",
+      "icon": "wallet", "tone": "smokefree",
       "title": "İlk 1.000 TL",
       "desc": "Sigaraya harcamadığın para 1.000 TL'yi geçti."
     },
     {
       "id": "graduate",
-      "emoji": "🎓",
+      "icon": "graduation", "tone": "smokefree",
       "title": "Mezun",
       "desc": "Sigarasız Kamp'tan mezun oldun."
     }

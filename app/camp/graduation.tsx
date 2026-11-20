@@ -6,6 +6,7 @@ import { captureRef } from 'react-native-view-shot';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { CAMP_REWARDS } from '@/features/camps/smoking/content';
 import { cigarettesNotSmoked, totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
 import { daysSinceQuit, quitStart } from '@/features/camps/smoking/engine/phase';
@@ -38,8 +39,8 @@ export default function CampGraduation() {
     return (
       <Screen>
         <Header title={tr('camp.graduation.title')} onBack={() => goBack('/camp')} />
-        <View style={{ alignItems: 'center', gap: 8, marginTop: 30 }}>
-          <AppText variant="display">🎓</AppText>
+        <View style={{ alignItems: 'center', gap: t.space.sm, marginTop: 30 }}>
+          <IconTile icon="graduation" tone="smokefree" size="lg" round />
           <AppText variant="h2" center>
             {tr('camp.graduation.notYet', { count: left })}
           </AppText>
@@ -89,16 +90,16 @@ export default function CampGraduation() {
         {G.text}
       </AppText>
 
-      <View ref={cert} collapsable={false} style={{ padding: 22, gap: 14, borderRadius: t.radius.xl, borderWidth: 3, borderColor: t.colors.accent, backgroundColor: t.colors.surface }}>
+      <View ref={cert} collapsable={false} style={{ padding: 22, gap: 14, borderRadius: t.radius.xl, borderWidth: 3, borderColor: t.colors.border, backgroundColor: t.colors.surface }}>
         <View style={{ alignItems: 'center', gap: 6 }}>
-          <AppText style={{ fontSize: 44, lineHeight: 52 }}>🎓</AppText>
+          <IconTile icon="graduation" tone="smokefree" size="lg" round />
           <AppText variant="h3" center color={t.colors.accent}>
             {G.certTitle}
           </AppText>
           <AppText center>{G.certLine}</AppText>
         </View>
         <View style={{ height: 1, backgroundColor: tint(t.colors.accent, '55') }} />
-        <View style={{ flexDirection: 'row', gap: 8 }}>
+        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
           {stat(tr('camp.panel.days', { count: totalSmokeFreeDays(attempt, cigs, now) }), tr('camp.graduation.smokeFree'))}
           {stat(String(cigarettesNotSmoked(camp.profile.perDay, attempt, cigs, now)), tr('camp.panel.notSmoked'))}
           {stat(tr('camp.plan.tl', { amount: fmtTL(moneySaved(camp.prices, camp.profile.perDay, attempt, cigs, now)) }), tr('camp.panel.saved'))}
@@ -112,7 +113,7 @@ export default function CampGraduation() {
           {tr('camp.graduation.shareFailed')}
         </AppText>
       ) : null}
-      <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.success }}>
+      <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
         <AppText variant="small">{G.after}</AppText>
       </Card>
     </Screen>

@@ -12,6 +12,7 @@ import { Chip, GuideStepView } from '@/features/campus/shared/guide';
 import { goBack } from '@/lib/nav';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { useCampusStore } from '@/stores/campusStore';
+import { IconTile } from '@/components/ui';
 
 type FormStep = 'audit' | 'withdrawal' | 'reasons' | 'path' | 'triggers' | 'summary' | 'commit';
 type Step = FormStep | { guide: string };
@@ -124,11 +125,11 @@ export default function AlcSetup() {
           </AppText>
           <AppText muted>{tr('acampus.setup.auditHint')}</AppText>
           <InfoToggle title={ALC.info.audit.title} text={ALC.info.audit.text} />
-          <View style={{ padding: 12, borderRadius: t.radius.md, backgroundColor: tint(t.colors.primary, '1A') }}>
-            <AppText variant="small">🍺 {ALC.audit.standardNote}</AppText>
+          <View style={{ padding: t.space.md, borderRadius: t.radius.md, backgroundColor: tint(t.colors.primary, '1A') }}>
+            <AppText variant="small">{ALC.audit.standardNote}</AppText>
           </View>
           {ALC.audit.questions.map((q, qi) => (
-            <Card key={q.id} style={{ gap: 8 }}>
+            <Card key={q.id} style={{ gap: t.space.sm }}>
               <AppText weight="800">
                 {qi + 1}. {q.text}
               </AppText>
@@ -146,7 +147,7 @@ export default function AlcSetup() {
                       alignItems: 'center',
                       gap: 10,
                       minHeight: 44,
-                      paddingHorizontal: 12,
+                      paddingHorizontal: t.space.md,
                       borderRadius: t.radius.md,
                       borderWidth: 2,
                       borderColor: selected ? t.colors.primary : t.colors.border,
@@ -186,7 +187,7 @@ export default function AlcSetup() {
           {ALC.withdrawal.questions.map((q, i) => (
             <Card key={q.id} style={{ gap: 10 }}>
               <AppText>{q.text}</AppText>
-              <View style={{ flexDirection: 'row', gap: 8 }} accessibilityRole="radiogroup">
+              <View style={{ flexDirection: 'row', gap: t.space.sm }} accessibilityRole="radiogroup">
                 {[true, false].map((v) => {
                   const selected = withdrawal[i] === v;
                   return (
@@ -207,7 +208,7 @@ export default function AlcSetup() {
                         justifyContent: 'center',
                       }}
                     >
-                      <AppText weight="700" color={selected ? '#FFFFFF' : t.colors.text}>
+                      <AppText weight="700" color={selected ? t.tokens.primaryForeground : t.colors.text}>
                         {v ? tr('acampus.setup.yes') : tr('acampus.setup.no')}
                       </AppText>
                     </Pressable>
@@ -221,7 +222,7 @@ export default function AlcSetup() {
               <WithdrawalBanner />
             ) : (
               <Card style={{ gap: 6, borderWidth: 2, borderColor: t.colors.success }}>
-                <AppText variant="small">✅ {ALC.withdrawal.okText}</AppText>
+                <AppText variant="small">{ALC.withdrawal.okText}</AppText>
                 <AppText variant="small" weight="700">
                   {ALC.withdrawal.emergency}
                 </AppText>
@@ -242,7 +243,7 @@ export default function AlcSetup() {
               <ChoiceCard
                 key={r.id}
                 multi
-                emoji={r.emoji}
+                icon={r.icon}
                 label={r.label}
                 selected={reasonIds.includes(r.id)}
                 onPress={() => {
@@ -267,8 +268,8 @@ export default function AlcSetup() {
           </AppText>
           <AppText muted>{tr('acampus.setup.pathHint')}</AppText>
           {risk ? (
-            <View style={{ padding: 12, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '14') }}>
-              <AppText variant="small">⚠️ {tr('acampus.setup.riskNote')}</AppText>
+            <View style={{ padding: t.space.md, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.danger, backgroundColor: tint(t.colors.danger, '14') }}>
+              <AppText variant="small">{tr('acampus.setup.riskNote')}</AppText>
             </View>
           ) : null}
           <View style={{ flexDirection: 'row', gap: 10 }}>
@@ -292,7 +293,7 @@ export default function AlcSetup() {
                     backgroundColor: selected ? tint(t.colors.primary, '1A') : t.colors.surface,
                   }}
                 >
-                  <AppText variant="h1">{p.emoji}</AppText>
+                  <IconTile icon={p.icon} tone="campus" size="lg" round />
                   <AppText variant="h3">{p.title}</AppText>
                   <AppText variant="small" muted>
                     {p.text}
@@ -303,7 +304,7 @@ export default function AlcSetup() {
           </View>
           <Card style={{ gap: 6 }}>
             {ALC.paths[mode].points.map((pt) => (
-              <View key={pt} style={{ flexDirection: 'row', gap: 8 }}>
+              <View key={pt} style={{ flexDirection: 'row', gap: t.space.sm }}>
                 <AppText weight="800" color={t.colors.primary}>
                   ✓
                 </AppText>
@@ -332,9 +333,9 @@ export default function AlcSetup() {
             {tr('acampus.setup.triggersTitle')}
           </AppText>
           <AppText muted>{tr('acampus.setup.triggersHint')}</AppText>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
             {ALC.triggers.map((x) => (
-              <Chip key={x.id} emoji={x.emoji} label={x.label} selected={triggerIds.includes(x.id)} onPress={() => setTriggerIds((a) => toggle(a, x.id))} />
+              <Chip key={x.id} icon={x.icon} label={x.label} selected={triggerIds.includes(x.id)} onPress={() => setTriggerIds((a) => toggle(a, x.id))} />
             ))}
           </View>
         </>
@@ -346,11 +347,11 @@ export default function AlcSetup() {
             {tr('acampus.setup.summaryTitle')}
           </AppText>
           {risk ? <WithdrawalBanner /> : null}
-          <Card style={{ gap: 12 }}>
+          <Card style={{ gap: t.space.md }}>
             <SummaryRow label={tr('acampus.setup.summaryPath')} value={mode === 'cut' ? tr('acampus.setup.summaryCut', { count: limit }) : tr('acampus.setup.summaryQuit', { count: quitGoal })} />
             {band ? <SummaryRow label={tr('acampus.setup.summaryAudit')} value={`${score}/12 · ${band.title}`} /> : null}
-            <SummaryRow label={tr('acampus.setup.summaryReasons')} value={ALC.reasons.filter((r) => reasonIds.includes(r.id)).map((r) => `${r.emoji} ${r.label}`).join('\n') || tr('acampus.setup.none')} />
-            <SummaryRow label={tr('acampus.setup.summaryTriggers')} value={ALC.triggers.filter((x) => triggerIds.includes(x.id)).map((x) => `${x.emoji} ${x.label}`).join('\n') || tr('acampus.setup.none')} />
+            <SummaryRow label={tr('acampus.setup.summaryReasons')} value={ALC.reasons.filter((r) => reasonIds.includes(r.id)).map((r) => `${r.label}`).join('\n') || tr('acampus.setup.none')} />
+            <SummaryRow label={tr('acampus.setup.summaryTriggers')} value={ALC.triggers.filter((x) => triggerIds.includes(x.id)).map((x) => `${x.label}`).join('\n') || tr('acampus.setup.none')} />
           </Card>
         </>
       ) : null}

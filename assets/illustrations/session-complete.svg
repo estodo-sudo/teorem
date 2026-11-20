@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- session-complete: placeholder. Kapanan halka ve içinde onay işareti; sakin kutlama, konfeti yok. -->
+  <circle cx="80" cy="80" r="58" fill="#E2EFEC" stroke="none" stroke-width="2"/>
+  <circle cx="80" cy="80" r="36" fill="none" stroke="#1E6B66" stroke-width="2"/>
+  <path d="M64 80 L76 92 L98 68" fill="none" stroke="#1E6B66" stroke-width="2"/>
+</svg>

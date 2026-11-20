@@ -4,11 +4,13 @@ import { Linking, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Icon, Screen } from '@/components';
+import { lightTheme } from '@/config/theme';
 import { STORIES } from '@/features/content/data';
 import { StoryPlayer } from '@/features/content/storyPlayer/StoryPlayer';
 import { checkAchievements } from '@/features/gamification/service';
 import { useProgressStore } from '@/stores/progressStore';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 export default function StoryScreen() {
   const { storyId } = useLocalSearchParams<{ storyId: string }>();
@@ -32,7 +34,7 @@ export default function StoryScreen() {
     return (
       <Screen footer={<Button label={tr('common.done')} variant="accent" size="lg" onPress={close} />}>
         <View style={{ alignItems: 'center', gap: 8, marginTop: 24 }}>
-          <AppText variant="display">{story.emoji}</AppText>
+          <IconTile icon={story.icon} tone="knowledge" size="lg" round />
           <AppText variant="h2" center>
             {story.title}
           </AppText>
@@ -75,7 +77,7 @@ export default function StoryScreen() {
       }}
       headerRight={
         <Pressable onPress={() => toggleFav(story.id)} accessibilityRole="button" accessibilityLabel={fav ? tr('stories.unfavorite') : tr('stories.favorite')} hitSlop={10} style={{ padding: 8 }}>
-          <Icon name={fav ? 'starFilled' : 'star'} color="#FFFFFF" size={24} />
+          <Icon name={fav ? 'starFilled' : 'star'} color={lightTheme.focus.text} size={24} />
         </Pressable>
       }
     />

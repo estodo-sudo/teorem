@@ -12,7 +12,6 @@ import { InfoToggle, SectionTitle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 
-const MOOD_EMOJI = ['', '😣', '😕', '😐', '🙂', '😄'];
 const hhmm = (iso: string) => {
   const d = new Date(iso);
   return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
@@ -51,16 +50,16 @@ export default function CampDiary() {
       </Card>
       <Button label={tr('camp.diary.log')} icon="plus" variant="primary" onPress={() => router.push('/camp/log-cigarette')} />
 
-      <SectionTitle emoji="📊" title={tr('camp.diary.reportTitle')} hint={tr('camp.diary.reportHint')} />
+      <SectionTitle tone="smokefree" icon="chart" title={tr('camp.diary.reportTitle')} hint={tr('camp.diary.reportHint')} />
       {report.total >= REPORT_MIN_LOGS ? (
         <View style={{ gap: 10 }}>
-          <Card style={{ gap: 12 }}>
+          <Card style={{ gap: t.space.md }}>
             <AppText weight="800">{tr('camp.diary.hoursTitle')}</AppText>
             <HourChart hours={report.hours} top={report.topHours.map((h) => h.hour)} />
             {report.topHours.map((h) => (
               <View key={h.hour} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <AppText variant="small" weight="700">
-                  🕒 {hourRange(h.hour)}
+                  {hourRange(h.hour)}
                 </AppText>
                 <AppText variant="small" muted>
                   {tr('camp.diary.times', { count: h.count })}
@@ -69,12 +68,12 @@ export default function CampDiary() {
             ))}
           </Card>
           {report.topTriggers.length ? (
-            <Card style={{ gap: 8 }}>
+            <Card style={{ gap: t.space.sm }}>
               <AppText weight="800">{tr('camp.diary.triggersTitle')}</AppText>
               {report.topTriggers.map((x) => (
                 <View key={x.trigger} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                   <AppText variant="small" weight="700">
-                    {trig(x.trigger)?.emoji} {trig(x.trigger)?.label}
+                    {trig(x.trigger)?.label}
                   </AppText>
                   <AppText variant="small" muted>
                     {tr('camp.diary.times', { count: x.count })}
@@ -84,7 +83,7 @@ export default function CampDiary() {
               <Button label={tr('camp.diary.toPlans')} variant="secondary" onPress={() => router.push('/camp/triggers')} />
             </Card>
           ) : null}
-          <Card style={{ gap: 6, borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
+          <Card style={{ gap: 6, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
             <AppText weight="800">{tr('camp.diary.statsTitle', { perDay: String(report.perDay).replace('.', ','), days: report.days })}</AppText>
             {report.autopilot ? <AppText variant="small">{tr('camp.diary.autopilot', { count: report.autopilot, share: Math.round(report.autopilotShare * 10) })}</AppText> : null}
             {report.avgNeed !== null ? (
@@ -103,7 +102,7 @@ export default function CampDiary() {
         </Card>
       )}
 
-      <SectionTitle emoji="🗒️" title={tr('camp.diary.historyTitle')} />
+      <SectionTitle tone="smokefree" icon="notebook" title={tr('camp.diary.historyTitle')} />
       {logs.length ? (
         logsByDay(logs).map((g) => (
           <View key={g.day} style={{ gap: 6 }}>
@@ -117,8 +116,7 @@ export default function CampDiary() {
                 </AppText>
                 <View style={{ flex: 1, gap: 2 }}>
                   <AppText variant="small" weight="700">
-                    {l.trigger ? `${trig(l.trigger)?.emoji} ${trig(l.trigger)?.label}` : tr('camp.diary.noTrigger')}
-                    {l.mood ? `  ${MOOD_EMOJI[l.mood]}` : ''}
+                    {l.trigger ? `${trig(l.trigger)?.label}` : tr('camp.diary.noTrigger')}
                   </AppText>
                   <AppText variant="tiny" muted>
                     {[l.need ? tr('camp.diary.needShort', { n: l.need }) : null, l.tag, l.isSlip ? tr('camp.diary.slip') : null].filter(Boolean).join(' · ')}

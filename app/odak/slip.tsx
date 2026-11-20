@@ -4,6 +4,7 @@ import { TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { mmss, useCountdown } from '@/features/camps/core/sosTools';
 import { fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, ODAK_PLANS, ODAK_SLIP as S } from '@/features/camps/odak/content';
 import { goalCounters } from '@/features/camps/odak/engine/goals';
@@ -88,7 +89,7 @@ export default function OdakSlip() {
 
       {step === 'welcome' ? (
         <Card style={{ alignItems: 'center', gap: 10, padding: 22 }}>
-          <AppText variant="display">🤍</AppText>
+          <IconTile icon="heart" tone="focus" size="lg" round />
           <AppText variant="h2" center accessibilityRole="header">
             {S.welcome.title}
           </AppText>
@@ -105,9 +106,9 @@ export default function OdakSlip() {
           {from !== 'log' ? (
             <>
               <AppText weight="800">{S.what.kind}</AppText>
-              <View style={{ gap: 8 }}>
+              <View style={{ gap: t.space.sm }}>
                 {P.log.options.map((o) => (
-                  <ChoiceCard key={o.id} emoji={o.emoji} label={o.label} selected={kind === o.id} onPress={() => setKind((k) => (k === o.id ? null : (o.id as BehaviorKind)))} />
+                  <ChoiceCard key={o.id} icon={o.icon} label={o.label} selected={kind === o.id} onPress={() => setKind((k) => (k === o.id ? null : (o.id as BehaviorKind)))} />
                 ))}
               </View>
               <AppText weight="800">{S.what.when}</AppText>
@@ -122,7 +123,7 @@ export default function OdakSlip() {
       ) : null}
 
       {step === 'notErased' ? (
-        <Card style={{ gap: 10, borderLeftWidth: 4, borderLeftColor: t.colors.success }}>
+        <Card style={{ gap: 10, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText variant="h2" accessibilityRole="header">
             {S.notErased.title}
           </AppText>
@@ -159,7 +160,7 @@ export default function OdakSlip() {
           <AppText muted>{S.plan.hint}</AppText>
           <PillGroup items={ONB.triggers.options} selected={trigger ? [trigger] : []} onToggle={(id) => setTrigger(id as OdakTriggerId)} />
           {trigger ? (
-            <Card style={{ gap: 8 }}>
+            <Card style={{ gap: t.space.sm }}>
               <AppText weight="800" color={t.colors.accent}>
                 {ONB.plans.if} {ODAK_PLANS.templates[trigger].if}…
               </AppText>
@@ -175,7 +176,7 @@ export default function OdakSlip() {
                   placeholder={S.plan.ownPlaceholder}
                   accessibilityLabel={S.plan.ownPlaceholder}
                   placeholderTextColor={t.colors.textMuted}
-                  style={{ minHeight: 52, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 14, color: t.colors.text, fontSize: 16 }}
+                  style={{ minHeight: 52, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, paddingHorizontal: 14, color: t.colors.text, fontSize: t.type.body.fontSize }}
                 />
               ) : null}
             </Card>
@@ -185,7 +186,7 @@ export default function OdakSlip() {
 
       {step === 'done' ? (
         <Card style={{ alignItems: 'center', gap: 10, padding: 22 }}>
-          <AppText variant="display">🌱</AppText>
+          <IconTile icon="sprout" tone="focus" size="lg" round />
           <AppText variant="h2" center accessibilityRole="header">
             {S.done.title}
           </AppText>

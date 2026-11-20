@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import type { ReactNode } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
@@ -5,12 +6,14 @@ import { Pressable, View } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
+import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
+import { IconTile, SegmentedSteps } from '@/components/ui';
 import { FindMuscleArt, PelvicFloorArt, TechniqueArt, VibrationArt } from '@/components/Illustrations';
 import { generateTrialSession } from '@/features/training/generateSession';
 import { playCue } from '@/features/training/haptics';
 import { positionCard } from '@/features/training/player/playerUi';
 import { WorkoutPlayer } from '@/features/training/player/WorkoutPlayer';
+import { ThemeOverride } from '@/components/useTheme';
 import { CHECKLIST, checklistDone, generateReleasePractice, quizPassed, TUTORIAL_ORDER, vibrationQuiz, type QuizAnswer, type TutorialStep } from '@/features/training/tutorial';
 import { goBack as safeBack } from '@/lib/nav';
 import { useProfileStore } from '@/stores/profileStore';
@@ -58,7 +61,12 @@ export default function Tutorial() {
       <Screen scroll={false} edges={['top', 'bottom']}>
         <AppText variant="h2">{isTrial ? tr('tutorial.trial.title') : tr('tutorial.release.title')}</AppText>
         <AppText muted>{isTrial ? tr('tutorial.trial.body') : tr('tutorial.release.body')}</AppText>
-        <WorkoutPlayer key={runKey} session={isTrial ? trial : release} minimal forceLabels onDone={() => setStep(isTrial ? 'check' : 'releaseCheck')} />
+        {/* The player is always a dark focus surface (SPEC_UI_V3 §7.4). */}
+        <ThemeOverride dark>
+          <View style={{ flex: 1, backgroundColor: t.focus.bg, borderRadius: t.radius.lg, padding: t.space.lg }}>
+            <WorkoutPlayer key={runKey} session={isTrial ? trial : release} minimal forceLabels onDone={() => setStep(isTrial ? 'check' : 'releaseCheck')} />
+          </View>
+        </ThemeOverride>
       </Screen>
     );
   }
@@ -94,22 +102,27 @@ export default function Tutorial() {
     body = (
       <>
         {c.art ? (
-          <View style={{ alignItems: 'center', marginVertical: 8 }}>{c.art}</View>
+          <View style={{ alignItems: 'center', marginVertical: t.space.sm }}>{c.art}</View>
         ) : (
-          <AppText variant="display" center style={{ marginTop: 24 }}>
-            {step === 'ready' ? '🎉' : step.endsWith('ips') ? '💡' : '🤔'}
-          </AppText>
+          <View style={{ alignItems: 'center', marginTop: t.space.xl }}>
+            <IconTile icon={step === 'ready' ? 'party' : step.endsWith('ips') ? 'bulb' : 'thought'} size="lg" round />
+          </View>
         )}
-        <AppText variant="h1" accessibilityRole="header">
+        <AppText variant="title1" accessibilityRole="header">
           {c.title}
         </AppText>
         {c.body.map((p) => (
-          <AppText key={p}>{p}</AppText>
+          <AppText key={p} variant="body">
+            {p}
+          </AppText>
         ))}
         {c.warn ? (
-          <Card style={{ backgroundColor: t.dark ? '#3A2414' : '#FFF1E6', borderColor: t.colors.accent }}>
-            <AppText weight="700">⚠️ {c.warn}</AppText>
-          </Card>
+          <View style={{ flexDirection: 'row', gap: t.space.md, padding: t.space.lg, borderRadius: t.radius.lg, backgroundColor: t.tokens.warningSoft }}>
+            <Icon name="warning" size="md" color={t.tokens.warning} />
+            <AppText variant="callout" style={{ flex: 1 }}>
+              {c.warn}
+            </AppText>
+          </View>
         ) : null}
       </>
     );
@@ -130,16 +143,16 @@ export default function Tutorial() {
       footer={
         cta || alt || replay ? (
           <>
-            {cta ? <Button label={cta.label} size="lg" variant="accent" disabled={cta.disabled} onPress={cta.onPress} /> : null}
+            {cta ? <Button label={cta.label} size="lg" disabled={cta.disabled} onPress={cta.onPress} /> : null}
             {alt ? <Button label={alt.label} variant="secondary" onPress={alt.onPress} /> : null}
             {replay && step !== 'ready' ? <Button label={tr('tutorial.close')} variant="ghost" onPress={() => safeBack()} /> : null}
           </>
         ) : undefined
       }
     >
-      <View style={{ gap: 12 }}>
+      <View style={{ gap: t.space.sm }}>
         <Header onBack={back} title={tr('tutorial.header')} />
-        <ProgressBar value={(idx + 1) / TUTORIAL_ORDER.length} accessibilityLabel={tr('onboarding.progress', { step: idx + 1, total: TUTORIAL_ORDER.length })} />
+        <SegmentedSteps total={TUTORIAL_ORDER.length} current={idx} label={tr('onboarding.progress', { step: idx + 1, total: TUTORIAL_ORDER.length })} />
       </View>
       {body}
     </Screen>
@@ -156,9 +169,9 @@ function PositionArt() {
   const style = useAnimatedStyle(() => ({ transform: [{ translateY: y.value }] }));
   return (
     <View style={{ width: 220, height: 150, alignItems: 'center', justifyContent: 'flex-end' }} accessible accessibilityLabel={positionCard('lying').title}>
-      <AppText style={{ fontSize: 64, lineHeight: 76 }}>{positionCard('lying').emoji}</AppText>
+      <IconTile icon={positionCard('lying').icon} tone="kegel" size="lg" round />
       <Animated.View style={[{ position: 'absolute', top: 16, width: 36, height: 36, borderRadius: 18, backgroundColor: t.colors.breathe }, style]} />
-      <View style={{ width: 200, height: 4, borderRadius: 2, backgroundColor: t.colors.border, marginTop: 4 }} />
+      <View style={{ width: 200, height: 4, borderRadius: 2, backgroundColor: t.colors.border, marginTop: t.space.xs }} />
     </View>
   );
 }
@@ -169,7 +182,7 @@ function Checklist({ checked, onToggle }: { checked: string[]; onToggle: (id: st
   const { t: tr } = useTranslation();
   return (
     <View style={{ gap: 10 }}>
-      <AppText variant="display">✅</AppText>
+      <IconTile icon="success" tone="kegel" size="lg" round />
       <AppText variant="h1" accessibilityRole="header">
         {tr('tutorial.checklist.title')}
       </AppText>
@@ -183,19 +196,19 @@ function Checklist({ checked, onToggle }: { checked: string[]; onToggle: (id: st
             accessibilityRole="checkbox"
             accessibilityState={{ checked: on }}
             style={({ pressed }) => ({
-              minHeight: 56,
+              minHeight: 64,
               flexDirection: 'row',
               alignItems: 'center',
-              gap: 12,
-              padding: 12,
-              borderRadius: t.radius.md,
-              borderWidth: 2,
-              borderColor: on ? t.colors.success : t.colors.border,
-              backgroundColor: t.colors.surface,
+              gap: t.space.md,
+              padding: t.space.md,
+              borderRadius: t.radius.lg,
+              borderWidth: on ? t.border.medium : t.border.thin,
+              borderColor: on ? t.tokens.primary : t.tokens.border,
+              backgroundColor: on ? t.tokens.primarySoft : t.tokens.card,
               opacity: pressed ? 0.85 : 1,
             })}
           >
-            <View style={{ width: 28, height: 28, borderRadius: 14, backgroundColor: on ? t.colors.success : t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>{on ? <Icon name="check" color="#FFFFFF" size={18} /> : null}</View>
+            <View style={{ width: 24, height: 24, borderRadius: t.radius.md, backgroundColor: on ? t.tokens.primary : 'transparent', borderWidth: on ? 0 : t.border.medium, borderColor: t.tokens.subtle, alignItems: 'center', justifyContent: 'center' }}>{on ? <Icon name="check" color={t.tokens.primaryForeground} size={16} /> : null}</View>
             <View style={{ flex: 1 }}>
               <AppText weight="700">{tr(`tutorial.checklist.items.${id}.title`)}</AppText>
               <AppText variant="small" muted>
@@ -239,7 +252,7 @@ function VibrationGame({ onPassed }: { onPassed: () => void }) {
   };
 
   return (
-    <View style={{ gap: 12 }}>
+    <View style={{ gap: t.space.md }}>
       <View style={{ alignItems: 'center' }}>
         <VibrationArt size={140} />
       </View>
@@ -267,7 +280,7 @@ function VibrationGame({ onPassed }: { onPassed: () => void }) {
           </View>
         </Card>
       ) : (
-        <Card style={{ gap: 10, borderLeftWidth: 4, borderLeftColor: passed ? t.colors.success : t.colors.warning }}>
+        <Card style={{ gap: 10, backgroundColor: passed ? t.tokens.successSoft : t.tokens.warningSoft, borderColor: passed ? t.tokens.successSoft : t.tokens.warningSoft }}>
           <AppText weight="800">{passed ? tr('tutorial.vibration.passed') : tr('tutorial.vibration.missed', { right: quiz.filter((q, k) => answers[k] === q.answer).length, total: quiz.length })}</AppText>
           {passed ? <Button label={tr('tutorial.vibration.cta')} variant="accent" onPress={onPassed} /> : <Button label={tr('tutorial.vibration.retry')} variant="accent" onPress={retry} />}
         </Card>
@@ -281,16 +294,16 @@ function VibrationGame({ onPassed }: { onPassed: () => void }) {
 function Mistakes() {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const items = tr('tutorial.mistakes.items', { returnObjects: true }) as { emoji: string; title: string; text: string }[];
+  const items = tr('tutorial.mistakes.items', { returnObjects: true }) as { icon: IconName; title: string; text: string }[];
   return (
     <View style={{ gap: 10 }}>
-      <AppText variant="display">🚫</AppText>
+      <IconTile icon="ban" tone="kegel" size="lg" round />
       <AppText variant="h1" accessibilityRole="header">
         {tr('tutorial.mistakes.title')}
       </AppText>
       {items.map((m) => (
-        <Card key={m.title} style={{ flexDirection: 'row', gap: 12, alignItems: 'flex-start', borderLeftWidth: 4, borderLeftColor: t.colors.danger }}>
-          <AppText variant="h2">{m.emoji}</AppText>
+        <Card key={m.title} style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'flex-start' }}>
+          <IconTile icon={m.icon} tone="kegel" />
           <View style={{ flex: 1, gap: 2 }}>
             <AppText weight="800">{m.title}</AppText>
             <AppText variant="small" muted>

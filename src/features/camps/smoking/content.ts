@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import checkinJson from '@/content/camp/checkin.tr.json';
 import coachJson from '@/content/camp/coach.tr.json';
 import healthJson from '@/content/camp/health-timeline.tr.json';
@@ -27,7 +28,7 @@ export interface CampSource {
 
 interface Opt<T extends string> {
   id: T;
-  emoji: string;
+  icon: IconName;
   label: string;
 }
 
@@ -45,10 +46,10 @@ export interface CampOnboardingContent {
   pastAttempts: { value: 0 | 1 | 3; label: string }[];
   relapseCauses: Opt<RelapseCause>[];
   relapseNote: string;
-  methods: { id: QuitMethod; emoji: string; label: string; desc: string; recommended?: boolean }[];
+  methods: { id: QuitMethod; icon: IconName; label: string; desc: string; recommended?: boolean }[];
   ageRanges: { id: AgeRange; label: string }[];
   alo171: { title: string; text: string; save: string; lastVerified: string };
-  phases: { id: CampPhase; emoji: string; title: string; text: string }[];
+  phases: { id: CampPhase; icon: IconName; title: string; text: string }[];
 }
 
 export interface CampPlansContent {
@@ -63,7 +64,7 @@ export interface CampHealthContent {
   sourceIds: string[];
   intro: string;
   note: string;
-  items: { id: MilestoneId; label: string; emoji: string; text: string }[];
+  items: { id: MilestoneId; label: string; icon: IconName; text: string }[];
 }
 
 export interface CampSosContent {
@@ -84,8 +85,8 @@ export interface CampSosContent {
 export interface CampCheckinContent {
   reviewed: boolean;
   sourceIds: string[];
-  symptoms: { id: SymptomId; emoji: string; label: string; tip: string; eases: string }[];
-  moods: { v: Score5; emoji: string; label: string }[];
+  symptoms: { id: SymptomId; icon: IconName; label: string; tip: string; eases: string }[];
+  moods: { v: Score5; icon: IconName; label: string }[];
   safety: { title: string; text: string };
   slip: { welcomeTitle: string; welcome: string; howMany: string; what: string; feeling: string; next: string; nextHint: string; doneTitle: string; done: string; relapseLink: string };
   relapse: { title: string; intro: string; learned: string; plan: string; planHint: string; confirm: string };
@@ -101,7 +102,7 @@ export interface CampMissionsContent {
 export interface CampLesson {
   id: string;
   order: number;
-  emoji: string;
+  icon: IconName;
   title: string;
   summary: string;
   minutes: number;
@@ -116,7 +117,7 @@ export interface CampLesson {
 
 export interface CampStory {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   minutes: number;
   sourceIds: string[];
@@ -138,7 +139,7 @@ export interface CampSupportContent {
 export interface CampRewardsContent {
   reviewed: boolean;
   sourceIds: string[];
-  badges: { id: string; emoji: string; title: string; desc: string }[];
+  badges: { id: string; icon: IconName; title: string; desc: string }[];
   jar: { intro: string; examples: string[] };
   graduation: { title: string; text: string; certTitle: string; certLine: string; after: string };
 }
@@ -158,5 +159,5 @@ export const CAMP_ONBOARDING = onboardingJson as CampOnboardingContent;
 export const CAMP_PLANS = plansJson as CampPlansContent;
 
 /** Programme identity (title shown on the Keşfet card and headers comes from i18n). */
-export const CAMP_EMOJI = '🫁';
+export const CAMP_ICON = 'wind';
 export const CAMP_DAYS = 90;

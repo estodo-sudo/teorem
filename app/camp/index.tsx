@@ -1,9 +1,11 @@
+import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { useEffect } from 'react';
 import { Image, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { CAMP_HEALTH, CAMP_MISSIONS, CAMP_ONBOARDING as ONB, CAMP_REWARDS, CAMP_SKILLS } from '@/features/camps/smoking/content';
 import { nextLesson } from '@/features/camps/smoking/engine/skills';
 import { cigarettesNotSmoked, slipsOf, smokeFreeDuration, totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
@@ -110,7 +112,7 @@ export default function CampPanel() {
   const graduateNow = canGraduate(attempt, now);
   const reason = reasonOfDay(profile.reasons, now);
   const reasonText = reason ? (reason.id === 'custom' ? reason.text : ONB.reasons.find((r) => r.id === reason.id)?.label) : null;
-  const reasonEmoji = reason && reason.id !== 'custom' ? ONB.reasons.find((r) => r.id === reason.id)?.emoji : '💬';
+  const reasonIcon: IconName = (reason && reason.id !== 'custom' ? ONB.reasons.find((r) => r.id === reason.id)?.icon : undefined) ?? 'chat';
 
   return (
     <Screen>
@@ -127,9 +129,9 @@ export default function CampPanel() {
       {alert ? <SafetyCard /> : null}
 
       <CampusHero color={t.colors.primary}>
-        <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: 4, borderRadius: t.radius.pill, backgroundColor: 'rgba(255,255,255,0.16)' }}>
+        <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: t.space.xs, borderRadius: t.radius.pill, backgroundColor: t.veil.mid }}>
           <AppText variant="tiny" weight="800" color={onHero} style={{ letterSpacing: 1 }}>
-            {phaseInfo.emoji} {phaseInfo.title.toLocaleUpperCase('tr')} · {tr('camp.panel.attempt', { n: attempt.attemptNo })}
+            {phaseInfo.title.toLocaleUpperCase('tr')} · {tr('camp.panel.attempt', { n: attempt.attemptNo })}
           </AppText>
         </View>
         {preparing ? (
@@ -137,7 +139,7 @@ export default function CampPanel() {
             <AppText variant="small" weight="700" color={onHero} style={{ opacity: 0.9 }}>
               {tr('camp.panel.toQuit')}
             </AppText>
-            <AppText variant="display" color={onHero} style={{ fontSize: 52, lineHeight: 60 }}>
+            <AppText variant="display" tabular color={onHero}>
               {tr('camp.panel.days', { count: -daysSinceQuit(attempt, now) })}
             </AppText>
             <AppText weight="700" color={onHero} style={{ opacity: 0.9 }}>
@@ -149,7 +151,7 @@ export default function CampPanel() {
             <AppText variant="small" weight="700" color={onHero} style={{ opacity: 0.9 }}>
               {hadSlips ? tr('camp.panel.sinceLast') : tr('camp.panel.smokeFree')}
             </AppText>
-            <AppText variant="display" color={onHero} style={{ fontSize: 52, lineHeight: 60 }}>
+            <AppText variant="display" tabular color={onHero}>
               {tr('camp.panel.days', { count: dur.days })}
             </AppText>
             <AppText weight="700" color={onHero} style={{ opacity: 0.9 }}>
@@ -165,7 +167,7 @@ export default function CampPanel() {
       </CampusHero>
 
       <View style={{ gap: 6 }}>
-        <Button label={tr('camp.sos.panelButton')} icon="wind" variant="accent" size="lg" accessibilityHint={tr('camp.sos.panelHint')} onPress={() => router.push('/camp/sos')} />
+        <Button label={tr('camp.sos.panelButton')} icon="wind" variant="primary" size="lg" accessibilityHint={tr('camp.sos.panelHint')} onPress={() => router.push('/camp/sos')} />
         {resisted > 0 ? (
           <AppText variant="small" weight="700" center color={t.colors.success}>
             {tr('camp.sos.resistedCount', { count: resisted })}
@@ -175,36 +177,36 @@ export default function CampPanel() {
 
       {phase === 'quit_day' ? (
         <Pressable onPress={() => router.push('/camp/quit-day')} accessibilityRole="button" accessibilityLabel={CAMP_MISSIONS.quitDay.title}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: t.colors.accent }}>
-            <AppText variant="h1">🚩</AppText>
+          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, backgroundColor: t.tokens.primarySoft, borderColor: t.tokens.primarySoft }}>
+            <IconTile icon="flag" tone="smokefree" size="lg" round />
             <View style={{ flex: 1, gap: 2 }}>
-              <AppText variant="h3" color="#FFFFFF">
+              <AppText variant="title3">
                 {CAMP_MISSIONS.quitDay.title}
               </AppText>
-              <AppText variant="small" color="#FFFFFF" style={{ opacity: 0.92 }}>
+              <AppText variant="footnote" muted>
                 {tr('camp.quitDay.panelHint')}
               </AppText>
             </View>
-            <Icon name="chevron" color="#FFFFFF" size={18} />
+            <Icon name="chevron" color={t.tokens.subtle} size="md" />
           </Card>
         </Pressable>
       ) : null}
 
       {graduateNow || attempt.status === 'graduated' ? (
         <Pressable onPress={() => router.push('/camp/graduation')} accessibilityRole="button" accessibilityLabel={tr(graduateNow ? 'camp.graduation.panelReady' : 'camp.graduation.panelDone')}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: t.colors.accent }}>
-            <AppText variant="h1">🎓</AppText>
-            <AppText variant="h3" color="#FFFFFF" style={{ flex: 1 }}>
+          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, backgroundColor: t.tokens.primarySoft, borderColor: t.tokens.primarySoft }}>
+            <IconTile icon="graduation" tone="smokefree" size="lg" round />
+            <AppText variant="title3" style={{ flex: 1 }}>
               {tr(graduateNow ? 'camp.graduation.panelReady' : 'camp.graduation.panelDone')}
             </AppText>
-            <Icon name="chevron" color="#FFFFFF" size={18} />
+            <Icon name="chevron" color={t.tokens.subtle} size="md" />
           </Card>
         </Pressable>
       ) : null}
 
       {mission ? (
         <>
-          <SectionTitle emoji="🎯" title={tr('camp.mission.title')} />
+          <SectionTitle tone="smokefree" icon="target" title={tr('camp.mission.title')} />
           {premium || missionIsFree(pd.phase) ? (
             <MissionCard mission={mission} done={s.missions.some((m) => m.missionId === mission.id)} onDone={() => useCampStore.getState().completeMission(mission.id)} />
           ) : (
@@ -215,8 +217,8 @@ export default function CampPanel() {
 
       {checkin.due ? (
         <Pressable onPress={() => router.push('/camp/checkin')} accessibilityRole="button" accessibilityLabel={tr(`camp.panel.checkin.${checkin.slot}`)}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, borderWidth: 2, borderColor: t.colors.primary }}>
-            <AppText variant="h2">📋</AppText>
+          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, borderWidth: 2, borderColor: t.colors.primary }}>
+            <IconTile icon="clipboard" tone="smokefree" />
             <View style={{ flex: 1, gap: 2 }}>
               <AppText weight="800">{tr(`camp.panel.checkin.${checkin.slot}`)}</AppText>
               <AppText variant="small" muted>
@@ -230,9 +232,9 @@ export default function CampPanel() {
 
       {lesson ? (
         <Pressable onPress={() => router.push({ pathname: '/camp/skills/[lessonId]', params: { lessonId: lesson.id } })} accessibilityRole="button" accessibilityLabel={`${tr('camp.skills.today')}: ${lesson.title}`}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
             <View style={{ width: 46, height: 46, borderRadius: 23, alignItems: 'center', justifyContent: 'center', backgroundColor: tint(t.colors.primary, '1F') }}>
-              <AppText variant="h3">{lesson.emoji}</AppText>
+              <IconTile icon={lesson.icon} tone="smokefree" />
             </View>
             <View style={{ flex: 1, gap: 2 }}>
               <AppText variant="tiny" weight="800" color={t.colors.primary}>
@@ -245,10 +247,10 @@ export default function CampPanel() {
         </Pressable>
       ) : null}
 
-      <View style={{ flexDirection: 'row', gap: 8 }}>
-        <StatTile emoji="💰" value={tr('camp.plan.tl', { amount: fmtTL(saved) })} label={tr('camp.panel.saved')} color={t.colors.success} />
-        <StatTile emoji="🚭" value={String(notSmoked)} label={tr('camp.panel.notSmoked')} />
-        <StatTile emoji={nextItem.emoji} value={tr(`camp.dur.${left.unit}`, { count: left.value })} label={next ? tr('camp.panel.nextGain') : tr('camp.panel.firstGain')} onPress={() => router.push('/camp/health')} />
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
+        <StatTile icon="wallet" value={tr('camp.plan.tl', { amount: fmtTL(saved) })} label={tr('camp.panel.saved')} color={t.colors.success} />
+        <StatTile icon="ban" value={String(notSmoked)} label={tr('camp.panel.notSmoked')} />
+        <StatTile icon={nextItem.icon} value={tr(`camp.dur.${left.unit}`, { count: left.value })} label={next ? tr('camp.panel.nextGain') : tr('camp.panel.firstGain')} onPress={() => router.push('/camp/health')} />
       </View>
       {preparing ? (
         <AppText variant="small" muted>
@@ -258,9 +260,9 @@ export default function CampPanel() {
 
       {next ? (
         <Pressable onPress={() => router.push('/camp/health')} accessibilityRole="button" accessibilityLabel={`${tr('camp.panel.nextGain')}: ${nextItem.text}`}>
-          <Card style={{ gap: 8 }}>
+          <Card style={{ gap: t.space.sm }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <AppText variant="h2">{nextItem.emoji}</AppText>
+              <IconTile icon={nextItem.icon} tone="smokefree" />
               <View style={{ flex: 1 }}>
                 <AppText variant="tiny" weight="800" color={t.colors.primary}>
                   {tr('camp.panel.nextAt', { label: nextItem.label })}
@@ -276,9 +278,9 @@ export default function CampPanel() {
 
       {preparing ? (
         <>
-          <SectionTitle emoji="📝" title={tr('camp.diary.title')} hint={tr('camp.panel.diaryHint')} />
+          <SectionTitle tone="smokefree" icon="notebook" title={tr('camp.diary.title')} hint={tr('camp.panel.diaryHint')} />
           <Card style={{ gap: 10 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
               <AppText variant="h1">{todayCount(attemptLogs, now)}</AppText>
               <AppText variant="small" muted style={{ flex: 1 }}>
                 {attemptLogs.length >= REPORT_MIN_LOGS ? tr('camp.panel.reportReady') : tr('camp.panel.todayLogged')}
@@ -290,8 +292,8 @@ export default function CampPanel() {
         </>
       ) : null}
 
-      <SectionTitle emoji="🗺️" title={tr('camp.panel.phaseTitle')} hint={phaseInfo.text} />
-      <Card style={{ gap: 12 }}>
+      <SectionTitle tone="smokefree" icon="map" title={tr('camp.panel.phaseTitle')} hint={phaseInfo.text} />
+      <Card style={{ gap: t.space.md }}>
         <PhaseTrack phase={phase} />
         <AppText variant="small" weight="700" center>
           {toNext === null ? tr('camp.panel.lastPhase') : tr('camp.panel.toNextPhase', { count: toNext, phase: ONB.phases[ONB.phases.findIndex((p) => p.id === phase) + 1]?.title ?? '' })}
@@ -300,11 +302,11 @@ export default function CampPanel() {
 
       {reasonText ? (
         <>
-          <SectionTitle emoji="🎯" title={tr('camp.panel.reasonTitle')} />
+          <SectionTitle tone="smokefree" icon="target" title={tr('camp.panel.reasonTitle')} />
           <Card padded={false} style={{ overflow: 'hidden' }}>
             {profile.reasonPhotoUri ? <Image source={{ uri: profile.reasonPhotoUri }} style={{ width: '100%', aspectRatio: 16 / 9 }} accessibilityLabel={tr('camp.onb.reasons.photoAlt')} /> : null}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16, backgroundColor: tint(t.colors.accent, '12') }}>
-              <AppText variant="h1">{reasonEmoji}</AppText>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg, backgroundColor: tint(t.colors.accent, '12') }}>
+              <IconTile icon={reasonIcon} tone="smokefree" size="lg" round />
               <AppText variant="h3" style={{ flex: 1 }}>
                 {reason?.id === 'custom' ? `“${reasonText}”` : reasonText}
               </AppText>
@@ -313,8 +315,8 @@ export default function CampPanel() {
         </>
       ) : null}
 
-      <View style={{ gap: 8 }}>
-        {!preparing ? <Button label={tr('camp.panel.slip')} icon="flame" variant="ghost" onPress={() => router.push('/camp/slip')} /> : null}
+      <View style={{ gap: t.space.sm }}>
+        {!preparing ? <Button label={tr('camp.panel.slip')} icon="rotate" variant="ghost" onPress={() => router.push('/camp/slip')} /> : null}
         <Button label={tr('camp.panel.triggersOpen')} icon="compass" variant="secondary" onPress={() => router.push('/camp/triggers')} />
         {!preparing ? <Button label={tr('camp.panel.diaryOpen')} icon="calendar" variant="secondary" onPress={() => router.push('/camp/diary')} /> : null}
         <Button label={tr('camp.support.title')} icon="shield" variant="secondary" onPress={() => router.push('/camp/support')} />
@@ -332,7 +334,7 @@ export default function CampPanel() {
 
       <View style={{ gap: 6, marginTop: 10, paddingTop: 14, borderTopWidth: 1, borderTopColor: t.colors.border }}>
         <AppText variant="small" weight="800" muted>
-          ⚙️ {tr('camp.panel.settingsTitle')}
+          {tr('camp.panel.settingsTitle')}
         </AppText>
         <Button label={tr('camp.settings.title')} icon="gear" variant="secondary" onPress={() => router.push('/camp/settings')} />
       </View>
@@ -341,7 +343,7 @@ export default function CampPanel() {
         <CelebrationCard
           celebrationKey={badge.id}
           kicker={tr('camp.rewards.badgeKicker')}
-          emoji={badge.emoji}
+          icon={badge.icon}
           title={badge.title}
           desc={badge.desc}
           cta={tr('camp.panel.gainCta')}
@@ -353,7 +355,7 @@ export default function CampPanel() {
         <CelebrationCard
           celebrationKey={celebrate}
           kicker={tr('camp.panel.gainKicker')}
-          emoji={celebrateItem.emoji}
+          icon={celebrateItem.icon}
           title={tr('camp.panel.gainTitle', { label: celebrateItem.label })}
           desc={`${celebrateItem.text} ${CAMP_HEALTH.note}`}
           cta={tr('camp.panel.gainCta')}

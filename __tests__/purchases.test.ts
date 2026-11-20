@@ -106,3 +106,33 @@ describe('pricing (transparent)', () => {
     expect(trialEndDate(new Date(2026, 10, 28), 7)).toEqual(new Date(2026, 11, 5));
   });
 });
+
+describe('monthlyDifference (paywall plan chips)', () => {
+  const { monthlyDifference } = jest.requireActual('@/features/purchases/pricing') as typeof import('@/features/purchases/pricing');
+  const yearly: Offer = { key: 'yearly', productId: 'y', displayPrice: '₺600', price: 600, currency: 'TRY', type: 'subs' };
+  const monthly: Offer = { key: 'monthly', productId: 'm', displayPrice: '₺80', price: 80, currency: 'TRY', type: 'subs' };
+  it('shows the honest per-month difference from the selected plan', () => {
+    expect(monthlyDifference(monthly, yearly)?.sign).toBe('+');
+    expect(monthlyDifference(yearly, monthly)?.sign).toBe('-');
+  });
+  it('returns null without prices, across currencies or for lifetime', () => {
+    expect(monthlyDifference({ ...monthly, price: undefined }, yearly)).toBeNull();
+    expect(monthlyDifference({ ...monthly, currency: 'USD' }, yearly)).toBeNull();
+    expect(monthlyDifference({ ...monthly, key: 'lifetime', type: 'in-app' }, yearly)).toBeNull();
+    expect(monthlyDifference(monthly, monthly)).toBeNull();
+  });
+});
+
+describe('weeklyEquivalent (paywall plan cards)', () => {
+  const { weeklyEquivalent } = jest.requireActual('@/features/purchases/pricing') as typeof import('@/features/purchases/pricing');
+  const yearly: Offer = { key: 'yearly', productId: 'y', displayPrice: '₺520', price: 520, currency: 'TRY', type: 'subs' };
+  it('divides the store price honestly and rounds down', () => {
+    expect(weeklyEquivalent(yearly)).toContain('10');
+    expect(weeklyEquivalent({ ...yearly, key: 'monthly', price: 52 })).toContain('12');
+  });
+  it('returns null for weekly, lifetime or unknown prices', () => {
+    expect(weeklyEquivalent({ ...yearly, key: 'weekly' })).toBeNull();
+    expect(weeklyEquivalent({ ...yearly, key: 'lifetime', type: 'in-app' })).toBeNull();
+    expect(weeklyEquivalent({ ...yearly, price: undefined })).toBeNull();
+  });
+});

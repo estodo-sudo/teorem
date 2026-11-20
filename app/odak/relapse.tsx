@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { NumberStepper } from '@/features/camps/core/ui';
 import { fill, ODAK_ONBOARDING as ONB, ODAK_RELAPSE as R, ODAK_SOS as SOS } from '@/features/camps/odak/content';
 import { restartAtBoundaries } from '@/features/camps/odak/engine/checkin';
@@ -80,7 +81,7 @@ export default function OdakRelapse() {
 
       {step === 'intro' ? (
         <Card style={{ alignItems: 'center', gap: 10, padding: 22 }}>
-          <AppText variant="display">🔁</AppText>
+          <IconTile icon="repeat" tone="focus" size="lg" round />
           <AppText variant="h2" center accessibilityRole="header">
             {R.intro.title}
           </AppText>
@@ -89,13 +90,13 @@ export default function OdakRelapse() {
       ) : null}
 
       {step === 'learned' ? (
-        <Card style={{ gap: 8 }}>
+        <Card style={{ gap: t.space.sm }}>
           <AppText variant="h2" accessibilityRole="header">
             {R.learned.title}
           </AppText>
-          {trigList ? <AppText>📍 {fill(R.learned.triggers, { list: trigList })}</AppText> : null}
-          {tools ? <AppText>🛠️ {fill(R.learned.tools, { list: tools })}</AppText> : null}
-          <AppText>🌿 {fill(R.learned.managed, { n: managedCount(urges) })}</AppText>
+          {trigList ? <AppText>{fill(R.learned.triggers, { list: trigList })}</AppText> : null}
+          {tools ? <AppText>{fill(R.learned.tools, { list: tools })}</AppText> : null}
+          <AppText>{fill(R.learned.managed, { n: managedCount(urges) })}</AppText>
           {!trigList && !tools ? (
             <AppText variant="small" muted>
               {R.learned.none}
@@ -110,19 +111,19 @@ export default function OdakRelapse() {
             {R.goal.title}
           </AppText>
           <AppText muted>{R.goal.hint}</AppText>
-          <Card style={{ gap: 8 }}>
+          <Card style={{ gap: t.space.sm }}>
             <AppText variant="h3">{ONB.goal.porn.title}</AppText>
             {ONB.goal.porn.options.map((o) => (
-              <ChoiceCard key={o.id} emoji={o.emoji} label={o.label} selected={draft.porn === o.id} onPress={() => set({ porn: o.id as PornGoal, pornWeeklyMax: o.id === 'reduce' ? (draft.pornWeeklyMax ?? 2) : undefined })} />
+              <ChoiceCard key={o.id} icon={o.icon} label={o.label} selected={draft.porn === o.id} onPress={() => set({ porn: o.id as PornGoal, pornWeeklyMax: o.id === 'reduce' ? (draft.pornWeeklyMax ?? 2) : undefined })} />
             ))}
             {draft.porn === 'reduce' ? <NumberStepper label={ONB.goal.weeklyMax} value={draft.pornWeeklyMax ?? 2} onChange={(v) => set({ pornWeeklyMax: v })} min={PORN_WEEKLY.min} max={PORN_WEEKLY.max} unit={ONB.goal.weeklyUnit} /> : null}
           </Card>
-          <Card style={{ gap: 8 }}>
+          <Card style={{ gap: t.space.sm }}>
             <AppText variant="h3">{ONB.goal.mast.title}</AppText>
             {ONB.goal.mast.options.map((o) => (
               <ChoiceCard
                 key={o.id}
-                emoji={o.emoji}
+                icon={o.icon}
                 label={o.label}
                 selected={draft.mast === o.id}
                 onPress={() => set({ mast: o.id as MastGoal, mastWeeklyMax: o.id === 'reduce' ? (draft.mastWeeklyMax ?? 3) : undefined, mastPauseDays: o.id === 'pause' ? (draft.mastPauseDays ?? 30) : undefined })}
@@ -133,16 +134,16 @@ export default function OdakRelapse() {
               <NumberStepper label={ONB.goal.pauseTitle} value={draft.mastPauseDays ?? 30} onChange={(v) => set({ mastPauseDays: v })} min={PAUSE_DAYS.min} max={PAUSE_DAYS.max} unit={ONB.goal.pauseUnit} quick={[...PAUSE_PRESETS]} />
             ) : null}
           </Card>
-          <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+          <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
             <AppText variant="small">{ONB.goal.note}</AppText>
           </Card>
         </>
       ) : null}
 
       {step === 'restart' ? (
-        <Card style={{ gap: 8 }}>
+        <Card style={{ gap: t.space.sm }}>
           <AppText variant="h2" accessibilityRole="header">
-            🧱 {R.restart.title}
+            {R.restart.title}
           </AppText>
           <AppText>{R.restart.body}</AppText>
         </Card>
@@ -150,7 +151,7 @@ export default function OdakRelapse() {
 
       {step === 'done' ? (
         <Card style={{ alignItems: 'center', gap: 10, padding: 22 }}>
-          <AppText variant="display">🌱</AppText>
+          <IconTile icon="sprout" tone="focus" size="lg" round />
           <AppText center>{R.restart.done}</AppText>
         </Card>
       ) : null}

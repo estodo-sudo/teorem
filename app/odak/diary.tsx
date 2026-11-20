@@ -52,19 +52,19 @@ export default function OdakDiary() {
         <Button label={D.behavior.title} icon="plus" variant="secondary" onPress={() => router.push('/odak/log-behavior')} style={{ flex: 1 }} />
       </View>
 
-      <Card style={{ gap: 8 }}>
-        <AppText variant="h3">📊 {D.week.title}</AppText>
+      <Card style={{ gap: t.space.sm }}>
+        <AppText variant="h3">{D.week.title}</AppText>
         <AppText variant="small" weight="700">
           {fill(D.week.counts, { urges: w.urges, managed: w.managed, behaviors: w.behaviors })}
         </AppText>
         {w.enough ? (
           <>
-            {w.riskyHour !== null ? <AppText variant="small">⏰ {fill(D.week.riskyHour, { range: hourRange(w.riskyHour) })}</AppText> : null}
-            {w.riskyDay !== null ? <AppText variant="small">📅 {fill(D.week.riskyDay, { day: D.days[w.riskyDay] })}</AppText> : null}
-            {w.topTrigger ? <AppText variant="small">📍 {fill(D.week.topTrigger, { trigger: triggerLabel(w.topTrigger) })}</AppText> : null}
-            {w.bestTool ? <AppText variant="small">🛠️ {fill(D.week.bestTool, { tool: toolLabel(w.bestTool) })}</AppText> : null}
-            {w.emotionBefore && w.emotionAfter ? <AppText variant="small">💭 {fill(D.week.emotions, { before: emotionLabel(w.emotionBefore), after: emotionLabel(w.emotionAfter) })}</AppText> : null}
-            {w.avgSatisfaction !== null ? <AppText variant="small">🌡️ {fill(D.week.satisfaction, { avg: String(w.avgSatisfaction).replace('.', ',') })}</AppText> : null}
+            {w.riskyHour !== null ? <AppText variant="small">{fill(D.week.riskyHour, { range: hourRange(w.riskyHour) })}</AppText> : null}
+            {w.riskyDay !== null ? <AppText variant="small">{fill(D.week.riskyDay, { day: D.days[w.riskyDay] })}</AppText> : null}
+            {w.topTrigger ? <AppText variant="small">{fill(D.week.topTrigger, { trigger: triggerLabel(w.topTrigger) })}</AppText> : null}
+            {w.bestTool ? <AppText variant="small">{fill(D.week.bestTool, { tool: toolLabel(w.bestTool) })}</AppText> : null}
+            {w.emotionBefore && w.emotionAfter ? <AppText variant="small">{fill(D.week.emotions, { before: emotionLabel(w.emotionBefore), after: emotionLabel(w.emotionAfter) })}</AppText> : null}
+            {w.avgSatisfaction !== null ? <AppText variant="small">{fill(D.week.satisfaction, { avg: String(w.avgSatisfaction).replace('.', ',') })}</AppText> : null}
           </>
         ) : (
           <AppText variant="small" muted>
@@ -89,7 +89,7 @@ export default function OdakDiary() {
             </AppText>
             {d.entries.map((e) => (
               <AppText key={e.type === 'urge' ? e.urge.id : e.behavior.id} variant="small">
-                {e.type === 'urge' ? '🌊' : '📝'} {line(e)}
+                {line(e)}
               </AppText>
             ))}
           </Card>

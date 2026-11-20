@@ -44,7 +44,7 @@ export function Button({
     info: t.colors.infoText,
     secondary: t.colors.text,
     ghost: t.colors.primary,
-    danger: '#FFFFFF',
+    danger: t.tokens.destructiveForeground,
   }[variant];
   const height = size === 'lg' ? 60 : t.touch;
   return (
@@ -77,7 +77,7 @@ export function Button({
             variant={size === 'lg' ? 'h3' : 'body'}
             weight="700"
             color={fg}
-            style={icon ? { marginLeft: 8 } : undefined}
+            style={icon ? { marginLeft: t.space.sm } : undefined}
           >
             {label}
           </AppText>

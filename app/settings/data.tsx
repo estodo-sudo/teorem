@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Dialog, Header, Screen, SwitchRow, useTheme } from '@/components';
+import { AppText, Button, Card, Dialog, Header, RowGroup, Screen, SwitchRow, useTheme } from '@/components';
 import { restoreApp, wipeApp } from '@/features/data/appData';
 import type { AppSnapshot } from '@/features/data/exportImport';
 import { exportToShareSheet, pickImportFile } from '@/features/data/fileTransfer';
@@ -47,7 +47,7 @@ export default function DataSettings() {
     <Screen>
       <Header title={tr('settings.data.title')} />
       <Card style={{ gap: 6 }}>
-        <AppText weight="700">🔒 {tr('settings.data.privacyTitle')}</AppText>
+        <AppText weight="700">{tr('settings.data.privacyTitle')}</AppText>
         <AppText muted>{tr('settings.data.privacyBody')}</AppText>
       </Card>
       <Card style={{ gap: 10 }}>
@@ -58,17 +58,17 @@ export default function DataSettings() {
         <Button label={tr('settings.data.export')} icon="shield" variant="primary" loading={busy} onPress={() => void doExport()} />
         <Button label={tr('settings.data.import')} variant="secondary" onPress={() => void doImport()} />
       </Card>
-      <Card style={{ paddingVertical: 4 }}>
+      <RowGroup>
         <SwitchRow label={tr('settings.data.saveUnload')} description={tr('settings.data.saveUnloadHint')} value={settings.saveUnloadNotes} onChange={(v) => update({ saveUnloadNotes: v })} />
         {unloadNotes.length ? (
           <Button
-            style={{ marginVertical: 8 }}
+            style={{ marginVertical: t.space.sm }}
             label={tr('settings.data.deleteUnload', { count: unloadNotes.length })}
             variant="ghost"
             onPress={() => unloadNotes.forEach((n) => useHistoryStore.getState().deleteNote(n.id))}
           />
         ) : null}
-      </Card>
+      </RowGroup>
       <Card style={{ gap: 10, borderColor: t.colors.danger }}>
         <AppText variant="h3" color={t.colors.danger}>
           {tr('settings.data.dangerTitle')}

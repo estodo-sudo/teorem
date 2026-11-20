@@ -30,6 +30,7 @@ import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampStore } from '@/stores/campStore';
+import { IconTile } from '@/components/ui';
 
 /** One question per screen: the 10 assessment questions, the dependence result, first plans, summary and commitment. */
 type Step = StepId | 'hsi' | 'plans' | 'summary' | 'commit';
@@ -99,7 +100,7 @@ export default function CampOnboarding() {
   const qNo = QUESTIONS.indexOf(step);
   const nextLabel = isLast ? tr('camp.onb.enrol') : step === 'summary' ? tr('camp.onb.toCommit') : tr('common.next');
   const title = (key: string) => (
-    <View style={{ gap: 4 }}>
+    <View style={{ gap: t.space.xs }}>
       {qNo >= 0 ? (
         <AppText variant="tiny" weight="800" color={t.colors.primary}>
           {tr('camp.onb.question', { n: qNo + 1, total: QUESTIONS.length })}
@@ -133,7 +134,7 @@ export default function CampOnboarding() {
           {title('products')}
           <View style={{ gap: 10 }}>
             {ONB.products.map((p) => (
-              <ChoiceCard key={p.id} multi emoji={p.emoji} label={p.label} selected={a.products.includes(p.id)} onPress={() => set({ products: toggle(a.products, p.id) })} />
+              <ChoiceCard key={p.id} multi icon={p.icon} label={p.label} selected={a.products.includes(p.id)} onPress={() => set({ products: toggle(a.products, p.id) })} />
             ))}
           </View>
           <AppText variant="small" muted>
@@ -221,7 +222,7 @@ export default function CampOnboarding() {
           {title('reasons')}
           <View style={{ gap: 10 }}>
             {ONB.reasons.map((r) => (
-              <ChoiceCard key={r.id} multi emoji={r.emoji} label={r.label} selected={a.reasonIds.includes(r.id)} onPress={() => set({ reasonIds: toggle(a.reasonIds, r.id) })} />
+              <ChoiceCard key={r.id} multi icon={r.icon} label={r.label} selected={a.reasonIds.includes(r.id)} onPress={() => set({ reasonIds: toggle(a.reasonIds, r.id) })} />
             ))}
           </View>
           <View style={{ gap: 6 }}>
@@ -231,10 +232,10 @@ export default function CampOnboarding() {
               {tr('camp.onb.reasons.private')}
             </AppText>
           </View>
-          <View style={{ gap: 8 }}>
+          <View style={{ gap: t.space.sm }}>
             <AppText weight="800">{tr('camp.onb.reasons.photoLabel')}</AppText>
             {a.reasonPhotoUri ? <Image source={{ uri: a.reasonPhotoUri }} style={{ width: '100%', aspectRatio: 4 / 3, borderRadius: t.radius.lg }} accessibilityLabel={tr('camp.onb.reasons.photoAlt')} /> : null}
-            <View style={{ flexDirection: 'row', gap: 8 }}>
+            <View style={{ flexDirection: 'row', gap: t.space.sm }}>
               <Button
                 label={a.reasonPhotoUri ? tr('camp.onb.reasons.photoChange') : tr('camp.onb.reasons.photoAdd')}
                 icon="plus"
@@ -283,15 +284,15 @@ export default function CampOnboarding() {
                     width: '47%',
                     flexGrow: 1,
                     minHeight: 64,
-                    padding: 12,
-                    gap: 4,
+                    padding: t.space.md,
+                    gap: t.space.xs,
                     borderRadius: t.radius.lg,
                     borderWidth: 2,
-                    borderColor: selected ? t.colors.accent : t.colors.border,
+                    borderColor: selected ? t.tokens.primary : t.colors.border,
                     backgroundColor: selected ? tint(t.colors.accent, '14') : t.colors.surface,
                   }}
                 >
-                  <AppText variant="h3">{x.emoji}</AppText>
+                  <IconTile icon={x.icon} tone="smokefree" />
                   <AppText variant="small" weight="700">
                     {x.label}
                   </AppText>
@@ -313,9 +314,9 @@ export default function CampOnboarding() {
           {a.pastAttempts ? (
             <>
               <AppText weight="800">{tr('camp.onb.attempts.why')}</AppText>
-              <View style={{ gap: 8 }}>
+              <View style={{ gap: t.space.sm }}>
                 {ONB.relapseCauses.map((r) => (
-                  <ChoiceCard key={r.id} multi emoji={r.emoji} label={r.label} selected={a.relapseCauses.includes(r.id)} onPress={() => set({ relapseCauses: toggle(a.relapseCauses, r.id) })} />
+                  <ChoiceCard key={r.id} multi icon={r.icon} label={r.label} selected={a.relapseCauses.includes(r.id)} onPress={() => set({ relapseCauses: toggle(a.relapseCauses, r.id) })} />
                 ))}
               </View>
               <AppText variant="small" muted>
@@ -331,7 +332,7 @@ export default function CampOnboarding() {
           {title('method')}
           <View style={{ gap: 10 }}>
             {ONB.methods.map((m) => (
-              <ChoiceCard key={m.id} emoji={m.emoji} label={m.recommended ? `${m.label} · ${tr('camp.onb.method.recommended')}` : m.label} description={m.desc} selected={a.method === m.id} onPress={() => set({ method: m.id })} />
+              <ChoiceCard key={m.id} icon={m.icon} label={m.recommended ? `${m.label} · ${tr('camp.onb.method.recommended')}` : m.label} description={m.desc} selected={a.method === m.id} onPress={() => set({ method: m.id })} />
             ))}
           </View>
           <Card style={{ gap: 10 }}>
@@ -347,7 +348,7 @@ export default function CampOnboarding() {
                 <AppText weight="800" center>
                   {tr('camp.onb.method.weeks')}
                 </AppText>
-                <View style={{ flexDirection: 'row', gap: 8 }}>
+                <View style={{ flexDirection: 'row', gap: t.space.sm }}>
                   {CUT_WEEKS.map((w) => (
                     <View key={w} style={{ flex: 1 }}>
                       <ChoiceCard label={tr('camp.onb.method.weeksN', { count: w })} selected={a.cutWeeks === w} onPress={() => set({ cutWeeks: w })} />
@@ -363,7 +364,7 @@ export default function CampOnboarding() {
                 <NumberStepper label={tr('camp.onb.method.daysAgo')} value={a.quitDaysAgo} onChange={(v) => set({ quitDaysAgo: v })} min={0} max={ALREADY_QUIT_MAX_DAYS} unit={tr('camp.onb.method.daysAgoUnit')} quick={[0, 1, 2, 3, 7, 14, 30]} />
               </>
             )}
-            <View style={{ padding: 12, borderRadius: t.radius.md, backgroundColor: tint(t.colors.primary, '14') }}>
+            <View style={{ padding: t.space.md, borderRadius: t.radius.md, backgroundColor: tint(t.colors.primary, '14') }}>
               <AppText variant="small" weight="700" center>
                 {a.method === 'already_quit' ? tr('camp.onb.method.lastCigOn', { date: fmtDate(plan.plannedQuitDate) }) : tr('camp.onb.method.quitOn', { date: fmtDate(plan.plannedQuitDate) })}
               </AppText>
@@ -396,7 +397,7 @@ export default function CampOnboarding() {
             </AppText>
           ) : null}
           <AppText weight="800">{tr('camp.onb.support.age')}</AppText>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
             {ONB.ageRanges.map((r) => {
               const selected = a.ageRange === r.id;
               return (
@@ -407,7 +408,7 @@ export default function CampOnboarding() {
                   accessibilityState={{ selected }}
                   style={{
                     minHeight: 48,
-                    paddingHorizontal: 16,
+                    paddingHorizontal: t.space.lg,
                     borderRadius: t.radius.pill,
                     borderWidth: 2,
                     borderColor: selected ? t.colors.primary : t.colors.border,
@@ -423,7 +424,7 @@ export default function CampOnboarding() {
             })}
           </View>
           {a.ageRange === 'under18' ? (
-            <Card style={{ gap: 4, borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+            <Card style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
               <AppText variant="small">{ONB.under18}</AppText>
             </Card>
           ) : null}
@@ -437,7 +438,6 @@ export default function CampOnboarding() {
           {draftPlans.map((p) => {
             const tpl = CAMP_PLANS.templates[p.trigger];
             const c = choices[p.trigger] ?? { pick: 0, text: '' };
-            const trig = ONB.triggers.find((x) => x.id === p.trigger)!;
             const choose = (pick: PlanChoice['pick']) => {
               setError(null);
               setChoices((x) => ({ ...x, [p.trigger]: { ...c, pick } }));
@@ -445,12 +445,12 @@ export default function CampOnboarding() {
             return (
               <Card key={p.trigger} style={{ gap: 10 }}>
                 <AppText weight="800" color={t.colors.accent}>
-                  {trig.emoji} {tr('camp.plan.if')} {tpl.if}…
+                  {tr('camp.plan.if')} {tpl.if}…
                 </AppText>
                 <AppText variant="small" weight="700" muted>
                   {tr('camp.plan.then')}
                 </AppText>
-                <View style={{ gap: 8 }}>
+                <View style={{ gap: t.space.sm }}>
                   {tpl.then.map((th, i) => (
                     <ChoiceCard key={th} label={th} selected={c.pick === i} onPress={() => choose(i)} />
                   ))}

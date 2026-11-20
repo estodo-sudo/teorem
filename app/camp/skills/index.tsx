@@ -49,9 +49,9 @@ export default function CampSkills() {
             accessibilityState={{ disabled: locked }}
             accessibilityLabel={`${l.title}. ${tr(`camp.skills.status.${s}`)}`}
           >
-            <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, opacity: locked ? 0.55 : 1, borderWidth: isRec ? 2 : 1, borderColor: isRec ? t.colors.accent : t.colors.border }}>
+            <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, opacity: locked ? 0.55 : 1, borderWidth: isRec ? 2 : 1, borderColor: isRec ? t.tokens.primary : t.colors.border }}>
               <View style={{ width: 46, height: 46, borderRadius: 23, alignItems: 'center', justifyContent: 'center', backgroundColor: s === 'done' ? t.colors.success : tint(t.colors.primary, '1F') }}>
-                {s === 'done' ? <Icon name="check" color="#FFFFFF" size={22} strokeWidth={3} /> : <AppText variant="h3">{l.emoji}</AppText>}
+                {s === 'done' ? <Icon name="check" color={t.tokens.primaryForeground} size={22} strokeWidth={3} /> : <Icon name={l.icon} size="md" />}
               </View>
               <View style={{ flex: 1, gap: 2 }}>
                 <AppText variant="tiny" weight="800" color={isRec ? t.colors.accent : t.colors.textMuted}>

@@ -1,7 +1,8 @@
-import { Linking, Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Card, Header, RowGroup, Screen, useTheme } from '@/components';
+import { SourceRow } from '@/features/content/SourceRow';
 import { CAMP_SOURCES, CAMP_SUPPORT } from '@/features/camps/smoking/content';
 import { SectionTitle } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
@@ -17,16 +18,16 @@ export default function CampSources() {
       <Header title={tr('camp.sources.title')} onBack={() => goBack('/camp/settings')} />
       <AppText muted>{tr('camp.sources.intro')}</AppText>
 
-      <SectionTitle emoji="🧭" title={tr('camp.sources.methodTitle')} />
-      <View style={{ gap: 8 }}>
+      <SectionTitle tone="smokefree" icon="compass" title={tr('camp.sources.methodTitle')} />
+      <View style={{ gap: t.space.sm }}>
         {METHOD_KEYS.map((k) => (
-          <Card key={k} style={{ gap: 4 }}>
+          <Card key={k} style={{ gap: t.space.xs }}>
             <AppText weight="800">{tr(`camp.sources.method.${k}.title`)}</AppText>
             <AppText variant="small">{tr(`camp.sources.method.${k}.text`)}</AppText>
           </Card>
         ))}
       </View>
-      <Card style={{ gap: 4, borderLeftWidth: 4, borderLeftColor: t.colors.warning }}>
+      <Card style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
         <AppText weight="800">{tr('camp.sources.reviewTitle')}</AppText>
         <AppText variant="small">{tr('camp.sources.reviewText')}</AppText>
         <AppText variant="tiny" muted>
@@ -34,21 +35,12 @@ export default function CampSources() {
         </AppText>
       </Card>
 
-      <SectionTitle emoji="📚" title={tr('camp.sources.listTitle', { count: CAMP_SOURCES.length })} />
-      <View style={{ gap: 8 }}>
+      <SectionTitle tone="smokefree" icon="book" title={tr('camp.sources.listTitle', { count: CAMP_SOURCES.length })} />
+      <RowGroup>
         {CAMP_SOURCES.map((s) => (
-          <Pressable key={s.id} onPress={() => void Linking.openURL(s.url)} accessibilityRole="link" accessibilityLabel={`${s.org}, ${s.year}: ${s.title}`}>
-            <Card style={{ gap: 2 }}>
-              <AppText variant="small" weight="800" color={t.colors.primary}>
-                {s.title}
-              </AppText>
-              <AppText variant="tiny" muted>
-                {`${s.org} · ${s.year} · ${tr('camp.sources.accessed', { date: s.accessed })}`}
-              </AppText>
-            </Card>
-          </Pressable>
+          <SourceRow key={s.id} source={s} meta={`${s.org} · ${s.year} · ${tr('camp.sources.accessed', { date: s.accessed })}`} />
         ))}
-      </View>
+      </RowGroup>
     </Screen>
   );
 }

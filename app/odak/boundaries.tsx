@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { useEffect, useState } from 'react';
 import { AppState, Linking, Platform, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -47,16 +48,16 @@ export default function OdakBoundaries() {
     <Screen>
       <Header title={B.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
       <AppText muted>{B.intro}</AppText>
-      <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
+      <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
         <AppText variant="small" weight="700">
           {B.honesty}
         </AppText>
       </Card>
 
-      <AppText variant="h3">🏠 {B.checklistTitle}</AppText>
-      <View style={{ gap: 8 }}>
+      <AppText variant="h3">{B.checklistTitle}</AppText>
+      <View style={{ gap: t.space.sm }}>
         {B.checklist.map((c) => (
-          <ChoiceCard key={c.id} multi emoji={c.emoji} label={c.label} selected={b.checklist.includes(c.id)} onPress={() => save({ checklist: toggleItem(b.checklist, c.id) })} />
+          <ChoiceCard key={c.id} multi icon={c.icon as IconName} label={c.label} selected={b.checklist.includes(c.id)} onPress={() => save({ checklist: toggleItem(b.checklist, c.id) })} />
         ))}
       </View>
       <AppText variant="tiny" muted>
@@ -64,8 +65,8 @@ export default function OdakBoundaries() {
       </AppText>
 
       {Platform.OS === 'ios' ? (
-        <Card style={{ gap: 8 }}>
-          <AppText variant="h3">📱 {B.ios.title}</AppText>
+        <Card style={{ gap: t.space.sm }}>
+          <AppText variant="h3">{B.ios.title}</AppText>
           {B.ios.steps.map((s, i) => (
             <AppText key={s} variant="small">
               {i + 1}. {s}
@@ -77,8 +78,8 @@ export default function OdakBoundaries() {
           <ChoiceCard multi label={B.ios.done} selected={b.iosWebFilter} onPress={() => save({ iosWebFilter: !b.iosWebFilter })} />
         </Card>
       ) : (
-        <Card style={{ gap: 8 }}>
-          <AppText variant="h3">📱 {B.android.title}</AppText>
+        <Card style={{ gap: t.space.sm }}>
+          <AppText variant="h3">{B.android.title}</AppText>
           {B.android.steps.map((s, i) => (
             <AppText key={s} variant="small">
               {i + 1}. {s}
@@ -102,7 +103,7 @@ export default function OdakBoundaries() {
 
       {Platform.OS === 'android' ? (
         <Card style={{ gap: 10 }}>
-          <AppText variant="h3">⏰ {B.reminder.title}</AppText>
+          <AppText variant="h3">{B.reminder.title}</AppText>
           <AppText variant="small">{B.reminder.body}</AppText>
           {!premium ? (
             <OdakLock title={tr('odak.premium.reminder')} />
@@ -112,9 +113,9 @@ export default function OdakBoundaries() {
             </AppText>
           ) : (
             <>
-              <Card style={{ backgroundColor: t.colors.surfaceAlt }}>
-                <AppText variant="small">🔒 {B.reminder.disclosure}</AppText>
-              </Card>
+              <View style={{ backgroundColor: t.tokens.muted, borderRadius: t.radius.md, padding: t.space.md }}>
+                <AppText variant="small">{B.reminder.disclosure}</AppText>
+              </View>
               <SwitchRow label={B.reminder.enable} value={b.reminder.enabled} onChange={setReminder} />
               {b.reminder.enabled ? (
                 <>

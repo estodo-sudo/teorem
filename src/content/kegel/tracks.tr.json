@@ -36,7 +36,7 @@
   "tracks": [
     {
       "id": "general",
-      "emoji": "💪",
+      "icon": "dumbbell", "tone": "kegel",
       "title": "Genel Güç",
       "text": "Dengeli tutma, hızlı sıkma ve yavaş sık–bırak çalışması.",
       "sourceIds": [
@@ -46,7 +46,7 @@
     },
     {
       "id": "erection",
-      "emoji": "⚡",
+      "icon": "zap", "tone": "kegel",
       "title": "Sertleşme Desteği",
       "text": "Tam güçte kasılmalar; her seansta yatarak, oturarak ve ayakta.",
       "note": "Ev programı mantığı Dorey ve arkadaşlarının (2004–2005) çalışmalarından esinlenir. Tıbbi bir tedavi değildir.",
@@ -57,7 +57,7 @@
     },
     {
       "id": "control",
-      "emoji": "🎚️",
+      "icon": "sliders", "tone": "kegel",
       "title": "Kontrol ve Zamanlama",
       "text": "Hızlı kasılma ve tam bırakma koordinasyonu, nefesle eşleme, gevşeme farkındalığı.",
       "note": "Amaç kontrol ve farkındalık kazanmaktır; belirli bir sonuç vaat edilmez.",
@@ -68,7 +68,7 @@
     },
     {
       "id": "bladder",
-      "emoji": "💧",
+      "icon": "droplet", "tone": "kegel",
       "title": "İdrar Kontrolü ve Damlama",
       "text": "Yavaş tutma, hızlı kasılma, Knack pratiği ve idrar sonrası sıkma alışkanlığı.",
       "sourceIds": [
@@ -80,7 +80,7 @@
     },
     {
       "id": "surgery",
-      "emoji": "🩹",
+      "icon": "bandage", "tone": "kegel",
       "title": "Prostat Ameliyatı Öncesi/Sonrası",
       "text": "Hafif başlangıç, yatarak başlayıp ayakta ilerleme, Knack pratiği.",
       "note": "Yalnızca doktorun onay verdiyse açılır. Sonda takılıyken egzersiz yapma.",
@@ -93,7 +93,7 @@
     },
     {
       "id": "relax",
-      "emoji": "🌿",
+      "icon": "leaf", "tone": "kegel",
       "title": "Gevşeme Odaklı",
       "text": "Bırakma, nazik ters Kegel ve beden farkındalığı.",
       "note": "Pelvik tabanında gerginlik olabileceğini düşünüyorsan önerilir. Bir üroloji uzmanına veya pelvik taban fizyoterapistine danışman iyi olur.",

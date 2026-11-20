@@ -1,6 +1,5 @@
-import { StyleSheet, View } from 'react-native';
-
 import { useTheme } from './useTheme';
+import { StyleSheet, View } from 'react-native';
 
 interface Props {
   count: number;
@@ -13,13 +12,13 @@ interface Props {
 /** Story-style segmented progress (one segment per slide). */
 export function SegmentedBar({ count, index, progress, color }: Props) {
   const t = useTheme();
-  const fg = color ?? '#FFFFFF';
+  const fg = color ?? t.focus.text;
   return (
     <View style={styles.row} accessibilityRole="progressbar" accessibilityValue={{ min: 1, max: count, now: index + 1 }}>
       {Array.from({ length: count }).map((_, i) => {
         const fill = i < index ? 1 : i === index ? Math.min(1, Math.max(0, progress)) : 0;
         return (
-          <View key={i} style={[styles.seg, { backgroundColor: t.dark ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.4)' }]}>
+          <View key={i} style={[styles.seg, { backgroundColor: t.veil.bold }]}>
             <View style={{ width: `${fill * 100}%`, height: '100%', backgroundColor: fg }} />
           </View>
         );

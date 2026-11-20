@@ -12,7 +12,7 @@
  "scenarios": [
   {
    "id": "urge",
-   "emoji": "🌊",
+   "icon": "waves", "tone": "focus",
    "title": "Şu an güçlü bir dürtü var",
    "start": "s",
    "nodes": {
@@ -115,7 +115,7 @@
   },
   {
    "id": "sleepless",
-   "emoji": "🌙",
+   "icon": "moon", "tone": "focus",
    "title": "Gece uyuyamıyorum",
    "start": "s",
    "nodes": {
@@ -171,7 +171,7 @@
   },
   {
    "id": "slip-bad",
-   "emoji": "🤍",
+   "icon": "heart", "tone": "focus",
    "title": "Kaydım, kendimi berbat hissediyorum",
    "start": "s",
    "nodes": {
@@ -231,7 +231,7 @@
   },
   {
    "id": "addicted",
-   "emoji": "❓",
+   "icon": "help", "tone": "focus",
    "title": "Kendimi bağımlı hissediyorum, öyle miyim?",
    "start": "s",
    "nodes": {
@@ -287,7 +287,7 @@
   },
   {
    "id": "harmful",
-   "emoji": "🩺",
+   "icon": "stethoscope", "tone": "focus",
    "title": "Mastürbasyon zararlı mı?",
    "start": "s",
    "nodes": {
@@ -334,7 +334,7 @@
   },
   {
    "id": "filter",
-   "emoji": "🧱",
+   "icon": "blocks", "tone": "focus",
    "title": "Filtreyi aştım",
    "start": "s",
    "nodes": {
@@ -381,7 +381,7 @@
   },
   {
    "id": "lonely",
-   "emoji": "🫂",
+   "icon": "handshake", "tone": "focus",
    "title": "Yalnız hissediyorum",
    "start": "s",
    "nodes": {
@@ -428,7 +428,7 @@
   },
   {
    "id": "stress",
-   "emoji": "😣",
+   "icon": "frown", "tone": "focus",
    "title": "Stresliyim",
    "start": "s",
    "nodes": {
@@ -475,7 +475,7 @@
   },
   {
    "id": "partner",
-   "emoji": "💬",
+   "icon": "chat", "tone": "focus",
    "title": "Partnerime söylemeli miyim?",
    "start": "s",
    "nodes": {
@@ -539,7 +539,7 @@
   },
   {
    "id": "motivation",
-   "emoji": "🔋",
+   "icon": "battery", "tone": "focus",
    "title": "Motivasyonum yok",
    "start": "s",
    "nodes": {
@@ -608,7 +608,7 @@
   },
   {
    "id": "values-conflict",
-   "emoji": "🕊️",
+   "icon": "bird", "tone": "focus",
    "title": "Değerlerimle çelişiyorum",
    "start": "s",
    "nodes": {
@@ -651,7 +651,7 @@
   },
   {
    "id": "expert",
-   "emoji": "🩺",
+   "icon": "stethoscope", "tone": "focus",
    "title": "Uzmana gitmeli miyim?",
    "start": "s",
    "nodes": {

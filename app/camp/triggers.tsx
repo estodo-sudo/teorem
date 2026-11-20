@@ -10,6 +10,7 @@ import type { TriggerId } from '@/features/camps/smoking/types';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { IconTile } from '@/components/ui';
 
 /**
  * Trigger map + if–then plans. Triggers come from the assessment, the diary and SOS, most frequent
@@ -35,8 +36,8 @@ export default function CampTriggers() {
       <Header title={tr('camp.triggers.title')} onBack={() => goBack('/camp')} />
       <AppText muted>{tr('camp.triggers.intro')}</AppText>
       <InfoToggle title={tr('camp.plan.plansInfo')} text={CAMP_PLANS.info} />
-      <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: tint(withPlan === map.length && map.length ? t.colors.success : t.colors.warning, '14') }}>
-        <AppText variant="h2">{withPlan === map.length && map.length ? '✅' : '🧩'}</AppText>
+      <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, backgroundColor: tint(withPlan === map.length && map.length ? t.colors.success : t.colors.warning, '14') }}>
+        <IconTile icon={withPlan === map.length && map.length ? 'success' : 'puzzle'} tone="smokefree" size="lg" round />
         <AppText weight="800" style={{ flex: 1 }}>
           {tr('camp.triggers.coverage', { done: withPlan, total: map.length })}
         </AppText>
@@ -48,7 +49,7 @@ export default function CampTriggers() {
         return (
           <Card key={m.trigger} style={{ gap: 10 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <AppText variant="h2">{x.emoji}</AppText>
+              <IconTile icon={x.icon} tone="smokefree" />
               <View style={{ flex: 1 }}>
                 <AppText weight="800">{x.label}</AppText>
                 <AppText variant="tiny" muted>
@@ -56,7 +57,7 @@ export default function CampTriggers() {
                 </AppText>
               </View>
               {!plans.length ? (
-                <View style={{ paddingHorizontal: 8, paddingVertical: 3, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.warning, '33') }}>
+                <View style={{ paddingHorizontal: t.space.sm, paddingVertical: 3, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.warning, '33') }}>
                   <AppText variant="tiny" weight="800">
                     {tr('camp.triggers.noPlan')}
                   </AppText>
@@ -64,7 +65,7 @@ export default function CampTriggers() {
               ) : null}
             </View>
             {plans.map((p) => (
-              <View key={p.id} style={{ flexDirection: 'row', alignItems: 'center', gap: 8, padding: 10, borderRadius: t.radius.md, backgroundColor: tint(t.colors.accent, '10'), borderLeftWidth: 3, borderLeftColor: t.colors.accent }}>
+              <View key={p.id} style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm, padding: 10, borderRadius: t.radius.md, backgroundColor: t.tokens.muted }}>
                 <View style={{ flex: 1, gap: 2 }}>
                   <AppText variant="small" weight="700">
                     {tr('camp.plan.if')} {p.ifText}, {tr('camp.plan.then')} {p.thenText}.
@@ -87,9 +88,9 @@ export default function CampTriggers() {
 
       {extra.length ? (
         adding ? (
-          <Card style={{ gap: 8 }}>
+          <Card style={{ gap: t.space.sm }}>
             <AppText weight="800">{tr('camp.triggers.pickNew')}</AppText>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
               {extra.map((x) => (
                 <Pressable
                   key={x.id}
@@ -99,9 +100,9 @@ export default function CampTriggers() {
                     setEditing(x.id);
                   }}
                   accessibilityRole="button"
-                  style={{ flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 48, paddingHorizontal: 12, borderRadius: t.radius.pill, borderWidth: 1.5, borderColor: t.colors.border }}
+                  style={{ flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 48, paddingHorizontal: t.space.md, borderRadius: t.radius.pill, borderWidth: 1.5, borderColor: t.colors.border }}
                 >
-                  <AppText>{x.emoji}</AppText>
+                  <Icon name={x.icon} size="md" />
                   <AppText variant="small" weight="700">
                     {x.label}
                   </AppText>

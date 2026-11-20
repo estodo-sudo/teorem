@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, ProgressBar, ProgressRing, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import bodyscan from '@/content/bodyscan.tr.json';
 import { cancelHaptics, playCue } from '@/features/training/haptics';
 import { currentPhase, progress, remainingInPhase, type PlayerEvent, type TimedPhase } from '@/features/training/player/machine';
@@ -24,9 +25,7 @@ export default function BodyScan() {
   return (
     <Screen footer={<Button label={tr('common.start')} size="lg" variant="accent" icon="play" onPress={() => setRunning(true)} />}>
       <Header title={tr('mind.bodyScan.title')} close />
-      <AppText variant="display" center>
-        🧘
-      </AppText>
+      <IconTile icon="flower" tone="mind" size="lg" round />
       <AppText>{tr('mind.bodyScan.intro', { min: Math.round(total / 60) })}</AppText>
       <Card>
         <AppText variant="small" muted>
@@ -68,7 +67,7 @@ function ScanSession({ onExit }: { onExit: () => void }) {
     <Screen scroll={false} edges={['top', 'bottom']}>
       <Header title={tr('mind.bodyScan.title')} close onBack={onExit} />
       <ProgressBar value={progress(state, now)} color={t.colors.breathe} accessibilityLabel={tr('player.progress')} />
-      <View style={{ flex: 1, justifyContent: 'center', gap: 24 }}>
+      <View style={{ flex: 1, justifyContent: 'center', gap: t.space.xl }}>
         {done ? (
           <AppText variant="h1" center>
             {tr('mind.bodyScan.done')}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- empty-history: placeholder. Açık bir defter sayfası: iki satır çizgisi ve bir kalem ucu. -->
+  <circle cx="80" cy="80" r="58" fill="#E2EFEC" stroke="none" stroke-width="2"/>
+  <path d="M50 52 H104 V112 H50 Z" fill="none" stroke="#9AA0A6" stroke-width="2"/>
+  <line x1="60" y1="70" x2="94" y2="70" stroke="#9AA0A6" stroke-width="2"/>
+  <line x1="60" y1="84" x2="86" y2="84" stroke="#9AA0A6" stroke-width="2"/>
+  <line x1="98" y1="104" x2="120" y2="82" stroke="#1E6B66" stroke-width="2"/>
+  <circle cx="98" cy="104" r="3" fill="#1E6B66" stroke="none" stroke-width="2"/>
+</svg>

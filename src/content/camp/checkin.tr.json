@@ -8,56 +8,56 @@
   "symptoms": [
     {
       "id": "restless",
-      "emoji": "🌀",
+      "icon": "wind", "tone": "smokefree",
       "label": "Huzursuzluk",
       "tip": "Bedenini hareket ettir: kısa bir yürüyüş, merdiven inip çıkmak ya da birkaç esneme hareketi huzursuzluğu azaltır. Kafeinli içecekleri biraz azaltmak da işe yarayabilir.",
       "eases": "Genellikle ilk 2–4 hafta içinde azalır."
     },
     {
       "id": "irritable",
-      "emoji": "😤",
+      "icon": "angry", "tone": "smokefree",
       "label": "Sinirlilik, öfke",
       "tip": "Bu his geçici ve yoksunluğun normal bir parçası. Tepki vermeden önce birkaç yavaş nefes al; çevrendekilere bu dönemden geçtiğini söylemek de anlayış kazanmanı sağlar.",
       "eases": "İlk hafta en yoğundur; çoğu zaman 2–4 hafta içinde hafifler."
     },
     {
       "id": "insomnia",
-      "emoji": "🌙",
+      "icon": "moon", "tone": "smokefree",
       "label": "Uykusuzluk",
       "tip": "Akşam saatlerinde kafeinden kaçın, yatmadan önce ekranı bırak ve her gün aynı saatte yatmaya çalış. Yatakta uyuyamıyorsan kalkıp sakin bir şeyle uğraşmak yardımcı olur.",
       "eases": "Uyku düzeni çoğu zaman birkaç hafta içinde yerine oturur."
     },
     {
       "id": "appetite",
-      "emoji": "🍽️",
+      "icon": "utensils", "tone": "smokefree",
       "label": "İştah artışı",
       "tip": "Acıktığında elinin altında meyve, sebze ya da su olsun. Yavaş yemek ve öğün atlamamak ani açlıkları azaltır. Sigaranın yerini atıştırmalıkla doldurduğunu fark etmek de önemli.",
       "eases": "İştah artışı birkaç hafta sürebilir; zamanla dengelenir."
     },
     {
       "id": "headache",
-      "emoji": "🤕",
+      "icon": "bandage", "tone": "smokefree",
       "label": "Baş ağrısı",
       "tip": "Bol su iç, düzenli öğün ye ve kısa molalar ver. Baş ağrın şiddetliyse ya da geçmiyorsa bir hekime danış.",
       "eases": "Genellikle ilk günlerde görülür ve kısa sürede geçer."
     },
     {
       "id": "focus",
-      "emoji": "🧠",
+      "icon": "brain", "tone": "smokefree",
       "label": "Odaklanma güçlüğü",
       "tip": "İşlerini küçük parçalara böl ve sık ara ver. Önemli işleri gün içinde en dinç olduğun saatlere koy. Kısa bir yürüyüş zihnini toplamana yardım eder.",
       "eases": "Çoğu zaman birkaç hafta içinde düzelir."
     },
     {
       "id": "cough",
-      "emoji": "😮‍💨",
+      "icon": "wind", "tone": "smokefree",
       "label": "Öksürük",
       "tip": "Akciğerlerin temizlenirken bir süre öksürük artabilir. Bol su içmek balgamı yumuşatır. Öksürüğün uzun sürerse, kan gelirse ya da nefes darlığın varsa hekime başvur.",
       "eases": "Genellikle birkaç hafta içinde azalır."
     },
     {
       "id": "constipation",
-      "emoji": "🥦",
+      "icon": "salad", "tone": "smokefree",
       "label": "Kabızlık",
       "tip": "Lifli yiyecekler (sebze, meyve, tam tahıl) ve bol su tüket; her gün biraz hareket etmek bağırsakları çalıştırır.",
       "eases": "Genellikle birkaç hafta içinde düzelir."
@@ -66,27 +66,27 @@
   "moods": [
     {
       "v": 1,
-      "emoji": "😣",
+      "icon": "frown", "tone": "smokefree",
       "label": "Çok kötü"
     },
     {
       "v": 2,
-      "emoji": "😕",
+      "icon": "frown", "tone": "smokefree",
       "label": "Kötü"
     },
     {
       "v": 3,
-      "emoji": "😐",
+      "icon": "meh", "tone": "smokefree",
       "label": "İdare eder"
     },
     {
       "v": 4,
-      "emoji": "🙂",
+      "icon": "smile", "tone": "smokefree",
       "label": "İyi"
     },
     {
       "v": 5,
-      "emoji": "😄",
+      "icon": "laugh", "tone": "smokefree",
       "label": "Çok iyi"
     }
   ],

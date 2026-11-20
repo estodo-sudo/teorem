@@ -9,6 +9,7 @@ import { useCampStore } from '@/stores/campStore';
 import { tint } from '@/features/campus/shared/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 /** Knowledge library: short sourced stories on the shared story player. */
 export default function CampLibrary() {
@@ -29,9 +30,9 @@ export default function CampLibrary() {
             accessibilityRole="button"
             accessibilityLabel={s.title}
           >
-            <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
               <View style={{ width: 46, height: 46, borderRadius: 23, alignItems: 'center', justifyContent: 'center', backgroundColor: tint(t.colors.primary, '1F') }}>
-                <AppText variant="h3">{s.emoji}</AppText>
+                <IconTile icon={s.icon} tone="smokefree" />
               </View>
               <View style={{ flex: 1, gap: 2 }}>
                 <AppText weight="800">{s.title}</AppText>

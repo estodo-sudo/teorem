@@ -1,3 +1,5 @@
+import type { ModuleTone } from '@/config/theme';
+import type { IconName } from '@/components/Icon';
 import challengesJson from '@/content/challenges.tr.json';
 import coursesJson from '@/content/courses.tr.json';
 import glossaryJson from '@/content/glossary.tr.json';
@@ -9,7 +11,7 @@ export type StoryCategory = 'menHealth' | 'relationships' | 'nutrition' | 'sleep
 export interface StorySlide {
   title: string;
   text: string;
-  emoji: string;
+  icon: IconName;
   didYouKnow?: string;
 }
 
@@ -17,7 +19,8 @@ export interface Story {
   id: string;
   title: string;
   category: StoryCategory;
-  emoji: string;
+  icon: IconName;
+  tone?: ModuleTone;
   minutes: number;
   slides: StorySlide[];
   sources: { title: string; url: string }[];
@@ -44,7 +47,7 @@ export interface Course {
   id: string;
   title: string;
   description: string;
-  emoji: string;
+  icon: IconName;
   lessons: Lesson[];
   reviewed: boolean;
 }
@@ -52,9 +55,11 @@ export interface Course {
 /** "Neden, Nedir ve Ne Demek?" entry: an app concept or a sexual-health topic. */
 export interface GlossaryTerm {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   summary: string;
+  /** Keşfet compact card (SPEC_KESFET_V2 §4.5), at most 60 characters. */
+  shortSummary?: string;
   sections: { title: string; text: string }[];
   reviewed: boolean;
 }
@@ -62,7 +67,7 @@ export interface GlossaryTerm {
 export interface Challenge {
   id: string;
   category: ChallengeCategory;
-  emoji: string;
+  icon: IconName;
   text: string;
   /** Short, honest explanation of the evidence behind the task. */
   why: string;

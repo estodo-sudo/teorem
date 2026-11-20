@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import feetJson from '@/content/feet.tr.json';
 import neckJson from '@/content/neck.tr.json';
 
@@ -13,7 +14,7 @@ export interface BodyOption {
 
 export interface BodyStep {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   summary: string;
   sections: { title: string; text: string }[];
@@ -23,7 +24,7 @@ export interface BodyStep {
 export interface BodyContent {
   id: BodyId;
   title: string;
-  emoji: string;
+  icon: IconName;
   description: string;
   reviewed: boolean;
   /** Programme length and sessions per week. */

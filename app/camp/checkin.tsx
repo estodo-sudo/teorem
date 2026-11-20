@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { CAMP_CHECKIN as CHK } from '@/features/camps/smoking/content';
 import { checkinDue, CRAVING_COUNTS, moodAlert } from '@/features/camps/smoking/engine/checkin';
 import { currentPhase } from '@/features/camps/smoking/engine/phase';
@@ -13,6 +13,7 @@ import { SafetyCard } from '@/features/camps/smoking/ui';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { IconTile } from '@/components/ui';
 
 /** Daily check-in (≤30 s): smoked today? · strong urges · mood · withdrawal symptoms → tips. */
 export default function CampCheckin() {
@@ -51,7 +52,7 @@ export default function CampCheckin() {
       <Screen footer={smoked ? <Button label={tr('camp.checkin.toSlip')} size="lg" variant="primary" onPress={() => router.replace('/camp/slip')} /> : <Button label={tr('camp.checkin.done')} size="lg" variant="primary" onPress={back} />}>
         <Header title={tr('camp.checkin.title')} close onBack={back} />
         <View style={{ alignItems: 'center', gap: 6 }}>
-          <AppText variant="display">{smoked ? '🌱' : '✅'}</AppText>
+          <IconTile icon={smoked ? 'sprout' : 'success'} tone="smokefree" size="lg" round />
           <AppText variant="h2" center accessibilityRole="header">
             {smoked ? tr('camp.checkin.savedSmoked') : tr('camp.checkin.saved')}
           </AppText>
@@ -63,12 +64,12 @@ export default function CampCheckin() {
             {picked.map((s) => (
               <Card key={s.id} style={{ gap: 6 }}>
                 <AppText weight="800">
-                  {s.emoji} {s.label}
+                  {s.label}
                 </AppText>
                 <AppText variant="small">{s.tip}</AppText>
-                <View style={{ padding: 8, borderRadius: t.radius.md, backgroundColor: tint(t.colors.success, '14') }}>
+                <View style={{ padding: t.space.sm, borderRadius: t.radius.md, backgroundColor: tint(t.colors.success, '14') }}>
                   <AppText variant="small" weight="700" color={t.colors.success}>
-                    ⏳ {s.eases}
+                    {s.eases}
                   </AppText>
                 </View>
               </Card>
@@ -102,7 +103,7 @@ export default function CampCheckin() {
       <AppText muted>{tr('camp.checkin.intro')}</AppText>
 
       <AppText weight="800">{tr('camp.checkin.smoked')}</AppText>
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
         {[false, true].map((v) => (
           <Pressable key={String(v)} onPress={() => setSmoked(v)} accessibilityRole="radio" accessibilityState={{ selected: smoked === v }} style={[chip(smoked === v), { flex: 1 }]}>
             <AppText weight="800">{v ? tr('camp.checkin.yes') : tr('camp.checkin.no')}</AppText>
@@ -116,7 +117,7 @@ export default function CampCheckin() {
       ) : null}
 
       <AppText weight="800">{tr('camp.checkin.cravings')}</AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {CRAVING_COUNTS.map((n, i) => (
           <Pressable key={n} onPress={() => setCravings(n)} accessibilityRole="radio" accessibilityState={{ selected: cravings === n }} style={[chip(cravings === n), { minWidth: 52 }]}>
             <AppText weight="800">{i === CRAVING_COUNTS.length - 1 ? tr('camp.checkin.orMore', { n }) : n === 5 ? '4–5' : String(n)}</AppText>
@@ -135,9 +136,9 @@ export default function CampCheckin() {
               accessibilityRole="radio"
               accessibilityState={{ selected: on }}
               accessibilityLabel={m.label}
-              style={{ alignItems: 'center', gap: 4, width: 62, paddingVertical: 8, borderRadius: t.radius.lg, borderWidth: 2, borderColor: on ? t.colors.accent : 'transparent', backgroundColor: on ? tint(t.colors.accent, '1A') : 'transparent' }}
+              style={{ alignItems: 'center', gap: t.space.xs, width: 62, paddingVertical: t.space.sm, borderRadius: t.radius.lg, borderWidth: 2, borderColor: on ? t.tokens.primary : 'transparent', backgroundColor: on ? tint(t.colors.accent, '1A') : 'transparent' }}
             >
-              <AppText style={{ fontSize: 30, lineHeight: 36 }}>{m.emoji}</AppText>
+              <IconTile icon={m.icon} tone="smokefree" size="lg" round />
               <AppText variant="tiny" weight="700" center>
                 {m.label}
               </AppText>
@@ -147,12 +148,12 @@ export default function CampCheckin() {
       </View>
 
       <AppText weight="800">{tr('camp.checkin.symptoms')}</AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {CHK.symptoms.map((s) => {
           const on = symptoms.includes(s.id);
           return (
             <Pressable key={s.id} onPress={() => setSymptoms((x) => (on ? x.filter((y) => y !== s.id) : [...x, s.id]))} accessibilityRole="checkbox" accessibilityState={{ checked: on }} style={chip(on)}>
-              <AppText>{s.emoji}</AppText>
+              <Icon name={s.icon} size="md" />
               <AppText variant="small" weight="700">
                 {s.label}
               </AppText>

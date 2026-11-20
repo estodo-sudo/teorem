@@ -127,12 +127,12 @@ function LockScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: t.colors.background }}>
-      <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: 12 }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingHorizontal: t.space.md }}>
         <Button label={tr('odak.exit.button')} icon="home" variant="ghost" onPress={quickExit} />
       </View>
-      <View style={{ flex: 1, justifyContent: 'center', padding: 24, gap: 20 }}>
+      <View style={{ flex: 1, justifyContent: 'center', padding: t.space.xl, gap: t.space.gutter }}>
         {method === null ? null : method === 'device' ? (
-          <View style={{ alignItems: 'center', gap: 16 }}>
+          <View style={{ alignItems: 'center', gap: t.space.lg }}>
             <Icon name="lock" color={t.colors.primary} size={48} />
             <AppText variant="h2" center accessibilityRole="header">
               {tr('odak.lock.title')}

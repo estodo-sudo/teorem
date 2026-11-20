@@ -46,7 +46,7 @@ describe('content files', () => {
       expect(c.why.trim().length).toBeGreaterThan(15);
       expect(c.text.length).toBeLessThanOrEqual(80);
       expect(c.source.url).toMatch(/^https:\/\//);
-      expect(c.emoji).not.toBe('');
+      expect(c.icon).not.toBe('');
     }
     // No promises of cures or guaranteed results.
     const all = JSON.stringify(CHALLENGES).toLocaleLowerCase('tr-TR');

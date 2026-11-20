@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import cuesJson from '@/content/kegel/cues.tr.json';
 import tracksJson from '@/content/kegel/tracks.tr.json';
 import type { DurationPreset, Goal, KegelExerciseType, Position, TrackId } from '@/types';
@@ -12,7 +13,7 @@ export interface KegelCue {
 }
 export interface TrackInfo {
   id: TrackId;
-  emoji: string;
+  icon: IconName;
   title: string;
   text: string;
   note?: string;

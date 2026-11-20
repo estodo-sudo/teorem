@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, ListRow, Screen, useTheme } from '@/components';
+import { AppText, Icon, ListRow, RowGroup, Screen, useTheme } from '@/components';
+import { Card, IconTile, ScalePressable } from '@/components/ui';
 import { APP_NAME } from '@/config/app';
 import { ACHIEVEMENTS } from '@/features/gamification/achievements';
 import { useStreak } from '@/features/gamification/service';
@@ -13,6 +13,11 @@ import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useProgressStore } from '@/stores/progressStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
+/**
+ * Profil — ui-v3 (SPEC_UI_V3 §7.8): avatar (User icon) with the level / streak / trophies summary,
+ * the subscription card ("Premium aktif" with a BadgeCheck and the renewal date) and the settings as
+ * grouped list rows (Antrenman, Bildirimler, Görünüm, Veri ve gizlilik, Yasal, Geliştirici).
+ */
 export default function Profile() {
   const t = useTheme();
   const { t: tr, i18n } = useTranslation();
@@ -24,64 +29,104 @@ export default function Profile() {
   const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
 
   return (
-    <Screen>
-      <AppText variant="h1" accessibilityRole="header">
+    <Screen contentStyle={{ gap: t.space.xl }}>
+      <AppText variant="title1" accessibilityRole="header">
         {tr('profile.title')}
       </AppText>
-      <View style={{ flexDirection: 'row', gap: 10 }}>
-        <Mini value={String(level)} label={tr('profile.level')} />
-        <Mini value={String(streak.current)} label={tr('profile.streak')} />
-        <Mini value={`${unlocked}/${ACHIEVEMENTS.length}`} label={tr('profile.trophies')} onPress={() => router.push('/achievements')} />
-      </View>
 
-      <Card style={{ gap: 4, borderColor: premium ? t.colors.success : t.colors.accent }}>
-        <AppText variant="h3">{premium ? tr('profile.sub.active') : tr('profile.sub.free')}</AppText>
-        {premium && ent.expiresAt ? (
-          <AppText variant="small" muted>
-            {tr('profile.sub.renews', { date: new Date(ent.expiresAt).toLocaleDateString(locale) })}
-          </AppText>
-        ) : null}
-        {!premium ? <ListRow label={tr('profile.sub.upgrade')} icon="star" onPress={() => router.push({ pathname: '/paywall', params: { source: 'profile' } })} /> : null}
-        <ListRow label={tr('profile.sub.manage')} icon="gear" onPress={() => void openManageSubscriptions()} />
-        <ListRow label={tr('paywall.restore')} icon="check" onPress={() => void restorePurchases()} />
+      <Card style={{ padding: t.space.lg, gap: t.space.lg }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
+          <IconTile icon="user" size="lg" round />
+          <View style={{ flex: 1, gap: 2 }}>
+            <AppText variant="title3">{APP_NAME}</AppText>
+            <AppText variant="footnote" muted>
+              {premium ? tr('profile.sub.active') : tr('profile.sub.free')}
+            </AppText>
+          </View>
+        </View>
+        <View style={{ flexDirection: 'row' }}>
+          <Summary value={String(level)} label={tr('profile.level')} />
+          <Summary value={String(streak.current)} label={tr('profile.streak')} divider />
+          <Summary value={`${unlocked}/${ACHIEVEMENTS.length}`} label={tr('profile.trophies')} divider onPress={() => router.push('/achievements')} />
+        </View>
       </Card>
 
-      <Section title={tr('profile.settings')}>
-        <ListRow label={tr('settings.training.title')} icon="pulse" onPress={() => router.push('/settings/training')} />
-        <ListRow label={tr('settings.reminders.title')} icon="bell" onPress={() => router.push('/settings/reminders')} />
-        <ListRow label={tr('settings.appearance.title')} icon="sparkle" onPress={() => router.push('/settings/appearance')} />
-        <ListRow label={tr('settings.data.title')} icon="shield" onPress={() => router.push('/settings/data')} />
-        <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
-      </Section>
+      <RowGroup title={tr('profile.subscription')}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 64, paddingVertical: t.space.sm, borderBottomWidth: t.border.hairline, borderBottomColor: t.tokens.border }}>
+          <IconTile icon={premium ? 'badgeCheck' : 'sparkle'} background={premium ? t.tokens.successSoft : undefined} color={premium ? t.tokens.success : undefined} />
+          <View style={{ flex: 1, gap: 2 }}>
+            <AppText variant="bodyStrong">{premium ? tr('profile.sub.active') : tr('profile.sub.free')}</AppText>
+            {premium && ent.expiresAt ? (
+              <AppText variant="footnote" muted>
+                {tr('profile.sub.renews', { date: new Date(ent.expiresAt).toLocaleDateString(locale) })}
+              </AppText>
+            ) : null}
+          </View>
+        </View>
+        {!premium ? <ListRow label={tr('profile.sub.upgrade')} icon="star" onPress={() => router.push({ pathname: '/paywall', params: { source: 'profile' } })} /> : null}
+        <ListRow label={tr('profile.sub.manage')} icon="card" onPress={() => void openManageSubscriptions()} />
+        <ListRow label={tr('paywall.restore')} icon="rotate" onPress={() => void restorePurchases()} />
+      </RowGroup>
 
-      <Section title={tr('profile.legal')}>
-        <ListRow label={tr('legal.disclaimer.title')} icon="help" onPress={() => router.push('/legal/disclaimer')} />
-        <ListRow label={tr('legal.privacy.title')} icon="lock" onPress={() => router.push('/legal/privacy')} />
-        <ListRow label={tr('legal.terms.title')} icon="book" onPress={() => router.push('/legal/terms')} />
-        <ListRow label={tr('settings.about.title', { app: APP_NAME })} icon="user" onPress={() => router.push('/settings/about')} />
-      </Section>
+      <RowGroup title={tr('profile.groups.training')}>
+        <ListRow label={tr('settings.training.title')} icon="pulse" onPress={() => router.push('/settings/training')} />
+        <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
+        <ListRow label={tr('progress.achievements')} icon="trophy" onPress={() => router.push('/achievements')} />
+      </RowGroup>
+
+      <RowGroup title={tr('profile.groups.notifications')}>
+        <ListRow label={tr('settings.reminders.title')} icon="bell" onPress={() => router.push('/settings/reminders')} />
+      </RowGroup>
+
+      <RowGroup title={tr('profile.groups.appearance')}>
+        <ListRow label={tr('settings.appearance.title')} icon="sun" onPress={() => router.push('/settings/appearance')} />
+      </RowGroup>
+
+      <RowGroup title={tr('profile.groups.data')}>
+        <ListRow label={tr('settings.data.title')} icon="shield" onPress={() => router.push('/settings/data')} />
+      </RowGroup>
+
+      <RowGroup title={tr('profile.groups.legal')}>
+        <ListRow label={tr('legal.disclaimer.title')} icon="stethoscope" tone="knowledge" onPress={() => router.push('/legal/disclaimer')} />
+        <ListRow label={tr('legal.privacy.title')} icon="lock" tone="knowledge" onPress={() => router.push('/legal/privacy')} />
+        <ListRow label={tr('legal.terms.title')} icon="file" tone="knowledge" onPress={() => router.push('/legal/terms')} />
+        <ListRow label={tr('settings.about.title', { app: APP_NAME })} icon="info" tone="knowledge" onPress={() => router.push('/settings/about')} />
+      </RowGroup>
+
+      {__DEV__ ? (
+        <RowGroup title={tr('profile.groups.developer')}>
+          <ListRow label={tr('profile.devGallery')} icon="layers" onPress={() => router.push('/dev/gallery')} />
+        </RowGroup>
+      ) : null}
     </Screen>
   );
 }
 
-function Mini({ value, label, onPress }: { value: string; label: string; onPress?: () => void }) {
-  return (
-    <Card onPress={onPress} accessibilityLabel={`${label}: ${value}`} style={{ flex: 1, alignItems: 'center', gap: 2 }}>
-      <AppText variant="h2">{value}</AppText>
-      <AppText variant="tiny" muted>
+function Summary({ value, label, divider, onPress }: { value: string; label: string; divider?: boolean; onPress?: () => void }) {
+  const t = useTheme();
+  const body = (
+    <View style={{ gap: 2, paddingHorizontal: t.space.sm }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs }}>
+        <AppText variant="title2" tabular>
+          {value}
+        </AppText>
+        {onPress ? <Icon name="chevron" size="sm" color={t.tokens.subtle} /> : null}
+      </View>
+      <AppText variant="footnote" muted>
         {label}
       </AppText>
-    </Card>
+    </View>
   );
-}
-
-function Section({ title, children }: { title: string; children: ReactNode }) {
+  const style = { flex: 1, borderLeftWidth: divider ? t.border.thin : 0, borderLeftColor: t.tokens.border };
+  if (!onPress)
+    return (
+      <View style={style} accessible accessibilityLabel={`${label}: ${value}`}>
+        {body}
+      </View>
+    );
   return (
-    <Card style={{ paddingVertical: 4 }}>
-      <AppText variant="small" weight="700" muted style={{ marginTop: 10 }}>
-        {title.toLocaleUpperCase('tr-TR')}
-      </AppText>
-      {children}
-    </Card>
+    <ScalePressable onPress={onPress} accessibilityRole="button" accessibilityLabel={`${label}: ${value}`} style={[style, { minHeight: t.touch, justifyContent: 'center' }]}>
+      {body}
+    </ScalePressable>
   );
 }

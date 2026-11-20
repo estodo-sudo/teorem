@@ -13,27 +13,27 @@
    "id": "values",
    "order": 1,
    "phase": "awareness",
-   "emoji": "🧭",
+   "icon": "compass", "tone": "focus",
    "title": "Neden buradasın? Değerlerin pusulası",
    "summary": "Değişimin yönünü değerlerin gösterir.",
    "slides": [
     {
-     "emoji": "🧭",
+     "icon": "compass", "tone": "focus",
      "title": "Pusulan ne gösteriyor?",
      "text": "Değerler, hayatta neyin önemli olduğunu gösteren pusulandır: ilişkin, sağlığın, odağın, inancın, emeğin. Hedefler bir gün biter; değerler hep yol gösterir."
     },
     {
-     "emoji": "🎯",
+     "icon": "target", "tone": "focus",
      "title": "Kurallar değil, yön",
      "text": "Kendini kurallarla zorlamak çoğu zaman tersine çalışır. Değerler ise “Bu davranış beni önem verdiğim şeye yaklaştırıyor mu?” diye sormana yardım eder."
     },
     {
-     "emoji": "✍️",
+     "icon": "pen", "tone": "focus",
      "title": "Somut cümleler",
      "text": "“Odak” yerine “Akşamlarımı uyku ve derslerime ayırmak” gibi somut bir cümle, zor anda çok daha güçlü bir hatırlatıcıdır."
     },
     {
-     "emoji": "🌱",
+     "icon": "sprout", "tone": "focus",
      "title": "Mükemmel olmak gerekmez",
      "text": "Değerlere göre yaşamak her gün kusursuz olmak değil; her seferinde yönünü yeniden onlara çevirmektir."
     }
@@ -68,27 +68,27 @@
    "id": "cycle",
    "order": 2,
    "phase": "awareness",
-   "emoji": "🔄",
+   "icon": "rotate", "tone": "focus",
    "title": "Dürtünün anatomisi",
    "summary": "Tetikleyici → düşünce → his → dürtü → davranış.",
    "slides": [
     {
-     "emoji": "🔄",
+     "icon": "rotate", "tone": "focus",
      "title": "Bir zincir",
      "text": "Davranış genelde birden olmaz. Bir tetikleyici (yer, saat, duygu), ardından bir düşünce, bir his, bir dürtü ve sonunda davranış gelir."
     },
     {
-     "emoji": "🔍",
+     "icon": "search", "tone": "focus",
      "title": "Zinciri görmek",
      "text": "Zinciri tanıdıkça onu erken bir halkada kırmak kolaylaşır. Gece yatakta telefon bir tetikleyici olabilir; “Biraz bakarım” bir düşüncedir."
     },
     {
-     "emoji": "✂️",
+     "icon": "scissors", "tone": "focus",
      "title": "Erken halkada müdahale",
      "text": "En kolay müdahale çoğu zaman en baştadır: tetikleyiciyi değiştirmek (telefonu odadan çıkarmak) ya da düşünceyi fark etmek."
     },
     {
-     "emoji": "🧩",
+     "icon": "puzzle", "tone": "focus",
      "title": "Senin zincirin",
      "text": "Herkesin zinciri biraz farklıdır. Günlüğün, senin zincirindeki halkaları görmene yardım eder."
     }
@@ -122,27 +122,27 @@
    "id": "monitoring",
    "order": 3,
    "phase": "awareness",
-   "emoji": "📓",
+   "icon": "notebook", "tone": "focus",
    "title": "Kendini izlemek neden işe yarar?",
    "summary": "Görmediğin örüntüyü değiştiremezsin.",
    "slides": [
     {
-     "emoji": "📓",
+     "icon": "notebook", "tone": "focus",
      "title": "Fark etmek bir beceri",
      "text": "Kendini izlemek, otomatik giden davranışları görünür kılar. Araştırmalar, düzenli kayıt tutmanın tek başına bile değişimi desteklediğini gösteriyor."
     },
     {
-     "emoji": "🕐",
+     "icon": "clock", "tone": "focus",
      "title": "Ne kaydedilir?",
      "text": "Saat, yer, öncesindeki duygu ve sonrasında ne hissettiğin. Uzun yazmak gerekmez; birkaç dokunuş yeter."
     },
     {
-     "emoji": "🙅",
+     "icon": "ban", "tone": "focus",
      "title": "Yargı değil, veri",
      "text": "Kayıt bir karne değil. Amaç kendini eleştirmek değil, örüntüyü görmek: “Demek ki gece yorgunken zorlanıyorum.”"
     },
     {
-     "emoji": "📊",
+     "icon": "chart", "tone": "focus",
      "title": "Haftalık bakış",
      "text": "Haftalık özet, en riskli saatini ve en çok işe yarayan aracını gösterir. Planlarını buna göre ayarlarsın."
     }
@@ -175,27 +175,27 @@
    "id": "environment",
    "order": 4,
    "phase": "boundaries",
-   "emoji": "🧱",
+   "icon": "blocks", "tone": "focus",
    "title": "Ortamı tasarlamak",
    "summary": "Frenler ve sürtünme.",
    "slides": [
     {
-     "emoji": "🧱",
+     "icon": "blocks", "tone": "focus",
      "title": "Sürtünme",
      "text": "Bir davranışı biraz zorlaştırmak bile sıklığını azaltır. Telefonu başka odada şarj etmek, tetikleyici uygulamayı bir klasöre taşımak birer frendir."
     },
     {
-     "emoji": "🚪",
+     "icon": "door", "tone": "focus",
      "title": "Kolay olanı değiştir",
      "text": "Ortam, irademizden daha güçlüdür. Bu yüzden zor anda direnmek yerine, zor anın gelme ihtimalini azaltmak daha akıllıcadır."
     },
     {
-     "emoji": "🔐",
+     "icon": "lock", "tone": "focus",
      "title": "Filtreler bir fren",
      "text": "Telefonunun kendi filtresi ve uygulama zamanlayıcıları yardımcı olur. Hiçbir filtre aşılmaz değildir; asıl güç planında ve becerilerinde."
     },
     {
-     "emoji": "🌙",
+     "icon": "moon", "tone": "focus",
      "title": "Riskli saatler",
      "text": "En riskli saatlerde ortamı önceden hazırlamak (ışık açık, telefon uzakta, bir etkinlik planlı) en büyük farkı yaratır."
     }
@@ -229,27 +229,27 @@
    "id": "dayy",
    "order": 5,
    "phase": "boundaries",
-   "emoji": "🔋",
+   "icon": "battery", "tone": "focus",
    "title": "DAYY: dinlenmemiş, aç, yalnız, yüklü",
    "summary": "Dört durum dürtüyü güçlendirir.",
    "slides": [
     {
-     "emoji": "🔋",
+     "icon": "battery", "tone": "focus",
      "title": "Dört durum",
      "text": "Dinlenmemiş (yorgun), Aç, Yalnız ve Yüklü (stresli ya da öfkeli) olduğumuzda dürtüler daha güçlü gelir."
     },
     {
-     "emoji": "😴",
+     "icon": "moon", "tone": "focus",
      "title": "Yorgunluk ve gece",
      "text": "Uykusuzluk, kendini düzenleme gücünü azaltır. Gece geç saatler bu yüzden en riskli dilimdir."
     },
     {
-     "emoji": "🫥",
+     "icon": "eyeOff", "tone": "focus",
      "title": "Yalnızlık",
      "text": "Yalnızlık sık görülen bir tetikleyicidir. Davranış kısa bir rahatlama sağlasa da çoğu zaman yalnızlığı gidermez."
     },
     {
-     "emoji": "🛠️",
+     "icon": "wrench", "tone": "focus",
      "title": "Kökene bak",
      "text": "Dürtü geldiğinde önce kendine sor: Hangisi? Bazen bir bardak su, kısa bir uyku ya da bir telefon görüşmesi dürtüyü değiştirir."
     }
@@ -283,27 +283,27 @@
    "id": "surfing",
    "order": 6,
    "phase": "skills",
-   "emoji": "🌊",
+   "icon": "waves", "tone": "focus",
    "title": "Dürtü sörfü",
    "summary": "Dürtüyle kavga etmeden durabilmek.",
    "slides": [
     {
-     "emoji": "🌊",
+     "icon": "waves", "tone": "focus",
      "title": "Dalga gibi",
      "text": "Dürtüler dalgalar gibidir: yükselir, zirve yapar ve alçalır. Ona göre hareket etmediğinde de geçer."
     },
     {
-     "emoji": "🥊",
+     "icon": "zap", "tone": "focus",
      "title": "Kavga etmek yorar",
      "text": "Dürtüyü bastırmaya ya da düşünmemeye çalışmak çoğu zaman onu büyütür. ACT, dürtüyle savaşmak yerine onu izlemeyi önerir."
     },
     {
-     "emoji": "👀",
+     "icon": "eye", "tone": "focus",
      "title": "Bedende izle",
      "text": "Dürtüyü bedeninde nerede hissettiğini fark et. Nefesini bir sörf tahtası gibi kullan; dalganın üstünde kal."
     },
     {
-     "emoji": "✅",
+     "icon": "success", "tone": "focus",
      "title": "Seçim senin",
      "text": "Dürtüyü hissetmek, ona göre davranmak zorunda olduğun anlamına gelmez. Hissetmek ve seçmek ayrı şeylerdir."
     }
@@ -338,27 +338,27 @@
    "id": "defusion",
    "order": 7,
    "phase": "skills",
-   "emoji": "💭",
+   "icon": "thought", "tone": "focus",
    "title": "Düşünce sadece düşüncedir",
    "summary": "“Bir kereden bir şey olmaz”, “Zaten mahvettim”.",
    "slides": [
     {
-     "emoji": "💭",
+     "icon": "thought", "tone": "focus",
      "title": "Zihnin sesi",
      "text": "Zor anlarda zihin ikna edici cümleler kurar: “Bir kereden bir şey olmaz.” “Zaten bozdum, artık fark etmez.”"
     },
     {
-     "emoji": "🏷️",
+     "icon": "tag", "tone": "focus",
      "title": "Adını koy",
      "text": "Düşünceyle aranıza mesafe koymak için ona ad ver: “Şu an ‘bir kereden bir şey olmaz’ düşüncesini fark ediyorum.”"
     },
     {
-     "emoji": "📻",
+     "icon": "radio", "tone": "focus",
      "title": "Radyo gibi",
      "text": "Düşünceleri arka planda çalan bir radyo gibi düşünebilirsin. Sesini duyarsın ama söylediği her şeyi yapmak zorunda değilsin."
     },
     {
-     "emoji": "🧭",
+     "icon": "compass", "tone": "focus",
      "title": "Değerlere dön",
      "text": "Düşünceyi fark ettikten sonra sor: “Bu düşünceyi takip etmek beni önem verdiğim şeye yaklaştırır mı?”"
     }
@@ -392,27 +392,27 @@
    "id": "acceptance",
    "order": 8,
    "phase": "skills",
-   "emoji": "🤲",
+   "icon": "painCare", "tone": "focus",
    "title": "Kabul: rahatsız hisler için yer açmak",
    "summary": "Hissi değiştirmeye çalışmadan taşımak.",
    "slides": [
     {
-     "emoji": "🤲",
+     "icon": "painCare", "tone": "focus",
      "title": "Kabul pes etmek değildir",
      "text": "Kabul, rahatsız bir hissi sevmek ya da ona boyun eğmek değil; onunla birlikte, değerlerine uygun davranabilmektir."
     },
     {
-     "emoji": "📦",
+     "icon": "box", "tone": "focus",
      "title": "Yer açmak",
      "text": "Gerginlik, sıkıntı ya da boşluk hissi geldiğinde onu bedeninde fark et ve ona biraz yer aç: “Bu his burada, ve ben bununla durabilirim.”"
     },
     {
-     "emoji": "⏳",
+     "icon": "hourglass", "tone": "focus",
      "title": "Hisler geçicidir",
      "text": "Kaçmaya çalışmadığımızda hisler çoğu zaman beklediğimizden daha çabuk değişir."
     },
     {
-     "emoji": "🧭",
+     "icon": "compass", "tone": "focus",
      "title": "Yön kaybolmaz",
      "text": "Rahatsız his oradayken bile küçük bir değer adımı atabilirsin: bir yürüyüş, bir mesaj, bir sayfa kitap."
     }
@@ -446,27 +446,27 @@
    "id": "emotions",
    "order": 9,
    "phase": "skills",
-   "emoji": "🌤️",
+   "icon": "cloudSun", "tone": "focus",
    "title": "Duygu düzenleme",
    "summary": "Stres, kaygı ve sıkıntı için yeni yollar.",
    "slides": [
     {
-     "emoji": "🌤️",
+     "icon": "cloudSun", "tone": "focus",
      "title": "Bir başa çıkma yolu",
      "text": "Davranış çoğu zaman zor duygulardan kısa süreli bir kaçış olur. Bu çok insani; ama uzun vadede duyguyu çözmez."
     },
     {
-     "emoji": "🧰",
+     "icon": "wrench", "tone": "focus",
      "title": "Yeni araçlar",
      "text": "Stres için nefes ya da hareket, kaygı için 5-4-3-2-1 farkındalık, sıkıntı için birine yazmak ya da küçük bir uğraş işe yarayabilir."
     },
     {
-     "emoji": "🏷️",
+     "icon": "tag", "tone": "focus",
      "title": "Duyguyu adlandır",
      "text": "“Şu an gerginim” demek bile beynin duygu yükünü hafifletir."
     },
     {
-     "emoji": "📋",
+     "icon": "clipboard", "tone": "focus",
      "title": "Kendi listen",
      "text": "Her duygu için bir ya da iki yeni yol belirlemek, zor anda ne yapacağını önceden bilmeni sağlar."
     }
@@ -500,27 +500,27 @@
    "id": "shame",
    "order": 10,
    "phase": "skills",
-   "emoji": "🤍",
+   "icon": "heart", "tone": "focus",
    "title": "Utanç ve suçluluk farkı",
    "summary": "Utanç neden işe yaramaz, öz-şefkat neden yarar?",
    "slides": [
     {
-     "emoji": "🤍",
+     "icon": "heart", "tone": "focus",
      "title": "İki farklı his",
      "text": "Suçluluk “Yaptığım şey değerlerimle uyuşmadı” der. Utanç ise “Ben kötüyüm” der. İkisi aynı değildir."
     },
     {
-     "emoji": "🔁",
+     "icon": "repeat", "tone": "focus",
      "title": "Utanç döngüsü",
      "text": "Utanç, kişiyi kötü hissettirir; kötü his de yeniden kaçış arayışını tetikleyebilir. Araştırmalar, utancın değişimi zorlaştırdığını gösteriyor."
     },
     {
-     "emoji": "🫶",
+     "icon": "heart", "tone": "focus",
      "title": "Öz-şefkat",
      "text": "Öz-şefkat, kendini mazur görmek değil; hatanı kabul edip kendine bir arkadaşına davrandığın gibi nazik davranmaktır."
     },
     {
-     "emoji": "🌱",
+     "icon": "sprout", "tone": "focus",
      "title": "Sorumluluk ve nezaket",
      "text": "“Bu zor bir an. Hata yapabilirim; yine de yoluma devam ediyorum.” Bu tutum, bir sonraki adımı atmayı kolaylaştırır."
     }
@@ -555,27 +555,27 @@
    "id": "sleep",
    "order": 11,
    "phase": "rebuild",
-   "emoji": "🌙",
+   "icon": "moon", "tone": "focus",
    "title": "Uyku ve gece rutini",
    "summary": "En riskli zaman dilimine hazırlık.",
    "slides": [
     {
-     "emoji": "🌙",
+     "icon": "moon", "tone": "focus",
      "title": "Neden gece?",
      "text": "Gece yorgunluk artar, ortam sessizleşir ve telefon elimizdedir. Bu yüzden gece geç saatler en riskli dilimdir."
     },
     {
-     "emoji": "🛏️",
+     "icon": "bed", "tone": "focus",
      "title": "Sakin bir rutin",
      "text": "Her gün benzer saatte yatmak, yatmadan önce ekranı kapatmak ve ışığı azaltmak uykuyu kolaylaştırır."
     },
     {
-     "emoji": "📵",
+     "icon": "phoneOff", "tone": "focus",
      "title": "Yatak = uyku",
      "text": "Telefonu yatağa götürmemek, yatağı uykuyla eşleştirir. Uyuyamıyorsan kalkıp loş ışıkta kitap okumak işe yarayabilir."
     },
     {
-     "emoji": "ℹ️",
+     "icon": "info", "tone": "focus",
      "title": "Genel bilgi",
      "text": "Bunlar genel uyku önerileridir, tıbbi tedavi değildir. Uyku sorunun uzun sürüyorsa bir hekime danış."
     }
@@ -608,27 +608,27 @@
    "id": "connection",
    "order": 12,
    "phase": "rebuild",
-   "emoji": "🫂",
+   "icon": "handshake", "tone": "focus",
    "title": "Yalnızlık ve bağlantı",
    "summary": "İnsanlarla yeniden bağ kurmak.",
    "slides": [
     {
-     "emoji": "🫂",
+     "icon": "handshake", "tone": "focus",
      "title": "Bağlantı ihtiyacı",
      "text": "İnsan bağlantıya ihtiyaç duyar. Yalnızlık arttığında kısa süreli rahatlama arayışı da artabilir."
     },
     {
-     "emoji": "📱",
+     "icon": "smartphone", "tone": "focus",
      "title": "Küçük adımlar",
      "text": "Bağlantı büyük adımlar gerektirmez: bir mesaj, kısa bir telefon, bir kahve, bir yürüyüş."
     },
     {
-     "emoji": "👥",
+     "icon": "users", "tone": "focus",
      "title": "Topluluk",
      "text": "Bir kurs, spor, gönüllülük ya da ilgi alanı grubu düzenli bağlantı için iyi bir yoldur."
     },
     {
-     "emoji": "💬",
+     "icon": "chat", "tone": "focus",
      "title": "Açık olmak",
      "text": "Ayrıntı vermeden de güvendiğin birine zorlandığını söyleyebilirsin. Yalnız taşımadığın yük hafifler."
     }
@@ -662,27 +662,27 @@
    "id": "leisure",
    "order": 13,
    "phase": "rebuild",
-   "emoji": "🎨",
+   "icon": "palette", "tone": "focus",
    "title": "Boş zamanı yeniden tasarlamak",
    "summary": "Hobiler, hareket ve üretkenlik.",
    "slides": [
     {
-     "emoji": "🎨",
+     "icon": "palette", "tone": "focus",
      "title": "Boşluk doldurulur",
      "text": "Bir davranışı azalttığında açılan zaman boş kalırsa, eski alışkanlık o boşluğa geri dönmeye çalışır."
     },
     {
-     "emoji": "🏃",
+     "icon": "footprints", "tone": "focus",
      "title": "Hareket",
      "text": "Düzenli hareket stresi azaltır ve uykuyu iyileştirir. Uygulamadaki fitness ve nefes seansları da buna dahildir."
     },
     {
-     "emoji": "🛠️",
+     "icon": "wrench", "tone": "focus",
      "title": "Anlamlı uğraşlar",
      "text": "Bir şey öğrenmek, üretmek ya da başkasına yardım etmek, değerlerinle uyumlu bir doyum sağlar."
     },
     {
-     "emoji": "🗓️",
+     "icon": "calendar", "tone": "focus",
      "title": "Planlamak",
      "text": "Riskli saatlerine önceden bir etkinlik koymak, o saati “boş” olmaktan çıkarır."
     }
@@ -715,27 +715,27 @@
    "id": "sexuality",
    "order": 14,
    "phase": "rebuild",
-   "emoji": "🤝",
+   "icon": "handshake", "tone": "focus",
    "title": "Sağlıklı cinsellik anlayışı",
    "summary": "Kendine ve partnere saygı, gerçekçi beklentiler.",
    "slides": [
     {
-     "emoji": "🤝",
+     "icon": "handshake", "tone": "focus",
      "title": "Doğal bir parça",
      "text": "Cinsellik insan hayatının doğal bir parçasıdır. Mastürbasyonun kendisi tıbben zararlı kabul edilmez; önemli olan davranışın senin değerlerin ve hayat kalitenle uyumu."
     },
     {
-     "emoji": "🎬",
+     "icon": "play", "tone": "focus",
      "title": "Gerçekçi beklentiler",
      "text": "Pornografide gösterilenler çoğu zaman kurgudur ve gerçek ilişkileri yansıtmaz. Bunu bilmek, kendine ve partnerine yönelik beklentileri daha gerçekçi kılar."
     },
     {
-     "emoji": "💬",
+     "icon": "chat", "tone": "focus",
      "title": "Saygı ve iletişim",
      "text": "Sağlıklı bir cinsel yaşamın temeli karşılıklı rıza, saygı ve açık iletişimdir."
     },
     {
-     "emoji": "🩺",
+     "icon": "stethoscope", "tone": "focus",
      "title": "Endişelerin için",
      "text": "Cinsel sağlıkla ilgili bir endişen varsa, internetteki iddialar yerine bir hekim ya da uzmanla konuşmak en doğrusudur."
     }
@@ -770,27 +770,27 @@
    "id": "relapse",
    "order": 15,
    "phase": "consolidation",
-   "emoji": "🗺️",
+   "icon": "map", "tone": "focus",
    "title": "Kayma önleme planı",
    "summary": "Yüksek riskli durumlar haritası.",
    "slides": [
     {
-     "emoji": "🗺️",
+     "icon": "map", "tone": "focus",
      "title": "Haritayı çiz",
      "text": "Kayma önleme modeli, yüksek riskli durumları önceden tanımayı önerir: belirli saatler, yerler, duygular ve kişiler."
     },
     {
-     "emoji": "⚠️",
+     "icon": "warning", "tone": "focus",
      "title": "Erken uyarılar",
      "text": "Kayma çoğu zaman küçük işaretlerle başlar: uykusuzluk, yalnızlık, “sadece bakacağım” düşüncesi."
     },
     {
-     "emoji": "📝",
+     "icon": "notebook", "tone": "focus",
      "title": "Her durum için plan",
      "text": "Her riskli durum için bir Eğer–O zaman planı hazırla. Önceden verilen karar, o anda verilen karardan çok daha kolaydır."
     },
     {
-     "emoji": "🔁",
+     "icon": "repeat", "tone": "focus",
      "title": "Kayma ≠ son",
      "text": "Bir kayma olursa “Zaten bozdum” düşüncesi kaymayı uzatabilir. Bir kayma, emeğin silindiği anlamına gelmez; ondan öğrenip devam edebilirsin."
     }
@@ -824,27 +824,27 @@
    "id": "identity",
    "order": 16,
    "phase": "consolidation",
-   "emoji": "🌟",
+   "icon": "star", "tone": "focus",
    "title": "Yeni kimliğin",
    "summary": "“Değerlerime göre yaşayan biriyim.”",
    "slides": [
     {
-     "emoji": "🌟",
+     "icon": "star", "tone": "focus",
      "title": "Davranıştan kimliğe",
      "text": "Tekrar eden küçük davranışlar zamanla kendimizi nasıl gördüğümüzü değiştirir."
     },
     {
-     "emoji": "🪞",
+     "icon": "scanFace", "tone": "focus",
      "title": "Kim olmak istiyorsun?",
      "text": "“Bunu yapmamaya çalışan biri” yerine “Değerlerime göre yaşayan biri” olmak, odağı yasaktan yöne çevirir."
     },
     {
-     "emoji": "🧱",
+     "icon": "blocks", "tone": "focus",
      "title": "Kanıtlar",
      "text": "Bu süreçte yönettiğin her dürtü anı, kurduğun her sınır ve uyguladığın her plan bu yeni kimliğin kanıtıdır."
     },
     {
-     "emoji": "🌿",
+     "icon": "leaf", "tone": "focus",
      "title": "Sürdürmek",
      "text": "Kimlik bir kez kazanılıp biten bir şey değil; her gün küçük seçimlerle yeniden onaylanır."
     }
@@ -879,27 +879,27 @@
    "id": "congruence",
    "order": 17,
    "phase": "awareness",
-   "emoji": "🕊️",
+   "icon": "bird", "tone": "focus",
    "title": "Değerlerinle barışık olmak",
    "summary": "Kusursuzluk değil, yön.",
    "slides": [
     {
-     "emoji": "🕊️",
+     "icon": "bird", "tone": "focus",
      "title": "Çelişki hissi",
      "text": "Bir davranış değerlerinle çeliştiğinde içsel bir gerilim hissedebilirsin. Bu his, senin için neyin önemli olduğunu gösterir."
     },
     {
-     "emoji": "⚖️",
+     "icon": "scale", "tone": "focus",
      "title": "Kusursuzluk tuzağı",
      "text": "Araştırmalar, yoğun ahlaki çelişki ve utancın kişinin kendini daha “kontrolsüz” algılamasına yol açabildiğini gösteriyor; bu algı her zaman davranış miktarıyla örtüşmez."
     },
     {
-     "emoji": "🧭",
+     "icon": "compass", "tone": "focus",
      "title": "Yön yeter",
      "text": "Amaç bir anda kusursuz olmak değil; her gün değerlerine biraz daha yakın yaşamak."
     },
     {
-     "emoji": "🫶",
+     "icon": "heart", "tone": "focus",
      "title": "Kendine nazik ol",
      "text": "Değerlerin, inancın ya da ilkelerin ne olursa olsun, kendine nazik davranmak bu yolda en güçlü yardımcındır."
     }

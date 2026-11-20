@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import type { StrengthTest } from '@/types';
 
 export interface AchievementContext {
@@ -13,7 +14,10 @@ export interface AchievementContext {
 
 export interface AchievementDef {
   id: string;
-  emoji: string;
+  icon: IconName;
+  /** Display only (ui-v3 medallion): the number on the ribbon and its unit, e.g. 7 + day → "3/7 gün". */
+  target?: number;
+  unit?: 'day' | 'workout' | 'level';
   /** Progress 0..1 toward unlocking (1 = unlocked). */
   progress: (c: AchievementContext) => number;
 }
@@ -35,22 +39,28 @@ export function strengthImprovement(tests: StrengthTest[]): number {
 
 const streak = (n: number): AchievementDef => ({
   id: `streak_${n}`,
-  emoji: n >= 60 ? '🔥' : n >= 14 ? '🔥' : '✨',
+  target: n,
+  unit: 'day',
+  icon: n >= 60 ? 'flame' : n >= 14 ? 'flame' : 'sparkle',
   progress: (c) => ratio(Math.max(c.currentStreak, c.longestStreak), n),
 });
 const workouts = (n: number): AchievementDef => ({
   id: `workouts_${n}`,
-  emoji: n >= 100 ? '🏆' : '💪',
+  target: n,
+  unit: 'workout',
+  icon: n >= 100 ? 'trophy' : 'dumbbell',
   progress: (c) => ratio(c.totalWorkouts, n),
 });
 const level = (n: number): AchievementDef => ({
   id: `level_${n}`,
-  emoji: '⬆️',
+  target: n,
+  unit: 'level',
+  icon: 'arrowUp',
   progress: (c) => ratio(c.level, n),
 });
 
 export const ACHIEVEMENTS: AchievementDef[] = [
-  { id: 'first_workout', emoji: '🎉', progress: (c) => ratio(c.totalWorkouts, 1) },
+  { id: 'first_workout', icon: 'party', progress: (c) => ratio(c.totalWorkouts, 1) },
   streak(3),
   streak(7),
   streak(14),
@@ -64,12 +74,12 @@ export const ACHIEVEMENTS: AchievementDef[] = [
   level(5),
   level(10),
   level(20),
-  { id: 'first_strength_test', emoji: '📏', progress: (c) => ratio(c.strengthTests.length, 1) },
-  { id: 'strength_plus_25', emoji: '📈', progress: (c) => ratio(strengthImprovement(c.strengthTests), 0.25) },
-  { id: 'lessons_5', emoji: '🎓', progress: (c) => ratio(c.completedLessons, 5) },
+  { id: 'first_strength_test', icon: 'ruler', progress: (c) => ratio(c.strengthTests.length, 1) },
+  { id: 'strength_plus_25', icon: 'trendUp', progress: (c) => ratio(strengthImprovement(c.strengthTests), 0.25) },
+  { id: 'lessons_5', icon: 'graduation', target: 5, progress: (c) => ratio(c.completedLessons, 5) },
   {
     id: 'all_stories',
-    emoji: '📚',
+    icon: 'book',
     progress: (c) => (c.totalStories > 0 ? ratio(c.readStories, c.totalStories) : 0),
   },
 ];

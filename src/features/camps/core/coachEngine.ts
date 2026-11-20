@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 /**
  * Offline coach shared by every camp: a decision tree of pre-written messages and reply buttons
  * (no LLM, no server). A reply goes to another node (`next`) or opens a camp tool (`action`).
@@ -15,7 +16,7 @@ export interface CoachNode<P extends string = string> {
 }
 export interface CoachScenario<P extends string = string> {
   id: string;
-  emoji: string;
+  icon: IconName;
   title: string;
   start: string;
   nodes: Record<string, CoachNode<P>>;

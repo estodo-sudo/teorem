@@ -1,8 +1,10 @@
+import type { IconName } from '@/components/Icon';
 import { Redirect, router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { dayKey } from '@/features/camps/core/time';
 import { fill, ODAK_BADGES as BD, ODAK_CHECKIN as C, ODAK_MISSIONS, ODAK_SKILLS, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, ODAK_REFERRAL as REF, ODAK_RELAPSE as RL } from '@/features/camps/odak/content';
 import { checkedInToday, odakCheckinDue, programStart, referralReason, relapseActive } from '@/features/camps/odak/engine/checkin';
@@ -45,7 +47,7 @@ export default function OdakPanel() {
     return (
       <Screen>
         <Header title={tr('odak.title')} right={<QuickExitButton />} />
-        <Card style={{ gap: 8 }}>
+        <Card style={{ gap: t.space.sm }}>
           <AppText variant="h3">{tr('odak.panel.missingTitle')}</AppText>
           <AppText variant="small">{tr('odak.panel.missingBody')}</AppText>
         </Card>
@@ -94,7 +96,7 @@ export default function OdakPanel() {
 
   // A value to remember today (rotates daily through the chosen cards and the user's own sentence).
   const cards = ONB.values.cards.filter((c) => profile?.values.includes(c.id));
-  const pool: string[] = [...cards.map((c) => `${c.emoji} ${c.label}`), ...(profile?.valuesText ? [`“${profile.valuesText}”`] : [])];
+  const pool: string[] = [...cards.map((c) => `${c.label}`), ...(profile?.valuesText ? [`“${profile.valuesText}”`] : [])];
   const seed = [...dayKey(now)].reduce((s, ch) => s + ch.charCodeAt(0), 0);
   const valueToday = pool.length ? pool[seed % pool.length]! : null;
 
@@ -115,7 +117,7 @@ export default function OdakPanel() {
       <Card style={{ gap: 10 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
           <AppText variant="h3">
-            {pInfo.emoji} {pInfo.name}
+            {pInfo.name}
           </AppText>
           <AppText variant="small" weight="800" color={t.colors.accent}>
             {tr('odak.panel.day', { day: Math.min(day, ODAK_PROGRAM_DAYS), total: ODAK_PROGRAM_DAYS })}
@@ -138,12 +140,12 @@ export default function OdakPanel() {
         accessibilityLabel={`${tr('odak.panel.sos')}. ${tr('odak.panel.sosHint')}`}
         style={({ pressed }) => ({ minHeight: 88, borderRadius: t.radius.lg, backgroundColor: t.colors.accent, padding: 18, flexDirection: 'row', alignItems: 'center', gap: 14, opacity: pressed ? 0.85 : 1 })}
       >
-        <AppText variant="display">🌊</AppText>
+        <IconTile icon="waves" tone="focus" size="lg" round />
         <View style={{ flex: 1 }}>
-          <AppText variant="h2" color="#FFFFFF">
+          <AppText variant="h2" color={t.tokens.primaryForeground}>
             {tr('odak.panel.sos')}
           </AppText>
-          <AppText variant="small" color="#FFFFFF" style={{ opacity: 0.9 }}>
+          <AppText variant="small" color={t.tokens.primaryForeground} style={{ opacity: 0.9 }}>
             {tr('odak.panel.sosHint')}
           </AppText>
         </View>
@@ -151,13 +153,13 @@ export default function OdakPanel() {
 
       {managedCount(urges) > 0 ? (
         <AppText variant="small" weight="800" color={t.colors.success} center>
-          🌿 {tr('odak.panel.managed', { count: managedCount(urges) })}
+          {tr('odak.panel.managed', { count: managedCount(urges) })}
         </AppText>
       ) : null}
 
       {relapse ? (
-        <Card style={{ gap: 8, borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
-          <AppText variant="h3">🔁 {RL.panelTitle}</AppText>
+        <Card style={{ gap: t.space.sm, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
+          <AppText variant="h3">{RL.panelTitle}</AppText>
           <AppText variant="small">{RL.panelBody}</AppText>
           <Button label={RL.panelButton} variant="secondary" onPress={() => router.push('/odak/relapse')} />
         </Card>
@@ -175,7 +177,7 @@ export default function OdakPanel() {
         counters.map((c) => <GoalCard key={c.target} c={c} />)
       ) : (
         <Card style={{ gap: 6 }}>
-          <AppText variant="h3">🔍 {P.undecided.title}</AppText>
+          <AppText variant="h3">{P.undecided.title}</AppText>
           <AppText variant="small">{fill(P.undecided.body, { n: weekEvents })}</AppText>
         </Card>
       )}
@@ -193,7 +195,7 @@ export default function OdakPanel() {
           flexDirection: 'row',
           alignItems: 'center',
           gap: 14,
-          padding: 16,
+          padding: t.space.lg,
           borderRadius: t.radius.lg,
           borderWidth: 2,
           borderColor: t.colors.primary,
@@ -201,10 +203,10 @@ export default function OdakPanel() {
           opacity: pressed ? 0.85 : 1,
         })}
       >
-        <View style={{ width: 48, height: 48, borderRadius: 24, backgroundColor: t.colors.primary, alignItems: 'center', justifyContent: 'center' }}>
-          <AppText variant="h2">🎓</AppText>
+        <View style={{ width: 48, height: 48, borderRadius: t.radius.xl, backgroundColor: t.colors.primary, alignItems: 'center', justifyContent: 'center' }}>
+          <IconTile icon="graduation" tone="focus" />
         </View>
-        <View style={{ flex: 1, gap: 4 }}>
+        <View style={{ flex: 1, gap: t.space.xs }}>
           <AppText variant="h3">{tr('odak.skills.title')}</AppText>
           <AppText variant="small" muted>
             {tr('odak.panel.skillsProgress', { done: mainLessonsDone, total: ODAK_SKILLS.filter((l) => !l.bonus).length })}
@@ -225,10 +227,10 @@ export default function OdakPanel() {
 
       {mission && !premium && !missionIsFree(mission) ? <OdakLock title={tr('odak.premium.mission')} /> : null}
       {mission && (premium || missionIsFree(mission)) ? (
-        <Card style={{ gap: 8 }}>
+        <Card style={{ gap: t.space.sm }}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <AppText variant="small" weight="800" muted>
-              🎯 {tr('odak.panel.mission')}
+              {tr('odak.panel.mission')}
             </AppText>
             <AppText variant="tiny" weight="800" color={t.colors.accent}>
               {tr('odak.skills.minutes', { count: mission.durationMin })}
@@ -247,11 +249,11 @@ export default function OdakPanel() {
       ) : null}
 
       {lesson ? (
-        <Card onPress={() => router.push({ pathname: '/odak/skills/[lessonId]', params: { lessonId: lesson.id } })} accessibilityLabel={`${tr('odak.panel.lesson')}: ${lesson.title}`} style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
-          <AppText variant="h1">{lesson.emoji}</AppText>
+        <Card onPress={() => router.push({ pathname: '/odak/skills/[lessonId]', params: { lessonId: lesson.id } })} accessibilityLabel={`${tr('odak.panel.lesson')}: ${lesson.title}`} style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'center' }}>
+          <IconTile icon={lesson.icon} tone="focus" size="lg" round />
           <View style={{ flex: 1, gap: 2 }}>
             <AppText variant="small" weight="800" muted>
-              📚 {tr('odak.panel.lesson')}
+              {tr('odak.panel.lesson')}
             </AppText>
             <AppText weight="800">{lesson.title}</AppText>
             <AppText variant="tiny" muted>
@@ -263,9 +265,9 @@ export default function OdakPanel() {
       ) : null}
 
       {valueToday ? (
-        <Card style={{ gap: 6, borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+        <Card style={{ gap: 6, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText variant="small" weight="800" muted>
-            🧭 {P.value.title}
+            {P.value.title}
           </AppText>
           <AppText weight="700">{valueToday}</AppText>
         </Card>
@@ -275,7 +277,7 @@ export default function OdakPanel() {
 
       {plans.length ? (
         <Card style={{ gap: 6 }}>
-          <AppText variant="h3">📝 {ONB.summary.plansTitle}</AppText>
+          <AppText variant="h3">{ONB.summary.plansTitle}</AppText>
           {plans.map((p) => (
             <AppText key={p.id} variant="small">
               • {ONB.plans.if} {p.ifText}: {p.thenText}
@@ -283,7 +285,7 @@ export default function OdakPanel() {
           ))}
         </Card>
       ) : null}
-      {freshBadge ? <CelebrationCard celebrationKey={freshBadge.id} kicker={BD.kicker} emoji={freshBadge.emoji} title={freshBadge.title} desc={freshBadge.desc} cta={BD.cta} onClose={() => void useOdakStore.getState().unlockBadges(fresh)} /> : null}
+      {freshBadge ? <CelebrationCard celebrationKey={freshBadge.id} kicker={BD.kicker} icon={freshBadge.icon as IconName} title={freshBadge.title} desc={freshBadge.desc} cta={BD.cta} onClose={() => void useOdakStore.getState().unlockBadges(fresh)} /> : null}
     </Screen>
   );
 }
@@ -302,7 +304,7 @@ function GoalCard({ c }: { c: GoalCounter }) {
           : fill(c.weekUsed > (c.limit ?? 0) ? P.counter.reduceOver : P.counter.reduce, { used: c.weekUsed, limit: c.limit });
   const progress = c.mode === 'reduce' ? Math.min(1, c.weekUsed / Math.max(1, c.limit ?? 1)) : c.mode === 'pause' ? Math.min(1, c.current / Math.max(1, c.limit ?? 1)) : null;
   return (
-    <Card style={{ gap: 8 }}>
+    <Card style={{ gap: t.space.sm }}>
       <AppText variant="small" weight="800" muted>
         {P.targets[c.target]}
       </AppText>

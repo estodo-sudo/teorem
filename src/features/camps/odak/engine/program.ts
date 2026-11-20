@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { missionForDay } from '@/features/camps/core/missionScheduler';
 
 import type { GoalConfig, OdakProfile } from '../types';
@@ -25,10 +26,10 @@ export interface OdakLesson {
   id: string;
   order: number;
   phase: OdakPhase;
-  emoji: string;
+  icon: IconName;
   title: string;
   summary: string;
-  slides: { emoji: string; title: string; text: string }[];
+  slides: { icon: IconName; title: string; text: string }[];
   practice: { title: string; text: string };
   quiz: { q: string; options: string[]; answer: number; explain: string }[];
   sourceIds: string[];

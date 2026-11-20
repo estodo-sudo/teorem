@@ -7,6 +7,7 @@ import { ODAK_LIBRARY } from '@/features/camps/odak/content';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
 import { goBack } from '@/lib/nav';
+import { IconTile } from '@/components/ui';
 
 /** "Bilim Ne Diyor?" (SPEC_ODAK_KAMPI 5.9): myths and facts, sourced. Always free. */
 export default function OdakLibrary() {
@@ -26,9 +27,9 @@ export default function OdakLibrary() {
             key={s.id}
             onPress={() => router.push({ pathname: '/odak/library/[storyId]', params: { storyId: s.id } })}
             accessibilityLabel={`${s.title}. ${done ? tr('odak.library.read') : tr('odak.skills.minutes', { count: s.minutes })}`}
-            style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}
+            style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'center' }}
           >
-            <AppText variant="h1">{s.emoji}</AppText>
+            <IconTile icon={s.icon} tone="focus" size="lg" round />
             <View style={{ flex: 1, gap: 2 }}>
               <AppText weight="800">{s.title}</AppText>
               <AppText variant="small" muted>

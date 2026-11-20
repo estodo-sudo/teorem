@@ -13,22 +13,22 @@
  "checklist": [
   {
    "id": "charge",
-   "emoji": "🔌",
+   "icon": "plug", "tone": "focus",
    "label": "Telefonu yatak odası dışında şarj et"
   },
   {
    "id": "grayscale",
-   "emoji": "🌫️",
+   "icon": "cloudFog", "tone": "focus",
    "label": "Gece ekranı gri tonlamaya al"
   },
   {
    "id": "spaces",
-   "emoji": "🛋️",
+   "icon": "sofa", "tone": "focus",
    "label": "Çalışma ve yatma alanını ayır"
   },
   {
    "id": "activities",
-   "emoji": "🗓️",
+   "icon": "calendar", "tone": "focus",
    "label": "Riskli saatlerine bir etkinlik planla"
   }
  ],
@@ -70,7 +70,7 @@
   "noHours": "Önce en az bir riskli saat aralığı seç.",
   "unavailable": "Bu özellik uygulamanın tam sürümünde (Android) çalışır; bu sürümde kullanılamıyor.",
   "delay": "Telefon bu kontrolü yaklaşık 15 dakikada bir yapar; hatırlatma birkaç dakika gecikebilir.",
-  "notifTitle": "Odak zamanı 🎯",
+  "notifTitle": "Odak zamanı",
   "notifBody": "Planını hatırlamak için iyi bir an."
  }
 }

@@ -14,7 +14,7 @@ interface Props {
 
 export function Screen({ children, scroll = true, edges = ['top'], contentStyle, footer }: Props) {
   const t = useTheme();
-  const pad: ViewStyle = { padding: t.spacing(5), paddingBottom: t.spacing(10), gap: t.spacing(4) };
+  const pad: ViewStyle = { padding: t.space.gutter, paddingBottom: t.space.xxxl, gap: t.space.xl };
   return (
     <SafeAreaView edges={edges} style={[styles.flex, { backgroundColor: t.colors.background }]}>
       {scroll ? (
@@ -29,7 +29,7 @@ export function Screen({ children, scroll = true, edges = ['top'], contentStyle,
         <View style={[styles.flex, pad, contentStyle]}>{children}</View>
       )}
       {footer ? (
-        <View style={{ paddingHorizontal: t.spacing(5), paddingBottom: t.spacing(4), gap: 10 }}>
+        <View style={{ paddingHorizontal: t.space.gutter, paddingBottom: t.space.lg, gap: t.space.sm }}>
           {footer}
         </View>
       ) : null}

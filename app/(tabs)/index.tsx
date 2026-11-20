@@ -1,10 +1,12 @@
 import { router } from 'expo-router';
-import { Pressable, View } from 'react-native';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Screen, useTheme } from '@/components';
+import { ScalePressable } from '@/components/ui';
 import { useStreak } from '@/features/gamification/service';
-import { StreakFlame } from '@/features/today/StreakFlame';
+import { DailyGoalCard } from '@/features/today/DailyGoalCard';
+import { StreakBadge } from '@/features/today/StreakBadge';
 import { TodayExtras } from '@/features/today/TodayExtras';
 import { WorkoutCard } from '@/features/today/WorkoutCard';
 import { useTrainingStore } from '@/stores/trainingStore';
@@ -16,6 +18,7 @@ function greetingKey(hour: number) {
   return 'night';
 }
 
+/** Bugün (ui-v3, SPEC_UI_V3 §7.1): greeting with streak and level chips, today's workout, the checklist, "Senin için". */
 export default function Today() {
   const t = useTheme();
   const { t: tr, i18n } = useTranslation();
@@ -25,29 +28,27 @@ export default function Today() {
   const dateLabel = now.toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US', { weekday: 'long', day: 'numeric', month: 'long' });
 
   return (
-    <Screen>
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+    <Screen contentStyle={{ gap: t.space.xxl }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
         <View style={{ flex: 1 }}>
-          <AppText variant="small" muted>
+          <AppText variant="footnote" muted>
             {dateLabel}
           </AppText>
-          <AppText variant="h1" accessibilityRole="header">
+          <AppText variant="title1" accessibilityRole="header">
             {tr(`today.greeting.${greetingKey(now.getHours())}`)}
           </AppText>
         </View>
-        <StreakFlame count={streak.current} doneToday={streak.doneToday} />
-        <Pressable
-          onPress={() => router.push('/achievements')}
-          accessibilityRole="button"
-          accessibilityLabel={tr('common.level', { level })}
-          style={{ backgroundColor: t.colors.accent, height: 40, minWidth: 40, paddingHorizontal: 10, borderRadius: 20, alignItems: 'center', justifyContent: 'center' }}
-        >
-          <AppText weight="800" color={t.colors.accentText}>
-            {tr('today.levelShort', { level })}
-          </AppText>
-        </Pressable>
+        <StreakBadge count={streak.current} doneToday={streak.doneToday} onPress={() => router.push('/(tabs)/progress')} />
+        <ScalePressable onPress={() => router.push('/achievements')} accessibilityRole="button" accessibilityLabel={tr('today.levelChip', { level })} style={{ minHeight: t.touch, justifyContent: 'center' }}>
+          <View style={{ height: 36, paddingHorizontal: t.space.md, borderRadius: t.radius.pill, backgroundColor: t.tokens.muted, justifyContent: 'center' }}>
+            <AppText variant="footnote" style={{ fontWeight: '600' }}>
+              {tr('today.levelChip', { level })}
+            </AppText>
+          </View>
+        </ScalePressable>
       </View>
       <WorkoutCard />
+      <DailyGoalCard />
       <TodayExtras />
     </Screen>
   );

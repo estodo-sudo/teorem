@@ -46,8 +46,8 @@ export default function CampSettings() {
 
       {attempt && preparing ? (
         <>
-          <SectionTitle emoji="📅" title={tr('camp.settings.quitTitle')} hint={tr('camp.settings.quitHint', { date: fmtDate(attempt.plannedQuitDate) })} />
-          <Card style={{ gap: 12 }}>
+          <SectionTitle tone="smokefree" icon="calendar" title={tr('camp.settings.quitTitle')} hint={tr('camp.settings.quitHint', { date: fmtDate(attempt.plannedQuitDate) })} />
+          <Card style={{ gap: t.space.md }}>
             <NumberStepper label={tr('camp.onb.method.inDays')} value={days} onChange={setDays} min={MIN_PREP_DAYS} max={MAX_PREP_DAYS} unit={tr('camp.onb.method.daysUnit')} quick={[3, 5, 7, 10, 14]} />
             <AppText variant="small" weight="700" center>
               {tr('camp.onb.method.quitOn', { date: fmtDate(quitDateIn(days, now)) })}
@@ -65,8 +65,8 @@ export default function CampSettings() {
         </>
       ) : null}
 
-      <SectionTitle emoji="💰" title={tr('camp.settings.priceTitle')} hint={current ? tr('camp.settings.priceNow', { price: current.packPriceTRY, size: current.packSize }) : undefined} />
-      <Card style={{ gap: 12 }}>
+      <SectionTitle tone="smokefree" icon="wallet" title={tr('camp.settings.priceTitle')} hint={current ? tr('camp.settings.priceNow', { price: current.packPriceTRY, size: current.packSize }) : undefined} />
+      <Card style={{ gap: t.space.md }}>
         <AppText weight="800">{tr('camp.onb.price.priceLabel')}</AppText>
         <TextInput
           value={priceText}
@@ -97,7 +97,7 @@ export default function CampSettings() {
           {tr('camp.settings.priceNote')}
         </AppText>
         {s.prices.length > 1 ? (
-          <View style={{ gap: 4 }}>
+          <View style={{ gap: t.space.xs }}>
             <AppText variant="small" weight="800" muted>
               {tr('camp.settings.priceHistory')}
             </AppText>
@@ -121,12 +121,12 @@ export default function CampSettings() {
 
       {attempt?.status === 'active' ? (
         <>
-          <SectionTitle emoji="🔄" title={tr('camp.settings.relapseTitle')} hint={tr('camp.settings.relapseHint')} />
+          <SectionTitle tone="smokefree" icon="rotate" title={tr('camp.settings.relapseTitle')} hint={tr('camp.settings.relapseHint')} />
           <Button label={tr('camp.settings.relapseButton')} variant="secondary" onPress={() => router.push('/camp/relapse')} />
         </>
       ) : null}
 
-      <SectionTitle emoji="🔔" title={tr('camp.settings.notifTitle')} hint={tr('camp.settings.notifHint')} />
+      <SectionTitle tone="smokefree" icon="bell" title={tr('camp.settings.notifTitle')} hint={tr('camp.settings.notifHint')} />
       <Card padded={false}>
         <SwitchRow label={tr('camp.settings.notifSwitch')} description={tr('camp.settings.notifSwitchHint')} value={s.notifyEnabled} onChange={(v) => useCampStore.getState().setNotifyEnabled(v)} />
       </Card>
@@ -151,10 +151,10 @@ export default function CampSettings() {
         {tr('camp.settings.notifDiscreet')}
       </AppText>
 
-      <SectionTitle emoji="📚" title={tr('camp.sources.title')} hint={tr('camp.settings.sourcesHint')} />
+      <SectionTitle tone="smokefree" icon="book" title={tr('camp.sources.title')} hint={tr('camp.settings.sourcesHint')} />
       <Button label={tr('camp.sources.title')} icon="book" variant="secondary" onPress={() => router.push('/camp/sources')} />
 
-      <SectionTitle emoji="🗑️" title={tr('camp.settings.resetTitle')} />
+      <SectionTitle tone="smokefree" icon="trash" title={tr('camp.settings.resetTitle')} />
       <Button label={tr('camp.panel.restart')} variant="secondary" icon="play" onPress={() => setDialog('restart')} />
       <Button label={tr('camp.home.reset')} variant="ghost" icon="trash" onPress={() => setDialog('reset1')} />
 

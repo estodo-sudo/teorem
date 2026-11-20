@@ -8,37 +8,37 @@
   "products": [
     {
       "id": "cigarette",
-      "emoji": "📦",
+      "icon": "box", "tone": "smokefree",
       "label": "Sigara (paket)"
     },
     {
       "id": "rolling",
-      "emoji": "🌿",
+      "icon": "leaf", "tone": "smokefree",
       "label": "Sarma tütün"
     },
     {
       "id": "hookah",
-      "emoji": "💨",
+      "icon": "cloud", "tone": "smokefree",
       "label": "Nargile"
     },
     {
       "id": "cigar_pipe",
-      "emoji": "🪵",
+      "icon": "tree", "tone": "smokefree",
       "label": "Puro / pipo"
     },
     {
       "id": "ecig",
-      "emoji": "🔋",
+      "icon": "battery", "tone": "smokefree",
       "label": "Elektronik sigara"
     },
     {
       "id": "heated",
-      "emoji": "🔥",
+      "icon": "zap", "tone": "smokefree",
       "label": "Isıtılmış tütün"
     },
     {
       "id": "pouch",
-      "emoji": "🫙",
+      "icon": "box", "tone": "smokefree",
       "label": "Nikotin poşeti / çiğneme tütünü"
     }
   ],
@@ -80,109 +80,109 @@
   "reasons": [
     {
       "id": "health",
-      "emoji": "❤️",
+      "icon": "heart", "tone": "smokefree",
       "label": "Sağlığım"
     },
     {
       "id": "family",
-      "emoji": "👨‍👩‍👧",
+      "icon": "users", "tone": "smokefree",
       "label": "Ailem / çocuklarım"
     },
     {
       "id": "money",
-      "emoji": "💰",
+      "icon": "wallet", "tone": "smokefree",
       "label": "Para"
     },
     {
       "id": "fitness",
-      "emoji": "🏃",
+      "icon": "footprints", "tone": "smokefree",
       "label": "Spor ve kondisyon"
     },
     {
       "id": "sexual_health",
-      "emoji": "💞",
+      "icon": "handshake", "tone": "smokefree",
       "label": "Cinsel sağlığım"
     },
     {
       "id": "looks",
-      "emoji": "✨",
+      "icon": "sparkle", "tone": "smokefree",
       "label": "Görünüm ve koku"
     },
     {
       "id": "freedom",
-      "emoji": "🕊️",
+      "icon": "bird", "tone": "smokefree",
       "label": "Özgürlük ve kontrol"
     },
     {
       "id": "spiritual",
-      "emoji": "🤲",
+      "icon": "painCare", "tone": "smokefree",
       "label": "Dini / manevi nedenler"
     },
     {
       "id": "doctor",
-      "emoji": "🩺",
+      "icon": "stethoscope", "tone": "smokefree",
       "label": "Doktorum önerdi"
     }
   ],
   "triggers": [
     {
       "id": "waking",
-      "emoji": "🌅",
+      "icon": "sunrise", "tone": "smokefree",
       "label": "Uyanınca"
     },
     {
       "id": "coffee_tea",
-      "emoji": "☕",
+      "icon": "coffee", "tone": "smokefree",
       "label": "Kahve / çay ile"
     },
     {
       "id": "after_meal",
-      "emoji": "🍽️",
+      "icon": "utensils", "tone": "smokefree",
       "label": "Yemekten sonra"
     },
     {
       "id": "work_break",
-      "emoji": "💼",
+      "icon": "briefcase", "tone": "smokefree",
       "label": "İş molasında"
     },
     {
       "id": "stress",
-      "emoji": "😤",
+      "icon": "angry", "tone": "smokefree",
       "label": "Stresli ya da sinirliyken"
     },
     {
       "id": "boredom",
-      "emoji": "🥱",
+      "icon": "moon", "tone": "smokefree",
       "label": "Canım sıkılınca"
     },
     {
       "id": "alcohol",
-      "emoji": "🍺",
+      "icon": "glass", "tone": "smokefree",
       "label": "Alkol alırken"
     },
     {
       "id": "friends",
-      "emoji": "👥",
+      "icon": "users", "tone": "smokefree",
       "label": "Arkadaş ortamında"
     },
     {
       "id": "driving",
-      "emoji": "🚗",
+      "icon": "car", "tone": "smokefree",
       "label": "Araba kullanırken"
     },
     {
       "id": "phone",
-      "emoji": "📱",
+      "icon": "smartphone", "tone": "smokefree",
       "label": "Telefonda konuşurken"
     },
     {
       "id": "bedtime",
-      "emoji": "🌙",
+      "icon": "moon", "tone": "smokefree",
       "label": "Yatmadan önce"
     },
     {
       "id": "toilet",
-      "emoji": "🚻",
+      "icon": "doorClosed", "tone": "smokefree",
       "label": "Tuvalette"
     }
   ],
@@ -203,32 +203,32 @@
   "relapseCauses": [
     {
       "id": "stress",
-      "emoji": "😣",
+      "icon": "frown", "tone": "smokefree",
       "label": "Kriz ya da stres"
     },
     {
       "id": "weight",
-      "emoji": "⚖️",
+      "icon": "scale", "tone": "smokefree",
       "label": "Kilo alma"
     },
     {
       "id": "social",
-      "emoji": "👥",
+      "icon": "users", "tone": "smokefree",
       "label": "Sosyal ortam"
     },
     {
       "id": "alcohol",
-      "emoji": "🍺",
+      "icon": "glass", "tone": "smokefree",
       "label": "Alkol"
     },
     {
       "id": "just_one",
-      "emoji": "☝️",
+      "icon": "pointer", "tone": "smokefree",
       "label": "\"Bir tane\"den sonra"
     },
     {
       "id": "withdrawal",
-      "emoji": "🌀",
+      "icon": "wind", "tone": "smokefree",
       "label": "Yoksunluk belirtileri"
     }
   ],
@@ -236,20 +236,20 @@
   "methods": [
     {
       "id": "quit_day",
-      "emoji": "📅",
+      "icon": "calendar", "tone": "smokefree",
       "label": "Bırakma günü seç",
       "desc": "Önerilen yol: 3 ile 14 gün sonrasına bir tarih belirle, o güne kadar hazırlan.",
       "recommended": true
     },
     {
       "id": "cut_down",
-      "emoji": "📉",
+      "icon": "trendDown", "tone": "smokefree",
       "label": "Azaltarak bırak",
       "desc": "2–4 hafta boyunca her hafta biraz azalt, sonunda yine bir bırakma günü. Azaltmak hedef değil, köprüdür."
     },
     {
       "id": "already_quit",
-      "emoji": "✅",
+      "icon": "success", "tone": "smokefree",
       "label": "Zaten bıraktım",
       "desc": "Son sigaranın ne zaman olduğunu gir, kamp sana uygun aşamadan başlasın."
     }
@@ -285,37 +285,37 @@
   "phases": [
     {
       "id": "preparation",
-      "emoji": "🧭",
+      "icon": "compass", "tone": "smokefree",
       "title": "Hazırlık",
       "text": "Bırakma gününe kadar: her gün bir görev, sigara günlüğü ve kısa bir beceri dersi."
     },
     {
       "id": "quit_day",
-      "emoji": "🚩",
+      "icon": "flag", "tone": "smokefree",
       "title": "Bırakma Günü",
       "text": "Özel kontrol listesi ve \"tek nefes bile yok\" kuralı."
     },
     {
       "id": "critical_week",
-      "emoji": "🛡️",
+      "icon": "shield", "tone": "smokefree",
       "title": "Kritik Hafta",
       "text": "1.–7. gün: en yoğun destek; günde iki kısa kontrol."
     },
     {
       "id": "strengthening",
-      "emoji": "💪",
+      "icon": "dumbbell", "tone": "smokefree",
       "title": "Güçlenme",
       "text": "8.–30. gün: günlük görevler ve haftalık değerlendirme."
     },
     {
       "id": "maintenance",
-      "emoji": "🌱",
+      "icon": "sprout", "tone": "smokefree",
       "title": "Kalıcılık",
       "text": "31.–90. gün: haftada birkaç görev ve yeniden başlamayı önleme."
     },
     {
       "id": "freedom",
-      "emoji": "🕊️",
+      "icon": "bird", "tone": "smokefree",
       "title": "Özgürlük",
       "text": "90. günden sonra: mezuniyet ve aylık kontroller."
     }

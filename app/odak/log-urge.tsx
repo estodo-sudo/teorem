@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { IntensityScale } from '@/features/camps/core/sosTools';
 import { ODAK_DIARY as D, ODAK_ONBOARDING as ONB, ODAK_SOS as SOS } from '@/features/camps/odak/content';
 import { buildUrge, noDayy, type Dayy } from '@/features/camps/odak/engine/sos';
@@ -32,8 +33,8 @@ export default function OdakLogUrge() {
     return (
       <Screen footer={<Button label={tr('common.done')} size="lg" onPress={() => goBack('/odak/diary')} />}>
         <Header title={D.urge.title} onBack={() => goBack('/odak/diary')} right={<QuickExitButton />} />
-        <Card style={{ alignItems: 'center', gap: 8, padding: 20 }}>
-          <AppText variant="display">🌿</AppText>
+        <Card style={{ alignItems: 'center', gap: t.space.sm, padding: t.space.gutter }}>
+          <IconTile icon="leaf" tone="focus" size="lg" round />
           <AppText center weight="700" accessibilityLiveRegion="polite">
             {D.urge.saved}
           </AppText>
@@ -51,7 +52,7 @@ export default function OdakLogUrge() {
       <AppText weight="800">{D.urge.trigger}</AppText>
       <PillGroup items={ONB.triggers.options} selected={trigger ? [trigger] : []} onToggle={(id) => setTrigger((x) => (x === id ? null : (id as OdakTriggerId)))} />
       <AppText weight="800">{D.urge.dayy}</AppText>
-      <PillGroup items={SOS.check.items.map((i) => ({ id: i.id, emoji: i.emoji, label: i.label }))} selected={SOS.check.items.filter((i) => dayy[i.id]).map((i) => i.id)} onToggle={(id) => setDayy((d) => ({ ...d, [id]: !d[id as keyof Dayy] }))} />
+      <PillGroup items={SOS.check.items.map((i) => ({ id: i.id, icon: i.icon, label: i.label }))} selected={SOS.check.items.filter((i) => dayy[i.id]).map((i) => i.id)} onToggle={(id) => setDayy((d) => ({ ...d, [id]: !d[id as keyof Dayy] }))} />
       <AppText weight="800">{D.urge.outcome}</AppText>
       <View style={{ flexDirection: 'row', gap: 10 }}>
         <Button label={D.urge.managed} size="lg" disabled={intensity === null} onPress={() => void save('managed')} style={{ flex: 1 }} />

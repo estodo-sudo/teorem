@@ -11,6 +11,7 @@ import { CampusHero, GroupCard, HeroStat, InfoToggle, SectionTitle, tint } from 
 import { toDateKey } from '@/lib/date';
 import { useClock } from '@/lib/useNow';
 import { useCampusStore } from '@/stores/campusStore';
+import { IconTile } from '@/components/ui';
 
 const fmt = (n: number) => String(n).replace('.', ',');
 
@@ -58,9 +59,9 @@ export default function AlcCampusHome() {
       {risk ? <WithdrawalBanner /> : null}
 
       <CampusHero color={t.colors.primary}>
-        <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: 4, borderRadius: t.radius.pill, backgroundColor: 'rgba(255,255,255,0.16)' }}>
+        <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: t.space.xs, borderRadius: t.radius.pill, backgroundColor: t.veil.mid }}>
           <AppText variant="tiny" weight="800" color={onHero} style={{ letterSpacing: 1 }}>
-            {ALC.paths[s.mode].emoji} {cut ? tr('acampus.home.cutLabel') : tr('acampus.home.quitLabel')}
+            {ALC.paths[s.mode].icon} {cut ? tr('acampus.home.cutLabel') : tr('acampus.home.quitLabel')}
           </AppText>
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 18 }}>
@@ -69,7 +70,7 @@ export default function AlcCampusHome() {
             stroke={11}
             value={cut ? Math.min(1, week.total / week.limit) : Math.min(1, days / s.quitGoalDays)}
             color={cut ? (week.over ? t.colors.danger : t.colors.warning) : t.colors.success}
-            trackColor="rgba(255,255,255,0.18)"
+            trackColor={t.veil.strong}
           >
             <AppText variant="h3" weight="800" color={onHero}>
               {cut ? tr('acampus.home.ringCut', { total: fmt(week.total), limit: week.limit }) : tr('acampus.home.ringQuit', { done: Math.min(days, s.quitGoalDays), goal: s.quitGoalDays })}
@@ -80,7 +81,7 @@ export default function AlcCampusHome() {
               </AppText>
             ) : null}
           </ProgressRing>
-          <View style={{ flex: 1, gap: 4 }}>
+          <View style={{ flex: 1, gap: t.space.xs }}>
             {cut ? (
               <>
                 <AppText variant="h2" weight="800" color={onHero}>
@@ -105,7 +106,7 @@ export default function AlcCampusHome() {
             )}
           </View>
         </View>
-        <View style={{ flexDirection: 'row', gap: 8 }}>
+        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
           {cut ? (
             <HeroStat label={tr('acampus.home.today')} value={fmt(todayStd)} color={onHero} />
           ) : (
@@ -120,7 +121,7 @@ export default function AlcCampusHome() {
       {quitDone ? (
         <Card style={{ gap: 10, borderColor: t.colors.success, borderWidth: 2, backgroundColor: tint(t.colors.success, '14') }}>
           <AppText variant="h3" color={t.colors.success}>
-            🎉 {tr('acampus.home.quitDoneTitle', { goal: s.quitGoalDays })}
+            {tr('acampus.home.quitDoneTitle', { goal: s.quitGoalDays })}
           </AppText>
           <AppText variant="small">{tr('acampus.home.quitDoneBody')}</AppText>
           <Button label={tr('acampus.home.newGoal')} variant="primary" onPress={() => router.push({ pathname: '/campus/alcohol/setup', params: { edit: '1' } })} />
@@ -130,7 +131,7 @@ export default function AlcCampusHome() {
       <View style={{ gap: 10 }}>
         <Button label={tr('acampus.home.addDrink')} icon="plus" variant="accent" size="lg" accessibilityHint={tr('acampus.home.addHint')} onPress={() => setSheetOpen(true)} />
         {toast ? (
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, padding: 12, borderRadius: t.radius.md, backgroundColor: t.colors.surfaceAlt }} accessibilityLiveRegion="polite">
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, padding: t.space.md, borderRadius: t.radius.md, backgroundColor: t.colors.surfaceAlt }} accessibilityLiveRegion="polite">
             <AppText variant="small" style={{ flex: 1 }}>
               {toast}
             </AppText>
@@ -150,8 +151,8 @@ export default function AlcCampusHome() {
           </View>
         ) : null}
         {cut && todayStd > DAILY_MAX ? (
-          <View style={{ padding: 12, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.warning, backgroundColor: tint(t.colors.warning, '14') }}>
-            <AppText variant="small">⚠️ {tr('acampus.home.dailyWarn')}</AppText>
+          <View style={{ padding: t.space.md, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.warning, backgroundColor: tint(t.colors.warning, '14') }}>
+            <AppText variant="small">{tr('acampus.home.dailyWarn')}</AppText>
           </View>
         ) : null}
         {!cut ? (
@@ -162,17 +163,17 @@ export default function AlcCampusHome() {
         <InfoToggle title={ALC.info.std.title} text={ALC.info.std.text} />
       </View>
 
-      <SectionTitle emoji="📊" title={tr('acampus.home.chartTitle')} hint={tr('acampus.home.chartHint')} />
+      <SectionTitle icon="chart" title={tr('acampus.home.chartTitle')} hint={tr('acampus.home.chartHint')} />
       <Card>
         <DayBars days={lastDays(s, now)} locale={locale} />
       </Card>
 
-      <SectionTitle emoji="💡" title={tr('acampus.home.tipsTitle')} hint={tr('acampus.home.tipsHint')} />
+      <SectionTitle icon="bulb" title={tr('acampus.home.tipsTitle')} hint={tr('acampus.home.tipsHint')} />
       <GroupCard>
         {ALC.tips.map((x) => (
-          <View key={x.id} style={{ flexDirection: 'row', gap: 12 }}>
-            <View style={{ width: 40, height: 40, borderRadius: 20, backgroundColor: tint(t.colors.primary, '1A'), alignItems: 'center', justifyContent: 'center' }}>
-              <AppText variant="h3">{x.emoji}</AppText>
+          <View key={x.id} style={{ flexDirection: 'row', gap: t.space.md }}>
+            <View style={{ width: 40, height: 40, borderRadius: t.radius.lg, backgroundColor: tint(t.colors.primary, '1A'), alignItems: 'center', justifyContent: 'center' }}>
+              <IconTile icon={x.icon} tone="campus" />
             </View>
             <View style={{ flex: 1, gap: 2 }}>
               <AppText weight="800">{x.title}</AppText>
@@ -182,13 +183,13 @@ export default function AlcCampusHome() {
         ))}
       </GroupCard>
 
-      <SectionTitle emoji="🧭" title={tr('acampus.home.plansTitle')} />
+      <SectionTitle icon="compass" title={tr('acampus.home.plansTitle')} />
       {triggers.length ? (
         <GroupCard>
           {triggers.map((x) => (
-            <View key={x.id} style={{ flexDirection: 'row', gap: 12 }}>
-              <View style={{ width: 40, height: 40, borderRadius: 20, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>
-                <AppText variant="h3">{x.emoji}</AppText>
+            <View key={x.id} style={{ flexDirection: 'row', gap: t.space.md }}>
+              <View style={{ width: 40, height: 40, borderRadius: t.radius.lg, backgroundColor: t.colors.surfaceAlt, alignItems: 'center', justifyContent: 'center' }}>
+                <IconTile icon={x.icon} tone="campus" />
               </View>
               <View style={{ flex: 1, gap: 2 }}>
                 <AppText variant="small" weight="800" color={t.colors.primary}>
@@ -206,10 +207,10 @@ export default function AlcCampusHome() {
       )}
 
       {reasons.length ? (
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
           {reasons.map((r) => (
-            <View key={r.id} style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, paddingVertical: 9, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.primary, '1A'), borderWidth: 1, borderColor: tint(t.colors.primary, '40') }}>
-              <AppText>{r.emoji}</AppText>
+            <View key={r.id} style={{ flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: t.space.md, paddingVertical: 9, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.primary, '1A'), borderWidth: 1, borderColor: tint(t.colors.primary, '40') }}>
+              <Icon name={r.icon} size="md" />
               <AppText variant="small" weight="700">
                 {r.label}
               </AppText>
@@ -218,7 +219,7 @@ export default function AlcCampusHome() {
         </View>
       ) : null}
 
-      <SectionTitle emoji="🔥" title={tr('acampus.home.sexualTitle')} />
+      <SectionTitle icon="flame" title={tr('acampus.home.sexualTitle')} />
       <GroupCard>
         {ALC.sexual.map((x) => (
           <View key={x.id} style={{ gap: 2 }}>
@@ -230,7 +231,7 @@ export default function AlcCampusHome() {
 
       {band ? (
         <>
-          <SectionTitle emoji="🧪" title={tr('acampus.home.auditTitle')} />
+          <SectionTitle icon="flask" title={tr('acampus.home.auditTitle')} />
           <Card style={{ gap: 10 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' }}>
               <AppText variant="h3">{band.title}</AppText>
@@ -247,10 +248,10 @@ export default function AlcCampusHome() {
         </>
       ) : null}
 
-      <SectionTitle emoji="📘" title={tr('acampus.home.guideTitle')} hint={tr('acampus.home.guideBody', { count: ALC.steps.length })} />
+      <SectionTitle icon="book" title={tr('acampus.home.guideTitle')} hint={tr('acampus.home.guideBody', { count: ALC.steps.length })} />
       <Button label={tr('acampus.home.guideOpen')} icon="book" variant="secondary" onPress={() => router.push('/campus/alcohol/guide')} />
 
-      <SectionTitle emoji="🤝" title={tr('acampus.home.helpTitle')} />
+      <SectionTitle icon="handshake" title={tr('acampus.home.helpTitle')} />
       <GroupCard>
         {ALC.help.map((h) => (
           <View key={h.id} style={{ gap: 6 }}>
@@ -265,7 +266,7 @@ export default function AlcCampusHome() {
         ))}
       </GroupCard>
 
-      <View style={{ gap: 8, marginTop: 6 }}>
+      <View style={{ gap: t.space.sm, marginTop: 6 }}>
         <Button label={tr('acampus.home.editPlan')} variant="secondary" icon="gear" onPress={() => router.push({ pathname: '/campus/alcohol/setup', params: { edit: '1' } })} />
         <Button label={tr('acampus.home.reset')} variant="ghost" icon="trash" onPress={() => setResetStep(1)} />
       </View>
@@ -285,7 +286,7 @@ export default function AlcCampusHome() {
           onPress={() => setDisclaimerOpen((v) => !v)}
           accessibilityRole="button"
           accessibilityState={{ expanded: disclaimerOpen }}
-          style={{ flexDirection: 'row', alignItems: 'center', gap: 4, alignSelf: 'flex-start', minHeight: t.touch, marginTop: 4 }}
+          style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs, alignSelf: 'flex-start', minHeight: t.touch, marginTop: t.space.xs }}
         >
           <AppText variant="tiny" weight="700" muted>
             {tr('acampus.home.disclaimerToggle')}

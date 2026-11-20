@@ -4,6 +4,7 @@ import { Linking, Pressable } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { CAMP_SKILLS, campSources } from '@/features/camps/smoking/content';
 import { lessonIsFree } from '@/features/camps/smoking/engine/premium';
 import { quizScore } from '@/features/camps/smoking/engine/skills';
@@ -74,13 +75,11 @@ export default function CampLesson() {
       <Header title={lesson.title} onBack={back} />
       {stage === 'practice' ? (
         <>
-          <AppText variant="display" center>
-            ✍️
-          </AppText>
+          <IconTile icon="pen" tone="smokefree" size="lg" round />
           <AppText variant="h2" center accessibilityRole="header">
             {lesson.practice.title}
           </AppText>
-          <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
+          <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
             <AppText>{lesson.practice.text}</AppText>
           </Card>
         </>
@@ -109,7 +108,7 @@ export default function CampLesson() {
                       accessibilityState={{ selected: picked }}
                       style={{
                         minHeight: 48,
-                        padding: 12,
+                        padding: t.space.md,
                         borderRadius: t.radius.md,
                         borderWidth: 2,
                         borderColor: right ? t.colors.success : wrong ? t.colors.warning : t.colors.border,

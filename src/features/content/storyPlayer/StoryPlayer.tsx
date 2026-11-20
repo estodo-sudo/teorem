@@ -79,27 +79,27 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
     [onClose],
   );
 
-  const bg = t.dark ? t.colors.surface : t.colors.primary;
-  const fg = '#FFFFFF';
+  const bg = t.colors.primary;
+  const fg = t.focus.text;
 
   return (
     <SafeAreaView style={[styles.flex, { backgroundColor: bg }]} {...pan.panHandlers}>
-      <View style={{ padding: 16, gap: 12 }}>
+      <View style={{ padding: t.space.lg, gap: t.space.md }}>
         <SegmentedBar count={slides.length} index={index} progress={Math.min(1, elapsed / dur)} />
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <AppText weight="700" color={fg} style={{ flex: 1 }} numberOfLines={1}>
             {title}
           </AppText>
           {headerRight}
-          <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel={tr('common.close')} hitSlop={10} style={{ padding: 8 }}>
+          <Pressable onPress={onClose} accessibilityRole="button" accessibilityLabel={tr('common.close')} hitSlop={10} style={{ padding: t.space.sm }}>
             <Icon name="close" color={fg} size={26} />
           </Pressable>
         </View>
       </View>
 
-      <View style={[styles.flex, { paddingHorizontal: 28, justifyContent: 'center', gap: 16 }]}>
+      <View style={[styles.flex, { paddingHorizontal: 28, justifyContent: 'center', gap: t.space.lg }]}>
         <AppText style={{ fontSize: 64, lineHeight: 76 }} accessible={false}>
-          {slide.emoji}
+          {slide.icon}
         </AppText>
         <AppText variant="h1" color={fg} accessibilityRole="header">
           {slide.title}
@@ -108,8 +108,8 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
           {slide.text}
         </AppText>
         {slide.didYouKnow ? (
-          <View style={{ backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: t.radius.md, padding: 14, gap: 4 }}>
-            <AppText variant="small" weight="800" color={t.colors.accent === '#F26B1D' ? '#FFB98A' : t.colors.accent}>
+          <View style={{ backgroundColor: t.veil.soft, borderRadius: t.radius.md, padding: 14, gap: t.space.xs }}>
+            <AppText variant="small" weight="800" color={t.focus.orbCenter}>
               {tr('stories.didYouKnow')}
             </AppText>
             <AppText color={fg}>{slide.didYouKnow}</AppText>
@@ -143,7 +143,7 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
           <Pressable
             onPress={() => goTo(index + 1)}
             accessibilityRole="button"
-            style={{ backgroundColor: t.colors.accent, borderRadius: t.radius.lg, minHeight: 56, alignItems: 'center', justifyContent: 'center', marginHorizontal: 20, marginBottom: 16 }}
+            style={{ backgroundColor: t.colors.accent, borderRadius: t.radius.lg, minHeight: 56, alignItems: 'center', justifyContent: 'center', marginHorizontal: t.space.gutter, marginBottom: t.space.lg }}
           >
             <AppText weight="800" color={t.colors.accentText}>
               {endLabel}

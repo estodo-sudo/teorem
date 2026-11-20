@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { useState } from 'react';
 import { Image, Pressable, View, useWindowDimensions } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +10,7 @@ import { IntensityScale as CoreIntensityScale, mmss, SosBreath as CoreSosBreath,
 import { CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from './content';
 import { DELAY_MINUTES, flipCard, gameWon, matchedPairs, newMatchGame } from './engine/sos';
 import type { CampProfile } from './types';
+import { IconTile } from '@/components/ui';
 
 /** 1–10 intensity scale with this camp's labels. */
 export const IntensityScale = (p: { value: number | null; onChange: (v: number) => void; label: string }) => <CoreIntensityScale {...p} labels={SOS.intensityLabels} />;
@@ -26,7 +28,7 @@ export function DelayTimer({ onUsed }: { onUsed: () => void }) {
   const cd = useCountdown(DELAY_MINUTES * 60);
   const [done, setDone] = useState<string[]>([]);
   return (
-    <View style={{ gap: 12 }}>
+    <View style={{ gap: t.space.md }}>
       <AppText muted>{SOS.delay.desc}</AppText>
       <View style={{ alignItems: 'center', gap: 6 }}>
         <AppText variant="display" style={{ fontSize: 56, lineHeight: 64 }} accessibilityLabel={tr('camp.sos.timeLeft', { time: mmss(cd.left) })}>
@@ -37,7 +39,7 @@ export function DelayTimer({ onUsed }: { onUsed: () => void }) {
         </View>
       </View>
       {cd.finished ? (
-        <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.success }}>
+        <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText weight="700">{SOS.delay.done}</AppText>
         </Card>
       ) : (
@@ -55,7 +57,7 @@ export function DelayTimer({ onUsed }: { onUsed: () => void }) {
         />
       )}
       <AppText weight="800">{tr('camp.sos.meanwhile')}</AppText>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {SOS.delay.ideas.map((idea) => {
           const on = done.includes(idea);
           return (
@@ -69,7 +71,7 @@ export function DelayTimer({ onUsed }: { onUsed: () => void }) {
                 alignItems: 'center',
                 gap: 6,
                 minHeight: 48,
-                paddingHorizontal: 12,
+                paddingHorizontal: t.space.md,
                 borderRadius: t.radius.pill,
                 borderWidth: 1.5,
                 borderColor: on ? t.colors.success : t.colors.border,
@@ -95,11 +97,11 @@ export function FourECard() {
     <View style={{ gap: 10 }}>
       <AppText muted>{SOS.fourE.desc}</AppText>
       {SOS.fourE.items.map((it, i) => (
-        <Card key={it.title} style={{ flexDirection: 'row', gap: 12, alignItems: 'center' }}>
+        <Card key={it.title} style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'center' }}>
           <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.accent, alignItems: 'center', justifyContent: 'center' }}>
-            <AppText variant="h3" weight="800" color="#FFFFFF">
+            <AppText variant="h3" weight="800" color={t.tokens.primaryForeground}>
               {it.letter}
-              <AppText variant="tiny" weight="800" color="#FFFFFF">
+              <AppText variant="tiny" weight="800" color={t.tokens.primaryForeground}>
                 {i + 1}
               </AppText>
             </AppText>
@@ -121,7 +123,7 @@ export function ReasonsView({ profile }: { profile: CampProfile }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const items = profile.reasons.map((r) =>
-    r.id === 'custom' ? { key: 'custom', emoji: '💬', text: `“${r.text ?? ''}”` } : { key: r.id, emoji: ONB.reasons.find((x) => x.id === r.id)?.emoji ?? '•', text: ONB.reasons.find((x) => x.id === r.id)?.label ?? '' },
+    r.id === 'custom' ? { key: 'custom', icon: 'chat' as IconName, text: `“${r.text ?? ''}”` } : { key: r.id, icon: ONB.reasons.find((x) => x.id === r.id)?.icon ?? ('heart' as IconName), text: ONB.reasons.find((x) => x.id === r.id)?.label ?? '' },
   );
   return (
     <View style={{ gap: 10 }}>
@@ -129,8 +131,8 @@ export function ReasonsView({ profile }: { profile: CampProfile }) {
       {profile.reasonPhotoUri ? <Image source={{ uri: profile.reasonPhotoUri }} style={{ width: '100%', aspectRatio: 4 / 3, borderRadius: t.radius.lg }} accessibilityLabel={tr('camp.onb.reasons.photoAlt')} /> : null}
       {items.length ? (
         items.map((it) => (
-          <Card key={it.key} style={{ flexDirection: 'row', alignItems: 'center', gap: 12, backgroundColor: tint(t.colors.accent, '10') }}>
-            <AppText variant="h2">{it.emoji}</AppText>
+          <Card key={it.key} style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, backgroundColor: tint(t.colors.accent, '10') }}>
+            <IconTile icon={it.icon} tone="smokefree" />
             <AppText variant="h3" style={{ flex: 1 }}>
               {it.text}
             </AppText>
@@ -143,7 +145,7 @@ export function ReasonsView({ profile }: { profile: CampProfile }) {
   );
 }
 
-const SYMBOLS = ['🌿', '🌊', '☀️', '🍎', '🎧', '🚲'];
+const SYMBOLS: IconName[] = ['leaf', 'waves', 'sun', 'apple', 'headphones', 'bike'];
 
 /** 60-second matching game (offline distraction). Each round remounts, so its timer starts fresh. */
 export function MatchGameView({ onUsed }: { onUsed: () => void }) {
@@ -162,13 +164,13 @@ function MatchRound({ onUsed, onRestart }: { onUsed: () => void; onRestart: () =
   const { width } = useWindowDimensions();
   const size = Math.min(84, (Math.min(width, 520) - 32 - 3 * 8) / 4);
   return (
-    <View style={{ gap: 12 }}>
+    <View style={{ gap: t.space.md }}>
       <AppText muted>{SOS.game.desc}</AppText>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <AppText weight="800">{tr('camp.sos.gameTime', { sec: started ? cd.left : SOS.game.seconds })}</AppText>
         <AppText weight="800">{tr('camp.sos.gamePairs', { n: matchedPairs(game), total: SYMBOLS.length })}</AppText>
       </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm, justifyContent: 'center' }}>
         {game.cards.map((c, i) => {
           const up = c.matched || game.open.includes(i);
           return (
@@ -184,7 +186,7 @@ function MatchRound({ onUsed, onRestart }: { onUsed: () => void; onRestart: () =
                 setGame((g) => flipCard(g, i));
               }}
               accessibilityRole="button"
-              accessibilityLabel={up ? c.symbol : tr('camp.sos.gameCard', { n: i + 1 })}
+              accessibilityLabel={up ? tr(`camp.sos.symbol.${c.symbol}`) : tr('camp.sos.gameCard', { n: i + 1 })}
               style={{
                 width: size,
                 height: size,
@@ -196,13 +198,13 @@ function MatchRound({ onUsed, onRestart }: { onUsed: () => void; onRestart: () =
                 borderColor: c.matched ? t.colors.success : t.colors.border,
               }}
             >
-              <AppText style={{ fontSize: size * 0.45 }}>{up ? c.symbol : ''}</AppText>
+              {up ? <Icon name={c.symbol as IconName} size={Math.round(size * 0.45)} color={t.tokens.primary} /> : null}
             </Pressable>
           );
         })}
       </View>
       {over ? (
-        <Card style={{ gap: 8 }}>
+        <Card style={{ gap: t.space.sm }}>
           <AppText weight="800" center>
             {won ? tr('camp.sos.gameWon', { moves: game.moves }) : tr('camp.sos.gameOver', { n: matchedPairs(game) })}
           </AppText>

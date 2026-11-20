@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Icon, Screen, SwitchRow, TimeStepper, useTheme } from '@/components';
+import { AppText, Button, Card, Header, Icon, RowGroup, Screen, SwitchRow, TimeStepper, useTheme } from '@/components';
 import { hasNotificationPermission, requestNotificationPermission } from '@/features/reminders/permissions';
 import { MAX_REMINDER_TIMES, REMINDER_PRESETS } from '@/features/reminders/plan';
 import { useSettingsStore } from '@/stores/settingsStore';
@@ -33,23 +33,23 @@ export default function ReminderSettings() {
     <Screen>
       <Header title={tr('settings.reminders.title')} />
       {granted === false ? (
-        <Card style={{ gap: 8, borderColor: t.colors.warning }}>
+        <Card style={{ gap: t.space.sm, borderColor: t.colors.warning }}>
           <AppText weight="700">{tr('settings.reminders.noPermission')}</AppText>
           <Button label={tr('settings.reminders.allow')} variant="secondary" onPress={() => void requestNotificationPermission().then(setGranted)} />
         </Card>
       ) : null}
-      <Card style={{ paddingVertical: 4 }}>
+      <RowGroup>
         <SwitchRow label={tr('settings.reminders.enabled')} value={settings.remindersEnabled} onChange={(v) => update({ remindersEnabled: v })} />
         <SwitchRow label={tr('settings.reminders.discreet')} description={tr('settings.reminders.discreetHint')} value={settings.discreetNotifications} onChange={(v) => update({ discreetNotifications: v })} />
         <SwitchRow label={tr('settings.reminders.weekly')} description={tr('settings.reminders.weeklyHint')} value={settings.weeklyTestReminder} onChange={(v) => update({ weeklyTestReminder: v })} />
-      </Card>
+      </RowGroup>
       {settings.remindersEnabled ? (
         <>
           <AppText variant="h3">{tr('settings.reminders.presetsTitle')}</AppText>
           <AppText variant="small" muted>
             {tr('settings.reminders.presetsHint')}
           </AppText>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
             {REMINDER_PRESETS.map((p) => {
               const on = times.includes(p.time);
               return (
@@ -63,7 +63,7 @@ export default function ReminderSettings() {
                     minHeight: 48,
                     paddingHorizontal: 14,
                     justifyContent: 'center',
-                    borderRadius: 24,
+                    borderRadius: t.radius.xl,
                     borderWidth: 2,
                     borderColor: on ? t.colors.accent : t.colors.border,
                     backgroundColor: on ? t.colors.surfaceAlt : t.colors.surface,
@@ -80,7 +80,7 @@ export default function ReminderSettings() {
 
           <AppText variant="h3">{tr('settings.reminders.times')}</AppText>
           {times.map((time, i) => (
-            <Card key={i} style={{ gap: 8 }}>
+            <Card key={i} style={{ gap: t.space.sm }}>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <AppText weight="700">{tr('settings.reminders.timeN', { n: i + 1 })}</AppText>
                 {times.length > 1 ? (

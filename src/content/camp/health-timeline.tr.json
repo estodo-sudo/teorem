@@ -9,49 +9,49 @@
     {
       "id": "min20",
       "label": "20 dakika",
-      "emoji": "❤️",
+      "icon": "heart", "tone": "smokefree",
       "text": "Kalp atış hızın ve kan basıncın düşer."
     },
     {
       "id": "h12",
       "label": "12 saat",
-      "emoji": "🩸",
+      "icon": "droplet", "tone": "smokefree",
       "text": "Kanındaki karbonmonoksit düzeyi normale döner."
     },
     {
       "id": "w2",
       "label": "2–12 hafta",
-      "emoji": "🫁",
+      "icon": "wind", "tone": "smokefree",
       "text": "Kan dolaşımın iyileşir ve akciğerlerinin çalışması güçlenir."
     },
     {
       "id": "m1",
       "label": "1–9 ay",
-      "emoji": "🌬️",
+      "icon": "wind", "tone": "smokefree",
       "text": "Öksürük ve nefes darlığı azalır."
     },
     {
       "id": "y1",
       "label": "1 yıl",
-      "emoji": "💪",
+      "icon": "dumbbell", "tone": "smokefree",
       "text": "Koroner kalp hastalığı riskin, sigara içen birinin yaklaşık yarısına iner."
     },
     {
       "id": "y5",
       "label": "5–15 yıl",
-      "emoji": "🧠",
+      "icon": "brain", "tone": "smokefree",
       "text": "İnme riskin, hiç sigara içmemiş birininkine iner."
     },
     {
       "id": "y10",
       "label": "10 yıl",
-      "emoji": "🎗️",
+      "icon": "ribbon", "tone": "smokefree",
       "text": "Akciğer kanseri riskin, sigara içen birinin yaklaşık yarısına iner. Ağız, boğaz, yemek borusu, mesane, rahim ağzı ve pankreas kanseri riskleri de azalır."
     },
     {
       "id": "y15",
       "label": "15 yıl",
-      "emoji": "🕊️",
+      "icon": "bird", "tone": "smokefree",
       "text": "Koroner kalp hastalığı riskin, hiç sigara içmemiş birininki gibi olur."
     }
   ]

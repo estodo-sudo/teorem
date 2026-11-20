@@ -4,6 +4,7 @@ import { Linking, Pressable } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { ODAK_SKILLS, ODAK_SOURCES } from '@/features/camps/odak/content';
 import { quizScore } from '@/features/camps/odak/engine/program';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
@@ -71,13 +72,11 @@ export default function OdakLesson() {
       <Header title={lesson.title} onBack={back} right={<QuickExitButton />} />
       {stage === 'practice' ? (
         <>
-          <AppText variant="display" center>
-            ✍️
-          </AppText>
+          <IconTile icon="pen" tone="focus" size="lg" round />
           <AppText variant="h2" center accessibilityRole="header">
             {lesson.practice.title}
           </AppText>
-          <Card style={{ borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
+          <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
             <AppText>{lesson.practice.text}</AppText>
           </Card>
         </>
@@ -105,7 +104,7 @@ export default function OdakLesson() {
                       accessibilityLabel={o}
                       style={{
                         minHeight: 48,
-                        padding: 12,
+                        padding: t.space.md,
                         borderRadius: t.radius.md,
                         borderWidth: 2,
                         borderColor: right ? t.colors.success : wrong ? t.colors.warning : t.colors.border,

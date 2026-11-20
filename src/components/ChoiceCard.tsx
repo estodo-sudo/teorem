@@ -2,19 +2,21 @@ import { Pressable, StyleSheet, View } from 'react-native';
 
 import { AppText } from './AppText';
 import { Icon } from './Icon';
+import { IconTile } from './ui/IconTile';
+import type { IconName } from './Icon';
 import { useTheme } from './useTheme';
 
 interface Props {
   label: string;
   description?: string;
-  emoji?: string;
+  icon?: IconName;
   selected: boolean;
   onPress: () => void;
   multi?: boolean;
 }
 
 /** Large, one-hand-friendly selection card used in onboarding & feedback. */
-export function ChoiceCard({ label, description, emoji, selected, onPress, multi }: Props) {
+export function ChoiceCard({ label, description, icon, selected, onPress, multi }: Props) {
   const t = useTheme();
   return (
     <Pressable
@@ -27,16 +29,17 @@ export function ChoiceCard({ label, description, emoji, selected, onPress, multi
         {
           minHeight: 64,
           borderRadius: t.radius.lg,
-          backgroundColor: selected ? (t.dark ? t.colors.surfaceAlt : '#FFF3EB') : t.colors.surface,
-          borderColor: selected ? t.colors.accent : t.colors.border,
+          backgroundColor: selected ? t.tokens.primarySoft : t.tokens.card,
+          borderColor: selected ? t.tokens.primary : t.tokens.border,
+          borderWidth: selected ? t.border.medium : t.border.thin,
           opacity: pressed ? 0.9 : 1,
         },
       ]}
     >
-      {emoji ? (
-        <AppText variant="h2" style={{ marginRight: 12 }} accessible={false}>
-          {emoji}
-        </AppText>
+      {icon ? (
+        <View style={{ marginRight: t.space.md }}>
+          <IconTile icon={icon} />
+        </View>
       ) : null}
       <View style={{ flex: 1 }}>
         <AppText variant="body" weight="700">

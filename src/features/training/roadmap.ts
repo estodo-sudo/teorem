@@ -1,3 +1,5 @@
+import type { ModuleTone } from '@/config/theme';
+import type { IconName } from '@/components/Icon';
 import tasksJson from '@/content/kegel/functional-tasks.tr.json';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
 import { createRng, hashString, shuffle } from '@/lib/random';
@@ -52,7 +54,8 @@ export function weekIndexForPlanDay(t: TrainingState, today: string, day: number
 
 export interface FunctionalTaskDef {
   id: string;
-  emoji: string;
+  icon: IconName;
+  tone?: ModuleTone;
   title: string;
   text: string;
   tracks: string[];

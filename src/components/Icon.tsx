@@ -1,188 +1,439 @@
-import Svg, { Circle, Path, Rect } from 'react-native-svg';
+import {
+  Activity,
+  Bell,
+  BookOpen,
+  Calendar,
+  ChartColumn,
+  Check,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  CircleAlert,
+  CircleCheck,
+  CircleHelp,
+  CreditCard,
+  Clock,
+  Compass,
+  Download,
+  Droplet,
+  Eye,
+  EyeOff,
+  Flame,
+  Heart,
+  House,
+  Info,
+  Layers,
+  Leaf,
+  LoaderCircle,
+  Lock,
+  Minus,
+  Moon,
+  Pause,
+  PersonStanding,
+  Phone,
+  Play,
+  Plus,
+  RotateCcw,
+  Search,
+  Settings,
+  Share2,
+  Shield,
+  SkipForward,
+  Smartphone,
+  Sparkles,
+  Square,
+  Star,
+  Sun,
+  Target,
+  Trash2,
+  Trophy,
+  Upload,
+  User,
+  Vibrate,
+  Volume2,
+  Wind,
+  X,
+  Armchair,
+  BadgeCheck,
+  BedDouble,
+  CircleSlash,
+  Feather,
+  HandHeart,
+  Mountain,
+  ShieldCheck,
+  SkipBack,
+  ThumbsUp,
+  Timer,
+  Wallet,
+  AlarmClock,
+  Angry,
+  Apple,
+  ArrowDown,
+  ArrowUp,
+  ArrowUpDown,
+  Award,
+  Baby,
+  Ban,
+  Bandage,
+  BatteryMedium,
+  Bean,
+  Bike,
+  Bird,
+  Blocks,
+  Bone,
+  Bookmark,
+  Box,
+  Brain,
+  Briefcase,
+  Calculator,
+  Car,
+  Circle,
+  Citrus,
+  ClipboardList,
+  Cloud,
+  CloudFog,
+  CloudRain,
+  CloudSun,
+  Clover,
+  Coffee,
+  Coins,
+  Construction,
+  Cookie,
+  CupSoda,
+  Dices,
+  DoorClosed,
+  DoorOpen,
+  Drama,
+  Drumstick,
+  Dumbbell,
+  Ear,
+  Egg,
+  FileText,
+  Fish,
+  Flag,
+  FlaskConical,
+  Flower2,
+  Footprints,
+  Frown,
+  Gift,
+  GlassWater,
+  Glasses,
+  Globe,
+  GraduationCap,
+  Grape,
+  Hammer,
+  Hand,
+  Handshake,
+  Headphones,
+  HeartPulse,
+  Hospital,
+  Hourglass,
+  IdCard,
+  KeyRound,
+  Laptop,
+  Laugh,
+  LifeBuoy,
+  Lightbulb,
+  Link,
+  LockOpen,
+  Magnet,
+  Mail,
+  Map,
+  MapPin,
+  Medal,
+  Meh,
+  MessageCircle,
+  MessageCircleMore,
+  MessageSquare,
+  Microscope,
+  Milk,
+  NotebookPen,
+  Nut,
+  Palette,
+  PartyPopper,
+  PenLine,
+  Pencil,
+  PhoneOff,
+  PiggyBank,
+  Pill,
+  Plug,
+  Pointer,
+  Puzzle,
+  Radio,
+  Repeat,
+  Ribbon,
+  Ruler,
+  Salad,
+  Scale,
+  ScanFace,
+  School,
+  Scissors,
+  Shapes,
+  Shirt,
+  ShoppingBasket,
+  ShowerHead,
+  Signal,
+  SlidersHorizontal,
+  Smile,
+  Snowflake,
+  Sofa,
+  Soup,
+  Sprout,
+  Stethoscope,
+  Sunrise,
+  Sunset,
+  Tag,
+  Thermometer,
+  ThumbsDown,
+  Tornado,
+  TreeDeciduous,
+  TrendingDown,
+  TrendingUp,
+  TriangleAlert,
+  Turtle,
+  Undo2,
+  Users,
+  Utensils,
+  Waves,
+  Wheat,
+  Wrench,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react-native';
 
-/** Small original line-icon set (24×24 grid, stroke based). */
-export type IconName =
-  | 'home'
-  | 'pulse'
-  | 'chart'
-  | 'compass'
-  | 'user'
-  | 'flame'
-  | 'trophy'
-  | 'play'
-  | 'pause'
-  | 'skip'
-  | 'stop'
-  | 'check'
-  | 'close'
-  | 'back'
-  | 'chevron'
-  | 'help'
-  | 'lock'
-  | 'wind'
-  | 'leaf'
-  | 'book'
-  | 'star'
-  | 'starFilled'
-  | 'bell'
-  | 'gear'
-  | 'shield'
-  | 'plus'
-  | 'trash'
-  | 'calendar'
-  | 'body'
-  | 'sparkle';
+import { useTheme } from './useTheme';
+
+/**
+ * One icon wrapper for the whole app (ui-v2): Lucide icons bundled in the app (no network). Names stay
+ * app-level and neutral — nothing that hints at smoking or sexuality.
+ */
+const ICONS = {
+  home: House,
+  pulse: Activity,
+  chart: ChartColumn,
+  compass: Compass,
+  user: User,
+  /** Streak flame (gamification only — never used for the smoking camp). */
+  flame: Flame,
+  trophy: Trophy,
+  play: Play,
+  pause: Pause,
+  skip: SkipForward,
+  stop: Square,
+  check: Check,
+  close: X,
+  back: ChevronLeft,
+  chevron: ChevronRight,
+  chevronDown: ChevronDown,
+  chevronUp: ChevronUp,
+  help: CircleHelp,
+  lock: Lock,
+  wind: Wind,
+  leaf: Leaf,
+  book: BookOpen,
+  star: Star,
+  starFilled: Star,
+  bell: Bell,
+  gear: Settings,
+  shield: Shield,
+  plus: Plus,
+  minus: Minus,
+  trash: Trash2,
+  calendar: Calendar,
+  body: PersonStanding,
+  sparkle: Sparkles,
+  info: Info,
+  alert: CircleAlert,
+  success: CircleCheck,
+  rotate: RotateCcw,
+  search: Search,
+  heart: Heart,
+  sun: Sun,
+  moon: Moon,
+  clock: Clock,
+  target: Target,
+  layers: Layers,
+  phone: Phone,
+  share: Share2,
+  download: Download,
+  upload: Upload,
+  eye: Eye,
+  eyeOff: EyeOff,
+  smartphone: Smartphone,
+  vibrate: Vibrate,
+  volume: Volume2,
+  loader: LoaderCircle,
+  card: CreditCard,
+  droplet: Droplet,
+  bed: BedDouble,
+  chair: Armchair,
+  painCare: HandHeart,
+  badgeCheck: BadgeCheck,
+  shieldCheck: ShieldCheck,
+  timer: Timer,
+  skipBack: SkipBack,
+  feather: Feather,
+  thumbsUp: ThumbsUp,
+  mountain: Mountain,
+  circleSlash: CircleSlash,
+  wallet: Wallet,
+  // content icons (ui-v3 emoji replacement)
+  stethoscope: Stethoscope,
+  sprout: Sprout,
+  repeat: Repeat,
+  waves: Waves,
+  blocks: Blocks,
+  dumbbell: Dumbbell,
+  handshake: Handshake,
+  scale: Scale,
+  trendDown: TrendingDown,
+  trendUp: TrendingUp,
+  party: PartyPopper,
+  chat: MessageCircle,
+  thought: MessageCircleMore,
+  speech: MessageSquare,
+  brain: Brain,
+  frown: Frown,
+  smile: Smile,
+  meh: Meh,
+  laugh: Laugh,
+  angry: Angry,
+  puzzle: Puzzle,
+  warning: TriangleAlert,
+  heartPulse: HeartPulse,
+  graduation: GraduationCap,
+  cloud: Cloud,
+  cloudRain: CloudRain,
+  cloudSun: CloudSun,
+  cloudFog: CloudFog,
+  wrench: Wrench,
+  glass: GlassWater,
+  notebook: NotebookPen,
+  footprints: Footprints,
+  bird: Bird,
+  ruler: Ruler,
+  battery: BatteryMedium,
+  school: School,
+  coffee: Coffee,
+  flag: Flag,
+  alarm: AlarmClock,
+  flower: Flower2,
+  flask: FlaskConical,
+  bulb: Lightbulb,
+  medal: Medal,
+  utensils: Utensils,
+  hospital: Hospital,
+  phoneOff: PhoneOff,
+  hourglass: Hourglass,
+  users: Users,
+  map: Map,
+  mapPin: MapPin,
+  door: DoorOpen,
+  doorClosed: DoorClosed,
+  zap: Zap,
+  pill: Pill,
+  link: Link,
+  sunrise: Sunrise,
+  ban: Ban,
+  cup: CupSoda,
+  apple: Apple,
+  microscope: Microscope,
+  arrowUp: ArrowUp,
+  arrowDown: ArrowDown,
+  sliders: SlidersHorizontal,
+  pen: PenLine,
+  nut: Nut,
+  wheat: Wheat,
+  salad: Salad,
+  tornado: Tornado,
+  drama: Drama,
+  sofa: Sofa,
+  laptop: Laptop,
+  box: Box,
+  clipboard: ClipboardList,
+  tag: Tag,
+  palette: Palette,
+  thumbsDown: ThumbsDown,
+  milk: Milk,
+  briefcase: Briefcase,
+  hand: Hand,
+  bean: Bean,
+  citrus: Citrus,
+  fish: Fish,
+  lockOpen: LockOpen,
+  thermometer: Thermometer,
+  bike: Bike,
+  car: Car,
+  idCard: IdCard,
+  lifeBuoy: LifeBuoy,
+  headphones: Headphones,
+  snowflake: Snowflake,
+  cookie: Cookie,
+  soup: Soup,
+  egg: Egg,
+  drumstick: Drumstick,
+  bone: Bone,
+  dice: Dices,
+  globe: Globe,
+  turtle: Turtle,
+  basket: ShoppingBasket,
+  signal: Signal,
+  glasses: Glasses,
+  undo: Undo2,
+  baby: Baby,
+  calculator: Calculator,
+  bandage: Bandage,
+  ribbon: Ribbon,
+  shirt: Shirt,
+  tree: TreeDeciduous,
+  pointer: Pointer,
+  magnet: Magnet,
+  clover: Clover,
+  plug: Plug,
+  bookmark: Bookmark,
+  ear: Ear,
+  pencil: Pencil,
+  construction: Construction,
+  shower: ShowerHead,
+  scissors: Scissors,
+  radio: Radio,
+  scanFace: ScanFace,
+  mail: Mail,
+  arrowUpDown: ArrowUpDown,
+  key: KeyRound,
+  piggy: PiggyBank,
+  gift: Gift,
+  file: FileText,
+  grape: Grape,
+  circle: Circle,
+  award: Award,
+  coins: Coins,
+  shapes: Shapes,
+  sunset: Sunset,
+  hammer: Hammer,
+} satisfies Record<string, LucideIcon>;
+
+export type IconName = keyof typeof ICONS;
+export const ICON_NAMES = Object.keys(ICONS) as IconName[];
+
+/** Icon sizes (token). */
+export const iconSize = { sm: 16, md: 20, lg: 24, xl: 28 } as const;
+export type IconSize = keyof typeof iconSize;
 
 interface Props {
   name: IconName;
-  size?: number;
-  color: string;
+  /** Token (sm / md / lg / xl) or pixels. */
+  size?: IconSize | number;
+  /** Defaults to the foreground token. */
+  color?: string;
   strokeWidth?: number;
 }
 
-export function Icon({ name, size = 24, color, strokeWidth = 2 }: Props) {
-  const p = {
-    stroke: color,
-    strokeWidth,
-    fill: 'none',
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-  };
-  return (
-    <Svg width={size} height={size} viewBox="0 0 24 24">
-      {renderIcon(name, p, color)}
-    </Svg>
-  );
-}
-
-type StrokeProps = {
-  stroke: string;
-  strokeWidth: number;
-  fill: string;
-  strokeLinecap: 'round';
-  strokeLinejoin: 'round';
-};
-
-function renderIcon(name: IconName, p: StrokeProps, color: string) {
-  switch (name) {
-    case 'home':
-      return <Path {...p} d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" />;
-    case 'pulse':
-      return <Path {...p} d="M2 12h4l3-7 4 14 3-7h6" />;
-    case 'chart':
-      return <Path {...p} d="M4 20V10M10 20V4M16 20v-7M22 20H2" />;
-    case 'compass':
-      return (
-        <>
-          <Circle {...p} cx={12} cy={12} r={9} />
-          <Path {...p} d="M15.5 8.5l-2 5-5 2 2-5z" />
-        </>
-      );
-    case 'user':
-      return (
-        <>
-          <Circle {...p} cx={12} cy={8} r={4} />
-          <Path {...p} d="M4 21c1-4 4.5-6 8-6s7 2 8 6" />
-        </>
-      );
-    case 'flame':
-      return (
-        <Path
-          {...p}
-          d="M12 22c4 0 7-2.8 7-7 0-3.5-2.4-6-4-8 0 2.5-1.3 4-3 4 .5-3-1-6-4-9 .3 3-3 6.2-3 11 0 4.4 3 9 7 9z"
-        />
-      );
-    case 'trophy':
-      return (
-        <Path
-          {...p}
-          d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v1a4 4 0 0 0 4 4M16 6h4v1a4 4 0 0 1-4 4M12 13v4M8 21h8M9 17h6v4H9z"
-        />
-      );
-    case 'play':
-      return <Path {...p} fill={color} d="M7 4l13 8-13 8z" />;
-    case 'pause':
-      return (
-        <>
-          <Rect {...p} fill={color} x={6} y={4} width={4} height={16} rx={1} />
-          <Rect {...p} fill={color} x={14} y={4} width={4} height={16} rx={1} />
-        </>
-      );
-    case 'skip':
-      return <Path {...p} d="M5 5l10 7-10 7zM19 5v14" />;
-    case 'stop':
-      return <Rect {...p} x={5} y={5} width={14} height={14} rx={2} />;
-    case 'check':
-      return <Path {...p} d="M4 12.5l5 5L20 6.5" />;
-    case 'close':
-      return <Path {...p} d="M6 6l12 12M18 6L6 18" />;
-    case 'back':
-      return <Path {...p} d="M15 5l-7 7 7 7" />;
-    case 'chevron':
-      return <Path {...p} d="M9 5l7 7-7 7" />;
-    case 'help':
-      return (
-        <>
-          <Circle {...p} cx={12} cy={12} r={9} />
-          <Path {...p} d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01" />
-        </>
-      );
-    case 'lock':
-      return (
-        <>
-          <Rect {...p} x={5} y={11} width={14} height={10} rx={2} />
-          <Path {...p} d="M8 11V8a4 4 0 0 1 8 0v3" />
-        </>
-      );
-    case 'wind':
-      return <Path {...p} d="M3 9h11a3 3 0 1 0-3-3M3 15h15a3 3 0 1 1-3 3M3 12h7" />;
-    case 'leaf':
-      return <Path {...p} d="M5 19C5 10 11 4 20 4c0 9-6 15-15 15zM5 19l7-7" />;
-    case 'book':
-      return <Path {...p} d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21V5M8 7h7" />;
-    case 'star':
-      return <Path {...p} d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z" />;
-    case 'starFilled':
-      return (
-        <Path
-          {...p}
-          fill={color}
-          d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"
-        />
-      );
-    case 'bell':
-      return <Path {...p} d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 21h4" />;
-    case 'gear':
-      return (
-        <>
-          <Circle {...p} cx={12} cy={12} r={3} />
-          <Path
-            {...p}
-            d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"
-          />
-        </>
-      );
-    case 'shield':
-      return <Path {...p} d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" />;
-    case 'plus':
-      return <Path {...p} d="M12 5v14M5 12h14" />;
-    case 'trash':
-      return <Path {...p} d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14" />;
-    case 'calendar':
-      return (
-        <>
-          <Rect {...p} x={3} y={5} width={18} height={16} rx={2} />
-          <Path {...p} d="M3 10h18M8 3v4M16 3v4" />
-        </>
-      );
-    case 'body':
-      return (
-        <>
-          <Circle {...p} cx={12} cy={4.5} r={2} />
-          <Path {...p} d="M5 9h14M12 9v6M12 15l-4 6M12 15l4 6" />
-        </>
-      );
-    case 'sparkle':
-      return <Path {...p} d="M12 3v5M12 16v5M3 12h5M16 12h5M6 6l3 3M15 15l3 3M6 18l3-3M15 9l3-3" />;
-  }
+export function Icon({ name, size = 'lg', color, strokeWidth }: Props) {
+  const t = useTheme();
+  const Cmp = ICONS[name];
+  const px = typeof size === 'number' ? size : iconSize[size];
+  const c = color ?? t.tokens.foreground;
+  return <Cmp size={px} color={c} strokeWidth={strokeWidth ?? t.iconStroke} fill={name === 'starFilled' ? c : 'none'} />;
 }

@@ -124,7 +124,7 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
             ))}
             <ChoiceCard
               multi
-              emoji="✅"
+              icon="success"
               label={tr('body.setup.flagsNone')}
               selected={flagsAnswered && flags.length === 0}
               onPress={() => {
@@ -144,7 +144,7 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
               }}
             >
               <AppText variant="h3" color={t.colors.danger}>
-                ⚠️ {c.redFlags.title}
+                {c.redFlags.title}
               </AppText>
               <AppText variant="small">{c.redFlags.text}</AppText>
               <AppText variant="small" muted>
@@ -154,7 +154,7 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
           ) : flagsAnswered ? (
             <Card
               style={{
-                gap: 4,
+                gap: t.space.xs,
                 borderWidth: 2,
                 borderColor: t.colors.success,
                 backgroundColor: tint(t.colors.success, '10'),
@@ -177,7 +177,7 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
             <View key={q.id} style={{ gap: 10 }}>
               <AppText weight="800">{q.text}</AppText>
               {q.options.some((o) => o.mid !== undefined) ? (
-                <View style={{ flexDirection: 'row', gap: 8 }} accessibilityRole="radiogroup">
+                <View style={{ flexDirection: 'row', gap: t.space.sm }} accessibilityRole="radiogroup">
                   {q.options.map((o) => {
                     const selected = answers[q.id] === o.id;
                     return (
@@ -193,12 +193,12 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
                         style={{
                           flex: 1,
                           alignItems: 'center',
-                          gap: 8,
+                          gap: t.space.sm,
                           paddingVertical: 14,
                           paddingHorizontal: 6,
                           borderRadius: t.radius.lg,
                           borderWidth: 2,
-                          borderColor: selected ? t.colors.accent : t.colors.border,
+                          borderColor: selected ? t.tokens.primary : t.colors.border,
                           backgroundColor: selected ? tint(t.colors.accent, '14') : t.colors.surface,
                         }}
                       >
@@ -211,7 +211,7 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
                   })}
                 </View>
               ) : (
-                <View style={{ gap: 8 }}>
+                <View style={{ gap: t.space.sm }}>
                   {q.options.map((o) => (
                     <ChoiceCard
                       key={o.id}
@@ -249,12 +249,12 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
               minutes: routineMinutes(c.exercises),
             })}
           </AppText>
-          <View style={{ flexDirection: 'row', gap: 8 }}>
+          <View style={{ flexDirection: 'row', gap: t.space.sm }}>
             <PlanStat value={String(c.weeks)} label={tr('body.setup.planWeeks')} />
             <PlanStat value={String(c.weeklyTarget)} label={tr('body.setup.planPerWeek')} />
             <PlanStat value={tr('body.minutes', { count: routineMinutes(c.exercises) })} label={tr('body.setup.planDaily')} />
           </View>
-          <View style={{ gap: 8 }}>
+          <View style={{ gap: t.space.sm }}>
             {c.exercises.map((e, i) => (
               <ExerciseRow key={e.id} ex={e} n={i + 1} />
             ))}
@@ -279,7 +279,7 @@ export function BodySetupScreen({ id }: { id: BodyId }) {
             {tr('body.setup.measureTitle', { title: c.measure.title })}
           </AppText>
           <AppText muted>{tr('body.setup.measureHint')}</AppText>
-          <Card style={{ gap: 16 }}>
+          <Card style={{ gap: t.space.lg }}>
             <MeasureHowTo m={c.measure} />
             <MeasureInput m={c.measure} value={measure ?? (c.measure.better === 'lower' ? 5 : 0)} onChange={setMeasure} />
           </Card>
@@ -299,7 +299,7 @@ function PlanStat({ value, label }: { value: string; label: string }) {
         flex: 1,
         alignItems: 'center',
         gap: 2,
-        paddingVertical: 12,
+        paddingVertical: t.space.md,
         borderRadius: t.radius.md,
         backgroundColor: tint(t.colors.primary, '14'),
       }}
@@ -323,7 +323,7 @@ export function TestResult({ id, answers }: { id: BodyId; answers: Record<string
     if (!answers.screen) return null;
     const heavy = answers.screen === '4to6' || answers.screen === 'gt6';
     return (
-      <Card style={{ gap: 12 }}>
+      <Card style={{ gap: t.space.md }}>
         <AppText variant="h3">{tr('body.neck.loadTitle')}</AppText>
         {c.selfTest.loads ? <LoadChart loads={c.selfTest.loads} /> : null}
         <AppText variant="small" muted>
@@ -331,7 +331,7 @@ export function TestResult({ id, answers }: { id: BodyId; answers: Record<string
         </AppText>
         <View
           style={{
-            padding: 12,
+            padding: t.space.md,
             borderRadius: t.radius.md,
             backgroundColor: tint(heavy ? t.colors.warning : t.colors.success, '1A'),
           }}
@@ -354,7 +354,7 @@ export function TestResult({ id, answers }: { id: BodyId; answers: Record<string
   return (
     <Card
       style={{
-        gap: 8,
+        gap: t.space.sm,
         borderWidth: 2,
         borderColor: rigid ? t.colors.warning : t.colors.success,
       }}

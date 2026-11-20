@@ -50,31 +50,31 @@ export function LineChart({ data, height = 160, unit = '', accessibilityLabel, e
       {w > 0 ? (
         <Svg width={w} height={height}>
           {[0, 0.5, 1].map((f) => (
-            <Line key={f} x1={padL} x2={w - padR} y1={y(yMax * f)} y2={y(yMax * f)} stroke={t.colors.border} strokeWidth={1} />
+            <Line key={f} x1={padL} x2={w - padR} y1={y(yMax * f)} y2={y(yMax * f)} stroke={t.tokens.border} strokeWidth={1} />
           ))}
           {[0, yMax / 2, yMax].map((v) => (
-            <SvgText key={v} x={padL - 6} y={y(v) + 4} fontSize={10} fill={t.colors.textMuted} textAnchor="end">
+            <SvgText key={v} x={padL - 6} y={y(v) + 4} fontSize={t.type.caption.fontSize - 1} fontFamily={t.family.regular} fill={t.tokens.mutedForeground} textAnchor="end">
               {fmt(v)}
             </SvgText>
           ))}
-          <Path d={path} stroke={t.colors.accent} strokeWidth={2} fill="none" strokeLinejoin="round" strokeLinecap="round" />
+          <Path d={path} stroke={t.tokens.primary} strokeWidth={2} fill="none" strokeLinejoin="round" strokeLinecap="round" />
           {data.map((d, i) => (
-            <Circle key={i} cx={x(i)} cy={y(d.value)} r={i === shown ? 6 : 4} fill={t.colors.accent} stroke={t.colors.surface} strokeWidth={2} />
+            <Circle key={i} cx={x(i)} cy={y(d.value)} r={i === shown ? 6 : 4} fill={t.tokens.primary} stroke={t.tokens.card} strokeWidth={2} />
           ))}
-          <SvgText x={x(0)} y={height - 6} fontSize={10} fill={t.colors.textMuted} textAnchor="start">
+          <SvgText x={x(0)} y={height - 6} fontSize={t.type.caption.fontSize - 1} fontFamily={t.family.regular} fill={t.tokens.mutedForeground} textAnchor="start">
             {data[0]!.label}
           </SvgText>
           {data.length > 1 ? (
-            <SvgText x={x(data.length - 1)} y={height - 6} fontSize={10} fill={t.colors.textMuted} textAnchor="end">
+            <SvgText x={x(data.length - 1)} y={height - 6} fontSize={t.type.caption.fontSize - 1} fontFamily={t.family.regular} fill={t.tokens.mutedForeground} textAnchor="end">
               {data[data.length - 1]!.label}
             </SvgText>
           ) : null}
           <SvgText
             x={Math.min(Math.max(x(shown), padL + 24), w - padR - 24)}
             y={Math.max(12, y(data[shown]!.value) - 12)}
-            fontSize={12}
-            fontWeight="700"
-            fill={t.colors.text}
+            fontSize={t.type.caption.fontSize}
+            fontFamily={t.family.semibold}
+            fill={t.tokens.foreground}
             textAnchor="middle"
           >
             {`${fmt(data[shown]!.value)}${unit}`}

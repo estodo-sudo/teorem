@@ -1,8 +1,10 @@
+import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { Linking, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Icon, useTheme } from '@/components';
+import { IconTile } from '@/components/ui';
 import { InfoToggle, SectionTitle, tint } from '@/features/campus/shared/ui';
 import { CAMP_CHECKIN, CAMP_ONBOARDING as ONB, CAMP_PLANS } from './content';
 import { showMedicationCard } from './engine/hsi';
@@ -35,7 +37,7 @@ export function Alo171Card({ compact }: { compact?: boolean }) {
   return (
     <Card style={{ gap: 10, borderWidth: 2, borderColor: t.colors.success, backgroundColor: tint(t.colors.success, '10') }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-        <AppText variant="h2">📞</AppText>
+        <IconTile icon="phone" tone="smokefree" />
         <AppText variant="h3" style={{ flex: 1 }}>
           {ONB.alo171.title}
         </AppText>
@@ -81,13 +83,13 @@ export function HsiCard({ profile }: { profile: Pick<CampProfile, 'hsiScore' | '
         <InfoToggle title={tr('camp.ui.hsiInfo')} text={ONB.hsiInfo} />
       </Card>
       {under18 ? (
-        <Card style={{ gap: 6, borderLeftWidth: 4, borderLeftColor: t.colors.primary }}>
+        <Card style={{ gap: 6, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
           <AppText weight="800">{tr('camp.ui.under18Title')}</AppText>
           <AppText variant="small">{ONB.under18}</AppText>
         </Card>
       ) : showMedicationCard(profile.hsiLevel) ? (
         <Card style={{ gap: 6, borderWidth: 2, borderColor: t.colors.primary, backgroundColor: tint(t.colors.primary, '10') }}>
-          <AppText weight="800">💊 {tr('camp.ui.medTitle')}</AppText>
+          <AppText weight="800">{tr('camp.ui.medTitle')}</AppText>
           <AppText variant="small">{ONB.medication}</AppText>
         </Card>
       ) : null}
@@ -125,8 +127,8 @@ export function PlanSummary({ profile, price, attempt, plans, now }: { profile: 
       </View>
 
       {profile.method === 'cut_down' ? (
-        <Card style={{ gap: 8 }}>
-          <AppText weight="800">📉 {tr('camp.plan.cutTitle')}</AppText>
+        <Card style={{ gap: t.space.sm }}>
+          <AppText weight="800">{tr('camp.plan.cutTitle')}</AppText>
           {cutDownPlan(profile.perDay, Math.round(inDays / 7)).map((w) => (
             <View key={w.week} style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <AppText variant="small">{tr('camp.plan.cutWeek', { n: w.week })}</AppText>
@@ -141,17 +143,17 @@ export function PlanSummary({ profile, price, attempt, plans, now }: { profile: 
         </Card>
       ) : null}
 
-      <SectionTitle emoji="🗺️" title={tr('camp.plan.phasesTitle')} />
+      <SectionTitle tone="smokefree" icon="map" title={tr('camp.plan.phasesTitle')} />
       <View style={{ gap: 0 }}>
         {ONB.phases.map((p, i) => (
-          <View key={p.id} style={{ flexDirection: 'row', gap: 12 }}>
+          <View key={p.id} style={{ flexDirection: 'row', gap: t.space.md }}>
             <View style={{ alignItems: 'center', width: 32 }}>
               <View style={{ width: 32, height: 32, borderRadius: 16, backgroundColor: tint(t.colors.primary, '22'), alignItems: 'center', justifyContent: 'center' }}>
-                <AppText>{p.emoji}</AppText>
+                <Icon name={p.icon} size="md" />
               </View>
               {i < ONB.phases.length - 1 ? <View style={{ width: 2, flex: 1, minHeight: 14, backgroundColor: t.colors.border }} /> : null}
             </View>
-            <View style={{ flex: 1, paddingBottom: 12, gap: 2 }}>
+            <View style={{ flex: 1, paddingBottom: t.space.md, gap: 2 }}>
               <AppText weight="800">{p.title}</AppText>
               <AppText variant="small" muted>
                 {p.text}
@@ -161,14 +163,14 @@ export function PlanSummary({ profile, price, attempt, plans, now }: { profile: 
         ))}
       </View>
 
-      <SectionTitle emoji="🧪" title={tr('camp.plan.hsiTitle')} />
+      <SectionTitle tone="smokefree" icon="flask" title={tr('camp.plan.hsiTitle')} />
       <HsiCard profile={profile} />
 
-      <SectionTitle emoji="⚡" title={tr('camp.plan.triggersTitle')} />
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+      <SectionTitle tone="smokefree" icon="zap" title={tr('camp.plan.triggersTitle')} />
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
         {triggers.map((x) => (
-          <View key={x.id} style={{ flexDirection: 'row', gap: 6, alignItems: 'center', paddingHorizontal: 12, paddingVertical: 8, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.warning, '1F') }}>
-            <AppText>{x.emoji}</AppText>
+          <View key={x.id} style={{ flexDirection: 'row', gap: 6, alignItems: 'center', paddingHorizontal: t.space.md, paddingVertical: t.space.sm, borderRadius: t.radius.pill, backgroundColor: tint(t.colors.warning, '1F') }}>
+            <Icon name={x.icon} size="md" />
             <AppText variant="small" weight="700">
               {x.label}
             </AppText>
@@ -178,10 +180,10 @@ export function PlanSummary({ profile, price, attempt, plans, now }: { profile: 
 
       {plans.length ? (
         <>
-          <SectionTitle emoji="🧩" title={tr('camp.plan.plansTitle')} />
-          <View style={{ gap: 8 }}>
+          <SectionTitle tone="smokefree" icon="puzzle" title={tr('camp.plan.plansTitle')} />
+          <View style={{ gap: t.space.sm }}>
             {plans.map((p) => (
-              <Card key={p.trigger} style={{ gap: 4, borderLeftWidth: 4, borderLeftColor: t.colors.accent }}>
+              <Card key={p.trigger} style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
                 <AppText variant="small" weight="800" color={t.colors.accent}>
                   {tr('camp.plan.if')} {p.ifText}…
                 </AppText>
@@ -195,8 +197,8 @@ export function PlanSummary({ profile, price, attempt, plans, now }: { profile: 
         </>
       ) : null}
 
-      <SectionTitle emoji="💰" title={tr('camp.plan.savingsTitle')} />
-      <View style={{ flexDirection: 'row', gap: 8 }}>
+      <SectionTitle tone="smokefree" icon="wallet" title={tr('camp.plan.savingsTitle')} />
+      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
         {[
           [tr('camp.plan.month'), savings.month],
           [tr('camp.plan.year'), savings.year],
@@ -244,7 +246,7 @@ export function PhaseTrack({ phase }: { phase: CampPhase }) {
                 borderColor: tint(t.colors.primary, '55'),
               }}
             >
-              {done ? <Icon name="check" color="#FFFFFF" size={14} strokeWidth={3} /> : <AppText variant={cur ? 'body' : 'tiny'}>{p.emoji}</AppText>}
+              {done ? <Icon name="check" color={t.tokens.primaryForeground} size={14} strokeWidth={3} /> : <Icon name={p.icon} size="md" />}
             </View>
           </View>
         );
@@ -254,11 +256,11 @@ export function PhaseTrack({ phase }: { phase: CampPhase }) {
 }
 
 /** One of the three mini cards under the counter. */
-export function StatTile({ emoji, value, label, onPress, color }: { emoji: string; value: string; label: string; onPress?: () => void; color?: string }) {
+export function StatTile({ icon, value, label, onPress, color }: { icon: IconName; value: string; label: string; onPress?: () => void; color?: string }) {
   const t = useTheme();
   const body = (
     <>
-      <AppText>{emoji}</AppText>
+      <Icon name={icon} size="md" color={t.tone.smokefree.fg} />
       <AppText variant="h3" weight="800" color={color ?? t.colors.text} numberOfLines={1} adjustsFontSizeToFit>
         {value}
       </AppText>
@@ -267,7 +269,7 @@ export function StatTile({ emoji, value, label, onPress, color }: { emoji: strin
       </AppText>
     </>
   );
-  const style = { flex: 1, gap: 2, padding: 12, borderRadius: t.radius.lg, backgroundColor: t.colors.surface, borderWidth: 1, borderColor: onPress ? tint(t.colors.primary, '55') : t.colors.border };
+  const style = { flex: 1, gap: 2, padding: t.space.md, borderRadius: t.radius.lg, backgroundColor: t.colors.surface, borderWidth: 1, borderColor: onPress ? tint(t.colors.primary, '55') : t.colors.border };
   return onPress ? (
     <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel={`${label}: ${value}`} style={style}>
       {body}
@@ -285,7 +287,7 @@ export function HourChart({ hours, top }: { hours: number[]; top: number[] }) {
   const { t: tr } = useTranslation();
   const max = Math.max(1, ...hours);
   return (
-    <View style={{ gap: 4 }} accessible accessibilityLabel={tr('camp.diary.chartA11y', { hours: top.map((h) => `${h}:00`).join(', ') })}>
+    <View style={{ gap: t.space.xs }} accessible accessibilityLabel={tr('camp.diary.chartA11y', { hours: top.map((h) => `${h}:00`).join(', ') })}>
       <View style={{ flexDirection: 'row', alignItems: 'flex-end', height: 90, gap: 2 }}>
         {hours.map((n, h) => (
           <View key={h} style={{ flex: 1, height: Math.max(n ? 6 : 2, (n / max) * 90), borderTopLeftRadius: 3, borderTopRightRadius: 3, backgroundColor: top.includes(h) ? t.colors.accent : n ? tint(t.colors.primary, '88') : t.colors.surfaceAlt }} />
@@ -308,7 +310,7 @@ export function SafetyCard() {
   const { t: tr } = useTranslation();
   return (
     <Card style={{ gap: 10, borderWidth: 2, borderColor: t.colors.primary, backgroundColor: tint(t.colors.primary, '10') }} accessibilityLiveRegion="polite">
-      <AppText weight="800">💙 {CAMP_CHECKIN.safety.title}</AppText>
+      <AppText weight="800">{CAMP_CHECKIN.safety.title}</AppText>
       <AppText variant="small">{CAMP_CHECKIN.safety.text}</AppText>
       <Button label={tr('camp.ui.call171')} icon="bell" variant="primary" onPress={() => void Linking.openURL('tel:171')} />
     </Card>
@@ -320,7 +322,7 @@ export function MissionCard({ mission, done, onDone }: { mission: Mission; done:
   const t = useTheme();
   const { t: tr } = useTranslation();
   return (
-    <Card style={{ gap: 8, borderWidth: 2, borderColor: done ? t.colors.success : t.colors.accent, backgroundColor: done ? tint(t.colors.success, '10') : t.colors.surface }}>
+    <Card style={{ gap: t.space.sm, borderWidth: 2, borderColor: done ? t.colors.success : t.colors.accent, backgroundColor: done ? tint(t.colors.success, '10') : t.colors.surface }}>
       <AppText variant="tiny" weight="800" color={done ? t.colors.success : t.colors.accent} style={{ letterSpacing: 0.5 }}>
         {tr('camp.mission.kicker', { min: mission.durationMin, type: tr(`camp.mission.type.${mission.type}`) })}
       </AppText>
@@ -345,8 +347,8 @@ export function PremiumLock({ title, text }: { title: string; text?: string }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   return (
-    <Card style={{ gap: 8, borderWidth: 1.5, borderColor: tint(t.colors.accent, '88'), backgroundColor: tint(t.colors.accent, '0D') }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+    <Card style={{ gap: t.space.sm, borderWidth: 1.5, borderColor: tint(t.colors.accent, '88'), backgroundColor: tint(t.colors.accent, '0D') }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
         <Icon name="lock" color={t.colors.accent} size={18} />
         <AppText weight="800" style={{ flex: 1 }}>
           {title}

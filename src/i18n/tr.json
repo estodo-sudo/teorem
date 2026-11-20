@@ -15,7 +15,8 @@
     "seconds": "{{count}} sn",
     "level": "Seviye {{level}}",
     "premium": "Premium",
-    "comingSoon": "Yakında"
+    "comingSoon": "Yakında",
+    "moreInfo": "{{label}}: açıklama"
   },
   "tabs": {
     "today": "Bugün",
@@ -147,7 +148,7 @@
     "restartBlock": "Bloğu baştan al",
     "gestureHint": "Ekrana dokun: duraklat veya devam et. Bir saniye basılı tut: bitir. Sola kaydır: bloğu atla. İki kez dokun: siyah ekran.",
     "positionNow": "Pozisyon: {{position}}",
-    "painButton": "Ağrı veya rahatsızlık",
+    "painButton": "Ağrı var",
     "painTitle": "Seansı durdurduk",
     "painBody": "Kegel ağrı yapmamalıdır. Bugün bırakma ve nefes egzersiziyle devam edebilirsin. Seviye artışı 7 gün duracak.",
     "painRefer": "Bu hafta ikinci kez rahatsızlık bildirdin. Bir üroloji uzmanına veya pelvik taban fizyoterapistine danışmanı öneriyoruz. İstersen Gevşeme Odaklı programa geçebilirsin.",
@@ -224,7 +225,7 @@
       "tomorrow": "YARIN",
       "daily": "Günlük hedef",
       "dailyCount": "{{done}}/{{target}}",
-      "dailyDone": "Bugünkü hedef tamam 🎯",
+      "dailyDone": "Bugünkü hedef tamam",
       "dailyLeft": "Hedefe {{count}} seans kaldı; kısa bir mikro set de sayılır."
     },
     "outlook": {
@@ -254,7 +255,13 @@
         "title": "Seviye {{level}} ile devam",
         "body": "Bugün zorlandıysan sorun değil. Yarın aynı seviyede, kendini zorlamadan devam et."
       }
-    }
+    },
+    "completeTitle": "Tamamlandı",
+    "partialShort": "Yarıda kaldı",
+    "howWas": "Nasıldı?",
+    "finish": "Bitir",
+    "tomorrowRow": "Yarın",
+    "streakPlus": "+1 gün"
   },
   "time": {
     "hour": "Saat",
@@ -275,11 +282,15 @@
       "body": "Günde 5 dakika, kimse fark etmeden.",
       "point1": "Kısa ve kişisel günlük antrenman",
       "point2": "Ekrana bakmadan, titreşimle yönlendirme",
-      "point3": "Verilerin sadece bu telefonda"
+      "point3": "Verilerin sadece bu telefonda",
+      "kicker": "Hoş geldin"
     },
     "goals": {
       "title": "Hedeflerin neler?",
-      "hint": "Birden fazla seçebilirsin."
+      "hint": "Birden fazla seçebilirsin.",
+      "selected_one": "{{count}} hedef seçildi",
+      "selected_other": "{{count}} hedef seçildi",
+      "none": "Henüz seçim yok"
     },
     "age": {
       "title": "Yaş aralığın?",
@@ -324,14 +335,18 @@
       "skip": "Şimdilik geç"
     },
     "plan": {
-      "title": "Planın hazır 🎯",
+      "title": "Planın hazır",
       "body": "Senin için Seviye {{level}}'den başlayan {{days}} günlük bir plan hazırladık.",
       "start": "Başlangıç",
       "daily": "Günlük süre",
       "reminder": "Hatırlatma",
       "next": "Sıradaki adım: kası doğru bulmak için kısa bir eğitim (yaklaşık 3 dakika).",
-      "cta": "Eğitime başla"
-    }
+      "cta": "Eğitime başla",
+      "ready": "Hazırlık tamam",
+      "goals": "Hedeflerin",
+      "reminderOff": "Kapalı"
+    },
+    "back": "Geri"
   },
   "tutorial": {
     "header": "Eğitim",
@@ -452,22 +467,22 @@
       "title": "Yaygın hatalar",
       "items": [
         {
-          "emoji": "😮‍💨",
+          "icon": "wind",
           "title": "Nefes tutmak",
           "text": "Sıkarken nefesini tutma. Sayıları sesli saymak nefesin akmasına yardım eder."
         },
         {
-          "emoji": "🍑",
+          "icon": "apple",
           "title": "Kalçayı sıkmak",
           "text": "Kalça, karın ve bacaklar devreye girerse pelvik taban daha az çalışır."
         },
         {
-          "emoji": "⬇️",
+          "icon": "arrowDown",
           "title": "Ikınmak",
           "text": "Kas içeri ve yukarı çekilir. Aşağı ittirmek yanlış yöndür; bırakırken de ıkınma."
         },
         {
-          "emoji": "🔁",
+          "icon": "repeat",
           "title": "Aşırı tekrar",
           "text": "Daha çok her zaman daha iyi değildir. Yorgun kas yanlış çalışır; uygulama günlük bir sınır koyar."
         }
@@ -617,9 +632,23 @@
       "capReached": "Bugünkü kasılma sınırına ulaştın. Yarın görüşürüz; istersen yalnızca bırakma ve nefes yapabilirsin.",
       "capTitle": "Bugün yeterli",
       "capBody": "Bugün kaslarını yeterince çalıştırdın; dinlenmek de antrenmanın parçası. Yarın görüşürüz. İstersen kasılma içermeyen bir bırakma ve nefes seansı yapabilirsin.",
-      "capRelease": "Bırakma seansı"
+      "capRelease": "Bırakma seansı",
+      "reps_one": "{{count}} tekrar",
+      "reps_other": "{{count}} tekrar",
+      "contents": "Antrenmanın içeriği",
+      "contentsCount_one": "{{count}} egzersiz",
+      "contentsCount_other": "{{count}} egzersiz",
+      "contentsShow": "Egzersizleri göstermek için dokun",
+      "contentsHide": "Egzersizleri gizlemek için dokun",
+      "dayKicker": "Gün {{day}} / {{total}} · {{track}}",
+      "summary_one": "{{count}} egzersiz · {{position}}",
+      "summary_other": "{{count}} egzersiz · {{position}}",
+      "summaryA11y": "Egzersizleri göster",
+      "microShort": "Mikro set · {{sec}} sn",
+      "breathShort": "Nefes · 1 dk",
+      "targetShort": "Günlük hedef"
     },
-    "challenges": "Cinsel Sağlık için Takviye",
+    "challenges": "Beslenme ipucu",
     "strengthDue": "Haftalık güç testi zamanı",
     "strengthDueBody": "1 dakikada gelişimini ölç.",
     "fitnessLabel": "ÖNERİLEN KASIK RUTİNİ",
@@ -630,7 +659,34 @@
     "challengeWhy": "Neden?",
     "challengeWhyA11y": "{{task}} — neden önemli?",
     "challengeSource": "Kaynak: {{title}}",
-    "challengesNote": "Genel bilgilendirmedir, tıbbi tavsiye değildir."
+    "challengesNote": "Genel bilgilendirmedir, tıbbi tavsiye değildir.",
+    "strengthKicker": "HAFTALIK TEST",
+    "goals": {
+      "title": "Bugünkü ilerlemen",
+      "category": "Günlük hedef",
+      "sessions": "Seans",
+      "streak": "Seri",
+      "plan": "Plan",
+      "days": "gün",
+      "listTitle": "Bugünün hedefleri",
+      "main": "Günün antrenmanı",
+      "micro": "Bir mikro set",
+      "test": "Haftalık güç testi",
+      "doneA11y": "tamamlandı",
+      "details": "İlerlemeyi gör"
+    },
+    "levelChip": "Seviye {{level}}",
+    "streakDays_one": "{{count}} gün",
+    "streakDays_other": "{{count}} gün",
+    "checklist": "Bugün",
+    "forYou": "Senin için",
+    "forYouStory": "Günün hikâyesi",
+    "forYouFitness": "Kasık rutini",
+    "nutritionTitle": "Beslenme ipucu",
+    "nutritionSub": "Bugünün 3 besini",
+    "campTitle": "Kamplar",
+    "campSub": "Sigarasız ve Odak",
+    "campOpen": "Göz at"
   },
   "training": {
     "title": "Antrenman",
@@ -660,7 +716,37 @@
     "functional": {
       "title": "Bugünün günlük hayat görevleri",
       "hint": "Seans dışında, gün içinde yapılır. Yaptıkça işaretle."
-    }
+    },
+    "daysDone": "gün tamamlandı",
+    "legend": {
+      "done": "Tamamlandı",
+      "today": "Bugün",
+      "next": "Sırada"
+    },
+    "weekStatus": {
+      "done": "Tamamlandı",
+      "current": "Şu an",
+      "next": "Sırada"
+    },
+    "readMore": "Devamını oku",
+    "activeTrack": "Aktif iz",
+    "levelTheme": "Seviye {{level}} · {{theme}}",
+    "weekProgress": "Bu hafta {{done}}/{{total}} gün",
+    "thisWeek": "Bu hafta",
+    "seePlan": "Tüm planı gör",
+    "quickStart": "Hızlı başlat",
+    "quickMain": "Günün antrenmanı",
+    "quickMicro": "Mikro set",
+    "quickTest": "Güç testi",
+    "quickTestMeta": "~1 dk ölçüm",
+    "quickTestDue": "Zamanı geldi",
+    "library": "Egzersiz kütüphanesi",
+    "howTo": "Nasıl yapılır",
+    "howToA11y": "{{name}}: nasıl yapılır",
+    "dayLabel": "Gün {{day}}",
+    "weekCount": "{{done}}/{{total}}",
+    "weekA11y": "{{title}}, {{done}} / {{total}} gün tamamlandı",
+    "deloadDay": "Hafif gün"
   },
   "achievements": {
     "title": "Kupalar",
@@ -736,13 +822,24 @@
       },
       "lessons_5": {
         "title": "Öğrenci",
-        "desc": "Kampüslerde 5 ders tamamla."
+        "desc": "Antrenmanlarda 5 ders tamamla."
       },
       "all_stories": {
         "title": "Kitap Kurdu",
         "desc": "Tüm bilgi hikâyelerini oku."
       }
-    }
+    },
+    "unit": {
+      "day": "gün",
+      "workout": "antrenman",
+      "level": "seviye"
+    },
+    "progress": "{{value}}/{{target}} {{unit}}",
+    "progressPlain": "{{value}}/{{target}}",
+    "percent": "%{{pct}}",
+    "earnedA11y": "{{title}}, kazanıldı: {{date}}",
+    "lockedA11y": "{{title}}, kilitli. {{progress}}",
+    "summaryShort": "{{count}}/{{total}} kazanıldı"
   },
   "progress": {
     "title": "İlerleme",
@@ -788,7 +885,19 @@
       "hint": "Kendin için kısa notlar al. Sadece bu cihazda saklanır.",
       "placeholder": "Örn. bugün daha iyi hissettim",
       "add": "Not ekle"
-    }
+    },
+    "statWorkouts": "Antrenman",
+    "statMinutes": "Dakika",
+    "statStreak": "En uzun seri",
+    "statLevel": "Seviye",
+    "strengthSection": "Güç gelişimi",
+    "empty": {
+      "strengthTitle": "Henüz ölçüm yok",
+      "strengthBody": "İlk güç testinden sonra tutma süren, hızlı kasılma ve Kas Skoru burada görünür.",
+      "weeklyTitle": "Henüz seans yok",
+      "weeklyBody": "İlk seansını bitirince haftalık dakikaların burada birikir."
+    },
+    "habitSection": "Alışkanlık"
   },
   "strength": {
     "title": "Güç testi",
@@ -848,23 +957,23 @@
   "reminders": {
     "discreet": {
       "title": "Günlük 5 dakikan",
-      "body0": "Günlük 5 dakikan seni bekliyor 💪",
+      "body0": "Günlük 5 dakikan seni bekliyor",
       "body1": "Kısa bir mola zamanı. Hazır olduğunda buradayız.",
-      "body2": "Bugünkü küçük hedefin seni bekliyor ✨",
-      "body3": "5 dakikalık rutinin için iyi bir an 🙂",
-      "body4": "Serini sürdürmek için kısa bir adım kaldı 🔥",
+      "body2": "Bugünkü küçük hedefin seni bekliyor",
+      "body3": "5 dakikalık rutinin için iyi bir an",
+      "body4": "Serini sürdürmek için kısa bir adım kaldı",
       "body5": "Kendine ayırdığın 5 dakika zamanı geldi.",
       "testTitle": "Haftalık kontrol",
-      "testBody": "Haftalık ölçüm zamanı geldi. Bir dakikanı alır 📏"
+      "testBody": "Haftalık ölçüm zamanı geldi. Bir dakikanı alır"
     },
     "explicit": {
       "title": "Kegel antrenmanı zamanı",
-      "body0": "Günlük pelvik taban antrenmanın seni bekliyor 💪",
+      "body0": "Günlük pelvik taban antrenmanın seni bekliyor",
       "body1": "5 dakikalık Kegel seansın için hazır mısın?",
-      "body2": "Pelvik taban kaslarını çalıştırma zamanı 🔥",
+      "body2": "Pelvik taban kaslarını çalıştırma zamanı",
       "body3": "Bugünkü Kegel antrenmanını tamamla, serini koru.",
       "testTitle": "Güç testi zamanı",
-      "testBody": "Haftalık pelvik taban güç testini yap ve gelişimini gör 📏"
+      "testBody": "Haftalık pelvik taban güç testini yap ve gelişimini gör"
     },
     "actions": {
       "start": "Başla (3 dk)",
@@ -940,7 +1049,7 @@
       "tip": "Sessiz bir yer ve rahat bir pozisyon seç. Her adımın başında hafif bir titreşim hissedeceksin.",
       "step": "Adım {{n}} / {{total}}",
       "next": "Sonraki adım",
-      "done": "Tarama tamamlandı. Kendine iyi bak 🌿"
+      "done": "Tarama tamamlandı. Kendine iyi bak"
     }
   },
   "challengeCategory": {
@@ -949,7 +1058,29 @@
     "plate": "Tabağına ekle"
   },
   "discover": {
-    "title": "Keşfet"
+    "title": "Keşfet",
+    "read": "okundu",
+    "start": "Başla",
+    "continue": "Devam et",
+    "campCount_one": "{{count}} kamp",
+    "campCount_other": "{{count}} kamp",
+    "programCount_one": "{{count}} antrenman",
+    "programCount_other": "{{count}} antrenman",
+    "termCount_one": "{{count}} madde",
+    "termCount_other": "{{count}} madde",
+    "weeks_one": "{{count}} hafta",
+    "weeks_other": "{{count}} hafta",
+    "weekOf": "Hafta {{week}} / {{total}}",
+    "lessons_one": "{{count}} ders",
+    "lessons_other": "{{count}} ders",
+    "lessonsDone": "{{done}}/{{total}} ders",
+    "dayOf": "Gün {{day}} / {{total}}",
+    "listA11y": "{{title}}, {{count}} öğe, yatay kaydırılabilir",
+    "campDesc": {
+      "smoking": "Sigarayı bırakmak için 90 günlük program",
+      "odak": "Dürtüleri yönetmek için kendi planın",
+      "alcohol": "Alkolü azaltmak ya da bırakmak için"
+    }
   },
   "stories": {
     "title": "Bilgi Hikâyeleri",
@@ -980,36 +1111,34 @@
     "title": "Kamplar",
     "allTitle": "Tüm kamplar",
     "subtitle": "Her kamp kendi paneliyle ilerler. Aynı anda birden fazla kampa katılabilirsin.",
-    "seeAll": "Hepsini gör",
-    "moreCount": "{{count}} kamp daha",
     "ui": {
       "plus": "artır",
       "minus": "azalt"
-    }
+    },
+    "length_one": "{{count}} gün",
+    "length_other": "{{count}} gün",
+    "open": "Başla"
   },
   "courses": {
-    "title": "Kampüsler",
+    "title": "Antrenmanlar",
     "progress": "{{done}}/{{total}} ders tamamlandı",
     "notStarted": "{{count}} ders · Henüz başlamadın",
     "lessonMeta": "{{slides}} slayt · {{q}} soru",
     "score": "Tamamlandı · Test: %{{pct}}",
     "completed": "tamamlandı",
-    "badge": "Kampüs rozeti kazanıldı!",
-    "badgeBody": "Bu kampüsteki tüm dersleri tamamladın.",
+    "badge": "Antrenman rozeti kazanıldı!",
+    "badgeBody": "Bu antrenmandaki tüm dersleri tamamladın.",
     "toQuiz": "Mini teste geç",
     "quizTitle": "Mini test",
     "question": "Soru {{n}} / {{total}}",
     "check": "Kontrol et",
-    "correct": "Doğru! 🎉",
+    "correct": "Doğru!",
     "wrong": "Tam olarak değil.",
     "finish": "Bitir",
     "resultTitle": "{{correct}}/{{total}} doğru",
     "resultBody": "Ders tamamlandı. İstediğin zaman tekrar okuyabilirsin.",
-    "notFound": "Kampüs bulunamadı.",
-    "seeAll": "Hepsini gör",
-    "allTitle": "Tüm kampüsler",
-    "allSubtitle": "{{count}} kampüs",
-    "moreCount": "{{count}} kampüs daha"
+    "notFound": "Antrenman bulunamadı.",
+    "subtitle": "Boyun, ayak ve vücut için haftalık programlar"
   },
   "paywall": {
     "title": "{{app}} Premium ile her gün bir adım ileri",
@@ -1018,7 +1147,7 @@
       "plan": "Seviyene göre kendini ayarlayan günlük antrenman planı (30 seviye)",
       "levels": "Sınırsız seans, güç testi ve ilerleme grafikleri",
       "fitness": "Kasık Fitness rutinleri",
-      "courses": "Kampüsler ve tüm bilgi hikâyeleri",
+      "courses": "Antrenmanlar ve tüm bilgi hikâyeleri",
       "camp": "Sigarasız Kamp dahil: 90 günlük görev programı, tüm beceri dersleri, Koç, ayrıntılı istatistikler ve hekime özet",
       "mind": "Nefes, zihin boşaltma ve beden taraması",
       "privacy": "Reklam yok, takip yok. Verilerin sadece bu telefonda."
@@ -1054,12 +1183,34 @@
     "soft": {
       "title": "{{days}} gün ücretsiz dene",
       "body": "Kararını vermeden önce tüm özellikleri rahatça dene.",
-      "step1": "Bugün: tüm Premium özellikler açılır.",
+      "step1": "Tüm Premium özellikler açılır.",
       "step2": "{{date}}: Devam etmek istemiyorsan iptal etmek için iyi bir gün.",
       "step3": "{{date}}: İptal etmediysen yıllık plan ({{price}}) başlar.",
       "cta": "{{days}} gün ücretsiz başla",
-      "later": "Şimdilik değil"
-    }
+      "later": "Şimdilik değil",
+      "step1Title": "Bugün",
+      "step2Title": "Bitişe 2 gün kala",
+      "step3Title": "Deneme bitince"
+    },
+    "included": "PREMIUM’DA NELER VAR",
+    "choosePlan": "Planını seç",
+    "diffMore": "Aylık {{amount}} daha fazla",
+    "diffLess": "Aylık {{amount}} daha az",
+    "benefitsV3": {
+      "plan": "Seviyene göre ayarlanan günlük plan",
+      "levels": "Sınırsız seans, güç testi ve grafikler",
+      "tools": "Kasık Fitness, nefes ve beden taraması",
+      "content": "Kamplar, Antrenmanlar ve tüm hikâyeler",
+      "noAds": "Reklam yok, takip yok"
+    },
+    "bestValue": "En iyi değer",
+    "perWeekEq": "Haftalık yaklaşık {{price}}",
+    "trustLocal": "Verilerin bu telefonda",
+    "trustCancel": "İstediğin zaman iptal",
+    "termsShort": "Şartlar",
+    "privacyShort": "Gizlilik",
+    "restoreShort": "Satın alımları geri yükle",
+    "selected": "seçili"
   },
   "profile": {
     "title": "Profil",
@@ -1070,12 +1221,23 @@
     "legal": "Yasal",
     "replayTutorial": "Eğitimi tekrar izle",
     "sub": {
-      "active": "Premium aktif ✨",
+      "active": "Premium aktif",
       "free": "Ücretsiz sürüm",
       "renews": "Yenilenme / bitiş: {{date}}",
       "upgrade": "Premium'a geç",
       "manage": "Aboneliği yönet"
-    }
+    },
+    "devGallery": "Bileşen Galerisi (geliştirici)",
+    "groups": {
+      "training": "Antrenman",
+      "notifications": "Bildirimler",
+      "appearance": "Görünüm",
+      "data": "Veri ve gizlilik",
+      "legal": "Yasal",
+      "developer": "Geliştirici"
+    },
+    "subscription": "Abonelik",
+    "avatarA11y": "Profil"
   },
   "settings": {
     "training": {
@@ -1238,10 +1400,7 @@
   "glossary": {
     "title": "Neden, Nedir ve Ne Demek?",
     "subtitle": "Uygulamadaki kavramlar ve cinsel sağlık konularının açıklamaları.",
-    "seeAll": "Hepsini gör",
-    "allTitle": "Neden, Nedir ve Ne Demek?",
     "notFound": "Açıklama bulunamadı.",
-    "moreCount": "{{count}} madde daha",
     "meta": "{{sections}} bölüm · {{minutes}} dk okuma",
     "sourcesTitle": "Kaynaklar",
     "next": "Sonraki madde"
@@ -1290,7 +1449,7 @@
       "sexualTitle": "Alkol ve cinsel sağlık",
       "auditTitle": "AUDIT-C sonucun",
       "auditScore": "{{score}}/12",
-      "guideTitle": "Kampüs rehberi",
+      "guideTitle": "Kamp rehberi",
       "guideBody": "Kayıt sırasında okuduğun {{count}} bölümlük rehber.",
       "guideOpen": "Rehberi baştan oku",
       "helpTitle": "Destek al",
@@ -1298,7 +1457,7 @@
       "quitDoneBody": "Bu büyük bir başarı. Yeni bir hedef belirleyebilir ya da azaltma yoluna geçebilirsin.",
       "newGoal": "Yeni hedef belirle",
       "editPlan": "Planı düzenle",
-      "reset": "Kampüsü sıfırla",
+      "reset": "Kampı sıfırla",
       "sources": "Kaynaklar",
       "disclaimerToggle": "Önemli bilgilendirme",
       "disclaimer": "Genel bilgilendirme amaçlıdır; tıbbi tavsiye ya da tanı değildir. İçerik henüz uzman kontrolünden geçmemiştir. Yoksunluk belirtilerin varsa içkiyi tek başına aniden bırakma.",
@@ -1312,17 +1471,17 @@
       "std": "{{std}} standart içki"
     },
     "resetDialog": {
-      "title": "Kampüsü sıfırla?",
+      "title": "Kampı sıfırla?",
       "body": "Planın ve içki günlüğün silinecek. Bu işlem geri alınamaz.",
       "confirmTitle": "Emin misin?",
-      "confirmBody": "Alkol Bağımlılığı Kampüsündeki tüm verilerin kalıcı olarak silinecek.",
+      "confirmBody": "Alkolsüz Kamptaki tüm verilerin kalıcı olarak silinecek.",
       "confirm": "Evet, sıfırla"
     },
     "setup": {
-      "header": "Kampüs planı",
+      "header": "Kamp planı",
       "stepOf": "Adım {{n}} / {{total}}",
       "start": "Başlayalım",
-      "enrol": "Kampüse kaydol",
+      "enrol": "Kampa kaydol",
       "save": "Planı kaydet",
       "privacy": "Yanıtların ve içki günlüğün yalnızca bu telefonda saklanır.",
       "auditTitle": "Kısa alkol testi",
@@ -1364,15 +1523,15 @@
       "none": "Seçilmedi"
     },
     "guide": {
-      "title": "Kampüs rehberi",
+      "title": "Kamp rehberi",
       "finish": "Rehberi bitir"
     }
   },
   "campusCommit": {
     "title": "Bu yolculuğun asıl gücü sensin",
-    "lead": "Bu kampüsün en büyük niteliğini sen oluşturacaksın.",
+    "lead": "Bu programın en büyük niteliğini sen oluşturacaksın.",
     "p1": "Gerçekten istediğinde tek bir cümle bile hayatını değiştirmeye yetebilir. İstemediğinde ise en iyi program da, en iyi uzman da yeterli olmaz.",
-    "p2": "Bu kampüs sana bilgi, araçlar ve yol arkadaşlığı sunar; ama adımları atacak olan sensin. Zorlandığın günler olacak. Önemli olan mükemmel olmak değil; vazgeçmemek ve gerektiğinde yeniden başlayabilmek.",
+    "p2": "Bu program sana bilgi, araçlar ve yol arkadaşlığı sunar; ama adımları atacak olan sensin. Zorlandığın günler olacak. Önemli olan mükemmel olmak değil; vazgeçmemek ve gerektiğinde yeniden başlayabilmek.",
     "pledge": "Hazırsan kendine söz ver ve ilk adımı at.",
     "wait": "Bir an düşün… {{count}}"
   },
@@ -1404,17 +1563,17 @@
       "rigidTitle": "Sert (rijit) düz taban olabilir",
       "archTitle": "Kemerin belirgin görünüyor",
       "unsureTitle": "Testi bir kez daha dene",
-      "archText": "Ayak izin düz taban görünümünde değil. Kampüsün egzersizleri yine de ayak kaslarını ve dengeni güçlendirmek için uygundur.",
+      "archText": "Ayak izin düz taban görünümünde değil. Antrenmanın egzersizleri yine de ayak kaslarını ve dengeni güçlendirmek için uygundur.",
       "unsureText": "Ayna karşısında ya da birinden yardım alarak parmak uçlarında yüksel ve ayağının iç tarafına bak. Emin olamazsan bir uzmana danışabilirsin."
     },
     "setup": {
       "start": "Başlayalım",
-      "enrol": "Kampüse başla",
+      "enrol": "Antrenmana başla",
       "stepOf": "Adım {{n}} / {{total}}",
       "flagsTitle": "Güvenlik kontrolü",
       "flagsNone": "Hiçbiri yok",
       "flagsError": "Devam etmek için belirtileri seç ya da \"Hiçbiri yok\"u işaretle.",
-      "flagsContinue": "Kampüse yine de katılabilirsin; ama egzersizlere başlamadan önce bir hekimle görüşmeni öneririz.",
+      "flagsContinue": "Antrenmana yine de katılabilirsin; ama egzersizlere başlamadan önce bir hekimle görüşmeni öneririz.",
       "testTitle": {
         "neck": "Boynun ve ekran alışkanlığın",
         "feet": "Ayak izi ve parmak ucu testi"
@@ -1467,7 +1626,7 @@
       "doneBody": "{{total}} egzersizden {{done}} tanesini tamamladın.",
       "noneBody": "Bu sefer kayıt oluşmadı. Hazır olduğunda yeniden deneyebilirsin.",
       "halfNote": "Rutinin yarısından azı yapıldığı için bugün programa sayılmadı.",
-      "back": "Kampüse dön"
+      "back": "Antrenmana dön"
     },
     "home": {
       "heroLabel": {
@@ -1506,8 +1665,8 @@
       "measureUndo": "Sonuncuyu sil",
       "measureInfo": "Bu ölçüm ne işe yarar?",
       "trendBetter": {
-        "neck": "İlk ölçümüne göre başın duvara {{delta}} daha yakın. 👏",
-        "feet": "İlk ölçümüne göre {{delta}} daha uzun dengede kalıyorsun. 👏"
+        "neck": "İlk ölçümüne göre başın duvara {{delta}} daha yakın.",
+        "feet": "İlk ölçümüne göre {{delta}} daha uzun dengede kalıyorsun."
       },
       "trendSame": "İlk ölçümünle aynı. Değişim zaman alır; düzenli devam et.",
       "trendWorse": "Ölçümler gün içinde değişebilir. Her hafta aynı saatte ve aynı koşulda ölçmeyi dene.",
@@ -1522,13 +1681,13 @@
       "guideBody": "{{count}} kısa sayfada bilmen gerekenler.",
       "guideOpen": "Rehberi oku",
       "helpTitle": "Ne zaman uzmana başvurmalı?",
-      "reset": "Kampüsü sıfırla",
+      "reset": "Antrenmanı sıfırla",
       "sources": "Kaynaklar",
       "disclaimerToggle": "Önemli not",
-      "disclaimer": "Bu kampüs genel bilgi ve egzersiz desteği sunar; tıbbi tanı ya da tedavinin yerini tutmaz. İçerik henüz bir uzman tarafından gözden geçirilmedi. Şikâyetlerin sürüyorsa ya da artıyorsa bir sağlık profesyoneline başvur."
+      "disclaimer": "Bu antrenman genel bilgi ve egzersiz desteği sunar; tıbbi tanı ya da tedavinin yerini tutmaz. İçerik henüz bir uzman tarafından gözden geçirilmedi. Şikâyetlerin sürüyorsa ya da artıyorsa bir sağlık profesyoneline başvur."
     },
     "reset": {
-      "title": "Kampüs sıfırlansın mı?",
+      "title": "Antrenman sıfırlansın mı?",
       "body": "Rutin geçmişin, ölçümlerin ve listelerin silinir.",
       "confirmTitle": "Emin misin?",
       "confirmBody": "Bu işlem geri alınamaz.",
@@ -1724,7 +1883,7 @@
       "setup": "Ücretsiz değerlendirme · yaklaşık 3 dakika",
       "preparing": "Hazırlık · bırakma gününe {{count}} gün",
       "active": "{{count}} gün dumansız",
-      "graduated": "90 günü tamamladın 🎓"
+      "graduated": "90 günü tamamladın"
     },
     "dur": {
       "min": "{{count}} dk",
@@ -1836,17 +1995,25 @@
       "pause": "Duraklat",
       "resume": "Devam et",
       "meanwhile": "Bu sürede yapabileceklerin",
-      "gameTime": "⏱ {{sec}} sn",
+      "gameTime": "{{sec}} sn",
       "gamePairs": "{{n}} / {{total}} eş",
       "gameCard": "Kapalı kart {{n}}",
-      "gameWon": "Tüm eşleri {{moves}} hamlede buldun! 🎉",
+      "gameWon": "Tüm eşleri {{moves}} hamlede buldun!",
       "gameOver": "Süre doldu: {{n}} eş buldun.",
       "gameAgain": "Yeniden oyna",
       "resistedCount": "Bu güne kadar {{count}} krizi atlattın.",
       "backToPanel": "Panele dön",
       "tryAgain": "Kriz aracını yeniden aç",
       "prepLoggedTitle": "Kaydedildi",
-      "prepLogged": "Hazırlık döneminde içtiğin her sigarayı kaydetmek, tetikleyicilerini ve en zor saatlerini görmeni sağlar. Bırakma gününe birlikte hazırlanıyoruz."
+      "prepLogged": "Hazırlık döneminde içtiğin her sigarayı kaydetmek, tetikleyicilerini ve en zor saatlerini görmeni sağlar. Bırakma gününe birlikte hazırlanıyoruz.",
+      "symbol": {
+        "leaf": "Yaprak",
+        "waves": "Dalga",
+        "sun": "Güneş",
+        "apple": "Elma",
+        "headphones": "Kulaklık",
+        "bike": "Bisiklet"
+      }
     },
     "log": {
       "title": "Sigara kaydı",
@@ -2010,7 +2177,7 @@
       "toQuiz": "Kısa kontrole geç",
       "quizTitle": "Kısa kontrol",
       "finish": "Dersi tamamla",
-      "doneTitle": "Ders tamamlandı 🎉",
+      "doneTitle": "Ders tamamlandı",
       "backToList": "Derslere dön",
       "sources": "Kaynaklar",
       "notFound": "Bu ders bulunamadı."
@@ -2137,7 +2304,7 @@
       "explicit": {
         "prepTitle": "Bırakma gününe {{days}} gün",
         "prepBody": "Bugünün görevine göz at ve içtiğin sigaraları kaydetmeyi unutma.",
-        "quitTitle": "Bugün bırakma günün 🚩",
+        "quitTitle": "Bugün bırakma günün",
         "quitBody": "Tek nefes bile yok. Kontrol listeni tamamla; zorlanırsan \"Canım çekiyor\" yanında.",
         "morningTitle": "Günaydın, sabah kontrolü",
         "morningBody": "Gece nasıl geçti? 30 saniyelik kontrolle güne başla.",
@@ -2148,8 +2315,8 @@
         "maintenanceTitle": "Kısa bir kontrol",
         "maintenanceBody": "Dumansız yolculuğun nasıl gidiyor? Bir dakikanı ayır.",
         "riskyTitle": "Zor saat yaklaşıyor",
-        "riskyBody": "Genelde bu saatlerde zorlanıyorsun. Planın hazır mı? 💪",
-        "badgeTitle": "{{days}} gün dumansız! 🏅",
+        "riskyBody": "Genelde bu saatlerde zorlanıyorsun. Planın hazır mı?",
+        "badgeTitle": "{{days}} gün dumansız!",
         "badgeBody": "Yeni bir rozet kazandın. Gel ve kutla.",
         "healthTitle": "Yeni sağlık kazanımı: {{label}}",
         "healthBody": "Vücudun sigarasız iyileşmeye devam ediyor. Zaman çizelgene göz at."
@@ -2169,7 +2336,7 @@
         "maintenanceBody": "Yolculuğun nasıl gidiyor? Bir dakikanı ayır.",
         "riskyTitle": "Küçük bir hatırlatma",
         "riskyBody": "Bu saatler senin için zorlu olabilir. Planın hazır mı?",
-        "badgeTitle": "Yeni bir rozet 🏅",
+        "badgeTitle": "Yeni bir rozet",
         "badgeBody": "{{days}}. günün kutlu olsun.",
         "healthTitle": "Yeni bir kazanım",
         "healthBody": "İlerlemene göz atmak ister misin?"
@@ -2351,7 +2518,7 @@
       "finish": "Dersi bitir",
       "backToList": "Derslere dön",
       "quizTitle": "Kısa kontrol",
-      "doneTitle": "Ders tamamlandı 🌿",
+      "doneTitle": "Ders tamamlandı",
       "sources": "Kaynaklar"
     },
     "library": {
@@ -2385,7 +2552,7 @@
       "letter": "Gelecekteki ben mektubu yazmak"
     },
     "notif": {
-      "riskyTitle": "Odak zamanı yaklaşıyor 🎯",
+      "riskyTitle": "Odak zamanı yaklaşıyor",
       "riskyBody": "Planın hazır mı?",
       "checkinTitle": "Günlük kontrolün hazır",
       "checkinBody": "30 saniyeni ayır.",
@@ -2458,12 +2625,23 @@
       "cardNote": "Tatil modundasın: serin korunuyor. İstersen yine de antrenman yapabilirsin."
     },
     "return": {
-      "frozen_one": "❄️ Dün bir seri dondurma kullanıldı; serin korunuyor.",
-      "frozen_other": "❄️ {{count}} seri dondurma kullanıldı; serin korunuyor.",
+      "frozen_one": "Dün bir seri dondurma kullanıldı; serin korunuyor.",
+      "frozen_other": "{{count}} seri dondurma kullanıldı; serin korunuyor.",
       "gentle_one": "Hoş geldin! Kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
       "gentle_other": "Hoş geldin! {{count}} gün ara verdin; kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
       "rewarm_one": "Uzun bir aradan sonra kısa bir yeniden ısınma seansıyla başlıyoruz (3 dk, seviye −2).",
       "rewarm_other": "{{count}} günlük aradan sonra kısa bir yeniden ısınma seansıyla başlıyoruz (3 dk, seviye −2)."
+    }
+  },
+  "sources": {
+    "open": "Kaynağı aç",
+    "kind": {
+      "who": "DSÖ",
+      "rct": "RCT",
+      "review": "Derleme",
+      "guideline": "Kılavuz",
+      "institution": "Kurum",
+      "study": "Çalışma"
     }
   }
 }

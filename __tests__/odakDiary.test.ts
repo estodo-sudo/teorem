@@ -43,14 +43,14 @@ describe('weekly summary', () => {
     expect(SUMMARY_MIN).toBe(3);
   });
   it('finds the riskiest hour and day, top situation, best tool and usual feelings', () => {
-    const urges = [urge(at(16, 23), 'managed', ['surf'], 'night_bed'), urge(at(17, 23), 'managed', ['surf', 'breath'], 'night_bed'), urge(at(18, 14), 'slipped', ['breath'], 'stress'), urge(at(5, 23), 'managed', ['move'], 'boredom')];
+    const urges = [urge(at(16, 23), 'managed', ['puzzle'], 'night_bed'), urge(at(17, 23), 'managed', ['puzzle', 'breath'], 'night_bed'), urge(at(18, 14), 'slipped', ['breath'], 'stress'), urge(at(5, 23), 'managed', ['move'], 'boredom')];
     const events = [
       beh(at(16, 23), { trigger: 'night_bed', emotionBefore: 'lonely', emotionAfter: 'empty', satisfaction: 2 }),
       beh(at(17, 10), { emotionBefore: 'lonely', emotionAfter: 'guilty', satisfaction: 3 }),
       beh(at(16, 9), { emotionAfter: 'empty' }),
     ];
     const s = weeklySummary(urges, events, now);
-    expect(s).toMatchObject({ urges: 3, managed: 2, behaviors: 3, enough: true, riskyHour: 23, riskyDay: 0, topTrigger: 'night_bed', bestTool: 'surf', emotionBefore: 'lonely', emotionAfter: 'empty', avgSatisfaction: 2.5 });
+    expect(s).toMatchObject({ urges: 3, managed: 2, behaviors: 3, enough: true, riskyHour: 23, riskyDay: 0, topTrigger: 'night_bed', bestTool: 'puzzle', emotionBefore: 'lonely', emotionAfter: 'empty', avgSatisfaction: 2.5 });
   });
   it('shows no best tool when nothing was managed', () => {
     expect(weeklySummary([urge(at(18, 9), 'slipped', ['surf']), urge(at(18, 10), 'still_hard', ['breath']), urge(at(18, 11), 'slipped')], [], now).bestTool).toBeNull();

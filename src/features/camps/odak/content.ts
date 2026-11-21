@@ -2,7 +2,6 @@ import type { IconName } from '@/components/Icon';
 import badgesJson from '@/content/camps/odak/badges.tr.json';
 import boundariesJson from '@/content/camps/odak/boundaries.tr.json';
 import checkinJson from '@/content/camps/odak/checkin.tr.json';
-import coachJson from '@/content/camps/odak/coach.tr.json';
 import diaryJson from '@/content/camps/odak/diary.tr.json';
 import onboardingJson from '@/content/camps/odak/onboarding.tr.json';
 import panelJson from '@/content/camps/odak/panel.tr.json';
@@ -21,7 +20,6 @@ import supportJson from '@/content/camps/odak/support.tr.json';
 import sosJson from '@/content/camps/odak/sos.tr.json';
 import sourcesJson from '@/content/camps/odak/sources.json';
 
-import type { CoachScenario } from '@/features/camps/core/coachEngine';
 
 import type { OdakLesson, OdakMission } from './engine/program';
 import type { OdakTriggerId } from './types';
@@ -114,9 +112,9 @@ export interface OdakSosContent {
   sourceIds: string[];
   check: { title: string; hint: string; items: { id: 'tired' | 'hungry' | 'lonely' | 'loaded'; letter: string; icon: IconName; label: string; tip: string }[]; intensity: string; intensityLabels: { low: string; high: string } };
   relocate: { title: string; lead: string; seconds: number; steps: string[]; start: string; done: string };
-  tools: { title: string; hint: string; items: { id: string; icon: IconName; title: string; desc: string }[] };
-  surf: { desc: string; prompts: string[]; done: string };
+  tools: { title: string; hint: string; other: string; items: { id: string; icon: IconName; title: string; desc: string }[] };
   breath: { desc: string };
+  puzzle: { desc: string; srHint: string };
   move: { desc: string; seconds: number; steps: string[]; start: string; done: string };
   values: { desc: string; empty: string };
   futureSelf: { desc: string; placeholder: string; save: string; edit: string; saved: string };
@@ -131,7 +129,7 @@ export interface OdakDiaryContent {
   sourceIds: string[];
   title: string;
   intro: string;
-  urge: { title: string; hint: string; intensity: string; trigger: string; dayy: string; outcome: string; managed: string; slipped: string; saved: string };
+  urge: { title: string; hint: string; intensity: string; trigger: string; dayy: string; outcome: string; managed: string; slipped: string; pick: string; saved: string };
   behavior: { title: string; hint: string; kind: string; trigger: string; before: string; after: string; satisfaction: string; satisfactionScale: string[]; save: string };
   week: { title: string; empty: string; counts: string; riskyHour: string; riskyDay: string; topTrigger: string; bestTool: string; emotions: string; satisfaction: string; note: string };
   days: string[];
@@ -163,7 +161,6 @@ export const ODAK_SUMMARY = summaryJson;
 export const ODAK_STATS = statsJson;
 export const ODAK_BADGES = badgesJson;
 export const ODAK_METHOD = methodJson;
-export const ODAK_COACH = coachJson as unknown as { reviewed: boolean; evidenceLevel: string; sourceIds: string[]; disclaimer: string; scenarios: CoachScenario[] };
 
 export const ODAK_DIARY = diaryJson as unknown as OdakDiaryContent;
 export const ODAK_SOS = sosJson as unknown as OdakSosContent;
@@ -173,3 +170,6 @@ export const ODAK_PLANS = plansJson as unknown as OdakPlansContent;
 export const ODAK_SOURCES = sourcesJson as OdakSource[];
 export const ODAK_ICON = 'target';
 export const ODAK_DAYS = 90;
+
+/** Name of an SOS tool for lists and statistics; removed tools show as "Diğer araçlar". */
+export const odakToolLabel = (id?: string | null) => (id === 'other' ? ODAK_SOS.tools.other : (ODAK_SOS.tools.items.find((o) => o.id === id)?.title ?? ''));

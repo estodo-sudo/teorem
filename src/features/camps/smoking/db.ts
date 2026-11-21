@@ -25,6 +25,7 @@ interface CravingRow {
   tools: string;
   outcome: string;
   duration_sec: number;
+  extra: string | null;
 }
 interface CheckinRow {
   id: string;
@@ -49,7 +50,7 @@ function writeCig(db: SQLiteDatabase, l: CigaretteLog) {
 }
 function writeCraving(db: SQLiteDatabase, c: CravingEvent) {
   db.runSync(
-    'INSERT OR REPLACE INTO camp_cravings (id, at, intensity_before, intensity_after, trig, tools, outcome, duration_sec) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+    'INSERT OR REPLACE INTO camp_cravings (id, at, intensity_before, intensity_after, trig, tools, outcome, duration_sec, extra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
     c.id,
     c.at,
     Math.round(c.intensityBefore),
@@ -58,6 +59,7 @@ function writeCraving(db: SQLiteDatabase, c: CravingEvent) {
     JSON.stringify(c.toolUsed),
     c.outcome,
     Math.round(c.durationSec),
+    c.triggers?.length || c.otherTrigger ? JSON.stringify({ triggers: c.triggers, otherTrigger: c.otherTrigger }) : null,
   );
 }
 function writeCheckin(db: SQLiteDatabase, c: CheckIn) {
@@ -91,6 +93,7 @@ export function createSqliteCampRepo(): CampRepo {
           toolUsed: json(r.tools, []),
           outcome: r.outcome,
           durationSec: r.duration_sec,
+          ...json<{ triggers?: string[]; otherTrigger?: string }>(r.extra ?? '{}', {}),
         })),
         checkins: db.getAllSync<CheckinRow>('SELECT * FROM camp_checkins ORDER BY at ASC').map((r) => ({
           id: r.id,

@@ -3,17 +3,20 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { IconTile } from '@/components/ui';
-import { IntensityScale } from '@/features/camps/core/sosTools';
+import { IconTile, UrgeGauge } from '@/components/ui';
 import { ODAK_DIARY as D, ODAK_ONBOARDING as ONB, ODAK_SOS as SOS } from '@/features/camps/odak/content';
-import { buildUrge, noDayy, type Dayy } from '@/features/camps/odak/engine/sos';
+import { buildUrge, noDayy, odakTriggerOrder, type Dayy } from '@/features/camps/odak/engine/sos';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
 import type { OdakTriggerId, UrgeEvent } from '@/features/camps/odak/types';
 import { PillGroup } from '@/features/camps/odak/ui';
 import { goBack } from '@/lib/nav';
 
-/** Quick urge log (≤3 taps): intensity → (optional situation / DAYY) → managed or slipped. Time is automatic. */
+/**
+ * Quick urge log (≤3 taps): the urge gauge → (optional situation / DAYY) → managed or slipped. Time is
+ * automatic. SPEC_V4 §D.3: every situation chip is shown (most frequent first); the two outcome buttons
+ * look like normal secondary buttons, never greyed out, with a "Birini seç" hint under them.
+ */
 export default function OdakLogUrge() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -22,10 +25,11 @@ export default function OdakLogUrge() {
   const [trigger, setTrigger] = useState<OdakTriggerId | null>(null);
   const [dayy, setDayy] = useState<Dayy>(noDayy);
   const [saved, setSaved] = useState(false);
+  const urges = useOdakStore((s) => s.urges);
 
   const save = async (outcome: UrgeEvent['outcome']) => {
-    if (intensity === null) return;
-    await useOdakStore.getState().logUrge(buildUrge({ startedAt: now, endedAt: now, intensityBefore: intensity, dayy, toolsUsed: [], outcome, trigger }));
+    // A skipped intensity is kept as 0 and left out of averages.
+    await useOdakStore.getState().logUrge(buildUrge({ startedAt: now, endedAt: now, intensityBefore: intensity ?? 0, dayy, toolsUsed: [], outcome, trigger }));
     setSaved(true);
   };
 
@@ -48,16 +52,19 @@ export default function OdakLogUrge() {
       <Header title={D.urge.title} onBack={() => goBack('/odak/diary')} right={<QuickExitButton />} />
       <AppText muted>{D.urge.hint}</AppText>
       <AppText weight="800">{D.urge.intensity}</AppText>
-      <IntensityScale value={intensity} onChange={setIntensity} label={D.urge.intensity} labels={SOS.check.intensityLabels} />
+      <UrgeGauge value={intensity} onChange={setIntensity} label={D.urge.intensity} color={t.tone.focus.fg} />
       <AppText weight="800">{D.urge.trigger}</AppText>
-      <PillGroup items={ONB.triggers.options} selected={trigger ? [trigger] : []} onToggle={(id) => setTrigger((x) => (x === id ? null : (id as OdakTriggerId)))} />
+      <PillGroup items={odakTriggerOrder(ONB.triggers.options, urges)} selected={trigger ? [trigger] : []} onToggle={(id) => setTrigger((x) => (x === id ? null : (id as OdakTriggerId)))} />
       <AppText weight="800">{D.urge.dayy}</AppText>
       <PillGroup items={SOS.check.items.map((i) => ({ id: i.id, icon: i.icon, label: i.label }))} selected={SOS.check.items.filter((i) => dayy[i.id]).map((i) => i.id)} onToggle={(id) => setDayy((d) => ({ ...d, [id]: !d[id as keyof Dayy] }))} />
       <AppText weight="800">{D.urge.outcome}</AppText>
       <View style={{ flexDirection: 'row', gap: 10 }}>
-        <Button label={D.urge.managed} size="lg" disabled={intensity === null} onPress={() => void save('managed')} style={{ flex: 1 }} />
-        <Button label={D.urge.slipped} size="lg" variant="secondary" disabled={intensity === null} onPress={() => void save('slipped')} style={{ flex: 1 }} />
+        <Button label={D.urge.managed} size="lg" variant="secondary" onPress={() => void save('managed')} style={{ flex: 1 }} />
+        <Button label={D.urge.slipped} size="lg" variant="secondary" onPress={() => void save('slipped')} style={{ flex: 1 }} />
       </View>
+      <AppText variant="footnote" muted center>
+        {D.urge.pick}
+      </AppText>
       <AppText variant="tiny" muted style={{ color: t.colors.textMuted }}>
         {SOS.emergency}
       </AppText>

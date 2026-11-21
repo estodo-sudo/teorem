@@ -119,10 +119,10 @@ export function WorkoutCard() {
         )}
         <View style={{ flexDirection: 'row', gap: t.space.sm }}>
           <View style={{ flex: 1 }}>
-            <Button label={tr('today.workout.microShort', { sec: micro.plannedSec })} variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
+            <Button label={tr('today.workout.microShort')} accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })} icon="pulse" variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
           </View>
           <View style={{ flex: 1 }}>
-            <Button label={tr('today.workout.breathShort')} variant="secondary" size="sm" onPress={() => openGated('mind', '/mind/breathing')} fullWidth />
+            <Button label={tr('today.workout.breathShort')} icon="wind" variant="secondary" size="sm" onPress={() => openGated('mind', '/mind/breathing')} fullWidth />
           </View>
         </View>
       </View>

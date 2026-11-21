@@ -2,37 +2,43 @@ import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Linking, ScrollView, View } from 'react-native';
+import { Linking, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Icon, Screen, useTheme } from '@/components';
-import { Button, Card, Chip, IconTile, ScalePressable } from '@/components/ui';
+import { Button, Card, IconTile, ScalePressable, UrgeGauge } from '@/components/ui';
 import { ThemeOverride } from '@/components/useTheme';
+import { BreathPlayer } from '@/features/breath/BreathPlayer';
+import { BreathSetup } from '@/features/breath/BreathSetup';
+import { BREATH_MODES, type BreathMode } from '@/features/breath/patterns';
+import { useBreathStore } from '@/features/breath/store';
+import { mmss, useCountdown } from '@/features/camps/core/sosTools';
 import { CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from '@/features/camps/smoking/content';
-import { plansForTrigger, resistedCount } from '@/features/camps/smoking/engine/sos';
-import { IntensityScale, DelayTimer, FourECard, MatchGameView, ReasonsView, SosBreath, UrgeSurf } from '@/features/camps/smoking/sosTools';
+import { triggerOrder } from '@/features/camps/smoking/engine/panel';
+import { resistedCount } from '@/features/camps/smoking/engine/sos';
+import { DELAY_MINUTES, DelayTimer, ReasonsView } from '@/features/camps/smoking/sosTools';
 import { currentAttempt } from '@/features/camps/smoking/state';
-import type { ToolId, TriggerId } from '@/features/camps/smoking/types';
+import type { ActiveToolId, ToolId, TriggerId } from '@/features/camps/smoking/types';
+import { BlockPuzzle } from '@/features/games/BlockPuzzle/BlockPuzzle';
 import { goBack } from '@/lib/nav';
+import { useScreenReader } from '@/lib/useScreenReader';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 
 type Stage = 'start' | 'tools' | 'end' | 'resisted' | 'smoked';
-type SosTool = Exclude<ToolId, 'coach' | 'call171'>;
-const TOOLS: { id: SosTool; icon: IconName }[] = [
-  { id: 'surf', icon: 'waves' },
+type SosTool = Exclude<ActiveToolId, 'call171'>;
+/** SPEC_V4 §C.3: breath first (default), then the block puzzle, the 10-minute delay and the reasons. */
+export const SOS_TOOL_ORDER: { id: SosTool; icon: IconName }[] = [
   { id: 'breath', icon: 'wind' },
+  { id: 'puzzle', icon: 'blocks' },
   { id: 'delay', icon: 'hourglass' },
-  { id: 'four_e', icon: 'hand' },
   { id: 'reasons', icon: 'target' },
-  { id: 'game', icon: 'puzzle' },
 ];
-const TOOL_TITLE: Record<SosTool, string> = { surf: SOS.surf.title, breath: SOS.breath.title, delay: SOS.delay.title, four_e: SOS.fourE.title, reasons: SOS.reasons.title, game: SOS.game.title };
 
 /**
- * "Canım çekiyor" crisis tool (always free, never behind the paywall). Full-screen, calm colours,
- * one hand: strength and trigger → urge surfing by default, other tools a tap away → how do you feel now.
- * ui-v3 (SPEC_UI_V3 §7.13): always dark and calm — a big slider, icon chips, big tool cards and the
- * support line as an outline button at the bottom.
+ * "Canım çekiyor" crisis tool (always free, never behind the paywall), always dark and calm.
+ * Flow (SPEC_V4 §C.3): gauge → triggers → Başla → a tool → "Bitirdim" → the gauge again, compared with
+ * the first answer → outcome. "Hâlâ zor" suggests the next tool not used yet. The 10-minute delay keeps
+ * running as a small chip while another tool is open.
  */
 export default function CampSos() {
   return (
@@ -48,23 +54,47 @@ function CampSosBody() {
   const { t: tr } = useTranslation();
   const camp = useCampStore();
   const cravings = useCampEventsStore((s) => s.cravings);
+  const cigarettes = useCampEventsStore((s) => s.cigarettes);
   const [startedAt] = useState(() => Date.now());
   const [stage, setStage] = useState<Stage>('start');
   const [before, setBefore] = useState<number | null>(null);
   const [after, setAfter] = useState<number | null>(null);
-  const [trigger, setTrigger] = useState<TriggerId | null>(null);
-  const [tool, setTool] = useState<SosTool>('surf');
+  const [triggers, setTriggers] = useState<TriggerId[]>([]);
+  const [otherOn, setOtherOn] = useState(false);
+  const [otherText, setOtherText] = useState('');
+  const [tool, setTool] = useState<SosTool>('breath');
   const [used, setUsed] = useState<ToolId[]>([]);
   const [hardNote, setHardNote] = useState(false);
   const [planUsed, setPlanUsed] = useState<string | null>(null);
+  const [breathMode, setBreathMode] = useState<BreathMode>('quick');
+  const [breathMin, setBreathMin] = useState<number>(BREATH_MODES.quick.defaultMinutes);
+  const [breathing, setBreathing] = useState(false);
+  const screenReader = useScreenReader();
+  const delay = useCountdown(DELAY_MINUTES * 60);
   const profile = camp.profile;
   const attempt = currentAttempt(camp);
-  const triggers = ONB.triggers.filter((x) => (profile?.triggers.length ? profile.triggers.includes(x.id) : true));
-  const plans = plansForTrigger(camp.plans, trigger);
+  const order = triggerOrder(
+    ONB.triggers.map((x) => x.id),
+    cravings,
+    cigarettes,
+  );
+  const assessed = new Set(profile?.triggers ?? []);
+  const plans = camp.plans.filter((p) => p.trigger !== 'custom' && triggers.includes(p.trigger));
   const markUsed = (id: ToolId) => setUsed((u) => (u.includes(id) ? u : [...u, id]));
+  const delayActive = delay.running || (delay.elapsed > 0 && !delay.finished);
 
   const log = (outcome: 'resisted' | 'still_hard' | 'smoked') =>
-    useCampEventsStore.getState().logCraving({ intensityBefore: before ?? 5, intensityAfter: after ?? undefined, trigger: trigger ?? undefined, toolUsed: used, outcome, durationSec: Math.round((Date.now() - startedAt) / 1000) });
+    useCampEventsStore.getState().logCraving({
+      // 0 = skipped in the crisis (kept out of averages).
+      intensityBefore: before ?? 0,
+      intensityAfter: after ?? undefined,
+      trigger: triggers[0],
+      triggers: triggers.length > 1 ? triggers : undefined,
+      otherTrigger: otherOn && otherText.trim() ? otherText.trim() : undefined,
+      toolUsed: used,
+      outcome,
+      durationSec: Math.round((Date.now() - startedAt) / 1000),
+    });
 
   const close = () => {
     // Leaving mid-way after trying something still counts as a (hard) craving in the log.
@@ -76,12 +106,29 @@ function CampSosBody() {
     void Linking.openURL('tel:171');
   };
 
+  if (breathing) {
+    return (
+      <BreathPlayer
+        mode={breathMode}
+        minutes={breathMin}
+        color={t.tone.smokefree.fg}
+        askFeeling={false}
+        onClose={() => setBreathing(false)}
+        onDone={() => {
+          markUsed('breath');
+          setBreathing(false);
+          setStage('end');
+        }}
+      />
+    );
+  }
+
   const footer =
     stage === 'resisted' || stage === 'smoked' ? (
       <Button label={tr('camp.sos.backToPanel')} size="lg" onPress={() => goBack('/camp')} fullWidth />
     ) : (
       <View style={{ gap: t.space.sm }}>
-        {stage === 'start' ? <Button label={tr('camp.sos.go')} size="lg" disabled={before === null} onPress={() => setStage('tools')} fullWidth /> : null}
+        {stage === 'start' ? <Button label={tr('camp.sos.go')} size="lg" onPress={() => setStage('tools')} fullWidth /> : null}
         {stage === 'tools' ? <Button label={tr('camp.sos.finish')} size="lg" onPress={() => setStage('end')} fullWidth /> : null}
         <Button label={tr('camp.ui.call171')} icon="phone" variant="outline" onPress={call171} fullWidth />
       </View>
@@ -98,17 +145,35 @@ function CampSosBody() {
           </AppText>
           <View style={{ gap: t.space.sm }}>
             <AppText variant="title3">{tr('camp.sos.howStrong')}</AppText>
-            <IntensityScale value={before} onChange={setBefore} label={tr('camp.sos.howStrong')} />
+            <UrgeGauge value={before} onChange={setBefore} label={tr('camp.sos.howStrong')} color={t.tone.smokefree.fg} />
+            {before === null ? (
+              <AppText variant="footnote" muted center>
+                {tr('camp.sos.canSkip')}
+              </AppText>
+            ) : null}
           </View>
           <View style={{ gap: t.space.sm }}>
             <AppText variant="title3">{tr('camp.sos.whatTriggered')}</AppText>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }} accessibilityRole="radiogroup">
-              {triggers.map((x) => (
-                <Chip key={x.id} icon={x.icon} label={x.label} selected={trigger === x.id} onPress={() => setTrigger(trigger === x.id ? null : x.id)} />
-              ))}
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
+              {order.map((id) => {
+                const x = ONB.triggers.find((o) => o.id === id)!;
+                return <TriggerChip key={id} icon={x.icon} label={x.label} selected={triggers.includes(id)} assessed={assessed.has(id)} onPress={() => setTriggers((s) => (s.includes(id) ? s.filter((y) => y !== id) : [...s, id]))} />;
+              })}
+              <TriggerChip icon="plus" label={tr('camp.sos.other')} selected={otherOn} onPress={() => setOtherOn((v) => !v)} />
             </View>
+            {otherOn ? (
+              <TextInput
+                value={otherText}
+                onChangeText={setOtherText}
+                placeholder={tr('camp.sos.otherPlaceholder')}
+                placeholderTextColor={t.tokens.subtle}
+                maxLength={60}
+                accessibilityLabel={tr('camp.sos.other')}
+                style={{ minHeight: 48, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.tokens.border, paddingHorizontal: t.space.md, color: t.tokens.foreground, fontFamily: t.family.regular, fontSize: 16 }}
+              />
+            ) : null}
             <AppText variant="footnote" muted>
-              {tr('camp.sos.triggerOptional')}
+              {assessed.size ? tr('camp.sos.triggerHint') : tr('camp.sos.triggerOptional')}
             </AppText>
           </View>
           {plans.map((p) => (
@@ -141,42 +206,78 @@ function CampSosBody() {
               <AppText variant="callout">{SOS.end.hardBody}</AppText>
             </View>
           ) : null}
-          {/* Big tool cards in one scrolling row */}
+          {delayActive && tool !== 'delay' ? (
+            <Pressable
+              onPress={() => setTool('delay')}
+              accessibilityRole="button"
+              accessibilityLabel={tr('camp.sos.delayChipA11y', { time: mmss(delay.left) })}
+              style={{ alignSelf: 'flex-start', flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 48, paddingHorizontal: 12, borderRadius: t.radius.pill, backgroundColor: t.tokens.muted }}
+            >
+              <Icon name="hourglass" size="sm" color={t.tokens.foreground} />
+              <AppText variant="footnote" weight="600" tabular>
+                {mmss(delay.left)}
+              </AppText>
+            </Pressable>
+          ) : null}
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -t.space.gutter }} contentContainerStyle={{ gap: t.space.sm, paddingHorizontal: t.space.gutter, paddingVertical: 2 }} accessibilityRole="tablist">
-            {TOOLS.map((x) => (
+            {SOS_TOOL_ORDER.map((x) => (
               <ToolCard
                 key={x.id}
                 icon={x.icon}
-                title={TOOL_TITLE[x.id]}
+                title={SOS[x.id].title}
                 selected={tool === x.id}
                 done={used.includes(x.id)}
                 onPress={() => {
                   setTool(x.id);
                   // Reading-only tools count as used when opened.
-                  if (x.id === 'four_e' || x.id === 'reasons') markUsed(x.id);
+                  if (x.id === 'reasons') markUsed(x.id);
                 }}
               />
             ))}
-            <ToolCard
-              icon="chat"
-              title={tr('camp.coach.sosTab')}
-              selected={false}
-              done={used.includes('coach')}
-              onPress={() => {
-                markUsed('coach');
-                router.push({ pathname: '/camp/coach', params: { scenario: 'craving' } });
-              }}
-            />
           </ScrollView>
           <AppText variant="title2" accessibilityRole="header">
-            {TOOL_TITLE[tool]}
+            {SOS[tool].title}
           </AppText>
-          {tool === 'surf' ? <UrgeSurf onUsed={() => markUsed('surf')} /> : null}
-          {tool === 'breath' ? <SosBreath onUsed={() => markUsed('breath')} /> : null}
-          {tool === 'delay' ? <DelayTimer onUsed={() => markUsed('delay')} /> : null}
-          {tool === 'four_e' ? <FourECard /> : null}
+          {tool === 'breath' ? (
+            <>
+              <AppText muted>{SOS.breath.desc}</AppText>
+              <BreathSetup
+                compact
+                mode={breathMode}
+                minutes={breathMin}
+                onChange={(m, n) => {
+                  setBreathMode(m);
+                  setBreathMin(n);
+                }}
+              />
+              <Button
+                label={tr('camp.sos.breathStart', { count: breathMin })}
+                icon="play"
+                variant="secondary"
+                size="lg"
+                fullWidth
+                onPress={() => {
+                  useBreathStore.getState().remember(breathMode, breathMin);
+                  setBreathing(true);
+                }}
+              />
+            </>
+          ) : null}
+          {tool === 'puzzle' ? (
+            screenReader ? (
+              <View style={{ gap: t.space.md }}>
+                <AppText muted>{SOS.puzzle.srHint}</AppText>
+                <Button label={SOS.breath.title} icon="wind" variant="secondary" onPress={() => setTool('breath')} />
+              </View>
+            ) : (
+              <>
+                <AppText muted>{SOS.puzzle.desc}</AppText>
+                <BlockPuzzle color={t.tone.smokefree.fg} onPlayed={() => markUsed('puzzle')} />
+              </>
+            )
+          ) : null}
+          {tool === 'delay' ? <DelayTimer cd={delay} onUsed={() => markUsed('delay')} /> : null}
           {tool === 'reasons' ? profile ? <ReasonsView profile={profile} /> : <AppText muted>{SOS.reasons.empty}</AppText> : null}
-          {tool === 'game' ? <MatchGameView onUsed={() => markUsed('game')} /> : null}
           <AppText variant="footnote" muted>
             {SOS.alo}
           </AppText>
@@ -188,7 +289,7 @@ function CampSosBody() {
           <AppText variant="title2" accessibilityRole="header">
             {SOS.end.question}
           </AppText>
-          <IntensityScale value={after} onChange={setAfter} label={SOS.end.question} />
+          <UrgeGauge value={after} onChange={setAfter} label={SOS.end.question} color={t.tone.smokefree.fg} compareTo={before} />
           <View style={{ gap: 10, marginTop: 6 }}>
             <Button
               label={SOS.end.resisted}
@@ -205,7 +306,7 @@ function CampSosBody() {
               fullWidth
               onPress={() => {
                 setHardNote(true);
-                const next = TOOLS.find((x) => !used.includes(x.id) && x.id !== tool);
+                const next = SOS_TOOL_ORDER.find((x) => !used.includes(x.id) && x.id !== tool);
                 if (next) setTool(next.id);
                 setStage('tools');
               }}
@@ -218,10 +319,10 @@ function CampSosBody() {
                 log('smoked');
                 // After the quit a cigarette is a slip: the slip flow logs it and helps plan the next time.
                 if (attempt?.status === 'active') {
-                  router.replace({ pathname: '/camp/slip', params: trigger ? { trigger } : {} });
+                  router.replace({ pathname: '/camp/slip', params: triggers[0] ? { trigger: triggers[0] } : {} });
                   return;
                 }
-                if (attempt) useCampEventsStore.getState().logCigarette({ attemptId: attempt.id, isSlip: false, trigger: trigger ?? undefined });
+                if (attempt) useCampEventsStore.getState().logCigarette({ attemptId: attempt.id, isSlip: false, trigger: triggers[0] });
                 setStage('smoked');
               }}
             />
@@ -259,6 +360,32 @@ function CampSosBody() {
         </View>
       ) : null}
     </Screen>
+  );
+}
+
+/**
+ * A trigger chip: every catalogue trigger is always shown (SPEC_V4 §C.2). Selected: filled with the
+ * primary colour; picked in the assessment: a small dot.
+ */
+function TriggerChip({ icon, label, selected, assessed, onPress }: { icon: IconName; label: string; selected: boolean; assessed?: boolean; onPress: () => void }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  const k = t.tokens;
+  const fg = selected ? k.primaryForeground : k.foreground;
+  return (
+    <ScalePressable
+      onPress={onPress}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: selected }}
+      accessibilityLabel={assessed ? `${label}, ${tr('camp.sos.assessedA11y')}` : label}
+      style={{ flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 48, paddingHorizontal: 14, borderRadius: t.radius.pill, borderWidth: 1, borderColor: selected ? k.primary : k.border, backgroundColor: selected ? k.primary : 'transparent' }}
+    >
+      <Icon name={icon} size={16} color={fg} />
+      <AppText variant="callout" weight="600" color={fg}>
+        {label}
+      </AppText>
+      {assessed ? <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: selected ? fg : k.primary }} /> : null}
+    </ScalePressable>
   );
 }
 

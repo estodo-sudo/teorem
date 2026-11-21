@@ -3,7 +3,6 @@ import path from 'path';
 
 import sosJson from '@/content/camps/odak/sos.tr.json';
 import sourcesJson from '@/content/camps/odak/sources.json';
-import { surfPromptIndex, waveAmplitude } from '@/features/camps/core/sosEngine';
 import { ODAK_SOS as SOS } from '@/features/camps/odak/content';
 import { buildUrge, dayyCount, managedCount, nextTool, noDayy, SOS_TOOLS, toolEffectiveness } from '@/features/camps/odak/engine/sos';
 import { useOdakStore } from '@/features/camps/odak/store';
@@ -32,21 +31,21 @@ describe('SOS logic', () => {
     expect(managedCount([...list, urge('slipped', [])])).toBe(2);
   });
   it('suggests a tool not tried yet when it is still hard', () => {
-    expect(nextTool([])).toBe('surf');
-    expect(nextTool(['relocate', 'surf'])).toBe('breath');
-    expect(nextTool([...SOS_TOOLS])).toBe('surf');
+    expect(SOS_TOOLS).toEqual(['breath', 'puzzle', 'move', 'values', 'futureSelf', 'supporter']);
+    expect(nextTool([])).toBe('breath');
+    expect(nextTool(['relocate', 'breath'])).toBe('puzzle');
+    expect(nextTool([...SOS_TOOLS])).toBe('breath');
   });
-  it('ranks tools by how often they were part of a managed moment', () => {
+  it('ranks tools by how often they were part of a managed moment; removed tools count as "other"', () => {
     const r = toolEffectiveness([urge('managed', ['surf', 'breath']), urge('slipped', ['breath']), urge('managed', ['surf'])]);
     expect(r.map((x) => [x.tool, x.used, x.managed])).toEqual([
-      ['surf', 2, 2],
+      ['other', 2, 2],
       ['breath', 2, 1],
     ]);
   });
-  it('shares the urge-surf wave with the Sigarasız Kamp', () => {
-    expect(surfPromptIndex(0, 180, 6)).toBe(0);
-    expect(surfPromptIndex(179, 180, 6)).toBe(5);
-    expect(waveAmplitude(72, 180)).toBeCloseTo(1);
+  it('keeps a skipped intensity as 0 (left out of averages)', () => {
+    const u = buildUrge({ startedAt: new Date(), endedAt: new Date(), intensityBefore: 0, dayy: noDayy(), toolsUsed: [], outcome: 'managed' });
+    expect(u.intensityBefore).toBe(0);
   });
 });
 
@@ -71,7 +70,8 @@ describe('SOS content (spec 5.2)', () => {
     expect(SOS.relocate.seconds).toBe(60);
     expect(SOS.move.seconds).toBe(120);
     for (const id of SOS_TOOLS) expect(SOS.tools.items.some((x) => x.id === id)).toBe(true);
-    expect(SOS.surf.prompts.length).toBeGreaterThanOrEqual(4);
+    expect('surf' in SOS).toBe(false);
+    expect(SOS.tools.items.some((x) => x.id === 'surf')).toBe(false);
     expect([SOS.end.managed, SOS.end.hard, SOS.end.slipped]).toEqual(['Geçti', 'Hâlâ zor', 'Kaydım']);
     expect(SOS.end.count).toContain('{n}');
     expect(SOS.emergency).toMatch(/112/);

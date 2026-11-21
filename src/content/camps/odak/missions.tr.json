@@ -154,7 +154,7 @@
    "phase": "skills",
    "day": 15,
    "title": "İlk dalga",
-   "body": "Bir dürtü geldiğinde Dürtü anı ekranındaki dürtü sörfünü baştan sona uygula.",
+   "body": "Bir dürtü geldiğinde onu bir dalga gibi izle: yükselişini, zirvesini ve inişini fark et. İstersen Dürtü anı ekranındaki nefesle birlikte yap.",
    "durationMin": 5,
    "type": "action",
    "reviewed": false

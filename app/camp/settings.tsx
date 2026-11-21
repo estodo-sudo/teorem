@@ -43,6 +43,7 @@ export default function CampSettings() {
   return (
     <Screen>
       <Header title={tr('camp.settings.title')} onBack={() => goBack('/camp')} />
+      <Button label={tr('camp.home2.planLink')} icon="book" variant="secondary" onPress={() => router.push('/camp/plan')} />
 
       {attempt && preparing ? (
         <>

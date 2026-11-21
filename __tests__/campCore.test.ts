@@ -4,7 +4,6 @@ import path from 'path';
 import { longestDayStreak, newBadges, thresholdBadges } from '@/features/camps/core/badgeEngine';
 import { ALL_CAMPS_MAX, atTime, campNotifRequests, handleCampNotifResponse, type CampNotifier } from '@/features/camps/core/campNotifications';
 import { cadenceDue, checkinSlotDays, lowMoodRun } from '@/features/camps/core/checkinEngine';
-import { actionParser, checkScenario, fillVars, nodeBaseText, type CoachScenario } from '@/features/camps/core/coachEngine';
 import { missionForDay } from '@/features/camps/core/missionScheduler';
 import { daysToNext, missionDay, nextPhaseStart, phaseAt, phaseOrder, type PhaseModel } from '@/features/camps/core/phaseEngine';
 import { activateIfDue, attemptLapses, endAsRelapse, graduate, inProgress, lastAttempt, shownAttempt, startAttempt, startNow } from '@/features/camps/core/slipFlow';
@@ -126,41 +125,6 @@ describe('slip flow', () => {
       { at: '2026-11-12T00:00:00Z', attemptId: 'other' },
     ];
     expect(attemptLapses(a, ls)).toEqual([ls[0]]);
-  });
-});
-
-describe('coach engine', () => {
-  const parse = actionParser(['sos', 'end'] as const, ['skill'] as const);
-  it('parses actions of a camp', () => {
-    expect(parse('sos')).toEqual({ kind: 'sos' });
-    expect(parse('skill:values')).toEqual({ kind: 'skill', id: 'values' });
-    expect(parse('library:x')).toBeNull();
-    expect(actionParser(['end'] as const, [] as const)('skill:x')).toBeNull();
-  });
-  it('fills variables and phase overrides', () => {
-    expect(fillVars('{a} ve {b} {c}', { a: 1, b: 'iki' })).toBe('1 ve iki {c}');
-    expect(nodeBaseText({ text: 'genel', byPhase: { first: 'ilk' }, replies: [] }, 'first')).toBe('ilk');
-    expect(nodeBaseText({ text: 'genel', byPhase: { first: 'ilk' }, replies: [] }, null)).toBe('genel');
-  });
-  it('checks scenarios', () => {
-    const s: CoachScenario = {
-      id: 'x',
-      icon: 'leaf',
-      title: '',
-      start: 'a',
-      nodes: {
-        a: {
-          text: '',
-          replies: [
-            { label: '1', action: 'skill:nope' },
-            { label: '2', action: 'zap' },
-            { label: '3', next: 'b' },
-          ],
-        },
-        b: { text: '', replies: [{ label: 'ok', action: 'end' }] },
-      },
-    };
-    expect(checkScenario(s, parse, { skill: { ids: ['values'], label: 'skill' } })).toEqual(['x.a: unknown skill "nope"', 'x.a: unknown action "zap"']);
   });
 });
 

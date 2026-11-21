@@ -1,4 +1,4 @@
-import type { CampPhase, CheckIn, CigaretteLog, CravingEvent, IfThenPlan, QuitAttempt, ToolId, TriggerId } from '../types';
+import { LEGACY_TOOLS, type CampPhase, type CheckIn, type CigaretteLog, type CravingEvent, type IfThenPlan, type QuitAttempt, type TriggerId, type ActiveToolId, type LegacyToolId, type ToolId } from '../types';
 
 import { slipsOf } from './counters';
 import { quitStart } from './phase';
@@ -44,10 +44,14 @@ export interface Learnings {
   /** Situations that led to slips or cravings, most frequent first. */
   hardTriggers: { trigger: TriggerId; count: number }[];
   /** Tools used in cravings that were ridden out, most used first. */
-  helpfulTools: { tool: ToolId; count: number }[];
+  /** Removed V4 tools are grouped as `other` ("Diğer araçlar"). */
+  helpfulTools: { tool: ActiveToolId | 'other'; count: number }[];
   /** Plans that were used in a crisis. */
   usedPlans: IfThenPlan[];
 }
+
+/** A tool id as statistics show it: tools removed in V4 count as "other". */
+export const toolGroup = (id: ToolId): ActiveToolId | 'other' => ((LEGACY_TOOLS as readonly string[]).includes(id) ? 'other' : (id as Exclude<ToolId, LegacyToolId>));
 
 /** What an attempt taught: hard situations, tools that helped and plans that were used. */
 export function learnings(a: QuitAttempt, logs: CigaretteLog[], cravings: CravingEvent[], plans: IfThenPlan[], smokeFreeDays: number): Learnings {
@@ -55,8 +59,8 @@ export function learnings(a: QuitAttempt, logs: CigaretteLog[], cravings: Cravin
   const own = cravings.filter((c) => ms(c.at) >= ms(a.startedAt));
   const trig = new Map<TriggerId, number>();
   for (const x of [...slipsOf(a, logs), ...own]) if (x.trigger) trig.set(x.trigger, (trig.get(x.trigger) ?? 0) + 1);
-  const tools = new Map<ToolId, number>();
-  for (const c of own) if (c.outcome === 'resisted') for (const t of c.toolUsed) tools.set(t, (tools.get(t) ?? 0) + 1);
+  const tools = new Map<ActiveToolId | 'other', number>();
+  for (const c of own) if (c.outcome === 'resisted') for (const t of new Set(c.toolUsed.map(toolGroup))) tools.set(t, (tools.get(t) ?? 0) + 1);
   const top = <K>(m: Map<K, number>) => [...m.entries()].sort((x, y) => y[1] - x[1]).slice(0, 3);
   return {
     smokeFreeDays: from ? smokeFreeDays : 0,

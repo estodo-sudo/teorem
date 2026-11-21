@@ -7,7 +7,7 @@ import type { CampDefinition } from '@/features/camps/core/definition';
 import { CAMPS } from '@/features/camps/registry';
 import { CAMPUSES, type CampusEntry } from '@/features/content/cards';
 import { GLOSSARY, STORIES, type Course, type GlossaryTerm, type Story } from '@/features/content/data';
-import { storyOfTheDay } from '@/features/content/daily';
+import { featuredStory, orderStories, storyProgress, storyState } from '@/features/content/story/discover';
 import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, ProgramCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
 import { ALC, useAlcSummary, useBodySummary, useCourseSummary, type ProgramSummary } from '@/features/content/explore/summaries';
@@ -30,11 +30,18 @@ export default function Discover() {
   const content = useProgressStore((s) => s.content);
   const access = useAccess();
   const read = content.readStoryIds;
-  const daily = storyOfTheDay(toDateKey(), STORIES, read);
+  const positions = content.storyPositions ?? {};
+  const saved = content.favoriteStoryIds;
+  const featured = featuredStory(toDateKey(), STORIES, read, positions);
+  const daily = featured?.story;
   const openStory = (id: string) => openGated('stories', { pathname: '/story/[storyId]', params: { storyId: id } });
   const readCount = read.filter((id) => STORIES.some((s) => s.id === id)).length;
-  // Unread stories first, read ones at the end (§4.2).
-  const stories = [...STORIES.filter((s) => !read.includes(s.id)), ...STORIES.filter((s) => read.includes(s.id))];
+  // SPEC_V4 §B.2: half read first, then unread, read ones at the end.
+  const stories = orderStories(STORIES, read, positions);
+  const stateLabel = (id: string) => {
+    const st = storyState(id, read, positions);
+    return [st === 'partial' ? tr('stories.state.partial') : st === 'read' ? tr('discover.read') : null, saved.includes(id) ? tr('stories.state.saved') : null].filter(Boolean).join(', ');
+  };
   const a11y = (title: string, count: number) => tr('discover.listA11y', { title, count });
 
   return (
@@ -47,7 +54,8 @@ export default function Discover() {
         <FeaturedStoryCard
           title={daily.title}
           kicker={tr('stories.ofTheDay')}
-          meta={tr('stories.minutes', { count: daily.minutes })}
+          meta={tr('stories.meta', { min: daily.minutes, count: storyProgress(daily, positions).slides })}
+          resume={featured?.resume ? tr('stories.resume', { n: storyProgress(daily, positions).at, total: storyProgress(daily, positions).slides }) : undefined}
           image={exploreImage('stories', daily.id)}
           icon={daily.icon}
           tone={daily.tone ?? 'knowledge'}
@@ -64,7 +72,7 @@ export default function Discover() {
         itemWidth={CARD.poster.w}
         listLabel={a11y(tr('stories.title'), STORIES.length)}
         keyOf={(s) => s.id}
-        render={(s) => <StoryPosterCard title={s.title} read={read.includes(s.id)} readLabel={tr('discover.read')} image={exploreImage('stories', s.id)} icon={s.icon} tone={s.tone ?? 'knowledge'} onPress={() => openStory(s.id)} />}
+        render={(s) => <StoryPosterCard title={s.title} read={read.includes(s.id)} progress={storyProgress(s, positions).share} saved={saved.includes(s.id)} stateLabel={stateLabel(s.id)} image={exploreImage('stories', s.id)} icon={s.icon} tone={s.tone ?? 'knowledge'} onPress={() => openStory(s.id)} />}
       />
 
       <HorizontalSection<CampItem>

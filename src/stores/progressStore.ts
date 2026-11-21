@@ -26,6 +26,8 @@ interface ProgressStore extends ProgressSnapshot {
   celebrationQueue: string[];
   markStoryRead: (id: string) => void;
   toggleFavorite: (id: string) => void;
+  /** Remembers where a story was left; `null` forgets it (the story was finished). */
+  setStoryPosition: (id: string, index: number | null) => void;
   completeLesson: (courseId: string, lessonId: string, score: number) => void;
   setChallengeLog: (log: ChallengeLog) => void;
   unlockAchievements: (ids: string[], at?: string) => void;
@@ -62,6 +64,13 @@ export const useProgressStore = create<ProgressStore>()(
               favoriteStoryIds: fav.includes(id) ? fav.filter((x) => x !== id) : [...fav, id],
             },
           };
+        }),
+      setStoryPosition: (id, index) =>
+        set((s) => {
+          const next = { ...(s.content.storyPositions ?? {}) };
+          if (index === null || index <= 0) delete next[id];
+          else next[id] = index;
+          return { content: { ...s.content, storyPositions: next } };
         }),
       completeLesson: (courseId, lessonId, score) =>
         set((s) => {

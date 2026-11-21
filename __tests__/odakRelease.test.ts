@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 
 import { planOdakNotifications, RISKY_LEAD_MIN, validPlan, type OdakNotifPlan } from '@/features/camps/odak/engine/notifications';
-import { FREE_COACH_SCENARIOS, lessonIsFree, missionIsFree, scenarioIsFree } from '@/features/camps/odak/engine/premium';
+import { lessonIsFree, missionIsFree } from '@/features/camps/odak/engine/premium';
 import { sourceUsage } from '@/features/camps/odak/engine/sources';
-import { ODAK_COACH, ODAK_MISSIONS, ODAK_SKILLS } from '@/features/camps/odak/content';
+import { ODAK_MISSIONS, ODAK_SKILLS } from '@/features/camps/odak/content';
 import { useOdakLockStore } from '@/features/camps/odak/privacy/lockStore';
 import { useOdakStore } from '@/features/camps/odak/store';
 import { hasAccess, defaultGateContext } from '@/features/purchases/gate';
@@ -67,12 +67,10 @@ describe('free vs premium (spec 8)', () => {
     expect(hasAccess('odak', defaultGateContext({ devBypass: false, mode: 'freemium' }))).toBe(false);
     expect(hasAccess('odak', defaultGateContext({ devBypass: false, entitled: true }))).toBe(true);
   });
-  it('the first phase’s missions and lessons and three coach topics are free', () => {
+  it('the first phase’s missions and lessons are free', () => {
     expect(ODAK_MISSIONS.filter(missionIsFree).map((m) => m.day)).toEqual([1, 2, 3, 4, 5, 6, 7]);
     expect(ODAK_SKILLS.filter(lessonIsFree).map((l) => l.id)).toEqual(expect.arrayContaining(['values', 'cycle', 'monitoring']));
     expect(ODAK_SKILLS.filter((l) => !lessonIsFree(l)).length).toBeGreaterThanOrEqual(13);
-    for (const id of FREE_COACH_SCENARIOS) expect(ODAK_COACH.scenarios.some((s) => s.id === id)).toBe(true);
-    expect(scenarioIsFree('urge') && scenarioIsFree('expert') && !scenarioIsFree('partner')).toBe(true);
   });
   it('always-free screens carry no gate: SOS flow, slip, relapse, check-in, diary, support lines, library', () => {
     for (const f of ['slip.tsx', 'relapse.tsx', 'checkin.tsx', 'diary.tsx', 'log-urge.tsx', 'log-behavior.tsx', 'library.tsx', 'onboarding.tsx', 'privacy.tsx']) {
@@ -104,7 +102,8 @@ describe('automatic content checks (spec 7.4)', () => {
   ];
   const EXPLICIT = [/sikiş/i, /seks videosu/i, /çıplak/i, /erotik/i, /orgazm/i, /\bpenis/i, /vajina/i, /\bmeme\b/i];
   it('every content file: no banned or explicit wording, no success percentages', () => {
-    expect(contentFiles.length).toBeGreaterThanOrEqual(20);
+    // 19 since the coach content was removed (SPEC_V4 §D).
+    expect(contentFiles.length).toBeGreaterThanOrEqual(19);
     for (const [f, json] of Object.entries(content)) {
       for (const s of strings(json)) {
         for (const b of [...BANNED, ...EXPLICIT]) expect([f, s, b.test(s)]).toEqual([f, s, false]);
@@ -159,7 +158,7 @@ describe('offline and accessibility (spec O12)', () => {
     }
     expect(checked).toBeGreaterThan(5);
   });
-  it('the urge-surf animation respects reduced motion', () => {
-    expect(fs.readFileSync(path.join(root, 'src', 'features', 'camps', 'core', 'sosTools.tsx'), 'utf8')).toMatch(/useReducedMotion/);
+  it('the SOS breath orb and the block puzzle respect reduced motion', () => {
+    for (const f of [['src', 'features', 'breath', 'BreathPlayer.tsx'], ['src', 'features', 'games', 'BlockPuzzle', 'BlockPuzzle.tsx']]) expect(fs.readFileSync(path.join(root, ...f), 'utf8')).toMatch(/useReducedMotion/);
   });
 });

@@ -1,31 +1,26 @@
 import type { IconName } from '@/components/Icon';
 import { useState } from 'react';
-import { Image, Pressable, View, useWindowDimensions } from 'react-native';
+import { Image, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Icon, ProgressBar, useTheme } from '@/components';
 import { tint } from '@/features/campus/shared/ui';
-import { IntensityScale as CoreIntensityScale, mmss, SosBreath as CoreSosBreath, UrgeSurf as CoreUrgeSurf, useCountdown } from '@/features/camps/core/sosTools';
+import { mmss, type useCountdown } from '@/features/camps/core/sosTools';
 
 import { CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from './content';
-import { DELAY_MINUTES, flipCard, gameWon, matchedPairs, newMatchGame } from './engine/sos';
+import { DELAY_MINUTES } from './engine/sos';
 import type { CampProfile } from './types';
 import { IconTile } from '@/components/ui';
 
-/** 1–10 intensity scale with this camp's labels. */
-export const IntensityScale = (p: { value: number | null; onChange: (v: number) => void; label: string }) => <CoreIntensityScale {...p} labels={SOS.intensityLabels} />;
 
-/** Urge surfing with this camp's prompts. */
-export const UrgeSurf = ({ onUsed }: { onUsed: () => void }) => <CoreUrgeSurf onUsed={onUsed} text={SOS.surf} />;
-
-/** Breathing, 2 minutes. */
-export const SosBreath = ({ onUsed }: { onUsed: () => void }) => <CoreSosBreath onUsed={onUsed} desc={SOS.breath.desc} />;
-
-/** "Just wait 10 minutes" countdown with small things to do meanwhile. */
-export function DelayTimer({ onUsed }: { onUsed: () => void }) {
+export { DELAY_MINUTES };
+/**
+ * "Just wait 10 minutes" countdown with small things to do meanwhile. The countdown lives in the SOS
+ * screen, so it keeps running (as a small chip) while another tool is used (SPEC_V4 §C.3).
+ */
+export function DelayTimer({ cd, onUsed }: { cd: ReturnType<typeof useCountdown>; onUsed: () => void }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const cd = useCountdown(DELAY_MINUTES * 60);
   const [done, setDone] = useState<string[]>([]);
   return (
     <View style={{ gap: t.space.md }}>
@@ -90,34 +85,6 @@ export function DelayTimer({ onUsed }: { onUsed: () => void }) {
   );
 }
 
-/** The 4E card (Ertele · Elini meşgul et · En sevdiğin içeceği iç · Eğlenceli bir şey yap). */
-export function FourECard() {
-  const t = useTheme();
-  return (
-    <View style={{ gap: 10 }}>
-      <AppText muted>{SOS.fourE.desc}</AppText>
-      {SOS.fourE.items.map((it, i) => (
-        <Card key={it.title} style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'center' }}>
-          <View style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: t.colors.accent, alignItems: 'center', justifyContent: 'center' }}>
-            <AppText variant="h3" weight="800" color={t.tokens.primaryForeground}>
-              {it.letter}
-              <AppText variant="tiny" weight="800" color={t.tokens.primaryForeground}>
-                {i + 1}
-              </AppText>
-            </AppText>
-          </View>
-          <View style={{ flex: 1, gap: 2 }}>
-            <AppText weight="800">{it.title}</AppText>
-            <AppText variant="small" muted>
-              {it.text}
-            </AppText>
-          </View>
-        </Card>
-      ))}
-    </View>
-  );
-}
-
 /** The user's own reasons and photo. */
 export function ReasonsView({ profile }: { profile: CampProfile }) {
   const t = useTheme();
@@ -145,72 +112,3 @@ export function ReasonsView({ profile }: { profile: CampProfile }) {
   );
 }
 
-const SYMBOLS: IconName[] = ['leaf', 'waves', 'sun', 'apple', 'headphones', 'bike'];
-
-/** 60-second matching game (offline distraction). Each round remounts, so its timer starts fresh. */
-export function MatchGameView({ onUsed }: { onUsed: () => void }) {
-  const [round, setRound] = useState(0);
-  return <MatchRound key={round} onUsed={onUsed} onRestart={() => setRound((n) => n + 1)} />;
-}
-
-function MatchRound({ onUsed, onRestart }: { onUsed: () => void; onRestart: () => void }) {
-  const t = useTheme();
-  const { t: tr } = useTranslation();
-  const [game, setGame] = useState(() => newMatchGame(SYMBOLS));
-  const [started, setStarted] = useState(false);
-  const cd = useCountdown(SOS.game.seconds);
-  const won = gameWon(game);
-  const over = won || cd.finished;
-  const { width } = useWindowDimensions();
-  const size = Math.min(84, (Math.min(width, 520) - 32 - 3 * 8) / 4);
-  return (
-    <View style={{ gap: t.space.md }}>
-      <AppText muted>{SOS.game.desc}</AppText>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <AppText weight="800">{tr('camp.sos.gameTime', { sec: started ? cd.left : SOS.game.seconds })}</AppText>
-        <AppText weight="800">{tr('camp.sos.gamePairs', { n: matchedPairs(game), total: SYMBOLS.length })}</AppText>
-      </View>
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm, justifyContent: 'center' }}>
-        {game.cards.map((c, i) => {
-          const up = c.matched || game.open.includes(i);
-          return (
-            <Pressable
-              key={i}
-              disabled={over || c.matched}
-              onPress={() => {
-                if (!started) {
-                  setStarted(true);
-                  onUsed();
-                  cd.start();
-                }
-                setGame((g) => flipCard(g, i));
-              }}
-              accessibilityRole="button"
-              accessibilityLabel={up ? tr(`camp.sos.symbol.${c.symbol}`) : tr('camp.sos.gameCard', { n: i + 1 })}
-              style={{
-                width: size,
-                height: size,
-                borderRadius: t.radius.md,
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: c.matched ? tint(t.colors.success, '33') : up ? t.colors.surface : t.colors.primary,
-                borderWidth: 2,
-                borderColor: c.matched ? t.colors.success : t.colors.border,
-              }}
-            >
-              {up ? <Icon name={c.symbol as IconName} size={Math.round(size * 0.45)} color={t.tokens.primary} /> : null}
-            </Pressable>
-          );
-        })}
-      </View>
-      {over ? (
-        <Card style={{ gap: t.space.sm }}>
-          <AppText weight="800" center>
-            {won ? tr('camp.sos.gameWon', { moves: game.moves }) : tr('camp.sos.gameOver', { n: matchedPairs(game) })}
-          </AppText>
-          <Button label={tr('camp.sos.gameAgain')} variant="secondary" onPress={onRestart} />
-        </Card>
-      ) : null}
-    </View>
-  );
-}

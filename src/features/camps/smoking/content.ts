@@ -1,6 +1,5 @@
 import type { IconName } from '@/components/Icon';
 import checkinJson from '@/content/camp/checkin.tr.json';
-import coachJson from '@/content/camp/coach.tr.json';
 import healthJson from '@/content/camp/health-timeline.tr.json';
 import libraryJson from '@/content/camp/library.tr.json';
 import skillsJson from '@/content/camp/skills.tr.json';
@@ -13,7 +12,6 @@ import sosJson from '@/content/camp/sos.tr.json';
 import supportJson from '@/content/camp/support.tr.json';
 import sourcesJson from '@/content/camp/sources.json';
 
-import type { CoachScenario } from './engine/coach';
 import type { MilestoneId } from './engine/milestones';
 import type { AgeRange, CampPhase, FirstCigMinutes, HsiLevel, Mission, ProductType, QuitMethod, ReasonId, RelapseCause, Score5, SymptomId, TriggerId } from './types';
 
@@ -72,12 +70,10 @@ export interface CampSosContent {
   sourceIds: string[];
   intro: string;
   intensityLabels: { low: string; high: string };
-  surf: { title: string; desc: string; prompts: string[]; done: string };
   breath: { title: string; desc: string };
   delay: { title: string; desc: string; ideas: string[]; done: string };
-  fourE: { title: string; desc: string; items: { letter: string; title: string; text: string }[] };
   reasons: { title: string; desc: string; empty: string };
-  game: { title: string; desc: string; seconds: number };
+  puzzle: { title: string; desc: string; srHint: string };
   alo: string;
   end: { question: string; resisted: string; hard: string; smoked: string; resistedTitle: string; resistedBody: string; hardBody: string; smokedTitle: string; smokedBody: string };
 }
@@ -147,7 +143,6 @@ export interface CampRewardsContent {
 export const CAMP_SOURCES = sourcesJson as CampSource[];
 export const CAMP_REWARDS = rewardsJson as CampRewardsContent;
 export const CAMP_SUPPORT = supportJson as CampSupportContent;
-export const CAMP_COACH = coachJson as unknown as { reviewed: boolean; sourceIds: string[]; disclaimer: string; scenarios: CoachScenario[] };
 export const CAMP_SKILLS = skillsJson as { reviewed: boolean; sourceIds: string[]; lessons: CampLesson[] };
 export const CAMP_LIBRARY = libraryJson as { reviewed: boolean; sourceIds: string[]; stories: CampStory[] };
 export const campSources = (ids: string[]) => CAMP_SOURCES.filter((s) => ids.includes(s.id));

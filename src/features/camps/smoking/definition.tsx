@@ -46,7 +46,7 @@ export function SmokingCampCard() {
   return <RowCard icon={CAMP_ICON} tone="smokefree" title={tr('camp.title')} status={status} progress={progress} onPress={() => router.push('/camp')} />;
 }
 
-const SOS_TOOLS: ToolId[] = ['surf', 'breath', 'delay', 'four_e', 'reasons', 'game', 'coach', 'call171'];
+const SOS_TOOLS: ToolId[] = ['breath', 'puzzle', 'delay', 'reasons', 'call171'];
 
 /** Sigarasız Kamp (90 Gün) on the shared camp engine. */
 export const SMOKING_CAMP: CampDefinition<CampPhase> = {
@@ -68,7 +68,6 @@ export const SMOKING_CAMP: CampDefinition<CampPhase> = {
     'camp/missions.tr.json',
     'camp/skills.tr.json',
     'camp/library.tr.json',
-    'camp/coach.tr.json',
     'camp/support.tr.json',
     'camp/rewards.tr.json',
     'camp/sources.json',

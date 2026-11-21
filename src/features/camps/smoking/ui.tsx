@@ -104,7 +104,7 @@ export interface DraftPlan {
 }
 
 /** Personal plan: quit day, phases, dependence, triggers, if–then plans and estimated savings. */
-export function PlanSummary({ profile, price, attempt, plans, now }: { profile: CampProfile; price: Omit<PriceEntry, 'from'>; attempt: Pick<QuitAttempt, 'plannedQuitDate' | 'actualQuitDateTime'>; plans: DraftPlan[]; now: Date }) {
+export function PlanSummary({ profile, price, attempt, plans, now }: { profile: CampProfile; price: Omit<PriceEntry, 'from'>; attempt: Pick<QuitAttempt, 'plannedQuitDate' | 'actualQuitDateTime'>; plans: (Omit<DraftPlan, 'trigger'> & { trigger: TriggerId | 'custom' })[]; now: Date }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const fmtDate = useCampDate();
@@ -183,7 +183,7 @@ export function PlanSummary({ profile, price, attempt, plans, now }: { profile: 
           <SectionTitle tone="smokefree" icon="puzzle" title={tr('camp.plan.plansTitle')} />
           <View style={{ gap: t.space.sm }}>
             {plans.map((p) => (
-              <Card key={p.trigger} style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
+              <Card key={`${p.trigger}-${p.ifText}`} style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
                 <AppText variant="small" weight="800" color={t.colors.accent}>
                   {tr('camp.plan.if')} {p.ifText}…
                 </AppText>

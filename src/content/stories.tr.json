@@ -3,44 +3,103 @@
     "id": "pf-basics",
     "title": "Erkeklerde pelvik taban",
     "category": "menHealth",
-    "icon": "compass", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "compass",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "compass", "tone": "knowledge",
-        "title": "Görünmeyen kas grubu",
-        "text": "Pelvik taban, leğen kemiğinin altında hamak gibi uzanan kaslardan oluşur. Çoğu erkek varlığından bile haberdar değildir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "shield", "tone": "knowledge",
-        "title": "Ne işe yarar?",
-        "text": "Mesaneyi ve bağırsakları destekler, idrar ve gaz kontrolüne yardımcı olur, cinsel fonksiyonda da rol oynar."
+        "type": "info",
+        "icon": "layers",
+        "support": [
+          "droplet",
+          "shield"
+        ],
+        "title": "Görünmeyen bir hamak",
+        "text": "Pelvik taban, leğen kemiğinin altında hamak gibi gerilen kaslardır. Mesaneyi ve bağırsağı taşır, idrarı ve gazı tutmana yardım eder. Sertleşme sırasında penis köküne baskı yaparak sertliğin korunmasına, boşalmada da ritmik kasılmalarıyla katkı verir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "trendDown", "tone": "knowledge",
-        "title": "Zamanla zayıflayabilir",
-        "text": "Yaş, uzun süre oturmak, kronik öksürük, fazla kilo veya bazı ameliyatlar bu kasları zayıflatabilir.",
-        "didYouKnow": "Pelvik taban egzersizleri, prostat ameliyatı sonrası idrar kontrolünü desteklemek için sıkça önerilen yöntemlerdendir."
+        "type": "info",
+        "icon": "trendDown",
+        "support": [
+          "clock",
+          "droplet"
+        ],
+        "title": "Zayıflayınca ne olur?",
+        "text": "Sık görülen işaretler: işedikten sonra birkaç damla gelmesi (işeme sonrası damlama) ve öksürürken, hapşırırken ya da ağır kaldırırken az idrar kaçırmak. Yaş, uzun oturma, kronik öksürük, fazla kilo ve prostat ameliyatı bu kasları etkileyebilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "dumbbell", "tone": "knowledge",
-        "title": "Çalıştırılabilir",
-        "text": "Diğer kaslar gibi düzenli ve doğru egzersizle güçlenebilir. Anahtar kelime: istikrar."
+        "type": "myth",
+        "myth": "Kegel egzersizi sadece kadınlar içindir.",
+        "fact": "Erkeklerde de aynı kaslar var ve çalıştırılabilir. Mayo Clinic, Kegel egzersizlerinin erkeklerde mesane kontrolüne yardım edebileceğini belirtir. Prostat ameliyatı sonrasında da sık önerilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "stethoscope", "tone": "knowledge",
-        "title": "Ne zaman doktora?",
-        "text": "Ağrı, idrarda kan, ani idrar kaçırma veya yeni başlayan sertleşme sorunlarında egzersizden önce bir doktora danış."
+        "type": "quiz",
+        "quiz": {
+          "question": "İşedikten sonraki damlamayı azaltmaya hangisi yardım edebilir?",
+          "options": [
+            "İşedikten sonra pelvik taban kasını birkaç kez sıkmak",
+            "Gün boyu daha az su içmek",
+            "İşerken idrarı ara ara durdurmak"
+          ],
+          "correct": 0,
+          "explain": "Kası sıkmak, idrar yolunda kalan son damlaları dışarı atar. 55 erkekle yapılan küçük bir araştırmada bu hareketi içeren egzersizlerden 6 ay sonra katılımcıların yaklaşık dörtte üçünde damlama kalmadı. Az su içmek ise idrarı yoğunlaştırır."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "target",
+        "title": "Kası bul",
+        "text": "Kısa eğitimde pelvik taban kasını nasıl bulacağını ve karnını, kalçanı sıkmadan nasıl çalıştıracağını adım adım göreceksin.",
+        "action": {
+          "route": "/tutorial",
+          "label": "Kası bul eğitimini aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "İdrarda kan görürsen",
+          "İşerken ya da kasıkta ağrı veya yanma varsa",
+          "İdrar kaçırma ya da sertleşme sorunu birden başladıysa",
+          "İdrar akışın belirgin şekilde zayıfladıysa ya da mesaneni tam boşaltamıyor gibi hissediyorsan"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Pelvik taban, idrar kontrolünde ve cinsel işlevde rol oynayan bir kas grubudur.",
+          "İşeme sonrası damlama ve öksürürken kaçırma, zayıflığın sık işaretleridir.",
+          "Düzenli ve doğru egzersizle güçlenebilir; fark genellikle birkaç ay içinde görülür."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "Mayo Clinic – Kegel exercises for men",
+        "title": "Mayo Clinic – Kegel exercises for men: Understand the benefits",
         "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
       },
       {
-        "title": "NHS – What are pelvic floor exercises?",
-        "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
+      },
+      {
+        "title": "Dorey G ve ark. (2004) – Pelvic floor exercises for treating post-micturition dribble in men with erectile dysfunction: a randomized controlled trial. Urologic Nursing 24(6)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15658735/"
+      },
+      {
+        "title": "Dorey G ve ark. (2005) – Pelvic floor exercises for erectile dysfunction. BJU International 96(4)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16104916/"
       }
     ],
     "reviewed": false
@@ -49,43 +108,100 @@
     "id": "kegel-mistakes",
     "title": "En sık yapılan 5 Kegel hatası",
     "category": "menHealth",
-    "icon": "warning", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "warning",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "ban", "tone": "knowledge",
-        "title": "1. Yanlış kası sıkmak",
-        "text": "Karın, kalça veya bacakları sıkmak çok yaygındır. Pelvik taban hareketi içeriden ve küçüktür."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "wind", "tone": "knowledge",
-        "title": "2. Nefesi tutmak",
-        "text": "Sıkarken nefesi tutmak karın içi basıncı artırır. Sakin nefes almaya devam et."
+        "type": "info",
+        "icon": "wind",
+        "support": [
+          "ban",
+          "body"
+        ],
+        "title": "1–2: Nefes ve yanlış kaslar",
+        "text": "Sıkarken nefesini tutma, nefes almaya devam et. Karnını, kalçanı ve bacaklarını gevşek bırak. Doğru kası kullandığında dışarıdan neredeyse hiçbir şey görünmez; his içeridedir, testislerin hafifçe yukarı çekilmesi gibi.",
+        "tone": "knowledge"
       },
       {
-        "icon": "repeat", "tone": "knowledge",
-        "title": "3. Gevşemeyi atlamak",
-        "text": "Kası tamamen bırakmak, sıkmak kadar önemlidir. Sürekli gergin bir kas da sorun yaratabilir."
+        "type": "info",
+        "icon": "repeat",
+        "support": [
+          "timer",
+          "moon"
+        ],
+        "title": "3–4: Gevşeme ve aşırılık",
+        "text": "Her sıkmadan sonra kası en az sıkma süresi kadar tamamen gevşet; gevşeme de egzersizin parçası. Daha çok tekrar daha hızlı sonuç demek değil: yorulan kas yanlış çalışır. Programdaki tekrar sayısında kal.",
+        "tone": "knowledge"
       },
       {
-        "icon": "moon", "tone": "knowledge",
-        "title": "4. Tuvalette egzersiz",
-        "text": "İdrarı yarıda kesmek kası bulmak için bir fikir verebilir ama düzenli egzersiz olarak yapılmamalı."
+        "type": "info",
+        "icon": "droplet",
+        "support": [
+          "ban",
+          "info"
+        ],
+        "title": "5: İşerken egzersiz",
+        "text": "İşerken idrarı durdurmak, kası bulmak için bir kez denenebilir; ama bunu egzersiz olarak yapma. Alışkanlık hâline gelirse mesanenin tam boşalmasını bozabilir. Egzersizi tuvalet dışında, rahat bir anda yap.",
+        "tone": "knowledge"
       },
       {
-        "icon": "calendar", "tone": "knowledge",
-        "title": "5. Çabuk vazgeçmek",
-        "text": "Kas gücündeki değişim haftalar içinde gelişir. Kısa ama düzenli seanslar, seyrek uzun seanslardan daha faydalıdır."
+        "type": "myth",
+        "myth": "Ne kadar çok sıkarsam o kadar hızlı güçlenirim.",
+        "fact": "Pelvik taban da diğer kaslar gibi dinlenirken güçlenir. Fazla tekrar yorgunluğa ve yanlış kas kullanımına yol açar. Düzenli, doğru ve ölçülü çalışmak daha iyi sonuç verir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Kasılmadan sonra en önemli adım hangisi?",
+          "options": [
+            "Kası tamamen gevşetmek",
+            "Hemen yeni bir kasılmaya geçmek",
+            "Nefesi tutmaya devam etmek"
+          ],
+          "correct": 0,
+          "explain": "Gevşeme, kasın dinlenip bir sonraki kasılmaya hazırlanmasını sağlar. Gevşemeyi atlamak kası yorar; nefesi tutmak da karın içi basıncı artırır."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "play",
+        "title": "Doğru nefesle bir set",
+        "text": "Bugünkü antrenmanında sıkarken nefes vermeye, gevşerken nefes almaya odaklan. Bir elini karnına koy; el neredeyse hiç hareket etmemeli.",
+        "action": {
+          "route": "/",
+          "label": "Bugünkü antrenmanı aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Sıkarken nefes almaya devam et; karın, kalça ve bacak gevşek kalsın.",
+          "Her sıkmadan sonra kası tamamen gevşet.",
+          "İşerken egzersiz yapma ve programdaki tekrar sayısında kal."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "Mayo Clinic – Kegel exercises for men",
+        "title": "Mayo Clinic – Kegel exercises for men: Understand the benefits",
         "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
       },
       {
-        "title": "NHS – What are pelvic floor exercises?",
-        "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+        "title": "North Bristol NHS Trust – Pelvic floor exercises for men",
+        "url": "https://www.nbt.nhs.uk/our-services/a-z-services/physiotherapy/physiotherapy-patient-information/pelvic-floor-exercises-men"
+      },
+      {
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
       }
     ],
     "reviewed": false
@@ -94,73 +210,181 @@
     "id": "erection-blood",
     "title": "Sertleşme ve damar sağlığı",
     "category": "menHealth",
-    "icon": "heart", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "heart",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "heart", "tone": "knowledge",
-        "title": "Kalp ve damarlar",
-        "text": "Sertleşme büyük ölçüde sağlıklı kan akışına bağlıdır. Bu yüzden damar sağlığını etkileyen her şey önemlidir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "ban", "tone": "knowledge",
+        "type": "info",
+        "icon": "heartPulse",
+        "support": [
+          "droplet",
+          "zap"
+        ],
+        "title": "Sertleşme bir kan akışı olayı",
+        "text": "Uyarılınca penisteki damarlar genişler ve süngerimsi doku kanla dolar. Bunun için damarların esnek ve sağlıklı olması gerekir. Penis damarları çok ince olduğu için damar sağlığındaki bozulmayı erken gösterebilir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "alert",
+        "support": [
+          "ban",
+          "scale"
+        ],
         "title": "Risk faktörleri",
-        "text": "Sigara, yüksek tansiyon, diyabet, yüksek kolesterol ve hareketsizlik sertleşme sorunlarıyla ilişkilendirilir."
+        "text": "Sigara, yüksek tansiyon, şeker hastalığı, yüksek kolesterol, fazla kilo ve hareketsizlik damarları yıpratır. Bunların çoğu değiştirilebilir: hareket, beslenme ve sigarayı bırakmak hem kalbe hem sertleşmeye iyi gelir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "footprints", "tone": "knowledge",
-        "title": "Yaşam tarzı",
-        "text": "Düzenli egzersiz, dengeli beslenme ve sigarayı bırakmak genel damar sağlığını destekler.",
-        "didYouKnow": "Yeni başlayan sertleşme sorunları bazen kalp-damar hastalıklarının erken bir işareti olabilir; bu yüzden doktorla konuşmak önemlidir."
+        "type": "didYouKnow",
+        "text": "Amerikan Üroloji Derneği, sertleşme sorununun kalp-damar hastalıkları için bir risk işareti olabileceğini belirtir. Bazı araştırmalarda bu sorun, kalp krizi gibi olaylardan birkaç yıl önce ortaya çıktı.",
+        "tone": "knowledge"
       },
       {
-        "icon": "puzzle", "tone": "knowledge",
-        "title": "Pelvik tabanın yeri",
-        "text": "Bazı çalışmalar pelvik taban egzersizlerinin sertleşme sorunlarında destekleyici olabileceğini gösteriyor; ancak tek başına bir tedavi değildir."
+        "type": "quiz",
+        "quiz": {
+          "question": "Hangisi sertleşmeyi etkileyen ve değiştirilebilen bir risk faktörüdür?",
+          "options": [
+            "Sigara içmek",
+            "Boy uzunluğu",
+            "Göz rengi"
+          ],
+          "correct": 0,
+          "explain": "Sigara damarları daraltır ve iç yüzeylerini yıpratır. Bırakmak, hareket etmek ve tansiyonu, şekeri kontrol altında tutmak damar sağlığını destekler."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "footprints",
+        "title": "Bugün yürüyüşe çık",
+        "text": "20–30 dakikalık tempolu bir yürüyüş planla ve takvimine yaz. Düzenli hareket damarların esnekliğini destekler; haftada toplam 150 dakikayı hedefleyebilirsin.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "Sertleşme sorunu birden başladıysa ya da sık tekrarlıyorsa",
+          "Göğüs ağrısı, nefes darlığı ya da çarpıntı varsa",
+          "Tansiyonunu, şekerini ya da kolesterolünü uzun süredir ölçtürmediysen",
+          "Penis ağrısı ya da belirgin eğrilik varsa"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Sertleşme, sağlıklı ve esnek damarlara bağlıdır.",
+          "Sertleşme sorunu kalp-damar sağlığı için erken bir uyarı olabilir.",
+          "Sigarayı bırakmak, hareket ve sağlıklı beslenme ikisini birden korur."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
+      {
+        "title": "American Urological Association – Erectile Dysfunction (ED) guideline",
+        "url": "https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-(ed)-guideline"
+      },
       {
         "title": "NHS – Erection problems (erectile dysfunction)",
         "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
       },
       {
-        "title": "Mayo Clinic – Erectile dysfunction",
-        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+        "title": "UChicago Medicine – What can erectile dysfunction tell you about your heart health?",
+        "url": "https://www.uchicagomedicine.org/forefront/health-and-wellness-articles/2022/july/erectile-dysfunction-linked-to-heart-disease"
       },
       {
-        "title": "PubMed – Pelvic floor muscle training & erectile function (search)",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+muscle+training+erectile+dysfunction"
+        "title": "Mayo Clinic – Erectile dysfunction: symptoms and causes",
+        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
       }
     ],
     "reviewed": false
   },
   {
     "id": "bladder-control",
-    "title": "Mesane kontrolü üzerine",
+    "title": "Mesane kontrolü",
     "category": "menHealth",
-    "icon": "droplet", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "droplet",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "droplet", "tone": "knowledge",
-        "title": "Sık rastlanır",
-        "text": "İdrar kaçırma özellikle yaş ilerledikçe ve prostat ameliyatı sonrasında erkeklerde de görülebilir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "hourglass", "tone": "knowledge",
-        "title": "Damla kaçırma",
-        "text": "İdrar yaptıktan sonra birkaç damla kaçırmak yaygındır. Bitirdikten sonra pelvik tabanı birkaç kez sıkmak yardımcı olabilir."
+        "type": "info",
+        "icon": "droplet",
+        "support": [
+          "zap",
+          "timer"
+        ],
+        "title": "İki tür kaçırma",
+        "text": "Zorlanma tipi: öksürürken, hapşırırken ya da ağır kaldırırken az miktarda kaçırmak. Sıkışma tipi: aniden gelen güçlü bir tuvalet isteği ve yetişememek. İkisi bir arada da olabilir; pelvik taban egzersizleri ikisinde de destek olur.",
+        "tone": "knowledge"
       },
       {
-        "icon": "coffee", "tone": "knowledge",
-        "title": "Tetikleyiciler",
-        "text": "Kafein, alkol ve gazlı içecekler bazı kişilerde mesaneyi uyarabilir. Kendi tetikleyicilerini gözlemle."
+        "type": "info",
+        "icon": "hand",
+        "support": [
+          "pause",
+          "wind"
+        ],
+        "title": "Ani istek gelince",
+        "text": "Koşma; olduğun yerde dur ya da otur. Pelvik taban kasını birkaç kez hızlıca sık ve bırak. Sakin nefes al ve dikkatini başka bir şeye ver. İstek azalınca tuvalete yavaşça yürü.",
+        "tone": "knowledge"
       },
       {
-        "icon": "stethoscope", "tone": "knowledge",
-        "title": "Değerlendirme şart",
-        "text": "Yeni başlayan veya artan idrar kaçırma bir sağlık profesyoneli tarafından değerlendirilmelidir."
+        "type": "myth",
+        "myth": "Az su içersem kaçırmam.",
+        "fact": "Az su içmek idrarı yoğunlaştırır ve mesaneyi tahriş edebilir; bu da sıkışma hissini artırabilir. Gün boyu yeterli ve dengeli içmek mesane için daha iyidir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Ani bir tuvalet isteği geldiğinde ilk adım hangisi?",
+          "options": [
+            "Durup birkaç kez hızlı kasılma yapmak",
+            "Hemen tuvalete koşmak",
+            "Nefesini tutup beklemek"
+          ],
+          "correct": 0,
+          "explain": "Koşmak ve telaş isteği güçlendirebilir. Durmak, birkaç hızlı kasılma ve sakin nefes isteğin geçmesine yardım eder; sonra sakince yürüyebilirsin."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "zap",
+        "title": "Bir sonraki ani istekte dene",
+        "text": "Bir dahaki sefere ani istek geldiğinde koşmak yerine dur, 3–5 hızlı kasılma yap ve isteğin azalmasını bekle. Kaç saniyede geçtiğini fark et.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "İdrarda kan görürsen",
+          "İşerken yanma, ağrı ya da ateş varsa",
+          "Kaçırma birden başladıysa ya da gittikçe artıyorsa",
+          "İdrar yapmakta zorlanıyorsan ya da mesanen tam boşalmıyor gibi hissediyorsan"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Kaçırma, zorlanma ya da sıkışma tipinde olabilir.",
+          "Ani istekte koşma: dur, hızlı kasılma yap, sakin nefes al.",
+          "Az su içmek çözüm değil; dengeli içmek mesaneye iyi gelir."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
@@ -169,12 +393,12 @@
         "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
       },
       {
-        "title": "NHS – What are pelvic floor exercises?",
-        "url": "https://www.nhs.uk/common-health-questions/mens-health/what-are-pelvic-floor-exercises/"
+        "title": "Kent Community Health NHS – Urinary urge: urge suppression techniques",
+        "url": "https://kentcht.nhs.uk/leaflet/urinary-urge-urge-suppression-techniques"
       },
       {
-        "title": "PubMed – Pelvic floor training after prostatectomy (search)",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=pelvic+floor+muscle+training+after+prostatectomy"
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
       }
     ],
     "reviewed": false
@@ -183,35 +407,91 @@
     "id": "talk-partner",
     "title": "Partnerinle konuşmak",
     "category": "relationships",
-    "icon": "chat", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "chat",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "chat", "tone": "knowledge",
-        "title": "Sessizlik ağırlaştırır",
-        "text": "Cinsel konularda yaşanan zorluklar konuşulmadığında kaygı ve yanlış anlamalar büyüyebilir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "clock", "tone": "knowledge",
-        "title": "Doğru zaman",
-        "text": "Yatak odası dışında, sakin ve acelesiz bir an seçmek konuşmayı kolaylaştırır."
+        "type": "info",
+        "icon": "clock",
+        "support": [
+          "coffee",
+          "sofa"
+        ],
+        "title": "Doğru zamanı seç",
+        "text": "Bu konuşmayı yatakta ya da zor bir anın hemen ardından yapma. İkinizin de sakin ve acelesiz olduğu bir an seç: bir yürüyüş, bir kahve. Kısa başlamak da olur; tek konuşmada her şeyi çözmek gerekmez.",
+        "tone": "knowledge"
       },
       {
-        "icon": "hand", "tone": "knowledge",
-        "title": "Ben dili",
-        "text": "\"Sen hiç…\" yerine \"Ben son zamanlarda … hissediyorum\" demek savunmayı azaltır."
+        "type": "info",
+        "icon": "speech",
+        "support": [
+          "heart",
+          "users"
+        ],
+        "title": "\"Ben\" diliyle konuş",
+        "text": "Suçlamak yerine kendi hislerini anlat: “Son zamanlarda kendimi gergin hissediyorum” gibi. Örnek bir açılış: “Seninle önemli bir şey konuşmak istiyorum, çünkü bizi önemsiyorum.” Bu cümle konuşmayı bir takım işine çevirir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "handshake", "tone": "knowledge",
-        "title": "Ekip olmak",
-        "text": "Sorunu ortak bir konu olarak görmek, çözüm arayışını birlikte yapmanızı sağlar.",
-        "didYouKnow": "Araştırmalar, ilişki doyumunda iletişimin cinsel sıklıktan daha belirleyici olabileceğini gösteriyor."
+        "type": "info",
+        "icon": "ear",
+        "support": [
+          "chat",
+          "hand"
+        ],
+        "title": "Dinlemek de konuşmanın parçası",
+        "text": "Partnerine ne düşündüğünü sor ve sözünü kesmeden dinle. Onun da kaygıları ya da soruları olabilir. Duyduğunu kendi sözlerinle tekrar etmek, anlaşıldığını hissettirir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Uluslararası Cinsel Tıp Derneği (ISSM), çiftlerin utanç ya da birbirini kırma korkusuyla bu konudan kaçınabildiğini, bunun da yakınlığı azaltabildiğini belirtir. Konuşmak tuhaf hissettirse de çoğu zaman rahatlatır.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Bu konuşma için en uygun an hangisi?",
+          "options": [
+            "İkinizin de sakin olduğu bir an",
+            "Zor bir anın hemen ardından, yatakta",
+            "Bir tartışmanın ortasında"
+          ],
+          "correct": 0,
+          "explain": "Sakin bir anda konuşmak savunmaya geçmeyi azaltır. Gergin anlarda söylenenler daha kolay yanlış anlaşılır."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "pen",
+        "title": "Kendi açılış cümleni yaz",
+        "text": "Telefonuna ya da bir kâğıda partnerine söylemek istediğin ilk cümleyi yaz: kendi kelimelerinle, “ben” diliyle ve kısa. Hazır olduğunda bu cümleyle başla.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Sakin ve acelesiz bir an seç; yatak ya da tartışma anı değil.",
+          "Suçlamak yerine “ben” diliyle kendi hislerini anlat.",
+          "Dinlemek konuşmanın yarısı; onun düşüncesini de sor."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "WHO – Sexual health",
-        "url": "https://www.who.int/health-topics/sexual-health"
+        "title": "ISSM – How does erectile dysfunction impact sexual partners?",
+        "url": "https://www.issm.info/sexual-health-qa/how-does-erectile-dysfunction-impact-sexual-partners"
+      },
+      {
+        "title": "ISSM – How can I manage performance anxiety and psychogenic ED?",
+        "url": "https://www.issm.info/sexual-health-qa/how-can-i-manage-performance-anxiety-and-psychogenic-erectile-dysfunction-ed"
       },
       {
         "title": "NHS – Erection problems (erectile dysfunction)",
@@ -224,28 +504,85 @@
     "id": "performance-anxiety",
     "title": "Performans kaygısı",
     "category": "relationships",
-    "icon": "drama", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "drama",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "drama", "tone": "knowledge",
-        "title": "Çok yaygın",
-        "text": "Performans kaygısı pek çok erkeğin hayatının bir döneminde yaşadığı bir durumdur."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "rotate", "tone": "knowledge",
-        "title": "Kısır döngü",
-        "text": "Bir kez yaşanan zorluk, sonraki seferde endişeye; endişe de vücudun gevşemesini zorlaştırarak yeni zorluklara yol açabilir."
+        "type": "info",
+        "icon": "users",
+        "support": [
+          "heart",
+          "clock"
+        ],
+        "title": "Çok yaygın bir durum",
+        "text": "Arada bir sertleşme sorunu yaşamak çok yaygındır ve çoğu zaman endişelenecek bir şey değildir. Stres, yorgunluk ve kaygı en sık nedenler arasındadır. Bu bir güç ya da erkeklik ölçüsü değil.",
+        "tone": "knowledge"
       },
       {
-        "icon": "wind", "tone": "knowledge",
-        "title": "Bedeni sakinleştirmek",
-        "text": "Yavaş nefes, odağı sonuçtan duyulara kaydırmak ve beklentileri azaltmak döngüyü kırmaya yardımcı olabilir."
+        "type": "info",
+        "icon": "rotate",
+        "support": [
+          "brain",
+          "heartPulse"
+        ],
+        "title": "Kaygı döngüsü",
+        "text": "Endişelenince beden stres hormonları salgılar; bunlar kan akışını azaltıp sertleşmeyi zorlaştırabilir. Zorluk yaşanınca bir sonraki sefer için endişe artar ve döngü kendini besler. Döngüyü kırmak için dikkatini sonuçtan duyulara ver ve baskıyı azalt.",
+        "tone": "knowledge"
       },
       {
-        "icon": "brain", "tone": "knowledge",
-        "title": "Destek almak",
-        "text": "Kaygı sürekli hâle geldiyse cinsel sağlık konusunda deneyimli bir uzmanla konuşmak faydalı olabilir."
+        "type": "myth",
+        "myth": "Bir kez oldu, artık hep olacak.",
+        "fact": "Tek seferlik ya da ara sıra yaşanan zorluklar çok yaygındır ve geleceği göstermez. Kaygıya bağlı sertleşme sorunu yönetilebilir: konuşmak, baskıyı azaltmak ve gerekirse bir uzmanla çalışmak işe yarar.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Kaygı döngüsünü kırmaya en çok hangisi yardım eder?",
+          "options": [
+            "Dikkati performans yerine duyulara vermek",
+            "Her seferinde kendini daha çok zorlamak",
+            "Konuyu hiç düşünmemeye çalışmak"
+          ],
+          "correct": 0,
+          "explain": "Kendini zorlamak ve düşünceyi bastırmaya çalışmak çoğu zaman kaygıyı artırır. Dikkati dokunuşa, sıcaklığa ve nefese vermek baskıyı azaltır. Cinsel terapistlerin kullandığı \"duyulara odaklanma\" egzersizleri de bu fikre dayanır."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "wind",
+        "title": "2 dakika yavaş nefes",
+        "text": "Şimdi ya da yakınlaşmadan önce birkaç dakika yavaş nefes al; nefes verişin alışından biraz uzun olsun. Amaç sertleşmeyi zorlamak değil, bedeni sakinleştirmek.",
+        "action": {
+          "route": "/mind/breathing",
+          "label": "Nefes egzersizini aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "Sorun birkaç haftadır sık sık tekrarlıyorsa",
+          "Sabahları ya da tek başınayken de sertleşme olmuyorsa",
+          "Ağrı, eğrilik ya da başka yeni bir belirti varsa",
+          "Kaygı ya da keyifsizlik günlük hayatını etkiliyorsa"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Ara sıra yaşanan sertleşme sorunu yaygındır ve çoğu zaman geçicidir.",
+          "Kaygı, kan akışını azaltarak kendini besleyen bir döngü kurabilir.",
+          "Dikkati duyulara vermek, baskıyı azaltmak ve yavaş nefes döngüyü kırmaya yardım eder."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
@@ -254,8 +591,8 @@
         "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
       },
       {
-        "title": "Mayo Clinic – Stress management",
-        "url": "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037"
+        "title": "ISSM – How can I manage performance anxiety and psychogenic erectile dysfunction (ED)?",
+        "url": "https://www.issm.info/sexual-health-qa/how-can-i-manage-performance-anxiety-and-psychogenic-erectile-dysfunction-ed"
       }
     ],
     "reviewed": false
@@ -264,38 +601,96 @@
     "id": "intimacy-beyond",
     "title": "Yakınlık sadece cinsellik değil",
     "category": "relationships",
-    "icon": "heart", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "heart",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "heart", "tone": "knowledge",
-        "title": "Geniş bir kavram",
-        "text": "Yakınlık; dokunma, sohbet, birlikte gülmek ve birbirine zaman ayırmak gibi pek çok şeyi kapsar."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "phoneOff", "tone": "knowledge",
-        "title": "Ekransız zaman",
-        "text": "Günde birkaç dakikalık telefonsuz sohbet, bağ kurmanın basit bir yoludur."
+        "type": "info",
+        "icon": "heart",
+        "support": [
+          "hand",
+          "users"
+        ],
+        "title": "Yakınlığın birçok yolu var",
+        "text": "Sarılmak, el ele tutuşmak, birlikte gülmek ve sohbet etmek de yakınlıktır. Cinsel ilişki bunlardan yalnızca biri. Bu küçük anlar güven ve bağlılık hissini besler.",
+        "tone": "knowledge"
       },
       {
-        "icon": "target", "tone": "knowledge",
-        "title": "Baskıyı azaltmak",
-        "text": "Yakınlığı yalnızca cinsel birleşmeye indirgememek, performans baskısını hafifletebilir."
+        "type": "info",
+        "icon": "hand",
+        "support": [
+          "eye",
+          "feather"
+        ],
+        "title": "Duyulara odaklanma",
+        "text": "Cinsel terapide kullanılan bu yöntemde çiftler sırayla birbirine dokunur. Amaç uyarılmak değil; sıcaklığı, dokuyu ve baskıyı fark etmektir. İlk aşamalarda cinsel bölgelere dokunulmaz, böylece “başarmak” baskısı azalır.",
+        "tone": "knowledge"
       },
       {
-        "icon": "calendar", "tone": "knowledge",
-        "title": "Küçük ritüeller",
-        "text": "Haftada bir birlikte yürüyüş, ortak bir yemek ya da sadece sarılarak geçirilen birkaç dakika bağı güçlendirebilir."
+        "type": "info",
+        "icon": "scale",
+        "support": [
+          "heart",
+          "sun"
+        ],
+        "title": "Baskı azalınca yakınlık artar",
+        "text": "Her yakınlaşmanın belli bir şekilde bitmesi gerekmediğini bilmek rahatlatır. Beklenti azaldığında beden de daha kolay gevşer; bu, sertleşme ve zevk için de iyidir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "myth",
+        "myth": "Yakınlık cinsel ilişki demektir.",
+        "fact": "Yakınlık; dokunmayı, konuşmayı ve birlikte zaman geçirmeyi de kapsar. ISSM, sertleşme olmasa bile çiftlerin sarılarak, öpüşerek ve dokunarak yakın kalabileceğini belirtir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Duyulara odaklanma egzersizinin amacı nedir?",
+          "options": [
+            "Dokunuşu baskı olmadan fark etmek",
+            "Olabildiğince hızlı uyarılmak",
+            "Performansı ölçmek"
+          ],
+          "correct": 0,
+          "explain": "Bu yöntem, beklenti kaygısını azaltmak için geliştirildi. Dikkat sonuca değil, o anki duyulara verilir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "smartphone",
+        "title": "Telefonsuz 20 dakika",
+        "text": "Bu hafta partnerinle telefonları başka bir odaya bırakıp 20 dakika birlikte vakit geçir: bir yürüyüş, bir yemek ya da sadece sohbet. Bir şey başarmak zorunda değilsiniz.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Yakınlık dokunmayı, konuşmayı ve birlikte zaman geçirmeyi de kapsar.",
+          "Duyulara odaklanma, baskıyı azaltan bir cinsel terapi yöntemidir.",
+          "Beklenti azaldıkça beden de ilişki de rahatlar."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "WHO – Sexual health",
-        "url": "https://www.who.int/health-topics/sexual-health"
+        "title": "SMSNA – What is sensate focus and how does it work?",
+        "url": "https://www.smsna.org/patients/did-you-know/what-is-sensate-focus-and-how-does-it-work"
       },
       {
-        "title": "NHS – 5 steps to mental wellbeing",
-        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/"
+        "title": "ISSM – How does erectile dysfunction impact sexual partners?",
+        "url": "https://www.issm.info/sexual-health-qa/how-does-erectile-dysfunction-impact-sexual-partners"
+      },
+      {
+        "title": "WHO – Sexual health",
+        "url": "https://www.who.int/health-topics/sexual-health"
       }
     ],
     "reviewed": false
@@ -304,38 +699,95 @@
     "id": "water",
     "title": "Su ve mesane",
     "category": "nutrition",
-    "icon": "cup", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "cup",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "cup", "tone": "knowledge",
-        "title": "Az içmek çözüm değil",
-        "text": "İdrar kaçırma endişesiyle su içmeyi azaltmak idrarı yoğunlaştırarak mesaneyi daha çok tahriş edebilir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "ruler", "tone": "knowledge",
-        "title": "Ne kadar?",
-        "text": "Genel öneri gün boyunca düzenli sıvı almaktır; ihtiyaç kilo, hava ve aktiviteye göre değişir."
+        "type": "info",
+        "icon": "droplet",
+        "support": [
+          "cup",
+          "sun"
+        ],
+        "title": "Ne kadar sıvı?",
+        "text": "NHS, günde yaklaşık 6–8 bardak sıvı önerir. Su, süt ve şekersiz içecekler buna dahildir. Sıcak havada, spor yaparken ya da hastayken daha fazlası gerekebilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "moon", "tone": "knowledge",
-        "title": "Akşam düzeni",
-        "text": "Gece sık tuvalete kalkıyorsan, sıvının çoğunu gündüz almayı ve yatmadan önceki saatlerde azaltmayı deneyebilirsin."
+        "type": "info",
+        "icon": "eye",
+        "support": [
+          "droplet",
+          "check"
+        ],
+        "title": "İdrar rengiyle kontrol et",
+        "text": "Açık saman sarısı idrar genellikle yeterli sıvı aldığını gösterir. Koyu sarı ve keskin kokulu idrar daha fazla içmen gerektiğine işaret edebilir. Az su içmek idrarı yoğunlaştırır ve mesaneyi tahriş edebilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "search", "tone": "knowledge",
-        "title": "İpucu",
-        "text": "Açık sarı idrar genellikle yeterli sıvı aldığının işaretidir."
+        "type": "info",
+        "icon": "coffee",
+        "support": [
+          "milk",
+          "clock"
+        ],
+        "title": "Kafein ve gazlı içecekler",
+        "text": "Kahve, çay, kola ve gazlı içecekler bazı kişilerde sıkışma hissini artırabilir. Hepsini bırakmak gerekmez; azaltıp farkı gözlemleyebilirsin. İçtiklerini güne yaymak, bir anda çok içmekten daha iyidir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Yoğun idrar mesane duvarını tahriş edebilir ve sık tuvalete gitme isteğine yol açabilir. Bu yüzden mesane sorunlarında genellikle sıvıyı kısmak değil, dengeli içmek önerilir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Yeterli sıvı aldığını en kolay nasıl anlarsın?",
+          "options": [
+            "İdrarının açık saman sarısı olmasından",
+            "Hiç susamamaktan",
+            "Günde bir kez tuvalete gitmekten"
+          ],
+          "correct": 0,
+          "explain": "İdrar rengi pratik bir göstergedir. Susama hissi bazen geç gelir; çok seyrek idrara çıkmak da az sıvı aldığını gösterebilir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "bell",
+        "title": "Kendine su hatırlatıcısı kur",
+        "text": "Telefonunun saatine ya da takvimine gün içinde 3–4 su hatırlatıcısı ekle. Masana bir şişe su koymak da işe yarar.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Günde yaklaşık 6–8 bardak sıvı hedefle; sıcakta ve sporda daha fazla.",
+          "Açık saman sarısı idrar iyi bir göstergedir.",
+          "Kafein ve gazlı içecekler bazı kişilerde sıkışmayı artırabilir."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "NHS – Water, drinks and your health",
+        "title": "NHS – Water, drinks and hydration",
         "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/water-drinks-nutrition/"
       },
       {
         "title": "NHS – Urinary incontinence",
         "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      },
+      {
+        "title": "Gloucestershire Hospitals NHS – Fluid and caffeine intake for bladder and bowel health",
+        "url": "https://www.gloshospitals.nhs.uk/media/documents/Fluid_and_caffeine_intake_for_bladder_and_bowel_health_GHPI0533_02_23.pdf"
       }
     ],
     "reviewed": false
@@ -344,29 +796,70 @@
     "id": "plate",
     "title": "Damar dostu tabak",
     "category": "nutrition",
-    "icon": "salad", "tone": "knowledge",
+    "icon": "salad",
+    "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "icon": "salad", "tone": "knowledge",
-        "title": "Yarısı sebze",
-        "text": "Tabağın yarısını sebze ve meyveyle doldurmak basit ve etkili bir başlangıç."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "wheat", "tone": "knowledge",
-        "title": "Tam tahıl",
-        "text": "Beyaz ekmek ve pirinç yerine tam tahıllı seçenekler lif alımını artırır."
+        "type": "info",
+        "icon": "salad",
+        "support": [
+          "fish",
+          "apple"
+        ],
+        "title": "Damar dostu beslenme",
+        "text": "Sebze, meyve, tam tahıl, baklagil, balık ve zeytinyağı ağırlıklı Akdeniz tipi beslenme kalp ve damar sağlığını destekler. Damarlar sağlıklı olunca sertleşme için gereken kan akışı da desteklenir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "leaf", "tone": "knowledge",
-        "title": "Yağ seçimi",
-        "text": "Zeytinyağı, kuruyemiş ve balık gibi sağlıklı yağ kaynaklarını tercih et; işlenmiş et ve kızartmaları sınırla."
+        "type": "info",
+        "icon": "utensils",
+        "support": [
+          "wheat",
+          "drumstick"
+        ],
+        "title": "Tabak modeli",
+        "text": "Tabağının yarısını sebze ve salatayla, çeyreğini balık, tavuk ya da baklagil gibi bir proteinle, kalan çeyreğini bulgur, tam buğday ekmeği ya da esmer pirinç gibi tam tahılla doldur. Yanına bir porsiyon meyve ekle.",
+        "tone": "knowledge"
       },
       {
-        "icon": "utensils", "tone": "knowledge",
-        "title": "Tuz ve şeker",
-        "text": "Fazla tuz tansiyonu, fazla şeker kilo ve kan şekerini etkileyebilir.",
-        "didYouKnow": "WHO, günlük tuz alımının 5 gramın altında tutulmasını önerir."
+        "type": "didYouKnow",
+        "text": "Metabolik sendromu olan 65 erkekle yapılan bir çalışmada, 2 yıl Akdeniz tipi beslenen grupta sertleşme işlevi kontrol grubuna göre daha çok düzeldi. Obez erkeklerle yapılan başka bir çalışmada kilo verme ve hareket, katılımcıların yaklaşık üçte birinde cinsel işlevi iyileştirdi.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Tabak modeline göre tabağın yarısı neyle dolmalı?",
+          "options": [
+            "Sebze ve salata",
+            "Ekmek ve pilav",
+            "Et"
+          ],
+          "correct": 0,
+          "explain": "Sebzeler lif, vitamin ve mineral sağlar ve tok tutar. Protein ve tam tahıl tabağın kalan yarısını paylaşır."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "utensils",
+        "title": "Bir öğünü tabak modeliyle hazırla",
+        "text": "Bu hafta en az bir öğünü tabak modeliyle hazırla: yarısı sebze, çeyreği protein, çeyreği tam tahıl. İstersen tabağının fotoğrafını çekip kendini takip et.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Akdeniz tipi beslenme damar sağlığını destekler.",
+          "Tabak modeli: yarısı sebze, çeyreği protein, çeyreği tam tahıl.",
+          "Kilo vermek ve hareket de cinsel işleve katkı sağlayabilir."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
@@ -375,8 +868,12 @@
         "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
       },
       {
-        "title": "Mayo Clinic – Erectile dysfunction",
-        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+        "title": "Esposito K ve ark. (2006) – Mediterranean diet improves erectile function in subjects with the metabolic syndrome. Int J Impot Res 18",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      },
+      {
+        "title": "Esposito K ve ark. (2004) – Effect of lifestyle changes on erectile dysfunction in obese men: a randomized controlled trial. JAMA 291",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15213209/"
       }
     ],
     "reviewed": false
@@ -385,38 +882,89 @@
     "id": "alcohol",
     "title": "Alkol ve performans",
     "category": "nutrition",
-    "icon": "glass", "tone": "knowledge",
+    "icon": "glass",
+    "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "icon": "glass", "tone": "knowledge",
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "moon",
+        "support": [
+          "zap",
+          "clock"
+        ],
         "title": "Kısa vadede",
-        "text": "Alkol bazı kişilerde rahatlatıcı gibi görünse de fazlası sertleşmeyi ve hissetmeyi zorlaştırabilir."
+        "text": "Alkol sinir sistemini yavaşlatır; uyarılmayı, sertleşmeyi ve boşalmayı zorlaştırabilir. Uykuyu da bozar: uykuya dalmayı kolaylaştırsa bile gecenin ikinci yarısında uykuyu bölebilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "calendar", "tone": "knowledge",
+        "type": "info",
+        "icon": "heartPulse",
+        "support": [
+          "trendDown",
+          "shield"
+        ],
         "title": "Uzun vadede",
-        "text": "Düzenli ve yüksek miktarda alkol hormonları, uykuyu ve damar sağlığını olumsuz etkileyebilir."
+        "text": "Düzenli ve fazla alkol tansiyonu yükseltir, karaciğeri yorar ve hormon dengesini etkileyebilir. Bunlar zamanla damar sağlığını ve cinsel işlevi olumsuz etkiler. Dünya Sağlık Örgütü'ne göre sağlık için güvenli kabul edilen bir alkol miktarı yoktur.",
+        "tone": "knowledge"
       },
       {
-        "icon": "calculator", "tone": "knowledge",
-        "title": "Azaltma fikirleri",
-        "text": "Alkolsüz günler belirlemek, küçük bardak kullanmak ve her içkinin arasına su koymak işe yarayabilir."
+        "type": "myth",
+        "myth": "Biraz alkol rahatlatır, performansı artırır.",
+        "fact": "Az miktarda alkol bazı kişilerde çekingenliği azaltabilir, ama bedende tersini yapar: sertleşmeyi ve hissi zayıflatabilir. Miktar arttıkça bu etki belirginleşir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "stethoscope", "tone": "knowledge",
-        "title": "Ne zaman yardım?",
-        "text": "Alkolü azaltmakta zorlanıyorsan bu konuda destek veren sağlık hizmetlerinden yardım almak güçlü bir adımdır."
+        "type": "quiz",
+        "quiz": {
+          "question": "Alkol uykuyu nasıl etkiler?",
+          "options": [
+            "Gecenin ikinci yarısında uykuyu bölebilir",
+            "Uykuyu her zaman derinleştirir",
+            "Hiç etkilemez"
+          ],
+          "correct": 0,
+          "explain": "Alkol uykuya dalmayı kolaylaştırsa da uykunun kalitesini düşürür ve gece uyanmalarını artırabilir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "leaf",
+        "title": "Alkolsüz Kamp'a göz at",
+        "text": "Alkolü azaltmak ya da bir süre ara vermek istersen, Alkolsüz Kamp adım adım bir plan sunar. Göz atmak seni hiçbir şeye bağlamaz.",
+        "action": {
+          "route": "/campus/alcohol",
+          "label": "Alkolsüz Kamp'ı aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Alkol kısa vadede sertleşmeyi ve uykuyu bozabilir.",
+          "Uzun vadede tansiyonu, damarları ve hormon dengesini etkiler.",
+          "Azaltmak ya da ara vermek hem uykuya hem cinsel sağlığa iyi gelir."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
       {
         "title": "NHS – Alcohol advice",
         "url": "https://www.nhs.uk/live-well/alcohol-advice/"
       },
       {
-        "title": "NHS – Erection problems (erectile dysfunction)",
-        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+        "title": "WHO – Alcohol fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/alcohol"
       }
     ],
     "reviewed": false
@@ -425,34 +973,80 @@
     "id": "sleep-hormones",
     "title": "Uyku ve hormonlar",
     "category": "sleep",
-    "icon": "moon", "tone": "knowledge",
+    "icon": "moon",
+    "tone": "knowledge",
     "minutes": 2,
     "slides": [
       {
-        "icon": "moon", "tone": "knowledge",
-        "title": "Gece yenilenme",
-        "text": "Vücudun pek çok hormonu uyku sırasında düzenlenir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "timer", "tone": "knowledge",
-        "title": "Kısa uyku",
-        "text": "Bazı çalışmalarda kısıtlı uykunun genç erkeklerde testosteron düzeylerini düşürebildiği gözlenmiştir."
+        "type": "info",
+        "icon": "moon",
+        "support": [
+          "zap",
+          "clock"
+        ],
+        "title": "Uyku ve testosteron",
+        "text": "Erkeklerde günlük testosteron salgısının önemli bir kısmı uykuda gerçekleşir. Bu yüzden düzenli ve yeterli uyku, hormon dengesinin doğal bir parçasıdır.",
+        "tone": "knowledge"
       },
       {
-        "icon": "bed", "tone": "knowledge",
-        "title": "Hedef",
-        "text": "Yetişkinlerin çoğu için gecede 7–9 saat uyku önerilir."
+        "type": "info",
+        "icon": "trendDown",
+        "support": [
+          "bed",
+          "alarm"
+        ],
+        "title": "Kısa uykunun etkisi",
+        "text": "Sağlıklı genç erkeklerle yapılan küçük bir çalışmada, bir hafta boyunca gecede yaklaşık 5 saat uyumak gündüz testosteron düzeyini %10–15 kadar düşürdü. Bu tek ve küçük bir çalışma, ama uykunun önemini gösteriyor.",
+        "tone": "knowledge"
       },
       {
-        "icon": "battery", "tone": "knowledge",
-        "title": "Enerji ve istek",
-        "text": "Yorgunluk cinsel isteği ve ruh hâlini doğrudan etkileyebilir; uyku bu yüzden bir öncelik."
+        "type": "didYouKnow",
+        "text": "Amerikan Uyku Tıbbı Akademisi, yetişkinlerin gecede en az 7 saat uyumasını önerir. Düzenli olarak 7 saatten az uyumak; kilo artışı, yüksek tansiyon ve kalp hastalıklarıyla ilişkilendirilmiştir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Bir haftalık kısa uyku çalışmasında testosterona ne oldu?",
+          "options": [
+            "%10–15 kadar düştü",
+            "İki katına çıktı",
+            "Hiç değişmedi"
+          ],
+          "correct": 0,
+          "explain": "Çalışma küçük olsa da sonuç, uykunun hormon dengesi için önemini gösteriyor. Yetişkinler için en az 7 saat uyku önerilir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "alarm",
+        "title": "Bu gece yatış saatini sabitle",
+        "text": "Bu hafta her gece aynı saatte yatmayı dene ve 7–8 saatlik uykuya yer aç. Yatış saatinden 30 dakika öncesine telefonunda bir hatırlatıcı kur.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Testosteronun önemli bir kısmı uykuda salgılanır.",
+          "Bir hafta kısa uyku bile testosteronu düşürebilir.",
+          "Yetişkinler için hedef: gecede en az 7 saat, düzenli saatlerde."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "PubMed – Sleep restriction & testosterone (search)",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=sleep+restriction+testosterone+young+men"
+        "title": "Leproult R, Van Cauter E (2011) – Effect of 1 week of sleep restriction on testosterone levels in young healthy men. JAMA 305",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21632481/"
+      },
+      {
+        "title": "AASM & Sleep Research Society (2015) – Recommended amount of sleep for a healthy adult",
+        "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
       },
       {
         "title": "NHS – How to get to sleep",
@@ -465,28 +1059,85 @@
     "id": "sleep-routine",
     "title": "Daha iyi uyku için akşam rutini",
     "category": "sleep",
-    "icon": "moon", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "moon",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "moon", "tone": "knowledge",
-        "title": "Sabit saat",
-        "text": "Her gün aynı saatte yatıp kalkmak iç saatini düzenler — hafta sonu da."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "smartphone", "tone": "knowledge",
-        "title": "Ekran molası",
-        "text": "Yatmadan 30–60 dakika önce ekranları bırakmak uykuya geçişi kolaylaştırabilir."
+        "type": "info",
+        "icon": "sunrise",
+        "support": [
+          "alarm",
+          "sun"
+        ],
+        "title": "Her gün aynı saatte kalk",
+        "text": "Hafta sonu da dahil her gün aynı saatte kalkmak iç saatini düzenler. Sabah gün ışığı almak da akşam uykunun daha kolay gelmesine yardım eder.",
+        "tone": "knowledge"
       },
       {
-        "icon": "coffee", "tone": "knowledge",
-        "title": "Kafein saati",
-        "text": "Kafeinin etkisi saatlerce sürebilir; öğleden sonra kahveyi azaltmayı dene."
+        "type": "info",
+        "icon": "smartphone",
+        "support": [
+          "moon",
+          "bulb"
+        ],
+        "title": "Işığı ve ekranı azalt",
+        "text": "Yatmadan önceki saatte ışıkları kıs ve ekranlardan uzaklaş. Kitap okumak, ılık bir duş ya da hafif esneme bedene günün bittiğini haber verir. Akşamları kafeinden de uzak dur.",
+        "tone": "knowledge"
       },
       {
-        "icon": "wind", "tone": "knowledge",
-        "title": "Gevşeme",
-        "text": "Yatakta 4-7-8 nefesi veya beden taraması zihni yavaşlatmana yardımcı olabilir."
+        "type": "info",
+        "icon": "clock",
+        "support": [
+          "sofa",
+          "book"
+        ],
+        "title": "Uyuyamazsan kalk",
+        "text": "Yatakta yaklaşık 20 dakika uyuyamazsan kalk ve loş ışıkta sakin bir şey yap. Uykun gelince geri dön. Böylece beynin yatağı uyanık kıvranmakla değil, uykuyla eşleştirir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Uzmanlar yetişkinler için gecede en az 7 saat uyku önerir. Düzenli bir akşam rutini uykuya dalmayı ve sabah dinç uyanmayı kolaylaştırır.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Yatakta uzun süre uyuyamazsan ne yapmalısın?",
+          "options": [
+            "Kalkıp loş ışıkta sakin bir şey yapmak",
+            "Telefonda gezinmek",
+            "Saati sürekli kontrol etmek"
+          ],
+          "correct": 0,
+          "explain": "Ekran ışığı ve saate bakmak uyanıklığı artırır. Kısa bir ara verip uykun gelince yatağa dönmek daha çok işe yarar."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "thought",
+        "title": "10 dakika zihin boşaltma",
+        "text": "Yatmadan önce aklındakileri yazıya dökmek zihni sakinleştirebilir. Bu akşam uygulamadaki zihin boşaltma egzersizini dene.",
+        "action": {
+          "route": "/mind/unload",
+          "label": "Zihin boşaltmayı aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Her gün aynı saatte kalk; sabah gün ışığı al.",
+          "Yatmadan önce ışığı, ekranı ve kafeini azalt.",
+          "20 dakikada uyuyamazsan kalk, uykun gelince dön."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
@@ -495,8 +1146,8 @@
         "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
       },
       {
-        "title": "Mayo Clinic – Sleep tips",
-        "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379"
+        "title": "AASM & Sleep Research Society (2015) – Recommended amount of sleep for a healthy adult",
+        "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
       }
     ],
     "reviewed": false
@@ -505,38 +1156,94 @@
     "id": "night-bathroom",
     "title": "Gece tuvalete kalkmak",
     "category": "sleep",
-    "icon": "moon", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "moon",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "moon", "tone": "knowledge",
-        "title": "Noktüri",
-        "text": "Gece birden fazla kez tuvalete kalkmaya noktüri denir ve yaşla birlikte daha sık görülür."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "cup", "tone": "knowledge",
-        "title": "Akşam sıvısı",
-        "text": "Akşam saatlerinde özellikle kafeinli ve alkollü içecekleri azaltmak fark yaratabilir."
+        "type": "info",
+        "icon": "moon",
+        "support": [
+          "droplet",
+          "clock"
+        ],
+        "title": "Gece idrara kalkmak",
+        "text": "Uykudan uyanıp idrara gitmeye noktüri denir. Yaş ilerledikçe sıklaşır ve çok yaygındır. Gecede bir kez kalkmak çoğu zaman sorun değildir; iki ve daha fazlası uykuyu bölebilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "stethoscope", "tone": "knowledge",
-        "title": "Altta yatan nedenler",
-        "text": "Prostat büyümesi, diyabet veya uyku apnesi gibi durumlar noktüriye yol açabilir; sık oluyorsa doktora danış."
+        "type": "info",
+        "icon": "cup",
+        "support": [
+          "coffee",
+          "clock"
+        ],
+        "title": "Akşam sıvıyı ayarla",
+        "text": "Gün boyu yeterince iç, ama yatmadan önceki 2 saatte sıvıyı azalt. Akşamları kahve, çay ve alkolden kaçın; bunlar idrar miktarını artırabilir. Yatmadan hemen önce tuvalete gitmeyi alışkanlık hâline getir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "bed", "tone": "knowledge",
-        "title": "Yatmadan önce",
-        "text": "Yatmadan hemen önce tuvalete gitmek ve gün içinde pelvik taban egzersizlerine devam etmek bazı kişilere yardımcı olabilir."
+        "type": "didYouKnow",
+        "text": "Gün içinde bacaklarda biriken sıvı, yatınca dolaşıma geri döner ve gece idrar olarak atılabilir. Akşam bacaklarını bir süre yükselterek dinlenmek bu yüzden işe yarayabilir. Yüksek sesli horlama ve uykuda nefes durması da gece idrara kalkmayla ilişkili olabilir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Yatmadan önceki 2 saatte hangisi en çok yardım eder?",
+          "options": [
+            "Sıvıyı azaltmak ve kafeinden kaçınmak",
+            "Bol çay içmek",
+            "Tuvaleti ertelemek"
+          ],
+          "correct": 0,
+          "explain": "Akşam sıvıyı ve kafeini azaltmak gece üretilen idrarı azaltır. Yatmadan önce tuvalete gitmek de yardımcı olur."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "clock",
+        "title": "Akşam sıvı hatırlatıcısı",
+        "text": "Yatış saatinden 2 saat öncesine telefonunda bir hatırlatıcı kur: “Bugünün son büyük bardağı.” Bir hafta boyunca gece kaç kez kalktığını not et.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "Gecede iki kereden fazla kalkıyorsan ve bu uykunu bozuyorsa",
+          "İdrarda kan, yanma ya da ateş varsa",
+          "Çok susuyor ve çok idrara çıkıyorsan",
+          "Yüksek sesli horlama ya da uykuda nefes durması fark edildiyse"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Gece idrara kalkmak yaygındır; iki ve üzeri uykuyu bölebilir.",
+          "Yatmadan önceki 2 saatte sıvıyı ve kafeini azalt.",
+          "Bacak şişliği ve horlama da işin içinde olabilir; doktorla konuş."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "NHS – Urinary incontinence",
-        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+        "title": "European Association of Urology (hasta bilgisi) – Self-management of nocturia symptoms",
+        "url": "https://patients.uroweb.org/condition/nocturia/treatment-options-nocturia/self-management-of-nocturia-symptoms"
       },
       {
-        "title": "Mayo Clinic – Sleep tips",
-        "url": "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/sleep/art-20048379"
+        "title": "Oxford Health NHS – Understanding nocturia",
+        "url": "https://oxfordhealth.nhs.uk/ababs/advice/understanding-nocturia"
+      },
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
       }
     ],
     "reviewed": false
@@ -545,34 +1252,92 @@
     "id": "stress-body",
     "title": "Stres bedende nasıl hissedilir?",
     "category": "stress",
-    "icon": "tornado", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "tornado",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "tornado", "tone": "knowledge",
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "zap",
+        "support": [
+          "heartPulse",
+          "wind"
+        ],
         "title": "Savaş ya da kaç",
-        "text": "Stres anında vücut alarm durumuna geçer: kalp hızlanır, kaslar gerilir, nefes sığlaşır."
+        "text": "Tehlike hissettiğinde beden adrenalin ve kortizol salgılar: kalbin hızlanır, nefesin sıklaşır, kasların gerilir. Kısa süreli bir tehlikede işe yarayan bu tepki, stres sürekli olduğunda bedeni yorar.",
+        "tone": "knowledge"
       },
       {
-        "icon": "blocks", "tone": "knowledge",
-        "title": "Gergin kaslar",
-        "text": "Uzun süreli stres boyun, omuz ve hatta pelvik taban kaslarında istemsiz gerginliğe yol açabilir."
+        "type": "info",
+        "icon": "body",
+        "support": [
+          "dumbbell",
+          "hand"
+        ],
+        "title": "Gerilen kaslar",
+        "text": "Uzun süren stres kasları sürekli tetikte tutar; boyun, omuz ve çene en sık hissedilen yerlerdir. Pelvik taban da gerilebilir. Sürekli gergin bir pelvik taban ağrıya, tuvalette ya da cinsel işlevde zorluklara katkıda bulunabilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "wind", "tone": "knowledge",
-        "title": "Fren pedalı",
-        "text": "Yavaş ve uzun nefes vermek, vücudun sakinleşme sistemini devreye sokmanın en kolay yollarından biridir."
+        "type": "info",
+        "icon": "feather",
+        "support": [
+          "wind",
+          "check"
+        ],
+        "title": "Gevşemek de bir beceri",
+        "text": "Kası sıkmak kadar bırakmayı öğrenmek de önemlidir. Nefes egzersizleri, beden taraması ve düzenli hareket kas gerginliğini azaltır. Antrenmanlarındaki gevşeme anları da bu becerinin parçası.",
+        "tone": "knowledge"
       },
       {
-        "icon": "flower", "tone": "knowledge",
-        "title": "Küçük molalar",
-        "text": "Gün içinde 1–2 dakikalık nefes molaları birikimli bir etki yaratabilir."
+        "type": "myth",
+        "myth": "Stres sadece kafada olur.",
+        "fact": "Stres bedende de hissedilir: kas gerginliği, baş ağrısı, sindirim sorunları ve uyku bozukluğu sık görülen işaretlerdir. Amerikan Psikoloji Derneği, gevşeme tekniklerinin kas gerginliğini azalttığını belirtir.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Uzun süren stres kasları nasıl etkiler?",
+          "options": [
+            "Sürekli gergin tutabilir",
+            "Her zaman güçlendirir",
+            "Hiç etkilemez"
+          ],
+          "correct": 0,
+          "explain": "Kısa süreli stres kasları bir anlığına gerer, sonra bırakır. Stres sürdüğünde kaslar tetikte kalır; bu da ağrı ve yorgunluğa yol açabilir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "body",
+        "title": "Beden taraması yap",
+        "text": "Birkaç dakikanı ayır ve bedenini baştan ayağa tara: nerede gerginlik var, fark et ve nefes verirken bırak.",
+        "action": {
+          "route": "/mind/body-scan",
+          "label": "Beden taramasını aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Stres tepkisi kasları gerer; sürekli stres bedeni yorar.",
+          "Pelvik taban da stresle gerilebilir.",
+          "Gevşemek, sıkmak kadar önemli bir beceridir."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "Mayo Clinic – Stress management",
-        "url": "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/stress/art-20046037"
+        "title": "American Psychological Association – Stress effects on the body",
+        "url": "https://www.apa.org/topics/stress/body"
       },
       {
         "title": "NHS – Tips to reduce stress",
@@ -585,38 +1350,95 @@
     "id": "worry-time",
     "title": "Endişe zamanı tekniği",
     "category": "stress",
-    "icon": "notebook", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "notebook",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "notebook", "tone": "knowledge",
-        "title": "Erteleme",
-        "text": "Endişeler gün boyu gelir; her geldiğinde bir kenara not edip \"bunu endişe zamanımda düşüneceğim\" diyebilirsin."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "alarm", "tone": "knowledge",
-        "title": "15 dakika",
-        "text": "Her gün aynı saatte 15 dakikalık bir \"endişe zamanı\" belirle ve notlarına o zaman bak."
+        "type": "info",
+        "icon": "notebook",
+        "support": [
+          "pen",
+          "clock"
+        ],
+        "title": "Endişeyi ertele",
+        "text": "Gün içinde bir endişe aklına geldiğinde onu hemen çözmeye çalışma. Kısaca bir yere not et ve kendine “Bunu endişe zamanımda düşüneceğim” de. Sonra yaptığın işe geri dön.",
+        "tone": "knowledge"
       },
       {
-        "icon": "pen", "tone": "knowledge",
-        "title": "Yazıya dökmek",
-        "text": "Düşünceleri yazmak onları somutlaştırır ve kafada dönmelerini azaltabilir. Zihin Boşaltma aracını deneyebilirsin."
+        "type": "info",
+        "icon": "clock",
+        "support": [
+          "calendar",
+          "sunset"
+        ],
+        "title": "Endişe zamanı",
+        "text": "Her gün aynı saatte, yatmadan en az birkaç saat önce, 15 dakikalık bir zaman ayır. Not ettiklerini oku. Bazıları artık önemsiz gelecek; kalanlar için yapabileceğin bir adım var mı, düşün.",
+        "tone": "knowledge"
       },
       {
-        "icon": "search", "tone": "knowledge",
+        "type": "info",
+        "icon": "puzzle",
+        "support": [
+          "check",
+          "thought"
+        ],
         "title": "Çözülebilir mi?",
-        "text": "Endişe zamanında her madde için sor: Bununla ilgili bugün atabileceğim küçük bir adım var mı? Yoksa bırakmayı dene."
+        "text": "Endişeleri ikiye ayır: üzerinde bir şey yapabileceklerin ve “ya şöyle olursa” türünden varsayımlar. Birincisi için küçük bir adım planla; ikincisini fark et ve bırak. Süre bitince defteri kapat.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Bu teknik bilişsel davranışçı terapiden gelir ve NHS'in kendi kendine yardım önerileri arasındadır. Düzenli uygulayınca gün içinde endişelere daha az kapıldığını fark edebilirsin.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Gün içinde bir endişe gelince ne yaparsın?",
+          "options": [
+            "Not edip endişe zamanına bırakırım",
+            "Hemen saatlerce düşünürüm",
+            "Yok sayıp bastırmaya çalışırım"
+          ],
+          "correct": 0,
+          "explain": "Bastırmaya çalışmak endişeyi çoğu zaman güçlendirir; saatlerce düşünmek de yorar. Ertelemek, endişeye bir yer verirken günü ondan korur."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "calendar",
+        "title": "Yarın için endişe saati belirle",
+        "text": "Yarın için 15 dakikalık bir endişe zamanı seç ve takvimine yaz; yatma saatine yakın olmasın. Gün içinde gelen endişeleri bir notta topla.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Gelen endişeyi not et ve endişe zamanına ertele.",
+          "Her gün aynı saatte 15 dakika ayır; yatmadan çok önce.",
+          "Çözülebilir olana adım planla, varsayımı fark edip bırak."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "NHS – Tips to reduce stress",
-        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+        "title": "NHS Every Mind Matters – Tackling your worries",
+        "url": "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/tackling-your-worries"
       },
       {
-        "title": "NHS – Mindfulness",
-        "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
+        "title": "Oxford Health NHS – Set aside worry time",
+        "url": "https://oxfordhealth.nhs.uk/camhs/self-care/sleep/anxiety-worry/worry-time/"
+      },
+      {
+        "title": "NHS – Tips to reduce stress",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
       }
     ],
     "reviewed": false
@@ -625,28 +1447,86 @@
     "id": "mindfulness",
     "title": "Farkındalık nedir?",
     "category": "stress",
-    "icon": "leaf", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "leaf",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "leaf", "tone": "knowledge",
-        "title": "Şimdi ve burada",
-        "text": "Farkındalık, dikkatini yargılamadan şu anki deneyimine vermektir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "coffee", "tone": "knowledge",
-        "title": "Günlük hayatta",
-        "text": "Bir fincan çayı içerken sadece sıcaklığına, kokusuna ve tadına odaklanmak bile bir farkındalık pratiğidir."
+        "type": "info",
+        "icon": "leaf",
+        "support": [
+          "eye",
+          "wind"
+        ],
+        "title": "Şu ana dikkat",
+        "text": "Farkındalık, şu anda olanlara, yani düşüncelerine, hislerine, seslere ve bedenindeki duyumlara yargılamadan dikkat vermektir. Mistik bir şey değil; düzenli çalıştırılabilen bir dikkat egzersizidir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "repeat", "tone": "knowledge",
-        "title": "Dikkat kaçar",
-        "text": "Zihin dağılır; bu başarısızlık değil. Fark edip nazikçe geri dönmek pratiğin kendisidir."
+        "type": "info",
+        "icon": "brain",
+        "support": [
+          "thought",
+          "repeat"
+        ],
+        "title": "Akıl dağılınca",
+        "text": "Pratik sırasında aklın başka yere kayacak; bu normaldir ve hata değildir. Fark ettiğin an dikkatini nazikçe nefese geri getir. Her geri dönüş egzersizin kendisidir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "timer", "tone": "knowledge",
-        "title": "Kısa başla",
-        "text": "Günde 2–3 dakikalık pratik bile başlangıç için yeterli. Nefes aracındaki 1 dakikalık seçenekle deneyebilirsin."
+        "type": "info",
+        "icon": "wind",
+        "support": [
+          "clock",
+          "sofa"
+        ],
+        "title": "1 dakikalık deneme",
+        "text": "Rahat otur, gözlerini kapat ya da bir noktaya bak. Nefesin burnundan girip çıkışını fark et. Bir dakika boyunca saymadan, değiştirmeden sadece izle. Dikkatin kayarsa nefese dön.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "myth",
+        "myth": "Farkındalık için kafanı tamamen boşaltman gerekir.",
+        "fact": "Amaç düşünceleri durdurmak değil, onları fark edip içine çekilmeden nefese dönmektir. Düşüncelerin gelmesi pratiğin doğal bir parçasıdır.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Pratik sırasında aklın dağılırsa ne yaparsın?",
+          "options": [
+            "Fark edip nazikçe nefese dönerim",
+            "Başaramadığımı düşünüp bırakırım",
+            "Düşünceleri zorla durdurmaya çalışırım"
+          ],
+          "correct": 0,
+          "explain": "Akıl dağılır; önemli olan fark edip geri dönmek. Zorla durdurmaya çalışmak ise gerginliği artırır."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "wind",
+        "title": "1 dakika nefese dikkat",
+        "text": "Şimdi bir dakika ayır ve nefesine dikkat ver. İstersen uygulamadaki nefes egzersiziyle başla.",
+        "action": {
+          "route": "/mind/breathing",
+          "label": "Nefes egzersizini aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Farkındalık, şu ana yargısız dikkat vermektir.",
+          "Akıl dağılır; fark edip nazikçe geri dönmek pratiğin kendisi.",
+          "Günde bir dakikayla başlamak bile yeterli bir adım."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
@@ -655,8 +1535,8 @@
         "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
       },
       {
-        "title": "NHS – 5 steps to mental wellbeing",
-        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/"
+        "title": "NCCIH – Meditation and mindfulness: what you need to know",
+        "url": "https://www.nccih.nih.gov/health/meditation-and-mindfulness-what-you-need-to-know"
       }
     ],
     "reviewed": false
@@ -665,35 +1545,100 @@
     "id": "move-more",
     "title": "Daha çok hareket",
     "category": "exercise",
-    "icon": "footprints", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "footprints",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "footprints", "tone": "knowledge",
-        "title": "Öneri",
-        "text": "WHO yetişkinler için haftada en az 150–300 dakika orta yoğunlukta aerobik aktivite öneriyor."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "puzzle", "tone": "knowledge",
-        "title": "Parçalara böl",
-        "text": "Günde 3 kez 10 dakikalık yürüyüş de sayılır."
+        "type": "info",
+        "icon": "footprints",
+        "support": [
+          "clock",
+          "heartPulse"
+        ],
+        "title": "Ne kadar hareket?",
+        "text": "Dünya Sağlık Örgütü yetişkinlere haftada 150–300 dakika orta şiddette hareket önerir: tempolu yürüyüş, bisiklet ya da yüzme gibi. Buna ek olarak haftada en az 2 gün kuvvet çalışması yapılmalı.",
+        "tone": "knowledge"
       },
       {
-        "icon": "chair", "tone": "knowledge",
-        "title": "Oturmayı kes",
-        "text": "Uzun süre oturuyorsan her saat birkaç dakika kalkıp hareket et.",
-        "didYouKnow": "Az hareket bile hiç hareketsizlikten iyidir."
+        "type": "info",
+        "icon": "chair",
+        "support": [
+          "alarm",
+          "footprints"
+        ],
+        "title": "Uzun oturmayı böl",
+        "text": "Uzun süre hareketsiz kalmak sağlığı olumsuz etkiler. Saatte bir birkaç dakika kalk, yürü ya da esne. Az hareket bile hiç yoktan iyidir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "heart", "tone": "knowledge",
-        "title": "Neden önemli?",
-        "text": "Düzenli hareket kalp-damar sağlığını, uykuyu ve ruh hâlini destekler."
+        "type": "info",
+        "icon": "heartPulse",
+        "support": [
+          "trendUp",
+          "smile"
+        ],
+        "title": "Damarlara ve sertleşmeye faydası",
+        "text": "Düzenli hareket tansiyonu ve kan şekerini düzenler, damarların esnekliğini destekler. Obez erkeklerle yapılan bir çalışmada kilo verme ve hareket, katılımcıların yaklaşık üçte birinde cinsel işlevi iyileştirdi.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "myth",
+        "myth": "Faydası olsun diye her gün spor salonuna gitmem gerek.",
+        "fact": "Merdiven çıkmak, tempolu yürümek ya da evde kısa bir rutin de sayılır. Dünya Sağlık Örgütü'ne göre her hareket sayılır; az da olsa hareket fayda sağlar.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Dünya Sağlık Örgütü yetişkinlere haftada ne kadar orta şiddette hareket önerir?",
+          "options": [
+            "150–300 dakika",
+            "30 dakika",
+            "1000 dakika"
+          ],
+          "correct": 0,
+          "explain": "Haftada 150–300 dakika, örneğin günde yaklaşık 30 dakikalık yürüyüşle karşılanabilir. Buna haftada 2 gün kuvvet çalışması eklenir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "dumbbell",
+        "title": "Kasık Fitness: Başlangıç",
+        "text": "Kuvvet çalışmasına küçük bir adımla başla: Kasık Fitness'ın başlangıç rutini yaklaşık 7 dakika sürer ve kalça, karın ve pelvik tabanı birlikte çalıştırır.",
+        "action": {
+          "route": "/fitness/beginner",
+          "label": "Başlangıç rutinini aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Haftada 150–300 dakika orta şiddette hareket ve 2 gün kuvvet.",
+          "Uzun oturmayı her saat birkaç dakikayla böl.",
+          "Hareket damarları ve cinsel sağlığı destekler."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
+        "title": "WHO (2020) – Guidelines on physical activity and sedentary behaviour",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK566048/"
+      },
+      {
         "title": "WHO – Physical activity fact sheet",
         "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      },
+      {
+        "title": "Esposito K ve ark. (2004) – Effect of lifestyle changes on erectile dysfunction in obese men: a randomized controlled trial. JAMA 291",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15213209/"
       }
     ],
     "reviewed": false
@@ -702,38 +1647,99 @@
     "id": "core-hips",
     "title": "Kalça ve gövde neden önemli?",
     "category": "exercise",
-    "icon": "dumbbell", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "dumbbell",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "dumbbell", "tone": "knowledge",
-        "title": "Bir ekip",
-        "text": "Pelvik taban; karın, sırt ve kalça kaslarıyla birlikte çalışan bir sistemin parçasıdır."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "map", "tone": "knowledge",
-        "title": "Köprü ve squat",
-        "text": "Kalça kaslarını çalıştıran hareketler gövdenin stabilitesini destekler."
+        "type": "info",
+        "icon": "layers",
+        "support": [
+          "body",
+          "shield"
+        ],
+        "title": "Birlikte çalışan bir takım",
+        "text": "Pelvik taban tek başına çalışmaz; derin karın kasları, sırt kasları ve diyaframla birlikte gövdenin “kutusunu” oluşturur. Biri kasıldığında diğerleri de genellikle devreye girer.",
+        "tone": "knowledge"
       },
       {
-        "icon": "smartphone", "tone": "knowledge",
-        "title": "Uygulamada",
-        "text": "Kasık Fitness bölümündeki kısa rutinler bu kas gruplarını hedefler."
+        "type": "info",
+        "icon": "dumbbell",
+        "support": [
+          "footprints",
+          "body"
+        ],
+        "title": "Kalçanın rolü",
+        "text": "Kalça kasları leğen kemiğini dengede tutar; yürürken, merdiven çıkarken ve yük kaldırırken gövdeyi destekler. Güçlü kalça ve karın kasları, pelvik tabanın üzerindeki yükü paylaşır.",
+        "tone": "knowledge"
       },
       {
-        "icon": "flower", "tone": "knowledge",
-        "title": "Esneklik de önemli",
-        "text": "Kalça ve iç bacak esnemeleri bölgedeki gerginliği azaltmaya yardımcı olabilir; esnemeyi zorlamadan yap."
+        "type": "info",
+        "icon": "shield",
+        "support": [
+          "droplet",
+          "check"
+        ],
+        "title": "Kontrol ve duruş",
+        "text": "Güçlü ve uyumlu çalışan bir gövde, öksürürken ya da yük kaldırırken idrar kontrolünü ve duruşu destekleyebilir. Köprü, kuş-köpek ve plank gibi hareketler bu kasları birlikte çalıştırır.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Araştırmalar, pelvik taban kasıldığında derin karın kaslarının da birlikte çalıştığını gösteriyor. Bu yüzden egzersizlerde nefesi tutmadan karnını hafifçe içe çekmek pelvik tabanı da destekler.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Pelvik taban hangi kaslarla birlikte çalışır?",
+          "options": [
+            "Derin karın ve sırt kasları, diyafram",
+            "Yalnızca bacak kasları",
+            "Hiçbir kasla"
+          ],
+          "correct": 0,
+          "explain": "Bu kaslar bir takım gibi çalışır ve karın içi basıncı birlikte yönetir. Bu yüzden gövde egzersizleri pelvik tabana da katkı sağlar."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "dumbbell",
+        "title": "Kasık Fitness rutini",
+        "text": "Bugün köprü ve kuş-köpek gibi gövdeyi birlikte çalıştıran hareketlerden oluşan kısa bir rutin dene.",
+        "action": {
+          "route": "/fitness/beginner",
+          "label": "Kasık Fitness'ı aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Pelvik taban; karın, sırt ve diyaframla birlikte çalışır.",
+          "Güçlü kalça ve karın kasları pelvik tabanın yükünü paylaşır.",
+          "Köprü, kuş-köpek ve plank bu takımı birlikte güçlendirir."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "WHO – Physical activity fact sheet",
-        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+        "title": "North Bristol NHS Trust – Pelvic floor exercises for men",
+        "url": "https://www.nbt.nhs.uk/our-services/a-z-services/physiotherapy/physiotherapy-patient-information/pelvic-floor-exercises-men"
       },
       {
-        "title": "Mayo Clinic – Kegel exercises for men",
-        "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+        "title": "Neumann P, Gill V (2002) – Pelvic floor and abdominal muscle interaction: EMG activity and intra-abdominal pressure. Int Urogynecol J 13",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12054180/"
+      },
+      {
+        "title": "WHO – Physical activity fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
       }
     ],
     "reviewed": false
@@ -742,38 +1748,91 @@
     "id": "cycling",
     "title": "Bisiklet ve pelvik bölge",
     "category": "exercise",
-    "icon": "bike", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "bike",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "bike", "tone": "knowledge",
-        "title": "Uzun sürüşler",
-        "text": "Uzun süre sert bir selede oturmak bazı kişilerde perine bölgesinde uyuşma ve basıya yol açabilir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "chair", "tone": "knowledge",
-        "title": "Sele ayarı",
-        "text": "Doğru sele yüksekliği ve şekli, ara ara ayağa kalkmak ve mola vermek basıncı azaltabilir."
+        "type": "info",
+        "icon": "bike",
+        "support": [
+          "alert",
+          "clock"
+        ],
+        "title": "Sele baskısı",
+        "text": "Bisiklette ağırlığının bir kısmı, sinirlerin ve damarların geçtiği perine bölgesine (makat ile testisler arası) biner. Uzun sürüşlerde bu baskı uyuşmaya ya da karıncalanmaya yol açabilir.",
+        "tone": "knowledge"
       },
       {
-        "icon": "stethoscope", "tone": "knowledge",
-        "title": "Dikkat",
-        "text": "Uyuşma veya his kaybı geçmiyorsa sürüşü azalt ve bir sağlık profesyoneline danış."
+        "type": "info",
+        "icon": "sliders",
+        "support": [
+          "ruler",
+          "check"
+        ],
+        "title": "Önlemler",
+        "text": "Ortası oyuk ya da geniş, sana uygun bir sele seç. Sele yüksekliğini ve açısını ayarla; gidonu seleden çok aşağıda tutma. Sürüş sırasında ara ara pedalda ayağa kalkarak baskıyı azalt.",
+        "tone": "knowledge"
       },
       {
-        "icon": "rotate", "tone": "knowledge",
-        "title": "Dengeli antrenman",
-        "text": "Bisikleti seviyorsan bırakman gerekmez; kalça ve gövde güçlendirme, esneme ve molalarla dengelemek iyi bir fikir."
+        "type": "myth",
+        "myth": "Bisiklet kesin iktidarsızlık yapar.",
+        "fact": "Araştırmalar, düzenli bisiklet sürenlerin sertleşme işlevinin sürmeyenlerden daha kötü olmadığını gösteriyor. Uyuşmayı azaltmak için doğru sele, doğru ayar ve kısa molalar önemli.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Bir araştırmada genital uyuşmayı azaltan şey hangisiydi?",
+          "options": [
+            "Sürüşün bir kısmında ayakta pedal çevirmek",
+            "Gidonu seleden çok aşağıda tutmak",
+            "Hiç mola vermemek"
+          ],
+          "correct": 0,
+          "explain": "Sürüşün %20'sinden fazlasında ayakta pedal çevirenlerde uyuşma daha azdı. Gidonun seleden alçak olması ise uyuşmayı artırıyordu."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "timer",
+        "title": "Sürüşte 10 dakikada bir kalk",
+        "text": "Bir sonraki sürüşünde yaklaşık 10 dakikada bir pedalda ayağa kalkıp birkaç saniye baskıyı azalt. Uyuşma azalıyor mu, fark et.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "Uyuşma sık oluyorsa ya da sürüşten sonra da geçmiyorsa (bu sırada sürüşe ara ver)",
+          "Sertleşmede yeni bir sorun fark ettiysen",
+          "Perine bölgesinde ağrı, şişlik ya da yara varsa",
+          "İdrar yaparken zorlanma ya da yanma varsa"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Uzun sele baskısı perine bölgesinde uyuşma yapabilir.",
+          "Uygun sele, doğru ayar ve ara ara ayağa kalkmak önemli.",
+          "Bisiklet tek başına sertleşme sorunu yapmaz; önlem yeterli."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "Mayo Clinic – Erectile dysfunction",
-        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+        "title": "SMSNA – Is cycling a risk factor for erectile dysfunction?",
+        "url": "https://www.smsna.org/patients/did-you-know/is-cycling-a-risk-factor-for-erectile-dysfunction"
       },
       {
-        "title": "WHO – Physical activity fact sheet",
-        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+        "title": "Awad MA ve ark. (2018) – Erectile and urinary function in men who cycle. Journal of Urology",
+        "url": "https://doi.org/10.1016/j.juro.2017.10.017"
       }
     ],
     "reviewed": false
@@ -782,34 +1841,99 @@
     "id": "smoking",
     "title": "Sigara ve cinsel sağlık",
     "category": "menHealth",
-    "icon": "ban", "tone": "knowledge",
-    "minutes": 2,
+    "icon": "ban",
+    "tone": "knowledge",
+    "minutes": 3,
     "slides": [
       {
-        "icon": "ban", "tone": "knowledge",
-        "title": "Damarlar",
-        "text": "Sigara damarlara zarar vererek kan akışını azaltabilir; bu da sertleşmeyi olumsuz etkileyebilir."
+        "type": "cover",
+        "tone": "knowledge"
       },
       {
-        "icon": "trendUp", "tone": "knowledge",
-        "title": "Bırakmanın faydası",
-        "text": "Sigarayı bırakmak birçok sağlık riskini zamanla azaltır; vücut iyileşmeye ilk günlerden başlar."
+        "type": "info",
+        "icon": "ban",
+        "support": [
+          "heartPulse",
+          "droplet"
+        ],
+        "title": "Sigara ve damarlar",
+        "text": "Sigaradaki maddeler damarların iç yüzeyine zarar verir ve onları daraltır. Sertleşme sağlıklı kan akışına bağlı olduğu için sigara içenlerde sertleşme sorunu riski daha yüksektir; içilen miktar arttıkça risk de artar.",
+        "tone": "knowledge"
       },
       {
-        "icon": "handshake", "tone": "knowledge",
-        "title": "Destek",
-        "text": "Bırakma sürecinde profesyonel destek ve bırakma programları başarı şansını artırabilir."
+        "type": "info",
+        "icon": "trendUp",
+        "support": [
+          "sprout",
+          "clock"
+        ],
+        "title": "Bırakınca neler değişir?",
+        "text": "Bırakınca damar işlevi zamanla düzelmeye başlar: ilk saatlerde kandaki karbonmonoksit azalır, haftalar içinde dolaşım ve nefes iyileşir. Bir çalışmada bırakan erkeklerin yaklaşık dörtte birinde bir yıl sonra sertleşme işlevi iyileşti.",
+        "tone": "knowledge"
       },
       {
-        "icon": "bulb", "tone": "knowledge",
-        "title": "Tetikleyicileri tanı",
-        "text": "Kahve, stres veya belirli ortamlar sigara isteğini tetikleyebilir. Bu anlar için önceden bir alternatif (nefes, yürüyüş) planla."
+        "type": "myth",
+        "myth": "Yıllardır içiyorum, artık bırakmanın faydası olmaz.",
+        "fact": "Her yaşta bırakmak fayda sağlar. Dünya Sağlık Örgütü'ne göre kazanımlar ilk saatlerde başlar ve yıllar içinde artar. Gençken ve sorun hafifken bırakmak sertleşme için daha çok fark yaratır.",
+        "tone": "knowledge"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Sigarayı bırakınca damar sağlığına ne olur?",
+          "options": [
+            "Zamanla düzelmeye başlar",
+            "Hiç değişmez",
+            "Daha kötüleşir"
+          ],
+          "correct": 0,
+          "explain": "Damarlar bırakıldıktan sonra kendini onarmaya başlar. Bu yüzden bırakmanın faydası hem kalpte hem sertleşmede görülebilir."
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "action",
+        "icon": "flag",
+        "title": "Sigarasız Kamp değerlendirmesi",
+        "text": "Bırakmayı düşünüyorsan Sigarasız Kamp kısa bir değerlendirmeyle sana uygun bir plan hazırlar. Hazır hissetmesen de göz atabilirsin.",
+        "action": {
+          "route": "/camp",
+          "label": "Sigarasız Kamp'ı aç"
+        },
+        "tone": "knowledge"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "Sertleşme sorunu sık tekrarlıyorsa",
+          "Göğüs ağrısı, nefes darlığı ya da geçmeyen öksürük varsa",
+          "Bırakırken yoksunluk belirtileri seni çok zorluyorsa (ALO 171 de destek verir)",
+          "Kalp, şeker ya da tansiyon hastalığın varsa, bırakmayı destekleyen ilaçlar için"
+        ],
+        "tone": "knowledge"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Sigara damarları daraltır ve sertleşme sorunu riskini artırır.",
+          "Bırakınca damar işlevi zamanla düzelir.",
+          "Her yaşta bırakmak fayda sağlar; destek almak işini kolaylaştırır."
+        ],
+        "tone": "knowledge"
       }
     ],
     "sources": [
       {
-        "title": "NHS – Quit smoking",
+        "title": "WHO – Tobacco fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/tobacco"
+      },
+      {
+        "title": "NHS Better Health – Quit smoking",
         "url": "https://www.nhs.uk/better-health/quit-smoking/"
+      },
+      {
+        "title": "Pourmand G ve ark. (2004) – Do cigarette smokers with erectile dysfunction benefit from stopping? A prospective study. BJU Int 94",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15610111/"
       },
       {
         "title": "NHS – Erection problems (erectile dysfunction)",

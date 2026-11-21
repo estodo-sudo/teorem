@@ -19,8 +19,7 @@
     "moreInfo": "{{label}}: açıklama"
   },
   "tabs": {
-    "today": "Bugün",
-    "training": "Antrenman",
+    "home": "Günüm",
     "progress": "İlerleme",
     "discover": "Keşfet",
     "profile": "Profil"
@@ -644,9 +643,10 @@
       "summary_one": "{{count}} egzersiz · {{position}}",
       "summary_other": "{{count}} egzersiz · {{position}}",
       "summaryA11y": "Egzersizleri göster",
-      "microShort": "Mikro set · {{sec}} sn",
+      "microShort": "Mikro set",
       "breathShort": "Nefes · 1 dk",
-      "targetShort": "Günlük hedef"
+      "targetShort": "Günlük hedef",
+      "microHint": "{{sec}} saniyelik kısa set"
     },
     "challenges": "Beslenme ipucu",
     "strengthDue": "Haftalık güç testi zamanı",
@@ -1105,7 +1105,29 @@
       "stress": "Stres",
       "exercise": "Egzersiz"
     },
-    "allRow": "Hikâyeler"
+    "allRow": "Hikâyeler",
+    "meta": "{{min}} dk · {{count}} slayt",
+    "position": "Slayt {{index}} / {{count}}",
+    "save": "Kaydet",
+    "unsave": "Kaydedilenlerden çıkar",
+    "flipFirst": "Önce kartı çevir",
+    "mythLabel": "Yaygın inanış",
+    "factLabel": "Gerçek",
+    "tapToFlip": "Gerçeği görmek için dokun",
+    "didYouKnowTitle": "Biliyor muydun?",
+    "quizLabel": "Kısa bir soru",
+    "quizHint": "Bir şık seç",
+    "correct": "doğru cevap",
+    "tryToday": "Bugün dene",
+    "doctorTitle": "Ne zaman doktora görünmeli?",
+    "summaryTitle": "Akılda kalsın",
+    "nextStory": "Sıradaki hikâye",
+    "sourcesLink": "Kaynaklar ({{count}})",
+    "resume": "Kaldığın yerden: {{n}}/{{total}}",
+    "state": {
+      "partial": "yarım kaldı",
+      "saved": "kaydedildi"
+    }
   },
   "camps": {
     "title": "Kamplar",
@@ -1148,7 +1170,7 @@
       "levels": "Sınırsız seans, güç testi ve ilerleme grafikleri",
       "fitness": "Kasık Fitness rutinleri",
       "courses": "Antrenmanlar ve tüm bilgi hikâyeleri",
-      "camp": "Sigarasız Kamp dahil: 90 günlük görev programı, tüm beceri dersleri, Koç, ayrıntılı istatistikler ve hekime özet",
+      "camp": "Sigarasız Kamp dahil: 90 günlük görev programı, tüm beceri dersleri, ayrıntılı istatistikler ve hekime özet",
       "mind": "Nefes, zihin boşaltma ve beden taraması",
       "privacy": "Reklam yok, takip yok. Verilerin sadece bu telefonda."
     },
@@ -1237,7 +1259,19 @@
       "developer": "Geliştirici"
     },
     "subscription": "Abonelik",
-    "avatarA11y": "Profil"
+    "avatarA11y": "Profil",
+    "training": {
+      "activeTrack": "Aktif iz · {{track}}",
+      "levelWeek": "Seviye {{level}} · {{theme}}",
+      "muscleTitle": "Kas yapını öğrenelim",
+      "muscleSummary": "Kas profilin: {{track}}, {{relax}}",
+      "relaxFirst": "önce gevşeme",
+      "relaxOk": "dengeli çalışma",
+      "update": "Güncelle",
+      "rescreen": "Yenile",
+      "guide": "Egzersiz rehberi",
+      "trophies": "Kupalarım"
+    }
   },
   "settings": {
     "training": {
@@ -1976,12 +2010,12 @@
     "sos": {
       "title": "Canım çekiyor",
       "panelButton": "Canım çekiyor",
-      "panelHint": "Kriz aracını açar: dalga sörfü, nefes, erteleme ve daha fazlası",
+      "panelHint": "Kriz aracını açar: nefes, blok bulmaca, erteleme ve nedenlerin",
       "shortcut": "Canım çekiyor",
       "shortcutSub": "Kriz aracını aç",
       "howStrong": "İsteğin ne kadar güçlü?",
       "whatTriggered": "Ne tetikledi?",
-      "triggerOptional": "İstersen atlayabilirsin.",
+      "triggerOptional": "Birden fazla seçebilirsin. İstersen atlayabilirsin.",
       "yourPlan": "SENİN PLANIN",
       "planUse": "Bu planı uyguluyorum",
       "planOn": "Planını uyguluyorsun",
@@ -1989,31 +2023,22 @@
       "finish": "Bitirdim · Nasılım?",
       "minutes": "{{count}} dakika",
       "timeLeft": "Kalan süre {{time}}",
-      "surfStart": "Dalga sörfüne başla",
-      "breathStart": "{{count}} dakika nefes",
+      "breathStart": "{{count}} dakika nefese başla",
       "delayStart": "10 dakikayı başlat",
       "pause": "Duraklat",
       "resume": "Devam et",
       "meanwhile": "Bu sürede yapabileceklerin",
-      "gameTime": "{{sec}} sn",
-      "gamePairs": "{{n}} / {{total}} eş",
-      "gameCard": "Kapalı kart {{n}}",
-      "gameWon": "Tüm eşleri {{moves}} hamlede buldun!",
-      "gameOver": "Süre doldu: {{n}} eş buldun.",
-      "gameAgain": "Yeniden oyna",
       "resistedCount": "Bu güne kadar {{count}} krizi atlattın.",
       "backToPanel": "Panele dön",
       "tryAgain": "Kriz aracını yeniden aç",
       "prepLoggedTitle": "Kaydedildi",
       "prepLogged": "Hazırlık döneminde içtiğin her sigarayı kaydetmek, tetikleyicilerini ve en zor saatlerini görmeni sağlar. Bırakma gününe birlikte hazırlanıyoruz.",
-      "symbol": {
-        "leaf": "Yaprak",
-        "waves": "Dalga",
-        "sun": "Güneş",
-        "apple": "Elma",
-        "headphones": "Kulaklık",
-        "bike": "Bisiklet"
-      }
+      "canSkip": "Değer seçmeden de başlayabilirsin",
+      "other": "Diğer",
+      "otherPlaceholder": "Ne oldu? Kısaca yaz",
+      "triggerHint": "Birden fazla seçebilirsin. Noktalılar değerlendirmede seçtiklerin.",
+      "assessedA11y": "değerlendirmede seçtin",
+      "delayChipA11y": "Erteleme sürüyor, kalan {{time}}. Açmak için dokun."
     },
     "log": {
       "title": "Sigara kaydı",
@@ -2086,9 +2111,7 @@
     "triggers": {
       "title": "Tetikleyici haritam",
       "intro": "Sigara isteğini başlatan durumlar ve her biri için hazırladığın Eğer–O zaman planları. En sık karşılaştıkların en üstte.",
-      "coverage": "{{total}} tetikleyiciden {{done}} tanesinin planı var",
       "count": "{{count}} kez (günlük ve kriz kayıtları)",
-      "noCount": "Henüz kayıt yok",
       "noPlan": "Plan yok",
       "used": "Kriz anında {{count}} kez kullandın",
       "addPlan": "Plan ekle",
@@ -2097,9 +2120,16 @@
       "removeTitle": "Bu plan silinsin mi?",
       "removeConfirm": "Sil",
       "acceptNote": "Bazı durumlardan kaçınmak mümkün değildir. Plan \"istekle birlikte şunu yapacağım\" şeklinde de olabilir.",
-      "addTrigger": "Başka bir durum ekle",
-      "pickNew": "Hangi durum?",
-      "pickNote": "Seçtiğin durum için hemen bir plan yazabilirsin."
+      "coverage2": "Yaşadığın {{total}} durumun {{done}} tanesinin planı var",
+      "coverageEmpty": "Sık karşılaştığın durumları işaretle, her birine bir plan hazırla",
+      "groupPlanned": "Planı olanlar",
+      "groupLived": "Yaşadıkların, planı yok",
+      "groupOther": "Diğer durumlar",
+      "groupOwn": "Kendi durumların",
+      "addPlanShort": "Plan ekle",
+      "addOwn": "Kendi durumunu ekle",
+      "ownIfPlaceholder": "Örnek: iş yerinde toplantıdan çıkınca",
+      "fromAssessment": "Değerlendirmede seçtin"
     },
     "checkin": {
       "title": "Günlük kontrol",
@@ -2136,8 +2166,8 @@
       "helped": "İşine yarayan araçlar",
       "plans": "Kriz anında kullandığın planlar",
       "tool": {
-        "coach": "Koç",
-        "call171": "ALO 171"
+        "call171": "ALO 171",
+        "other": "Diğer araçlar"
       }
     },
     "mission": {
@@ -2189,19 +2219,6 @@
       "back": "Kütüphaneye dön",
       "disclaimer": "Bu içerik genel bilgi amaçlıdır ve tıbbi tavsiye yerine geçmez. İçerik henüz bir uzman tarafından gözden geçirilmedi."
     },
-    "coach": {
-      "title": "Koç",
-      "panelButton": "Koç ile konuş",
-      "sosTab": "Koç ile konuş",
-      "hello": "Merhaba, ben kampın koçuyum. Zor bir anda ya da aklına takılan bir konuda seninle konuşabilirim. Ne konuşmak istersin?",
-      "pick": "Bir konu seç",
-      "another": "Başka bir konu?",
-      "typing": "yazıyor…",
-      "bye": "Ne zaman istersen buradayım. Kendine iyi bak.",
-      "opened": "Açtım. İşin bitince buraya dönebilirsin.",
-      "noReason": "kendin için daha iyi bir hayat",
-      "yourSupporter": "destekçin"
-    },
     "reasons": {
       "title": "Bırakma nedenlerim"
     },
@@ -2236,7 +2253,8 @@
         "mood": "Ortalama ruh hali (7 gün)",
         "triggers": "En sık tetikleyiciler",
         "saved": "Tahmini tasarruf"
-      }
+      },
+      "yourSupporter": "destekçin"
     },
     "stats": {
       "title": "İstatistiklerim",
@@ -2366,10 +2384,6 @@
           "title": "Günlük görevler",
           "text": "Her gün kısa bir görev; her görev davranış değiştirme tekniği (BCT) koduyla etiketlidir, böylece içerik bilimsel olarak denetlenebilir."
         },
-        "coach": {
-          "title": "Koç",
-          "text": "Önceden yazılmış, kural tabanlı bir sohbet rehberidir; yapay zekâ ya da sunucu kullanmaz. Destekleyici sohbetin uygulama kullanımını artırdığını gösteren çalışmalardan esinlenir."
-        },
         "hsi": {
           "title": "Bağımlılık düzeyi",
           "text": "Sigara İçme Yoğunluk İndeksi iki soruyla 0–6 arası bir puan verir; tanı koymaz, hangi desteğin işe yarayacağını gösterir."
@@ -2391,6 +2405,54 @@
       "reviewText": "Kamptaki içerikler yayın öncesinde bir göğüs hastalıkları uzmanı ya da sertifikalı sigara bırakma hekimi tarafından gözden geçirilecektir. Şu an tüm içerik \"henüz gözden geçirilmedi\" olarak işaretlidir.",
       "listTitle": "Kaynaklar ({{count}})",
       "accessed": "erişim {{date}}"
+    },
+    "home2": {
+      "phaseChip": "Faz {{n}} · {{phase}} · {{attempt}}. deneme",
+      "toQuit": "Bırakmaya {{count}} gün",
+      "smokeFree": "{{days}} gün {{hours}} saat dumansız",
+      "sinceSlip": "Son sigaradan beri {{days}} gün {{hours}} saat",
+      "saved": "Biriken",
+      "notSmoked": "İçilmeyen sigara",
+      "today": "Bugün",
+      "todayDone": "Bugün {{done}}/{{total}} tamam",
+      "checkin": "Günlük kontrol",
+      "checkinDone": "Bugünkü kontrolünü yaptın",
+      "mission": "Günün görevi",
+      "skill": "Günün becerisi",
+      "logToday": "Bugün {{count}} sigara",
+      "logHint": "Azaltma döneminde her sigarayı not et",
+      "logAction": "Kaydet",
+      "doneA11y": "tamamlandı",
+      "lockedA11y": "Premium",
+      "quitSoon": "Bırakma gününe {{count}} gün",
+      "quitToday": "Bırakma günün bugün",
+      "quitSoonHint": "Planına birlikte bir göz atalım",
+      "slipTitle": "Dün bir kayma oldu",
+      "slipText": "Ne oldu, birlikte bakalım",
+      "reasonKicker": "Neden bırakıyorum",
+      "toolsTitle": "Araçlar",
+      "tools": {
+        "triggers": "Tetikleyici haritam",
+        "diary": "Günlük",
+        "reasons": "Nedenlerim",
+        "skills": "Beceriler",
+        "library": "Kütüphane",
+        "stats": "İstatistik",
+        "rewards": "Ödüller",
+        "health": "Sağlık kazanımları"
+      },
+      "coverage": "{{done}}/{{total}} durum planlı",
+      "lessons": "Ders {{done}}/{{total}}",
+      "badges": "{{count}} rozet",
+      "alo": "ALO 171",
+      "aloSub": "Sigara bırakma hattı",
+      "network": "Destek ağım",
+      "networkSub": "Yakınların ve uzmanlar",
+      "planLink": "Bırakma planım",
+      "phaseTitle": "Fazlar",
+      "nextGain": "Sonraki kazanım",
+      "firstGain": "İlk kazanım",
+      "nextAt": "Sonraki kazanım · {{label}}"
     }
   },
   "odak": {
@@ -2529,23 +2591,11 @@
       "done": "Okudun. Aşağıda bu içeriğin kaynaklarını bulabilirsin.",
       "back": "Kütüphaneye dön"
     },
-    "coach": {
-      "title": "Koç ile konuş",
-      "hello": "Merhaba. Ben önceden hazırlanmış bir rehberim. Şu an ne hakkında konuşmak istersin?",
-      "pick": "Bir konu seç",
-      "another": "Başka bir konu",
-      "typing": "yazıyor…",
-      "bye": "Buradayım; istediğin zaman tekrar konuşabiliriz.",
-      "opened": "İlgili bölümü açtım. Hazır olduğunda buraya dönebilirsin.",
-      "noValue": "değerlerine uygun yaşamak",
-      "fromSos": "Koç ile konuş"
-    },
     "premium": {
       "text": "Bu bölüm aboneliğe dahildir. Dürtü anı aracı, kayma adımları, destek ekranı, “Bilim Ne Diyor?” ve temel sayaç her zaman ücretsiz kalır.",
       "unlock": "Premium ile aç",
       "mission": "90 günlük görev programı",
       "lesson": "Bu ders aboneliğe dahildir",
-      "coach": "Koç’un tüm konuları",
       "stats": "Ayrıntılı istatistikler",
       "summary": "Uzmana özet (PDF)",
       "reminder": "Riskli saat hatırlatıcısı",
@@ -2562,6 +2612,34 @@
       "actionPlan": "Planımı gör",
       "switch": "Odak bildirimleri",
       "switchHint": "Riskli saatlerden 15 dakika önce, günlük kontrol zamanında ve haftada bir. Metinler her zaman nötrdür; içerik ayrıntısı görünmez."
+    },
+    "home2": {
+      "phaseChip": "Faz {{n}} · {{phase}} · Gün {{day}}/{{total}}",
+      "checkin": "Günlük kontrol",
+      "checkinLater": "Bugünkü kontrol zamanı henüz gelmedi",
+      "logHint": "Ne olduğunu not etmek, örüntüleri görmeni sağlar",
+      "logAction": "Kaydet",
+      "managed": "Yönettiğin an",
+      "longest": "En uzun seri",
+      "nextPhase": "Sonraki aşamaya",
+      "rebuildTitle": "Yeniden kurma zamanı",
+      "rebuildText": "Boşalan zamanı sana iyi gelen şeylerle doldur",
+      "tools": {
+        "boundaries": "Sınırlarım",
+        "diary": "Günlük",
+        "skills": "Beceriler",
+        "library": "Kütüphane",
+        "stats": "İstatistik",
+        "rewards": "Ödüller",
+        "rebuild": "Yeniden kurma",
+        "privacy": "Gizlilik"
+      },
+      "lockOn": "Kilit etkin",
+      "lockOff": "Kilit devre dışı",
+      "support": "Destek",
+      "supportSub": "Uzman ve yardım hatları",
+      "sources": "Kaynaklar",
+      "sourcesSub": "Yöntem ve bilimsel dayanak"
     }
   },
   "kegel": {
@@ -2642,6 +2720,98 @@
       "guideline": "Kılavuz",
       "institution": "Kurum",
       "study": "Çalışma"
+    }
+  },
+  "ui": {
+    "urge": {
+      "hint": "Dokun ya da sürükle",
+      "low": "Hafif",
+      "mid": "Orta",
+      "strong": "Güçlü",
+      "veryStrong": "Çok güçlü",
+      "none": "Seçilmedi",
+      "a11y": "{{v}}, {{word}}",
+      "down": "{{a}} → {{b}} · {{d}} puan azaldı",
+      "up": "{{a}} → {{b}} · {{d}} puan arttı",
+      "same": "{{a}} → {{b}} · aynı"
+    }
+  },
+  "breath": {
+    "intro": "Nefesini yavaşlatmak bedenini sakinleştirir. Bir yöntem ve süre seç; küreyi izle ya da gözlerini kapatıp titreşimi takip et.",
+    "mode": {
+      "quick": {
+        "name": "Hızlı sakinleş",
+        "rhythm": "Burundan derin al, üstüne kısa bir nefes daha al, ağızdan yavaş ve uzun ver.",
+        "when": "Kriz ve ani stres anları için."
+      },
+      "slow": {
+        "name": "Yavaş nefes",
+        "rhythm": "4 saniye al, 6 saniye ver; dakikada yaklaşık 6 nefes.",
+        "when": "Uyku öncesi ve günlük rahatlama için."
+      },
+      "box": {
+        "name": "Kutu nefesi",
+        "rhythm": "4 al · 4 tut · 4 ver · 4 tut.",
+        "when": "Odaklanmak için."
+      }
+    },
+    "duration": "Süre",
+    "haptics": "Titreşimle takip",
+    "hapticsHint": "Nefes alırken sıklaşan, verirken seyrekleşen hafif tıklamalar",
+    "infoLink": "Bu yöntemler hakkında",
+    "infoTitle": "Nefes egzersizleri hakkında",
+    "safety": "Başın dönerse normal nefese dön.",
+    "evidence": "Araştırmalarda günde birkaç dakikalık yavaş ve uzun nefes vermeli egzersizler, ruh hâlini iyileştirmede ve stresi azaltmada olumlu sonuç verdi. Bir tedavi yerine geçmez.",
+    "ok": "Tamam",
+    "step": {
+      "in": "Al",
+      "inMore": "Bir daha al",
+      "hold": "Tut",
+      "out": "Ver"
+    },
+    "cycleLeft": "{{n}}. döngü · {{left}} kaldı",
+    "dim": "Ekranı karart",
+    "undim": "Ekranı aç",
+    "feelingQ": "Nasıl hissediyorsun?",
+    "feeling": {
+      "calmer": "Daha sakin",
+      "same": "Aynı",
+      "tenser": "Daha gergin"
+    },
+    "doneTitle": "Nefes bitti",
+    "backToGauge": "İsteğine tekrar bak"
+  },
+  "puzzle": {
+    "score": "{{n}} puan",
+    "timeA11y": "Kalan süre {{time}}",
+    "timeUpShort": "3 dk doldu",
+    "timeUp": "3 dakika doldu, istersen devam et.",
+    "relief": "Yer kalmadı; tahtanın yarısını senin için temizledik.",
+    "boardA11y": "8'e 8 bulmaca tahtası",
+    "cellA11y": "Satır {{r}}, sütun {{c}}, {{state}}",
+    "full": "dolu",
+    "empty": "boş",
+    "pieceA11y": "{{n}} hücrelik parça. Seçip bir hücreye dokun."
+  },
+  "home": {
+    "week": {
+      "title": "Bu hafta",
+      "seePlan": "Tüm planı gör",
+      "summary": "Bu hafta {{done}}/{{total}} antrenman · {{theme}}",
+      "state": {
+        "done": "yapıldı",
+        "today": "bugün",
+        "todayDone": "bugün, yapıldı",
+        "missed": "yapılmadı",
+        "future": "sırada",
+        "rest": "dinlenme günü"
+      }
+    },
+    "relax": {
+      "title": "Rahatla",
+      "breathing": "Nefes",
+      "unload": "Zihin boşaltma",
+      "bodyScan": "Beden taraması"
     }
   }
 }

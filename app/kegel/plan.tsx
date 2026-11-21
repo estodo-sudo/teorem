@@ -37,7 +37,7 @@ export default function PlanScreen() {
 
   return (
     <Screen>
-      <Header title={tr('training.roadmap.title', { plan: training.planNumber })} onBack={() => goBack('/(tabs)/training')} />
+      <Header title={tr('training.roadmap.title', { plan: training.planNumber })} onBack={() => goBack('/')} />
       <TrackCard />
       <View style={{ gap: t.space.md }}>
         {[0, 1, 2, 3].map((w) => (

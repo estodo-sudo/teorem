@@ -81,7 +81,11 @@ export interface BehaviorEvent {
   isSlip: boolean;
 }
 
-export type OdakToolId = 'relocate' | 'surf' | 'breath' | 'move' | 'values' | 'futureSelf' | 'supporter';
+/** `surf` (urge surfing) was removed in V4 (SPEC_V4 §D.2); it stays only so old records still read. */
+export type OdakToolId = 'relocate' | 'breath' | 'puzzle' | 'move' | 'values' | 'futureSelf' | 'supporter' | 'surf';
+export const ODAK_LEGACY_TOOLS: readonly OdakToolId[] = ['surf'];
+/** Tools offered today (the legacy id excluded). */
+export type OdakActiveToolId = Exclude<OdakToolId, 'surf'>;
 
 /** One urge moment handled in SOS (SPEC_ODAK_KAMPI 6). */
 export interface UrgeEvent {

@@ -7,7 +7,7 @@ import { doctorSummary, summaryHtml, supporterText } from '@/features/camps/smok
 import { checkinSlotDays, planCampNotifications } from '@/features/camps/smoking/engine/notifications';
 import { canGraduate, cravingsPerDay, cumulativeSavings, earnedBadges, goalProgress, longestCheckinStreak, newBadges, smokeFreeCalendar, weeklyIntensity } from '@/features/camps/smoking/engine/stats';
 import { diaryReport, hourRange, logsByDay, logsOfAttempt, todayCount, triggerFrequency } from '@/features/camps/smoking/engine/diary';
-import { flipCard, gameWon, matchedPairs, newMatchGame, plansForTrigger, resistedCount, surfPromptIndex, waveAmplitude } from '@/features/camps/smoking/engine/sos';
+import { plansForTrigger, resistedCount } from '@/features/camps/smoking/engine/sos';
 import { checkinsPerDay, currentPhase, daysToNextPhase, programDay } from '@/features/camps/smoking/engine/phase';
 import { autopilotLogs, cutDownPlan, missionForDay, riskyHours } from '@/features/camps/smoking/engine/plans';
 import { estimatedSavings, moneySaved, priceAt } from '@/features/camps/smoking/engine/savings';
@@ -299,46 +299,13 @@ describe('SOS (K4)', () => {
     const c = (outcome: 'resisted' | 'still_hard' | 'smoked') => ({ id: outcome, at: iso(L(2026, 11, 12)), intensityBefore: 7, toolUsed: [], outcome, durationSec: 60 });
     expect(resistedCount([c('resisted'), c('still_hard'), c('smoked'), c('resisted')])).toBe(2);
   });
-  it('spreads surf prompts over the session', () => {
-    expect(surfPromptIndex(0, 180, 8)).toBe(0);
-    expect(surfPromptIndex(90, 180, 8)).toBe(4);
-    expect(surfPromptIndex(500, 180, 8)).toBe(7);
-  });
-  it('shapes the wave: builds to a peak, then fades', () => {
-    const at = (x: number) => waveAmplitude(x * 180, 180);
-    expect(at(0)).toBeCloseTo(0.15);
-    expect(at(0.4)).toBeCloseTo(1);
-    expect(at(0.2)).toBeLessThan(at(0.4));
-    expect(at(0.8)).toBeLessThan(at(0.6));
-    expect(at(1)).toBeCloseTo(0.15);
-  });
   it('shows the plans for the chosen trigger', () => {
     const p = { id: 'p', trigger: 'stress' as const, ifText: 'a', thenText: 'b', createdAt: '', usedCount: 0 };
     expect(plansForTrigger([p], 'stress')).toHaveLength(1);
     expect(plansForTrigger([p], 'coffee_tea')).toHaveLength(0);
     expect(plansForTrigger([p], null)).toHaveLength(0);
   });
-  it('plays the matching game', () => {
-    let g = newMatchGame(['🍎', '🌙'], () => 0);
-    expect(g.cards).toHaveLength(4);
-    const first = g.cards[0]!.symbol;
-    const pair = g.cards.findIndex((c, i) => i > 0 && c.symbol === first);
-    const other = g.cards.findIndex((c) => c.symbol !== first);
-    // Mismatch stays open until the next tap.
-    g = flipCard(flipCard(g, 0), other);
-    expect(g.open).toEqual([0, other]);
-    expect(g.moves).toBe(1);
-    g = flipCard(g, 0);
-    expect(g.open).toEqual([0]);
-    g = flipCard(g, pair);
-    expect(g.open).toEqual([]);
-    expect(matchedPairs(g)).toBe(1);
-    // Matched cards can't be turned again.
-    expect(flipCard(g, 0)).toBe(g);
-    const rest = g.cards.map((c, i) => (c.matched ? -1 : i)).filter((i) => i >= 0);
-    g = flipCard(flipCard(g, rest[0]!), rest[1]!);
-    expect(gameWon(g)).toBe(true);
-  });
+
 });
 
 describe('diary and trigger map (K5)', () => {
@@ -429,7 +396,8 @@ describe('check-in, safety and learnings (K6)', () => {
         { trigger: 'alcohol', count: 2 },
       ]),
     );
-    expect(l.helpfulTools[0]).toEqual({ tool: 'surf', count: 2 });
+    // Tools removed in V4 (here: urge surfing) are counted together as "Diğer araçlar".
+    expect(l.helpfulTools[0]).toEqual({ tool: 'other', count: 2 });
     expect(l.usedPlans.map((p) => p.id)).toEqual(['p1']);
     expect(l.smokeFreeDays).toBe(4);
   });

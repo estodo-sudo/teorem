@@ -14,6 +14,9 @@ import { managedCount, toolEffectiveness } from './sos';
  * Statistics and badges (SPEC_ODAK_KAMPI 5.12 / 5.13), pure. Colours stay neutral: a slip day is grey,
  * never "red = bad". Badges once earned are kept (a slip never takes one back).
  */
+/** Urges with an intensity given (0 = skipped in the crisis). */
+const given = (list: UrgeEvent[]) => list.filter((u) => u.intensityBefore > 0);
+
 export type FitCell = 'fit' | 'slip' | 'none' | 'future';
 
 /** Calendar of the last `weeks` weeks (Monday first): fit when every goal target fit that day. */
@@ -46,7 +49,7 @@ export function weeklyUrges(urges: UrgeEvent[], now: Date, weeks = 6): { count: 
   return Array.from({ length: weeks }, (_, i) => {
     const from = first + i * 7 * DAY_MS;
     const list = urges.filter((u) => Date.parse(u.at) >= from && Date.parse(u.at) < from + 7 * DAY_MS);
-    return { count: list.length, avg: list.length ? Math.round((list.reduce((s, u) => s + u.intensityBefore, 0) / list.length) * 10) / 10 : null };
+    return { count: list.length, avg: given(list).length ? Math.round((given(list).reduce((s, u) => s + u.intensityBefore, 0) / given(list).length) * 10) / 10 : null };
   });
 }
 
@@ -166,7 +169,7 @@ export function summaryNumbers(o: { goal: GoalConfig; events: BehaviorEvent[]; u
     current: c.length ? Math.min(...c.map((x) => x.current)) : 0,
     urges: o.urges.length,
     managed: managedCount(o.urges),
-    urgeIntensity: avg(o.urges.map((u) => u.intensityBefore)),
+    urgeIntensity: avg(o.urges.map((u) => u.intensityBefore).filter((v) => v > 0)),
     slipDays14: within(14),
     slipDays30: within(30),
     triggers: topTriggers(o.urges, o.events, 3).map((x) => x.id),

@@ -14,7 +14,7 @@ import { SectionTitle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 
-const TOOL_LABEL: Partial<Record<ToolId, string>> = { surf: SOS.surf.title, breath: SOS.breath.title, delay: SOS.delay.title, four_e: SOS.fourE.title, reasons: SOS.reasons.title, game: SOS.game.title };
+const TOOL_LABEL: Partial<Record<ToolId | 'other', string>> = { breath: SOS.breath.title, puzzle: SOS.puzzle.title, delay: SOS.delay.title, reasons: SOS.reasons.title };
 
 /**
  * Relapse ("smoking regularly again"): what this attempt taught → a new quit day after a short

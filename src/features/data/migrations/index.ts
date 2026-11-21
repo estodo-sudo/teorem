@@ -96,6 +96,13 @@ export const MIGRATIONS: Migration[] = [
       ALTER TABLE strength_tests ADD COLUMN extra TEXT;
     `,
   },
+  {
+    // SPEC_V4 §C.2: a craving can have several triggers and a free "Diğer" text (JSON). `trig` keeps the first.
+    version: 4,
+    sql: `
+      ALTER TABLE camp_cravings ADD COLUMN extra TEXT;
+    `,
+  },
 ];
 
 export interface MigratableDb {

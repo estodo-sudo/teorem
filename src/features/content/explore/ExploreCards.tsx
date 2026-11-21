@@ -50,7 +50,7 @@ export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl' }: { im
 }
 
 /** Black → clear gradient over the lower half of a photo so white text stays readable (§4). */
-function Scrim({ height = '55%' }: { height?: ViewStyle['height'] }) {
+export function Scrim({ height = '55%' }: { height?: ViewStyle['height'] }) {
   const t = useTheme();
   return (
     <Svg width="100%" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height }} pointerEvents="none">
@@ -86,11 +86,11 @@ function Shell({ onPress, label, hint, style, children }: { onPress: () => void;
 
 // ---------------------------------------------------------------- 4.1 featured story
 
-export function FeaturedStoryCard({ title, kicker, meta, image, icon, tone, locked, onPress }: { title: string; kicker: string; meta: string; image?: ExploreImage; icon: IconName; tone: ModuleTone; locked: boolean; onPress: () => void }) {
+export function FeaturedStoryCard({ title, kicker, meta, resume, image, icon, tone, locked, onPress }: { title: string; kicker: string; meta: string; resume?: string; image?: ExploreImage; icon: IconName; tone: ModuleTone; locked: boolean; onPress: () => void }) {
   const t = useTheme();
   const f = t.focus;
   return (
-    <Shell onPress={onPress} label={`${kicker}: ${title}. ${meta}`} style={{ minHeight: CARD.featured.h }}>
+    <Shell onPress={onPress} label={`${kicker}: ${title}. ${resume ? `${resume}. ` : ''}${meta}`} style={{ minHeight: CARD.featured.h }}>
       <ExplorePhoto image={image} icon={icon} tone={tone} style={StyleSheet.absoluteFill} />
       <Scrim height="70%" />
       <View style={{ flex: 1, minHeight: CARD.featured.h, flexDirection: 'row', alignItems: 'flex-end', padding: t.space.lg, gap: t.space.md }}>
@@ -101,6 +101,11 @@ export function FeaturedStoryCard({ title, kicker, meta, image, icon, tone, lock
           <AppText variant="title2" color={f.text}>
             {title}
           </AppText>
+          {resume ? (
+            <AppText variant="footnote" weight="600" color={f.text}>
+              {resume}
+            </AppText>
+          ) : null}
           <AppText variant="footnote" color={f.icon}>
             {meta}
           </AppText>
@@ -115,15 +120,25 @@ export function FeaturedStoryCard({ title, kicker, meta, image, icon, tone, lock
 
 // ---------------------------------------------------------------- 4.2 story poster
 
-export function StoryPosterCard({ title, read, image, icon, tone, readLabel, onPress }: { title: string; read: boolean; image?: ExploreImage; icon: IconName; tone: ModuleTone; readLabel: string; onPress: () => void }) {
+/**
+ * Story poster (SPEC_V4 §B.2): read → a check top right; half read → a thin progress line at the bottom;
+ * saved → a small bookmark top left. Unread ones keep the primary ring.
+ */
+export function StoryPosterCard({ title, read, progress = 0, saved, image, icon, tone, stateLabel, onPress }: { title: string; read: boolean; progress?: number; saved?: boolean; image?: ExploreImage; icon: IconName; tone: ModuleTone; stateLabel?: string; onPress: () => void }) {
   const t = useTheme();
+  const ringed = !read && progress === 0;
   return (
-    <Shell onPress={onPress} label={read ? `${title}, ${readLabel}` : title} style={{ width: CARD.poster.w, minHeight: CARD.poster.h, flex: 1, borderWidth: read ? t.border.thin : t.border.thick, borderColor: read ? t.tokens.border : t.tokens.primary }}>
+    <Shell onPress={onPress} label={stateLabel ? `${title}, ${stateLabel}` : title} style={{ width: CARD.poster.w, minHeight: CARD.poster.h, flex: 1, borderWidth: ringed ? t.border.thick : t.border.thin, borderColor: ringed ? t.tokens.primary : t.tokens.border }}>
       <ExplorePhoto image={image} icon={icon} tone={tone} style={StyleSheet.absoluteFill} />
       <Scrim />
-      {read ? (
+      {read && progress === 0 ? (
         <View style={{ position: 'absolute', top: t.space.sm, right: t.space.sm, width: 24, height: 24, borderRadius: 12, backgroundColor: t.focus.text, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="check" size="sm" color={t.tokens.primary} />
+        </View>
+      ) : null}
+      {saved ? (
+        <View style={{ position: 'absolute', top: t.space.sm, left: t.space.sm, width: 24, height: 24, borderRadius: 12, backgroundColor: t.veil.shadow, alignItems: 'center', justifyContent: 'center' }}>
+          <Icon name="bookmark" size={14} color={t.focus.text} />
         </View>
       ) : null}
       <View style={{ flex: 1, justifyContent: 'flex-end', padding: t.space.md }}>
@@ -131,6 +146,11 @@ export function StoryPosterCard({ title, read, image, icon, tone, readLabel, onP
           {title}
         </AppText>
       </View>
+      {progress > 0 ? (
+        <View style={{ position: 'absolute', left: t.space.md, right: t.space.md, bottom: t.space.sm, height: 3, borderRadius: 2, backgroundColor: t.veil.bold, overflow: 'hidden' }}>
+          <View style={{ width: `${Math.round(progress * 100)}%`, height: 3, backgroundColor: t.focus.text }} />
+        </View>
+      ) : null}
     </Shell>
   );
 }

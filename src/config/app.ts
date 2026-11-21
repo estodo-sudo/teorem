@@ -3,7 +3,8 @@
  * branding is final — read it from here everywhere (UI, notifications, export
  * files, app.config.ts).
  */
-export const APP_NAME = '[UYGULAMA_ADI]';
+// Temporary name until branding is final (SPEC_V4 §0.6): never show a placeholder like "[UYGULAMA_ADI]".
+export const APP_NAME = 'Uygulama';
 
 /** Bundle / package identifiers (placeholders until store setup). */
 export const APP_SLUG = 'pelvik-app';

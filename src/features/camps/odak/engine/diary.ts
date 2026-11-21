@@ -1,8 +1,8 @@
 import { DAY_MS, dayKey } from '@/features/camps/core/time';
 
-import type { BehaviorEvent, EmotionId, OdakToolId, OdakTriggerId, UrgeEvent } from '../types';
+import type { BehaviorEvent, EmotionId, OdakTriggerId, UrgeEvent } from '../types';
 
-import { toolEffectiveness } from './sos';
+import { toolEffectiveness, type OdakToolGroup } from './sos';
 
 /**
  * Self-monitoring (SPEC_ODAK_KAMPI 5.4). Pure helpers for the diary list and the weekly summary:
@@ -48,7 +48,7 @@ export interface WeeklySummary {
   riskyHour: number | null;
   riskyDay: number | null;
   topTrigger: OdakTriggerId | null;
-  bestTool: OdakToolId | null;
+  bestTool: OdakToolGroup | null;
   emotionBefore: EmotionId | null;
   emotionAfter: EmotionId | null;
   avgSatisfaction: number | null;

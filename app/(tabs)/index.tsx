@@ -8,7 +8,11 @@ import { useStreak } from '@/features/gamification/service';
 import { DailyGoalCard } from '@/features/today/DailyGoalCard';
 import { StreakBadge } from '@/features/today/StreakBadge';
 import { TodayExtras } from '@/features/today/TodayExtras';
+import { FitnessCard, RelaxCard, ThisWeek } from '@/features/today/WeekSections';
 import { WorkoutCard } from '@/features/today/WorkoutCard';
+import { todayWeekIndex } from '@/features/training/plan';
+import { FunctionalTasksCard } from '@/features/training/RoadmapViews';
+import { toDateKey } from '@/lib/date';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 function greetingKey(hour: number) {
@@ -18,12 +22,16 @@ function greetingKey(hour: number) {
   return 'night';
 }
 
-/** Bugün (ui-v3, SPEC_UI_V3 §7.1): greeting with streak and level chips, today's workout, the checklist, "Senin için". */
+/**
+ * Günüm (SPEC_V4 §A.2): greeting with streak and level chips · today's workout · this week (moved from
+ * the old Antrenman tab) · the Bugün checklist · Kasık Fitness · Rahatla · "Senin için".
+ */
 export default function Today() {
   const t = useTheme();
   const { t: tr, i18n } = useTranslation();
   const streak = useStreak();
-  const level = useTrainingStore((s) => s.training.level);
+  const training = useTrainingStore((s) => s.training);
+  const level = training.level;
   const now = new Date();
   const dateLabel = now.toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US', { weekday: 'long', day: 'numeric', month: 'long' });
 
@@ -48,7 +56,11 @@ export default function Today() {
         </ScalePressable>
       </View>
       <WorkoutCard />
+      <ThisWeek />
+      <FunctionalTasksCard track={training.track} weekIndex={todayWeekIndex(training, toDateKey())} />
       <DailyGoalCard />
+      <FitnessCard />
+      <RelaxCard />
       <TodayExtras />
     </Screen>
   );

@@ -8,6 +8,7 @@ import { APP_NAME } from '@/config/app';
 import { ACHIEVEMENTS } from '@/features/gamification/achievements';
 import { useStreak } from '@/features/gamification/service';
 import { isEntitlementValid } from '@/features/purchases/entitlement';
+import { ActiveTrackCard, ExerciseGuide, MuscleStructureCard } from '@/features/training/ProfileTraining';
 import { openManageSubscriptions, restorePurchases } from '@/features/purchases/iap';
 import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useProgressStore } from '@/stores/progressStore';
@@ -68,10 +69,22 @@ export default function Profile() {
         <ListRow label={tr('paywall.restore')} icon="rotate" onPress={() => void restorePurchases()} />
       </RowGroup>
 
-      <RowGroup title={tr('profile.groups.training')}>
-        <ListRow label={tr('settings.training.title')} icon="pulse" onPress={() => router.push('/settings/training')} />
+      {/* Antrenman (SPEC_V4 §A.3): active track, the muscle questions, the exercise guide, then the rows. */}
+      <View style={{ gap: t.space.md }}>
+        <AppText variant="title3" accessibilityRole="header">
+          {tr('profile.groups.training')}
+        </AppText>
+        <ActiveTrackCard />
+        <MuscleStructureCard />
+        <AppText variant="footnote" weight="600" muted>
+          {tr('profile.training.guide')}
+        </AppText>
+        <ExerciseGuide />
+      </View>
+      <RowGroup>
         <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
-        <ListRow label={tr('progress.achievements')} icon="trophy" onPress={() => router.push('/achievements')} />
+        <ListRow label={tr('profile.training.trophies')} icon="trophy" onPress={() => router.push('/achievements')} />
+        <ListRow label={tr('settings.training.title')} icon="pulse" onPress={() => router.push('/settings/training')} />
       </RowGroup>
 
       <RowGroup title={tr('profile.groups.notifications')}>

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
 import { IconTile } from '@/components/ui';
 import { NumberStepper } from '@/features/camps/core/ui';
-import { fill, ODAK_ONBOARDING as ONB, ODAK_RELAPSE as R, ODAK_SOS as SOS } from '@/features/camps/odak/content';
+import { fill, ODAK_ONBOARDING as ONB, ODAK_RELAPSE as R, odakToolLabel } from '@/features/camps/odak/content';
 import { restartAtBoundaries } from '@/features/camps/odak/engine/checkin';
 import { weeklySummary } from '@/features/camps/odak/engine/diary';
 import { managedCount, toolEffectiveness } from '@/features/camps/odak/engine/sos';
@@ -40,7 +40,7 @@ export default function OdakRelapse() {
   const tools = toolEffectiveness(urges)
     .filter((x) => x.managed > 0)
     .slice(0, 3)
-    .map((x) => SOS.tools.items.find((i) => i.id === x.tool)?.title)
+    .map((x) => odakToolLabel(x.tool))
     .filter(Boolean)
     .join(', ');
 

@@ -1,3 +1,4 @@
+import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useCallback, useEffect, useState } from 'react';
@@ -5,9 +6,15 @@ import { Pressable, ScrollView, Share, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { IconTile } from '@/components/ui';
+import { IconTile, UrgeGauge } from '@/components/ui';
 import { ThemeOverride } from '@/components/useTheme';
-import { IntensityScale, mmss, SosBreath, UrgeSurf, useCountdown } from '@/features/camps/core/sosTools';
+import { BreathPlayer } from '@/features/breath/BreathPlayer';
+import { BreathSetup } from '@/features/breath/BreathSetup';
+import { BREATH_MODES, type BreathMode } from '@/features/breath/patterns';
+import { useBreathStore } from '@/features/breath/store';
+import { mmss, useCountdown } from '@/features/camps/core/sosTools';
+import { BlockPuzzle } from '@/features/games/BlockPuzzle/BlockPuzzle';
+import { useScreenReader } from '@/lib/useScreenReader';
 import { fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, ODAK_SOS as SOS } from '@/features/camps/odak/content';
 import { buildUrge, dayyCount, LETTER_MAX, managedCount, nextTool, noDayy, SOS_TOOLS, type Dayy } from '@/features/camps/odak/engine/sos';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
@@ -21,9 +28,10 @@ import { goBack } from '@/lib/nav';
 type Step = 'check' | 'relocate' | 'tools' | 'end' | 'result';
 
 /**
- * "Dürtü anı" (SOS, SPEC_ODAK_KAMPI 5.2): DAYY check + intensity → move first (60 s) → tools →
- * "Şimdi nasılsın?" → managed / still hard (another tool) / slipped (no judgement). Always free.
- * ui-v3 (SPEC_UI_V3 §7.13): always dark and calm, big slider, big tool cards, focus (indigo) tone.
+ * "Dürtü anı" (SOS, SPEC_ODAK_KAMPI 5.2, SPEC_V4 §D.2): DAYY check (whole rows) + the urge gauge →
+ * move first (60 s) → tools (breath by default, the block puzzle, movement, values, future self,
+ * write to someone) → the gauge again, compared with the first answer → managed / still hard (another
+ * tool) / slipped (no judgement). Always free; always dark and calm, in the focus (indigo) tone.
  */
 export default function OdakSos() {
   return (
@@ -43,7 +51,11 @@ function OdakSosBody() {
   const [dayy, setDayy] = useState<Dayy>(noDayy);
   const [before, setBefore] = useState<number | null>(null);
   const [after, setAfter] = useState<number | null>(null);
-  const [tool, setTool] = useState<OdakToolId>('surf');
+  const [tool, setTool] = useState<OdakToolId>('breath');
+  const [breathMode, setBreathMode] = useState<BreathMode>('quick');
+  const [breathMin, setBreathMin] = useState<number>(BREATH_MODES.quick.defaultMinutes);
+  const [breathing, setBreathing] = useState(false);
+  const screenReader = useScreenReader();
   const [used, setUsed] = useState<OdakToolId[]>([]);
   const [hardNote, setHardNote] = useState<string | null>(null);
   const [result, setResult] = useState<UrgeEvent | null>(null);
@@ -54,7 +66,7 @@ function OdakSosBody() {
   const toolTitle = (id: OdakToolId) => SOS.tools.items.find((x) => x.id === id)?.title ?? id;
 
   const finish = async (outcome: UrgeEvent['outcome']) => {
-    const u = buildUrge({ startedAt, endedAt: new Date(), intensityBefore: before ?? 5, intensityAfter: after, dayy, toolsUsed: used, outcome });
+    const u = buildUrge({ startedAt, endedAt: new Date(), intensityBefore: before ?? 0, intensityAfter: after, dayy, toolsUsed: used, outcome });
     await useOdakStore.getState().logUrge(u);
     setResult(u);
     setStep('result');
@@ -71,9 +83,26 @@ function OdakSosBody() {
     setSlipLogged(true);
   };
 
+  if (breathing) {
+    return (
+      <BreathPlayer
+        mode={breathMode}
+        minutes={breathMin}
+        color={t.tone.focus.fg}
+        askFeeling={false}
+        onClose={() => setBreathing(false)}
+        onDone={() => {
+          use('breath');
+          setBreathing(false);
+          setStep('end');
+        }}
+      />
+    );
+  }
+
   const footer =
     step === 'check' ? (
-      <Button label={tr('odak.sos.next')} size="lg" disabled={before === null} onPress={() => setStep('relocate')} />
+      <Button label={tr('odak.sos.next')} size="lg" onPress={() => setStep('relocate')} />
     ) : step === 'relocate' ? (
       <Button label={tr('odak.sos.toTools')} size="lg" onPress={() => setStep('tools')} />
     ) : step === 'tools' ? (
@@ -94,7 +123,7 @@ function OdakSosBody() {
           <AppText muted>{SOS.check.hint}</AppText>
           <View style={{ gap: 10 }}>
             {SOS.check.items.map((it) => (
-              <ChoiceCard key={it.id} multi icon={it.icon} label={`${it.letter} · ${it.label}`} selected={dayy[it.id]} onPress={() => setDayy((d) => ({ ...d, [it.id]: !d[it.id] }))} />
+              <DayyRow key={it.id} icon={it.icon} letter={it.letter} label={it.label} selected={dayy[it.id]} onPress={() => setDayy((d) => ({ ...d, [it.id]: !d[it.id] }))} />
             ))}
           </View>
           {dayyCount(dayy) ? (
@@ -109,7 +138,12 @@ function OdakSosBody() {
             </Card>
           ) : null}
           <AppText variant="title3">{SOS.check.intensity}</AppText>
-          <IntensityScale value={before} onChange={setBefore} label={SOS.check.intensity} labels={SOS.check.intensityLabels} />
+          <UrgeGauge value={before} onChange={setBefore} label={SOS.check.intensity} color={t.tone.focus.fg} />
+          {before === null ? (
+            <AppText variant="footnote" muted center>
+              {tr('camp.sos.canSkip')}
+            </AppText>
+          ) : null}
         </>
       ) : null}
 
@@ -149,13 +183,47 @@ function OdakSosBody() {
               );
             })}
           </ScrollView>
-          {tool === 'surf' ? <UrgeSurf key="surf" onUsed={() => use('surf')} text={SOS.surf} /> : null}
-          {tool === 'breath' ? <SosBreath key="breath" onUsed={() => use('breath')} desc={SOS.breath.desc} /> : null}
+          {tool === 'breath' ? (
+            <>
+              <AppText muted>{SOS.breath.desc}</AppText>
+              <BreathSetup
+                compact
+                mode={breathMode}
+                minutes={breathMin}
+                onChange={(m, n) => {
+                  setBreathMode(m);
+                  setBreathMin(n);
+                }}
+              />
+              <Button
+                label={tr('camp.sos.breathStart', { count: breathMin })}
+                icon="play"
+                variant="secondary"
+                size="lg"
+                onPress={() => {
+                  useBreathStore.getState().remember(breathMode, breathMin);
+                  setBreathing(true);
+                }}
+              />
+            </>
+          ) : null}
+          {tool === 'puzzle' ? (
+            screenReader ? (
+              <View style={{ gap: t.space.md }}>
+                <AppText muted>{SOS.puzzle.srHint}</AppText>
+                <Button label={toolTitle('breath')} icon="wind" variant="secondary" onPress={() => setTool('breath')} />
+              </View>
+            ) : (
+              <>
+                <AppText muted>{SOS.puzzle.desc}</AppText>
+                <BlockPuzzle color={t.tone.focus.fg} onPlayed={() => use('puzzle')} />
+              </>
+            )
+          ) : null}
           {tool === 'move' ? <Move key="move" onUsed={() => use('move')} /> : null}
           {tool === 'values' ? <ValuesView key="values" onUsed={onValuesUsed} /> : null}
           {tool === 'futureSelf' ? <FutureSelf key="future" onUsed={onFutureUsed} /> : null}
           {tool === 'supporter' ? <Supporter key="supporter" onUsed={() => use('supporter')} /> : null}
-          <Button label={`${tr('odak.coach.fromSos')}`} variant="ghost" onPress={() => router.push({ pathname: '/odak/coach', params: { scenario: 'urge' } })} />
         </>
       ) : null}
 
@@ -164,7 +232,7 @@ function OdakSosBody() {
           <AppText variant="h2" accessibilityRole="header">
             {SOS.end.question}
           </AppText>
-          <IntensityScale value={after} onChange={setAfter} label={SOS.end.question} labels={SOS.check.intensityLabels} />
+          <UrgeGauge value={after} onChange={setAfter} label={SOS.end.question} color={t.tone.focus.fg} compareTo={before} />
           <View style={{ gap: 10 }}>
             <Button label={SOS.end.managed} size="lg" variant="primary" onPress={() => void finish('managed')} />
             <Button label={SOS.end.hard} size="lg" variant="secondary" onPress={stillHard} />
@@ -430,5 +498,34 @@ function Supporter({ onUsed }: { onUsed: () => void }) {
         }}
       />
     </View>
+  );
+}
+
+/**
+ * A DAYY row (SPEC_V4 §D.2): the whole row is the control (no small checkbox). Selected: primary
+ * border and a check.
+ */
+function DayyRow({ icon, letter, label, selected, onPress }: { icon: IconName; letter: string; label: string; selected: boolean; onPress: () => void }) {
+  const t = useTheme();
+  const k = t.tokens;
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: selected }}
+      accessibilityLabel={label}
+      style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 60, paddingHorizontal: t.space.lg, borderRadius: t.radius.lg, borderWidth: selected ? 2 : 1, borderColor: selected ? k.primary : k.border, backgroundColor: selected ? k.primarySoft : k.card, transform: [{ scale: pressed ? 0.99 : 1 }] })}
+    >
+      <View style={{ width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', backgroundColor: selected ? k.primary : k.muted }}>
+        <AppText variant="callout" weight="700" color={selected ? k.primaryForeground : k.foreground}>
+          {letter}
+        </AppText>
+      </View>
+      <Icon name={icon} size={20} color={k.mutedForeground} />
+      <AppText variant="bodyStrong" style={{ flex: 1 }}>
+        {label}
+      </AppText>
+      {selected ? <Icon name="check" size={22} color={k.primary} /> : null}
+    </Pressable>
   );
 }

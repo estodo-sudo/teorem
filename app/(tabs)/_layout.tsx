@@ -9,9 +9,9 @@ import { requiredFirstRunRoute } from '@/features/app/gate';
 import { useCampShortcut } from '@/features/camps/smoking/shortcut';
 import { useProfileStore } from '@/stores/profileStore';
 
+/** SPEC_V4 §A.1: four equal tabs. The old Antrenman tab is gone (`/training` redirects to Günüm). */
 const TABS: { name: string; key: string; icon: IconName }[] = [
-  { name: 'index', key: 'today', icon: 'home' },
-  { name: 'training', key: 'training', icon: 'pulse' },
+  { name: 'index', key: 'home', icon: 'sun' },
   { name: 'progress', key: 'progress', icon: 'chart' },
   { name: 'discover', key: 'discover', icon: 'compass' },
   { name: 'profile', key: 'profile', icon: 'user' },

@@ -15,6 +15,29 @@ export interface StorySlide {
   didYouKnow?: string;
 }
 
+/** Slide types of Bilgi Hikâyeleri v2 (SPEC_V4 §B.1). A slide without `type` is a legacy one, shown as `info`. */
+export type StoryPageType = 'cover' | 'info' | 'myth' | 'didYouKnow' | 'quiz' | 'action' | 'doctor' | 'summary';
+
+export interface StoryPage {
+  type?: StoryPageType;
+  icon?: IconName;
+  /** `info`: up to two small supporting icons next to the big one. */
+  support?: IconName[];
+  title?: string;
+  text?: string;
+  /** `myth`: the common belief and the fact on the back of the card. */
+  myth?: string;
+  fact?: string;
+  quiz?: { question: string; options: string[]; correct: number; explain: string };
+  /** `action`: an in-app screen the button opens. Without it the slide is text only. */
+  action?: { route: string; label: string };
+  /** `doctor` and `summary`: the bullet points. */
+  items?: string[];
+  /** Legacy slides only. */
+  didYouKnow?: string;
+  tone?: ModuleTone;
+}
+
 export interface Story {
   id: string;
   title: string;
@@ -22,7 +45,7 @@ export interface Story {
   icon: IconName;
   tone?: ModuleTone;
   minutes: number;
-  slides: StorySlide[];
+  slides: StoryPage[];
   sources: { title: string; url: string }[];
   reviewed: boolean;
 }

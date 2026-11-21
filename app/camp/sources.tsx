@@ -7,7 +7,7 @@ import { CAMP_SOURCES, CAMP_SUPPORT } from '@/features/camps/smoking/content';
 import { SectionTitle } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 
-const METHOD_KEYS = ['act', 'missions', 'coach', 'hsi', 'health', 'withdrawal', 'support'] as const;
+const METHOD_KEYS = ['act', 'missions', 'hsi', 'health', 'withdrawal', 'support'] as const;
 
 /** "Kaynaklar ve Yöntem": every scientific / institutional source the camp uses, and how it is built. */
 export default function CampSources() {

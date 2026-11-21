@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Button, Card, Dialog, Header, Screen, useTheme } from '@/components';
 import { exportDoctorSummary } from '@/features/camps/core/share';
 import { summaryHtml } from '@/features/camps/core/summaryHtml';
-import { fill, ODAK_ONBOARDING as ONB, ODAK_SOS as SOS, ODAK_SUMMARY as SM, ODAK_SUPPORT as S } from '@/features/camps/odak/content';
+import { fill, ODAK_ONBOARDING as ONB, ODAK_SUMMARY as SM, ODAK_SUPPORT as S, odakToolLabel } from '@/features/camps/odak/content';
 import { programStart } from '@/features/camps/odak/engine/checkin';
 import { ODAK_PHASE_ORDER, odakPhase, programDay } from '@/features/camps/odak/engine/phase';
 import { summaryNumbers } from '@/features/camps/odak/engine/stats';
@@ -37,7 +37,7 @@ export default function OdakSupport() {
     const R = SM.rows;
     const none = SM.none;
     const trig = (id: string) => ONB.triggers.options.find((o) => o.id === id)?.label ?? id;
-    const tool = (id: string) => SOS.tools.items.find((o) => o.id === id)?.title ?? id;
+    const tool = (id: string) => odakToolLabel(id) || id;
     const goalText = [ONB.summary.goalLabels.porn[goal.porn], ONB.summary.goalLabels.mast[goal.mast]]
       .filter(Boolean)
       .map((x) => (x ?? '').replace('{n}', String(goal.porn === 'reduce' ? (goal.pornWeeklyMax ?? '') : (goal.mastPauseDays ?? goal.mastWeeklyMax ?? ''))))

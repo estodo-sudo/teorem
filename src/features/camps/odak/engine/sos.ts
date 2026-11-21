@@ -1,9 +1,13 @@
 import { makeId } from '@/lib/random';
 
-import type { OdakToolId, OdakTriggerId, UrgeEvent } from '../types';
+import { ODAK_LEGACY_TOOLS, type OdakActiveToolId, type OdakToolId, type OdakTriggerId, type UrgeEvent } from '../types';
 
-/** Tools offered after "move first", in order (relocation is the step before them). */
-export const SOS_TOOLS: OdakToolId[] = ['surf', 'breath', 'move', 'values', 'futureSelf', 'supporter'];
+/** Tools offered after "move first", in order (SPEC_V4 §D.2: breath first; relocation is the step before them). */
+export const SOS_TOOLS: OdakToolId[] = ['breath', 'puzzle', 'move', 'values', 'futureSelf', 'supporter'];
+
+/** A tool as statistics show it: tools removed in V4 count together as "other" ("Diğer araçlar"). */
+export type OdakToolGroup = OdakActiveToolId | 'other';
+export const odakToolGroup = (id: OdakToolId): OdakToolGroup => (ODAK_LEGACY_TOOLS.includes(id) ? 'other' : (id as OdakActiveToolId));
 export const LETTER_MAX = 2000;
 
 export type Dayy = UrgeEvent['dayy'];
@@ -19,10 +23,10 @@ export function nextTool(used: OdakToolId[], all: OdakToolId[] = SOS_TOOLS): Oda
 }
 
 /** How often each tool was part of a managed moment, most effective first (ties by use). */
-export function toolEffectiveness(urges: UrgeEvent[]): { tool: OdakToolId; used: number; managed: number; rate: number }[] {
-  const m = new Map<OdakToolId, { used: number; managed: number }>();
+export function toolEffectiveness(urges: UrgeEvent[]): { tool: OdakToolGroup; used: number; managed: number; rate: number }[] {
+  const m = new Map<OdakToolGroup, { used: number; managed: number }>();
   for (const u of urges)
-    for (const t of new Set(u.toolsUsed)) {
+    for (const t of new Set(u.toolsUsed.map(odakToolGroup))) {
       const v = m.get(t) ?? { used: 0, managed: 0 };
       v.used += 1;
       if (u.outcome === 'managed') v.managed += 1;
@@ -37,7 +41,8 @@ export function buildUrge(o: { startedAt: Date; endedAt: Date; intensityBefore: 
   return {
     id: makeId('urge'),
     at: o.startedAt.toISOString(),
-    intensityBefore: clamp10(o.intensityBefore),
+    // 0 = skipped in the crisis (SPEC_V4 §C.1); left out of averages.
+    intensityBefore: o.intensityBefore > 0 ? clamp10(o.intensityBefore) : 0,
     ...(o.intensityAfter ? { intensityAfter: clamp10(o.intensityAfter) } : {}),
     ...(o.trigger ? { trigger: o.trigger } : {}),
     dayy: o.dayy,
@@ -45,4 +50,14 @@ export function buildUrge(o: { startedAt: Date; endedAt: Date; intensityBefore: 
     outcome: o.outcome,
     durationSec: Math.max(0, Math.round((o.endedAt.getTime() - o.startedAt.getTime()) / 1000)),
   };
+}
+
+/**
+ * "Ne zaman / nerede?" chips (SPEC_V4 §D.3): every option is shown, the user's most frequent first
+ * (counted over their urge logs), then the rest in catalogue order.
+ */
+export function odakTriggerOrder<T extends { id: string }>(options: T[], urges: Pick<UrgeEvent, 'trigger'>[]): T[] {
+  const count = new Map<string, number>();
+  for (const u of urges) if (u.trigger) count.set(u.trigger, (count.get(u.trigger) ?? 0) + 1);
+  return options.map((o, i) => ({ o, i })).sort((a, b) => (count.get(b.o.id) ?? 0) - (count.get(a.o.id) ?? 0) || a.i - b.i).map((x) => x.o);
 }

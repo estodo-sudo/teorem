@@ -17,7 +17,8 @@
   "outcome": "Ne yaptın?",
   "managed": "Yönettim",
   "slipped": "Kaydım",
-  "saved": "Kaydedildi. Fark etmek, yönetmenin yarısı."
+  "saved": "Kaydedildi. Fark etmek, yönetmenin yarısı.",
+  "pick": "Birini seç"
  },
  "behavior": {
   "title": "Davranış kaydı",

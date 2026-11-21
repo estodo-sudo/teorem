@@ -16,7 +16,12 @@ export type RelapseCause = 'stress' | 'weight' | 'social' | 'alcohol' | 'just_on
 
 export type SymptomId = 'restless' | 'irritable' | 'insomnia' | 'appetite' | 'headache' | 'focus' | 'cough' | 'constipation';
 
-export type ToolId = 'surf' | 'breath' | 'delay' | 'four_e' | 'reasons' | 'game' | 'coach' | 'call171';
+/** Tools offered in "Canım çekiyor" (SPEC_V4 §C.3). */
+export type ActiveToolId = 'breath' | 'puzzle' | 'delay' | 'reasons' | 'call171';
+/** Tools removed in V4 (urge surfing, matching game, 4E, coach). Kept so old records still read; shown as "Diğer araçlar". */
+export type LegacyToolId = 'surf' | 'game' | 'four_e' | 'coach';
+export type ToolId = ActiveToolId | LegacyToolId;
+export const LEGACY_TOOLS: readonly LegacyToolId[] = ['surf', 'game', 'four_e', 'coach'];
 
 /** Minutes from waking to the first cigarette: ≤5, 6–30, 31–60, 60+. */
 export type FirstCigMinutes = 5 | 30 | 60 | 61;
@@ -85,9 +90,15 @@ export interface CigaretteLog {
 export interface CravingEvent {
   id: string;
   at: string;
+  /** 1–10; 0 when the user skipped the question in a crisis (SPEC_V4 §C.1) — left out of averages. */
   intensityBefore: number;
   intensityAfter?: number;
+  /** The first chosen trigger (what statistics count). */
   trigger?: TriggerId;
+  /** All chosen triggers, when more than one was picked (SPEC_V4 §C.2). */
+  triggers?: TriggerId[];
+  /** The free text of the "Diğer" chip. */
+  otherTrigger?: string;
   toolUsed: ToolId[];
   outcome: 'resisted' | 'still_hard' | 'smoked';
   durationSec: number;
@@ -104,7 +115,8 @@ export interface CheckIn {
 
 export interface IfThenPlan {
   id: string;
-  trigger: TriggerId;
+  /** A catalogue trigger, or `custom`: the user's own situation, written in `ifText` (SPEC_V4 §C.2). */
+  trigger: TriggerId | 'custom';
   ifText: string;
   thenText: string;
   createdAt: string;

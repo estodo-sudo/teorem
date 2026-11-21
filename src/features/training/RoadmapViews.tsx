@@ -69,23 +69,6 @@ export function DayNode({ node, size = 44, onPress, deload }: { node: RoadmapNod
   );
 }
 
-/**
- * "Bu hafta" strip (SPEC_UI_V3 §7.2.2): this plan week's days side by side. Tap a day to preview its
- * session. Plan days move with completed sessions, not calendar days, so they are numbered (not Mon–Sun).
- */
-export function WeekStrip({ training, today, nodes, week, onPreview }: { training: TrainingState; today: string; nodes: RoadmapNode[]; week: number; onPreview: (day: number) => void }) {
-  const t = useTheme();
-  const falling = useHistoryStore((h) => strengthFallingTwoWeeks(h.strengthTests));
-  const strip = nodes.filter((n) => n.week === week).slice(0, 7);
-  return (
-    <View accessibilityRole="list" style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: t.space.xs }}>
-      {strip.map((n) => (
-        <DayNode key={n.day} node={n} size={40} deload={week !== 3 && deloadOnPlanDay(training, today, n.day, falling)} onPress={() => onPreview(n.day)} />
-      ))}
-    </View>
-  );
-}
-
 /** Tap a day → its session (§8): the blocks as a numbered vertical stepper. */
 export function DayPreview({ visible, day, week, training, onClose }: { visible: boolean; day: number; week: number; training: TrainingState; onClose: () => void }) {
   const t = useTheme();

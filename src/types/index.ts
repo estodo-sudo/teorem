@@ -187,6 +187,8 @@ export interface ContentProgress {
   readStoryIds: string[];
   favoriteStoryIds: string[];
   courseProgress: Record<string, CourseProgressEntry>;
+  /** Story id → slide the reader left off at (SPEC_V4 §B.1). Absent in older saves. */
+  storyPositions?: Record<string, number>;
 }
 
 export interface Achievement {

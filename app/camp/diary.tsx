@@ -37,6 +37,7 @@ export default function CampDiary() {
   return (
     <Screen>
       <Header title={tr('camp.diary.title')} onBack={() => goBack('/camp')} />
+      {attempt?.status === 'active' ? <Button label={tr('camp.panel.slip')} icon="rotate" variant="secondary" onPress={() => router.push('/camp/slip')} /> : null}
       <Card style={{ flexDirection: 'row', alignItems: 'center', gap: 14 }}>
         <View style={{ width: 64, height: 64, borderRadius: 32, backgroundColor: tint(t.colors.primary, '1F'), alignItems: 'center', justifyContent: 'center' }}>
           <AppText variant="h1">{todayCount(logs, new Date())}</AppText>

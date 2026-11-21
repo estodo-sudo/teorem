@@ -98,9 +98,10 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
       </View>
 
       <View style={[styles.flex, { paddingHorizontal: 28, justifyContent: 'center', gap: t.space.lg }]}>
-        <AppText style={{ fontSize: 64, lineHeight: 76 }} accessible={false}>
-          {slide.icon}
-        </AppText>
+        {/* The slide's `icon` is an icon name: always draw it as an icon, never as text (SPEC_V4 §0.1). */}
+        <View accessible={false} importantForAccessibility="no-hide-descendants" style={{ width: 88, height: 88, borderRadius: 44, backgroundColor: t.veil.soft, alignItems: 'center', justifyContent: 'center' }}>
+          <Icon name={slide.icon} color={fg} size={44} />
+        </View>
         <AppText variant="h1" color={fg} accessibilityRole="header">
           {slide.title}
         </AppText>

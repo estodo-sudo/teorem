@@ -28,7 +28,7 @@ export default function ScreeningScreen() {
   const [result, setResult] = useState<ScreeningResult | null>(null);
   const R = SCREENING.result;
 
-  const leave = () => (onboarding ? router.replace('/tutorial') : goBack('/(tabs)/training'));
+  const leave = () => (onboarding ? router.replace('/tutorial') : goBack('/(tabs)/profile'));
   const skip = () => {
     useKegelStore.getState().skipScreening(new Date().toISOString());
     leave();
@@ -91,7 +91,7 @@ export default function ScreeningScreen() {
           </>
         }
       >
-        {onboarding ? <View style={{ height: 48 }} /> : <Header onBack={() => goBack('/(tabs)/training')} />}
+        {onboarding ? <View style={{ height: 48 }} /> : <Header onBack={() => goBack('/(tabs)/profile')} />}
         <View style={{ gap: t.space.md, marginTop: t.space.sm }}>
           <IconTile icon="compass" tone="kegel" size="lg" round />
           <AppText variant="h1">{SCREENING.title}</AppText>

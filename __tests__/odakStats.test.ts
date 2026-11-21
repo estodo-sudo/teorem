@@ -30,7 +30,7 @@ const urge = (day: number, outcome: UrgeEvent['outcome'], extra: Partial<UrgeEve
   at: d(day).toISOString(),
   intensityBefore: 6,
   dayy: { tired: false, hungry: false, lonely: false, loaded: false },
-  toolsUsed: ['surf'],
+  toolsUsed: ['puzzle'],
   outcome,
   durationSec: 60,
   ...extra,
@@ -107,7 +107,7 @@ describe('badges (spec 5.13)', () => {
 describe('specialist summary', () => {
   it('counts fitting days, urges, slip days and recent mood', () => {
     const s = summaryNumbers({ goal, events: [ev(10), ev(17)], urges: [urge(16, 'managed', { trigger: 'stress' }), urge(17, 'slipped')], checkins: [chk(15, { mood: 2, sleep: 4 }), chk(16, { mood: 4, sleep: 4 })], now });
-    expect(s).toMatchObject({ fitTotal: 15, current: 1, urges: 2, managed: 1, urgeIntensity: 6, slipDays14: 2, slipDays30: 2, triggers: ['stress'], tools: ['surf'], mood14: 3, sleep14: 4 });
+    expect(s).toMatchObject({ fitTotal: 15, current: 1, urges: 2, managed: 1, urgeIntensity: 6, slipDays14: 2, slipDays30: 2, triggers: ['stress'], tools: ['puzzle'], mood14: 3, sleep14: 4 });
   });
   it('the printable page escapes text and keeps the note', () => {
     const html = summaryHtml(summaryJson.title, summaryJson.subtitle, [['<b>', 'a & b']], summaryJson.note);

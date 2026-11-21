@@ -143,7 +143,7 @@ export default function OdakStats() {
               tools.slice(0, 4).map((x) => (
                 <AppText key={x.tool} variant="small">
                   {label(
-                    SOS.tools.items.map((i) => ({ id: i.id, label: i.title })),
+                    [...SOS.tools.items.map((i) => ({ id: i.id, label: i.title })), { id: 'other', label: SOS.tools.other }],
                     x.tool,
                   )}{' '}
                   · {x.managed}/{x.used}

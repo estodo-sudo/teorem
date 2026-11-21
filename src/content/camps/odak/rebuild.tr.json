@@ -116,7 +116,7 @@
     "id": "kegel",
     "icon": "dumbbell", "tone": "focus",
     "label": "Kegel antrenmanı",
-    "route": "/training"
+    "route": "/"
    },
    {
     "id": "breathing",
@@ -134,7 +134,7 @@
     "id": "fitness",
     "icon": "footprints", "tone": "focus",
     "label": "Kasık Fitness",
-    "route": "/training"
+    "route": "/"
    }
   ]
  }

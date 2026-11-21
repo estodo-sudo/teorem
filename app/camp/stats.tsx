@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
 import { CAMP_ONBOARDING as ONB, CAMP_REWARDS } from '@/features/camps/smoking/content';
 import { diaryReport, logsOfAttempt, triggerFrequency } from '@/features/camps/smoking/engine/diary';
-import { currentPhase } from '@/features/camps/smoking/engine/phase';
+import { currentPhase, daysToNextPhase } from '@/features/camps/smoking/engine/phase';
 import { resistedCount } from '@/features/camps/smoking/engine/sos';
 import { cravingsPerDay, cumulativeSavings, smokeFreeCalendar, weeklyIntensity, type HeatCell } from '@/features/camps/smoking/engine/stats';
 import { campAttempt } from '@/features/camps/smoking/state';
-import { fmtTL, HourChart, MiniBars, PremiumLock } from '@/features/camps/smoking/ui';
+import { fmtTL, HourChart, MiniBars, PhaseTrack, PremiumLock } from '@/features/camps/smoking/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { SectionTitle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
@@ -47,6 +47,22 @@ export default function CampStats() {
   return (
     <Screen>
       <Header title={tr('camp.stats.title')} onBack={() => goBack('/camp')} />
+
+      {attempt ? (
+        <>
+          <SectionTitle tone="smokefree" icon="map" title={tr('camp.panel.phaseTitle')} hint={ONB.phases.find((p) => p.id === currentPhase(attempt, now))?.text} />
+          <Card style={{ gap: t.space.md }}>
+            <PhaseTrack phase={currentPhase(attempt, now)} />
+            <AppText variant="small" weight="700" center>
+              {(() => {
+                const toNext = daysToNextPhase(attempt, now);
+                const i = ONB.phases.findIndex((p) => p.id === currentPhase(attempt, now));
+                return toNext === null ? tr('camp.panel.lastPhase') : tr('camp.panel.toNextPhase', { count: toNext, phase: ONB.phases[i + 1]?.title ?? '' });
+              })()}
+            </AppText>
+          </Card>
+        </>
+      ) : null}
 
       <SectionTitle tone="smokefree" icon="calendar" title={tr('camp.stats.calendar')} hint={tr('camp.stats.calendarHint')} />
       {attempt && quitDone ? (

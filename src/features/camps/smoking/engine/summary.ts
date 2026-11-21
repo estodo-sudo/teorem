@@ -68,7 +68,7 @@ export function doctorSummary(s: CampState, ev: CampEvents, now: Date): DoctorSu
     cravings: {
       total: cravings.length,
       resisted: cravings.filter((c) => c.outcome === 'resisted').length,
-      avgBefore: avg(cravings.map((c) => c.intensityBefore)),
+      avgBefore: avg(cravings.map((c) => c.intensityBefore).filter((v) => v > 0)),
       avgAfter: avg(cravings.filter((c) => c.intensityAfter !== undefined).map((c) => c.intensityAfter!)),
     },
     checkins: ev.checkins.filter((c) => ms(c.at) >= since).length,

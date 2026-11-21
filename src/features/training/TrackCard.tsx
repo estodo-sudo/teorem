@@ -5,10 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Icon, useTheme } from '@/components';
 import { Button, Card, IconTile, Progress } from '@/components/ui';
 import { toDateKey } from '@/lib/date';
-import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
-import { needsScreening, rescreenReminder } from './kegelProfile';
 import { todayPlanDay, todayWeekIndex } from './plan';
 import { positionCard } from './player/playerUi';
 import { roadmapNodes, weekTheme } from './roadmap';
@@ -66,35 +64,3 @@ export function TrackCard() {
   );
 }
 
-/** Muscle profile screening (§7.2.6): an info-tinted card, shown until it is done or skipped. */
-export function MuscleProfileCard() {
-  const t = useTheme();
-  const { t: tr } = useTranslation();
-  const training = useTrainingStore((s) => s.training);
-  const profile = useKegelStore((s) => s.profile);
-  const skipped = useKegelStore((s) => s.screeningSkippedAt);
-  const ask = needsScreening({ profile, screeningSkippedAt: skipped });
-  const rescreen = rescreenReminder({ profile }, training.track);
-  if (!ask && !rescreen) return null;
-  return (
-    <View style={{ backgroundColor: t.tokens.infoSoft, borderRadius: t.radius.lg, padding: t.space.gutter, gap: t.space.md }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
-        <IconTile icon="info" tone="mind" background={t.tokens.card} color={t.tokens.info} />
-        <AppText variant="title3" style={{ flex: 1 }}>
-          {rescreen ? tr('kegel.card.rescreenTitle') : tr('kegel.card.screenTitle')}
-        </AppText>
-      </View>
-      <AppText variant="callout">{rescreen ? tr('kegel.card.rescreenText') : tr('kegel.card.screenText')}</AppText>
-      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
-        <View style={{ flex: 1 }}>
-          <Button label={tr('kegel.card.screenStart')} variant="outline" onPress={() => router.push('/kegel/screening')} fullWidth />
-        </View>
-        {ask ? (
-          <View style={{ flex: 1 }}>
-            <Button label={tr('kegel.card.later')} variant="ghost" onPress={() => useKegelStore.getState().skipScreening(new Date().toISOString())} fullWidth />
-          </View>
-        ) : null}
-      </View>
-    </View>
-  );
-}

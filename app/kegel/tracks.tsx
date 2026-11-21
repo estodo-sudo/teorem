@@ -38,7 +38,7 @@ export default function TracksScreen() {
 
   return (
     <Screen>
-      <Header title={tr('kegel.tracks.title')} onBack={() => goBack('/(tabs)/training')} />
+      <Header title={tr('kegel.tracks.title')} onBack={() => goBack('/(tabs)/profile')} />
       <AppText style={{ ...t.type.body, color: t.tokens.mutedForeground }}>{tr('kegel.tracks.intro')}</AppText>
 
       <View style={{ gap: t.space.sm }} accessibilityRole="radiogroup">

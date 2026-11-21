@@ -1,52 +1,51 @@
 import type { IconName } from '@/components/Icon';
-import { router } from 'expo-router';
-import { useEffect } from 'react';
-import { Image, Pressable, View } from 'react-native';
+import { router, type Href } from 'expo-router';
+import { useEffect, useState, type ReactNode } from 'react';
+import { Image, Linking, Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { IconTile } from '@/components/ui';
+import { AppText, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
+import { IconTile, Sheet } from '@/components/ui';
 import { CAMP_HEALTH, CAMP_MISSIONS, CAMP_ONBOARDING as ONB, CAMP_REWARDS, CAMP_SKILLS } from '@/features/camps/smoking/content';
-import { nextLesson } from '@/features/camps/smoking/engine/skills';
-import { cigarettesNotSmoked, slipsOf, smokeFreeDuration, totalSmokeFreeDays } from '@/features/camps/smoking/engine/counters';
+import { checkinDue, moodAlert } from '@/features/camps/smoking/engine/checkin';
+import { cigarettesNotSmoked, slipsOf, smokeFreeDuration } from '@/features/camps/smoking/engine/counters';
+import { logsOfAttempt, todayCount } from '@/features/camps/smoking/engine/diary';
 import { reasonOfDay, remainingUnit, splitDuration } from '@/features/camps/smoking/engine/format';
 import { HEALTH_MILESTONES, milestoneToCelebrate, nextHealthMilestone, reachedMilestones } from '@/features/camps/smoking/engine/milestones';
-import { currentPhase, daysSinceQuit, daysToNextPhase, programDay, quitStart } from '@/features/camps/smoking/engine/phase';
+import { panelContext, recentSlip, sameDay, triggerCoverage } from '@/features/camps/smoking/engine/panel';
+import { currentPhase, daysSinceQuit, programDay, quitStart } from '@/features/camps/smoking/engine/phase';
 import { missionForDay } from '@/features/camps/smoking/engine/plans';
-import { checkinDue, moodAlert } from '@/features/camps/smoking/engine/checkin';
-import { logsOfAttempt, REPORT_MIN_LOGS, todayCount } from '@/features/camps/smoking/engine/diary';
-import { moneySaved } from '@/features/camps/smoking/engine/savings';
-import { resistedCount } from '@/features/camps/smoking/engine/sos';
-import { campAttempt } from '@/features/camps/smoking/state';
 import { missionIsFree } from '@/features/camps/smoking/engine/premium';
-import { useAccess } from '@/features/purchases/useGate';
+import { moneySaved } from '@/features/camps/smoking/engine/savings';
+import { nextLesson } from '@/features/camps/smoking/engine/skills';
 import { canGraduate, earnedBadges, newBadges } from '@/features/camps/smoking/engine/stats';
-import { Alo171Card, fmtTL, MissionCard, PhaseTrack, PremiumLock, SafetyCard, StatTile, useCampDate } from '@/features/camps/smoking/ui';
-import { CampusHero, SectionTitle, tint } from '@/features/campus/shared/ui';
+import { campAttempt } from '@/features/camps/smoking/state';
+import { HeroButton, HeroChip, HeroTitle, MiniStats, PanelHero, PastelCard, SupportRow, TodayCard, ToolGrid, type TaskRow, type ToolTile } from '@/features/camps/core/panelUi';
+import { fmtTL, MissionCard, SafetyCard } from '@/features/camps/smoking/ui';
 import { CelebrationCard } from '@/features/gamification/Celebration';
+import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
 import { useClock } from '@/lib/useNow';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 
 /**
- * Sigarasız Kamp panel (phase-aware home): counter, savings, cigarettes not smoked, next health
- * gain, phase progress and a reason card. SOS, today's mission, check-in and the skill lesson join
- * this page in their own steps (K4, K6, K7, K8).
+ * Sigarasız Kamp panel (SPEC_V4 §C.6): five layers, one job each, and a single filled button.
+ * 1 title with settings · 2 hero (phase chip, counter, three mini stats, "Canım çekiyor") ·
+ * 3 Bugün (check-in, mission, skill — and the cigarette log while reducing) · 4 at most one
+ * situational card · 5 an 8-tile tool grid · then the support line.
  */
 export default function CampPanel() {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const fmtDate = useCampDate();
   const s = useCampStore();
   const premium = useAccess()('camp');
   const cigs = useCampEventsStore((x) => x.cigarettes);
   const cravings = useCampEventsStore((x) => x.cravings);
-  const resisted = resistedCount(cravings);
+  const checkins = useCampEventsStore((x) => x.checkins);
   const { now } = useClock(30_000);
+  const [missionOpen, setMissionOpen] = useState(false);
   // A graduated attempt stays on the panel (freedom phase).
   const attempt = campAttempt(s);
-  const attemptLogs = attempt ? logsOfAttempt(cigs, attempt.id) : [];
-  const checkins = useCampEventsStore((x) => x.checkins);
   const ready = Boolean(s.profile && attempt);
 
   useEffect(() => {
@@ -64,55 +63,77 @@ export default function CampPanel() {
 
   const profile = s.profile;
   const phase = currentPhase(attempt, now);
-  const phaseInfo = ONB.phases.find((p) => p.id === phase)!;
-  const checkin = checkinDue(checkins, phase, now);
-  const pd = programDay(attempt, now);
-  const lessonId = nextLesson(
-    CAMP_SKILLS.lessons,
-    s.skills.map((k) => k.lessonId),
-    s.profile?.relapseCauses ?? [],
-  );
-  const lesson = CAMP_SKILLS.lessons.find((l) => l.id === lessonId);
-  const mission = missionForDay(
-    CAMP_MISSIONS.missions,
-    pd.phase,
-    pd.day,
-    s.missions.map((m) => m.missionId),
-  );
-  const alert = moodAlert(checkins, now);
+  const phaseNo = ONB.phases.findIndex((p) => p.id === phase) + 1;
+  const phaseInfo = ONB.phases[phaseNo - 1]!;
   const preparing = phase === 'preparation';
-  const onHero = t.colors.primaryText;
+  const pd = programDay(attempt, now);
   const start = quitStart(attempt);
   const dur = splitDuration(smokeFreeDuration(attempt, cigs, now));
-  const total = totalSmokeFreeDays(attempt, cigs, now);
-  const hadSlips = slipsOf(attempt, cigs).length > 0;
+  const slips = slipsOf(attempt, cigs);
   const saved = moneySaved(s.prices, profile.perDay, attempt, cigs, now);
   const notSmoked = cigarettesNotSmoked(profile.perDay, attempt, cigs, now);
   const next = preparing ? null : nextHealthMilestone(start, now);
   const nextItem = CAMP_HEALTH.items.find((x) => x.id === (next?.id ?? HEALTH_MILESTONES[0].id))!;
-  // Before the quit the tile shows how soon the first gain comes after it (20 minutes).
   const left = remainingUnit(next ? next.remainingMs : HEALTH_MILESTONES[0].afterMs);
-  const toNext = daysToNextPhase(attempt, now);
-  const reached = preparing ? [] : reachedMilestones(start, now);
-  const celebrate = milestoneToCelebrate(reached, s.seenMilestoneIds);
-  const celebrateItem = CAMP_HEALTH.items.find((x) => x.id === celebrate);
-  // Badges: celebrated one at a time after health gains; closing stores all newly earned ones.
-  const freshBadges = celebrate
-    ? []
-    : newBadges(
-        earnedBadges(
-          s,
-          { cigarettes: cigs, cravings, checkins },
-          CAMP_SKILLS.lessons.filter((l) => !l.bonus).map((l) => l.id),
-          now,
-        ),
-        s.badges,
-      );
-  const badge = CAMP_REWARDS.badges.find((b) => b.id === freshBadges[0]);
+  const daysToQuit = preparing ? -daysSinceQuit(attempt, now) : null;
+
+  // Layer 3: today's tasks.
+  const checkin = checkinDue(checkins, phase, now);
+  const mission = missionForDay(CAMP_MISSIONS.missions, pd.phase, pd.day, s.missions.map((m) => m.missionId));
+  const missionDone = mission ? s.missions.some((m) => m.missionId === mission.id) : false;
+  const missionLocked = mission ? !(premium || missionIsFree(pd.phase)) : false;
+  const learnedToday = [...s.skills].reverse().find((k) => sameDay(k.completedAt, now));
+  const lessonId = learnedToday?.lessonId ?? nextLesson(CAMP_SKILLS.lessons, s.skills.map((k) => k.lessonId), profile.relapseCauses ?? []);
+  const lesson = CAMP_SKILLS.lessons.find((l) => l.id === lessonId);
+  const logs = logsOfAttempt(cigs, attempt.id);
+  const tasks: TaskRow[] = [
+    { key: 'checkin', icon: 'clipboard', title: tr('camp.home2.checkin'), sub: checkin.due && checkin.slot ? tr(`camp.panel.checkin.${checkin.slot}`) : tr('camp.home2.checkinDone'), done: !checkin.due, onPress: () => router.push('/camp/checkin') },
+    ...(mission ? [{ key: 'mission', icon: 'target' as IconName, title: tr('camp.home2.mission'), sub: mission.title, done: missionDone, locked: missionLocked, onPress: () => (missionLocked ? router.push({ pathname: '/paywall', params: { source: 'camp' } }) : setMissionOpen(true)) }] : []),
+    ...(lesson ? [{ key: 'skill', icon: 'book' as IconName, title: tr('camp.home2.skill'), sub: lesson.title, done: Boolean(learnedToday), onPress: () => router.push({ pathname: '/camp/skills/[lessonId]', params: { lessonId: lesson.id } }) }] : []),
+    ...(preparing ? [{ key: 'log', icon: 'pen' as IconName, title: tr('camp.home2.logToday', { count: todayCount(logs, now) }), sub: tr('camp.home2.logHint'), done: false, extra: true, action: tr('camp.home2.logAction'), onPress: () => router.push('/camp/log-cigarette') }] : []),
+  ];
+
+  // Layer 4: one situational card.
   const graduateNow = canGraduate(attempt, now);
   const reason = reasonOfDay(profile.reasons, now);
   const reasonText = reason ? (reason.id === 'custom' ? reason.text : ONB.reasons.find((r) => r.id === reason.id)?.label) : null;
   const reasonIcon: IconName = (reason && reason.id !== 'custom' ? ONB.reasons.find((r) => r.id === reason.id)?.icon : undefined) ?? 'chat';
+  const context = panelContext({
+    safety: moodAlert(checkins, now),
+    quitDayToday: phase === 'quit_day',
+    daysToQuit,
+    slipWithinDay: !preparing && recentSlip(slips, now),
+    graduation: graduateNow || attempt.status === 'graduated',
+    nextHealth: Boolean(next),
+    reason: Boolean(reasonText),
+  });
+
+  // Layer 5: tool counters.
+  const coverage = triggerCoverage(profile.triggers, cravings, cigs, s.plans);
+  const lessons = CAMP_SKILLS.lessons.filter((l) => !l.bonus);
+  const learned = lessons.filter((l) => s.skills.some((k) => k.lessonId === l.id)).length;
+  const badgeCount = s.badges.filter((b) => b.unlockedAt).length;
+  const tools: ToolTile[] = [
+    { icon: 'compass', title: tr('camp.home2.tools.triggers'), sub: coverage.total ? tr('camp.home2.coverage', { done: coverage.done, total: coverage.total }) : undefined, route: '/camp/triggers' },
+    { icon: 'calendar', title: tr('camp.home2.tools.diary'), route: '/camp/diary' },
+    { icon: 'star', title: tr('camp.home2.tools.reasons'), route: '/camp/reasons' },
+    { icon: 'graduation', title: tr('camp.home2.tools.skills'), sub: tr('camp.home2.lessons', { done: learned, total: lessons.length }), route: '/camp/skills' },
+    { icon: 'book', title: tr('camp.home2.tools.library'), route: '/camp/library' },
+    { icon: 'chart', title: tr('camp.home2.tools.stats'), route: '/camp/stats' },
+    { icon: 'trophy', title: tr('camp.home2.tools.rewards'), sub: badgeCount ? tr('camp.home2.badges', { count: badgeCount }) : undefined, route: '/camp/rewards' },
+    { icon: 'heartPulse', title: tr('camp.home2.tools.health'), route: '/camp/health' },
+  ];
+
+  // Celebrations (unchanged): a health gain first, then newly earned badges one at a time.
+  const reached = preparing ? [] : reachedMilestones(start, now);
+  const celebrate = milestoneToCelebrate(reached, s.seenMilestoneIds);
+  const celebrateItem = CAMP_HEALTH.items.find((x) => x.id === celebrate);
+  const freshBadges = celebrate ? [] : newBadges(earnedBadges(s, { cigarettes: cigs, cravings, checkins }, lessons.map((l) => l.id), now), s.badges);
+  const badge = CAMP_REWARDS.badges.find((b) => b.id === freshBadges[0]);
+
+  const counter = preparing
+    ? tr('camp.home2.toQuit', { count: daysToQuit ?? 0 })
+    : tr(slips.length ? 'camp.home2.sinceSlip' : 'camp.home2.smokeFree', { days: dur.days, hours: dur.hours });
 
   return (
     <Screen>
@@ -121,236 +142,68 @@ export default function CampPanel() {
         onBack={() => goBack('/discover')}
         right={
           <Pressable onPress={() => router.push('/camp/settings')} accessibilityRole="button" accessibilityLabel={tr('camp.settings.title')} hitSlop={10} style={{ width: 48, height: 48, alignItems: 'center', justifyContent: 'center' }}>
-            <Icon name="gear" color={t.colors.text} size={22} />
+            <Icon name="gear" color={t.tokens.foreground} size={22} />
           </Pressable>
         }
       />
 
-      {alert ? <SafetyCard /> : null}
+      <View style={{ gap: t.space.xl }}>
+        {/* 2. Hero */}
+        <PanelHero tone="smokefree">
+          <HeroChip label={tr('camp.home2.phaseChip', { n: phaseNo, phase: phaseInfo.title, attempt: attempt.attemptNo })} />
+          <HeroTitle>{counter}</HeroTitle>
+          <MiniStats
+            items={[
+              { value: tr('camp.plan.tl', { amount: fmtTL(saved) }), label: tr('camp.home2.saved') },
+              { value: String(notSmoked), label: tr('camp.home2.notSmoked') },
+              { value: tr(`camp.dur.${left.unit}`, { count: left.value }), label: tr(next ? 'camp.home2.nextGain' : 'camp.home2.firstGain'), onPress: () => router.push('/camp/health') },
+            ]}
+          />
+          <HeroButton tone="smokefree" icon="wind" label={tr('camp.sos.panelButton')} hint={tr('camp.sos.panelHint')} onPress={() => router.push('/camp/sos')} />
+        </PanelHero>
 
-      <CampusHero color={t.colors.primary}>
-        <View style={{ alignSelf: 'flex-start', paddingHorizontal: 10, paddingVertical: t.space.xs, borderRadius: t.radius.pill, backgroundColor: t.veil.mid }}>
-          <AppText variant="tiny" weight="800" color={onHero} style={{ letterSpacing: 1 }}>
-            {phaseInfo.title.toLocaleUpperCase('tr')} · {tr('camp.panel.attempt', { n: attempt.attemptNo })}
-          </AppText>
-        </View>
-        {preparing ? (
-          <View style={{ gap: 2 }} accessible accessibilityLabel={tr('camp.panel.toQuitA11y', { count: -daysSinceQuit(attempt, now), date: fmtDate(attempt.plannedQuitDate) })}>
-            <AppText variant="small" weight="700" color={onHero} style={{ opacity: 0.9 }}>
-              {tr('camp.panel.toQuit')}
-            </AppText>
-            <AppText variant="display" tabular color={onHero}>
-              {tr('camp.panel.days', { count: -daysSinceQuit(attempt, now) })}
-            </AppText>
-            <AppText weight="700" color={onHero} style={{ opacity: 0.9 }}>
-              {fmtDate(attempt.plannedQuitDate)}
-            </AppText>
-          </View>
-        ) : (
-          <View style={{ gap: 2 }} accessible accessibilityLabel={tr('camp.panel.freeA11y', { days: dur.days, hours: dur.hours, minutes: dur.minutes })}>
-            <AppText variant="small" weight="700" color={onHero} style={{ opacity: 0.9 }}>
-              {hadSlips ? tr('camp.panel.sinceLast') : tr('camp.panel.smokeFree')}
-            </AppText>
-            <AppText variant="display" tabular color={onHero}>
-              {tr('camp.panel.days', { count: dur.days })}
-            </AppText>
-            <AppText weight="700" color={onHero} style={{ opacity: 0.9 }}>
-              {tr('camp.panel.hoursMinutes', { hours: dur.hours, minutes: dur.minutes })}
-            </AppText>
-            {hadSlips ? (
-              <AppText variant="small" color={onHero} style={{ opacity: 0.85 }}>
-                {tr('camp.panel.totalDays', { count: total })}
-              </AppText>
-            ) : null}
-          </View>
-        )}
-      </CampusHero>
+        {/* 3. Bugün */}
+        <TodayCard title={tr('camp.home2.today')} rows={tasks} />
 
-      <View style={{ gap: 6 }}>
-        <Button label={tr('camp.sos.panelButton')} icon="wind" variant="primary" size="lg" accessibilityHint={tr('camp.sos.panelHint')} onPress={() => router.push('/camp/sos')} />
-        {resisted > 0 ? (
-          <AppText variant="small" weight="700" center color={t.colors.success}>
-            {tr('camp.sos.resistedCount', { count: resisted })}
-          </AppText>
+        {/* 4. One situational card */}
+        {context ? (
+          <ContextCard
+            kind={context}
+            daysToQuit={daysToQuit ?? 0}
+            health={next ? { title: tr('camp.home2.nextAt', { label: nextItem.label }), text: nextItem.text, icon: nextItem.icon, progress: next.progress } : undefined}
+            graduateNow={graduateNow}
+            reason={reasonText ? { text: reason?.id === 'custom' ? `“${reasonText}”` : reasonText, icon: reasonIcon, photo: profile.reasonPhotoUri } : undefined}
+          />
         ) : null}
+
+        {/* 5. Tools */}
+        <ToolGrid tone="smokefree" title={tr('camp.home2.toolsTitle')} tools={tools} />
+
+        {/* 6. Support */}
+        <SupportRow
+          items={[
+            { icon: 'phone', title: tr('camp.home2.alo'), sub: tr('camp.home2.aloSub'), onPress: () => void Linking.openURL('tel:171') },
+            { icon: 'users', title: tr('camp.home2.network'), sub: tr('camp.home2.networkSub'), onPress: () => router.push('/camp/support') },
+          ]}
+        />
       </View>
-
-      {phase === 'quit_day' ? (
-        <Pressable onPress={() => router.push('/camp/quit-day')} accessibilityRole="button" accessibilityLabel={CAMP_MISSIONS.quitDay.title}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, backgroundColor: t.tokens.primarySoft, borderColor: t.tokens.primarySoft }}>
-            <IconTile icon="flag" tone="smokefree" size="lg" round />
-            <View style={{ flex: 1, gap: 2 }}>
-              <AppText variant="title3">
-                {CAMP_MISSIONS.quitDay.title}
-              </AppText>
-              <AppText variant="footnote" muted>
-                {tr('camp.quitDay.panelHint')}
-              </AppText>
-            </View>
-            <Icon name="chevron" color={t.tokens.subtle} size="md" />
-          </Card>
-        </Pressable>
-      ) : null}
-
-      {graduateNow || attempt.status === 'graduated' ? (
-        <Pressable onPress={() => router.push('/camp/graduation')} accessibilityRole="button" accessibilityLabel={tr(graduateNow ? 'camp.graduation.panelReady' : 'camp.graduation.panelDone')}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, backgroundColor: t.tokens.primarySoft, borderColor: t.tokens.primarySoft }}>
-            <IconTile icon="graduation" tone="smokefree" size="lg" round />
-            <AppText variant="title3" style={{ flex: 1 }}>
-              {tr(graduateNow ? 'camp.graduation.panelReady' : 'camp.graduation.panelDone')}
-            </AppText>
-            <Icon name="chevron" color={t.tokens.subtle} size="md" />
-          </Card>
-        </Pressable>
-      ) : null}
 
       {mission ? (
-        <>
-          <SectionTitle tone="smokefree" icon="target" title={tr('camp.mission.title')} />
-          {premium || missionIsFree(pd.phase) ? (
-            <MissionCard mission={mission} done={s.missions.some((m) => m.missionId === mission.id)} onDone={() => useCampStore.getState().completeMission(mission.id)} />
-          ) : (
-            <PremiumLock title={tr('camp.premium.mission', { title: mission.title })} />
-          )}
-        </>
+        <Sheet visible={missionOpen} onClose={() => setMissionOpen(false)} title={tr('camp.home2.mission')}>
+          <MissionCard
+            mission={mission}
+            done={missionDone}
+            onDone={() => {
+              useCampStore.getState().completeMission(mission.id);
+              setMissionOpen(false);
+            }}
+          />
+        </Sheet>
       ) : null}
-
-      {checkin.due ? (
-        <Pressable onPress={() => router.push('/camp/checkin')} accessibilityRole="button" accessibilityLabel={tr(`camp.panel.checkin.${checkin.slot}`)}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, borderWidth: 2, borderColor: t.colors.primary }}>
-            <IconTile icon="clipboard" tone="smokefree" />
-            <View style={{ flex: 1, gap: 2 }}>
-              <AppText weight="800">{tr(`camp.panel.checkin.${checkin.slot}`)}</AppText>
-              <AppText variant="small" muted>
-                {tr('camp.panel.checkinHint')}
-              </AppText>
-            </View>
-            <Icon name="chevron" color={t.colors.textMuted} size={18} />
-          </Card>
-        </Pressable>
-      ) : null}
-
-      {lesson ? (
-        <Pressable onPress={() => router.push({ pathname: '/camp/skills/[lessonId]', params: { lessonId: lesson.id } })} accessibilityRole="button" accessibilityLabel={`${tr('camp.skills.today')}: ${lesson.title}`}>
-          <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
-            <View style={{ width: 46, height: 46, borderRadius: 23, alignItems: 'center', justifyContent: 'center', backgroundColor: tint(t.colors.primary, '1F') }}>
-              <IconTile icon={lesson.icon} tone="smokefree" />
-            </View>
-            <View style={{ flex: 1, gap: 2 }}>
-              <AppText variant="tiny" weight="800" color={t.colors.primary}>
-                {tr('camp.skills.todayKicker', { min: lesson.minutes })}
-              </AppText>
-              <AppText weight="800">{lesson.title}</AppText>
-            </View>
-            <Icon name="chevron" color={t.colors.textMuted} size={18} />
-          </Card>
-        </Pressable>
-      ) : null}
-
-      <View style={{ flexDirection: 'row', gap: t.space.sm }}>
-        <StatTile icon="wallet" value={tr('camp.plan.tl', { amount: fmtTL(saved) })} label={tr('camp.panel.saved')} color={t.colors.success} />
-        <StatTile icon="ban" value={String(notSmoked)} label={tr('camp.panel.notSmoked')} />
-        <StatTile icon={nextItem.icon} value={tr(`camp.dur.${left.unit}`, { count: left.value })} label={next ? tr('camp.panel.nextGain') : tr('camp.panel.firstGain')} onPress={() => router.push('/camp/health')} />
-      </View>
-      {preparing ? (
-        <AppText variant="small" muted>
-          {tr('camp.panel.prepNote')}
-        </AppText>
-      ) : null}
-
-      {next ? (
-        <Pressable onPress={() => router.push('/camp/health')} accessibilityRole="button" accessibilityLabel={`${tr('camp.panel.nextGain')}: ${nextItem.text}`}>
-          <Card style={{ gap: t.space.sm }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-              <IconTile icon={nextItem.icon} tone="smokefree" />
-              <View style={{ flex: 1 }}>
-                <AppText variant="tiny" weight="800" color={t.colors.primary}>
-                  {tr('camp.panel.nextAt', { label: nextItem.label })}
-                </AppText>
-                <AppText weight="700">{nextItem.text}</AppText>
-              </View>
-              <Icon name="chevron" color={t.colors.textMuted} size={18} />
-            </View>
-            <ProgressBar value={next.progress} height={6} />
-          </Card>
-        </Pressable>
-      ) : null}
-
-      {preparing ? (
-        <>
-          <SectionTitle tone="smokefree" icon="notebook" title={tr('camp.diary.title')} hint={tr('camp.panel.diaryHint')} />
-          <Card style={{ gap: 10 }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
-              <AppText variant="h1">{todayCount(attemptLogs, now)}</AppText>
-              <AppText variant="small" muted style={{ flex: 1 }}>
-                {attemptLogs.length >= REPORT_MIN_LOGS ? tr('camp.panel.reportReady') : tr('camp.panel.todayLogged')}
-              </AppText>
-            </View>
-            <Button label={tr('camp.diary.log')} icon="plus" variant="primary" onPress={() => router.push('/camp/log-cigarette')} />
-            <Button label={tr('camp.panel.diaryOpen')} variant="ghost" onPress={() => router.push('/camp/diary')} />
-          </Card>
-        </>
-      ) : null}
-
-      <SectionTitle tone="smokefree" icon="map" title={tr('camp.panel.phaseTitle')} hint={phaseInfo.text} />
-      <Card style={{ gap: t.space.md }}>
-        <PhaseTrack phase={phase} />
-        <AppText variant="small" weight="700" center>
-          {toNext === null ? tr('camp.panel.lastPhase') : tr('camp.panel.toNextPhase', { count: toNext, phase: ONB.phases[ONB.phases.findIndex((p) => p.id === phase) + 1]?.title ?? '' })}
-        </AppText>
-      </Card>
-
-      {reasonText ? (
-        <>
-          <SectionTitle tone="smokefree" icon="target" title={tr('camp.panel.reasonTitle')} />
-          <Card padded={false} style={{ overflow: 'hidden' }}>
-            {profile.reasonPhotoUri ? <Image source={{ uri: profile.reasonPhotoUri }} style={{ width: '100%', aspectRatio: 16 / 9 }} accessibilityLabel={tr('camp.onb.reasons.photoAlt')} /> : null}
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg, backgroundColor: tint(t.colors.accent, '12') }}>
-              <IconTile icon={reasonIcon} tone="smokefree" size="lg" round />
-              <AppText variant="h3" style={{ flex: 1 }}>
-                {reason?.id === 'custom' ? `“${reasonText}”` : reasonText}
-              </AppText>
-            </View>
-          </Card>
-        </>
-      ) : null}
-
-      <View style={{ gap: t.space.sm }}>
-        {!preparing ? <Button label={tr('camp.panel.slip')} icon="rotate" variant="ghost" onPress={() => router.push('/camp/slip')} /> : null}
-        <Button label={tr('camp.panel.triggersOpen')} icon="compass" variant="secondary" onPress={() => router.push('/camp/triggers')} />
-        {!preparing ? <Button label={tr('camp.panel.diaryOpen')} icon="calendar" variant="secondary" onPress={() => router.push('/camp/diary')} /> : null}
-        <Button label={tr('camp.support.title')} icon="shield" variant="secondary" onPress={() => router.push('/camp/support')} />
-        <Button label={tr('camp.coach.panelButton')} icon="help" variant="secondary" onPress={() => router.push('/camp/coach')} />
-        <Button label={tr('camp.skills.title')} icon="book" variant="secondary" onPress={() => router.push('/camp/skills')} />
-        <Button label={tr('camp.reasons.title')} icon="star" variant="secondary" onPress={() => router.push('/camp/reasons')} />
-        <Button label={tr('camp.library.title')} icon="book" variant="secondary" onPress={() => router.push('/camp/library')} />
-        <Button label={tr('camp.stats.title')} icon="chart" variant="secondary" onPress={() => router.push('/camp/stats')} />
-        <Button label={tr('camp.rewards.title')} icon="trophy" variant="secondary" onPress={() => router.push('/camp/rewards')} />
-        <Button label={tr('camp.panel.healthOpen')} icon="pulse" variant="secondary" onPress={() => router.push('/camp/health')} />
-        <Button label={tr('camp.panel.planOpen')} icon="book" variant="secondary" onPress={() => router.push('/camp/plan')} />
-      </View>
-
-      <Alo171Card compact />
-
-      <View style={{ gap: 6, marginTop: 10, paddingTop: 14, borderTopWidth: 1, borderTopColor: t.colors.border }}>
-        <AppText variant="small" weight="800" muted>
-          {tr('camp.panel.settingsTitle')}
-        </AppText>
-        <Button label={tr('camp.settings.title')} icon="gear" variant="secondary" onPress={() => router.push('/camp/settings')} />
-      </View>
 
       {!celebrate && badge ? (
-        <CelebrationCard
-          celebrationKey={badge.id}
-          kicker={tr('camp.rewards.badgeKicker')}
-          icon={badge.icon}
-          title={badge.title}
-          desc={badge.desc}
-          cta={tr('camp.panel.gainCta')}
-          onClose={() => freshBadges.forEach((id) => useCampStore.getState().unlockBadge(id))}
-        />
+        <CelebrationCard celebrationKey={badge.id} kicker={tr('camp.rewards.badgeKicker')} icon={badge.icon} title={badge.title} desc={badge.desc} cta={tr('camp.panel.gainCta')} onClose={() => freshBadges.forEach((id) => useCampStore.getState().unlockBadge(id))} />
       ) : null}
-
       {celebrate && celebrateItem ? (
         <CelebrationCard
           celebrationKey={celebrate}
@@ -364,4 +217,42 @@ export default function CampPanel() {
       ) : null}
     </Screen>
   );
+}
+
+function ContextCard({ kind, daysToQuit, health, graduateNow, reason }: { kind: NonNullable<ReturnType<typeof panelContext>>; daysToQuit: number; health?: { title: string; text: string; icon: IconName; progress: number }; graduateNow: boolean; reason?: { text: string; icon: IconName; photo?: string } }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  if (kind === 'safety') return <SafetyCard />;
+
+  const pastel = (icon: IconName, title: string, text: string | null, route: Href, extra?: ReactNode) => <PastelCard tone="smokefree" icon={icon} title={title} text={text} onPress={() => router.push(route)} extra={extra} />;
+
+  switch (kind) {
+    case 'quitDay':
+      return pastel('flag', CAMP_MISSIONS.quitDay.title, tr('camp.quitDay.panelHint'), '/camp/quit-day');
+    case 'quitSoon':
+      return pastel('flag', daysToQuit === 0 ? tr('camp.home2.quitToday') : tr('camp.home2.quitSoon', { count: daysToQuit }), tr('camp.home2.quitSoonHint'), '/camp/plan');
+    case 'slip':
+      return pastel('rotate', tr('camp.home2.slipTitle'), tr('camp.home2.slipText'), '/camp/slip');
+    case 'graduation':
+      return pastel('graduation', tr(graduateNow ? 'camp.graduation.panelReady' : 'camp.graduation.panelDone'), null, '/camp/graduation');
+    case 'health':
+      return health ? pastel(health.icon, health.title, health.text, '/camp/health', <ProgressBar value={health.progress} height={6} />) : null;
+    case 'reason':
+      return reason ? (
+        <View style={{ borderRadius: t.radius.lg, overflow: 'hidden', backgroundColor: t.tone.smokefree.soft }}>
+          {reason.photo ? <Image source={{ uri: reason.photo }} style={{ width: '100%', aspectRatio: 16 / 9 }} accessibilityLabel={tr('camp.onb.reasons.photoAlt')} /> : null}
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg }}>
+            <IconTile icon={reason.icon} tone="smokefree" size="lg" round />
+            <View style={{ flex: 1, gap: 2 }}>
+              <AppText variant="footnote" muted>
+                {tr('camp.home2.reasonKicker')}
+              </AppText>
+              <AppText variant="title3">{reason.text}</AppText>
+            </View>
+          </View>
+        </View>
+      ) : null;
+    default:
+      return null;
+  }
 }

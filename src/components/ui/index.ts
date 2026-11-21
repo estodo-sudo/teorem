@@ -13,5 +13,6 @@ export { SegmentedSteps } from './Steps';
 export { AccordionCard } from './Accordion';
 export { BottomBar, Chip, EmptyState, ListItem, Slider, StatRow, type Stat } from './Blocks';
 export { IconTile } from './IconTile';
+export { UrgeGauge } from './UrgeGauge';
 export { ILLUSTRATION_NAMES, Illustration, type IllustrationName } from '../illustrations/Illustration';
 export { uiHaptic } from './haptic';

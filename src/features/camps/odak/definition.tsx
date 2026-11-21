@@ -42,7 +42,7 @@ export const ODAK_CAMP: CampDefinition<OdakPhase> = {
   route: '/odak',
   phases: ODAK_PHASES,
   checkinCadence: odakCadence,
-  sosTools: ['dayy', 'relocate', 'surf', 'breath', 'move', 'values', 'futureSelf', 'supporter', 'coach'],
+  sosTools: ['dayy', 'relocate', 'breath', 'puzzle', 'move', 'values', 'futureSelf', 'supporter'],
   badges: ['days-1', 'days-3', 'days-7', 'days-14', 'days-30', 'days-60', 'days-90', 'urges-10', 'urges-50', 'urges-100', 'first-plan', 'boundaries', 'checkin-7', 'all-skills', 'comeback', 'graduate'],
   contentFiles: ['camps/odak/onboarding.tr.json', 'camps/odak/plans.tr.json', 'camps/odak/panel.tr.json', 'camps/odak/sources.json'],
   color: 'accent',

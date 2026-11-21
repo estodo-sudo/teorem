@@ -46,7 +46,7 @@ export function weeklyIntensity(cravings: CravingEvent[], now: Date, weeks = 6):
   return Array.from({ length: weeks }, (_, i) => {
     const to = end - (weeks - 1 - i) * 7 * DAY_MS;
     const from = to - 7 * DAY_MS;
-    const xs = cravings.filter((c) => ms(c.at) >= from && ms(c.at) < to).map((c) => c.intensityBefore);
+    const xs = cravings.filter((c) => ms(c.at) >= from && ms(c.at) < to).map((c) => c.intensityBefore).filter((v) => v > 0);
     return xs.length ? Math.round((xs.reduce((a, b) => a + b, 0) / xs.length) * 10) / 10 : null;
   });
 }

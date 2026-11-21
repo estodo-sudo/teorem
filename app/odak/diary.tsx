@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { View } from 'react-native';
 
 import { AppText, Button, Card, Header, Screen, useTheme } from '@/components';
-import { ODAK_DIARY as D, fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, ODAK_SOS as SOS } from '@/features/camps/odak/content';
+import { ODAK_DIARY as D, fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, odakToolLabel } from '@/features/camps/odak/content';
 import { byDay, diaryEntries, hourRange, SUMMARY_MIN, weekdayIndex, weeklySummary, type DiaryEntry } from '@/features/camps/odak/engine/diary';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
@@ -13,7 +13,7 @@ const LIST_DAYS = 14;
 
 const triggerLabel = (id?: string | null) => ONB.triggers.options.find((o) => o.id === id)?.label ?? '';
 const emotionLabel = (id?: string | null) => [...ONB.emotions.before, ...ONB.emotions.after].find((o) => o.id === id)?.label ?? '';
-const toolLabel = (id?: string | null) => SOS.tools.items.find((o) => o.id === id)?.title ?? '';
+const toolLabel = odakToolLabel;
 const hhmm = (d: Date) => `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
 
 /** Günlüğüm (SPEC_ODAK_KAMPI 5.4): weekly summary, quick logs and the last two weeks of entries. */

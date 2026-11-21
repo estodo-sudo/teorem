@@ -1,11 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-import { CAMP_COACH, CAMP_LIBRARY, CAMP_REWARDS, CAMP_MISSIONS, CAMP_ONBOARDING, CAMP_PLANS, CAMP_SKILLS, CAMP_SOURCES, campSources } from '@/features/camps/smoking/content';
+import { CAMP_LIBRARY, CAMP_REWARDS, CAMP_MISSIONS, CAMP_ONBOARDING, CAMP_PLANS, CAMP_SKILLS, CAMP_SOURCES, campSources } from '@/features/camps/smoking/content';
 import { lessonStatuses, nextLesson, quizScore, recommendedLessons } from '@/features/camps/smoking/engine/skills';
-import { fillTemplate, nodeText, parseAction, validateScenario } from '@/features/camps/smoking/engine/coach';
 import { CRISIS_BADGES, DAY_BADGES } from '@/features/camps/smoking/engine/stats';
-import { FREE_COACH_SCENARIOS, FREE_STORIES, isMinor, lessonIsFree, MEDICATION_SCENARIOS, MEDICATION_STORIES, missionIsFree, scenarioIsFree, storyIsFree } from '@/features/camps/smoking/engine/premium';
+import { FREE_STORIES, isMinor, lessonIsFree, MEDICATION_STORIES, missionIsFree, storyIsFree } from '@/features/camps/smoking/engine/premium';
 import { hasAccess } from '@/features/purchases/gate';
 import { missionForDay } from '@/features/camps/smoking/engine/plans';
 import { buildProfile, defaultAnswers, effectivePerDay, parsePriceTRY, planTriggers, quitPlan, stepError, type Answers } from '@/features/camps/smoking/onboarding';
@@ -192,50 +191,6 @@ describe('skills and library (K8)', () => {
   });
 });
 
-describe('coach (K9)', () => {
-  const ids = { skills: CAMP_SKILLS.lessons.map((l) => l.id), library: CAMP_LIBRARY.stories.map((s) => s.id) };
-  it('has 10+ sound scenarios covering the spec topics', () => {
-    expect(CAMP_COACH.scenarios.length).toBeGreaterThanOrEqual(10);
-    for (const s of CAMP_COACH.scenarios) expect(validateScenario(s, ids)).toEqual([]);
-    expect(CAMP_COACH.scenarios.map((s) => s.id)).toEqual(expect.arrayContaining(['craving', 'stress', 'offered', 'weight', 'sleep', 'had-one', 'alcohol', 'motivation', 'medication', 'why-hard']));
-    expect(CAMP_COACH.disclaimer).toMatch(/yapay zekâ değildir/);
-  });
-  it('every scenario can reach ALO 171 or a camp tool', () => {
-    for (const s of CAMP_COACH.scenarios) {
-      const actions = Object.values(s.nodes).flatMap((n) => n.replies.map((r) => r.action).filter(Boolean));
-      expect(actions.some((a) => a !== 'end')).toBe(true);
-    }
-  });
-  it('finds broken scenarios', () => {
-    const bad = {
-      id: 'x',
-      icon: 'leaf' as const,
-      title: '',
-      start: 'a',
-      nodes: {
-        a: {
-          text: '',
-          replies: [
-            { label: 'go', next: 'zz' },
-            { label: 'act', action: 'skill:nope' },
-          ],
-        },
-        b: { text: '', replies: [] },
-      },
-    };
-    expect(validateScenario(bad, ids)).toEqual(['x.a: next "zz" missing', 'x.a: unknown skill "nope"', 'x.b: no replies', 'x.b: unreachable']);
-    expect(parseAction('library:sleep')).toEqual({ kind: 'library', id: 'sleep' });
-    expect(parseAction('fly')).toBeNull();
-  });
-  it('fills templates and phase texts', () => {
-    const vars = { days: 5, reason: 'Kızım için', phase: 'Kritik Hafta', saved: '480', supporter: 'Ayşe' };
-    expect(fillTemplate('{days} gün · "{reason}" · {saved} TL · {supporter} · {other}', vars)).toBe('5 gün · "Kızım için" · 480 TL · Ayşe · {other}');
-    const node = { text: 'genel', byPhase: { critical_week: 'kritik {days}' }, replies: [] };
-    expect(nodeText(node, 'critical_week', vars)).toBe('kritik 5');
-    expect(nodeText(node, 'maintenance', vars)).toBe('genel');
-  });
-});
-
 describe('rewards content (K11)', () => {
   it('describes every badge the engine can award', () => {
     const ids = CAMP_REWARDS.badges.map((b) => b.id);
@@ -266,9 +221,6 @@ describe('free / premium split (K13)', () => {
     expect(missionIsFree('strengthening')).toBe(false);
     const free = CAMP_SKILLS.lessons.filter((l) => lessonIsFree(l.order, l.bonus)).map((l) => l.id);
     expect(free).toEqual(['values', 'wave', 'surf']);
-    expect(scenarioIsFree('craving')).toBe(true);
-    expect(scenarioIsFree('weight')).toBe(false);
-    for (const id of FREE_COACH_SCENARIOS) expect(CAMP_COACH.scenarios.some((s) => s.id === id)).toBe(true);
     for (const id of FREE_STORIES) expect(CAMP_LIBRARY.stories.some((s) => s.id === id)).toBe(true);
     expect(storyIsFree('hookah')).toBe(false);
   });
@@ -303,9 +255,5 @@ describe('under-18 rule (K13)', () => {
     expect(isMinor('under18')).toBe(true);
     expect(isMinor('25to39')).toBe(false);
     for (const id of MEDICATION_STORIES) expect(CAMP_LIBRARY.stories.some((s) => s.id === id)).toBe(true);
-    for (const id of MEDICATION_SCENARIOS) expect(CAMP_COACH.scenarios.some((s) => s.id === id)).toBe(true);
-    // No other coach scenario links to the medication story.
-    const links = CAMP_COACH.scenarios.filter((s) => !MEDICATION_SCENARIOS.includes(s.id)).flatMap((s) => Object.values(s.nodes).flatMap((n) => n.replies.map((r) => r.action)));
-    for (const id of MEDICATION_STORIES) expect(links).not.toContain(`library:${id}`);
   });
 });

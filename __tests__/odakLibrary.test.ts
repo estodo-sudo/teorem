@@ -97,8 +97,8 @@ describe('Yeniden İnşa (spec 5.8)', () => {
   });
   it('links to the app’s own Kegel, breathing, body-scan and fitness tools; sleep tips are general info', () => {
     const routes = rebuildJson.bridge.items.map((i) => i.route);
-    expect(routes).toEqual(expect.arrayContaining(['/training', '/mind/breathing', '/mind/body-scan']));
-    for (const r of routes) expect(fs.existsSync(path.join(__dirname, '..', 'app', r === '/training' ? '(tabs)/training.tsx' : `${r.slice(1)}.tsx`))).toBe(true);
+    expect(routes).toEqual(expect.arrayContaining(['/', '/mind/breathing', '/mind/body-scan']));
+    for (const r of routes) expect(fs.existsSync(path.join(__dirname, '..', 'app', r === '/' ? '(tabs)/index.tsx' : `${r.slice(1)}.tsx`))).toBe(true);
     expect(rebuildJson.sleep.note).toMatch(/tıbbi tedavi değildir/);
     expect(rebuildJson.planner.options.length).toBeGreaterThanOrEqual(6);
   });

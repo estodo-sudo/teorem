@@ -32,7 +32,7 @@ export default function CampSupport() {
   const [now] = useState(() => new Date());
   const [exportState, setExportState] = useState<'idle' | 'busy' | 'failed'>('idle');
   const call = (n: string) => void Linking.openURL(`tel:${n}`);
-  const vars = { supporter: camp.profile?.supporterName ?? tr('camp.coach.yourSupporter'), date: attempt ? fmtDate(attempt.actualQuitDateTime ?? attempt.plannedQuitDate) : '', days: attempt ? totalSmokeFreeDays(attempt, ev.cigarettes, now) : 0 };
+  const vars = { supporter: camp.profile?.supporterName ?? tr('camp.support.yourSupporter'), date: attempt ? fmtDate(attempt.actualQuitDateTime ?? attempt.plannedQuitDate) : '', days: attempt ? totalSmokeFreeDays(attempt, ev.cigarettes, now) : 0 };
 
   const exportSummary = async () => {
     const s = doctorSummary(camp, ev, new Date());

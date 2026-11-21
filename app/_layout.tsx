@@ -32,7 +32,9 @@ export default function RootLayout() {
   // deep links and notification taps) is redirected until setup is complete.
   const segments = useSegments();
   const gate = requiredFirstRunRoute(profile);
-  const blocked = gate !== null && !isAllowedDuringFirstRun(gate, segments[0]);
+  // Developer-only frames (app/dev, `__DEV__` builds) open without the first-run setup.
+  const devFrame = __DEV__ && segments[0] === 'dev';
+  const blocked = gate !== null && !devFrame && !isAllowedDuringFirstRun(gate, segments[0]);
   useEffect(() => {
     if (gate && blocked) router.replace(gate);
   }, [gate, blocked]);

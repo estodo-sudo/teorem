@@ -184,6 +184,8 @@ export interface Theme {
   tone: Record<ModuleTone, ToneColors>;
   focus: FocusColors;
   veil: Veils;
+  /** "Pelvik taban kasın nerede?" animation (always dark, same in both themes). */
+  anatomy: AnatomyColors;
   /** @deprecated use tokens */
   colors: ThemeColors;
   space: typeof space;
@@ -407,6 +409,61 @@ function shadows(dark: boolean): Record<ShadowLevel, ViewStyle> {
   return { none: {}, sm: {}, md: raised, lg: raised };
 }
 
+/** Colours of the pelvic floor animation (ANIM_A0_DUZELTME §1). Opacities are separate so the hex stays readable. */
+export interface AnatomyColors {
+  bgTop: string;
+  bgBottom: string;
+  /** Soft radial glow in the middle of the background (radius 300). */
+  bgGlow: string;
+  bgGlowOpacity: number;
+  silhouette: string;
+  silhouetteEdge: string;
+  /** 1 px line between the arm and the body. */
+  armDivider: string;
+  stool: string;
+  bone: string;
+  /** Iliac wing, fainter than the other bones. */
+  boneWingOpacity: number;
+  bladder: string;
+  bowel: string;
+  organFillOpacity: number;
+  organEdgeOpacity: number;
+  muscle: string;
+  label: string;
+  labelOpacity: number;
+  /** Scene 7 "do not squeeze" areas and their crosses: `textMuted`, area fill 40 %. Never red. */
+  wrong: string;
+  wrongOpacity: number;
+  /** Captions and the "Geç" / "Sonra" text buttons. */
+  text: string;
+  /** Round play icon shown while paused: white at 20 %. */
+  pauseBg: string;
+}
+
+const anatomyColors: AnatomyColors = {
+  bgTop: '#15252A',
+  bgBottom: '#0C1417',
+  bgGlow: '#1E3338',
+  bgGlowOpacity: 0.6,
+  silhouette: '#26323A',
+  silhouetteEdge: '#3E4A52',
+  armDivider: '#1A2228',
+  stool: '#3E4A52',
+  bone: '#C9CED4',
+  boneWingOpacity: 0.6,
+  bladder: '#5B7FB8',
+  bowel: '#A08A62',
+  organFillOpacity: 0.35,
+  organEdgeOpacity: 0.7,
+  muscle: palette.petrol300,
+  label: '#E6E9EC',
+  labelOpacity: 0.7,
+  wrong: palette.mist400,
+  wrongOpacity: 0.4,
+  text: '#FFFFFF',
+  pauseBg: 'rgba(255,255,255,0.2)',
+};
+
 function build(dark: boolean): Theme {
   const tokens = dark ? darkTokens : lightTokens;
   return {
@@ -415,6 +472,7 @@ function build(dark: boolean): Theme {
     tone: dark ? darkTones : lightTones,
     focus: focusColors,
     veil: veils,
+    anatomy: anatomyColors,
     colors: legacy(tokens),
     space,
     spacing: (n: number) => n * 4,

@@ -22,3 +22,9 @@ export const MIN_AGE = 16;
 
 /** Length of one training plan in days. */
 export const PLAN_LENGTH_DAYS = 30;
+
+/**
+ * The "Pelvik taban kasın nerede?" animation (SPEC_ANIMASYON_PELVIK §3) must be checked by a
+ * physiotherapist or urologist before release. Set to true only after that review.
+ */
+export const introAnatomyReviewed = false;

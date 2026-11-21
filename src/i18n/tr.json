@@ -2813,5 +2813,32 @@
       "unload": "Zihin boşaltma",
       "bodyScan": "Beden taraması"
     }
+  },
+  "introAnatomy": {
+    "sceneLabel": "Pelvik taban kasını gösteren şematik çizim",
+    "skip": "Geç",
+    "findMuscle": "Kası bul",
+    "later": "Sonra",
+    "replay": "Tekrar izle",
+    "play": "Oynat",
+    "pause": "Duraklat",
+    "stageHint": "Duraklatmak ya da devam etmek için dokun",
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "labels": {
+      "bladder": "Mesane",
+      "bowel": "Bağırsak",
+      "floor": "Pelvik taban"
+    },
+    "captions": {
+      "s1": "Pelvik taban kasın nerede, birlikte bakalım.",
+      "s2": "Leğen kemiğin bir çanak gibidir.",
+      "s3": "Altında, hamak gibi gerilen bir kas var: pelvik taban.",
+      "s4": "Mesaneni ve bağırsağını taşır, idrarı ve gazı tutmanı sağlar.",
+      "s5": "İdrarını ve gazını tutar gibi yap. Hissettiğin kas bu.",
+      "s6": "Şimdi bırak. Gevşemek de egzersizin parçası.",
+      "s7": "Karnını, kalçanı ve bacaklarını sıkma. Sadece bu kas çalışsın.",
+      "s8": "Hadi birlikte deneyelim."
+    }
   }
 }

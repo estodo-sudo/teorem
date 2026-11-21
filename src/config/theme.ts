@@ -122,6 +122,8 @@ export interface Veils {
   mid: string;
   strong: string;
   bold: string;
+  /** Dark frosted card on story photos (SPEC_GORSELLER_V5 §4); the same in both themes. */
+  card: string;
   /** Text shadow on the sphere's seconds. */
   shadow: string;
 }
@@ -369,7 +371,7 @@ const focusColors: FocusColors = {
   black: palette.black,
 };
 
-const veils: Veils = { faint: 'rgba(255,255,255,0.08)', soft: 'rgba(255,255,255,0.12)', mid: 'rgba(255,255,255,0.16)', strong: 'rgba(255,255,255,0.18)', bold: 'rgba(255,255,255,0.4)', shadow: 'rgba(0,0,0,0.35)' };
+const veils: Veils = { faint: 'rgba(255,255,255,0.08)', soft: 'rgba(255,255,255,0.12)', mid: 'rgba(255,255,255,0.16)', strong: 'rgba(255,255,255,0.18)', bold: 'rgba(255,255,255,0.4)', card: 'rgba(15,18,20,0.72)', shadow: 'rgba(0,0,0,0.35)' };
 
 function legacy(t: ThemeTokens): ThemeColors {
   return {

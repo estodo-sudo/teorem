@@ -36,6 +36,10 @@ export interface StoryPage {
   /** Legacy slides only. */
   didYouKnow?: string;
   tone?: ModuleTone;
+  /** Background photo id in `src/content/images.ts` (SPEC_GORSELLER_V5 §6), e.g. "story/pf-basics/2". */
+  image?: string;
+  /** Turkish description of that photo for screen readers. */
+  imageAlt?: string;
 }
 
 export interface Story {

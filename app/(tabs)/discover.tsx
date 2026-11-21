@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Screen, useTheme } from '@/components';
-import { exploreImage } from '@/content/explore/images';
+import { exploreImage } from '@/content/images';
 import type { CampDefinition } from '@/features/camps/core/definition';
 import { CAMPS } from '@/features/camps/registry';
 import { CAMPUSES, type CampusEntry } from '@/features/content/cards';

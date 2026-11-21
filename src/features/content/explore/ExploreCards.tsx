@@ -6,7 +6,7 @@ import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { AppText, Icon, useTheme, type IconName } from '@/components';
 import { ScalePressable, uiHaptic } from '@/components/ui';
 import type { ModuleTone } from '@/config/theme';
-import type { ExploreImage } from '@/content/explore/images';
+import type { ExploreImage } from '@/content/images';
 
 /** Card sizes (SPEC_KESFET_V2 §4). */
 export const CARD = {
@@ -27,7 +27,7 @@ export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl' }: { im
   return (
     <View style={[{ overflow: 'hidden', backgroundColor: c.soft }, style]} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
       {image ? (
-        <Image source={image.image} placeholder={{ blurhash: image.blurhash }} contentFit="cover" transition={200} style={StyleSheet.absoluteFill} />
+        <Image source={image.image} placeholder={{ blurhash: image.blurhash }} contentFit="cover" contentPosition={focusPosition(image)} transition={200} style={StyleSheet.absoluteFill} />
       ) : (
         <>
           <Svg width="100%" height="100%" style={StyleSheet.absoluteFill}>
@@ -48,6 +48,9 @@ export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl' }: { im
     </View>
   );
 }
+
+/** expo-image `contentPosition` from the crop focus (SPEC_GORSELLER_V5 §5). */
+export const focusPosition = (image: ExploreImage) => ({ left: `${Math.round(image.focus.x * 100)}%` as const, top: `${Math.round(image.focus.y * 100)}%` as const });
 
 /** Black → clear gradient over the lower half of a photo so white text stays readable (§4). */
 export function Scrim({ height = '55%' }: { height?: ViewStyle['height'] }) {

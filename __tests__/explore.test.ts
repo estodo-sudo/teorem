@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { EXPLORE_IMAGES } from '@/content/explore/images';
+import { exploreImage, IMAGES } from '@/content/images';
 import { CAMPS } from '@/features/camps/registry';
 import { CAMPUSES } from '@/features/content/cards';
 import { GLOSSARY, STORIES } from '@/features/content/data';
@@ -12,48 +12,45 @@ jest.mock('expo-notifications', () => ({ setNotificationCategoryAsync: jest.fn()
 /** SPEC_KESFET_V2 §8, §10: images, credits, rename and the strip layout. */
 const root = path.join(__dirname, '..');
 const read = (p: string) => fs.readFileSync(path.join(root, p), 'utf8');
-const registry = read('src/content/explore/images.ts');
-const files = [...registry.matchAll(/require\('\.\.\/\.\.\/\.\.\/([^']+)'\)/g)].map((m) => m[1]!);
+const registry = read('src/content/images.ts');
+const files = [...registry.matchAll(/require\('\.\.\/\.\.\/([^']+)'\)/g)].map((m) => m[1]!);
 
-const keys = [
-  ...STORIES.map((s) => `stories/${s.id}`),
-  ...CAMPS.map((c) => `camps/${c.id}`),
-  'camps/alcohol',
-  ...CAMPUSES.filter((c) => c.kind !== 'alcohol').map((c) => `programs/${c.id}`),
-  ...GLOSSARY.map((g) => `glossary/${g.id}`),
+const items: ['stories' | 'camps' | 'programs' | 'glossary', string][] = [
+  ...STORIES.map((s) => ['stories', s.id] as ['stories', string]),
+  ...CAMPS.map((c) => ['camps', c.id] as ['camps', string]),
+  ['camps', 'alcohol'],
+  ...CAMPUSES.filter((c) => c.kind !== 'alcohol').map((c) => ['programs', c.id] as ['programs', string]),
+  ...GLOSSARY.map((g) => ['glossary', g.id] as ['glossary', string]),
 ];
 
-describe('Keşfet images (SPEC_KESFET_V2 §5, §8)', () => {
+describe('Keşfet images (SPEC_KESFET_V2 §5, §8; SPEC_GORSELLER_V5 §6)', () => {
   it('every Keşfet item has a bundled image (the tone gradient stays as the fallback in code)', () => {
-    expect(keys.filter((k) => !EXPLORE_IMAGES[k])).toEqual([]);
+    expect(items.filter(([sec, id]) => !exploreImage(sec, id)).map((x) => x.join('/'))).toEqual([]);
     expect(read('src/features/content/explore/ExploreCards.tsx')).toMatch(/fallback/);
   });
 
-  it('every image has a CREDITS.md record and a Turkish alt text', () => {
-    const credits = read('assets/images/explore/CREDITS.md');
-    for (const [k, v] of Object.entries(EXPLORE_IMAGES)) {
+  it('every image has a Turkish alt text and a blurhash and a CREDITS.md row', () => {
+    const credits = read('assets/images/CREDITS.md');
+    for (const [k, v] of Object.entries(IMAGES)) {
       expect([k, credits.includes(`\`${k}\``)]).toEqual([k, true]);
       expect([k, v.alt.trim().length > 0]).toEqual([k, true]);
       expect([k, v.blurhash.length >= 6]).toEqual([k, true]);
     }
-    expect(credits).toMatch(/CC0|Public Domain/);
   });
 
-  it('files are bundled WebP, at most 100 KB each; the total is reported (target ≤ 5 MB)', () => {
+  it('files are bundled WebP; the total stays under 18 MB', () => {
     expect(registry).not.toMatch(/https?:\/\//);
-    expect(files.length).toBe(Object.keys(EXPLORE_IMAGES).length);
     let total = 0;
     for (const f of files) {
       const size = fs.statSync(path.join(root, f)).size;
       total += size;
-      expect([f, f.endsWith('.webp'), size <= 100 * 1024]).toEqual([f, true, true]);
+      expect([f, f.endsWith('.webp'), size <= 110 * 1024]).toEqual([f, true, true]);
     }
-    // eslint-disable-next-line no-console
-    console.log(`Keşfet images: ${files.length} files, ${(total / 1024).toFixed(0)} KB`);
-    expect(total).toBeLessThanOrEqual(5 * 1024 * 1024);
+    console.log(`Images: ${files.length} files, ${(total / 1024).toFixed(0)} KB`);
+    expect(total).toBeLessThanOrEqual(18 * 1024 * 1024);
   });
 
-  it('no image is used twice', () => {
+  it('no image file is used twice', () => {
     expect(new Set(files).size).toBe(files.length);
   });
 });

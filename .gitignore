@@ -53,3 +53,6 @@ credentials/
 # Local Expo modules: native build output
 modules/*/android/build/
 modules/*/android/.cxx/
+
+# image pipeline download cache (scripts/images/fetch.mjs)
+.cache/

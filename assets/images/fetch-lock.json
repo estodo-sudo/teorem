@@ -1,0 +1,2832 @@
+{
+  "pipeline": 5,
+  "slideQuality": 62,
+  "images": {
+    "story/alcohol": {
+      "hash": "22feab0fcbea",
+      "files": {
+        "card": {
+          "file": "story/alcohol/card.webp",
+          "bytes": 15184,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/alcohol/1.webp",
+          "bytes": 20328,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LMEVvcn-IVtQ9H%MtQt7_4%MkBWD",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.71,
+        "type": "cover"
+      }
+    },
+    "story/alcohol/2": {
+      "hash": "f5c94b11e3ca",
+      "files": {
+        "slide": {
+          "file": "story/alcohol/2.webp",
+          "bytes": 11758,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L47K9pM{xZ}?9u^i-TNH0N-oNHIq",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.07,
+        "type": "info"
+      }
+    },
+    "story/alcohol/3": {
+      "hash": "c5abf9b83494",
+      "files": {
+        "slide": {
+          "file": "story/alcohol/3.webp",
+          "bytes": 15692,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LHOD2UxB%N?G_NkCt7tR_Nt8V@t7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.52,
+        "type": "info"
+      }
+    },
+    "story/alcohol/4": {
+      "hash": "47501d56b075",
+      "files": {
+        "slide": {
+          "file": "story/alcohol/4.webp",
+          "bytes": 10714,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LsPjD5-otR%L.Ta$WBofofj]V@ay",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.11,
+        "type": "myth"
+      }
+    },
+    "story/alcohol/5": {
+      "hash": "e3c6a25408dd",
+      "files": {
+        "slide": {
+          "file": "story/alcohol/5.webp",
+          "bytes": 16400,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LAN0^=?a_N?bo~t7IUxuE1oLDiRk",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.6,
+        "type": "quiz"
+      }
+    },
+    "story/alcohol/6": {
+      "hash": "98e69ba159fe",
+      "files": {
+        "slide": {
+          "file": "story/alcohol/6.webp",
+          "bytes": 47944,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LcF?C8x[aeof.TofaykCIpRkayoe",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.77,
+        "type": "action"
+      }
+    },
+    "story/bladder-control": {
+      "hash": "e15e0dff1354",
+      "files": {
+        "card": {
+          "file": "story/bladder-control/card.webp",
+          "bytes": 77926,
+          "quality": 62,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/bladder-control/1.webp",
+          "bytes": 108108,
+          "quality": 58,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LQHUOM4;kV%K~VM}NHofR*RkNHj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.76,
+        "type": "cover"
+      }
+    },
+    "story/bladder-control/2": {
+      "hash": "93eec648d6c9",
+      "files": {
+        "slide": {
+          "file": "story/bladder-control/2.webp",
+          "bytes": 39942,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L6CPkm_2Poxu00t7E2ozuPM{;{Rj",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.73,
+        "type": "info"
+      }
+    },
+    "story/bladder-control/3": {
+      "hash": "56fa26844788",
+      "files": {
+        "slide": {
+          "file": "story/bladder-control/3.webp",
+          "bytes": 47564,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L4DvAq00uP%f00E4^,nL00?^DjR$",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.28,
+        "type": "info"
+      }
+    },
+    "story/bladder-control/4": {
+      "hash": "a527b67045b5",
+      "files": {
+        "slide": {
+          "file": "story/bladder-control/4.webp",
+          "bytes": 42672,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LbHU|C?bs:s:~ptRxujbx]ofkBof",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.42,
+        "type": "myth"
+      }
+    },
+    "story/bladder-control/5": {
+      "hash": "44294f061098",
+      "files": {
+        "slide": {
+          "file": "story/bladder-control/5.webp",
+          "bytes": 78412,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LuKn9xM{M{s:~qM{IVRjWrM|M{NG",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.98,
+        "type": "quiz"
+      }
+    },
+    "story/bladder-control/6": {
+      "hash": "bd77455ed6ee",
+      "files": {
+        "slide": {
+          "file": "story/bladder-control/6.webp",
+          "bytes": 100628,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L99%q?s:oL%L~pofWBozNHWVWVRk",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.16,
+        "type": "action"
+      }
+    },
+    "story/bladder-control/7": {
+      "hash": "2521453909a8",
+      "files": {
+        "slide": {
+          "file": "story/bladder-control/7.webp",
+          "bytes": 56722,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LoH_-{Ioe.R*~VjYWBWA?boeWAWB",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.41,
+        "type": "doctor"
+      }
+    },
+    "story/core-hips": {
+      "hash": "9bc771d60848",
+      "files": {
+        "card": {
+          "file": "story/core-hips/card.webp",
+          "bytes": 18704,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/core-hips/1.webp",
+          "bytes": 22030,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LWJt-hoJjYoI~WfQbIV@?voeoffl",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.21,
+        "type": "cover"
+      }
+    },
+    "story/core-hips/2": {
+      "hash": "f1a6c893085b",
+      "files": {
+        "slide": {
+          "file": "story/core-hips/2.webp",
+          "bytes": 57244,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LXFixwX9R*oz~pkCWVof?bazWBof",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.16,
+        "type": "info"
+      }
+    },
+    "story/core-hips/3": {
+      "hash": "810421b5b523",
+      "files": {
+        "slide": {
+          "file": "story/core-hips/3.webp",
+          "bytes": 66516,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LEIX]V-;~V~W?aV@xuxuRjt7IVbI",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.39,
+        "type": "info"
+      }
+    },
+    "story/core-hips/4": {
+      "hash": "c85f4379451a",
+      "files": {
+        "slide": {
+          "file": "story/core-hips/4.webp",
+          "bytes": 20568,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LYEpN8-:-;-;_Nxuxtxuo#oLo0of",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.27,
+        "type": "info"
+      }
+    },
+    "story/core-hips/5": {
+      "hash": "2710d29868e8",
+      "files": {
+        "slide": {
+          "file": "story/core-hips/5.webp",
+          "bytes": 28448,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L5B3f|tlI@?G.7E1xuxZ~pM|%2WB",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.52,
+        "type": "didYouKnow"
+      }
+    },
+    "story/core-hips/6": {
+      "hash": "6468d84c16bd",
+      "files": {
+        "slide": {
+          "file": "story/core-hips/6.webp",
+          "bytes": 37662,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L5B|7@%L02~V00D*jFD*9c-p%Lt7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.36,
+        "type": "quiz"
+      }
+    },
+    "story/core-hips/7": {
+      "hash": "e561c615d849",
+      "files": {
+        "slide": {
+          "file": "story/core-hips/7.webp",
+          "bytes": 35406,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LQIg.T%2-:-:_MWBt7bIR4bHbIV@",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.44,
+        "type": "action"
+      }
+    },
+    "story/cycling": {
+      "hash": "b25ec8207373",
+      "files": {
+        "card": {
+          "file": "story/cycling/card.webp",
+          "bytes": 40312,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/cycling/1.webp",
+          "bytes": 48616,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LjG+Bgt6oyof%gj[ofof~pt6s:of",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.04,
+        "type": "cover"
+      }
+    },
+    "story/cycling/2": {
+      "hash": "85add1c7d2f8",
+      "files": {
+        "slide": {
+          "file": "story/cycling/2.webp",
+          "bytes": 13266,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L15qqv$*EjNb~A$fNeW.1LNH$is.",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 18.58,
+        "type": "info"
+      }
+    },
+    "story/cycling/3": {
+      "hash": "dd3c87bade75",
+      "files": {
+        "slide": {
+          "file": "story/cycling/3.webp",
+          "bytes": 112184,
+          "quality": 58,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L6A,gooe?F?G~mI-ELoxExN?NGxt",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.3,
+        "type": "info"
+      }
+    },
+    "story/cycling/4": {
+      "hash": "3d9920e6a452",
+      "files": {
+        "slide": {
+          "file": "story/cycling/4.webp",
+          "bytes": 112432,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LZG]2LbHRjt7.AWVR*kCx^t7ogof",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.13,
+        "type": "myth"
+      }
+    },
+    "story/cycling/5": {
+      "hash": "d792e4253036",
+      "files": {
+        "slide": {
+          "file": "story/cycling/5.webp",
+          "bytes": 15726,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBLW;I8w%O.8|B$#9w000000XUIV",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.23,
+        "type": "quiz"
+      }
+    },
+    "story/cycling/6": {
+      "hash": "9f47fd69e0c2",
+      "files": {
+        "slide": {
+          "file": "story/cycling/6.webp",
+          "bytes": 73438,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LIC~u9NGt7~V%1ozt7-oR5%fofRP",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.69,
+        "type": "action"
+      }
+    },
+    "story/cycling/7": {
+      "hash": "9732923dfad4",
+      "files": {
+        "slide": {
+          "file": "story/cycling/7.webp",
+          "bytes": 26738,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LUN114NHD*_2_NWBV@t7V?ayRjM{",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.44,
+        "type": "doctor"
+      }
+    },
+    "story/erection-blood": {
+      "hash": "bd2182250f10",
+      "files": {
+        "card": {
+          "file": "story/erection-blood/card.webp",
+          "bytes": 52966,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/erection-blood/1.webp",
+          "bytes": 79840,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LSEpApo#Iot85_t7xFWY5FNHj]f6",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.26,
+        "type": "cover"
+      }
+    },
+    "story/erection-blood/2": {
+      "hash": "4b3eb2970bd0",
+      "files": {
+        "slide": {
+          "file": "story/erection-blood/2.webp",
+          "bytes": 33724,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L25=@C*I4T%M4Ux]?uDiM0DPSN.8",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.66,
+        "type": "info"
+      }
+    },
+    "story/erection-blood/3": {
+      "hash": "466edfcb60ec",
+      "files": {
+        "slide": {
+          "file": "story/erection-blood/3.webp",
+          "bytes": 20268,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LGNTXZ~px]%L00xa%MIU00WAn$Rk",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 6.63,
+        "type": "info"
+      }
+    },
+    "story/erection-blood/4": {
+      "hash": "5ae6fb7ba534",
+      "files": {
+        "slide": {
+          "file": "story/erection-blood/4.webp",
+          "bytes": 14862,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LQKBH@~q~q%g_3fkITxt_NIURjj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.58,
+        "type": "didYouKnow"
+      }
+    },
+    "story/erection-blood/5": {
+      "hash": "ecd01733db85",
+      "files": {
+        "slide": {
+          "file": "story/erection-blood/5.webp",
+          "bytes": 51804,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LFGk]?M|~p?G4oD%xat64ntRIUjs",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.53,
+        "type": "quiz"
+      }
+    },
+    "story/erection-blood/6": {
+      "hash": "1a99409d0806",
+      "files": {
+        "slide": {
+          "file": "story/erection-blood/6.webp",
+          "bytes": 82480,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LKF#T?NH03xu~9oJ9bbI9axZtRIp",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.8,
+        "type": "action"
+      }
+    },
+    "story/erection-blood/7": {
+      "hash": "b88a121c7bae",
+      "files": {
+        "slide": {
+          "file": "story/erection-blood/7.webp",
+          "bytes": 16726,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJI=oWrWZh%M0JnO#Si_y=.7%2%2",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.24,
+        "type": "doctor"
+      }
+    },
+    "story/intimacy-beyond": {
+      "hash": "26e6378d7117",
+      "files": {
+        "card": {
+          "file": "story/intimacy-beyond/card.webp",
+          "bytes": 36772,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/intimacy-beyond/1.webp",
+          "bytes": 44858,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LAH.4v?G00Io$$~WI;~WDOa{?v^+",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.57,
+        "type": "cover"
+      }
+    },
+    "story/intimacy-beyond/2": {
+      "hash": "b79c719ac4c4",
+      "files": {
+        "slide": {
+          "file": "story/intimacy-beyond/2.webp",
+          "bytes": 30062,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBF#]m?Gx^~p*JIBWCS5^fNKWVWV",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.81,
+        "type": "info"
+      }
+    },
+    "story/intimacy-beyond/3": {
+      "hash": "806c69c38e14",
+      "files": {
+        "slide": {
+          "file": "story/intimacy-beyond/3.webp",
+          "bytes": 12828,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LUN,l8-pXS-;_NozjuofyEM{RPWA",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.49,
+        "type": "info"
+      }
+    },
+    "story/intimacy-beyond/4": {
+      "hash": "024016fb66c4",
+      "files": {
+        "slide": {
+          "file": "story/intimacy-beyond/4.webp",
+          "bytes": 42222,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LeJHBVt8R.-;~pxa%Lx]%Njrs.t7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.55,
+        "type": "info"
+      }
+    },
+    "story/intimacy-beyond/5": {
+      "hash": "b5bf8cff316f",
+      "files": {
+        "slide": {
+          "file": "story/intimacy-beyond/5.webp",
+          "bytes": 107752,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LfGR#KIVD%oz~pMyIUog-;M{WBs;",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.67,
+        "type": "myth"
+      }
+    },
+    "story/intimacy-beyond/6": {
+      "hash": "60c14091ef8c",
+      "files": {
+        "slide": {
+          "file": "story/intimacy-beyond/6.webp",
+          "bytes": 18350,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LMNu@D^jIo-o~UxZRj%29Zs.WXIo",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.87,
+        "type": "quiz"
+      }
+    },
+    "story/intimacy-beyond/7": {
+      "hash": "ccb02edfd64e",
+      "files": {
+        "slide": {
+          "file": "story/intimacy-beyond/7.webp",
+          "bytes": 26088,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LNM7iU_3_2%1xaoItRMx~WadE2M|",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.33,
+        "type": "action"
+      }
+    },
+    "story/kegel-mistakes": {
+      "hash": "a6a4a5e21d90",
+      "files": {
+        "card": {
+          "file": "story/kegel-mistakes/card.webp",
+          "bytes": 12058,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/kegel-mistakes/1.webp",
+          "bytes": 15358,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LDDbl}~VEixu0NE2s9ae01IUWXRj",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.67,
+        "type": "cover"
+      }
+    },
+    "story/kegel-mistakes/2": {
+      "hash": "0224b2020474",
+      "files": {
+        "slide": {
+          "file": "story/kegel-mistakes/2.webp",
+          "bytes": 25170,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LyJ[VAMxt6-p~qNGNGR*x]x]RjWB",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.17,
+        "type": "info"
+      }
+    },
+    "story/kegel-mistakes/3": {
+      "hash": "87d6444d5a8f",
+      "files": {
+        "slide": {
+          "file": "story/kegel-mistakes/3.webp",
+          "bytes": 41874,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LMFi3|~VNaxv^P~Vs,NGtQMxMyW=",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.99,
+        "type": "info"
+      }
+    },
+    "story/kegel-mistakes/4": {
+      "hash": "181ee0b4c1ff",
+      "files": {
+        "slide": {
+          "file": "story/kegel-mistakes/4.webp",
+          "bytes": 14122,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LDD,GjD*9axt~VtQkVt6but6eoM|",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.03,
+        "type": "info"
+      }
+    },
+    "story/kegel-mistakes/5": {
+      "hash": "16493ce1f860",
+      "files": {
+        "slide": {
+          "file": "story/kegel-mistakes/5.webp",
+          "bytes": 28772,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LQIX,7M{WV-:~WIotR%LbEax-:xu",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.52,
+        "type": "myth"
+      }
+    },
+    "story/kegel-mistakes/6": {
+      "hash": "ecc8eee4b63f",
+      "files": {
+        "slide": {
+          "file": "story/kegel-mistakes/6.webp",
+          "bytes": 108424,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LE8}0rt7NGof~oofR*j[%1WCWVj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 18.42,
+        "type": "quiz"
+      }
+    },
+    "story/kegel-mistakes/7": {
+      "hash": "6fabeb4d8a14",
+      "files": {
+        "slide": {
+          "file": "story/kegel-mistakes/7.webp",
+          "bytes": 34112,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LVK-k5_2%MMx~qNGRj%LITRiIUt7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.38,
+        "type": "action"
+      }
+    },
+    "story/mindfulness": {
+      "hash": "32ec1384f4d2",
+      "files": {
+        "card": {
+          "file": "story/mindfulness/card.webp",
+          "bytes": 18210,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/mindfulness/1.webp",
+          "bytes": 24690,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LEG+8f%LIo?b.T?aMyayZ~xuo0RP",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.46,
+        "type": "cover"
+      }
+    },
+    "story/mindfulness/2": {
+      "hash": "9962e306a2f0",
+      "files": {
+        "slide": {
+          "file": "story/mindfulness/2.webp",
+          "bytes": 62314,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LD9RXJaeRktP??V]V[oxH[WEkBoe",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.27,
+        "type": "info"
+      }
+    },
+    "story/mindfulness/3": {
+      "hash": "865c19c37c78",
+      "files": {
+        "slide": {
+          "file": "story/mindfulness/3.webp",
+          "bytes": 14456,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L4D9^+_2D%T1_4og0L9a?G4o9aM{",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.58,
+        "type": "info"
+      }
+    },
+    "story/mindfulness/4": {
+      "hash": "ad61e41f77ba",
+      "files": {
+        "slide": {
+          "file": "story/mindfulness/4.webp",
+          "bytes": 29728,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJK^E8tRyE^**0-:_2t6.SM{RjIp",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.97,
+        "type": "info"
+      }
+    },
+    "story/mindfulness/5": {
+      "hash": "a0f5a40511a0",
+      "files": {
+        "slide": {
+          "file": "story/mindfulness/5.webp",
+          "bytes": 34660,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LQEoe}?Gs:%1~UxaofxZRjR*ayoK",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.14,
+        "type": "myth"
+      }
+    },
+    "story/mindfulness/6": {
+      "hash": "491f12f20c3e",
+      "files": {
+        "slide": {
+          "file": "story/mindfulness/6.webp",
+          "bytes": 80264,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LTG[.sbbaft7_NNGf7of%MWXofj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.25,
+        "type": "quiz"
+      }
+    },
+    "story/mindfulness/7": {
+      "hash": "33c70d0654a1",
+      "files": {
+        "slide": {
+          "file": "story/mindfulness/7.webp",
+          "bytes": 28820,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LFB3i|~U%1?G?FIT9ZIo_2xtt6%L",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.09,
+        "type": "action"
+      }
+    },
+    "story/move-more": {
+      "hash": "f41ec3db11e4",
+      "files": {
+        "card": {
+          "file": "story/move-more/card.webp",
+          "bytes": 55636,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/move-more/1.webp",
+          "bytes": 73138,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LOL4sXIUIUWB~p9GD%WB_3IUM{WC",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.35,
+        "type": "cover"
+      }
+    },
+    "story/move-more/2": {
+      "hash": "d13d58b8eb81",
+      "files": {
+        "slide": {
+          "file": "story/move-more/2.webp",
+          "bytes": 106592,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LEBN4WMdohax%z4mWat7_MR4ohoz",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.72,
+        "type": "info"
+      }
+    },
+    "story/move-more/3": {
+      "hash": "0eed68083a88",
+      "files": {
+        "slide": {
+          "file": "story/move-more/3.webp",
+          "bytes": 36360,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LSE:6s~qIVNF~p-;jJt7ozxuxuoK",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.35,
+        "type": "info"
+      }
+    },
+    "story/move-more/4": {
+      "hash": "f2b218d7fc96",
+      "files": {
+        "slide": {
+          "file": "story/move-more/4.webp",
+          "bytes": 109046,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LKEoMXShIo-U#Rg4IonN~VNINHxZ",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.32,
+        "type": "info"
+      }
+    },
+    "story/move-more/5": {
+      "hash": "c1bb2e7be4a4",
+      "files": {
+        "slide": {
+          "file": "story/move-more/5.webp",
+          "bytes": 33676,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBIhmc_3~q%2Di%M_3IUR-bH%MRj",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.36,
+        "type": "myth"
+      }
+    },
+    "story/move-more/6": {
+      "hash": "dace3d96d685",
+      "files": {
+        "slide": {
+          "file": "story/move-more/6.webp",
+          "bytes": 70500,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L59i^=IoROxZ}PogxujsWBoebIs.",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 18.06,
+        "type": "quiz"
+      }
+    },
+    "story/move-more/7": {
+      "hash": "f3a0ca73803f",
+      "files": {
+        "slide": {
+          "file": "story/move-more/7.webp",
+          "bytes": 28278,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L8F5~n8_NG^*0KWDs.oy~p-:RjI;",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.88,
+        "type": "action"
+      }
+    },
+    "story/night-bathroom": {
+      "hash": "6eafbef3977e",
+      "files": {
+        "card": {
+          "file": "story/night-bathroom/card.webp",
+          "bytes": 17910,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/night-bathroom/1.webp",
+          "bytes": 21622,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L27c~P-Ts.9xjI9wI;-S};R+ays.",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.9,
+        "type": "cover"
+      }
+    },
+    "story/night-bathroom/2": {
+      "hash": "a309cd70299c",
+      "files": {
+        "slide": {
+          "file": "story/night-bathroom/2.webp",
+          "bytes": 17684,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L2AJcm0j00~U0,=wNGog00]O?aOF",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.02,
+        "type": "info"
+      }
+    },
+    "story/night-bathroom/3": {
+      "hash": "0dfaebc4eb61",
+      "files": {
+        "slide": {
+          "file": "story/night-bathroom/3.webp",
+          "bytes": 16808,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LGBW6zxFoetQ00NHWCV@~ot6j[j[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.03,
+        "type": "info"
+      }
+    },
+    "story/night-bathroom/4": {
+      "hash": "a59ef6329c89",
+      "files": {
+        "slide": {
+          "file": "story/night-bathroom/4.webp",
+          "bytes": 68972,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LQI;L.x[%0t7^*WYNGn,~UW=j=NH",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.91,
+        "type": "didYouKnow"
+      }
+    },
+    "story/night-bathroom/5": {
+      "hash": "0a99be7a9e3f",
+      "files": {
+        "slide": {
+          "file": "story/night-bathroom/5.webp",
+          "bytes": 12482,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L8ATJw^%?Z~nbI%1xtj[9HIWM|IW",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.82,
+        "type": "quiz"
+      }
+    },
+    "story/night-bathroom/6": {
+      "hash": "443572684d64",
+      "files": {
+        "slide": {
+          "file": "story/night-bathroom/6.webp",
+          "bytes": 16134,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LGCPhYs.00V@I@t6aKWC00Rk~pt7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.59,
+        "type": "action"
+      }
+    },
+    "story/night-bathroom/7": {
+      "hash": "a5f20e919ed0",
+      "files": {
+        "slide": {
+          "file": "story/night-bathroom/7.webp",
+          "bytes": 13250,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBJ[6X.8.T_3KPx[McIonhV@R-t7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.03,
+        "type": "doctor"
+      }
+    },
+    "story/performance-anxiety": {
+      "hash": "ea0b66e09af8",
+      "files": {
+        "card": {
+          "file": "story/performance-anxiety/card.webp",
+          "bytes": 23278,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/performance-anxiety/1.webp",
+          "bytes": 31662,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LTEo_I_34nDi~qx]D%M{MyRQkCkC",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.73,
+        "type": "cover"
+      }
+    },
+    "story/performance-anxiety/2": {
+      "hash": "1f2d7154dc76",
+      "files": {
+        "slide": {
+          "file": "story/performance-anxiety/2.webp",
+          "bytes": 19264,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LWFiJXR-WBxt_Nxts:WXR+a#f7of",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.01,
+        "type": "info"
+      }
+    },
+    "story/performance-anxiety/3": {
+      "hash": "69e3cb878530",
+      "files": {
+        "slide": {
+          "file": "story/performance-anxiety/3.webp",
+          "bytes": 57690,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L6C~#I-oR4-U?Gt7-:xa~U?aShbH",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.26,
+        "type": "info"
+      }
+    },
+    "story/performance-anxiety/4": {
+      "hash": "faf4ed4db1a4",
+      "files": {
+        "slide": {
+          "file": "story/performance-anxiety/4.webp",
+          "bytes": 7402,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LIGSDPT1jYxu~5jYbIt5xBWBayoK",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.94,
+        "type": "myth"
+      }
+    },
+    "story/performance-anxiety/5": {
+      "hash": "df179e46d648",
+      "files": {
+        "slide": {
+          "file": "story/performance-anxiety/5.webp",
+          "bytes": 37206,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LI7_Ta?w%hbcIoMxRjj[E1IVRjof",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.79,
+        "type": "quiz"
+      }
+    },
+    "story/performance-anxiety/6": {
+      "hash": "7195a9676950",
+      "files": {
+        "slide": {
+          "file": "story/performance-anxiety/6.webp",
+          "bytes": 65794,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LtKnYg%Lj[xt~Wofa|oft7ayfQj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.32,
+        "type": "action"
+      }
+    },
+    "story/performance-anxiety/7": {
+      "hash": "6c47dcd2b2bf",
+      "files": {
+        "slide": {
+          "file": "story/performance-anxiety/7.webp",
+          "bytes": 37692,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LHGRxH-:~p-o4.oJxaoz_2bcE1WV",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.87,
+        "type": "doctor"
+      }
+    },
+    "story/pf-basics": {
+      "hash": "fdba3d4934da",
+      "files": {
+        "card": {
+          "file": "story/pf-basics/card.webp",
+          "bytes": 18560,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/pf-basics/1.webp",
+          "bytes": 24668,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L7EnY5}@RjofW+0zEfs,r^}s={s:",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 14.75,
+        "type": "cover"
+      }
+    },
+    "story/pf-basics/2": {
+      "hash": "7ae807a819b7",
+      "files": {
+        "slide": {
+          "file": "story/pf-basics/2.webp",
+          "bytes": 52824,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LpGl9Vxuj[of~ps:j[ofxuWBayj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.97,
+        "type": "info"
+      }
+    },
+    "story/pf-basics/3": {
+      "hash": "474b41e4d27a",
+      "files": {
+        "slide": {
+          "file": "story/pf-basics/3.webp",
+          "bytes": 20114,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LADA6-~pRX?t4XV{X7V_02D*R$IV",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.55,
+        "type": "info"
+      }
+    },
+    "story/pf-basics/4": {
+      "hash": "b5b0129fdf80",
+      "files": {
+        "slide": {
+          "file": "story/pf-basics/4.webp",
+          "bytes": 24548,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LRJRBR?HaeoJ~Vj[M{oe?wbbWBt7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.15,
+        "type": "myth"
+      }
+    },
+    "story/pf-basics/5": {
+      "hash": "f6a112f53591",
+      "files": {
+        "slide": {
+          "file": "story/pf-basics/5.webp",
+          "bytes": 69108,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LCDcK=~qofV@_2%MRjE1oz%LM{M{",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.44,
+        "type": "quiz"
+      }
+    },
+    "story/pf-basics/6": {
+      "hash": "4d36947428d7",
+      "files": {
+        "slide": {
+          "file": "story/pf-basics/6.webp",
+          "bytes": 35036,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LUD9kys.IokB_NoeRjofb{bHs,of",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.04,
+        "type": "action"
+      }
+    },
+    "story/pf-basics/7": {
+      "hash": "3c0dbc426165",
+      "files": {
+        "slide": {
+          "file": "story/pf-basics/7.webp",
+          "bytes": 45210,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LIJt@^%1xut8_NozxuWE?bt7WAa}",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.25,
+        "type": "doctor"
+      }
+    },
+    "story/plate": {
+      "hash": "bb298db532bd",
+      "files": {
+        "card": {
+          "file": "story/plate/card.webp",
+          "bytes": 60746,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/plate/1.webp",
+          "bytes": 72700,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LOJtIoTxPUaJT@r^v~Ee_N-W%NRP",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.02,
+        "type": "cover"
+      }
+    },
+    "story/plate/2": {
+      "hash": "c8335096dbef",
+      "files": {
+        "slide": {
+          "file": "story/plate/2.webp",
+          "bytes": 34928,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LHLNC|=#-W~U00nOxaxtjpIoEMtk",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 7.5,
+        "type": "info"
+      }
+    },
+    "story/plate/3": {
+      "hash": "f7db18a8c535",
+      "files": {
+        "slide": {
+          "file": "story/plate/3.webp",
+          "bytes": 37826,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LUOf_TxZxv?H_NfkWBoe?v-;M{NZ",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.82,
+        "type": "info"
+      }
+    },
+    "story/plate/4": {
+      "hash": "35c5864b3f0f",
+      "files": {
+        "slide": {
+          "file": "story/plate/4.webp",
+          "bytes": 105834,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L7ECI69}Io=|~W$%.8tQ0L9G^+t5",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.99,
+        "type": "didYouKnow"
+      }
+    },
+    "story/plate/5": {
+      "hash": "a8c020ad8e05",
+      "files": {
+        "slide": {
+          "file": "story/plate/5.webp",
+          "bytes": 37618,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L9Eo0m~WI^~B~VS$V@xa0NM{E057",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.15,
+        "type": "quiz"
+      }
+    },
+    "story/plate/6": {
+      "hash": "95c65528f779",
+      "files": {
+        "slide": {
+          "file": "story/plate/6.webp",
+          "bytes": 67504,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LA9jx^%yrZwK}cnUxFixxuXlXNM|",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.57,
+        "type": "action"
+      }
+    },
+    "story/sleep-hormones": {
+      "hash": "c4a20ef9bb0f",
+      "files": {
+        "card": {
+          "file": "story/sleep-hormones/card.webp",
+          "bytes": 10532,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/sleep-hormones/1.webp",
+          "bytes": 12430,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LAHL9z4T4T~q01IUM{WX00.8xuRj",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.96,
+        "type": "cover"
+      }
+    },
+    "story/sleep-hormones/2": {
+      "hash": "104300d30730",
+      "files": {
+        "slide": {
+          "file": "story/sleep-hormones/2.webp",
+          "bytes": 7544,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L44.MQxa0fI?xuayRkoL0LRk~A%0",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 19.04,
+        "type": "info"
+      }
+    },
+    "story/sleep-hormones/3": {
+      "hash": "0f7a9d457167",
+      "files": {
+        "slide": {
+          "file": "story/sleep-hormones/3.webp",
+          "bytes": 11178,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LlL|$6-pRkt7~qazayofs-NGj[oL",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.47,
+        "type": "info"
+      }
+    },
+    "story/sleep-hormones/4": {
+      "hash": "184b0f5dc9e5",
+      "files": {
+        "slide": {
+          "file": "story/sleep-hormones/4.webp",
+          "bytes": 18718,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJOM]9RO-=~q~ptQt8%MxuxuM{j?",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.85,
+        "type": "didYouKnow"
+      }
+    },
+    "story/sleep-hormones/5": {
+      "hash": "9fa291fe1d70",
+      "files": {
+        "slide": {
+          "file": "story/sleep-hormones/5.webp",
+          "bytes": 54282,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LCJHv^~WMy?atjM{RQj]xbD%Mxxb",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.4,
+        "type": "quiz"
+      }
+    },
+    "story/sleep-hormones/6": {
+      "hash": "d492129e056a",
+      "files": {
+        "slide": {
+          "file": "story/sleep-hormones/6.webp",
+          "bytes": 15598,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LZHB3b~VI]R.={xtR-WW4:IUaKWA",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.49,
+        "type": "action"
+      }
+    },
+    "story/sleep-routine": {
+      "hash": "00af81b35e75",
+      "files": {
+        "card": {
+          "file": "story/sleep-routine/card.webp",
+          "bytes": 19530,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/sleep-routine/1.webp",
+          "bytes": 22322,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LDMP1+020i=]}@DkyUIp0h04_1-,",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 7.84,
+        "type": "cover"
+      }
+    },
+    "story/sleep-routine/2": {
+      "hash": "d319cbc21b01",
+      "files": {
+        "slide": {
+          "file": "story/sleep-routine/2.webp",
+          "bytes": 13268,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LHA+pG}=kBj?Iqn%xYS49^9wE4NI",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.86,
+        "type": "info"
+      }
+    },
+    "story/sleep-routine/3": {
+      "hash": "89051b90c65a",
+      "files": {
+        "slide": {
+          "file": "story/sleep-routine/3.webp",
+          "bytes": 13934,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L4DIdr|=E1EK5SeT?GS#00X-kqX9",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.1,
+        "type": "info"
+      }
+    },
+    "story/sleep-routine/4": {
+      "hash": "749ed7576dc1",
+      "files": {
+        "slide": {
+          "file": "story/sleep-routine/4.webp",
+          "bytes": 36596,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L4ATDq000M-n00_1xut6~oIVocIp",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.42,
+        "type": "info"
+      }
+    },
+    "story/sleep-routine/5": {
+      "hash": "518b4ab07170",
+      "files": {
+        "slide": {
+          "file": "story/sleep-routine/5.webp",
+          "bytes": 44748,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LLAwM0~qxuRjD%IUWBoft7azofof",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.27,
+        "type": "didYouKnow"
+      }
+    },
+    "story/sleep-routine/6": {
+      "hash": "803e942126bc",
+      "files": {
+        "slide": {
+          "file": "story/sleep-routine/6.webp",
+          "bytes": 22394,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L34x*$~U,-ni-n-4%2%Lt7f5f+S2",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 18.51,
+        "type": "quiz"
+      }
+    },
+    "story/sleep-routine/7": {
+      "hash": "501938f55143",
+      "files": {
+        "slide": {
+          "file": "story/sleep-routine/7.webp",
+          "bytes": 48740,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LNG*WZ~BWDWB~A-oj[R*E2WBbHj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.44,
+        "type": "action"
+      }
+    },
+    "story/smoking": {
+      "hash": "bacafbe2db4d",
+      "files": {
+        "card": {
+          "file": "story/smoking/card.webp",
+          "bytes": 22576,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/smoking/1.webp",
+          "bytes": 28896,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L~N,h{%1o0xa~qbbWWkCIqWCj[ay",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 7.89,
+        "type": "cover"
+      }
+    },
+    "story/smoking/2": {
+      "hash": "e0dd02846eb0",
+      "files": {
+        "slide": {
+          "file": "story/smoking/2.webp",
+          "bytes": 57366,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L9ED3g~XtlT10PENI]Ip7PjE=X-o",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 11.66,
+        "type": "info"
+      }
+    },
+    "story/smoking/3": {
+      "hash": "d144eff66fee",
+      "files": {
+        "slide": {
+          "file": "story/smoking/3.webp",
+          "bytes": 58220,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LEE{|Cr|_M?uNqs;M{Rj00bXIBRk",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.59,
+        "type": "info"
+      }
+    },
+    "story/smoking/4": {
+      "hash": "7b046026e18f",
+      "files": {
+        "slide": {
+          "file": "story/smoking/4.webp",
+          "bytes": 110392,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LOG*=y^*%1xt~p%LofoLtRM|RjjZ",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.2,
+        "type": "myth"
+      }
+    },
+    "story/smoking/5": {
+      "hash": "49bd6f135c67",
+      "files": {
+        "slide": {
+          "file": "story/smoking/5.webp",
+          "bytes": 61900,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L-I5JDWCk9oJ~qWCWBay?boLWBj[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.05,
+        "type": "quiz"
+      }
+    },
+    "story/smoking/6": {
+      "hash": "1cd666dd942e",
+      "files": {
+        "slide": {
+          "file": "story/smoking/6.webp",
+          "bytes": 89182,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L5EB]J^002xu0Js,E4EM~UozE3E3",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.67,
+        "type": "action"
+      }
+    },
+    "story/smoking/7": {
+      "hash": "68056d28cc82",
+      "files": {
+        "slide": {
+          "file": "story/smoking/7.webp",
+          "bytes": 18606,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LDL4NS02cZ~9D40LNH_3MaE1IVNG",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.84,
+        "type": "doctor"
+      }
+    },
+    "story/stress-body": {
+      "hash": "587ac9299aad",
+      "files": {
+        "card": {
+          "file": "story/stress-body/card.webp",
+          "bytes": 19338,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/stress-body/1.webp",
+          "bytes": 24410,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LVC?W5t8xuV@~oR-%Loe%KIo%2%2",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.84,
+        "type": "cover"
+      }
+    },
+    "story/stress-body/2": {
+      "hash": "09c038b6392c",
+      "files": {
+        "slide": {
+          "file": "story/stress-body/2.webp",
+          "bytes": 32406,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LeEyG6R-R*t6~pW=ayofXnofs.j[",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 18.23,
+        "type": "info"
+      }
+    },
+    "story/stress-body/3": {
+      "hash": "5d5aef80968b",
+      "files": {
+        "slide": {
+          "file": "story/stress-body/3.webp",
+          "bytes": 33458,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJI~Pg~qY5x[pcj@rroeEgRjs9xu",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.63,
+        "type": "info"
+      }
+    },
+    "story/stress-body/4": {
+      "hash": "9763799343c2",
+      "files": {
+        "slide": {
+          "file": "story/stress-body/4.webp",
+          "bytes": 16986,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L184k^4T01?^0fIC^+Mx0601-U^k",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.02,
+        "type": "info"
+      }
+    },
+    "story/stress-body/5": {
+      "hash": "14983546f0f5",
+      "files": {
+        "slide": {
+          "file": "story/stress-body/5.webp",
+          "bytes": 20572,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LEIh]WbckB_40000IoxuTg00ROt8",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.09,
+        "type": "myth"
+      }
+    },
+    "story/stress-body/6": {
+      "hash": "8e19a573d256",
+      "files": {
+        "slide": {
+          "file": "story/stress-body/6.webp",
+          "bytes": 97708,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LbIX]WIU-;jY~qoefkj@t8t7M{of",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.27,
+        "type": "quiz"
+      }
+    },
+    "story/stress-body/7": {
+      "hash": "a7918b37d978",
+      "files": {
+        "slide": {
+          "file": "story/stress-body/7.webp",
+          "bytes": 16702,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L59jZL_N.S-o008_DiM|~p%M-:WV",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.9,
+        "type": "action"
+      }
+    },
+    "story/talk-partner": {
+      "hash": "0ae296c1fa01",
+      "files": {
+        "card": {
+          "file": "story/talk-partner/card.webp",
+          "bytes": 20356,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/talk-partner/1.webp",
+          "bytes": 25222,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LiL;Qw%2xu-;_NofozxuWBWCRjjt",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.11,
+        "type": "cover"
+      }
+    },
+    "story/talk-partner/2": {
+      "hash": "11b34ad5b60d",
+      "files": {
+        "slide": {
+          "file": "story/talk-partner/2.webp",
+          "bytes": 30892,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L-JP-ikCoJs.~9j[j@oeoza|WWa}",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.47,
+        "type": "info"
+      }
+    },
+    "story/talk-partner/3": {
+      "hash": "a2ddbdd9f45e",
+      "files": {
+        "slide": {
+          "file": "story/talk-partner/3.webp",
+          "bytes": 78914,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LAI|wE~B00^j?IxH=Z%2Vu-U?F%2",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.17,
+        "type": "info"
+      }
+    },
+    "story/talk-partner/4": {
+      "hash": "046c9352eeec",
+      "files": {
+        "slide": {
+          "file": "story/talk-partner/4.webp",
+          "bytes": 25990,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LGDI:n4;I;?F~pj[R+M|Or-ow^M|",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.56,
+        "type": "info"
+      }
+    },
+    "story/talk-partner/5": {
+      "hash": "dcea01a68641",
+      "files": {
+        "slide": {
+          "file": "story/talk-partner/5.webp",
+          "bytes": 29582,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LlIE^O-;xu%L~pxtRjjs-;oLM{WB",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.54,
+        "type": "didYouKnow"
+      }
+    },
+    "story/talk-partner/6": {
+      "hash": "3e733d829245",
+      "files": {
+        "slide": {
+          "file": "story/talk-partner/6.webp",
+          "bytes": 77840,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LFECtLTLDj-UpyxvMxRkHXV@tRs-",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.59,
+        "type": "quiz"
+      }
+    },
+    "story/talk-partner/7": {
+      "hash": "56e5fc1ed1f2",
+      "files": {
+        "slide": {
+          "file": "story/talk-partner/7.webp",
+          "bytes": 11660,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L8Gber?cUu?FzmxDx_oJ00V?%%bv",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.32,
+        "type": "action"
+      }
+    },
+    "story/water": {
+      "hash": "49772fa8408f",
+      "files": {
+        "card": {
+          "file": "story/water/card.webp",
+          "bytes": 19204,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/water/1.webp",
+          "bytes": 27012,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L4B{iVxt4o~VL1x]?ut6t6-oxuIV",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.68,
+        "type": "cover"
+      }
+    },
+    "story/water/2": {
+      "hash": "1a5659ab75f1",
+      "files": {
+        "slide": {
+          "file": "story/water/2.webp",
+          "bytes": 59716,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LIGR*X~V%1%L-XM{Iof6IVt7RkR*",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.87,
+        "type": "info"
+      }
+    },
+    "story/water/3": {
+      "hash": "3b19d6eb742d",
+      "files": {
+        "slide": {
+          "file": "story/water/3.webp",
+          "bytes": 19660,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LMGl3CIU4oNG.TIUnhRkagWBWBt6",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.23,
+        "type": "info"
+      }
+    },
+    "story/water/4": {
+      "hash": "c0de44ff2be2",
+      "files": {
+        "slide": {
+          "file": "story/water/4.webp",
+          "bytes": 25606,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LwLq5]xan%xt_Nt6R*bHOFR,ofbH",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.39,
+        "type": "info"
+      }
+    },
+    "story/water/5": {
+      "hash": "f09dd8547351",
+      "files": {
+        "slide": {
+          "file": "story/water/5.webp",
+          "bytes": 27020,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LTH3Q?xvM|x]_NofRkof9FRjfQWB",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.14,
+        "type": "didYouKnow"
+      }
+    },
+    "story/water/6": {
+      "hash": "1bbfdf19fcf9",
+      "files": {
+        "slide": {
+          "file": "story/water/6.webp",
+          "bytes": 27668,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L57^xu01=|4:~WIVxuIo9Z^k9a-;",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 18.54,
+        "type": "quiz"
+      }
+    },
+    "story/water/7": {
+      "hash": "dd9524edc20c",
+      "files": {
+        "slide": {
+          "file": "story/water/7.webp",
+          "bytes": 20670,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LELDiO^*.T_N01E2RPRj00x]?HNH",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 7.82,
+        "type": "action"
+      }
+    },
+    "story/worry-time": {
+      "hash": "5e7eb417a13a",
+      "files": {
+        "card": {
+          "file": "story/worry-time/card.webp",
+          "bytes": 14534,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/worry-time/1.webp",
+          "bytes": 19012,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L6B{=SjZ0K_N00Rjx]9F02S$$gso",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.29,
+        "type": "cover"
+      }
+    },
+    "story/worry-time/2": {
+      "hash": "cbd6cfe5ee63",
+      "files": {
+        "slide": {
+          "file": "story/worry-time/2.webp",
+          "bytes": 42874,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LmJ*6Z%Lg3x[~Wj[bHozI:W;xani",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.18,
+        "type": "info"
+      }
+    },
+    "story/worry-time/3": {
+      "hash": "332af9f0dd12",
+      "files": {
+        "slide": {
+          "file": "story/worry-time/3.webp",
+          "bytes": 13006,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L99$d~}Z9tJ7#-snX8j[0yJ7%MxG",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 13.86,
+        "type": "info"
+      }
+    },
+    "story/worry-time/4": {
+      "hash": "6d39dda27db3",
+      "files": {
+        "slide": {
+          "file": "story/worry-time/4.webp",
+          "bytes": 90800,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L-Irsnt7Rjt7.TofazofV?j[off6",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 8.47,
+        "type": "info"
+      }
+    },
+    "story/worry-time/5": {
+      "hash": "f43b152b9de4",
+      "files": {
+        "slide": {
+          "file": "story/worry-time/5.webp",
+          "bytes": 45812,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LDDlyT00%Mxt~qD%xaWA9G%LxuIo",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.09,
+        "type": "didYouKnow"
+      }
+    },
+    "story/worry-time/6": {
+      "hash": "20344c4923b3",
+      "files": {
+        "slide": {
+          "file": "story/worry-time/6.webp",
+          "bytes": 16828,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L8MZXG}?+s_300x].84:?vPCVrVX",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.98,
+        "type": "quiz"
+      }
+    },
+    "story/worry-time/7": {
+      "hash": "9e8206687698",
+      "files": {
+        "slide": {
+          "file": "story/worry-time/7.webp",
+          "bytes": 19024,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LGK^:3?ax^_NH?WCofog_No#V?WB",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.82,
+        "type": "action"
+      }
+    },
+    "glossary/after-prostate-surgery": {
+      "hash": "35e79c4551d5",
+      "files": {
+        "glossary": {
+          "file": "glossary/after-prostate-surgery.webp",
+          "bytes": 23474,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LbDJhXM_M_j??wRPRPayx_V@adj[",
+      "readability": null
+    },
+    "camp/alcohol": {
+      "hash": "618e8a95af11",
+      "files": {
+        "camp": {
+          "file": "camp/alcohol.webp",
+          "bytes": 7218,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LPLVX1^i^ibv~9WBEMoJ%2NeNHsm",
+      "readability": null
+    },
+    "program/daily-life": {
+      "hash": "cdb4245cfce9",
+      "files": {
+        "program": {
+          "file": "program/daily-life.webp",
+          "bytes": 17928,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L9NTXW~oJ._3~Ut5WBWq9bWB?Gof",
+      "readability": null
+    },
+    "glossary/discreet": {
+      "hash": "0e3a693036c4",
+      "files": {
+        "glossary": {
+          "file": "glossary/discreet.webp",
+          "bytes": 5226,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LOI3UK~Ao}g3M|RPM|nhE%s:xFR+",
+      "readability": null
+    },
+    "glossary/dribble": {
+      "hash": "1dcbd38345ef",
+      "files": {
+        "glossary": {
+          "file": "glossary/dribble.webp",
+          "bytes": 4900,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L596zD9uEMIp5RSgxZEM}@ofR*R*",
+      "readability": null
+    },
+    "glossary/erectile-dysfunction": {
+      "hash": "9ea83afc1175",
+      "files": {
+        "glossary": {
+          "file": "glossary/erectile-dysfunction.webp",
+          "bytes": 5866,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJHLMF~p00Mw9YIUsot7?Gxuxu%M",
+      "readability": null
+    },
+    "glossary/exercises": {
+      "hash": "73eec07a987a",
+      "files": {
+        "glossary": {
+          "file": "glossary/exercises.webp",
+          "bytes": 15580,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LAI|v}wu~8^i02xt=_%0Rjs:ENf6",
+      "readability": null
+    },
+    "program/feet": {
+      "hash": "130accbe0085",
+      "files": {
+        "program": {
+          "file": "program/feet.webp",
+          "bytes": 28254,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L5Frd-^~^c-m%4^$~SjY9dxt%0n$",
+      "readability": null
+    },
+    "glossary/kegel": {
+      "hash": "038143092db1",
+      "files": {
+        "glossary": {
+          "file": "glossary/kegel.webp",
+          "bytes": 5830,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L76[Bl%1-S-S%%n$rpi^.Axun3xZ",
+      "readability": null
+    },
+    "glossary/lasting-longer": {
+      "hash": "e1fa3ef905ea",
+      "files": {
+        "glossary": {
+          "file": "glossary/lasting-longer.webp",
+          "bytes": 7392,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LAFi*w~o9sbY0]EKxGbao?x[-;xt",
+      "readability": null
+    },
+    "glossary/level": {
+      "hash": "4c024c5f7f91",
+      "files": {
+        "glossary": {
+          "file": "glossary/level.webp",
+          "bytes": 6202,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LIB3yoxt4nIU~qWBIUoft8Rks:s:",
+      "readability": null
+    },
+    "program/lifestyle": {
+      "hash": "1789a3e5588c",
+      "files": {
+        "program": {
+          "file": "program/lifestyle.webp",
+          "bytes": 18686,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LVJ?sK}@ob=_ERx@%0oyR-sVNGR+",
+      "readability": null
+    },
+    "glossary/low-desire": {
+      "hash": "52fd8bcbc138",
+      "files": {
+        "glossary": {
+          "file": "glossary/low-desire.webp",
+          "bytes": 33964,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LLBgrNjYDifi9FRiaef6_NofRkj@",
+      "readability": null
+    },
+    "glossary/masturbation": {
+      "hash": "53f8bb5d7c47",
+      "files": {
+        "glossary": {
+          "file": "glossary/masturbation.webp",
+          "bytes": 5336,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L997kVRj00%M00of~qRiIoofxuRj",
+      "readability": null
+    },
+    "glossary/morning-erection": {
+      "hash": "632a31bc0efc",
+      "files": {
+        "glossary": {
+          "file": "glossary/morning-erection.webp",
+          "bytes": 14932,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L7F?5}#$00_N0058^%s*v~~U.8xu",
+      "readability": null
+    },
+    "program/neck": {
+      "hash": "0c2c1bada595",
+      "files": {
+        "program": {
+          "file": "program/neck.webp",
+          "bytes": 7170,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LHJt;nxYx]Rj_NofxuM{%MM{WBae",
+      "readability": null
+    },
+    "camp/odak": {
+      "hash": "57500b107059",
+      "files": {
+        "camp": {
+          "file": "camp/odak.webp",
+          "bytes": 14644,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LgHLo9xtX9t8~pjERPayxBkCWBaf",
+      "readability": null
+    },
+    "glossary/partner-satisfaction": {
+      "hash": "312859ce3090",
+      "files": {
+        "glossary": {
+          "file": "glossary/partner-satisfaction.webp",
+          "bytes": 9710,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LsI;|vRPIAoe~qD*IUWCx]M{WXfQ",
+      "readability": null
+    },
+    "program/pf101": {
+      "hash": "6a838bcd3981",
+      "files": {
+        "program": {
+          "file": "program/pf101.webp",
+          "bytes": 19620,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJINjXwa~UIUE5MxSiRj%1oLM{IV",
+      "readability": null
+    },
+    "glossary/plan": {
+      "hash": "6a71bf0ed9de",
+      "files": {
+        "glossary": {
+          "file": "glossary/plan.webp",
+          "bytes": 5828,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBR--e+bsr~W~ptlVsV@kXbatkWC",
+      "readability": null
+    },
+    "glossary/premature-ejaculation": {
+      "hash": "7522cd49173d",
+      "files": {
+        "glossary": {
+          "file": "glossary/premature-ejaculation.webp",
+          "bytes": 3756,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L3846;NG00?H~VWB0Lt7~VR+0fxZ",
+      "readability": null
+    },
+    "glossary/privacy": {
+      "hash": "dd0110f2da71",
+      "files": {
+        "glossary": {
+          "file": "glossary/privacy.webp",
+          "bytes": 22684,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L5BNZA?]03MeyCkDr^od02RQE1s.",
+      "readability": null
+    },
+    "program/sexual-health": {
+      "hash": "4e9eaf276abb",
+      "files": {
+        "program": {
+          "file": "program/sexual-health.webp",
+          "bytes": 15848,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LJHd{T?vIpIV?w?bIURPTK-oMxM{",
+      "readability": null
+    },
+    "camp/smoking": {
+      "hash": "1a87e369a109",
+      "files": {
+        "camp": {
+          "file": "camp/smoking.webp",
+          "bytes": 6238,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LgOMg1%2b^WW_Nxae.t6R-WBV@f+",
+      "readability": null
+    },
+    "glossary/streak": {
+      "hash": "40e877ea5e35",
+      "files": {
+        "glossary": {
+          "file": "glossary/streak.webp",
+          "bytes": 6740,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LCCY%L-o00E2s.NGNHxZ00Ip~V%2",
+      "readability": null
+    },
+    "glossary/strength-test": {
+      "hash": "6a86441efa69",
+      "files": {
+        "glossary": {
+          "file": "glossary/strength-test.webp",
+          "bytes": 6322,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBGkRN^i00-U=FV@J7t6M0%2?]NH",
+      "readability": null
+    },
+    "program/stress-sleep": {
+      "hash": "84115c422a6f",
+      "files": {
+        "program": {
+          "file": "program/stress-sleep.webp",
+          "bytes": 22728,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L49i@.0o{c0hs,-oD*E2Kl}n0M,-",
+      "readability": null
+    },
+    "glossary/tight-pelvic-floor": {
+      "hash": "6ab3cc5673ff",
+      "files": {
+        "glossary": {
+          "file": "glossary/tight-pelvic-floor.webp",
+          "bytes": 24442,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L6OWTf-mR4~p00-:fRxZ00_2xuxu",
+      "readability": null
+    },
+    "glossary/vibration": {
+      "hash": "f5f7aaed1ff3",
+      "files": {
+        "glossary": {
+          "file": "glossary/vibration.webp",
+          "bytes": 2236,
+          "quality": 72,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LHF~aHofM{?a?aNGRkt7~qM{IUWB",
+      "readability": null
+    }
+  }
+}

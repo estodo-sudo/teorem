@@ -20,7 +20,9 @@
         ],
         "title": "Görünmeyen bir hamak",
         "text": "Pelvik taban, leğen kemiğinin altında hamak gibi gerilen kaslardır. Mesaneyi ve bağırsağı taşır, idrarı ve gazı tutmana yardım eder. Sertleşme sırasında penis köküne baskı yaparak sertliğin korunmasına, boşalmada da ritmik kasılmalarıyla katkı verir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/pf-basics/2",
+        "imageAlt": "Sisli bir bahçede iki ağaç arasına gerilmiş boş bir hamak"
       },
       {
         "type": "info",
@@ -31,13 +33,17 @@
         ],
         "title": "Zayıflayınca ne olur?",
         "text": "Sık görülen işaretler: işedikten sonra birkaç damla gelmesi (işeme sonrası damlama) ve öksürürken, hapşırırken ya da ağır kaldırırken az idrar kaçırmak. Yaş, uzun oturma, kronik öksürük, fazla kilo ve prostat ameliyatı bu kasları etkileyebilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/pf-basics/3",
+        "imageAlt": "Parkta damlayan eski pirinç bir musluk"
       },
       {
         "type": "myth",
         "myth": "Kegel egzersizi sadece kadınlar içindir.",
         "fact": "Erkeklerde de aynı kaslar var ve çalıştırılabilir. Mayo Clinic, Kegel egzersizlerinin erkeklerde mesane kontrolüne yardım edebileceğini belirtir. Prostat ameliyatı sonrasında da sık önerilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/pf-basics/4",
+        "imageAlt": "Aydınlık bir odada yoga matında egzersiz yapan yaşlıca bir adam"
       },
       {
         "type": "quiz",
@@ -51,7 +57,9 @@
           "correct": 0,
           "explain": "Kası sıkmak, idrar yolunda kalan son damlaları dışarı atar. 55 erkekle yapılan küçük bir araştırmada bu hareketi içeren egzersizlerden 6 ay sonra katılımcıların yaklaşık dörtte üçünde damlama kalmadı. Az su içmek ise idrarı yoğunlaştırır."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/pf-basics/5",
+        "imageAlt": "Gri fayanslı, sade ve temiz bir banyo lavabosu"
       },
       {
         "type": "action",
@@ -62,7 +70,9 @@
           "route": "/tutorial",
           "label": "Kası bul eğitimini aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/pf-basics/6",
+        "imageAlt": "Güneşli bir çayırda sırtüstü uzanıp dinlenen bir adam"
       },
       {
         "type": "doctor",
@@ -72,7 +82,9 @@
           "İdrar kaçırma ya da sertleşme sorunu birden başladıysa",
           "İdrar akışın belirgin şekilde zayıfladıysa ya da mesaneni tam boşaltamıyor gibi hissediyorsan"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/pf-basics/7",
+        "imageAlt": "Ahşap bir masanın üzerinde duran stetoskop"
       },
       {
         "type": "summary",
@@ -125,7 +137,9 @@
         ],
         "title": "1–2: Nefes ve yanlış kaslar",
         "text": "Sıkarken nefesini tutma, nefes almaya devam et. Karnını, kalçanı ve bacaklarını gevşek bırak. Doğru kası kullandığında dışarıdan neredeyse hiçbir şey görünmez; his içeridedir, testislerin hafifçe yukarı çekilmesi gibi.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/2",
+        "imageAlt": "Açık havada başını kaldırıp derin nefes alan bir adam, yandan"
       },
       {
         "type": "info",
@@ -136,7 +150,9 @@
         ],
         "title": "3–4: Gevşeme ve aşırılık",
         "text": "Her sıkmadan sonra kası en az sıkma süresi kadar tamamen gevşet; gevşeme de egzersizin parçası. Daha çok tekrar daha hızlı sonuç demek değil: yorulan kas yanlış çalışır. Programdaki tekrar sayısında kal.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/3",
+        "imageAlt": "Bankta dizinin üstünde gevşekçe duran eller"
       },
       {
         "type": "info",
@@ -147,13 +163,17 @@
         ],
         "title": "5: İşerken egzersiz",
         "text": "İşerken idrarı durdurmak, kası bulmak için bir kez denenebilir; ama bunu egzersiz olarak yapma. Alışkanlık hâline gelirse mesanenin tam boşalmasını bozabilir. Egzersizi tuvalet dışında, rahat bir anda yap.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/4",
+        "imageAlt": "Sade bir koridorda tuvalet işareti, yazısız"
       },
       {
         "type": "myth",
         "myth": "Ne kadar çok sıkarsam o kadar hızlı güçlenirim.",
         "fact": "Pelvik taban da diğer kaslar gibi dinlenirken güçlenir. Fazla tekrar yorgunluğa ve yanlış kas kullanımına yol açar. Düzenli, doğru ve ölçülü çalışmak daha iyi sonuç verir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/5",
+        "imageAlt": "Spor sonrası havluyla terini silen yorgun bir adam"
       },
       {
         "type": "quiz",
@@ -167,7 +187,9 @@
           "correct": 0,
           "explain": "Gevşeme, kasın dinlenip bir sonraki kasılmaya hazırlanmasını sağlar. Gevşemeyi atlamak kası yorar; nefesi tutmak da karın içi basıncı artırır."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/6",
+        "imageAlt": "Akşam ışığında sakin su yüzeyi"
       },
       {
         "type": "action",
@@ -178,7 +200,9 @@
           "route": "/",
           "label": "Bugünkü antrenmanı aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/7",
+        "imageAlt": "Matta oturup elini göğsüne koyarak nefes alan bir adam"
       },
       {
         "type": "summary",
@@ -227,7 +251,9 @@
         ],
         "title": "Sertleşme bir kan akışı olayı",
         "text": "Uyarılınca penisteki damarlar genişler ve süngerimsi doku kanla dolar. Bunun için damarların esnek ve sağlıklı olması gerekir. Penis damarları çok ince olduğu için damar sağlığındaki bozulmayı erken gösterebilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/erection-blood/2",
+        "imageAlt": "Havadan çekilmiş, ağaç dalları gibi ayrılan nehir kolları"
       },
       {
         "type": "info",
@@ -238,12 +264,16 @@
         ],
         "title": "Risk faktörleri",
         "text": "Sigara, yüksek tansiyon, şeker hastalığı, yüksek kolesterol, fazla kilo ve hareketsizlik damarları yıpratır. Bunların çoğu değiştirilebilir: hareket, beslenme ve sigarayı bırakmak hem kalbe hem sertleşmeye iyi gelir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/erection-blood/3",
+        "imageAlt": "Masada kola takılmış tansiyon aleti"
       },
       {
         "type": "didYouKnow",
         "text": "Amerikan Üroloji Derneği, sertleşme sorununun kalp-damar hastalıkları için bir risk işareti olabileceğini belirtir. Bazı araştırmalarda bu sorun, kalp krizi gibi olaylardan birkaç yıl önce ortaya çıktı.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/erection-blood/4",
+        "imageAlt": "Kolundaki akıllı saate bakan eller"
       },
       {
         "type": "quiz",
@@ -257,14 +287,18 @@
           "correct": 0,
           "explain": "Sigara damarları daraltır ve iç yüzeylerini yıpratır. Bırakmak, hareket etmek ve tansiyonu, şekeri kontrol altında tutmak damar sağlığını destekler."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/erection-blood/5",
+        "imageAlt": "Asfaltta spor ayakkabısını bağlayan eller"
       },
       {
         "type": "action",
         "icon": "footprints",
         "title": "Bugün yürüyüşe çık",
         "text": "20–30 dakikalık tempolu bir yürüyüş planla ve takvimine yaz. Düzenli hareket damarların esnekliğini destekler; haftada toplam 150 dakikayı hedefleyebilirsin.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/erection-blood/6",
+        "imageAlt": "Sonbaharda ağaçlı bir yolda yürüyen biri, arkadan"
       },
       {
         "type": "doctor",
@@ -274,7 +308,9 @@
           "Tansiyonunu, şekerini ya da kolesterolünü uzun süredir ölçtürmediysen",
           "Penis ağrısı ya da belirgin eğrilik varsa"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/erection-blood/7",
+        "imageAlt": "Doktor masasında not tutan bir el, yüz yok"
       },
       {
         "type": "summary",
@@ -327,7 +363,9 @@
         ],
         "title": "İki tür kaçırma",
         "text": "Zorlanma tipi: öksürürken, hapşırırken ya da ağır kaldırırken az miktarda kaçırmak. Sıkışma tipi: aniden gelen güçlü bir tuvalet isteği ve yetişememek. İkisi bir arada da olabilir; pelvik taban egzersizleri ikisinde de destek olur.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/bladder-control/2",
+        "imageAlt": "Merdivenlerde ağır bir kutu taşıyan bir adam"
       },
       {
         "type": "info",
@@ -338,13 +376,17 @@
         ],
         "title": "Ani istek gelince",
         "text": "Koşma; olduğun yerde dur ya da otur. Pelvik taban kasını birkaç kez hızlıca sık ve bırak. Sakin nefes al ve dikkatini başka bir şeye ver. İstek azalınca tuvalete yavaşça yürü.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/bladder-control/3",
+        "imageAlt": "Sokakta kaldırımın kenarında durup soluklanan bir adam"
       },
       {
         "type": "myth",
         "myth": "Az su içersem kaçırmam.",
         "fact": "Az su içmek idrarı yoğunlaştırır ve mesaneyi tahriş edebilir; bu da sıkışma hissini artırabilir. Gün boyu yeterli ve dengeli içmek mesane için daha iyidir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/bladder-control/4",
+        "imageAlt": "Masada bir bardağa su dolduran el"
       },
       {
         "type": "quiz",
@@ -358,14 +400,18 @@
           "correct": 0,
           "explain": "Koşmak ve telaş isteği güçlendirebilir. Durmak, birkaç hızlı kasılma ve sakin nefes isteğin geçmesine yardım eder; sonra sakince yürüyebilirsin."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/bladder-control/5",
+        "imageAlt": "Gün batımında bankta oturan bir adam, arkadan"
       },
       {
         "type": "action",
         "icon": "zap",
         "title": "Bir sonraki ani istekte dene",
         "text": "Bir dahaki sefere ani istek geldiğinde koşmak yerine dur, 3–5 hızlı kasılma yap ve isteğin azalmasını bekle. Kaç saniyede geçtiğini fark et.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/bladder-control/6",
+        "imageAlt": "Çakıllı bir yolda duran iki ayak"
       },
       {
         "type": "doctor",
@@ -375,7 +421,9 @@
           "Kaçırma birden başladıysa ya da gittikçe artıyorsa",
           "İdrar yapmakta zorlanıyorsan ya da mesanen tam boşalmıyor gibi hissediyorsan"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/bladder-control/7",
+        "imageAlt": "Klinikte pencere önünde iki boş sandalye"
       },
       {
         "type": "summary",
@@ -424,7 +472,9 @@
         ],
         "title": "Doğru zamanı seç",
         "text": "Bu konuşmayı yatakta ya da zor bir anın hemen ardından yapma. İkinizin de sakin ve acelesiz olduğu bir an seç: bir yürüyüş, bir kahve. Kısa başlamak da olur; tek konuşmada her şeyi çözmek gerekmez.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/talk-partner/2",
+        "imageAlt": "Gün batımında sahilde el ele yürüyen bir çift, arkadan"
       },
       {
         "type": "info",
@@ -435,7 +485,9 @@
         ],
         "title": "\"Ben\" diliyle konuş",
         "text": "Suçlamak yerine kendi hislerini anlat: “Son zamanlarda kendimi gergin hissediyorum” gibi. Örnek bir açılış: “Seninle önemli bir şey konuşmak istiyorum, çünkü bizi önemsiyorum.” Bu cümle konuşmayı bir takım işine çevirir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/talk-partner/3",
+        "imageAlt": "Ahşap masada karşılıklı iki fincan kahve ve eller"
       },
       {
         "type": "info",
@@ -446,12 +498,16 @@
         ],
         "title": "Dinlemek de konuşmanın parçası",
         "text": "Partnerine ne düşündüğünü sor ve sözünü kesmeden dinle. Onun da kaygıları ya da soruları olabilir. Duyduğunu kendi sözlerinle tekrar etmek, anlaşıldığını hissettirir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/talk-partner/4",
+        "imageAlt": "Dikkatle dinleyen yaşlıca bir adam, yandan"
       },
       {
         "type": "didYouKnow",
         "text": "Uluslararası Cinsel Tıp Derneği (ISSM), çiftlerin utanç ya da birbirini kırma korkusuyla bu konudan kaçınabildiğini, bunun da yakınlığı azaltabildiğini belirtir. Konuşmak tuhaf hissettirse de çoğu zaman rahatlatır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/talk-partner/5",
+        "imageAlt": "Pencere önünde yan yana oturan bir çift, arkadan"
       },
       {
         "type": "quiz",
@@ -465,14 +521,18 @@
           "correct": 0,
           "explain": "Sakin bir anda konuşmak savunmaya geçmeyi azaltır. Gergin anlarda söylenenler daha kolay yanlış anlaşılır."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/talk-partner/6",
+        "imageAlt": "Deniz kenarında bir balkonda iki sandalye"
       },
       {
         "type": "action",
         "icon": "pen",
         "title": "Kendi açılış cümleni yaz",
         "text": "Telefonuna ya da bir kâğıda partnerine söylemek istediğin ilk cümleyi yaz: kendi kelimelerinle, “ben” diliyle ve kısa. Hazır olduğunda bu cümleyle başla.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/talk-partner/7",
+        "imageAlt": "Telefona not yazan eller"
       },
       {
         "type": "summary",
@@ -521,7 +581,9 @@
         ],
         "title": "Çok yaygın bir durum",
         "text": "Arada bir sertleşme sorunu yaşamak çok yaygındır ve çoğu zaman endişelenecek bir şey değildir. Stres, yorgunluk ve kaygı en sık nedenler arasındadır. Bu bir güç ya da erkeklik ölçüsü değil.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/2",
+        "imageAlt": "Kalabalık bir meydanda yürüyen, bulanık insanlar"
       },
       {
         "type": "info",
@@ -532,13 +594,17 @@
         ],
         "title": "Kaygı döngüsü",
         "text": "Endişelenince beden stres hormonları salgılar; bunlar kan akışını azaltıp sertleşmeyi zorlaştırabilir. Zorluk yaşanınca bir sonraki sefer için endişe artar ve döngü kendini besler. Döngüyü kırmak için dikkatini sonuçtan duyulara ver ve baskıyı azalt.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/3",
+        "imageAlt": "Yukarıdan çekilmiş dönen bir merdiven"
       },
       {
         "type": "myth",
         "myth": "Bir kez oldu, artık hep olacak.",
         "fact": "Tek seferlik ya da ara sıra yaşanan zorluklar çok yaygındır ve geleceği göstermez. Kaygıya bağlı sertleşme sorunu yönetilebilir: konuşmak, baskıyı azaltmak ve gerekirse bir uzmanla çalışmak işe yarar.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/4",
+        "imageAlt": "Yağmurdan sonra bulutların arasında gökkuşağı"
       },
       {
         "type": "quiz",
@@ -552,7 +618,9 @@
           "correct": 0,
           "explain": "Kendini zorlamak ve düşünceyi bastırmaya çalışmak çoğu zaman kaygıyı artırır. Dikkati dokunuşa, sıcaklığa ve nefese vermek baskıyı azaltır. Cinsel terapistlerin kullandığı \"duyulara odaklanma\" egzersizleri de bu fikre dayanır."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/5",
+        "imageAlt": "Perde önünde nefes alan bir adamın silueti"
       },
       {
         "type": "action",
@@ -563,7 +631,9 @@
           "route": "/mind/breathing",
           "label": "Nefes egzersizini aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/6",
+        "imageAlt": "Sabah ışığında sakin deniz ve ufuk"
       },
       {
         "type": "doctor",
@@ -573,7 +643,9 @@
           "Ağrı, eğrilik ya da başka yeni bir belirti varsa",
           "Kaygı ya da keyifsizlik günlük hayatını etkiliyorsa"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/7",
+        "imageAlt": "Boş bir odada karşılıklı iki koltuk"
       },
       {
         "type": "summary",
@@ -618,7 +690,9 @@
         ],
         "title": "Yakınlığın birçok yolu var",
         "text": "Sarılmak, el ele tutuşmak, birlikte gülmek ve sohbet etmek de yakınlıktır. Cinsel ilişki bunlardan yalnızca biri. Bu küçük anlar güven ve bağlılık hissini besler.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/2",
+        "imageAlt": "Mutfakta birlikte yemek yapıp gülen bir çift"
       },
       {
         "type": "info",
@@ -629,7 +703,9 @@
         ],
         "title": "Duyulara odaklanma",
         "text": "Cinsel terapide kullanılan bu yöntemde çiftler sırayla birbirine dokunur. Amaç uyarılmak değil; sıcaklığı, dokuyu ve baskıyı fark etmektir. İlk aşamalarda cinsel bölgelere dokunulmaz, böylece “başarmak” baskısı azalır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/3",
+        "imageAlt": "Birbirine dokunan iki el, yakın çekim"
       },
       {
         "type": "info",
@@ -640,13 +716,17 @@
         ],
         "title": "Baskı azalınca yakınlık artar",
         "text": "Her yakınlaşmanın belli bir şekilde bitmesi gerekmediğini bilmek rahatlatır. Beklenti azaldığında beden de daha kolay gevşer; bu, sertleşme ve zevk için de iyidir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/4",
+        "imageAlt": "Yatakta battaniye üzerinde tepside iki fincan"
       },
       {
         "type": "myth",
         "myth": "Yakınlık cinsel ilişki demektir.",
         "fact": "Yakınlık; dokunmayı, konuşmayı ve birlikte zaman geçirmeyi de kapsar. ISSM, sertleşme olmasa bile çiftlerin sarılarak, öpüşerek ve dokunarak yakın kalabileceğini belirtir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/5",
+        "imageAlt": "Sonbaharda parkta yan yana yürüyen bir çift, arkadan"
       },
       {
         "type": "quiz",
@@ -660,14 +740,18 @@
           "correct": 0,
           "explain": "Bu yöntem, beklenti kaygısını azaltmak için geliştirildi. Dikkat sonuca değil, o anki duyulara verilir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/6",
+        "imageAlt": "Sıcak ışıkta birbirine uzanan eller"
       },
       {
         "type": "action",
         "icon": "smartphone",
         "title": "Telefonsuz 20 dakika",
         "text": "Bu hafta partnerinle telefonları başka bir odaya bırakıp 20 dakika birlikte vakit geçir: bir yürüyüş, bir yemek ya da sadece sohbet. Bir şey başarmak zorunda değilsiniz.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/7",
+        "imageAlt": "Masada oyun kartları ve zarlar"
       },
       {
         "type": "summary",
@@ -716,7 +800,9 @@
         ],
         "title": "Ne kadar sıvı?",
         "text": "NHS, günde yaklaşık 6–8 bardak sıvı önerir. Su, süt ve şekersiz içecekler buna dahildir. Sıcak havada, spor yaparken ya da hastayken daha fazlası gerekebilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/water/2",
+        "imageAlt": "Masada su dolu cam bir sürahi ve bardak"
       },
       {
         "type": "info",
@@ -727,7 +813,9 @@
         ],
         "title": "İdrar rengiyle kontrol et",
         "text": "Açık saman sarısı idrar genellikle yeterli sıvı aldığını gösterir. Koyu sarı ve keskin kokulu idrar daha fazla içmen gerektiğine işaret edebilir. Az su içmek idrarı yoğunlaştırır ve mesaneyi tahriş edebilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/water/3",
+        "imageAlt": "Pencere önünde limon dilimli bir bardak su"
       },
       {
         "type": "info",
@@ -738,12 +826,16 @@
         ],
         "title": "Kafein ve gazlı içecekler",
         "text": "Kahve, çay, kola ve gazlı içecekler bazı kişilerde sıkışma hissini artırabilir. Hepsini bırakmak gerekmez; azaltıp farkı gözlemleyebilirsin. İçtiklerini güne yaymak, bir anda çok içmekten daha iyidir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/water/4",
+        "imageAlt": "Tahta tepside bir fincan Türk kahvesi ve yanında bir bardak su"
       },
       {
         "type": "didYouKnow",
         "text": "Yoğun idrar mesane duvarını tahriş edebilir ve sık tuvalete gitme isteğine yol açabilir. Bu yüzden mesane sorunlarında genellikle sıvıyı kısmak değil, dengeli içmek önerilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/water/5",
+        "imageAlt": "Cam yüzeyde su damlaları, yakın çekim"
       },
       {
         "type": "quiz",
@@ -757,14 +849,18 @@
           "correct": 0,
           "explain": "İdrar rengi pratik bir göstergedir. Susama hissi bazen geç gelir; çok seyrek idrara çıkmak da az sıvı aldığını gösterebilir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/water/6",
+        "imageAlt": "Sırt çantasının yan cebinde su şişesiyle yürüyen bir adam, arkadan"
       },
       {
         "type": "action",
         "icon": "bell",
         "title": "Kendine su hatırlatıcısı kur",
         "text": "Telefonunun saatine ya da takvimine gün içinde 3–4 su hatırlatıcısı ekle. Masana bir şişe su koymak da işe yarar.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/water/7",
+        "imageAlt": "Masada defter ve tekrar kullanılabilir bir su şişesi"
       },
       {
         "type": "summary",
@@ -813,7 +909,9 @@
         ],
         "title": "Damar dostu beslenme",
         "text": "Sebze, meyve, tam tahıl, baklagil, balık ve zeytinyağı ağırlıklı Akdeniz tipi beslenme kalp ve damar sağlığını destekler. Damarlar sağlıklı olunca sertleşme için gereken kan akışı da desteklenir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/plate/2",
+        "imageAlt": "Ahşap masada baklagil ve sebze dolu bir kâse"
       },
       {
         "type": "info",
@@ -824,12 +922,16 @@
         ],
         "title": "Tabak modeli",
         "text": "Tabağının yarısını sebze ve salatayla, çeyreğini balık, tavuk ya da baklagil gibi bir proteinle, kalan çeyreğini bulgur, tam buğday ekmeği ya da esmer pirinç gibi tam tahılla doldur. Yanına bir porsiyon meyve ekle.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/plate/3",
+        "imageAlt": "Yarısı sebzeyle dolu bir tabak, üstten"
       },
       {
         "type": "didYouKnow",
         "text": "Metabolik sendromu olan 65 erkekle yapılan bir çalışmada, 2 yıl Akdeniz tipi beslenen grupta sertleşme işlevi kontrol grubuna göre daha çok düzeldi. Obez erkeklerle yapılan başka bir çalışmada kilo verme ve hareket, katılımcıların yaklaşık üçte birinde cinsel işlevi iyileştirdi.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/plate/4",
+        "imageAlt": "Açık havada sebzeli bir Akdeniz sofrası"
       },
       {
         "type": "quiz",
@@ -843,14 +945,18 @@
           "correct": 0,
           "explain": "Sebzeler lif, vitamin ve mineral sağlar ve tok tutar. Protein ve tam tahıl tabağın kalan yarısını paylaşır."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/plate/5",
+        "imageAlt": "Ahşap masada renkli bir salata kâsesi"
       },
       {
         "type": "action",
         "icon": "utensils",
         "title": "Bir öğünü tabak modeliyle hazırla",
         "text": "Bu hafta en az bir öğünü tabak modeliyle hazırla: yarısı sebze, çeyreği protein, çeyreği tam tahıl. İstersen tabağının fotoğrafını çekip kendini takip et.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/plate/6",
+        "imageAlt": "Tahtada salatalık doğrayan eller"
       },
       {
         "type": "summary",
@@ -899,7 +1005,9 @@
         ],
         "title": "Kısa vadede",
         "text": "Alkol sinir sistemini yavaşlatır; uyarılmayı, sertleşmeyi ve boşalmayı zorlaştırabilir. Uykuyu da bozar: uykuya dalmayı kolaylaştırsa bile gecenin ikinci yarısında uykuyu bölebilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/alcohol/2",
+        "imageAlt": "Gece loş bir yatak odası ve pencere"
       },
       {
         "type": "info",
@@ -910,13 +1018,17 @@
         ],
         "title": "Uzun vadede",
         "text": "Düzenli ve fazla alkol tansiyonu yükseltir, karaciğeri yorar ve hormon dengesini etkileyebilir. Bunlar zamanla damar sağlığını ve cinsel işlevi olumsuz etkiler. Dünya Sağlık Örgütü'ne göre sağlık için güvenli kabul edilen bir alkol miktarı yoktur.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/alcohol/3",
+        "imageAlt": "Masada bir tansiyon aleti"
       },
       {
         "type": "myth",
         "myth": "Biraz alkol rahatlatır, performansı artırır.",
         "fact": "Az miktarda alkol bazı kişilerde çekingenliği azaltabilir, ama bedende tersini yapar: sertleşmeyi ve hissi zayıflatabilir. Miktar arttıkça bu etki belirginleşir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/alcohol/4",
+        "imageAlt": "Naneli buzlu bitki çayı, düz bir bardakta"
       },
       {
         "type": "quiz",
@@ -930,7 +1042,9 @@
           "correct": 0,
           "explain": "Alkol uykuya dalmayı kolaylaştırsa da uykunun kalitesini düşürür ve gece uyanmalarını artırabilir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/alcohol/5",
+        "imageAlt": "Sabah yatağında gerinen bir adam"
       },
       {
         "type": "action",
@@ -941,7 +1055,9 @@
           "route": "/campus/alcohol",
           "label": "Alkolsüz Kamp'ı aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/alcohol/6",
+        "imageAlt": "Gün doğumunda kırda uzanan bir yol ve koşan biri"
       },
       {
         "type": "summary",
@@ -990,7 +1106,9 @@
         ],
         "title": "Uyku ve testosteron",
         "text": "Erkeklerde günlük testosteron salgısının önemli bir kısmı uykuda gerçekleşir. Bu yüzden düzenli ve yeterli uyku, hormon dengesinin doğal bir parçasıdır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/2",
+        "imageAlt": "Mavi gece gökyüzünde ay"
       },
       {
         "type": "info",
@@ -1001,12 +1119,16 @@
         ],
         "title": "Kısa uykunun etkisi",
         "text": "Sağlıklı genç erkeklerle yapılan küçük bir çalışmada, bir hafta boyunca gecede yaklaşık 5 saat uyumak gündüz testosteron düzeyini %10–15 kadar düşürdü. Bu tek ve küçük bir çalışma, ama uykunun önemini gösteriyor.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/3",
+        "imageAlt": "Ahşap zeminde duran bir çalar saat"
       },
       {
         "type": "didYouKnow",
         "text": "Amerikan Uyku Tıbbı Akademisi, yetişkinlerin gecede en az 7 saat uyumasını önerir. Düzenli olarak 7 saatten az uyumak; kilo artışı, yüksek tansiyon ve kalp hastalıklarıyla ilişkilendirilmiştir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/4",
+        "imageAlt": "Sabah ışığında toplanmış sade bir yatak"
       },
       {
         "type": "quiz",
@@ -1020,14 +1142,18 @@
           "correct": 0,
           "explain": "Çalışma küçük olsa da sonuç, uykunun hormon dengesi için önemini gösteriyor. Yetişkinler için en az 7 saat uyku önerilir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/5",
+        "imageAlt": "Pencere önünde bir fincan kahve"
       },
       {
         "type": "action",
         "icon": "alarm",
         "title": "Bu gece yatış saatini sabitle",
         "text": "Bu hafta her gece aynı saatte yatmayı dene ve 7–8 saatlik uykuya yer aç. Yatış saatinden 30 dakika öncesine telefonunda bir hatırlatıcı kur.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/6",
+        "imageAlt": "Yatak başında lamba ve açık bir defter"
       },
       {
         "type": "summary",
@@ -1076,7 +1202,9 @@
         ],
         "title": "Her gün aynı saatte kalk",
         "text": "Hafta sonu da dahil her gün aynı saatte kalkmak iç saatini düzenler. Sabah gün ışığı almak da akşam uykunun daha kolay gelmesine yardım eder.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-routine/2",
+        "imageAlt": "Sabah güneşinde perdeyi aralayan bir el"
       },
       {
         "type": "info",
@@ -1087,7 +1215,9 @@
         ],
         "title": "Işığı ve ekranı azalt",
         "text": "Yatmadan önceki saatte ışıkları kıs ve ekranlardan uzaklaş. Kitap okumak, ılık bir duş ya da hafif esneme bedene günün bittiğini haber verir. Akşamları kafeinden de uzak dur.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-routine/3",
+        "imageAlt": "Loş ışıkta açık bir kitabı tutan eller"
       },
       {
         "type": "info",
@@ -1098,12 +1228,16 @@
         ],
         "title": "Uyuyamazsan kalk",
         "text": "Yatakta yaklaşık 20 dakika uyuyamazsan kalk ve loş ışıkta sakin bir şey yap. Uykun gelince geri dön. Böylece beynin yatağı uyanık kıvranmakla değil, uykuyla eşleştirir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-routine/4",
+        "imageAlt": "Loş bir mutfakta buharı tüten su ısıtıcısı ve bardak"
       },
       {
         "type": "didYouKnow",
         "text": "Uzmanlar yetişkinler için gecede en az 7 saat uyku önerir. Düzenli bir akşam rutini uykuya dalmayı ve sabah dinç uyanmayı kolaylaştırır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-routine/5",
+        "imageAlt": "Sade bir banyoda duş ve askıda bornoz"
       },
       {
         "type": "quiz",
@@ -1117,7 +1251,9 @@
           "correct": 0,
           "explain": "Ekran ışığı ve saate bakmak uyanıklığı artırır. Kısa bir ara verip uykun gelince yatağa dönmek daha çok işe yarar."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-routine/6",
+        "imageAlt": "Koltukta battaniye ve kitap"
       },
       {
         "type": "action",
@@ -1128,7 +1264,9 @@
           "route": "/mind/unload",
           "label": "Zihin boşaltmayı aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/sleep-routine/7",
+        "imageAlt": "Akşam lambasının altında açık defter ve kalemler"
       },
       {
         "type": "summary",
@@ -1173,7 +1311,9 @@
         ],
         "title": "Gece idrara kalkmak",
         "text": "Uykudan uyanıp idrara gitmeye noktüri denir. Yaş ilerledikçe sıklaşır ve çok yaygındır. Gecede bir kez kalkmak çoğu zaman sorun değildir; iki ve daha fazlası uykuyu bölebilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/night-bathroom/2",
+        "imageAlt": "Gece ışığı yanan bir koridor"
       },
       {
         "type": "info",
@@ -1184,12 +1324,16 @@
         ],
         "title": "Akşam sıvıyı ayarla",
         "text": "Gün boyu yeterince iç, ama yatmadan önceki 2 saatte sıvıyı azalt. Akşamları kahve, çay ve alkolden kaçın; bunlar idrar miktarını artırabilir. Yatmadan hemen önce tuvalete gitmeyi alışkanlık hâline getir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/night-bathroom/3",
+        "imageAlt": "Akşam masada bir bardak su ve greyfurt"
       },
       {
         "type": "didYouKnow",
         "text": "Gün içinde bacaklarda biriken sıvı, yatınca dolaşıma geri döner ve gece idrar olarak atılabilir. Akşam bacaklarını bir süre yükselterek dinlenmek bu yüzden işe yarayabilir. Yüksek sesli horlama ve uykuda nefes durması da gece idrara kalkmayla ilişkili olabilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/night-bathroom/4",
+        "imageAlt": "Kanepede yastığa uzatılmış, çoraplı ayaklar"
       },
       {
         "type": "quiz",
@@ -1203,14 +1347,18 @@
           "correct": 0,
           "explain": "Akşam sıvıyı ve kafeini azaltmak gece üretilen idrarı azaltır. Yatmadan önce tuvalete gitmek de yardımcı olur."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/night-bathroom/5",
+        "imageAlt": "Duvarda bir saat, akşam ışığında"
       },
       {
         "type": "action",
         "icon": "clock",
         "title": "Akşam sıvı hatırlatıcısı",
         "text": "Yatış saatinden 2 saat öncesine telefonunda bir hatırlatıcı kur: “Bugünün son büyük bardağı.” Bir hafta boyunca gece kaç kez kalktığını not et.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/night-bathroom/6",
+        "imageAlt": "Komodinde yanan bir lamba ve telefon"
       },
       {
         "type": "doctor",
@@ -1220,7 +1368,9 @@
           "Çok susuyor ve çok idrara çıkıyorsan",
           "Yüksek sesli horlama ya da uykuda nefes durması fark edildiyse"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/night-bathroom/7",
+        "imageAlt": "Doktorun parmağa taktığı nabız ölçer, eller"
       },
       {
         "type": "summary",
@@ -1269,7 +1419,9 @@
         ],
         "title": "Savaş ya da kaç",
         "text": "Tehlike hissettiğinde beden adrenalin ve kortizol salgılar: kalbin hızlanır, nefesin sıklaşır, kasların gerilir. Kısa süreli bir tehlikede işe yarayan bu tepki, stres sürekli olduğunda bedeni yorar.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/stress-body/2",
+        "imageAlt": "Akşam ışığında trafikte bekleyen arabalar"
       },
       {
         "type": "info",
@@ -1280,7 +1432,9 @@
         ],
         "title": "Gerilen kaslar",
         "text": "Uzun süren stres kasları sürekli tetikte tutar; boyun, omuz ve çene en sık hissedilen yerlerdir. Pelvik taban da gerilebilir. Sürekli gergin bir pelvik taban ağrıya, tuvalette ya da cinsel işlevde zorluklara katkıda bulunabilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/stress-body/3",
+        "imageAlt": "Ellerini ensesine koyup boynunu esneten bir adam"
       },
       {
         "type": "info",
@@ -1291,13 +1445,17 @@
         ],
         "title": "Gevşemek de bir beceri",
         "text": "Kası sıkmak kadar bırakmayı öğrenmek de önemlidir. Nefes egzersizleri, beden taraması ve düzenli hareket kas gerginliğini azaltır. Antrenmanlarındaki gevşeme anları da bu becerinin parçası.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/stress-body/4",
+        "imageAlt": "Çimenlere uzanıp gözlerini kapatmış bir adam"
       },
       {
         "type": "myth",
         "myth": "Stres sadece kafada olur.",
         "fact": "Stres bedende de hissedilir: kas gerginliği, baş ağrısı, sindirim sorunları ve uyku bozukluğu sık görülen işaretlerdir. Amerikan Psikoloji Derneği, gevşeme tekniklerinin kas gerginliğini azalttığını belirtir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/stress-body/5",
+        "imageAlt": "Dizüstü bilgisayar başında düşünen bir adam, arkadan"
       },
       {
         "type": "quiz",
@@ -1311,7 +1469,9 @@
           "correct": 0,
           "explain": "Kısa süreli stres kasları bir anlığına gerer, sonra bırakır. Stres sürdüğünde kaslar tetikte kalır; bu da ağrı ve yorgunluğa yol açabilir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/stress-body/6",
+        "imageAlt": "Yan yana asılı iki halat"
       },
       {
         "type": "action",
@@ -1322,7 +1482,9 @@
           "route": "/mind/body-scan",
           "label": "Beden taramasını aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/stress-body/7",
+        "imageAlt": "Yerde sırtüstü uzanıp gözlerini kapatmış bir adam"
       },
       {
         "type": "summary",
@@ -1367,7 +1529,9 @@
         ],
         "title": "Endişeyi ertele",
         "text": "Gün içinde bir endişe aklına geldiğinde onu hemen çözmeye çalışma. Kısaca bir yere not et ve kendine “Bunu endişe zamanımda düşüneceğim” de. Sonra yaptığın işe geri dön.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/worry-time/2",
+        "imageAlt": "Gömleğinin önünde küçük bir not defteri tutan bir adam"
       },
       {
         "type": "info",
@@ -1378,7 +1542,9 @@
         ],
         "title": "Endişe zamanı",
         "text": "Her gün aynı saatte, yatmadan en az birkaç saat önce, 15 dakikalık bir zaman ayır. Not ettiklerini oku. Bazıları artık önemsiz gelecek; kalanlar için yapabileceğin bir adım var mı, düşün.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/worry-time/3",
+        "imageAlt": "Defterin üstünde küçük bir saat"
       },
       {
         "type": "info",
@@ -1389,12 +1555,16 @@
         ],
         "title": "Çözülebilir mi?",
         "text": "Endişeleri ikiye ayır: üzerinde bir şey yapabileceklerin ve “ya şöyle olursa” türünden varsayımlar. Birincisi için küçük bir adım planla; ikincisini fark et ve bırak. Süre bitince defteri kapat.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/worry-time/4",
+        "imageAlt": "Kırda ikiye ayrılan bir yol"
       },
       {
         "type": "didYouKnow",
         "text": "Bu teknik bilişsel davranışçı terapiden gelir ve NHS'in kendi kendine yardım önerileri arasındadır. Düzenli uygulayınca gün içinde endişelere daha az kapıldığını fark edebilirsin.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/worry-time/5",
+        "imageAlt": "Açık bir kitap ve kalem"
       },
       {
         "type": "quiz",
@@ -1408,14 +1578,18 @@
           "correct": 0,
           "explain": "Bastırmaya çalışmak endişeyi çoğu zaman güçlendirir; saatlerce düşünmek de yorar. Ertelemek, endişeye bir yer verirken günü ondan korur."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/worry-time/6",
+        "imageAlt": "Telefonun yanında deftere not alan bir el"
       },
       {
         "type": "action",
         "icon": "calendar",
         "title": "Yarın için endişe saati belirle",
         "text": "Yarın için 15 dakikalık bir endişe zamanı seç ve takvimine yaz; yatma saatine yakın olmasın. Gün içinde gelen endişeleri bir notta topla.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/worry-time/7",
+        "imageAlt": "Bir planlayıcıya yazan el, yazılar okunmuyor"
       },
       {
         "type": "summary",
@@ -1464,7 +1638,9 @@
         ],
         "title": "Şu ana dikkat",
         "text": "Farkındalık, şu anda olanlara, yani düşüncelerine, hislerine, seslere ve bedenindeki duyumlara yargılamadan dikkat vermektir. Mistik bir şey değil; düzenli çalıştırılabilen bir dikkat egzersizidir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/mindfulness/2",
+        "imageAlt": "Yaprağın üzerinde tek bir su damlası, yakın çekim"
       },
       {
         "type": "info",
@@ -1475,7 +1651,9 @@
         ],
         "title": "Akıl dağılınca",
         "text": "Pratik sırasında aklın başka yere kayacak; bu normaldir ve hata değildir. Fark ettiğin an dikkatini nazikçe nefese geri getir. Her geri dönüş egzersizin kendisidir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/mindfulness/3",
+        "imageAlt": "Mavi gökyüzünde geçen beyaz bulutlar"
       },
       {
         "type": "info",
@@ -1486,13 +1664,17 @@
         ],
         "title": "1 dakikalık deneme",
         "text": "Rahat otur, gözlerini kapat ya da bir noktaya bak. Nefesin burnundan girip çıkışını fark et. Bir dakika boyunca saymadan, değiştirmeden sadece izle. Dikkatin kayarsa nefese dön.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/mindfulness/4",
+        "imageAlt": "Sandalyede gözleri kapalı oturan bir adam"
       },
       {
         "type": "myth",
         "myth": "Farkındalık için kafanı tamamen boşaltman gerekir.",
         "fact": "Amaç düşünceleri durdurmak değil, onları fark edip içine çekilmeden nefese dönmektir. Düşüncelerin gelmesi pratiğin doğal bir parçasıdır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/mindfulness/5",
+        "imageAlt": "Işıkta parlayan dalgalı su yüzeyi"
       },
       {
         "type": "quiz",
@@ -1506,7 +1688,9 @@
           "correct": 0,
           "explain": "Akıl dağılır; önemli olan fark edip geri dönmek. Zorla durdurmaya çalışmak ise gerginliği artırır."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/mindfulness/6",
+        "imageAlt": "Kumsala vuran yumuşak bir dalga"
       },
       {
         "type": "action",
@@ -1517,7 +1701,9 @@
           "route": "/mind/breathing",
           "label": "Nefes egzersizini aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/mindfulness/7",
+        "imageAlt": "Açık havada kahvesini yudumlayan bir adam, yandan"
       },
       {
         "type": "summary",
@@ -1562,7 +1748,9 @@
         ],
         "title": "Ne kadar hareket?",
         "text": "Dünya Sağlık Örgütü yetişkinlere haftada 150–300 dakika orta şiddette hareket önerir: tempolu yürüyüş, bisiklet ya da yüzme gibi. Buna ek olarak haftada en az 2 gün kuvvet çalışması yapılmalı.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/move-more/2",
+        "imageAlt": "Parkta çiçekli bir yolda yürüyen bir adam, arkadan"
       },
       {
         "type": "info",
@@ -1573,7 +1761,9 @@
         ],
         "title": "Uzun oturmayı böl",
         "text": "Uzun süre hareketsiz kalmak sağlığı olumsuz etkiler. Saatte bir birkaç dakika kalk, yürü ya da esne. Az hareket bile hiç yoktan iyidir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/move-more/3",
+        "imageAlt": "Laptopuyla bankta otururken kollarını uzatıp esneyen bir adam"
       },
       {
         "type": "info",
@@ -1584,13 +1774,17 @@
         ],
         "title": "Damarlara ve sertleşmeye faydası",
         "text": "Düzenli hareket tansiyonu ve kan şekerini düzenler, damarların esnekliğini destekler. Obez erkeklerle yapılan bir çalışmada kilo verme ve hareket, katılımcıların yaklaşık üçte birinde cinsel işlevi iyileştirdi.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/move-more/4",
+        "imageAlt": "Şehirde bisikletle giden bir adam"
       },
       {
         "type": "myth",
         "myth": "Faydası olsun diye her gün spor salonuna gitmem gerek.",
         "fact": "Merdiven çıkmak, tempolu yürümek ya da evde kısa bir rutin de sayılır. Dünya Sağlık Örgütü'ne göre her hareket sayılır; az da olsa hareket fayda sağlar.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/move-more/5",
+        "imageAlt": "Aydınlık basamaklarda yukarı çıkan bir ayak"
       },
       {
         "type": "quiz",
@@ -1604,7 +1798,9 @@
           "correct": 0,
           "explain": "Haftada 150–300 dakika, örneğin günde yaklaşık 30 dakikalık yürüyüşle karşılanabilir. Buna haftada 2 gün kuvvet çalışması eklenir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/move-more/6",
+        "imageAlt": "Sonbahar yapraklarının üstünde spor ayakkabılar"
       },
       {
         "type": "action",
@@ -1615,7 +1811,9 @@
           "route": "/fitness/beginner",
           "label": "Başlangıç rutinini aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/move-more/7",
+        "imageAlt": "Evde squat yapan yaşlıca bir adam"
       },
       {
         "type": "summary",
@@ -1664,7 +1862,9 @@
         ],
         "title": "Birlikte çalışan bir takım",
         "text": "Pelvik taban tek başına çalışmaz; derin karın kasları, sırt kasları ve diyaframla birlikte gövdenin “kutusunu” oluşturur. Biri kasıldığında diğerleri de genellikle devreye girer.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/core-hips/2",
+        "imageAlt": "Gün batımında suda kürek çeken bir takım, uzaktan"
       },
       {
         "type": "info",
@@ -1675,7 +1875,9 @@
         ],
         "title": "Kalçanın rolü",
         "text": "Kalça kasları leğen kemiğini dengede tutar; yürürken, merdiven çıkarken ve yük kaldırırken gövdeyi destekler. Güçlü kalça ve karın kasları, pelvik tabanın üzerindeki yükü paylaşır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/core-hips/3",
+        "imageAlt": "Merdiven çıkan bir adam, yandan"
       },
       {
         "type": "info",
@@ -1686,12 +1888,16 @@
         ],
         "title": "Kontrol ve duruş",
         "text": "Güçlü ve uyumlu çalışan bir gövde, öksürürken ya da yük kaldırırken idrar kontrolünü ve duruşu destekleyebilir. Köprü, kuş-köpek ve plank gibi hareketler bu kasları birlikte çalıştırır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/core-hips/4",
+        "imageAlt": "Kolilerle dik duruşla yürüyen bir adam"
       },
       {
         "type": "didYouKnow",
         "text": "Araştırmalar, pelvik taban kasıldığında derin karın kaslarının da birlikte çalıştığını gösteriyor. Bu yüzden egzersizlerde nefesi tutmadan karnını hafifçe içe çekmek pelvik tabanı da destekler.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/core-hips/5",
+        "imageAlt": "Matta dirsekleri üzerinde plank yapan bir adam"
       },
       {
         "type": "quiz",
@@ -1705,7 +1911,9 @@
           "correct": 0,
           "explain": "Bu kaslar bir takım gibi çalışır ve karın içi basıncı birlikte yönetir. Bu yüzden gövde egzersizleri pelvik tabana da katkı sağlar."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/core-hips/6",
+        "imageAlt": "Çakıllar üzerinde dengede duran taşlar"
       },
       {
         "type": "action",
@@ -1716,7 +1924,9 @@
           "route": "/fitness/beginner",
           "label": "Kasık Fitness'ı aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/core-hips/7",
+        "imageAlt": "Evde matta sırtüstü yatıp bacaklarını kaldıran bir adam"
       },
       {
         "type": "summary",
@@ -1765,7 +1975,9 @@
         ],
         "title": "Sele baskısı",
         "text": "Bisiklette ağırlığının bir kısmı, sinirlerin ve damarların geçtiği perine bölgesine (makat ile testisler arası) biner. Uzun sürüşlerde bu baskı uyuşmaya ya da karıncalanmaya yol açabilir.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/cycling/2",
+        "imageAlt": "Bisiklet selesi, yakın çekim"
       },
       {
         "type": "info",
@@ -1776,13 +1988,17 @@
         ],
         "title": "Önlemler",
         "text": "Ortası oyuk ya da geniş, sana uygun bir sele seç. Sele yüksekliğini ve açısını ayarla; gidonu seleden çok aşağıda tutma. Sürüş sırasında ara ara pedalda ayağa kalkarak baskıyı azalt.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/cycling/3",
+        "imageAlt": "Çimde bisikletini kontrol eden eller"
       },
       {
         "type": "myth",
         "myth": "Bisiklet kesin iktidarsızlık yapar.",
         "fact": "Araştırmalar, düzenli bisiklet sürenlerin sertleşme işlevinin sürmeyenlerden daha kötü olmadığını gösteriyor. Uyuşmayı azaltmak için doğru sele, doğru ayar ve kısa molalar önemli.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/cycling/4",
+        "imageAlt": "Kırda uzanan bir yolda bisiklet süren biri, uzaktan"
       },
       {
         "type": "quiz",
@@ -1796,14 +2012,18 @@
           "correct": 0,
           "explain": "Sürüşün %20'sinden fazlasında ayakta pedal çevirenlerde uyuşma daha azdı. Gidonun seleden alçak olması ise uyuşmayı artırıyordu."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/cycling/5",
+        "imageAlt": "Mavi bir bisiklet selesi, yakın çekim"
       },
       {
         "type": "action",
         "icon": "timer",
         "title": "Sürüşte 10 dakikada bir kalk",
         "text": "Bir sonraki sürüşünde yaklaşık 10 dakikada bir pedalda ayağa kalkıp birkaç saniye baskıyı azalt. Uyuşma azalıyor mu, fark et.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/cycling/6",
+        "imageAlt": "Pedal çeviren bir bisikletçinin bacakları"
       },
       {
         "type": "doctor",
@@ -1813,7 +2033,9 @@
           "Perine bölgesinde ağrı, şişlik ya da yara varsa",
           "İdrar yaparken zorlanma ya da yanma varsa"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/cycling/7",
+        "imageAlt": "Aydınlık bir muayenehanede masasında çalışan doktor"
       },
       {
         "type": "summary",
@@ -1858,7 +2080,9 @@
         ],
         "title": "Sigara ve damarlar",
         "text": "Sigaradaki maddeler damarların iç yüzeyine zarar verir ve onları daraltır. Sertleşme sağlıklı kan akışına bağlı olduğu için sigara içenlerde sertleşme sorunu riski daha yüksektir; içilen miktar arttıkça risk de artar.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/smoking/2",
+        "imageAlt": "Gökyüzüne karşı ince ağaç dalları"
       },
       {
         "type": "info",
@@ -1869,13 +2093,17 @@
         ],
         "title": "Bırakınca neler değişir?",
         "text": "Bırakınca damar işlevi zamanla düzelmeye başlar: ilk saatlerde kandaki karbonmonoksit azalır, haftalar içinde dolaşım ve nefes iyileşir. Bir çalışmada bırakan erkeklerin yaklaşık dörtte birinde bir yıl sonra sertleşme işlevi iyileşti.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/smoking/3",
+        "imageAlt": "Tül perdeli, bahçeye açılan bir pencere"
       },
       {
         "type": "myth",
         "myth": "Yıllardır içiyorum, artık bırakmanın faydası olmaz.",
         "fact": "Her yaşta bırakmak fayda sağlar. Dünya Sağlık Örgütü'ne göre kazanımlar ilk saatlerde başlar ve yıllar içinde artar. Gençken ve sorun hafifken bırakmak sertleşme için daha çok fark yaratır.",
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/smoking/4",
+        "imageAlt": "Sonbaharda bastonla parkta yürüyen yaşlıca bir adam, arkadan"
       },
       {
         "type": "quiz",
@@ -1889,7 +2117,9 @@
           "correct": 0,
           "explain": "Damarlar bırakıldıktan sonra kendini onarmaya başlar. Bu yüzden bırakmanın faydası hem kalpte hem sertleşmede görülebilir."
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/smoking/5",
+        "imageAlt": "Çayırda kollarını açıp derin nefes alan bir adam, arkadan"
       },
       {
         "type": "action",
@@ -1900,7 +2130,9 @@
           "route": "/camp",
           "label": "Sigarasız Kamp'ı aç"
         },
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/smoking/6",
+        "imageAlt": "Sabah ışığında ormanda başlayan bir patika"
       },
       {
         "type": "doctor",
@@ -1910,7 +2142,9 @@
           "Bırakırken yoksunluk belirtileri seni çok zorluyorsa (ALO 171 de destek verir)",
           "Kalp, şeker ya da tansiyon hastalığın varsa, bırakmayı destekleyen ilaçlar için"
         ],
-        "tone": "knowledge"
+        "tone": "knowledge",
+        "image": "story/smoking/7",
+        "imageAlt": "Doktorun elinde tuttuğu sonuç kâğıdı"
       },
       {
         "type": "summary",

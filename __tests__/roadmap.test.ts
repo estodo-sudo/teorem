@@ -41,7 +41,7 @@ describe('plan roadmap (spec 8)', () => {
         expect([planDayIndex, n.day, deloadOnPlanDay(t, '2026-11-19', n.day)]).toEqual([planDayIndex, n.day, header === '4. Hafta: Toparlanma']);
       }
       // Today's real session agrees with its node.
-      const today = buildTodaySession(t, '2026-11-19', { hypertonic: false, strengthFalling: false });
+      const today = buildTodaySession(t, '2026-11-19', { strengthFalling: false });
       expect([planDayIndex, today.deload]).toEqual([planDayIndex, nodes[planDayIndex]!.week === 3]);
     }
   });
@@ -51,8 +51,8 @@ describe('plan roadmap (spec 8)', () => {
     expect(deloadOnPlanDay(t, '2026-11-19', 10, true)).toBe(true);
     expect(deloadOnPlanDay(t, '2026-11-19', 3, true)).toBe(false);
     expect(deloadOnPlanDay(t, '2026-11-19', 16, true)).toBe(false);
-    expect(buildTodaySession(t, '2026-11-19', { hypertonic: false, strengthFalling: true }).deload).toBe(true);
-    expect(buildTodaySession(t, '2026-11-19', { hypertonic: false, strengthFalling: false }).deload).toBe(false);
+    expect(buildTodaySession(t, '2026-11-19', { strengthFalling: true }).deload).toBe(true);
+    expect(buildTodaySession(t, '2026-11-19', { strengthFalling: false }).deload).toBe(false);
   });
 
   it('day preview uses the right programme week for past and future days', () => {
@@ -65,10 +65,11 @@ describe('plan roadmap (spec 8)', () => {
 });
 
 describe('duration chips, daily target and micro sets (spec 6.2, 6.3)', () => {
-  it('the chip sets the preset; levels never change it', () => {
+  it('one session length: a stored preset never changes the session; only the level does', () => {
     const t = migrateTraining({ ...defaultTraining(), durationPreset: 'full', level: 3 });
-    expect(buildTodaySession(t, '2026-11-19', { hypertonic: false, strengthFalling: false }).durationPreset).toBe('full');
-    expect(buildTodaySession({ ...t, level: 25 }, '2026-11-19', { hypertonic: false, strengthFalling: false }).durationPreset).toBe('full');
+    const q = migrateTraining({ ...defaultTraining(), durationPreset: 'quick', level: 3 });
+    expect(buildTodaySession(t, '2026-11-19', { strengthFalling: false }).plannedSec).toBe(buildTodaySession(q, '2026-11-19', { strengthFalling: false }).plannedSec);
+    expect(buildTodaySession({ ...t, level: 25 }, '2026-11-19', { strengthFalling: false }).plannedSec).toBeGreaterThan(buildTodaySession(t, '2026-11-19', { strengthFalling: false }).plannedSec);
   });
 
   it('daily target 1–4 (default 2: one session + a micro set); invalid values fall back', () => {
@@ -77,11 +78,12 @@ describe('duration chips, daily target and micro sets (spec 6.2, 6.3)', () => {
     expect(migrateTraining({ dailyTarget: 7 }).dailyTarget).toBe(2);
   });
 
-  it('a day of main session + 3 micro sets stays under the daily cap; over it only release opens', () => {
+  it('a day of Tur 1 + Tur 2 + a micro set stays under the daily cap; over it only release opens', () => {
     const level = 15;
-    const main = buildTodaySession({ ...defaultTraining(), level, durationPreset: 'full' }, '2026-11-19', { hypertonic: false, strengthFalling: false }).contractions;
-    const micro = generateMicroSet({ track: 'general', level, hypertonic: false, seed: 'x' }).contractions;
-    expect(main + 3 * micro).toBeLessThanOrEqual(dailyContractionCap(level));
+    const t = { ...defaultTraining(), level };
+    const main = buildTodaySession(t, '2026-11-19', { strengthFalling: false }).contractions + buildTodaySession(t, '2026-11-19', { round: 2, strengthFalling: false }).contractions;
+    const micro = generateMicroSet({ level, seed: 'x' }).contractions;
+    expect(main + micro).toBeLessThanOrEqual(dailyContractionCap(level));
     expect(sessionAllowed(dailyContractionCap(level), micro, level)).toBe(false);
     expect(sessionAllowed(dailyContractionCap(level), 0, level)).toBe(true);
   });
@@ -114,10 +116,11 @@ describe('functional tasks (spec 5)', () => {
     for (const d of ['2026-11-19', '2026-11-20', '2026-11-21']) for (const task of tasksForDay('relax', 8, d)) expect(task.tracks).toContain('relax');
   });
 
-  it('screens: roadmap, chips and texts are wired', () => {
+  it('screens: roadmap and texts are wired; no duration chips', () => {
     expect(fs.existsSync(path.join(root, 'app', 'kegel', 'plan.tsx'))).toBe(true);
     const card = fs.readFileSync(path.join(root, 'src', 'features', 'today', 'WorkoutCard.tsx'), 'utf8');
-    expect(card).toMatch(/Tabs<DurationPreset>/);
+    // One session length (user decision 2026-11-22): no duration chips any more.
+    expect(card).not.toMatch(/DurationPreset/);
     // The cap dialog (→ release-only session) lives in the shared starter used by the card.
     expect(card).toMatch(/useSessionStarter\(\)/);
     expect(fs.readFileSync(path.join(root, 'src', 'features', 'training', 'useSessionStarter.tsx'), 'utf8')).toMatch(/sessionId: 'release'/);

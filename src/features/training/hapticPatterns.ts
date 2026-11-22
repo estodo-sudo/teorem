@@ -78,13 +78,14 @@ const LANGUAGE: Record<Cue, HapticEvent[]> = {
 export const STRENGTH_SCALE: Record<HapticStrength, number> = { 0: 0, 1: 0.55, 2: 0.8, 3: 1 };
 
 /**
- * App-wide boost of how strongly vibration is felt (+30 %, user request 2026-11-21), applied on top of
- * the strength setting. Weak and medium intensities (up to 0.6) get the full +30 %; above that the
- * curve bends smoothly to full intensity at 1, so Light < Normal < Strong stays true for the strongest
- * cues too. On Android short pulses are also 30 % longer (TRANSIENT_MS).
+ * App-wide boost of how strongly vibration is felt (+60 %: raised to +80 % on 2026-11-22, then a touch lower),
+ * applied on top of the strength setting. Weak and medium intensities (up to 0.55) get the full +60 %;
+ * above that the curve bends smoothly to full intensity at 1, so Light < Normal < Strong stays true for
+ * the strongest cues too. On Android short pulses are also 60 % longer (TRANSIENT_MS).
  */
-export const HAPTIC_GAIN = 1.3;
-const KNEE = 0.6;
+export const HAPTIC_GAIN = 1.6;
+const KNEE = 0.55;
+const PULSE_GAIN = 1.6;
 export function boostIntensity(x: number): number {
   if (x <= 0) return 0;
   if (x <= KNEE) return x * HAPTIC_GAIN;
@@ -92,16 +93,56 @@ export function boostIntensity(x: number): number {
   return Math.min(1, top + ((x - KNEE) * (1 - top)) / (1 - KNEE));
 }
 
-/** Events for a cue at the user's strength (empty when vibration is off). */
-export function hapticEvents(cue: Cue, strength: HapticStrength): HapticEvent[] {
+/** Full-strength events scaled to the user's strength (empty when vibration is off). */
+export function scaleEvents(events: HapticEvent[], strength: HapticStrength): HapticEvent[] {
   const k = STRENGTH_SCALE[strength];
   if (!k) return [];
   const s = (v: number) => Math.round(boostIntensity(v * k) * 1000) / 1000;
-  return LANGUAGE[cue].map((e) => (e.type === 'transient' ? { ...e, intensity: s(e.intensity) } : { ...e, intensity: s(e.intensity), intensityEnd: s(e.intensityEnd) }));
+  return events.map((e) => (e.type === 'transient' ? { ...e, intensity: s(e.intensity) } : { ...e, intensity: s(e.intensity), intensityEnd: s(e.intensityEnd) }));
+}
+
+/** Events for a cue at the user's strength (empty when vibration is off). */
+export function hapticEvents(cue: Cue, strength: HapticStrength): HapticEvent[] {
+  return scaleEvents(LANGUAGE[cue], strength);
+}
+
+/**
+ * Kegel vibration (user decision 2026-11-22): the phone vibrates for exactly as long as the muscle is
+ * squeezed and stops when it lets go. Uzun sıkma = one continuous vibration for the whole hold; hızlı
+ * sık-bırak = 1 s on / 1 s off; yavaş sıkma = rising while squeezing slowly, full at the top. Rest and
+ * let-go phases are silent. `fromMs` = time already spent in the phase (resume after a pause).
+ * Full strength; scale with `scaleEvents`.
+ */
+export function phaseVibration(phase: { kind: string; durationMs: number; variant?: string }, fromMs = 0): HapticEvent[] {
+  if (phase.kind !== 'contract' && phase.kind !== 'cough') return [];
+  const from = Math.max(0, fromMs);
+  const left = Math.round(phase.durationMs - from);
+  if (left < 40) return [];
+  // Yavaş sıkma builds up from 30 % to full; everything else rumbles at full strength.
+  const level = phase.variant === 'slowUp' ? (t: number) => 0.3 + (0.7 * Math.min(phase.durationMs, from + t)) / Math.max(1, phase.durationMs) : () => 1;
+  return rumble(left, level, Math.floor(from / RUMBLE_GRAIN_MS));
+}
+
+/**
+ * "Deprem gibi" (user request 2026-11-22): never off, never in separate pulses, but the strength dips
+ * every few hundredths of a second — 40 ms grains whose intensity wanders between ~55 % and 100 % of
+ * `level(t)` in an uneven, earthquake-like way (deterministic, so the same squeeze feels the same).
+ */
+export const RUMBLE_GRAIN_MS = 40;
+const RUMBLE_DIPS = [1, 0.62, 0.9, 0.7, 1, 0.55, 0.85, 0.95, 0.6, 0.8, 1, 0.68, 0.88, 0.58, 0.97, 0.75];
+export function rumble(durationMs: number, level: (t: number) => number = () => 1, offset = 0): HapticEvent[] {
+  const out: HapticEvent[] = [];
+  for (let t = 0, i = offset; t < durationMs; t += RUMBLE_GRAIN_MS, i++) {
+    const d = Math.min(RUMBLE_GRAIN_MS, durationMs - t);
+    if (d < 10) break;
+    const a = Math.round(level(t) * RUMBLE_DIPS[i % RUMBLE_DIPS.length]! * 1000) / 1000;
+    out.push({ type: 'continuous', time: t, duration: d, intensity: a, intensityEnd: a, sharpness: 0.6 });
+  }
+  return out;
 }
 
 /** Length of a transient pulse when it has to be played as a short vibration (Android); +30 % with the gain. */
-export const TRANSIENT_MS = (sharpness: number) => Math.round((45 - 25 * sharpness) * HAPTIC_GAIN);
+export const TRANSIENT_MS = (sharpness: number) => Math.round((45 - 25 * sharpness) * PULSE_GAIN);
 /** Ramp resolution on Android (amplitude steps). */
 export const RAMP_STEP_MS = 50;
 
@@ -165,6 +206,11 @@ export function onOffPattern(events: HapticEvent[]): number[] {
   const pulses: { start: number; dur: number }[] = [];
   for (const e of events) {
     if (e.type === 'transient') pulses.push({ start: e.time, dur: Math.round(20 + 50 * e.intensity) });
+    // A rumble grain (≤ 60 ms, steady): on for most of it, with a hairline gap that grows as the grain
+    // weakens — on/off-only phones feel the dips without real pauses.
+    else if (e.duration <= 60 && Math.abs(e.intensity - e.intensityEnd) < 0.05) pulses.push({ start: e.time, dur: Math.max(8, Math.round(e.duration * (0.55 + 0.45 * Math.min(1, e.intensity)))) });
+    // A steady strong vibration stays one unbroken vibration.
+    else if (Math.abs(e.intensity - e.intensityEnd) < 0.05 && e.intensity >= 0.3) pulses.push({ start: e.time, dur: Math.round(e.duration) });
     else {
       const n = Math.max(2, Math.round(e.duration / 110));
       for (let i = 0; i < n; i++) {
@@ -193,7 +239,10 @@ export function iosFallbackCalls(events: HapticEvent[]): { style: IosImpact; del
   const out: { style: IosImpact; delayMs: number }[] = [];
   for (const e of events) {
     if (e.type === 'transient') out.push({ style: style(e.intensity, e.sharpness), delayMs: e.time });
-    else {
+    // A rumble grain: one impact, heavy or medium by its strength, so the rumble is uneven.
+    else if (e.duration <= 60) {
+      if (e.intensity > 0.05) out.push({ style: style(e.intensity, 0), delayMs: e.time });
+    } else {
       const n = Math.max(2, Math.round(e.duration / 100));
       for (let i = 0; i < n; i++) {
         const amp = e.intensity + ((e.intensityEnd - e.intensity) * i) / (n - 1);

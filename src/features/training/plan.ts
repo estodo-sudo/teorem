@@ -63,7 +63,7 @@ export function migrateTraining(raw: unknown): TrainingState {
     freezeMonth: typeof raw.freezeMonth === 'string' && /^\d{4}-\d{2}$/.test(raw.freezeMonth) ? raw.freezeMonth : null,
     ...(vacation ? { vacation } : {}),
     ...(lock ? { levelLockUntil: lock } : {}),
-    ...(raw.suggestShorter === true ? { suggestShorter: true } : {}),
+    ...(raw.round2IntroDone === true ? { round2IntroDone: true } : {}),
     ...(PRESETS.includes(raw.nextPresetOnce as DurationPreset) ? { nextPresetOnce: raw.nextPresetOnce as DurationPreset } : {}),
     ...(Array.isArray(raw.frozenDays) ? { frozenDays: (raw.frozenDays as unknown[]).filter((d): d is string => Boolean(dateKey(d))).slice(-62) } : {}),
     ...(dateKey(raw.lastReturnCheck) ? { lastReturnCheck: raw.lastReturnCheck as string } : {}),
@@ -120,8 +120,8 @@ export function applySessionResult(t: TrainingState, result: SessionOutcome): Tr
     { feedback: result.feedback, completionRate: result.completionRate, pauses: result.pauses, skippedBlocks: result.skippedBlocks, locked: levelLocked(result.date, t.levelLockUntil) },
   );
   const next: TrainingState = { ...t, level: adj.level, consecutiveOk: adj.consecutiveOk, consecutiveHard: adj.consecutiveHard };
-  if (adj.suggestShorter) next.suggestShorter = true;
-  else delete next.suggestShorter;
+  // One session length now: "hard" keeps the level (two in a row → down), no shorter preset.
+  delete next.suggestShorter;
   if (result.deload) {
     const pos = todayPlanPosition(t, result.date);
     next.lastDeloadWeek = planWeekNumber(pos.planNumber, pos.planDay);

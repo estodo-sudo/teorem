@@ -16,7 +16,6 @@ import { WorkoutPlayer } from '@/features/training/player/WorkoutPlayer';
 import { CHECKLIST, checklistDone, generateReleasePractice, TUTORIAL_ORDER, type TutorialStep } from '@/features/training/tutorial';
 import { goBack as safeBack } from '@/lib/nav';
 import { useProfileStore } from '@/stores/profileStore';
-import { useTrainingStore } from '@/stores/trainingStore';
 
 /**
  * Eğitim v2 (SPEC_KEGEL_V2 §12): what / find the muscle (never while urinating) / lying start position /
@@ -40,8 +39,6 @@ export default function Tutorial() {
   const finish = () => {
     if (replay) return safeBack();
     useProfileStore.getState().update({ tutorialDone: true });
-    // The first session is Quick (3 min); the user's own preset applies afterwards.
-    useTrainingStore.getState().update({ nextPresetOnce: 'quick' });
     router.replace('/paywall');
   };
 

@@ -16,7 +16,7 @@ export const checklistDone = (checked: readonly string[]) => CHECKLIST.every((c)
 
 /** Release practice (§12.5): 2 × (squeeze 3 s → release fully 6 s). */
 export function generateReleasePractice(): GeneratedSession {
-  const block: SessionBlock = { type: 'slow_hold', position: 'lying', holdSec: 3, restSec: 6, reps: 2, cueSet: ['rel_ground', 'rel_shoulders'], role: 'main' };
+  const block: SessionBlock = { type: 'slow_hold', position: 'lying', holdSec: 3, restSec: 4, reps: 2, cueSet: ['rel_ground'], role: 'main' };
   const phases: Phase[] = [{ kind: 'countdown', durationMs: 3000, exerciseIndex: -1, rep: 0, reps: 0, set: 1, sets: 1 }];
   for (let r = 1; r <= 2; r++) {
     const base = { exerciseIndex: 0, rep: r, reps: 2, set: 1, sets: 1 };
@@ -32,6 +32,7 @@ export function generateReleasePractice(): GeneratedSession {
     durationPreset: 'quick',
     deload: false,
     isMicro: true,
+    round: 1,
     blocks: [block],
     exercises: [{ type: 'slow_hold', reps: 2, sets: 1, contractSec: 3, relaxSec: 6 }],
     phases,

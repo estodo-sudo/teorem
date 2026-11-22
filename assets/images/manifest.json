@@ -2922,27 +2922,6 @@
       "status": "accepted"
     },
     {
-      "id": "program/daily-life",
-      "source": {
-        "site": "pexels",
-        "photoId": 12932540,
-        "page": "https://www.pexels.com/photo/person-walking-up-stairs-12932540/",
-        "photographer": "Atlantic Ambience",
-        "photographerUrl": "https://www.pexels.com/@freestockpro",
-        "license": "Pexels License",
-        "width": 6000,
-        "height": 4000
-      },
-      "download": "https://images.pexels.com/photos/12932540/pexels-photo-12932540.jpeg?auto=compress&cs=tinysrgb&h=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.55
-      },
-      "alt": "Taş merdivenleri çıkan bir adamın bacakları",
-      "status": "accepted"
-    },
-    {
       "id": "glossary/discreet",
       "source": {
         "site": "pexels",
@@ -3027,27 +3006,6 @@
       "status": "accepted"
     },
     {
-      "id": "program/feet",
-      "source": {
-        "site": "pexels",
-        "photoId": 36227360,
-        "page": "https://www.pexels.com/photo/barefoot-people-walking-on-grass-in-jeans-36227360/",
-        "photographer": "Letícia Alvares",
-        "photographerUrl": null,
-        "license": "Pexels License",
-        "width": 6000,
-        "height": 4000
-      },
-      "download": "https://images.pexels.com/photos/36227360/pexels-photo-36227360.jpeg?auto=compress&cs=tinysrgb&h=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.7
-      },
-      "alt": "Çimenlerin üzerinde çıplak ayakla yürüyen iki kişi",
-      "status": "accepted"
-    },
-    {
       "id": "glossary/kegel",
       "source": {
         "site": "pexels",
@@ -3108,27 +3066,6 @@
         "y": 0.5
       },
       "alt": "Aydınlık bir merdiven boşluğunda basamaklar",
-      "status": "accepted"
-    },
-    {
-      "id": "program/lifestyle",
-      "source": {
-        "site": "pexels",
-        "photoId": 6822591,
-        "page": "https://www.pexels.com/photo/close-up-shot-of-a-person-slicing-onions-6822591/",
-        "photographer": "cottonbro studio",
-        "photographerUrl": "https://www.pexels.com/@cottonbro",
-        "license": "Pexels License",
-        "width": 5730,
-        "height": 3820
-      },
-      "download": "https://images.pexels.com/photos/6822591/pexels-photo-6822591.jpeg?auto=compress&cs=tinysrgb&h=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.5
-      },
-      "alt": "Mutfakta tahta üzerinde sebze doğrayan eller",
       "status": "accepted"
     },
     {
@@ -3195,27 +3132,6 @@
       "status": "accepted"
     },
     {
-      "id": "program/neck",
-      "source": {
-        "site": "pexels",
-        "photoId": 21367057,
-        "page": "https://www.pexels.com/photo/man-sitting-by-laptop-and-working-21367057/",
-        "photographer": "Letícia Alvares",
-        "photographerUrl": null,
-        "license": "Pexels License",
-        "width": 5754,
-        "height": 3836
-      },
-      "download": "https://images.pexels.com/photos/21367057/pexels-photo-21367057.jpeg?auto=compress&cs=tinysrgb&h=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.5
-      },
-      "alt": "Aydınlık bir masada dik oturup bilgisayarla çalışan bir adam, yandan",
-      "status": "accepted"
-    },
-    {
       "id": "camp/odak",
       "source": {
         "site": "pexels",
@@ -3255,27 +3171,6 @@
         "y": 0.5
       },
       "alt": "Gün batımında merdivenlerden el ele çıkan bir çift, arkadan",
-      "status": "accepted"
-    },
-    {
-      "id": "program/pf101",
-      "source": {
-        "site": "pexels",
-        "photoId": 8436580,
-        "page": "https://www.pexels.com/photo/man-in-white-shirt-holding-yoga-mat-on-the-floor-8436580/",
-        "photographer": "Yan Krukau",
-        "photographerUrl": "https://www.pexels.com/@yankrukov",
-        "license": "Pexels License",
-        "width": 4000,
-        "height": 4000
-      },
-      "download": "https://images.pexels.com/photos/8436580/pexels-photo-8436580.jpeg?auto=compress&cs=tinysrgb&w=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.55
-      },
-      "alt": "Egzersize başlamadan önce matını açan bir adam",
       "status": "accepted"
     },
     {
@@ -3342,27 +3237,6 @@
       "status": "accepted"
     },
     {
-      "id": "program/sexual-health",
-      "source": {
-        "site": "pexels",
-        "photoId": 5331046,
-        "page": "https://www.pexels.com/photo/crop-lesbian-couple-having-breakfast-together-5331046/",
-        "photographer": "Monstera Production",
-        "photographerUrl": "https://www.pexels.com/@gabby-k",
-        "license": "Pexels License",
-        "width": 6720,
-        "height": 4480
-      },
-      "download": "https://images.pexels.com/photos/5331046/pexels-photo-5331046.jpeg?auto=compress&cs=tinysrgb&h=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.5
-      },
-      "alt": "Kahvaltı masasında el ele tutuşan bir çift, yakın çekim",
-      "status": "accepted"
-    },
-    {
       "id": "camp/smoking",
       "source": {
         "site": "pexels",
@@ -3423,27 +3297,6 @@
         "y": 0.5
       },
       "alt": "Kronometreli eski bir cep saati",
-      "status": "accepted"
-    },
-    {
-      "id": "program/stress-sleep",
-      "source": {
-        "site": "pexels",
-        "photoId": 34282675,
-        "page": "https://www.pexels.com/photo/cozy-bedroom-with-victorian-window-at-dusk-34282675/",
-        "photographer": "Jilly Noble",
-        "photographerUrl": "https://www.pexels.com/@jillyjillystudio",
-        "license": "Pexels License",
-        "width": 5231,
-        "height": 3481
-      },
-      "download": "https://images.pexels.com/photos/34282675/pexels-photo-34282675.jpeg?auto=compress&cs=tinysrgb&h=1440",
-      "downloaded": "2026-11-21",
-      "focus": {
-        "x": 0.5,
-        "y": 0.5
-      },
-      "alt": "Akşam ışığında kemerli pencereli sakin bir yatak odası",
       "status": "accepted"
     },
     {

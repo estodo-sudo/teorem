@@ -45,13 +45,13 @@ describe('tutorial v2 (spec 12)', () => {
     expect(T.ready.body.join(' ')).toMatch(/Hızlı \(3 dakika\)/);
   });
 
-  it('the first session after the tutorial is Quick (3 min) once, then the user preset again', () => {
+  it('one session length: a stored one-off preset no longer changes the session (about 3 min at level 1)', () => {
     const t = migrateTraining({ ...defaultTraining(), nextPresetOnce: 'quick' });
-    expect(t.nextPresetOnce).toBe('quick');
-    expect(buildTodaySession(t, '2026-11-19', { hypertonic: false, strengthFalling: false }).durationPreset).toBe('quick');
+    const a = buildTodaySession(t, '2026-11-19');
+    expect(a.plannedSec).toBeLessThanOrEqual(190);
     const after = applySessionResult(t, { date: '2026-11-19', feedback: 'ok' });
     expect(after.nextPresetOnce).toBeUndefined();
-    expect(buildTodaySession(after, '2026-11-20', { hypertonic: false, strengthFalling: false }).durationPreset).toBe('standard');
+    expect(buildTodaySession(after, '2026-11-20').blocks.map((b) => b.type)).toEqual(a.blocks.map((b) => b.type));
   });
 
   it('the first-run gate lets the screening through before the tutorial', () => {
@@ -60,13 +60,13 @@ describe('tutorial v2 (spec 12)', () => {
     expect(isAllowedDuringFirstRun('/onboarding', 'kegel')).toBe(false);
   });
 
-  it('tutorial screen: checkboxes have roles and ≥ 48 px; tutorialDone and the quick first session are set', () => {
+  it('tutorial screen: checkboxes have roles and ≥ 48 px; tutorialDone is set; no duration preset', () => {
     const src = fs.readFileSync(path.join(root, 'app', 'tutorial.tsx'), 'utf8');
     for (const m of src.matchAll(/<Pressable\b([\s\S]*?)(?<!=)>/g)) {
       expect(m[1]).toMatch(/accessibilityRole/);
       for (const n of m[1]!.matchAll(/minHeight: (\d+)/g)) expect(Number(n[1])).toBeGreaterThanOrEqual(48);
     }
     expect(src).toMatch(/tutorialDone: true/);
-    expect(src).toMatch(/nextPresetOnce: 'quick'/);
+    expect(src).not.toMatch(/nextPresetOnce/);
   });
 });

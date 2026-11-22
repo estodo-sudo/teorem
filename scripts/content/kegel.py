@@ -85,7 +85,6 @@ C = [
     ('rl_no_push', 'release', ['release'], 'Ikınma değil, nazikçe bırak.'),
     ('rl_soft', 'release', ['release', 'breath'], 'Karnını ve kalçanı da yumuşat.'),
     ('rel_ground', 'release', ['all'], 'Tamamen bırak, kas yere iner gibi.'),
-    ('rel_shoulders', 'release', ['all'], 'Omuzlarını da bırak.'),
     ('rel_jaw', 'release', ['all', 'release', 'breath'], 'Çeneni gevşet, dişlerini sıkma.'),
     ('rel_equal', 'release', ['all'], 'Bırakmak da sıkmak kadar antrenmandır.'),
     ('br_belly', 'breath', ['breath', 'release'], 'Burnundan al, karnın yükselsin.'),

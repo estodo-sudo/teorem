@@ -40,7 +40,6 @@ export function dailyCheck(t: TrainingState, today: string, completedDates: Iter
   const policy = missedDaysPolicy(last, today, next.vacation);
   if (policy.kind === 'none') return next;
   next = { ...applyReturn(next, policy.levelDelta), returnNotice: { kind: policy.kind, date: today, days: policy.missedDays } };
-  if (policy.kind === 'rewarm') next.nextPresetOnce = 'quick';
   return next;
 }
 

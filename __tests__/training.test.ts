@@ -1,216 +1,130 @@
 import { adjustLevel, OK_STREAK_FOR_LEVEL_UP } from '@/features/training/adjustLevel';
-import { contractionCount, DURATION_TOLERANCE, generateMicroSet, generateReleaseSession, generateSession, generateTrialSession, HYPERTONIC_RELEASE_SHARE, type SessionInput } from '@/features/training/generateSession';
-import { clampLevel, dailyContractionCap, getLevel, HYPERTONIC_HOLD_CAP_SEC, LEVELS, MAX_LEVEL, sessionContractionCap, startingLevelFor } from '@/features/training/levels';
+import { contractionCount, generateMicroSet, generateReleaseSession, generateSession, generateSlowDemo, generateTrialSession, REST_SEC, type SessionInput } from '@/features/training/generateSession';
+import { clampLevel, dailyContractionCap, getLevel, LEVELS, MAX_LEVEL, sessionContractionCap, SLOW_REP_SEC, startingLevelFor } from '@/features/training/levels';
 import { applyReturn, applySessionResult, defaultTraining, migrateTraining, setManualLevel, todayPlanDay, todayWeekIndex } from '@/features/training/plan';
 import { capStatus, deloadDue, isPlanDeloadDay, missedDaysPolicy, muscleScore, painPolicy, refreshFreezes, screeningToTrack, sessionAllowed, strengthFallingTwoWeeks, validVacation } from '@/features/training/schedule';
-import { CONTRACTION_TYPES, DURATION_SEC, goalsToTrack, KEGEL_CUES, KEGEL_TRACKS, positionsFor, shorterPreset, trackAllowed } from '@/features/training/tracks';
-import type { GeneratedSession } from '@/features/training/types';
-import type { DurationPreset, StrengthTest, TrackId, TrainingState } from '@/types';
+import { goalsToTrack, KEGEL_CUES, KEGEL_TRACKS, trackAllowed } from '@/features/training/tracks';
+import type { GeneratedSession, Phase } from '@/features/training/types';
+import type { StrengthTest, TrainingState } from '@/types';
 
 const SEED = '2026-11-15';
-const TRACKS: TrackId[] = ['general', 'erection', 'control', 'bladder', 'surgery', 'relax'];
-const PRESETS: DurationPreset[] = ['quick', 'standard', 'full'];
-const input = (o: Partial<SessionInput> = {}): SessionInput => ({ track: 'general', level: 8, durationPreset: 'standard', dayIndex: 0, weekIndex: 0, hypertonic: false, seed: SEED, ...o });
+const input = (o: Partial<SessionInput> = {}): SessionInput => ({ level: 1, seed: SEED, ...o });
+const sec = (s: GeneratedSession) => s.phases.reduce((a, p) => a + p.durationMs, 0) / 1000;
+const types = (s: GeneratedSession) => s.blocks.map((b) => b.type);
+const ofBlock = (s: GeneratedSession, i: number) => s.phases.filter((p) => p.exerciseIndex === i && p.kind !== 'transition');
 
-/** Every combination the generator can see (sampled levels, days and weeks). */
-function* everySession(): Generator<[SessionInput, GeneratedSession]> {
-  for (const track of TRACKS)
-    for (const durationPreset of PRESETS)
-      for (const level of [1, 4, 5, 9, 15, 22, 30])
-        for (const [dayIndex, weekIndex] of [
-          [0, 0],
-          [1, 1],
-          [3, 3],
-          [4, 5],
-          [12, 9],
-        ] as const)
-          for (const hypertonic of [false, true]) {
-            const i = input({ track, durationPreset, level, dayIndex, weekIndex, hypertonic });
-            yield [i, generateSession(i)];
-          }
-}
-
-const contractSec = (s: GeneratedSession, i: number) => s.phases.filter((p) => p.exerciseIndex === i && (p.kind === 'contract' || p.kind === 'cough')).reduce((a, p) => a + p.durationMs, 0);
-const restSec = (s: GeneratedSession, i: number) => s.phases.filter((p) => p.exerciseIndex === i && (p.kind === 'relax' || p.kind === 'release')).reduce((a, p) => a + p.durationMs, 0);
-
-describe('levels v2: intensity, never length', () => {
-  it('has 30 levels and never lowers intensity from one level to the next', () => {
-    expect(LEVELS).toHaveLength(30);
-    LEVELS.forEach((l, i) => expect(l.level).toBe(i + 1));
-    for (let i = 1; i < LEVELS.length; i++) {
-      for (const k of ['holdSec', 'maxHoldSec', 'enduranceSec', 'elevatorTopSec', 'sessionCap'] as const) expect(LEVELS[i]![k]).toBeGreaterThanOrEqual(LEVELS[i - 1]![k]);
-      expect(LEVELS[i]!.restFactor).toBeLessThanOrEqual(LEVELS[i - 1]!.restFactor);
-    }
-    expect(getLevel(1).holdSec).toBe(3);
-    expect(getLevel(30).holdSec).toBe(10);
-    expect(getLevel(30).maxHoldSec).toBe(5);
-    expect(getLevel(4).enduranceSec).toBe(0);
-    expect(getLevel(5).enduranceSec).toBe(10);
-    expect(getLevel(30).enduranceSec).toBe(30);
+describe('levels: three exercises, gently longer with the level', () => {
+  it('level 1 = 12 s uzun sıkma, 30 s hızlı sık-bırak, 33 s yavaş sıkma, 3 cycles; level 30 = 20 / 60 / 60, 4 cycles', () => {
+    expect(getLevel(1)).toMatchObject({ holdSec: 12, quickSec: 30, slowBlockSec: 33, cycles: 3 });
+    expect(getLevel(30)).toMatchObject({ holdSec: 20, quickSec: 60, slowBlockSec: 60, cycles: 4 });
   });
-
+  it('has 30 levels and never gets easier from one level to the next', () => {
+    expect(LEVELS).toHaveLength(MAX_LEVEL);
+    for (let i = 1; i < LEVELS.length; i++) {
+      const [a, b] = [LEVELS[i - 1]!, LEVELS[i]!];
+      expect(b.holdSec).toBeGreaterThanOrEqual(a.holdSec);
+      expect(b.quickSec).toBeGreaterThanOrEqual(a.quickSec);
+      expect(b.slowBlockSec).toBeGreaterThanOrEqual(a.slowBlockSec);
+      expect(b.cycles).toBeGreaterThanOrEqual(a.cycles);
+      expect(b.quickSec % 2).toBe(0);
+    }
+  });
   it('clamps levels and maps experience to a start level', () => {
     expect(clampLevel(0)).toBe(1);
     expect(clampLevel(99)).toBe(30);
-    expect(clampLevel(NaN)).toBe(1);
-    expect(getLevel(-3).level).toBe(1);
-    expect([startingLevelFor('none'), startingLevelFor('some'), startingLevelFor('regular'), startingLevelFor(null)]).toEqual([1, 3, 5, 1]);
-  });
-
-  it('the session length does not grow with the level (preset only)', () => {
-    for (const durationPreset of PRESETS) {
-      const lengths = [1, 10, 20, 30].map((level) => generateSession(input({ level, durationPreset })).plannedSec);
-      for (const l of lengths) expect(Math.abs(l - DURATION_SEC[durationPreset]) / DURATION_SEC[durationPreset]).toBeLessThanOrEqual(DURATION_TOLERANCE);
-    }
+    expect(clampLevel(Number.NaN)).toBe(1);
+    expect([startingLevelFor(null), startingLevelFor('some'), startingLevelFor('regular')]).toEqual([1, 3, 5]);
   });
 });
 
-describe('generateSession v2 constraints (spec 6.4)', () => {
-  it('total length within ±10 % of the preset, for every track / level / week / profile', () => {
-    for (const [i, s] of everySession()) {
-      const target = DURATION_SEC[i.durationPreset];
-      expect([i, Math.abs(s.plannedSec - target) / target <= DURATION_TOLERANCE]).toEqual([i, true]);
+describe('Tur 1: (uzun, dinlen, hızlı, dinlen) × cycles, then uzun', () => {
+  it('level 1: uzun and hızlı three times, then a last uzun; about 3 minutes', () => {
+    const s = generateSession(input());
+    expect(types(s)).toEqual(['slow_hold', 'quick_flick', 'slow_hold', 'quick_flick', 'slow_hold', 'quick_flick', 'slow_hold']);
+    expect(s.round).toBe(1);
+    expect(sec(s)).toBeGreaterThanOrEqual(160);
+    expect(sec(s)).toBeLessThanOrEqual(190);
+  });
+  it('gets longer with the level but stays short (at most 7 min at level 30)', () => {
+    let prev = 0;
+    for (const l of LEVELS) {
+      const t = sec(generateSession(input({ level: l.level })));
+      expect(t).toBeGreaterThanOrEqual(prev);
+      prev = t;
     }
+    expect(prev).toBeLessThanOrEqual(7 * 60);
   });
-
-  it('every block rests at least as long as it contracts (quick 1:1, hold 1:1–1:2, max 1:2)', () => {
-    for (const [i, s] of everySession()) {
-      s.blocks.forEach((b, k) => {
-        if (!CONTRACTION_TYPES.has(b.type)) return;
-        expect([i.track, b.type, restSec(s, k) >= contractSec(s, k)]).toEqual([i.track, b.type, true]);
-        if (b.type === 'quick_flick') expect(b.restSec).toBe(b.holdSec);
-        if (b.type === 'slow_hold') expect(b.restSec / b.holdSec!).toBeGreaterThanOrEqual(1);
-        if (b.type === 'slow_hold') expect(b.restSec / b.holdSec!).toBeLessThanOrEqual(2);
-        if (b.type === 'max_contraction') expect(b.restSec).toBe(2 * b.holdSec!);
-      });
-    }
+  it('uzun sıkma is one unbroken squeeze; hızlı sık-bırak is 1 s squeeze / 1 s let go for the whole block', () => {
+    const s = generateSession(input());
+    expect(ofBlock(s, 0)).toEqual([expect.objectContaining({ kind: 'contract', durationMs: 12000 })]);
+    const quick = ofBlock(s, 1);
+    expect(quick).toHaveLength(30);
+    quick.forEach((p, i) => expect([p.kind, p.durationMs]).toEqual([i % 2 ? 'relax' : 'contract', 1000]));
   });
-
-  it('never more contractions than the level cap', () => {
-    for (const [i, s] of everySession()) expect(s.contractions).toBeLessThanOrEqual(sessionContractionCap(i.level));
-  });
-
-  it('hypertonic profile: holds ≤ 5 s and at least 40 % release', () => {
-    for (const [i, s] of everySession()) {
-      if (!i.hypertonic) continue;
-      const holds = s.phases.filter((p) => p.kind === 'contract').map((p) => p.durationMs);
-      expect(Math.max(...holds)).toBeLessThanOrEqual(HYPERTONIC_HOLD_CAP_SEC * 1000);
-      const calm = s.blocks.reduce((a, b, k) => a + (b.type === 'release' || b.type === 'breath' ? s.phases.filter((p) => p.exerciseIndex === k).reduce((x, p) => x + p.durationMs, 0) : 0), 0);
-      expect([i.track, i.durationPreset, calm / (s.plannedSec * 1000) >= HYPERTONIC_RELEASE_SHARE]).toEqual([i.track, i.durationPreset, true]);
-    }
-  });
-
-  it('deterministic for the same input; the day changes the block order', () => {
-    expect(generateSession(input({ dayIndex: 3 }))).toEqual(generateSession(input({ dayIndex: 3 })));
-    const types = (dayIndex: number) =>
-      generateSession(input({ dayIndex }))
-        .blocks.map((b) => b.type)
-        .join();
-    expect(types(0)).not.toBe(types(1));
-  });
-
-  it('structure: countdown, then the main blocks; no breathing (inhale/exhale) phases anywhere', () => {
-    const s = generateSession(input({ durationPreset: 'full', level: 12 }));
+  it('a 5 s "Dinlen" between exercises, none at the start or the end', () => {
+    const s = generateSession(input({ level: 12 }));
+    const rests = s.phases.filter((p) => p.kind === 'transition');
+    expect(rests).toHaveLength(s.blocks.length - 1);
+    expect(rests.every((p) => p.durationMs === REST_SEC * 1000)).toBe(true);
+    expect(REST_SEC).toBe(5);
     expect(s.phases[0]!.kind).toBe('countdown');
-    expect(s.blocks.filter((b) => b.role === 'main')).toHaveLength(5);
-    expect(generateSession(input({ durationPreset: 'quick' })).blocks.filter((b) => b.role === 'main')).toHaveLength(3);
-    expect(s.blocks.some((b) => b.type === 'breath' || b.role === 'warmup')).toBe(false);
-    // Only a gentle release block may close the session (rest, not more squeezing).
-    for (const b of s.blocks.filter((x) => x.role === 'cooldown')) expect(b.type).toBe('release');
-    for (const [, x] of everySession()) expect(x.phases.some((p) => p.kind === 'inhale' || p.kind === 'exhale')).toBe(false);
-    expect(s.plannedSec).toBe(Math.round(s.phases.reduce((a, p) => a + p.durationMs, 0) / 1000));
-    expect(s.exercises.map((e) => e.type)).toEqual(s.blocks.map((b) => b.type));
+    expect(s.phases[1]!.kind).toBe('contract');
+    expect(s.phases[s.phases.length - 1]!.kind).not.toBe('transition');
   });
-
-  it('a release rep is "loosen" then "let go fully" — no breathing commands', () => {
-    const s = generateSession(input({ track: 'relax', level: 10 }));
-    const i = s.blocks.findIndex((b) => b.type === 'release');
-    expect(s.phases.filter((p) => p.exerciseIndex === i && p.rep === 1).map((p) => `${p.kind}:${p.variant}`)).toEqual(['rest:settle', 'relax:letGo']);
+  it('only the three exercises; no breathing, knack, max-strength or release blocks', () => {
+    for (const l of [1, 10, 20, 30])
+      for (const r of [1, 2] as const) expect(new Set(types(generateSession(input({ level: l, round: r }))))).toEqual(new Set(r === 1 ? ['slow_hold', 'quick_flick'] : ['elevator', 'quick_flick', 'slow_hold']));
   });
+  it('deterministic for the same input', () => {
+    expect(generateSession(input({ level: 9 }))).toEqual(generateSession(input({ level: 9 })));
+  });
+});
 
-  it('deload week: 20 % fewer contractions, same length', () => {
-    for (const track of TRACKS) {
-      const normal = generateSession(input({ track, level: 14, weekIndex: 2 }));
-      const light = generateSession(input({ track, level: 14, weekIndex: 2, deload: true }));
-      if (normal.contractions === 0) continue;
-      expect([track, light.contractions <= Math.round(normal.contractions * 0.85)]).toEqual([track, true]);
-      expect(Math.abs(light.plannedSec - normal.plannedSec) / normal.plannedSec).toBeLessThanOrEqual(0.2);
+describe('Tur 2: (yavaş, dinlen, hızlı, dinlen, uzun) × 2', () => {
+  it('yavaş sıkma: slowly up 3 s, 0.5 s at the top, let go and wait 1 s; about 33 s at level 1', () => {
+    const s = generateSession(input({ round: 2 }));
+    expect(s.round).toBe(2);
+    expect(types(s)).toEqual(['elevator', 'quick_flick', 'slow_hold', 'elevator', 'quick_flick', 'slow_hold']);
+    const slow = ofBlock(s, 0);
+    expect(slow.slice(0, 3).map((p: Phase) => [p.kind, p.variant ?? null, p.durationMs])).toEqual([
+      ['contract', 'slowUp', 3000],
+      ['contract', 'top', 500],
+      ['relax', null, 1000],
+    ]);
+    const total = slow.reduce((a, p) => a + p.durationMs, 0) / 1000;
+    expect(Math.abs(total - 33)).toBeLessThanOrEqual(SLOW_REP_SEC);
+  });
+  it('about 3 minutes at level 1, at most 6 minutes at level 30', () => {
+    expect(sec(generateSession(input({ round: 2 })))).toBeLessThanOrEqual(200);
+    expect(sec(generateSession(input({ round: 2, level: 30 })))).toBeLessThanOrEqual(6 * 60);
+  });
+  it('the slow demo is three yavaş sıkma reps', () => {
+    expect(generateSlowDemo().blocks).toEqual([expect.objectContaining({ type: 'elevator', reps: 3 })]);
+  });
+});
+
+describe('contractions, caps and the small sessions', () => {
+  it('counts one contraction per squeeze; the level cap covers Tur 1 + Tur 2', () => {
+    for (const l of [1, 15, 30]) {
+      const r1 = generateSession(input({ level: l }));
+      const r2 = generateSession(input({ level: l, round: 2 }));
+      expect(r1.contractions).toBe(r1.phases.filter((p) => p.kind === 'contract' && p.variant !== 'top').length);
+      expect(r1.contractions + r2.contractions).toBe(sessionContractionCap(l));
     }
-    // The light week is plan week 4 (days 22–30), whatever the programme week.
-    expect(generateSession(input({ dayIndex: 21, weekIndex: 7 })).deload).toBe(true);
-    expect(generateSession(input({ dayIndex: 29, weekIndex: 2 })).deload).toBe(true);
-    expect(generateSession(input({ dayIndex: 20, weekIndex: 3 })).deload).toBe(false);
-    expect(generateSession(input({ dayIndex: 0, weekIndex: 3 })).deload).toBe(false);
+    expect(contractionCount(generateReleaseSession(SEED).blocks)).toBe(0);
   });
-
-  it('track mixes: erection uses max contractions in all 3 positions; bladder has the Knack; relax is release-heavy', () => {
-    const e = generateSession(input({ track: 'erection', level: 12 }));
-    expect(e.blocks.some((b) => b.type === 'max_contraction')).toBe(true);
-    expect(new Set(e.blocks.filter((b) => b.role === 'main').map((b) => b.position))).toEqual(new Set(['lying', 'sitting', 'standing']));
-    const b = generateSession(input({ track: 'bladder', dayIndex: 1 }));
-    expect(b.blocks.some((x) => x.type === 'knack')).toBe(true);
-    const kn = b.blocks.findIndex((x) => x.type === 'knack');
-    expect(b.phases.filter((p) => p.exerciseIndex === kn && p.rep === 1).map((p) => p.kind)).toEqual(['contract', 'cough', 'relax']);
-    const r = generateSession(input({ track: 'relax', level: 30 }));
-    expect(r.blocks.filter((x) => x.role === 'main' && x.type === 'release').length).toBeGreaterThanOrEqual(2);
-    expect(Math.max(...r.phases.filter((p) => p.kind === 'contract').map((p) => p.durationMs))).toBeLessThanOrEqual(5000);
-  });
-
-  it('endurance only from level 5; "slow squeeze / slow release": squeeze slowly, short hold, let go slowly, rest', () => {
-    const types = (level: number) => [0, 1, 2, 3, 4].flatMap((dayIndex) => generateSession(input({ level, dayIndex, durationPreset: 'full' })).blocks.map((b) => b.type));
-    expect(types(4)).not.toContain('endurance');
-    expect(types(12)).toContain('endurance');
-    const s = generateSession(input({ dayIndex: 1 }));
-    const i = s.blocks.findIndex((b) => b.type === 'elevator');
-    const rep = s.phases.filter((p) => p.exerciseIndex === i && p.rep === 1);
-    expect(rep.map((p) => `${p.kind}:${p.variant ?? ''}`)).toEqual(['contract:slowUp', 'contract:top', 'release:slowDown', 'relax:']);
-    // Slow phases are seconds long (3–6 s), squeeze and release equally slow; rest at least as long as the squeeze.
-    expect(rep[0]!.durationMs).toBeGreaterThanOrEqual(3000);
-    expect(rep[0]!.durationMs).toBe(rep[2]!.durationMs);
-    expect(rep[3]!.durationMs).toBeGreaterThanOrEqual(rep[0]!.durationMs + rep[1]!.durationMs);
-    expect(s.phases.some((p) => p.stage)).toBe(false);
-  });
-
-  it('positions progress: week 1 lying → sitting → standing; surgery one step slower; relax never standing', () => {
-    expect(positionsFor('general', 0)).toEqual(['lying']);
-    expect(positionsFor('general', 1)).toEqual(['lying', 'sitting']);
-    expect(positionsFor('general', 3)).toEqual(['lying', 'sitting', 'standing']);
-    expect(positionsFor('surgery', 1)).toEqual(['lying']);
-    expect(positionsFor('surgery', 4)).toEqual(['lying', 'sitting', 'standing']);
-    expect(positionsFor('relax', 20)).toEqual(['lying', 'sitting']);
-    expect(positionsFor('erection', 0)).toEqual(['lying', 'sitting', 'standing']);
-    const s = generateSession(input({ weekIndex: 0 }));
-    expect(new Set(s.blocks.map((b) => b.position))).toEqual(new Set(['lying']));
-  });
-
-  it('surgery track starts gentle (short holds), no max contractions', () => {
-    const s = generateSession(input({ track: 'surgery', level: 30, weekIndex: 0 }));
-    expect(Math.max(...s.blocks.filter((b) => b.type === 'slow_hold').map((b) => b.holdSec!))).toBe(3);
-    expect(s.blocks.some((b) => b.type === 'max_contraction')).toBe(false);
-  });
-
   it('blocks carry known technique cues', () => {
     const ids = new Set(KEGEL_CUES.map((c) => c.id));
-    expect(KEGEL_CUES.length).toBeGreaterThanOrEqual(30);
-    for (const b of generateSession(input({ durationPreset: 'full' })).blocks) {
-      expect(b.cueSet.length).toBeGreaterThan(0);
-      for (const c of b.cueSet) expect(ids.has(c)).toBe(true);
-    }
+    for (const b of generateSession(input({ round: 2 })).blocks) for (const c of b.cueSet) expect(ids.has(c)).toBe(true);
   });
-
-  it('micro set 30–60 s; release session has no contractions; trial is 3 × 3 s / 3 s', () => {
-    for (const track of TRACKS)
-      for (const hypertonic of [false, true])
-        for (const level of [1, 30]) {
-          const m = generateMicroSet({ track, level, hypertonic, seed: SEED });
-          expect(m.isMicro).toBe(true);
-          expect([track, hypertonic, level, m.plannedSec >= 30 && m.plannedSec <= 65]).toEqual([track, hypertonic, level, true]);
-        }
+  it('micro set is one uzun + one hızlı (under a minute at level 1); release session has no contractions; trial is 3 × 3 s / 3 s', () => {
+    const micro = generateMicroSet({ level: 1, seed: SEED });
+    expect(types(micro)).toEqual(['slow_hold', 'quick_flick']);
+    expect(micro.isMicro).toBe(true);
+    expect(sec(micro)).toBeLessThanOrEqual(60);
     expect(generateReleaseSession(SEED).contractions).toBe(0);
-    const t = generateTrialSession();
-    expect(t.phases.filter((p) => p.kind === 'contract')).toHaveLength(3);
-    expect(t.plannedSec).toBe(3 + 18);
-    expect(contractionCount(t.blocks)).toBe(3);
+    const trial = generateTrialSession();
+    expect(trial.phases.filter((p) => p.kind === 'contract').map((p) => p.durationMs)).toEqual([3000, 3000, 3000]);
   });
 });
 
@@ -238,8 +152,6 @@ describe('adjustLevel v2 (spec 6.5)', () => {
     const a = adjustLevel(st(6), { feedback: 'hard' });
     expect(a).toMatchObject({ level: 6, consecutiveHard: 1, suggestShorter: true, delta: 0 });
     expect(adjustLevel(a, { feedback: 'hard' })).toMatchObject({ level: 5, consecutiveHard: 0, delta: -1 });
-    expect(shorterPreset('full')).toBe('standard');
-    expect(shorterPreset('quick')).toBe('quick');
   });
 
   it('completion below 70 % → −1; could not finish → −1 and repeat the day', () => {
@@ -302,10 +214,10 @@ describe('schedule rules', () => {
     expect(capStatus(cap, 10).locked).toBe(true);
     expect(sessionAllowed(cap - 10, 20, 10)).toBe(false);
     expect(sessionAllowed(cap, generateReleaseSession(SEED).contractions, 10)).toBe(true);
-    // A main session + the daily micro sets fit under the cap.
-    const main = generateSession(input({ level: 30, durationPreset: 'full' })).contractions;
-    const micro = generateMicroSet({ track: 'general', level: 30, hypertonic: false, seed: SEED }).contractions;
-    expect(main + 3 * micro).toBeLessThanOrEqual(dailyContractionCap(30));
+    // Tur 1 + Tur 2, again, plus a micro set fit under the cap.
+    const both = sessionContractionCap(30);
+    const micro = generateMicroSet({ level: 30, seed: SEED }).contractions;
+    expect(2 * both + micro).toBeLessThanOrEqual(dailyContractionCap(30));
   });
 
   it('pain: level lock for 7 days; 2 reports in 7 days → referral', () => {
@@ -347,7 +259,7 @@ describe('schedule rules', () => {
     expect(goalsToTrack(['confidence'])).toBe('general');
     expect(goalsToTrack([])).toBe('general');
     expect(trackAllowed('surgery', false)).toBe(false);
-    expect(KEGEL_TRACKS.map((t) => t.id).sort()).toEqual([...TRACKS].sort());
+    expect(KEGEL_TRACKS.map((t) => t.id).sort()).toEqual(['bladder', 'control', 'erection', 'general', 'relax', 'surgery']);
     expect(KEGEL_TRACKS.find((t) => t.id === 'surgery')?.requiresClearance).toBe(true);
   });
 });
@@ -372,12 +284,12 @@ describe('plan progression and migration', () => {
     expect(todayWeekIndex(a, '2026-11-16')).toBe(3);
   });
 
-  it('remembers a deload week, the shorter-preset hint and the pain lock', () => {
+  it('remembers a deload week and the pain lock; "hard" no longer suggests a shorter preset (one session length)', () => {
     // Plan 2, day 23 → plan-week number 4 + 3 = 7.
     expect(applySessionResult({ ...base, planNumber: 2, planDayIndex: 22 }, { date: '2026-11-15', feedback: 'ok', deload: true }).lastDeloadWeek).toBe(7);
     const hard = applySessionResult(base, { date: '2026-11-15', feedback: 'hard' });
-    expect(hard.suggestShorter).toBe(true);
-    expect(applySessionResult(hard, { date: '2026-11-16', feedback: 'ok' }).suggestShorter).toBeUndefined();
+    expect(hard.suggestShorter).toBeUndefined();
+    expect(hard.level).toBe(base.level);
     const locked = applySessionResult({ ...base, levelLockUntil: '2026-11-20' }, { date: '2026-11-15', feedback: 'easy' });
     expect(locked.level).toBe(3);
     expect(applySessionResult({ ...base, levelLockUntil: '2026-11-20' }, { date: '2026-11-20', feedback: 'easy' }).level).toBe(4);

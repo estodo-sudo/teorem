@@ -26,11 +26,12 @@ describe('streak freeze, vacation and the return after a break (spec 6.6)', () =
     expect(dailyCheck({ ...t, lastReturnCheck: '2026-11-18' }, '2026-11-19', ['2026-11-18'])).toMatchObject({ freezeTokens: 2, freezeMonth: '2026-11' });
   });
 
-  it('3–6 days without freezes → level −1 "softer"; 7+ → level −2 and a Quick re-warm', () => {
+  it('3–6 days without freezes → level −1 "softer"; 7+ → level −2 (one session length, no preset)', () => {
     const gentle = dailyCheck(base({ freezeTokens: 0 }), '2026-11-19', ['2026-11-14']);
     expect(gentle).toMatchObject({ level: 7, returnNotice: { kind: 'gentle', days: 4 } });
     const rewarm = dailyCheck(base({ freezeTokens: 1 }), '2026-11-19', ['2026-11-05']);
-    expect(rewarm).toMatchObject({ level: 6, nextPresetOnce: 'quick', returnNotice: { kind: 'rewarm' } });
+    expect(rewarm).toMatchObject({ level: 6, returnNotice: { kind: 'rewarm' } });
+    expect(rewarm.nextPresetOnce).toBeUndefined();
   });
 
   it('vacation days never count: the streak is kept and nothing is lowered', () => {

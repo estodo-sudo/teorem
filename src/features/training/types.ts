@@ -70,6 +70,8 @@ export interface GeneratedSession {
   durationPreset: DurationPreset;
   deload: boolean;
   isMicro: boolean;
+  /** 1 = Tur 1 (daily session), 2 = Tur 2 (optional, adds yavaş sıkma). */
+  round: 1 | 2;
   blocks: SessionBlock[];
   exercises: SessionExercise[];
   phases: Phase[];

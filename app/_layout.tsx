@@ -69,11 +69,11 @@ export default function RootLayout() {
           <Stack.Screen name="paywall" options={{ presentation: 'fullScreenModal', gestureEnabled: false }} />
           <Stack.Screen name="workout/[sessionId]" options={{ presentation: 'fullScreenModal', gestureEnabled: false }} />
           <Stack.Screen name="workout/feedback" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="workout/next" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="workout/round2-intro" options={{ gestureEnabled: false }} />
           <Stack.Screen name="strength-test" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="fitness/[routineId]" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="story/[storyId]" options={{ presentation: 'fullScreenModal', animation: 'fade' }} />
-          <Stack.Screen name="campus/neck/routine" options={{ presentation: 'fullScreenModal' }} />
-          <Stack.Screen name="campus/feet/routine" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="camp/sos" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="camp/log-cigarette" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="camp/checkin" options={{ presentation: 'fullScreenModal' }} />

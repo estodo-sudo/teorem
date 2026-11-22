@@ -119,6 +119,8 @@ export interface FocusColors {
 export interface PlayerColors extends FocusColors {
   /** The seconds count on the sphere (white on the teal sphere in both themes). */
   sphereText: string;
+  /** The halo that grows and trembles around the circle while squeezing (red, as in the reference app). */
+  halo: string;
 }
 
 /** White veils for text and shapes on a coloured hero (and the dark player). */
@@ -487,7 +489,10 @@ const anatomyColors: AnatomyColors = {
   pauseBg: 'rgba(255,255,255,0.2)',
 };
 
-const darkPlayer: PlayerColors = { ...focusColors, sphereText: palette.white };
+/** Squeeze halo (user decision 2026-11-22: red, like the reference app). */
+const SQUEEZE_HALO = '#E5383B';
+
+const darkPlayer: PlayerColors = { ...focusColors, sphereText: palette.white, halo: SQUEEZE_HALO };
 
 const lightPlayer: PlayerColors = {
   bg: palette.warm50,
@@ -506,6 +511,7 @@ const lightPlayer: PlayerColors = {
   // Discreet mode stays black in both themes.
   black: focusColors.black,
   sphereText: palette.white,
+  halo: SQUEEZE_HALO,
 };
 
 function build(dark: boolean): Theme {

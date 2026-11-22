@@ -1,7 +1,6 @@
 import type { ModuleTone } from '@/config/theme';
 import type { IconName } from '@/components/Icon';
 import challengesJson from '@/content/challenges.tr.json';
-import coursesJson from '@/content/courses.tr.json';
 import glossaryJson from '@/content/glossary.tr.json';
 import storiesJson from '@/content/stories.tr.json';
 import type { ChallengeCategory } from '@/types';
@@ -102,7 +101,6 @@ export interface Challenge {
 }
 
 export const STORIES = storiesJson as Story[];
-export const COURSES = coursesJson as Course[];
 export const CHALLENGES = challengesJson.items as Challenge[];
 /** Nutrition plan: for each day of the cycle, the ids of its 3 tasks. */
 export const NUTRITION_PLAN = challengesJson.plan as string[][];

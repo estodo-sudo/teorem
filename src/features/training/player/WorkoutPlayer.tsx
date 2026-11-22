@@ -11,14 +11,13 @@ import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useSettingsStore } from '@/stores/settingsStore';
 import type { ExerciseType, Position } from '@/types';
 
-import { cancelHaptics, playCue } from '../haptics';
-import { cueForHoldSecond, cueForPhase } from '../hapticPatterns';
+import { cancelHaptics, playCue, vibrateForPhase } from '../haptics';
 import { playSound, prepareSounds, releaseSounds, soundForPhaseStart } from '../sounds';
 import type { GeneratedSession, Phase, SessionBlock } from '../types';
 import { findTurkishVoice, speak, stopSpeech, voiceKeyForPhase } from '../voice';
 import { activeTime, currentPhase, exerciseOutcomes, remainingInPhase, type PlayerEvent } from './machine';
 import { MuscleSphere } from './MuscleSphere';
-import { blockSegments, cueText, firstPosition, nextPreview, positionCard, segmentFill } from './playerUi';
+import { blockSegments, blockText, cueText, displaySeconds, firstPosition, isFast, nextPreview, positionCard, segmentFill } from './playerUi';
 import { usePlayerGestures } from './usePlayerGestures';
 import { sphereWord } from './sphereMotion';
 import { usePlayer } from './usePlayer';
@@ -97,8 +96,10 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
       for (const e of events) {
         if (e.type === 'phaseStart') {
           const type = e.phase.exerciseIndex >= 0 ? session.exercises[e.phase.exerciseIndex]?.type : undefined;
-          const cue = cueForPhase(e.phase, type);
-          if (cue) playCue(cue, strength);
+          // Vibrate exactly while squeezing (continuous for a hold, 1 s on / 1 s off for quick ones);
+          // let-go, rest and "Dinlen" phases are silent. The countdown keeps its light ticks.
+          if (e.phase.kind === 'countdown') playCue('countdownTick', strength);
+          else vibrateForPhase(e.phase, strength);
           if (settings.voiceCoach) {
             const key = e.phase.kind === 'transition' ? null : voiceKeyForPhase(e.phase, type);
             if (key) speak(tr(`player.voice.${key}`));
@@ -111,12 +112,6 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
           // Screen readers announce each phase (§17: usable without the animation).
           if (screenReader.current && e.phase.durationMs >= 1500) AccessibilityInfo.announceForAccessibility(phaseLabel(e.phase, tr, 0, type));
         } else if (e.type === 'second') {
-          // A light tick each second of a hold, stronger in the last 3 seconds (count without looking).
-          const tick = cueForHoldSecond(e.phase, e.second);
-          if (tick) {
-            playCue(tick, strength);
-            if (settings.soundCues) playSound('tick');
-          }
           // 3-2-1 countdown: a light tick on every number.
           if (e.phase.kind === 'countdown') playCue('countdownTick', strength);
         } else if (e.type === 'completed') {
@@ -144,8 +139,18 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const pausesRef = useRef(0);
   const prevStatus = useRef(state.status);
   useEffect(() => {
-    if (prevStatus.current === 'running' && state.status === 'paused') pausesRef.current += 1;
+    if (prevStatus.current === 'running' && state.status === 'paused') {
+      pausesRef.current += 1;
+      cancelHaptics();
+    }
+    // Resumed mid-squeeze: vibrate for the rest of it.
+    if (prevStatus.current === 'paused' && state.status === 'running') {
+      const ph = currentPhase(state);
+      if (ph) vibrateForPhase(ph, settings.hapticStrength, ph.durationMs - remainingInPhase(state, Date.now()));
+    }
+    if (state.status === 'completed' && state.endedEarly) cancelHaptics();
     prevStatus.current = state.status;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.status]);
 
   // Report completion exactly once.
@@ -186,16 +191,38 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const elapsedMs = phase.durationMs - remainingMs;
   const paused = state.status === 'paused';
   const running = state.status === 'running';
-  const sphereSize = Math.min(width * 0.78, height * 0.46, 340);
-  const label = phaseLabel(phase, tr, elapsedMs, exercise?.type);
+  const sphereSize = Math.min(width * 0.9, height * 0.5, 380);
+  // "Dinlen" right away when the muscle was already let go (after hızlı sık-bırak / yavaş sıkma).
+  const afterLetGo = phase.kind === 'transition' && session.phases[state.index - 1]?.kind === 'relax';
+  const label = afterLetGo ? tr('player.phase.rest') : phaseLabel(phase, tr, elapsedMs, exercise?.type);
   // v1 colouring: squeeze colour while squeezing (also the slow release), plain text colour when relaxing.
-  const secondsLeft = Math.ceil(remainingMs / 1000);
+  // Hızlı sık-bırak and yavaş sıkma count down the whole exercise; a hold or "Dinlen" its own seconds.
+  const wholeBlock = phase.kind !== 'transition' && (exercise?.type === 'quick_flick' || exercise?.type === 'elevator');
+  const secondsLeft = displaySeconds(session.phases, state.index, remainingMs, wholeBlock);
+  const fastRun = wholeBlock || isFast(phase);
+  // The ring runs over the whole exercise for hızlı sık-bırak and yavaş sıkma (no spin on each short step).
+  const ringRange = useMemo(() => {
+    if (!wholeBlock) return undefined;
+    let start = -1;
+    let total = 0;
+    session.phases.forEach((p, i) => {
+      if (p.exerciseIndex !== phase.exerciseIndex || p.kind === 'transition') return;
+      if (start < 0) start = state.startOffsets[i] ?? 0;
+      total += p.durationMs;
+    });
+    if (start < 0 || total <= 0) return undefined;
+    const at = (state.startOffsets[state.index] ?? 0) - start;
+    return { from: Math.min(1, (at + Math.min(phase.durationMs, elapsedMs)) / total), to: Math.min(1, (at + phase.durationMs) / total) };
+    // Recomputed per phase (and on pause / resume through the sphere's own effect).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.index, state.status, wholeBlock]);
   const posMs = (state.startOffsets[state.index] ?? state.totalMs) + Math.min(phase.durationMs, elapsedMs);
   const segments = useMemo(() => blockSegments(session.phases), [session.phases]);
   const fills = segmentFill(segments, state.status === 'completed' && !state.endedEarly ? state.totalMs : posMs);
   const preview = nextPreview(session, phase);
   const blockName = phase.kind === 'countdown' ? tr('player.getReady') : preview ? tr('player.next', { name: tr(`exercise.${preview.block.type}.name`) }) : exercise ? tr(`exercise.${exercise.type}.name`) : '';
-  const counter = phase.rep > 0 && phase.kind !== 'transition' ? tr('player.rep', { rep: phase.rep, reps: phase.reps }) : '';
+  const roundLabel = session.isMicro ? '' : tr('player.round', { n: session.round });
+  const counter = [roundLabel, phase.rep > 0 && phase.reps > 1 && phase.kind !== 'transition' ? tr('player.rep', { rep: phase.rep, reps: phase.reps }) : ''].filter(Boolean).join(' · ');
   const cue = !discreet && phase.kind !== 'countdown' && phase.kind !== 'transition' ? cueText(block, phase.kind, posMs) : null;
   const position = block?.position ?? firstPosition(session);
 
@@ -219,12 +246,6 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
     if (minimal) return;
     setConfirmFinish(true);
   }, [minimal]);
-  const onPain = () => {
-    if (player.getState().status === 'running') player.pause();
-    cancelHaptics();
-    stopSpeech();
-    setPain(onPainReport ? onPainReport() : { refer: false });
-  };
   const endWithPain = (choice: 'release' | 'end') => {
     painChoice.current = choice;
     setPain(null);
@@ -235,12 +256,12 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const pan = usePlayerGestures({ onTap: toggle, onDoubleTap: () => setBlack((b) => !b), onLongPress: askFinish, onSwipeLeft: askSkip });
 
   const f = t.player;
-  const colors = { neutral: f.idle, accent: f.orbEdge, cool: f.relax, breath: t.tokens.breathe, ring: f.orbEdge, track: f.track, paused: f.paused, glow: f.glow, highlight: f.orbCenter };
+  const colors = { neutral: f.idle, accent: f.orbEdge, cool: f.relax, breath: t.tokens.breathe, ring: f.text, track: f.track, paused: f.paused, glow: f.glow, highlight: f.orbCenter, halo: f.halo, gap: f.bg };
   const overall = state.totalMs > 0 ? Math.min(1, (state.status === 'completed' ? state.totalMs : posMs) / state.totalMs) : 0;
 
   return (
     <View style={styles.flex} {...pan.panHandlers} accessibilityHint={tr('player.gestureHint')}>
-      {/* Top: thin segmented bar; block name + rep counter; position, help and pain icons (44 px each) */}
+      {/* Top: thin segmented bar; block name + rep counter; position and help icons (44 px each). The pain button was removed (user request 2026-11-22). */}
       <View style={{ gap: t.space.md }}>
         <SegmentBar fills={fills} active={segments.findIndex((s) => s.exerciseIndex === phase.exerciseIndex)} color={f.text} track={f.track} label={tr('player.progress')} />
         <View style={styles.rowBetween}>
@@ -260,37 +281,35 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
             <Icon name={POSITION_ICON[position]} color={f.icon} size="lg" />
           </View>
           <IconButton icon="help" label={tr('player.help')} onPress={() => setHelpOpen(true)} color={f.icon} />
-          {!minimal ? <IconButton icon="painCare" label={tr('player.painButton')} onPress={onPain} color={f.icon} /> : null}
         </View>
       </View>
 
       {/* Middle (~55 %): Kas Küresi */}
       <View style={styles.center} accessible accessibilityLabel={`${label}. ${secondsLeft}`} accessibilityLiveRegion="assertive">
-        <MuscleSphere size={sphereSize} phase={phase} exerciseType={exercise?.type} phaseKey={state.index} elapsedMs={elapsedMs} paused={paused} finished={state.status === 'completed' && !state.endedEarly} colors={colors}>
-          {phase.durationMs >= 1000 && !paused ? (
+        {/* Count and word inside the centre disc, as in the reference app. */}
+        <MuscleSphere size={sphereSize} phase={phase} exerciseType={exercise?.type} phaseKey={state.index} elapsedMs={elapsedMs} paused={paused} finished={state.status === 'completed' && !state.endedEarly} colors={colors} ring={ringRange}>
+          {(phase.durationMs >= 1000 || fastRun) && !paused ? (
             <AppText variant="display" tabular color={f.sphereText} center style={styles.shadow}>
               {secondsLeft}
             </AppText>
           ) : null}
+          {paused ? (
+            <AppText variant="callout" weight="700" center color={f.sphereText} style={styles.shadow}>
+              {tr('player.paused')}
+            </AppText>
+          ) : !discreet ? (
+            <AppText variant="callout" weight="700" center color={f.sphereText} style={[styles.shadow, { letterSpacing: 0.5 }]} accessibilityElementsHidden importantForAccessibility="no">
+              {label}
+            </AppText>
+          ) : null}
         </MuscleSphere>
-      </View>
-      {/* The phase word under the sphere: calm title in the text colour, not coloured (ui-v3). */}
-      <View style={{ minHeight: 44, justifyContent: 'center' }}>
-        {paused ? (
-          <AppText variant="title1" weight="600" center color={f.dim}>
-            {tr('player.paused')}
-          </AppText>
-        ) : !discreet ? (
-          <AppText variant="title1" weight="600" center color={f.text} accessibilityElementsHidden importantForAccessibility="no">
-            {label}
-          </AppText>
-        ) : null}
       </View>
 
       {/* Bottom: rotating technique cue + controls */}
-      <View style={{ minHeight: 44, justifyContent: 'center', paddingHorizontal: 8 }}>
+      {/* Fixed height: a one- or two-line cue must not move the circle above it. */}
+      <View style={{ height: 48, justifyContent: 'center', paddingHorizontal: 8 }}>
         {cue ? (
-          <AppText variant="callout" center color={f.dim}>
+          <AppText variant="callout" center color={f.dim} numberOfLines={2}>
             {cue}
           </AppText>
         ) : null}
@@ -420,44 +439,27 @@ function NextCard({ block, positionChanged }: { block: SessionBlock; positionCha
     y.value = withTiming(0, { duration: t.motion.normal, easing: Easing.out(Easing.cubic) });
   }, [y, t.motion.normal]);
   const style = useAnimatedStyle(() => ({ transform: [{ translateY: y.value }], opacity: 1 - y.value / 90 }));
-  const card = positionCard(block.position);
-  const detail = block.slowSec
-    ? tr('player.nextSlow', { slow: block.slowSec, top: (block.holdSec ?? 0) - block.slowSec })
-    : block.holdSec !== undefined
-      ? tr('player.nextDetail', { hold: block.holdSec, rest: block.restSec })
-      : tr('player.nextRelease');
+  const text = blockText(block, tr);
   return (
     <Animated.View pointerEvents="none" style={[styles.sheet, { backgroundColor: t.tokens.card, borderColor: positionChanged ? t.tokens.primary : t.tokens.border, borderRadius: t.radius.lg, padding: t.space.lg, gap: t.space.md }, style]}>
       <MiniPreview type={block.type} color={t.player.orbEdge} calm={t.tokens.breathe} />
       <View style={{ flex: 1, gap: 2 }}>
-        <AppText variant="title3">{tr('player.nextTitle', { name: tr(`exercise.${block.type}.name`), reps: block.reps })}</AppText>
+        <AppText variant="title3">{tr('player.nextName', { name: text.title })}</AppText>
         <AppText variant="footnote" muted>
-          {detail}
+          {text.detail}
         </AppText>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs }}>
-          <Icon name={POSITION_ICON[block.position]} size="sm" color={positionChanged ? t.tokens.primary : t.tokens.mutedForeground} />
-          <AppText variant="footnote" weight={positionChanged ? '600' : '400'} color={positionChanged ? t.tokens.primary : t.tokens.mutedForeground}>
-            {positionChanged ? tr('player.positionChange', { position: card.title }) : card.title}
-          </AppText>
-        </View>
-        {positionChanged ? (
-          <AppText variant="footnote" muted>
-            {card.text}
-          </AppText>
-        ) : null}
       </View>
     </Animated.View>
   );
 }
 
-/** Tiny looping demo of the next exercise's rhythm. */
 /** Tiny looping demo of the next exercise's rhythm: the circle grows (squeeze) and shrinks (release), like the big one. */
 function MiniPreview({ type, color, calm }: { type: ExerciseType; color: string; calm: string }) {
   const scale = useSharedValue(0.55);
   const gentle = type === 'release' || type === 'breath';
   useEffect(() => {
-    const up = type === 'quick_flick' ? 150 : type === 'elevator' ? 1800 : gentle ? 900 : 450;
-    const down = type === 'quick_flick' ? 250 : type === 'elevator' ? 1800 : gentle ? 1800 : 800;
+    const up = type === 'quick_flick' ? 150 : type === 'elevator' ? 3000 : gentle ? 900 : 450;
+    const down = type === 'quick_flick' ? 250 : type === 'elevator' ? 500 : gentle ? 1800 : 800;
     scale.value = withRepeat(withSequence(withTiming(gentle ? 0.75 : 1, { duration: up, easing: Easing.inOut(Easing.cubic) }), withTiming(0.55, { duration: down, easing: Easing.inOut(Easing.cubic) })), -1);
   }, [type, gentle, scale]);
   const style = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));

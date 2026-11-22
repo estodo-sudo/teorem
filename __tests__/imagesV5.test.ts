@@ -90,7 +90,7 @@ describe('clean-up and completeness (§8 G3)', () => {
 
   it('no Keşfet card falls back to the gradient any more', () => {
     for (const id of Object.keys(IMAGES)) expect([id, IMAGES[id]!.bytes > 0]).toEqual([id, true]);
-    expect(Object.keys(IMAGES).filter((k) => k.split('/').length === 2)).toHaveLength(49);
+    expect(Object.keys(IMAGES).filter((k) => k.split('/').length === 2)).toHaveLength(42);
   });
 
   it('REVIEW.md has a decision for every photo and no slide left to pick by hand', () => {

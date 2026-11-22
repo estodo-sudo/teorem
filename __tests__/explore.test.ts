@@ -3,7 +3,6 @@ import path from 'path';
 
 import { exploreImage, IMAGES } from '@/content/images';
 import { CAMPS } from '@/features/camps/registry';
-import { CAMPUSES } from '@/features/content/cards';
 import { GLOSSARY, STORIES } from '@/features/content/data';
 
 jest.mock('expo-router', () => ({ router: { push: jest.fn(), replace: jest.fn(), canDismiss: () => false, dismissAll: jest.fn() } }));
@@ -19,7 +18,6 @@ const items: ['stories' | 'camps' | 'programs' | 'glossary', string][] = [
   ...STORIES.map((s) => ['stories', s.id] as ['stories', string]),
   ...CAMPS.map((c) => ['camps', c.id] as ['camps', string]),
   ['camps', 'alcohol'],
-  ...CAMPUSES.filter((c) => c.kind !== 'alcohol').map((c) => ['programs', c.id] as ['programs', string]),
   ...GLOSSARY.map((g) => ['glossary', g.id] as ['glossary', string]),
 ];
 
@@ -65,7 +63,10 @@ describe('Keşfet layout and the rename (SPEC_KESFET_V2 §3, §7)', () => {
     const src = read('app/(tabs)/discover.tsx');
     expect(src).not.toMatch(/SeeAllCard|seeAll|moreCount|PREVIEW_ROWS|\.slice\(0,/);
     expect(src).toMatch(/AlcoholCampCard/);
-    expect((src.match(/<HorizontalSection/g) ?? []).length).toBe(4);
+    // Antrenmanlar was emptied: three strips remain, plus its "coming soon" note.
+    expect((src.match(/<HorizontalSection/g) ?? []).length).toBe(3);
+    expect(src).toMatch(/programsSoon/);
+    expect(fs.existsSync(path.join(root, 'app/course'))).toBe(false);
     expect(fs.existsSync(path.join(root, 'app/course/index.tsx'))).toBe(false);
     expect(fs.existsSync(path.join(root, 'app/glossary/index.tsx'))).toBe(false);
   });

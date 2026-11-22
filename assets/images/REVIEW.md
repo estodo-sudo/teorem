@@ -145,31 +145,24 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/worry-time/7` | kabul | Planlayıcıya yazan el. | 9.82:1 (karartma 0.78) | 6588938: Okunur "PLAN FOR 2021"; 4497733: Telefon ve kalabalık |
 | `glossary/after-prostate-surgery` | kabul | Parkta yürüyen yaşlıca erkek, arkadan. | kart dışı | 18805610: Başka maddede reddedildi, kalabalık; 7261633: Genç erkek |
 | `camp/alcohol` | kabul | Güneş ışığında portakal suyu: sabah ve tazelik. | kart dışı | 10277954: Siyah fon, stüdyo çekimi; 36546933: File içinde mandalina, konu dağınık |
-| `program/daily-life` | kabul | Merdiven çıkan bacaklar. | kart dışı | 14359093: Siyah-beyaz; 19849847: Siyah-beyaz |
 | `glossary/discreet` | kabul | Tül perdeden süzülen yumuşak ışık. | kart dışı | 14740202: Perde arkasında kişi; 33939018: Sırtı açık kadın (yasak) |
 | `glossary/dribble` | kabul | Eski musluktan damlayan su. | kart dışı | 12271457: Siyah-beyaz; 4328899: Şişede etiket okunuyor; 40214245: Siyah fon, musluk yok |
 | `glossary/erectile-dysfunction` | kabul | Masada konuşan iki kişinin elleri: doktor görüşmesi, yüz yok. | kart dışı | 9951403: Yüzler görünüyor; 19814054: Siyah-beyaz, hastane |
 | `glossary/exercises` | kabul | Egzersiz matını açan eller, yüz yok. | kart dışı | 16148425: Siyah-beyaz; 11433027: Karanlık spor salonu, çıplak kol; 6916301: Kadın, hedef kitle değil |
-| `program/feet` | kabul | Çimende çıplak ayakla yürüyüş. | kart dışı | 9045267: Etek; hedef kitleye uymuyor; 6916148: Yukarıdan, konu belirsiz |
 | `glossary/kegel` | kabul | Yerde uzanıp dinlenen erkek: gevşeme ve nefes. | kart dışı | 28970123: Oturarak meditasyon, uzanma yok; 8436449: Kadın, hedef kitle değil; 20205179: Siyah-beyaz; 34455965: Yüzü elleriyle kapatıyor, gergin |
 | `glossary/lasting-longer` | kabul | Masada iki bardak, sakin bahçe. | kart dışı | 9271565: Turuncu fon, aşırı doygun; 19880783: Siyah-beyaz |
 | `glossary/level` | kabul | Aydınlık basamaklar. | kart dışı | 38515877: Siyah-beyaz; 33187986: Sarı, aşırı doygun |
-| `program/lifestyle` | kabul | Sebze doğrayan eller. | kart dışı | 8629042: Profesyonel mutfak, kalabalık; 8093940: Restoran mutfağı, yüz görünüyor |
 | `glossary/low-desire` | kabul | Yağmurlu pencere. | kart dışı | 15099879: Gökyüzü, konu belirsiz; 2118576: Bulanık |
 | `glossary/masturbation` | kabul | Gün ışığına açılan kapı: seçim ve kontrol. | kart dışı | 37153165: Çok karanlık; 1475234: Otel tabelası okunuyor |
 | `glossary/morning-erection` | kabul | Sabah ışığı dolan boş yatak odası. | kart dışı | 9830032: Perde çok kırmızı; 34998225: Siyah-beyaz |
-| `program/neck` | kabul | Masada dik oturan erkek, yandan; yüz kadrajda değil. | kart dışı | 6803531: Kambur duruş, konuya ters; 7682101: Kulaklık ve ekranlar kalabalık |
 | `camp/odak` | kabul | Sisli sakin göl ve iskele, insan yok. | kart dışı | 18386434: Çok karanlık; 37109411: Sis yok, keskin dağlar |
 | `glossary/partner-satisfaction` | kabul | Gün batımında el ele yürüyen çift, arkadan. | kart dışı | 638341: Siyah-beyaz; 18805610: Şehir trafiği kalabalık |
-| `program/pf101` | kabul | Egzersize matını açarak başlayan erkek. Köprü hareketi yapan uygun bir erkek fotoğrafı bulunamadı; en yakın anlam bu. | kart dışı | 4587402: Kadın ve eğitmen; hedef kitle değil; 4803935: Çıplak üst beden (yasak); 36400032: Kadın, yarı çıplak; 8173429: Plank, köprü değil; yüz stüdyo gülümsemesi |
 | `glossary/plan` | kabul | Masada not defteri ve kalemler. | kart dışı | 5518867: Rakamlar okunuyor; 29765806: Dizüstü bilgisayar baskın |
 | `glossary/premature-ejaculation` | kabul | Kum saati: süre ve zamanlama, nazik bir sembol. | kart dışı | 14974588: Kitapta okunur yazı, kum saati çok küçük; 5506210: Yalnızca kum dokusu, kum saati yok |
 | `glossary/privacy` | kabul | Eski kapıda asılı anahtar. | kart dışı | 17092404: Tahtada okunur yazı; 20107126: Kupada marka |
-| `program/sexual-health` | kabul | Kahvaltıda el ele tutuşan çift, yakın çekim, yüz yok. | kart dışı | 3921975: Renkli örtü çok doygun; 8525708: Cam masa, parlama |
 | `camp/smoking` | kabul | Gün doğumunda tepelere bakan yürüyüşçü: nefes ve açık hava. | kart dışı | — |
 | `glossary/streak` | kabul | Masada planlayıcı ve kalem; yazılar küçük kırpımda okunmuyor. | kart dışı | 6325569: Yıl yazısı büyük ve okunur; 4985336: Bilgisayar logosu; 5408818: Takvim yazıları okunur |
 | `glossary/strength-test` | kabul | Kronometreli cep saati. | kart dışı | 1136589: Saatte marka adı; 40581106: Siyah-beyaz, istasyon saati |
-| `program/stress-sleep` | kabul | Akşam ışığında sakin yatak odası ve pencere. | kart dışı | 11849146: Mavi ışık soğuk, yatakta kişi; 3337209: Çok karanlık |
 | `glossary/tight-pelvic-floor` | kabul | Gevşek kıvrılmış halat: gerginlikten gevşemeye. | kart dışı | 5483772: Siyah-beyaz; 7397178: Dağınık ağ, kalabalık |
 | `glossary/vibration` | kabul | Ekranı aşağı bakan telefon; logo görünmüyor. | kart dışı | 17984647: Marka logosu; 36680544: Marka logoları |
 

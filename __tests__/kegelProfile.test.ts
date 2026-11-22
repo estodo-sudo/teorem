@@ -31,7 +31,7 @@ describe('muscle profile screening (spec 2)', () => {
     expect(SCREENING.result.relaxText).toMatch(/pelvik taban fizyoterapistine/);
   });
 
-  it('saves the profile; ≥ 2 yes → hypertonic, sessions then cap holds and add release', () => {
+  it('saves the profile; ≥ 2 yes → hypertonic flag and the advice; the session stays the one programme', () => {
     const r = saveScreening([false, true, false, true, false, false, false, false]);
     expect(r).toMatchObject({ hypertonicFlag: true, painFlag: true, suggestTrack: 'relax' });
     const p = useKegelStore.getState().profile!;
@@ -39,9 +39,9 @@ describe('muscle profile screening (spec 2)', () => {
     expect(p.screeningAnswers).toHaveLength(8);
     // The track stays the user's choice; the session follows the profile.
     expect(useTrainingStore.getState().training.track).toBe('general');
-    const s = buildTodaySession(useTrainingStore.getState().training, '2026-11-19', { strengthFalling: false });
-    expect(Math.max(...s.phases.filter((x) => x.kind === 'contract').map((x) => x.durationMs))).toBeLessThanOrEqual(5000);
-    expect(s.blocks.filter((b) => b.role === 'main' && b.type === 'release').length).toBeGreaterThan(0);
+    // One programme for everyone (user decision 2026-11-22): the result advises an expert first.
+    const s = buildTodaySession(useTrainingStore.getState().training, '2026-11-19');
+    expect(new Set(s.blocks.map((b) => b.type))).toEqual(new Set(['slow_hold', 'quick_flick']));
   });
 
   it('asked once (new and migrated users), skipping is allowed; relax track re-screens every 2 weeks', () => {
@@ -85,12 +85,10 @@ describe('tracks and the surgery clearance (spec 3, 11.3)', () => {
     expect(sanitizeKegelData({ surgeryClearance: { confirmedAt: 4 } }).surgeryClearance).toBeNull();
   });
 
-  it('erection track uses all three positions every session; relax never standing', () => {
+  it('one programme: the session no longer changes with the track or the week (no position changes)', () => {
     for (const weekIndex of [0, 1, 6]) {
-      const e = generateSession({ track: 'erection', level: 10, durationPreset: 'quick', dayIndex: 0, weekIndex, hypertonic: false, seed: 'x' });
-      expect(new Set(e.blocks.filter((b) => b.role === 'main').map((b) => b.position)).size).toBe(3);
-      const r = generateSession({ track: 'relax', level: 10, durationPreset: 'full', dayIndex: 0, weekIndex, hypertonic: true, seed: 'x' });
-      expect(r.blocks.some((b) => b.position === 'standing')).toBe(false);
+      const s = generateSession({ level: 10, dayIndex: 0, weekIndex, seed: 'x' });
+      expect(new Set(s.blocks.map((b) => b.position))).toEqual(new Set(['lying']));
     }
   });
 });

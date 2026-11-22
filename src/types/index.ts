@@ -55,6 +55,8 @@ export interface TrainingState {
   suggestShorter?: boolean;
   /** The next main session uses this preset once (first session after the tutorial: quick 3 min). */
   nextPresetOnce?: DurationPreset;
+  /** The short Tur 2 (yavaş sıkma) introduction was shown once. */
+  round2IntroDone?: boolean;
   /** Days kept by a streak freeze (date keys). */
   frozenDays?: string[];
   /** Last day the missed-days check ran (date key). */

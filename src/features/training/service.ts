@@ -13,21 +13,14 @@ import { sessionSummary } from './summary';
 import type { PlayerResult } from './player/WorkoutPlayer';
 import type { GeneratedSession } from './types';
 
-/** Today's deterministic session for the current training state. */
-export function buildTodaySession(training: TrainingState, today = toDateKey(), opts: { hypertonic?: boolean; strengthFalling?: boolean; preset?: TrainingState['durationPreset'] } = {}): GeneratedSession {
-  const hypertonic = opts.hypertonic ?? useKegelStore.getState().profile?.hypertonicFlag ?? false;
-  const weekIndex = todayWeekIndex(training, today);
+/**
+ * Today's deterministic session (Tur 1, or Tur 2 with `round: 2`) for the current training state. In
+ * plan week 4 ("Toparlanma", or an early deload after falling strength tests) Tur 1 is one cycle shorter.
+ */
+export function buildTodaySession(training: TrainingState, today = toDateKey(), opts: { round?: 1 | 2; strengthFalling?: boolean } = {}): GeneratedSession {
   const strengthFalling = opts.strengthFalling ?? strengthFallingTwoWeeks(useHistoryStore.getState().strengthTests);
-  return generateSession({
-    track: training.track,
-    level: training.level,
-    durationPreset: opts.preset ?? training.nextPresetOnce ?? training.durationPreset,
-    dayIndex: todayPlanDay(training, today),
-    weekIndex,
-    hypertonic,
-    seed: today,
-    deload: deloadDue({ ...todayPlanPosition(training, today), lastDeloadWeek: training.lastDeloadWeek, strengthFalling }),
-  });
+  const deload = deloadDue({ ...todayPlanPosition(training, today), lastDeloadWeek: training.lastDeloadWeek, strengthFalling });
+  return generateSession({ level: training.level, seed: today, round: opts.round ?? 1, dayIndex: todayPlanDay(training, today), weekIndex: todayWeekIndex(training, today), deload });
 }
 
 type Hook = (w: WorkoutSession) => void;
@@ -130,5 +123,5 @@ export function submitFeedback(workoutId: string, feedback: Feedback, techniqueC
     }
   });
   const t1 = useTrainingStore.getState().training;
-  return { before: t0.level, after: t1.level, suggestShorter: Boolean(t1.suggestShorter) && !w.isMicro, locked, wouldRise: wouldRise && !w.isMicro, struggled: feedback === 'hard' || feedback === 'failed' };
+  return { before: t0.level, after: t1.level, suggestShorter: false, locked, wouldRise: wouldRise && !w.isMicro, struggled: feedback === 'hard' || feedback === 'failed' };
 }

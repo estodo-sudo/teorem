@@ -30,13 +30,13 @@ export function useOdakSummary(): CampSummary {
 export function OdakCampCard() {
   const { t: tr } = useTranslation();
   const { status, progress, locked } = useOdakSummary();
-  return <RowCard icon={ODAK_ICON} tone="focus" title={tr('odak.title')} status={status} progress={progress} locked={locked} onPress={() => router.push('/odak')} />;
+  return <RowCard icon={ODAK_ICON} tone="focus" title={tr('odak.cardTitle')} status={status} progress={progress} locked={locked} onPress={() => router.push('/odak')} />;
 }
 
 /** Odak Kampı on the shared camp engine (18+, highest privacy level). */
 export const ODAK_CAMP: CampDefinition<OdakPhase> = {
   id: 'odak',
-  titleKey: 'odak.title',
+  titleKey: 'odak.cardTitle',
   icon: ODAK_ICON,
   days: ODAK_DAYS,
   route: '/odak',

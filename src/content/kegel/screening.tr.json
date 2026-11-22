@@ -48,12 +48,12 @@
     }
   ],
   "result": {
-    "relaxTitle": "Gevşeme odaklı başlamanı öneriyoruz",
-    "relaxText": "Yanıtların, pelvik tabanın gerginlik taşıyor olabileceğini gösteriyor. Bu durumda yalnızca sıkma egzersizleri rahatsızlığı artırabilir. Gevşeme odaklı başlamanı ve bir üroloji uzmanına veya pelvik taban fizyoterapistine danışmanı öneriyoruz.",
-    "relaxNote": "Bu bir öneri; programı sen seçersin. Gevşeme izinde tutma süreleri kısa tutulur ve 2 haftada bir taramayı yenilemeni isteriz.",
+    "relaxTitle": "Önce bir uzmana danışmanı öneriyoruz",
+    "relaxText": "Yanıtların, pelvik tabanının gerginlik taşıyor olabileceğini gösteriyor. Bu durumda sıkma egzersizleri rahatsızlığı artırabilir. Antrenmana başlamadan önce bir üroloji uzmanına veya pelvik taban fizyoterapistine danışmanı öneriyoruz.",
+    "relaxNote": "Antrenman sırasında ağrı ya da rahatsızlık hissedersen hemen dur ve antrenmanı bitir. Taramayı 2 haftada bir yenilemeni öneririz.",
     "okTitle": "Profilin hazır",
-    "okText": "Yanıtlarında gerginliğe işaret eden belirgin bir durum yok. Hedefine uygun programla başlayabilirsin.",
-    "dribbleText": "İdrar sonrası damlama için İdrar Kontrolü izi ve “idrar sonrası 2 kez sık” alışkanlığı yardımcı olabilir.",
-    "painNotice": "Ağrı olursa dur. Kegel ağrı yapmamalıdır; rahatsızlık hissedersen sağ üstteki kalkan butonuna dokun."
+    "okText": "Yanıtlarında gerginliğe işaret eden belirgin bir durum yok. Antrenmana başlayabilirsin.",
+    "dribbleText": "İdrar sonrası damlama için “idrar sonrası 2 kez sık” alışkanlığı yardımcı olabilir.",
+    "painNotice": "Ağrı olursa dur. Kegel ağrı yapmamalıdır; rahatsızlık hissedersen antrenmanı bitir."
   }
 }

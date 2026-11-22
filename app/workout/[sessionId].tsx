@@ -9,7 +9,6 @@ import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { useTheme } from '@/components';
 import { generateMicroSet, generateReleaseSession } from '@/features/training/generateSession';
 import { WorkoutPlayer, type PlayerResult } from '@/features/training/player/WorkoutPlayer';
-import { todayWeekIndex } from '@/features/training/plan';
 import { buildTodaySession, recordWorkout, reportPain } from '@/features/training/service';
 import { goHome } from '@/lib/nav';
 import { toDateKey } from '@/lib/date';
@@ -18,20 +17,21 @@ import { useTrainingStore } from '@/stores/trainingStore';
 
 /**
  * Kegel player screen. `sessionId`: "release" = release-only session (after pain or over the daily
- * cap), "micro" = micro set, anything else = today's session. Follows the app theme (dark: the focus look of SPEC_UI_V3 §7.4; light: a light player).
+ * cap), "micro" = micro set, "round2" = Tur 2 (`first` = the Tur 1 workout id), anything else =
+ * today's Tur 1. After Tur 1 the "Tur 2?" screen follows; feedback is asked once, for Tur 1.
+ * Follows the app theme (dark: the focus look of SPEC_UI_V3 §7.4; light: a light player).
  */
 export default function WorkoutScreen() {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const { sessionId } = useLocalSearchParams<{ sessionId: string }>();
+  const { sessionId, first } = useLocalSearchParams<{ sessionId: string; first?: string }>();
   // Snapshot the training state at mount: the session must not change mid-play.
   const session = useMemo(() => {
     const training = useTrainingStore.getState().training;
     const today = toDateKey();
     if (sessionId === 'release') return generateReleaseSession(today);
-    if (sessionId === 'micro') return generateMicroSet({ track: training.track, level: training.level, hypertonic: useKegelStore.getState().profile?.hypertonicFlag ?? false, seed: `${today}-micro`, weekIndex: todayWeekIndex(training, today) });
-    // "Start (3 min)" from a reminder: today's session in the Quick preset.
-    if (sessionId === 'quick') return buildTodaySession(training, today, { preset: 'quick' });
+    if (sessionId === 'micro') return generateMicroSet({ level: training.level, seed: `${today}-micro` });
+    if (sessionId === 'round2') return buildTodaySession(training, today, { round: 2 });
     return buildTodaySession(training);
   }, [sessionId]);
 
@@ -41,9 +41,13 @@ export default function WorkoutScreen() {
       // Pain: no feedback (no level change); continue with release only, or stop for today.
       if (result.pain === 'release') return router.replace({ pathname: '/workout/[sessionId]', params: { sessionId: 'release' } });
       if (result.pain === 'end' || session.id.endsWith('-release')) return goHome();
+      // Tur 2 done: the feedback belongs to Tur 1 (one level decision per day's session).
+      if (session.round === 2) return router.replace({ pathname: '/workout/feedback', params: { id: first || w.id } });
+      // Tur 1 finished: offer Tur 2 before the feedback.
+      if (!session.isMicro && !result.endedEarly) return router.replace({ pathname: '/workout/next', params: { id: w.id } });
       router.replace({ pathname: '/workout/feedback', params: { id: w.id } });
     },
-    [session],
+    [session, first],
   );
 
   return (

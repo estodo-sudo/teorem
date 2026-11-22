@@ -11,7 +11,6 @@ import { useStreak } from '@/features/gamification/service';
 import { playCue } from '@/features/training/haptics';
 import { submitFeedback, type FeedbackOutcome } from '@/features/training/service';
 import { dailyProgress, levelOutlook } from '@/features/training/summary';
-import { shorterPreset } from '@/features/training/tracks';
 import { formatDuration, toDateKey } from '@/lib/date';
 import { goHome } from '@/lib/nav';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -267,17 +266,14 @@ function TechniqueTips() {
   );
 }
 
-/** After saving: tomorrow's level row (and the gentle "shorter tomorrow" offer) and the daily target. */
+/** After saving: tomorrow's level row and the daily target. */
 function Outcome({ outcome }: { outcome: FeedbackOutcome | null }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const workouts = useHistoryStore((s) => s.workouts);
   const target = useTrainingStore((s) => s.training.dailyTarget);
-  const preset = useTrainingStore((s) => s.training.durationPreset);
-  const [shortened, setShortened] = useState(false);
   const daily = dailyProgress(workouts, toDateKey(), target);
   const outlook = outcome ? levelOutlook(outcome) : null;
-  const shorter = shorterPreset(preset);
   return (
     <View style={{ gap: t.space.md }}>
       {outcome && outlook ? (
@@ -294,15 +290,6 @@ function Outcome({ outcome }: { outcome: FeedbackOutcome | null }) {
           <AppText variant="callout" muted>
             {tr(`feedback.outlook.${outlook}.body`, { level: outcome.after })}
           </AppText>
-          {outlook === 'sameShorter' && shorter !== preset ? (
-            shortened ? (
-              <AppText variant="callout" color={t.tokens.success}>
-                {tr('feedback.outlook.shortened', { preset: tr(`training.preset.${shorter}`) })}
-              </AppText>
-            ) : (
-              <Button label={tr('feedback.outlook.shorten', { preset: tr(`training.preset.${shorter}`) })} variant="secondary" onPress={() => (useTrainingStore.getState().update({ durationPreset: shorter }), setShortened(true))} />
-            )
-          ) : null}
         </Card>
       ) : null}
 

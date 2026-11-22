@@ -5,11 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
 import { IconTile } from '@/components/ui';
-import { chooseTrack, saveScreening, SCREENING } from '@/features/training/kegelProfile';
+import { saveScreening, SCREENING } from '@/features/training/kegelProfile';
 import type { ScreeningResult } from '@/features/training/schedule';
 import { goBack } from '@/lib/nav';
 import { useKegelStore } from '@/stores/kegelStore';
-import { useTrainingStore } from '@/stores/trainingStore';
 
 /**
  * Kas profili taraması (SPEC_KEGEL_V2 §2): 8 yes/no questions about the last month, one per screen.
@@ -43,19 +42,10 @@ export default function ScreeningScreen() {
   if (result) {
     const relax = result.suggestTrack === 'relax';
     const dribble = answers[7] === true;
-    const current = useTrainingStore.getState().training.track;
     return (
       <Screen
-        footer={
-          relax && current !== 'relax' ? (
-            <>
-              <Button label={tr('kegel.screening.startRelax')} size="lg" variant="accent" onPress={() => (chooseTrack('relax'), leave())} />
-              <Button label={tr('kegel.screening.keepTrack')} variant="ghost" onPress={leave} />
-            </>
-          ) : (
-            <Button label={tr('common.continue')} size="lg" variant="accent" onPress={leave} />
-          )
-        }
+        // One programme for everyone now: the result explains, nothing to switch to.
+        footer={<Button label={tr('common.continue')} size="lg" variant="accent" onPress={leave} />}
       >
         <View style={{ gap: t.space.md, marginTop: t.space.xl }}>
           <IconTile icon={relax ? 'leaf' : 'success'} tone="kegel" size="lg" round />

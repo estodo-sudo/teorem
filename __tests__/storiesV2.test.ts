@@ -13,7 +13,7 @@ const v2 = STORIES.filter(isV2Story);
 
 /** Every `icon` / `support` value in any slide of any content file that has slides. */
 function slideIcons(): { file: string; icon: string }[] {
-  const files = ['stories.tr.json', 'courses.tr.json', 'camp/library.tr.json', 'camp/skills.tr.json', 'camps/odak/library.tr.json', 'camps/odak/skills.tr.json'];
+  const files = ['stories.tr.json', 'camp/library.tr.json', 'camp/skills.tr.json', 'camps/odak/library.tr.json', 'camps/odak/skills.tr.json'];
   const out: { file: string; icon: string }[] = [];
   const walk = (o: unknown, file: string) => {
     if (Array.isArray(o)) o.forEach((x) => walk(x, file));

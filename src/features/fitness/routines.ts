@@ -1,20 +1,27 @@
 import fitness from '@/content/fitness.tr.json';
 import type { ActivityLevel } from '@/types';
 
-export type Posture = 'bridge' | 'lying' | 'seated' | 'squat' | 'plank' | 'kneeling' | 'lunge' | 'side';
+import { MOVES, type MoveSpec } from './motion';
 
+/** A pelvic fitness move: what it works, how to start, the steps, a tip and the usual mistake. */
 export interface FitnessExercise {
   id: string;
-  posture: Posture;
   name: string;
-  desc: string;
-  cue: string;
+  target: string;
+  setup: string;
+  steps: string[];
+  tip: string;
+  mistake: string;
 }
+
+/** Rounds of a routine (user request 2026-11-22): 1 Isınma, 2 Güç, 3 Esneme. */
+export type FitnessRound = 1 | 2 | 3;
 
 export interface RoutineStep {
   exerciseId: string;
   workSec: number;
   restSec: number;
+  round: FitnessRound;
 }
 
 export interface Routine {
@@ -30,6 +37,20 @@ export const FITNESS_COUNTDOWN_SEC = 5;
 
 export function getExercise(id: string): FitnessExercise | undefined {
   return FITNESS_EXERCISES.find((e) => e.id === id);
+}
+
+/** Tempo and figure of a move. */
+export const getMove = (id: string): MoveSpec | undefined => MOVES[id];
+
+/** The routine's steps grouped by round, in order. */
+export function routineRounds(r: Routine): { round: FitnessRound; steps: { step: RoutineStep; index: number }[] }[] {
+  const out: { round: FitnessRound; steps: { step: RoutineStep; index: number }[] }[] = [];
+  r.steps.forEach((step, index) => {
+    const last = out[out.length - 1];
+    if (last && last.round === step.round) last.steps.push({ step, index });
+    else out.push({ round: step.round, steps: [{ step, index }] });
+  });
+  return out;
 }
 
 export function getRoutine(id: string): Routine | undefined {

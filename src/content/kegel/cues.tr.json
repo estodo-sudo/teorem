@@ -228,14 +228,6 @@
       "text": "Tamamen bırak, kas yere iner gibi."
     },
     {
-      "id": "rel_shoulders",
-      "phase": "release",
-      "types": [
-        "all"
-      ],
-      "text": "Omuzlarını da bırak."
-    },
-    {
       "id": "rel_jaw",
       "phase": "release",
       "types": [

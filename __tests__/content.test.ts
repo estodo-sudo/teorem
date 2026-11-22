@@ -1,4 +1,4 @@
-import { CHALLENGES, COURSES, GLOSSARY, NUTRITION_DAYS, NUTRITION_PLAN, STORIES } from '@/features/content/data';
+import { CHALLENGES, GLOSSARY, NUTRITION_DAYS, NUTRITION_PLAN, STORIES } from '@/features/content/data';
 import { nutritionDayIndex, nutritionTasksForDay, quizScore, storyOfTheDay } from '@/features/content/daily';
 
 describe('content files', () => {
@@ -18,23 +18,6 @@ describe('content files', () => {
     expect(new Set(STORIES.map((s) => s.category))).toEqual(
       new Set(['menHealth', 'relationships', 'nutrition', 'sleep', 'stress', 'exercise']),
     );
-  });
-
-  it('has 5 courses × 5 lessons with unique ids, each with a 2–3 question quiz', () => {
-    expect(COURSES).toHaveLength(5);
-    expect(new Set(COURSES.map((c) => c.id)).size).toBe(COURSES.length);
-    const lessonIds = COURSES.flatMap((c) => c.lessons.map((l) => l.id));
-    expect(new Set(lessonIds).size).toBe(lessonIds.length);
-    for (const c of COURSES) {
-      expect(c.lessons).toHaveLength(5);
-      expect(c.reviewed).toBe(false);
-      for (const l of c.lessons) {
-        expect(l.reviewed).toBe(false);
-        expect(l.quiz.length).toBeGreaterThanOrEqual(2);
-        expect(l.quiz.length).toBeLessThanOrEqual(3);
-        for (const q of l.quiz) expect(q.answer).toBeLessThan(q.options.length);
-      }
-    }
   });
 
   it('has short nutrition tasks in 3 groups, each with a reason and a source', () => {
@@ -89,7 +72,7 @@ describe('content files', () => {
   });
 
   it('never mentions the competitor', () => {
-    const all = JSON.stringify([STORIES, COURSES, CHALLENGES, GLOSSARY]).toLowerCase();
+    const all = JSON.stringify([STORIES, CHALLENGES, GLOSSARY]).toLowerCase();
     expect(all).not.toContain('dr. kegel');
     expect(all).not.toContain('appercut');
   });

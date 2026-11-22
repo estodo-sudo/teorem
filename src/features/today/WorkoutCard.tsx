@@ -4,22 +4,21 @@ import Animated, { FadeInDown, ReduceMotion } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, useTheme, type IconName } from '@/components';
-import { Button, Card, IconTile, Ring, ScalePressable, Sheet, Tabs } from '@/components/ui';
+import { Button, Card, IconTile, Ring, ScalePressable, Sheet } from '@/components/ui';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
 import { openGated } from '@/features/purchases/useGate';
 import { generateMicroSet } from '@/features/training/generateSession';
-import { todayPlanDay, todayWeekIndex } from '@/features/training/plan';
-import { positionCard } from '@/features/training/player/playerUi';
+import { todayPlanDay } from '@/features/training/plan';
+import { blockText } from '@/features/training/player/playerUi';
 import { capStatus, isOnVacation } from '@/features/training/schedule';
 import { buildTodaySession, contractionsToday } from '@/features/training/service';
-import { DURATION_ORDER, DURATION_SEC, KEGEL_TRACKS } from '@/features/training/tracks';
 import type { SessionBlock } from '@/features/training/types';
 import { useSessionStarter } from '@/features/training/useSessionStarter';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
-import type { DurationPreset, KegelExerciseType } from '@/types';
+import type { KegelExerciseType } from '@/types';
 
 /** Neutral icon per exercise (Lucide). */
 const BLOCK_ICON: Record<KegelExerciseType, IconName> = { slow_hold: 'clock', quick_flick: 'pulse', max_contraction: 'target', elevator: 'layers', endurance: 'clock', knack: 'wind', release: 'leaf', breath: 'wind' };
@@ -36,33 +35,27 @@ export function WorkoutCard() {
   const training = useTrainingStore((s) => s.training);
   const today = toDateKey();
   const workouts = useHistoryStore((s) => s.workouts);
-  const hypertonic = useKegelStore((s) => s.profile?.hypertonicFlag ?? false);
   const painFlag = useKegelStore((s) => s.profile?.painFlag ?? false);
   const [blocksOpen, setBlocksOpen] = useState(false);
   const todays = workouts.filter((w) => w.date === today);
   const doneCount = todays.filter((w) => w.completed).length;
   const mainDone = todays.some((w) => w.completed && !w.isMicro);
   const session = buildTodaySession(training, today);
-  const micro = generateMicroSet({ track: training.track, level: training.level, hypertonic, seed: `${today}-micro`, weekIndex: todayWeekIndex(training, today) });
+  const micro = generateMicroSet({ level: training.level, seed: `${today}-micro` });
   const used = contractionsToday(workouts, today);
   const cap = capStatus(used, training.level);
   const day = todayPlanDay(training, today) + 1;
-  const preset = training.nextPresetOnce ?? training.durationPreset;
   const onVacation = isOnVacation(today, training.vacation);
-  const track = KEGEL_TRACKS.find((x) => x.id === training.track) ?? KEGEL_TRACKS[0]!;
   const blocks = session.blocks;
-  const firstMain = blocks.find((b) => b.type !== 'release' && b.type !== 'breath') ?? blocks[0];
-  const position = firstMain ? positionCard(firstMain.position).title : '';
+  const minutes = Math.max(1, Math.round(session.plannedSec / 60));
   const target = training.dailyTarget;
 
   const { go, dialog } = useSessionStarter();
-  const setPreset = (p: DurationPreset) => useTrainingStore.getState().update({ durationPreset: p, nextPresetOnce: undefined, suggestShorter: undefined });
 
   const notices: { key: string; text: string; tone: 'alert' | 'info' }[] = [];
   if (training.returnNotice && training.returnNotice.date === today) notices.push({ key: 'return', text: tr(`kegel.return.${training.returnNotice.kind}`, { count: training.returnNotice.days }), tone: 'info' });
   if (onVacation) notices.push({ key: 'vacation', text: tr('kegel.vacation.cardNote'), tone: 'info' });
   if (painFlag) notices.push({ key: 'pain', text: tr('kegel.painNotice'), tone: 'alert' });
-  if (training.suggestShorter && !mainDone) notices.push({ key: 'shorter', text: tr('today.workout.shorterHint'), tone: 'info' });
   if (training.repeatNextDay && !mainDone) notices.push({ key: 'repeat', text: tr('today.workout.repeat'), tone: 'info' });
   if (cap.locked) notices.push({ key: 'cap', text: tr('today.workout.capReached'), tone: 'info' });
 
@@ -71,7 +64,7 @@ export function WorkoutCard() {
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
         <View style={{ flex: 1, gap: t.space.xs }}>
           <AppText variant="caption" muted>
-            {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS, track: track.title })}
+            {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
             {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
           </AppText>
           <AppText variant="title2" accessibilityRole="header">
@@ -81,19 +74,15 @@ export function WorkoutCard() {
         <Ring size={56} label="" center={`${Math.min(doneCount, target)}/${target}`} value={doneCount / Math.max(1, target)} />
       </View>
 
-      {!mainDone ? (
-        <Tabs<DurationPreset> label={tr('today.workout.duration')} value={preset} onChange={setPreset} items={DURATION_ORDER.map((p) => ({ value: p, label: tr('common.minutes', { count: DURATION_SEC[p] / 60 }) }))} />
-      ) : null}
-
       <ScalePressable
         onPress={() => setBlocksOpen(true)}
         accessibilityRole="button"
-        accessibilityLabel={`${tr('today.workout.summary', { count: blocks.length, position })}. ${tr('today.workout.summaryA11y')}`}
+        accessibilityLabel={`${tr('today.workout.summary', { count: blocks.length, min: minutes })}. ${tr('today.workout.summaryA11y')}`}
         style={{ minHeight: t.touch, flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}
       >
         <Icon name="layers" size="md" color={t.tokens.mutedForeground} />
         <AppText variant="callout" muted style={{ flex: 1 }}>
-          {tr('today.workout.summary', { count: blocks.length, position })}
+          {tr('today.workout.summary', { count: blocks.length, min: minutes })}
         </AppText>
         <Icon name="chevron" size="md" color={t.tokens.subtle} />
       </ScalePressable>
@@ -146,28 +135,20 @@ export function WorkoutCard() {
 function BlockRow({ block, divider }: { block: SessionBlock; divider?: boolean }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const timing = block.slowSec
-    ? tr('player.nextSlow', { slow: block.slowSec, top: (block.holdSec ?? 0) - block.slowSec })
-    : block.holdSec !== undefined
-      ? tr('player.nextDetail', { hold: block.holdSec, rest: block.restSec })
-      : tr('player.nextRelease');
-  const name = tr(`exercise.${block.type}.name`);
-  const pos = positionCard(block.position).title;
+  const { title, detail } = blockText(block, tr);
   const calm = block.type === 'release' || block.type === 'breath';
   return (
     <View
       accessibilityRole="text"
       accessible
-      accessibilityLabel={`${name}, ${tr('today.workout.reps', { count: block.reps })}. ${timing}. ${pos}`}
+      accessibilityLabel={`${title}. ${detail}`}
       style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, paddingVertical: t.space.md, borderTopWidth: divider ? t.border.thin : 0, borderTopColor: t.tokens.border }}
     >
       <IconTile icon={BLOCK_ICON[block.type]} tone={calm ? 'mind' : 'kegel'} />
       <View style={{ flex: 1, gap: 2 }}>
-        <AppText variant="bodyStrong">
-          {name} · {tr('today.workout.reps', { count: block.reps })}
-        </AppText>
+        <AppText variant="bodyStrong">{title}</AppText>
         <AppText variant="footnote" muted>
-          {timing} · {pos}
+          {detail}
         </AppText>
       </View>
     </View>

@@ -10,7 +10,7 @@ import { useHistoryStore } from '@/stores/historyStore';
 import { useKegelStore } from '@/stores/kegelStore';
 
 import { generateSession } from './generateSession';
-import { positionCard } from './player/playerUi';
+import { blockText } from './player/playerUi';
 import { deloadOnPlanDay, tasksForDay, type RoadmapNode } from './roadmap';
 import { strengthFallingTwoWeeks } from './schedule';
 import type { TrainingState, TrackId } from '@/types';
@@ -73,12 +73,10 @@ export function DayNode({ node, size = 44, onPress, deload }: { node: RoadmapNod
 export function DayPreview({ visible, day, week, training, onClose }: { visible: boolean; day: number; week: number; training: TrainingState; onClose: () => void }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const hypertonic = useKegelStore((s) => s.profile?.hypertonicFlag ?? false);
   const falling = useHistoryStore((h) => strengthFallingTwoWeeks(h.strengthTests));
-  // Same deload rule as the real session (plan week 4, or an early deload this week).
+  // Same lighter-week rule as the real session (plan week 4, or an early deload this week).
   const deload = deloadOnPlanDay(training, toDateKey(), day, falling);
-  const s = generateSession({ track: training.track, level: training.level, durationPreset: training.durationPreset, dayIndex: day, weekIndex: week, hypertonic, seed: `preview-${day}`, deload });
-  const positions = [...new Set(s.blocks.map((b) => positionCard(b.position).title))];
+  const s = generateSession({ level: training.level, dayIndex: day, weekIndex: week, seed: `preview-${day}`, deload });
   return (
     <Dialog
       visible={visible}
@@ -88,19 +86,13 @@ export function DayPreview({ visible, day, week, training, onClose }: { visible:
       actions={[{ label: tr('common.close'), variant: 'secondary', onPress: onClose }]}
     >
       <View style={{ gap: t.space.md }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs }}>
-          <Icon name="body" size="sm" color={t.tokens.mutedForeground} />
-          <AppText variant="footnote" muted style={{ flex: 1 }}>
-            {positions.join(' · ')}
-          </AppText>
-        </View>
         <View accessibilityRole="list">
           {s.blocks.map((b, i) => {
             const last = i === s.blocks.length - 1;
-            const timing = b.slowSec ? tr('player.nextSlow', { slow: b.slowSec, top: (b.holdSec ?? 0) - b.slowSec }) : b.holdSec !== undefined ? tr('player.nextDetail', { hold: b.holdSec, rest: b.restSec }) : tr('player.nextRelease');
+            const { title, detail } = blockText(b, tr);
             const tone = b.type === 'release' || b.type === 'breath' ? t.tone.mind : t.tone.kegel;
             return (
-              <View key={i} style={{ flexDirection: 'row', gap: t.space.md }} accessible accessibilityLabel={`${i + 1}. ${tr(`exercise.${b.type}.name`)} × ${b.reps}. ${timing}. ${positionCard(b.position).title}`}>
+              <View key={i} style={{ flexDirection: 'row', gap: t.space.md }} accessible accessibilityLabel={`${i + 1}. ${title}. ${detail}`}>
                 <View style={{ alignItems: 'center', width: 28 }}>
                   <View style={{ width: 28, height: 28, borderRadius: t.radius.pill, backgroundColor: tone.soft, alignItems: 'center', justifyContent: 'center' }}>
                     <AppText variant="caption" tabular style={{ fontWeight: '600', color: tone.fg }}>
@@ -110,11 +102,9 @@ export function DayPreview({ visible, day, week, training, onClose }: { visible:
                   {!last ? <View style={{ flex: 1, width: t.border.thin, backgroundColor: t.tokens.border, marginVertical: 2 }} /> : null}
                 </View>
                 <View style={{ flex: 1, paddingBottom: last ? 0 : t.space.md, gap: 2 }}>
-                  <AppText variant="bodyStrong">
-                    {tr(`exercise.${b.type}.name`)} × {b.reps}
-                  </AppText>
+                  <AppText variant="bodyStrong">{title}</AppText>
                   <AppText variant="footnote" muted>
-                    {timing} · {positionCard(b.position).title}
+                    {detail}
                   </AppText>
                 </View>
               </View>

@@ -4,7 +4,7 @@ import { Platform, Vibration } from 'react-native';
 import { kegelHapticsNative as native } from '../../../modules/kegel-haptics';
 import type { HapticStrength } from '@/types';
 
-import { androidWaveform, hapticEvents, iosFallbackCalls, onOffPattern, type Cue, type IosImpact } from './hapticPatterns';
+import { androidWaveform, hapticEvents, iosFallbackCalls, onOffPattern, phaseVibration, scaleEvents, type Cue, type HapticEvent, type IosImpact } from './hapticPatterns';
 
 export type { Cue } from './hapticPatterns';
 
@@ -44,8 +44,8 @@ export function hapticSupport(): { native: boolean; amplitude: boolean } {
   return support;
 }
 
-function iosFallback(cue: Cue, strength: HapticStrength) {
-  for (const c of iosFallbackCalls(hapticEvents(cue, strength))) {
+function iosFallback(events: HapticEvent[]) {
+  for (const c of iosFallbackCalls(events)) {
     const fire = () => void Haptics.impactAsync(IMPACT[c.style]).catch(() => undefined);
     if (c.delayMs <= 0) fire();
     else {
@@ -60,10 +60,22 @@ function iosFallback(cue: Cue, strength: HapticStrength) {
 
 /** Plays a semantic haptic cue honouring the user's strength setting. */
 export function playCue(cue: Cue, strength: HapticStrength) {
-  const events = hapticEvents(cue, strength);
+  playEvents(hapticEvents(cue, strength));
+}
+
+/**
+ * Kegel phase vibration: vibrates for as long as the phase squeezes (see `phaseVibration`), silent
+ * otherwise. Stops whatever was playing first, so let-go and rest phases cut it off cleanly.
+ */
+export function vibrateForPhase(phase: { kind: string; durationMs: number; variant?: string }, strength: HapticStrength, fromMs = 0) {
+  cancelHaptics();
+  playEvents(scaleEvents(phaseVibration(phase, fromMs), strength));
+}
+
+function playEvents(events: HapticEvent[]) {
   if (!events.length) return;
   try {
-    if (Platform.OS === 'ios') return iosFallback(cue, strength);
+    if (Platform.OS === 'ios') return iosFallback(events);
     if (Platform.OS !== 'android') return;
     const s = hapticSupport();
     if (s.native) {

@@ -109,7 +109,7 @@ export default function Onboarding() {
       <Button label={step === STEPS - 1 ? tr('onboarding.plan.cta') : tr('common.continue')} size="lg" fullWidth icon={step === STEPS - 1 ? 'play' : undefined} disabled={!canContinue} onPress={step === STEPS - 1 ? finish : next} />
     );
 
-  const dailyMin = Math.round(generateSession({ track: 'general', level, durationPreset: 'standard', dayIndex: 0, weekIndex: 0, hypertonic: false, seed: toDateKey() }).plannedSec / 60);
+  const dailyMin = Math.round(generateSession({ level, seed: toDateKey() }).plannedSec / 60);
 
   return (
     <Screen footer={footer}>

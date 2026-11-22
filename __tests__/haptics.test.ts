@@ -1,4 +1,4 @@
-import { androidWaveform, boostIntensity, cueForHoldSecond, cueForPhase, cueLengthMs, hapticEvents, iosFallbackCalls, onOffPattern, PREVIEW_CUES, type Cue, type HapticEvent } from '@/features/training/hapticPatterns';
+import { androidWaveform, boostIntensity, cueForHoldSecond, cueForPhase, cueLengthMs, hapticEvents, iosFallbackCalls, onOffPattern, phaseVibration, PREVIEW_CUES, RUMBLE_GRAIN_MS, scaleEvents, type Cue, type HapticEvent } from '@/features/training/hapticPatterns';
 import { voiceKeyForPhase } from '@/features/training/voice';
 import tr from '@/i18n/tr.json';
 
@@ -11,9 +11,9 @@ const amps = (cue: Cue, strength: 1 | 2 | 3 = 3) => {
 };
 
 describe('Titreşim Dili v2 (spec 7.4)', () => {
-  it('vibration is felt 30 % stronger app-wide, without losing the strength order', () => {
-    expect(boostIntensity(0.25)).toBeCloseTo(0.325, 5);
-    expect(boostIntensity(0.5)).toBeCloseTo(0.65, 5);
+  it('vibration is felt 60 % stronger app-wide, without losing the strength order', () => {
+    expect(boostIntensity(0.25)).toBeCloseTo(0.4, 5);
+    expect(boostIntensity(0.5)).toBeCloseTo(0.8, 5);
     expect(boostIntensity(1)).toBe(1);
     for (let x = 0; x < 1; x += 0.05) expect(boostIntensity(x + 0.05)).toBeGreaterThan(boostIntensity(x));
   });
@@ -27,9 +27,9 @@ describe('Titreşim Dili v2 (spec 7.4)', () => {
   });
 
   it('squeeze: 300 ms rising ramp 0.3 → 1.0; release: 500 ms falling ramp 0.6 → 0 plus a soft double pulse', () => {
-    // Intensities carry the app-wide +30 % (boostIntensity): 0.3 → 0.39, 0.6 → 0.78, 1 stays 1.
-    expect(ramp('squeezeStart')).toMatchObject({ duration: 300, intensity: 0.39, intensityEnd: 1 });
-    expect(ramp('releaseStart')).toMatchObject({ duration: 500, intensity: 0.78, intensityEnd: 0 });
+    // Intensities carry the app-wide +60 % (boostIntensity): 0.3 → 0.48, 0.6 → 0.893, 1 stays 1.
+    expect(ramp('squeezeStart')).toMatchObject({ duration: 300, intensity: 0.48, intensityEnd: 1 });
+    expect(ramp('releaseStart')).toMatchObject({ duration: 500, intensity: 0.893, intensityEnd: 0 });
     expect(pulses('releaseStart')).toBe(2);
     expect(
       hapticEvents('releaseStart', 3)
@@ -38,9 +38,9 @@ describe('Titreşim Dili v2 (spec 7.4)', () => {
     ).toBe(true);
   });
 
-  it('hold ticks 0.25, last 3 s 0.5 (×1.3 app gain); quick flick one sharp pulse; floors 1/2/3 pulses; cough sharp double', () => {
-    expect(hapticEvents('holdTick', 3)).toEqual([{ type: 'transient', time: 0, intensity: 0.325, sharpness: 0.3 }]);
-    expect(hapticEvents('holdTickFinal', 3)[0]!.intensity).toBe(0.65);
+  it('hold ticks 0.25, last 3 s 0.5 (×1.6 app gain); quick flick one sharp pulse; floors 1/2/3 pulses; cough sharp double', () => {
+    expect(hapticEvents('holdTick', 3)).toEqual([{ type: 'transient', time: 0, intensity: 0.4, sharpness: 0.3 }]);
+    expect(hapticEvents('holdTickFinal', 3)[0]!.intensity).toBe(0.8);
     expect(hapticEvents('quickFlick', 3)).toEqual([{ type: 'transient', time: 0, intensity: 1, sharpness: 1 }]);
     expect([pulses('elevatorFloor1'), pulses('elevatorFloor2'), pulses('elevatorFloor3')]).toEqual([1, 2, 3]);
     expect(hapticEvents('knackCough', 3).map((e) => e.sharpness)).toEqual([1, 1]);
@@ -146,5 +146,44 @@ describe('phase → cue', () => {
     expect(voiceKeyForPhase({ kind: 'relax', durationMs: 6000, variant: 'letGo' })).toBe('release');
     const voice = (tr as unknown as { player: { voice: Record<string, string> } }).player.voice;
     for (const k of ['squeeze', 'release', 'cough', 'inhale', 'exhale', 'letGo', 'floor1', 'floor2', 'floor3']) expect(voice[k]).toBeTruthy();
+  });
+});
+
+describe('Kegel vibration follows the squeeze, like an earthquake (user decision 2026-11-22)', () => {
+  const total = (ev: HapticEvent[]) => ev.reduce((a, e) => a + (e.type === 'continuous' ? e.duration : 0), 0);
+  const hold = phaseVibration({ kind: 'contract', durationMs: 12000 });
+  it('uzun sıkma rumbles for the whole hold with no time gap, and stops when it lets go', () => {
+    expect(total(hold)).toBe(12000);
+    hold.forEach((e, i) => expect(e.time).toBe(i * RUMBLE_GRAIN_MS));
+    for (const kind of ['relax', 'transition', 'rest', 'countdown']) expect(phaseVibration({ kind, durationMs: 5000 })).toEqual([]);
+  });
+  it('never off, but the strength dips every few hundredths of a second (uneven)', () => {
+    const amps = hold.map((e) => e.intensity);
+    expect(Math.min(...amps)).toBeGreaterThanOrEqual(0.5);
+    expect(Math.max(...amps)).toBe(1);
+    expect(new Set(amps).size).toBeGreaterThan(5);
+    const w = androidWaveform(scaleEvents(hold, 3));
+    expect(w.timings.reduce((a, b) => a + b, 0)).toBe(12000);
+    expect(w.amplitudes.every((a) => a > 0)).toBe(true);
+    // On/off-only phones: on most of the time, only hairline gaps (≤ 20 ms) where it dips.
+    const p = onOffPattern(scaleEvents(hold, 3));
+    const offs = p.filter((_, i) => i % 2 === 0).slice(1);
+    expect(Math.max(...offs)).toBeLessThanOrEqual(20);
+    expect(p.filter((_, i) => i % 2 === 1).reduce((a, b) => a + b, 0)).toBeGreaterThan(12000 * 0.8);
+  });
+  it('hızlı sık-bırak: rumbles for the 1 s squeeze, the 1 s let-go is silent', () => {
+    expect(total(phaseVibration({ kind: 'contract', durationMs: 1000 }))).toBe(1000);
+    expect(phaseVibration({ kind: 'relax', durationMs: 1000 })).toEqual([]);
+  });
+  it('yavaş sıkma builds up while squeezing slowly and is full at the top', () => {
+    const up = phaseVibration({ kind: 'contract', durationMs: 3000, variant: 'slowUp' }).map((e) => e.intensity);
+    const avg = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
+    expect(avg(up.slice(0, 15))).toBeLessThan(avg(up.slice(-15)));
+    expect(total(phaseVibration({ kind: 'contract', durationMs: 500, variant: 'top' }))).toBe(500);
+  });
+  it('after a pause it vibrates only for what is left of the squeeze; off means nothing', () => {
+    expect(total(phaseVibration({ kind: 'contract', durationMs: 12000 }, 4000))).toBe(8000);
+    expect(phaseVibration({ kind: 'contract', durationMs: 12000 }, 11990)).toEqual([]);
+    expect(scaleEvents(hold, 0)).toEqual([]);
   });
 });

@@ -15,26 +15,23 @@ import { EXERCISE_GUIDE } from './exerciseGuide';
 import { needsScreening, rescreenReminder } from './kegelProfile';
 import { todayPlanDay } from './plan';
 import { weekTheme } from './roadmap';
-import { TRACK_ICON } from './trackIcons';
 import { KEGEL_TRACKS } from './tracks';
 
-/** "Aktif iz · Genel Güç", "Seviye 1 · 1. hafta: Kası tanı" and "Değiştir" (→ /kegel/tracks). */
+/** "Kegel antrenmanı" and "Seviye 1 · 1. hafta: Kası tanı" (one programme for everyone; no track to pick). */
 export function ActiveTrackCard() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const training = useTrainingStore((s) => s.training);
-  const track = KEGEL_TRACKS.find((x) => x.id === training.track) ?? KEGEL_TRACKS[0]!;
   const planWeek = Math.min(3, Math.floor(todayPlanDay(training, toDateKey()) / 7));
   return (
     <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg }}>
-      <IconTile icon={TRACK_ICON[track.id]} />
+      <IconTile icon="pulse" />
       <View style={{ flex: 1, gap: 2 }}>
-        <AppText variant="bodyStrong">{tr('profile.training.activeTrack', { track: track.title })}</AppText>
+        <AppText variant="bodyStrong">{tr('profile.training.programme')}</AppText>
         <AppText variant="footnote" muted>
           {tr('profile.training.levelWeek', { level: training.level, theme: weekTheme(planWeek).title })}
         </AppText>
       </View>
-      <Button label={tr('kegel.card.change')} size="sm" variant="ghost" onPress={() => router.push('/kegel/tracks')} />
     </Card>
   );
 }

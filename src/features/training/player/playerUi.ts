@@ -3,6 +3,8 @@ import positionsJson from '@/content/kegel/positions.tr.json';
 import type { Position } from '@/types';
 
 import { KEGEL_CUES } from '../tracks';
+import type { TFunction } from 'i18next';
+
 import type { GeneratedSession, Phase, SessionBlock } from '../types';
 
 /** Pure helpers for the Kegel player screen v2 (SPEC_KEGEL_V2 §7.1, §7.3). */
@@ -16,6 +18,23 @@ export interface PositionCard {
 export const POSITION_CARDS = positionsJson.positions as PositionCard[];
 export const positionCard = (p: Position) => POSITION_CARDS.find((c) => c.id === p) ?? POSITION_CARDS[0]!;
 
+// ---------------------------------------------------------------- exercise text
+
+/** Name and one-line timing of an exercise, as the lists and the "next" card show it. */
+export function blockText(b: SessionBlock, tr: TFunction): { title: string; detail: string } {
+  const name = tr(`exercise.${b.type}.name`);
+  switch (b.type) {
+    case 'slow_hold':
+      return b.reps > 1 ? { title: `${name} × ${b.reps}`, detail: tr('player.nextDetail', { hold: b.holdSec, rest: b.restSec }) } : { title: name, detail: tr('block.long', { sec: b.holdSec }) };
+    case 'quick_flick':
+      return { title: name, detail: tr('block.quick', { sec: b.reps * ((b.holdSec ?? 1) + b.restSec) }) };
+    case 'elevator':
+      return { title: name, detail: tr('block.slow', { count: b.reps }) };
+    default:
+      return { title: `${name} × ${b.reps}`, detail: tr('player.nextRelease') };
+  }
+}
+
 // ---------------------------------------------------------------- segmented progress bar
 
 export interface Segment {
@@ -25,6 +44,28 @@ export interface Segment {
 }
 
 /** One segment per block (its transition belongs to it); the countdown is left out. */
+/** Phases of a fast squeeze/let-go run (quick flicks: 1 s each) — too short to count down one by one. */
+export const isFast = (p: Phase) => (p.kind === 'contract' || p.kind === 'relax') && p.durationMs <= 1000;
+
+/**
+ * Seconds shown in the sphere. Normally the seconds left in the phase; during a run of 1-second
+ * squeeze/let-go phases (which would always show "1") it is the time left in the whole run instead,
+ * e.g. 10 squeezes + 10 let-gos count down from 20.
+ */
+export function displaySeconds(phases: readonly Phase[], index: number, remainingMs: number, wholeBlock = false): number {
+  const phase = phases[index];
+  if (!phase || (!wholeBlock && !isFast(phase))) return Math.ceil(remainingMs / 1000);
+  // `wholeBlock`: the time left in the whole exercise (hızlı sık-bırak, yavaş sıkma).
+  const inRun = (p: Phase) => p.exerciseIndex === phase.exerciseIndex && (wholeBlock ? p.kind !== 'transition' : isFast(p));
+  let ms = remainingMs;
+  for (let i = index + 1; i < phases.length; i++) {
+    const p = phases[i]!;
+    if (!inRun(p)) break;
+    ms += p.durationMs;
+  }
+  return Math.ceil(ms / 1000);
+}
+
 export function blockSegments(phases: readonly Phase[]): Segment[] {
   const segs: Segment[] = [];
   let at = 0;

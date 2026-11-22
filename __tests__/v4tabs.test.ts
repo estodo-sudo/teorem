@@ -80,7 +80,8 @@ describe('Profil (SPEC_V4 §A.3)', () => {
     const order = ['<ActiveTrackCard', '<MuscleStructureCard', '<ExerciseGuide', "profile.replayTutorial", "profile.training.trophies", "settings.training.title"].map((x) => profile.indexOf(x));
     expect(order.every((x) => x > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
-    expect(EXERCISE_GUIDE).toHaveLength(8);
+    // The programme's three moves (user decision 2026-11-22).
+    expect(EXERCISE_GUIDE.map((x) => x.type)).toEqual(['slow_hold', 'quick_flick', 'elevator']);
     expect(tr.profile.training.muscleTitle).toBe('Kas yapını öğrenelim');
   });
 

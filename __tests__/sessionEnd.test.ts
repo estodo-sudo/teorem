@@ -7,7 +7,7 @@ import tr from '@/i18n/tr.json';
 import { setHistoryRepo, useHistoryStore } from '@/stores/historyStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
-const session = generateSession({ track: 'general', level: 12, durationPreset: 'standard', dayIndex: 1, weekIndex: 4, hypertonic: false, seed: 'x' });
+const session = generateSession({ level: 12, dayIndex: 1, weekIndex: 4, seed: 'x' });
 const all = (done: boolean) => session.blocks.map(() => ({ completed: done, skipped: false }));
 
 beforeEach(() => {
@@ -55,16 +55,16 @@ describe('session summary (spec 7.5)', () => {
     expect(useHistoryStore.getState().workouts[0]).toMatchObject({ feedback: 'ok', techniqueConfidence: 'unsure' });
   });
 
-  it('"hard" keeps the level and suggests a shorter preset; a pain lock reports why the level stays', () => {
+  it('"hard" keeps the level (no shorter preset any more); a pain lock reports why the level stays', () => {
     const w = recordWorkout(session, { actualSec: 300, endedEarly: false, outcomes: all(true) }, new Date(2026, 10, 19, 20));
-    expect(submitFeedback(w.id, 'hard')).toMatchObject({ before: 7, after: 7, suggestShorter: true });
+    expect(submitFeedback(w.id, 'hard')).toMatchObject({ before: 7, after: 7, suggestShorter: false, struggled: true });
     useTrainingStore.getState().update({ levelLockUntil: '2026-11-25' });
     const w2 = recordWorkout(session, { actualSec: 300, endedEarly: false, outcomes: all(true) }, new Date(2026, 10, 20, 20));
     expect(submitFeedback(w2.id, 'easy')).toMatchObject({ after: 7, locked: true, wouldRise: true });
   });
 
   it('micro sets never change the level or the plan', () => {
-    const micro = generateMicroSet({ track: 'general', level: 7, hypertonic: false, seed: 'x' });
+    const micro = generateMicroSet({ level: 7, seed: 'x' });
     const w = recordWorkout(micro, { actualSec: 50, endedEarly: false, outcomes: micro.blocks.map(() => ({ completed: true, skipped: false })) }, new Date(2026, 10, 19, 12));
     const before = useTrainingStore.getState().training;
     expect(submitFeedback(w.id, 'easy')).toMatchObject({ before: 7, after: 7 });

@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 
-import { generateSession, POSITION_CHANGE_SEC, TRANSITION_SEC } from '@/features/training/generateSession';
+import { generateSession, REST_SEC } from '@/features/training/generateSession';
 import { createPlayer, pause, restartExercise, start, tick } from '@/features/training/player/machine';
 import { blockSegments, classifyRelease, CUE_ROTATE_MS, cueText, DOUBLE_TAP_MS, firstPosition, isDoubleTap, nextPreview, POSITION_CARDS, positionCard, segmentFill, SWIPE_PX } from '@/features/training/player/playerUi';
 import { KEGEL_CUES } from '@/features/training/tracks';
 import tr from '@/i18n/tr.json';
 
-const session = generateSession({ track: 'erection', level: 12, durationPreset: 'standard', dayIndex: 0, weekIndex: 4, hypertonic: false, seed: 'x' });
+const session = generateSession({ level: 12, seed: 'x' });
 
 describe('player screen v2 helpers (spec 7.1, 7.3)', () => {
   it('one segment per block covering the whole timeline after the countdown; the active one fills', () => {
@@ -23,7 +23,7 @@ describe('player screen v2 helpers (spec 7.1, 7.3)', () => {
   });
 
   it('technique cues fit the phase (squeeze vs release) and rotate every 8 s', () => {
-    const b = session.blocks.find((x) => x.type === 'max_contraction')!;
+    const b = session.blocks.find((x) => x.type === 'slow_hold')!;
     const texts = new Map(KEGEL_CUES.map((c) => [c.text, c.phase]));
     const sq = cueText(b, 'contract', 0)!;
     expect(texts.get(sq)).toBe('squeeze');
@@ -43,14 +43,14 @@ describe('player screen v2 helpers (spec 7.1, 7.3)', () => {
     expect(isDoubleTap(null, 5)).toBe(false);
   });
 
-  it('"Next" preview during transitions; a position change gets a longer transition and the position card', () => {
+  it('"Next" preview during the 5 s "Dinlen"; one position, so no position change', () => {
     const transitions = session.phases.filter((p) => p.kind === 'transition');
     for (const p of transitions) {
       const n = nextPreview(session, p)!;
       expect(n.block).toBe(session.blocks[p.exerciseIndex]);
-      expect(p.durationMs).toBe((n.positionChanged ? POSITION_CHANGE_SEC : TRANSITION_SEC) * 1000);
+      expect(n.positionChanged).toBe(false);
+      expect(p.durationMs).toBe(REST_SEC * 1000);
     }
-    expect(transitions.some((p) => nextPreview(session, p)!.positionChanged)).toBe(true);
     expect(nextPreview(session, session.phases[1]!)).toBeNull();
     expect(firstPosition(session)).toBe('lying');
   });
@@ -83,7 +83,7 @@ describe('player screen v2 helpers (spec 7.1, 7.3)', () => {
     expect(p.painRefer).toMatch(/fizyoterapist/);
   });
 
-  it('the player keeps controls ≥ 48 px, honours background, and has the black mode and pain button', () => {
+  it('the player keeps controls ≥ 48 px, honours background, and has the black mode; no pain button (removed 2026-11-22)', () => {
     const src = fs.readFileSync(path.join(__dirname, '..', 'src', 'features', 'training', 'player', 'WorkoutPlayer.tsx'), 'utf8');
     for (const m of src.matchAll(/(?:iconBtn|mainBtn): \{ width: (\d+), height: (\d+)/g)) {
       expect(Number(m[1])).toBeGreaterThanOrEqual(48);
@@ -93,7 +93,7 @@ describe('player screen v2 helpers (spec 7.1, 7.3)', () => {
     expect(src).toMatch(/restartBlock/);
     // Black (discreet) mode: pure black from the focus tokens, only a thin progress line stays.
     expect(src).toMatch(/backgroundColor: f\.black/);
-    expect(src).toMatch(/painButton/);
+    expect(src).not.toMatch(/painButton/);
     expect(src).toMatch(/useSafeKeepAwake\(\)/);
   });
 });

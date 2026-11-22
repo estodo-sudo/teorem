@@ -46,8 +46,8 @@
       "desc": "1 saniye sık, 1 saniye gevşet. Hızlı ve kontrollü."
     },
     "elevator": {
-      "name": "Yavaş Sık–Bırak",
-      "desc": "Kası birkaç saniyede yavaşça sık, en güçlü noktada kısa tut, sonra aynı yavaşlıkla bırak. Ortadaki daire de yavaşça büyür ve yavaşça küçülür."
+      "name": "Yavaş Sıkma",
+      "desc": "Kası yavaşça sık, tepede yarım saniye tut, bırak ve 1 saniye bekle."
     },
     "pulse": {
       "name": "Ritim",
@@ -63,11 +63,11 @@
     },
     "slow_hold": {
       "name": "Uzun Sıkma",
-      "desc": "Sık ve tut, sonra tamamen bırak. Dinlenme en az tutma kadar sürer."
+      "desc": "Kası bir kez sık ve süre bitene kadar bırakmadan tut."
     },
     "quick_flick": {
-      "name": "Hızlı Sıkma",
-      "desc": "1 saniye hızlı sık, hemen tamamen bırak."
+      "name": "Hızlı Sık-Bırak",
+      "desc": "1 saniye sık, 1 saniye bırak; süre bitene kadar bu ritmi koru."
     },
     "max_contraction": {
       "name": "Tam Güç",
@@ -122,7 +122,7 @@
     "helpTips": [
       "Karnını, kalçanı ve bacaklarını sıkma; sadece pelvik taban kası çalışsın.",
       "Nefesini tutma. Sıkarken de bırakırken de rahatça nefes al.",
-      "Yükselen titreşim = SIK, alçalan titreşim = BIRAK, hafif tıklar = saniye. Ekrana bakmana gerek yok.",
+      "Telefon sen sıktığın sürece titrer, bıraktığında durur. Ekrana bakmana gerek yok.",
       "Bırakma fazı en az sıkma kadar önemlidir; kası tamamen bırak.",
       "Ekrana dokun: duraklat. Bir saniye basılı tut: bitir. Sola kaydır: bloğu atla. İki kez dokun: siyah ekran."
     ],
@@ -163,7 +163,9 @@
     "blackMode": "Siyah ekran modu",
     "blackHint": "Çıkmak için iki kez dokun. Dokunarak duraklatabilirsin.",
     "nextSlow": "{{slow}} sn yavaşça sık · {{top}} sn tut · {{slow}} sn yavaşça bırak",
-    "nextRelease": "3 sn gevşe · 6 sn tamamen bırak"
+    "nextRelease": "3 sn gevşe · 6 sn tamamen bırak",
+    "round": "Tur {{n}}",
+    "nextName": "Sıradaki: {{name}}"
   },
   "feedback": {
     "doneTitle": "Harika, bugünkü antrenman tamam!",
@@ -381,7 +383,7 @@
         "Nefesini tutma; sakin ve düzenli nefes almaya devam et.",
         "Her sıkmadan sonra kası tamamen bırak. Bırakma da egzersizin parçası."
       ],
-      "warn": "Kegel ağrı yapmamalıdır. Ağrı veya rahatsızlık hissedersen dur; antrenmanda sağ üstteki kalkan butonuna dokun."
+      "warn": "Kegel ağrı yapmamalıdır. Ağrı veya rahatsızlık hissedersen dur ve antrenmanı bitir."
     },
     "trial": {
       "title": "Deneme seti",
@@ -623,18 +625,18 @@
       "reps_one": "{{count}} tekrar",
       "reps_other": "{{count}} tekrar",
       "contents": "Antrenmanın içeriği",
-      "contentsCount_one": "{{count}} egzersiz",
-      "contentsCount_other": "{{count}} egzersiz",
+      "contentsCount_one": "{{count}} bölüm",
+      "contentsCount_other": "{{count}} bölüm",
       "contentsShow": "Egzersizleri göstermek için dokun",
       "contentsHide": "Egzersizleri gizlemek için dokun",
-      "dayKicker": "Gün {{day}} / {{total}} · {{track}}",
-      "summary_one": "{{count}} egzersiz · {{position}}",
-      "summary_other": "{{count}} egzersiz · {{position}}",
+      "dayKicker": "Gün {{day}} / {{total}}",
       "summaryA11y": "Egzersizleri göster",
       "microShort": "Mikro set",
       "breathShort": "Nefes · 1 dk",
       "targetShort": "Günlük hedef",
-      "microHint": "{{sec}} saniyelik kısa set"
+      "microHint": "{{sec}} saniyelik kısa set",
+      "summary_one": "{{count}} bölüm · yaklaşık {{min}} dk",
+      "summary_other": "{{count}} bölüm · yaklaşık {{min}} dk"
     },
     "challenges": "Beslenme ipucu",
     "strengthDue": "Haftalık güç testi zamanı",
@@ -734,7 +736,8 @@
     "dayLabel": "Gün {{day}}",
     "weekCount": "{{done}}/{{total}}",
     "weekA11y": "{{title}}, {{done}} / {{total}} gün tamamlandı",
-    "deloadDay": "Hafif gün"
+    "deloadDay": "Hafif gün",
+    "programmeKicker": "PROGRAMIN"
   },
   "achievements": {
     "title": "Kupalar",
@@ -975,22 +978,69 @@
     "title": "Kasık Fitness",
     "subtitle": "Kalça, karın ve iç bacak kaslarını destekleyen vücut ağırlığı egzersizleri.",
     "routineTitle": "{{name}} rutini",
-    "overview": "{{count}} egzersiz · yaklaşık {{min}} dakika. Egzersizler arasında geçişi titreşimle bildiririz.",
-    "stepMeta": "{{work}} sn çalış · {{rest}} sn dinlen",
+    "overview": "{{count}} hareket · {{rounds}} tur · yaklaşık {{min}} dakika",
     "cardMeta": "{{count}} egzersiz · {{min}} dk",
     "recommended": "Senin için önerilen",
     "safety": "Hareketleri acele etmeden, ağrısız bir aralıkta yap. Ağrı hissedersen dur.",
-    "work": "ÇALIŞ",
-    "rest": "DİNLEN",
     "stepOf": "{{n}} / {{total}}",
     "nextUp": "Sıradaki: {{name}}",
-    "next": "Sonra: {{name}}",
     "done": "Rutin tamamlandı!",
     "partial": "Bugünlük bu kadar, güzel iş",
     "doneMeta": "Aktif süre: {{time}}",
     "finishTitle": "Rutini bitir?",
     "notFound": "Rutin bulunamadı.",
-    "stepMetaLast": "{{work}} sn çalış"
+    "howTitle": "Nasıl çalışır?",
+    "how": [
+      "Başlamadan önce aşağıdaki hareketlere dokun: figür hareketi gösterir, adımlar nasıl yapılacağını anlatır.",
+      "Antrenmanda figürü ve büyük yazıyı takip et: KALDIR, TUT, İNDİR gibi. Telefon her adımda kısa titreşir.",
+      "Hareketler arasında 15 saniye dinlenirsin; bu sırada sıradaki hareket gösterilir."
+    ],
+    "roundTitle": "Tur {{n}} · {{name}}",
+    "rounds": {
+      "1": {
+        "name": "Isınma",
+        "hint": "Kasları uyandıran yavaş hareketler."
+      },
+      "2": {
+        "name": "Güç",
+        "hint": "Kalça, iç bacak ve pelvik tabanı güçlendiren hareketler."
+      },
+      "3": {
+        "name": "Esneme",
+        "hint": "Gevşeyerek bitir."
+      }
+    },
+    "metaWork": "{{sec}} sn",
+    "metaReps": "{{sec}} sn · {{reps}} tekrar",
+    "metaSides": "{{sec}} sn · her taraf {{reps}} tekrar",
+    "metaHold": "{{sec}} sn bu pozisyonda kal",
+    "works": "Çalışan bölge: {{target}}",
+    "setup": "BAŞLANGIÇ",
+    "restHint": "Dinlen ve sıradaki hareketin pozisyonuna geç.",
+    "getReadyHint": "Pozisyonunu al; birazdan başlıyoruz.",
+    "holdOn": "Pozisyonu koru",
+    "rep": "Tekrar {{rep}} / {{reps}}",
+    "side": "{{n}}. taraf",
+    "switchSide": "Diğer tarafa geç",
+    "secLeft": "{{sec}} sn",
+    "tempo": {
+      "lift": "KALDIR",
+      "hold": "TUT",
+      "lower": "İNDİR",
+      "press": "BASTIR",
+      "release": "BIRAK",
+      "squeeze": "SIK",
+      "relax": "GEVŞET",
+      "open": "AÇ",
+      "close": "KAPAT",
+      "reach": "UZAT",
+      "back": "GERİ GEL",
+      "down": "İN",
+      "up": "KALK",
+      "forward": "İLERİ",
+      "breatheIn": "NEFES AL",
+      "breatheOut": "NEFES VER"
+    }
   },
   "mind": {
     "title": "Zihin Rahatlatma",
@@ -1047,22 +1097,16 @@
   },
   "discover": {
     "title": "Keşfet",
+    "growing": "Yeni içeriklerle büyümeye devam ediyor",
+    "programsSoon": "Antrenmanlar yenileniyor; yakında burada olacak.",
     "read": "okundu",
     "start": "Başla",
     "continue": "Devam et",
     "sound": "Ses",
     "campCount_one": "{{count}} kamp",
     "campCount_other": "{{count}} kamp",
-    "programCount_one": "{{count}} antrenman",
-    "programCount_other": "{{count}} antrenman",
     "termCount_one": "{{count}} madde",
     "termCount_other": "{{count}} madde",
-    "weeks_one": "{{count}} hafta",
-    "weeks_other": "{{count}} hafta",
-    "weekOf": "Hafta {{week}} / {{total}}",
-    "lessons_one": "{{count}} ders",
-    "lessons_other": "{{count}} ders",
-    "lessonsDone": "{{done}}/{{total}} ders",
     "dayOf": "Gün {{day}} / {{total}}",
     "listA11y": "{{title}}, {{count}} öğe, yatay kaydırılabilir",
     "campDesc": {
@@ -1131,25 +1175,7 @@
     "open": "Başla"
   },
   "courses": {
-    "title": "Antrenmanlar",
-    "progress": "{{done}}/{{total}} ders tamamlandı",
-    "notStarted": "{{count}} ders · Henüz başlamadın",
-    "lessonMeta": "{{slides}} slayt · {{q}} soru",
-    "score": "Tamamlandı · Test: %{{pct}}",
-    "completed": "tamamlandı",
-    "badge": "Antrenman rozeti kazanıldı!",
-    "badgeBody": "Bu antrenmandaki tüm dersleri tamamladın.",
-    "toQuiz": "Mini teste geç",
-    "quizTitle": "Mini test",
-    "question": "Soru {{n}} / {{total}}",
-    "check": "Kontrol et",
-    "correct": "Doğru!",
-    "wrong": "Tam olarak değil.",
-    "finish": "Bitir",
-    "resultTitle": "{{correct}}/{{total}} doğru",
-    "resultBody": "Ders tamamlandı. İstediğin zaman tekrar okuyabilirsin.",
-    "notFound": "Antrenman bulunamadı.",
-    "subtitle": "Boyun, ayak ve vücut için haftalık programlar"
+    "title": "Antrenmanlar"
   },
   "paywall": {
     "title": "{{app}} Premium ile her gün bir adım ileri",
@@ -1259,7 +1285,8 @@
       "update": "Güncelle",
       "rescreen": "Yenile",
       "guide": "Egzersiz rehberi",
-      "trophies": "Kupalarım"
+      "trophies": "Kupalarım",
+      "programme": "Kegel antrenmanı"
     }
   },
   "settings": {
@@ -1557,174 +1584,6 @@
     "p2": "Bu program sana bilgi, araçlar ve yol arkadaşlığı sunar; ama adımları atacak olan sensin. Zorlandığın günler olacak. Önemli olan mükemmel olmak değil; vazgeçmemek ve gerektiğinde yeniden başlayabilmek.",
     "pledge": "Hazırsan kendine söz ver ve ilk adımı at.",
     "wait": "Bir an düşün… {{count}}"
-  },
-  "body": {
-    "kg": "{{kg}} kg",
-    "minutes": "{{count}} dk",
-    "dose": {
-      "reps": "{{reps}} tekrar × {{hold}} sn",
-      "once": "{{hold}}",
-      "min": "{{count}} dakika",
-      "sec": "{{count}} saniye",
-      "sides": "her iki taraf"
-    },
-    "measure": {
-      "plus": "Artır",
-      "minus": "Azalt",
-      "start": "Kronometreyi başlat",
-      "stop": "Durdur",
-      "save": "Kaydet"
-    },
-    "neck": {
-      "loadTitle": "Başın öne eğildikçe boynuna binen yük",
-      "screenHeavy": "Günde 4 saatten fazla ekrana bakıyorsun. Ekranı göz hizasına getirmek ve düzenli mola vermek, rutinin kadar önemli olacak.",
-      "screenOk": "Ekran süren görece kısa. Yine de telefona bakarken başını eğmek yerine telefonu kaldırmayı alışkanlık hâline getir.",
-      "painOften": "Sık ağrı yaşıyorsan rutine yavaş başla; ağrın birkaç haftada azalmazsa bir fizyoterapiste görün."
-    },
-    "feet": {
-      "flexibleTitle": "Esnek düz taban",
-      "rigidTitle": "Sert (rijit) düz taban olabilir",
-      "archTitle": "Kemerin belirgin görünüyor",
-      "unsureTitle": "Testi bir kez daha dene",
-      "archText": "Ayak izin düz taban görünümünde değil. Antrenmanın egzersizleri yine de ayak kaslarını ve dengeni güçlendirmek için uygundur.",
-      "unsureText": "Ayna karşısında ya da birinden yardım alarak parmak uçlarında yüksel ve ayağının iç tarafına bak. Emin olamazsan bir uzmana danışabilirsin."
-    },
-    "setup": {
-      "start": "Başlayalım",
-      "enrol": "Antrenmana başla",
-      "stepOf": "Adım {{n}} / {{total}}",
-      "flagsTitle": "Güvenlik kontrolü",
-      "flagsNone": "Hiçbiri yok",
-      "flagsError": "Devam etmek için belirtileri seç ya da \"Hiçbiri yok\"u işaretle.",
-      "flagsContinue": "Antrenmana yine de katılabilirsin; ama egzersizlere başlamadan önce bir hekimle görüşmeni öneririz.",
-      "testTitle": {
-        "neck": "Boynun ve ekran alışkanlığın",
-        "feet": "Ayak izi ve parmak ucu testi"
-      },
-      "testHint": {
-        "neck": "İki kısa soru, sana uygun önerileri belirlememize yardım eder.",
-        "feet": "Evde iki dakikada yapabileceğin basit bir gözlem. Tanı koymaz, ama ayağını tanımana yardım eder."
-      },
-      "testError": "Devam etmek için tüm soruları yanıtla.",
-      "planTitle": "Senin programın",
-      "planHint": "{{weeks}} hafta boyunca haftada {{target}} gün, yaklaşık {{minutes}} dakikalık bir rutin. Egzersizlere dokunarak nasıl yapıldıklarını görebilirsin.",
-      "planWeeks": "hafta",
-      "planPerWeek": "gün / hafta",
-      "planDaily": "günlük rutin",
-      "painRuleTitle": "Ağrı kuralı nedir?",
-      "painRule": "Egzersiz sırasında hafif gerilme ya da kas yorgunluğu normaldir. Bir hareket ağrını orta ya da şiddetli düzeye çıkarıyorsa o hareketi hafiflet, daha az tekrar yap ya da atla. Ağrı egzersizden sonra da artarak sürüyorsa bir uzmana danış.",
-      "checkTitle": {
-        "neck": "Gün içi ergonomi listesi",
-        "feet": "Ayak dostu alışkanlıklar"
-      },
-      "checkHint": "Şimdiden yaptıklarını işaretle; kalanları ana sayfadan sonra da işaretleyebilirsin.",
-      "measureTitle": "İlk ölçüm: {{title}}",
-      "measureHint": "Başlangıç değerini kaydedersen haftalar içindeki değişimini görebilirsin. İstersen bu adımı atlayıp sonra ölçebilirsin.",
-      "measureSkip": "Şimdilik atla"
-    },
-    "routine": {
-      "title": "Günlük rutin",
-      "overview": "{{count}} egzersiz · yaklaşık {{minutes}} dakika",
-      "overviewHint": "Zamanlayıcı her egzersizde önce hazırlanman için 5 saniye verir, sonra \"Tut\" ve \"Dinlen\" anlarını sayar. İstediğin an duraklatabilir ya da bir hareketi atlayabilirsin.",
-      "start": "Rutini başlat",
-      "prep": "Hazırlan",
-      "hold": "Tut",
-      "rest": "Dinlen",
-      "side1": "1. taraf",
-      "side2": "2. taraf",
-      "rep": "Tekrar {{n}} / {{total}}",
-      "exOf": "Egzersiz {{n}} / {{total}}",
-      "progress": "Rutin ilerlemesi",
-      "pause": "Duraklat",
-      "resume": "Devam et",
-      "skip": "Atla",
-      "paused": "Duraklatıldı",
-      "painNote": "Ağrı orta ya da şiddetli düzeye çıkarsa hareketi hafiflet ya da atla.",
-      "endTitle": "Rutini bitirmek istiyor musun?",
-      "endBody": "Tamamladığın egzersizler kaydedilir. Rutinin en az yarısını yaptıysan bugün programına sayılır.",
-      "endConfirm": "Bitir",
-      "endCancel": "Devam et",
-      "doneTitle": "Bugünkü rutin tamam!",
-      "partialTitle": "Her adım sayılır",
-      "doneBody": "{{total}} egzersizden {{done}} tanesini tamamladın.",
-      "noneBody": "Bu sefer kayıt oluşmadı. Hazır olduğunda yeniden deneyebilirsin.",
-      "halfNote": "Rutinin yarısından azı yapıldığı için bugün programa sayılmadı.",
-      "back": "Antrenmana dön"
-    },
-    "home": {
-      "heroLabel": {
-        "neck": "DİK BOYUN PROGRAMI",
-        "feet": "GÜÇLÜ KEMER PROGRAMI"
-      },
-      "programLabel": "PROGRAM",
-      "week": "{{n}}. hafta",
-      "finishedShort": "Tamam",
-      "weekHint": "Bu hafta hedefin {{goal}} gün",
-      "ring": "{{done}}/{{goal}}",
-      "streak": "Seri",
-      "days": "{{count}} gün",
-      "total": "Toplam rutin günü",
-      "statsInfo": "Bu sayılar ne anlatıyor?",
-      "statsInfoText": "Halka bu hafta rutini tamamladığın günleri gösterir (hedef {{goal}} gün). Seri, art arda rutin yaptığın gün sayısıdır. Program {{weeks}} hafta sürer; araştırmalarda etki çoğunlukla 6 haftadan uzun programlarda görüldüğü için düzenlilik, tek tek günlerden daha önemlidir.",
-      "finishedTitle": "{{weeks}} haftalık programı tamamladın",
-      "finishedBody": "Kazandığın alışkanlıkları sürdürmek için haftada birkaç gün rutine devam edebilir ve ölçümlerini kaydetmeyi sürdürebilirsin.",
-      "flagsReminder": "Kayıtta işaretlediğin belirtiler için henüz görüşmediysen bir hekime danışmanı öneririz.",
-      "startRoutine": "Bugünkü rutini başlat · {{minutes}} dk",
-      "again": "Rutini tekrar yap",
-      "todayDone": "Bugünkü rutin tamam",
-      "todayDoneHint": "Yarın yeniden görüşmek üzere.",
-      "calendarTitle": "Program takvimi",
-      "calendarHint": "Her satır bir hafta; hedef haftada {{goal}} gün.",
-      "weekShort": "H{{n}}",
-      "gridRow": "{{week}}. hafta: {{count}} gün",
-      "legendDone": "Yapıldı",
-      "legendMissed": "Boş geçti",
-      "legendToday": "Bugün",
-      "programProgress": "Programın %{{pct}} kadarı tamamlandı.",
-      "measureTitle": "Haftalık ölçüm",
-      "measureDue": "Ölçüm zamanı",
-      "measureEmpty": "Henüz ölçüm yok. İlk ölçümünü kaydet, değişimini burada gör.",
-      "measureAdd": "Ölçüm ekle",
-      "measureUndo": "Sonuncuyu sil",
-      "measureInfo": "Bu ölçüm ne işe yarar?",
-      "trendBetter": {
-        "neck": "İlk ölçümüne göre başın duvara {{delta}} daha yakın.",
-        "feet": "İlk ölçümüne göre {{delta}} daha uzun dengede kalıyorsun."
-      },
-      "trendSame": "İlk ölçümünle aynı. Değişim zaman alır; düzenli devam et.",
-      "trendWorse": "Ölçümler gün içinde değişebilir. Her hafta aynı saatte ve aynı koşulda ölçmeyi dene.",
-      "exercisesTitle": "Egzersizler",
-      "exercisesHint": "{{count}} hareket · yaklaşık {{minutes}} dakika",
-      "checkCount": "{{done}} / {{total}} uygulanıyor",
-      "testTitle": "Başlangıç değerlendirmen",
-      "factsTitle": "Doğru bilinen yanlışlar",
-      "myth": "YANLIŞ",
-      "fact": "DOĞRUSU",
-      "guideTitle": "Rehber",
-      "guideBody": "{{count}} kısa sayfada bilmen gerekenler.",
-      "guideOpen": "Rehberi oku",
-      "helpTitle": "Ne zaman uzmana başvurmalı?",
-      "reset": "Antrenmanı sıfırla",
-      "sources": "Kaynaklar",
-      "disclaimerToggle": "Önemli not",
-      "disclaimer": "Bu antrenman genel bilgi ve egzersiz desteği sunar; tıbbi tanı ya da tedavinin yerini tutmaz. İçerik henüz bir uzman tarafından gözden geçirilmedi. Şikâyetlerin sürüyorsa ya da artıyorsa bir sağlık profesyoneline başvur."
-    },
-    "reset": {
-      "title": "Antrenman sıfırlansın mı?",
-      "body": "Rutin geçmişin, ölçümlerin ve listelerin silinir.",
-      "confirmTitle": "Emin misin?",
-      "confirmBody": "Bu işlem geri alınamaz.",
-      "confirm": "Sıfırla"
-    },
-    "guide": {
-      "title": "Rehber",
-      "finish": "Bitir"
-    },
-    "card": {
-      "setup": "8 haftalık programına başla",
-      "active": "{{week}}. hafta · bu hafta {{done}}/{{goal}} gün",
-      "done": "Program tamamlandı"
-    }
   },
   "camp": {
     "title": "Sigarasız Kamp (90 Gün)",
@@ -2446,6 +2305,7 @@
   },
   "odak": {
     "title": "Odak Kampı",
+    "cardTitle": "Odak Kampı (+18 içerik bağımlılığı)",
     "exit": {
       "button": "Hızlı çık"
     },
@@ -2696,8 +2556,8 @@
       "frozen_other": "{{count}} seri dondurma kullanıldı; serin korunuyor.",
       "gentle_one": "Hoş geldin! Kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
       "gentle_other": "Hoş geldin! {{count}} gün ara verdin; kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
-      "rewarm_one": "Uzun bir aradan sonra kısa bir yeniden ısınma seansıyla başlıyoruz (3 dk, seviye −2).",
-      "rewarm_other": "{{count}} günlük aradan sonra kısa bir yeniden ısınma seansıyla başlıyoruz (3 dk, seviye −2)."
+      "rewarm_one": "Uzun bir aradan sonra seviyeni 2 basamak düşürerek yumuşak başlıyoruz.",
+      "rewarm_other": "{{count}} günlük aradan sonra seviyeni 2 basamak düşürerek yumuşak başlıyoruz."
     }
   },
   "sources": {
@@ -2828,5 +2688,31 @@
       "s7": "Karnını, kalçanı ve bacaklarını sıkma. Sadece bu kas çalışsın.",
       "s8": "Hadi birlikte deneyelim."
     }
+  },
+  "round": {
+    "doneTitle": "Tur 1 tamamlandı",
+    "offer": "İstersen Tur 2'ye geç: yavaş sıkma eklenir. Yaklaşık {{min}} dakika sürer.",
+    "start": "Tur 2'ye geç · {{min}} dk",
+    "finish": "Bitir",
+    "contents": "Tur 2'de sırayla",
+    "new": "Yeni hareket",
+    "restNote": "Hareketler iki kez tekrarlanır; aralarda 5 saniye dinlenirsin.",
+    "intro": {
+      "kicker": "TUR 2 · KISA EĞİTİM",
+      "title": "Yeni hareket: Yavaş sıkma",
+      "steps": [
+        "Kası yavaşça sık; yaklaşık 3 saniyede en tepeye çık.",
+        "Tepede yarım saniye tut.",
+        "Bırak ve 1 saniye bekle, sonra yeniden yavaşça sık."
+      ],
+      "note": "Tur 2'de yavaş sıkma, hızlı sık-bırak ve uzun sıkma sırayla gelir. Telefon sen sıktığın sürece titrer, bıraktığında durur.",
+      "go": "Anladım, Tur 2'yi başlat",
+      "demoA11y": "Örnek: daire yavaşça büyür, tepede kısa bir an durur ve küçülür."
+    }
+  },
+  "block": {
+    "long": "{{sec}} sn bırakmadan sık",
+    "quick": "{{sec}} sn · 1 sn sık, 1 sn bırak",
+    "slow": "{{count}} kez · yavaşça sık, tepede tut, bırak"
   }
 }

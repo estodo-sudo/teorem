@@ -1,23 +1,22 @@
 import { router } from 'expo-router';
+import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Screen, useTheme } from '@/components';
+import { AppText, Icon, Screen, useTheme } from '@/components';
 import { exploreImage } from '@/content/images';
 import type { CampDefinition } from '@/features/camps/core/definition';
 import { CAMPS } from '@/features/camps/registry';
-import { CAMPUSES, type CampusEntry } from '@/features/content/cards';
-import { GLOSSARY, STORIES, type Course, type GlossaryTerm, type Story } from '@/features/content/data';
+import { GLOSSARY, STORIES, type GlossaryTerm, type Story } from '@/features/content/data';
 import { featuredStory, orderStories, storyProgress, storyState } from '@/features/content/story/discover';
-import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, ProgramCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
+import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
-import { ALC, useAlcSummary, useBodySummary, useCourseSummary, type ProgramSummary } from '@/features/content/explore/summaries';
+import { ALC, useAlcSummary } from '@/features/content/explore/summaries';
 import { openGated, useAccess } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useProgressStore } from '@/stores/progressStore';
 
 type CampItem = { kind: 'camp'; def: CampDefinition } | { kind: 'alcohol' };
 const CAMP_ITEMS: CampItem[] = [...CAMPS.map((def) => ({ kind: 'camp' as const, def })), { kind: 'alcohol' }];
-const PROGRAMS = CAMPUSES.filter((c): c is Exclude<CampusEntry, { kind: 'alcohol' }> => c.kind !== 'alcohol');
 
 /**
  * Keşfet v2 (SPEC_KESFET_V2): the story of the day, then four horizontal strips — Bilgi Hikâyeleri
@@ -46,9 +45,18 @@ export default function Discover() {
 
   return (
     <Screen contentStyle={{ gap: t.space.xxl }}>
-      <AppText variant="title1" accessibilityRole="header">
-        {tr('discover.title')}
-      </AppText>
+      {/* Title, and beside it a quiet note that this page keeps growing. */}
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
+        <AppText variant="title1" accessibilityRole="header">
+          {tr('discover.title')}
+        </AppText>
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: t.space.xs }}>
+          <Icon name="sparkle" size="sm" color={t.tokens.primary} />
+          <AppText variant="footnote" muted style={{ flexShrink: 1, textAlign: 'right' }}>
+            {tr('discover.growing')}
+          </AppText>
+        </View>
+      </View>
 
       {daily ? (
         <FeaturedStoryCard
@@ -86,17 +94,18 @@ export default function Discover() {
         render={(c) => (c.kind === 'camp' ? <CampItemCard def={c.def} /> : <AlcoholCampCard />)}
       />
 
-      <HorizontalSection<(typeof PROGRAMS)[number]>
-        id="programs"
-        title={tr('courses.title')}
-        hint={tr('courses.subtitle')}
-        right={tr('discover.programCount', { count: PROGRAMS.length })}
-        items={PROGRAMS}
-        itemWidth={CARD.program.w}
-        listLabel={a11y(tr('courses.title'), PROGRAMS.length)}
-        keyOf={(p) => p.id}
-        render={(p) => (p.kind === 'body' ? <BodyProgram id={p.id} /> : <CourseProgram course={p.course} />)}
-      />
+      {/* Antrenmanlar: the programmes were removed; the strip stays as an empty "coming soon" spot. */}
+      <View style={{ gap: t.space.md }}>
+        <AppText variant="title2" accessibilityRole="header">
+          {tr('courses.title')}
+        </AppText>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg, borderRadius: t.radius.lg, borderWidth: 1, borderStyle: 'dashed', borderColor: t.tokens.border }}>
+          <Icon name="sparkle" size="sm" color={t.tokens.primary} />
+          <AppText variant="footnote" muted style={{ flex: 1 }}>
+            {tr('discover.programsSoon')}
+          </AppText>
+        </View>
+      </View>
 
       <HorizontalSection<GlossaryTerm>
         id="glossary"
@@ -173,12 +182,3 @@ function AlcoholCampCard() {
     />
   );
 }
-
-function ProgramTile({ p }: { p: ProgramSummary }) {
-  const onPress = () =>
-    p.route.kind === 'body' ? openGated('courses', `/campus/${p.route.id}`) : openGated('courses', { pathname: '/course/[courseId]', params: { courseId: p.route.id } });
-  return <ProgramCard title={p.title} lengthLabel={p.length} progressLabel={p.progressLabel} progress={p.progress} image={exploreImage('programs', p.key)} icon={p.icon} tone={p.tone} locked={p.locked} onPress={onPress} />;
-}
-
-const BodyProgram = ({ id }: { id: 'neck' | 'feet' }) => <ProgramTile p={useBodySummary(id)} />;
-const CourseProgram = ({ course }: { course: Course }) => <ProgramTile p={useCourseSummary(course)} />;

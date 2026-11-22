@@ -1,32 +1,42 @@
 /**
- * Kegel v2 levels 1..30 (SPEC_KEGEL_V2 §6.2): a level raises INTENSITY, never the session length —
- * the length is the user's duration preset. Pure data derived from the level.
+ * Kegel levels 1..30 (user decision 2026-11-22). A session has three exercises:
  *
- * holdSec        slow hold length (3 → 10 s)
- * restFactor     hold rest = hold × factor (2.0 → 1.0, i.e. 1:2 → 1:1)
- * maxHoldSec     max-strength contraction (3 → 5 s), rest 1:2
- * enduranceSec   one long moderate hold (0 below level 5, then 10 → 30 s)
- * elevatorTopSec hold at the top floor (2 → 5 s)
- * sessionCap     max contractions in one session
+ *  Uzun sıkma       one continuous squeeze                 12 → 20 s
+ *  Hızlı sık-bırak  1 s squeeze / 1 s let go, as a block   30 → 60 s
+ *  Yavaş sıkma      (Tur 2 only) slowly up 3 s, hold 0.5 s at the top, let go, wait 1 s; as a block 33 → 60 s
+ *
+ * with a 5 s "Dinlen" between the exercises. Tur 1 repeats (uzun, hızlı) `cycles` times and ends with
+ * one more uzun sıkma: ≈ 3 min at level 1, ≈ 6.5 min at level 30. Tur 2 (optional) is
+ * 2 × (yavaş, hızlı, uzun). Pure data derived from the level.
  */
 export interface LevelParams {
   level: number;
+  /** Uzun sıkma: one continuous squeeze (s). */
   holdSec: number;
-  restFactor: number;
-  maxHoldSec: number;
-  enduranceSec: number;
-  elevatorTopSec: number;
+  /** Hızlı sık-bırak block length (s, even: 1 s squeeze + 1 s let go per rep). */
+  quickSec: number;
+  /** Yavaş sıkma block length in Tur 2 (s, target; whole reps are used). */
+  slowBlockSec: number;
+  /** Tur 1 cycles of (uzun, hızlı). */
+  cycles: number;
+  /** Contractions in Tur 1 + Tur 2 at this level. */
   sessionCap: number;
 }
 
 export const MIN_LEVEL = 1;
 export const MAX_LEVEL = 30;
 
-/** Level at which the endurance block can appear. */
-export const ENDURANCE_FROM_LEVEL = 5;
-
-/** Hold ceiling for a tense (hypertonic) pelvic floor and the relaxation track (§2, §6.4). */
-export const HYPERTONIC_HOLD_CAP_SEC = 5;
+/** "Dinlen" between exercises (user decision: 5 s). */
+export const REST_SEC = 5;
+/** Yavaş sıkma rep: slowly up, a short hold at the top, then let go and wait. */
+export const SLOW_UP_SEC = 3;
+export const SLOW_TOP_SEC = 0.5;
+export const SLOW_PAUSE_SEC = 1;
+export const SLOW_REP_SEC = SLOW_UP_SEC + SLOW_TOP_SEC + SLOW_PAUSE_SEC;
+/** Tur 1 gets a fourth cycle from this level on. */
+export const FOURTH_CYCLE_FROM_LEVEL = 15;
+/** Tur 2 cycles of (yavaş, hızlı, uzun). */
+export const ROUND2_CYCLES = 2;
 
 export function clampLevel(level: number): number {
   if (!Number.isFinite(level)) return MIN_LEVEL;
@@ -35,16 +45,18 @@ export function clampLevel(level: number): number {
 
 const lerp = (a: number, b: number, l: number) => a + ((b - a) * (l - 1)) / (MAX_LEVEL - 1);
 
+/** Whole yavaş sıkma reps in a block of `sec` seconds. */
+export const slowReps = (sec: number) => Math.max(1, Math.round(sec / SLOW_REP_SEC));
+
 function build(level: number): LevelParams {
-  return {
-    level,
-    holdSec: Math.round(lerp(3, 10, level)),
-    restFactor: Math.round(lerp(2, 1, level) * 100) / 100,
-    maxHoldSec: Math.round(lerp(3, 5, level)),
-    enduranceSec: level < ENDURANCE_FROM_LEVEL ? 0 : Math.round(10 + (20 * (level - ENDURANCE_FROM_LEVEL)) / (MAX_LEVEL - ENDURANCE_FROM_LEVEL)),
-    elevatorTopSec: Math.round(lerp(2, 5, level)),
-    sessionCap: 40 + 2 * level,
-  };
+  const holdSec = Math.round(lerp(12, 20, level));
+  const quickSec = 2 * Math.round(lerp(15, 30, level));
+  const slowBlockSec = Math.round(lerp(33, 60, level));
+  const cycles = level < FOURTH_CYCLE_FROM_LEVEL ? 3 : 4;
+  const flicks = quickSec / 2;
+  const round1 = cycles + 1 + cycles * flicks;
+  const round2 = ROUND2_CYCLES * (slowReps(slowBlockSec) + flicks + 1);
+  return { level, holdSec, quickSec, slowBlockSec, cycles, sessionCap: round1 + round2 };
 }
 
 export const LEVELS: readonly LevelParams[] = Array.from({ length: MAX_LEVEL }, (_, i) => build(i + 1));
@@ -53,10 +65,10 @@ export function getLevel(level: number): LevelParams {
   return LEVELS[clampLevel(level) - 1] as LevelParams;
 }
 
-/** Max contractions in one session at this level. */
+/** Contractions in Tur 1 + Tur 2 at this level. */
 export const sessionContractionCap = (level: number) => getLevel(level).sessionCap;
 
-/** Max contractions in one day (main session + micro sets); above it only a release session opens (§11.5). */
+/** Max contractions in one day (the session twice + a micro set); above it only a release session opens (§11.5). */
 export const dailyContractionCap = (level: number) => 2 * sessionContractionCap(level) + 40;
 
 /** Starting level derived from onboarding experience answer. */

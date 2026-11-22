@@ -1,4 +1,3 @@
-import { BODY, FEET, NECK } from '@/features/campus/body/content';
 import {
   buildTimeline,
   clampMeasure,
@@ -10,7 +9,6 @@ import {
   programProgress,
   programWeek,
   routineDays,
-  routineMinutes,
   sanitizeBodyState,
   streakDays,
   timelineSeconds,
@@ -28,25 +26,6 @@ const active = (over: Partial<BodyState> = {}): BodyState => ({
   ...over,
 });
 const full = (iso: string) => ({ at: iso, done: 8, total: 8 });
-
-describe('body campus content', () => {
-  it.each([NECK, FEET])('$id has the parts the screens need', (c) => {
-    expect(c.reviewed).toBe(false);
-    expect(c.exercises.length).toBeGreaterThanOrEqual(6);
-    expect(c.redFlags.questions.length).toBeGreaterThan(0);
-    expect(c.selfTest.questions.every((q) => q.options.length >= 2)).toBe(true);
-    expect(c.sources.length).toBeGreaterThan(0);
-    // Every exercise has a positive dose.
-    for (const e of c.exercises) expect(e.reps * e.holdSec).toBeGreaterThan(0);
-    // The guide pages used in enrolment exist.
-    const ids = c.steps.map((s) => s.id);
-    expect(ids).toEqual(expect.arrayContaining(['what', 'evidence', 'routine', 'track']));
-  });
-  it('keeps the routines short enough for daily use', () => {
-    expect(routineMinutes(BODY.neck.exercises)).toBeLessThanOrEqual(15);
-    expect(routineMinutes(BODY.feet.exercises)).toBeLessThanOrEqual(18);
-  });
-});
 
 describe('routine timeline', () => {
   const ex = (o: Partial<BodyExercise>): BodyExercise => ({

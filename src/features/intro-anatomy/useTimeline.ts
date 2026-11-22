@@ -4,6 +4,7 @@ import { cancelAnimation, Easing, ReduceMotion, runOnJS, useAnimatedReaction, us
 import { useSettingsStore } from '@/stores/settingsStore';
 
 import { playIntroTaps } from './haptics';
+import { createIntroSound } from './sound';
 import { LOOP_MS, sceneIndexAt, SCENES, TOTAL_MS, TRACKS } from './timeline';
 
 /** From this time on the closing buttons can be pressed. */
@@ -16,9 +17,21 @@ const BUTTONS_AT = TRACKS.buttons[0][0];
  * (`poseAtReduced`), not how fast time passes.
  *
  * `pulse` is scene 8's endless glow loop (0 → 1 → 0 every 3 s); it keeps going after the 50 s while
- * playing. Vibration follows the clock: it starts with play and stops at once on pause, seek or skip.
+ * playing. Vibration follows the clock: it starts with play and stops at once on pause or seek.
  */
-export function useTimeline({ autoPlay = true, haptics = true, startAt = 0 }: { autoPlay?: boolean; haptics?: boolean; /** Dev frames: start (paused) here. */ startAt?: number } = {}) {
+export function useTimeline({
+  autoPlay = true,
+  haptics = true,
+  sound = true,
+  startAt = 0,
+}: {
+  autoPlay?: boolean;
+  haptics?: boolean;
+  /** false: never play sound (still frames, screen-reader step mode). */
+  sound?: boolean;
+  /** Dev frames: start (paused) here. */
+  startAt?: number;
+} = {}) {
   const time = useSharedValue(startAt);
   const pulse = useSharedValue(0);
   const [playing, setPlaying] = useState(autoPlay);
@@ -28,6 +41,12 @@ export function useTimeline({ autoPlay = true, haptics = true, startAt = 0 }: { 
   const [buttonsOn, setButtonsOn] = useState(false);
   const [looping, setLooping] = useState(false);
   const vibrate = useSettingsStore((s) => s.settings.hapticStrength > 0) && haptics;
+  const audible = useSettingsStore((s) => s.settings.introSound !== false) && sound;
+  const [audio] = useState(createIntroSound);
+  useEffect(() => {
+    if (sound) audio.preload();
+    return () => audio.dispose();
+  }, [audio, sound]);
 
   useEffect(() => {
     if (!playing) {
@@ -41,8 +60,13 @@ export function useTimeline({ autoPlay = true, haptics = true, startAt = 0 }: { 
         if (done) runOnJS(setLooping)(true);
       }),
     );
-    return playIntroTaps(from, vibrate);
-  }, [playing, runId, time, vibrate]);
+    const stopTaps = playIntroTaps(from, vibrate);
+    if (audible) audio.play(from);
+    return () => {
+      stopTaps();
+      audio.pause();
+    };
+  }, [playing, runId, time, vibrate, audible, audio]);
 
   // Scene 8's loop runs while playing (also after the end), and stops with a pause.
   const loopOn = playing && (scene === SCENES.length - 1 || looping);
@@ -83,15 +107,7 @@ export function useTimeline({ autoPlay = true, haptics = true, startAt = 0 }: { 
     },
     [time],
   );
-  /** "Geç": straight to the last state of scene 8, buttons shown, no vibration; the glow loop keeps going. */
-  const skip = useCallback(() => {
-    cancelAnimation(time);
-    time.set(TOTAL_MS);
-    setLooping(true);
-    setPlaying(true);
-    setRunId((n) => n + 1);
-  }, [time]);
 
   const finished = looping;
-  return { time, pulse, playing, scene, buttonsOn, finished, play, pause, toggle, seek, skip, restart };
+  return { time, pulse, playing, scene, buttonsOn, finished, play, pause, toggle, seek, restart };
 }

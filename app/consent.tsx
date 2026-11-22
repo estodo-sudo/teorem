@@ -18,7 +18,7 @@ export default function Consent() {
 
   const accept = () => {
     update({ disclaimerAcceptedAt: new Date().toISOString() });
-    router.replace('/intro/anatomy');
+    router.replace('/onboarding');
   };
 
   return (

@@ -16,7 +16,7 @@ export default function AnatomyFrame() {
   // `?play=1`: the real screen (plays on its own), without the first-run gate; `&reader=1` step mode.
   if (play === '1') return <IntroAnatomyScreen forceReader={reader === '1'} />;
   // `?screen=1&t=<ms>`: the real screen (caption, buttons) frozen at one moment.
-  if (screen === '1') return <IntroAnatomyScreen stillAt={Number(t ?? 0)} onExit={() => undefined} />;
+  if (screen === '1') return <IntroAnatomyScreen stillAt={Number(t ?? 0)} />;
   return <Frozen />;
 }
 

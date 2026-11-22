@@ -8,21 +8,19 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { IconTile, SegmentedSteps } from '@/components/ui';
-import { FindMuscleArt, PelvicFloorArt, TechniqueArt, VibrationArt } from '@/components/Illustrations';
+import { FindMuscleArt, PelvicFloorArt, TechniqueArt } from '@/components/Illustrations';
+import { IntroAnatomyScreen } from '@/features/intro-anatomy/IntroAnatomyScreen';
 import { generateTrialSession } from '@/features/training/generateSession';
-import { playCue } from '@/features/training/haptics';
 import { positionCard } from '@/features/training/player/playerUi';
 import { WorkoutPlayer } from '@/features/training/player/WorkoutPlayer';
-import { ThemeOverride } from '@/components/useTheme';
-import { CHECKLIST, checklistDone, generateReleasePractice, quizPassed, TUTORIAL_ORDER, vibrationQuiz, type QuizAnswer, type TutorialStep } from '@/features/training/tutorial';
+import { CHECKLIST, checklistDone, generateReleasePractice, TUTORIAL_ORDER, type TutorialStep } from '@/features/training/tutorial';
 import { goBack as safeBack } from '@/lib/nav';
 import { useProfileStore } from '@/stores/profileStore';
-import { useSettingsStore } from '@/stores/settingsStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 /**
  * Eğitim v2 (SPEC_KEGEL_V2 §12): what / find the muscle (never while urinating) / lying start position /
- * technique / "am I doing it right?" checklist / vibration matching game / trial set / release practice /
+ * technique / "am I doing it right?" checklist / trial set / release practice /
  * common mistakes / "you're ready" — the first session is Quick (3 min). The muscle profile screening
  * comes right before (onboarding → /kegel/screening → here).
  */
@@ -54,6 +52,9 @@ export default function Tutorial() {
     setStep(TUTORIAL_ORDER[idx - 1]!);
   };
 
+  // "Pelvik taban kasın nerede?": full screen, cannot be skipped (also when watched again).
+  if (step === 'anatomy') return <IntroAnatomyScreen onFinish={next} />;
+
   // Guided runs (trial set, release practice) use the real player.
   if (step === 'trial' || step === 'release') {
     const isTrial = step === 'trial';
@@ -61,12 +62,19 @@ export default function Tutorial() {
       <Screen scroll={false} edges={['top', 'bottom']}>
         <AppText variant="h2">{isTrial ? tr('tutorial.trial.title') : tr('tutorial.release.title')}</AppText>
         <AppText muted>{isTrial ? tr('tutorial.trial.body') : tr('tutorial.release.body')}</AppText>
-        {/* The player is always a dark focus surface (SPEC_UI_V3 §7.4). */}
-        <ThemeOverride dark>
-          <View style={{ flex: 1, backgroundColor: t.focus.bg, borderRadius: t.radius.lg, padding: t.space.lg }}>
-            <WorkoutPlayer key={runKey} session={isTrial ? trial : release} minimal forceLabels onDone={() => setStep(isTrial ? 'check' : 'releaseCheck')} />
-          </View>
-        </ThemeOverride>
+        {/* The player follows the app theme: the dark focus surface in dark mode, a light card in light mode. */}
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: t.dark ? t.player.bg : t.tokens.card,
+            borderRadius: t.radius.lg,
+            borderWidth: t.dark ? 0 : t.border.thin,
+            borderColor: t.tokens.border,
+            padding: t.space.lg,
+          }}
+        >
+          <WorkoutPlayer key={runKey} session={isTrial ? trial : release} minimal forceLabels onDone={() => setStep(isTrial ? 'check' : 'releaseCheck')} />
+        </View>
       </Screen>
     );
   }
@@ -131,8 +139,6 @@ export default function Tutorial() {
   } else if (step === 'checklist') {
     body = <Checklist checked={checked} onToggle={(id) => setChecked((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]))} />;
     cta = { label: tr('common.continue'), onPress: next, disabled: !checklistDone(checked) };
-  } else if (step === 'vibration') {
-    body = <VibrationGame onPassed={next} />;
   } else if (step === 'mistakes') {
     body = <Mistakes />;
     cta = { label: tr('tutorial.understood'), onPress: next };
@@ -218,74 +224,6 @@ function Checklist({ checked, onToggle }: { checked: string[]; onToggle: (id: st
           </Pressable>
         );
       })}
-    </View>
-  );
-}
-
-/** "What does this vibration mean? SIK / BIRAK" — 4 questions; all correct to go on (§12.4). */
-function VibrationGame({ onPassed }: { onPassed: () => void }) {
-  const t = useTheme();
-  const { t: tr } = useTranslation();
-  const strength = useSettingsStore((s) => s.settings.hapticStrength);
-  const [round, setRound] = useState(0);
-  const quiz = useMemo(() => vibrationQuiz(`r${round}`), [round]);
-  const [answers, setAnswers] = useState<(QuizAnswer | null)[]>([null, null, null, null]);
-  const [i, setI] = useState(0);
-  const [played, setPlayed] = useState(false);
-  const finished = answers.every((a) => a !== null);
-  const passed = finished && quizPassed(quiz, answers);
-  const play = () => {
-    playCue(quiz[i]!.cue, strength || 2);
-    setPlayed(true);
-  };
-  const answer = (a: QuizAnswer) => {
-    const nextAnswers = answers.map((x, k) => (k === i ? a : x));
-    setAnswers(nextAnswers);
-    setPlayed(false);
-    if (i < quiz.length - 1) setI(i + 1);
-  };
-  const retry = () => {
-    setRound((r) => r + 1);
-    setAnswers([null, null, null, null]);
-    setI(0);
-    setPlayed(false);
-  };
-
-  return (
-    <View style={{ gap: t.space.md }}>
-      <View style={{ alignItems: 'center' }}>
-        <VibrationArt size={140} />
-      </View>
-      <AppText variant="h1" accessibilityRole="header">
-        {tr('tutorial.vibration.title')}
-      </AppText>
-      <AppText>{tr('tutorial.vibration.gameBody')}</AppText>
-      <View style={{ flexDirection: 'row', gap: 10 }}>
-        <Button style={{ flex: 1 }} label={tr('tutorial.vibration.trySqueeze')} variant="secondary" onPress={() => playCue('squeezeStart', strength || 2)} />
-        <Button style={{ flex: 1 }} label={tr('tutorial.vibration.tryRelax')} variant="secondary" onPress={() => playCue('releaseStart', strength || 2)} />
-      </View>
-
-      {!finished ? (
-        <Card style={{ gap: 10 }}>
-          <AppText variant="small" weight="800" muted>
-            {tr('tutorial.vibration.question', { n: i + 1, total: quiz.length })}
-          </AppText>
-          <Button label={played ? tr('tutorial.vibration.playAgain') : tr('tutorial.vibration.play')} icon="play" variant="accent" onPress={play} />
-          <AppText weight="700" center>
-            {tr('tutorial.vibration.ask')}
-          </AppText>
-          <View style={{ flexDirection: 'row', gap: 10 }}>
-            <Button style={{ flex: 1 }} label={tr('player.phase.contract')} variant="primary" disabled={!played} onPress={() => answer('squeeze')} />
-            <Button style={{ flex: 1 }} label={tr('player.phase.release')} variant="primary" disabled={!played} onPress={() => answer('release')} />
-          </View>
-        </Card>
-      ) : (
-        <Card style={{ gap: 10, backgroundColor: passed ? t.tokens.successSoft : t.tokens.warningSoft, borderColor: passed ? t.tokens.successSoft : t.tokens.warningSoft }}>
-          <AppText weight="800">{passed ? tr('tutorial.vibration.passed') : tr('tutorial.vibration.missed', { right: quiz.filter((q, k) => answers[k] === q.answer).length, total: quiz.length })}</AppText>
-          {passed ? <Button label={tr('tutorial.vibration.cta')} variant="accent" onPress={onPassed} /> : <Button label={tr('tutorial.vibration.retry')} variant="accent" onPress={retry} />}
-        </Card>
-      )}
-      <Button label={tr('tutorial.vibration.cannotFeel')} variant="ghost" onPress={onPassed} />
     </View>
   );
 }

@@ -115,6 +115,12 @@ export interface FocusColors {
   black: string;
 }
 
+/** Kegel player colours: the focus set plus the count drawn on the sphere. */
+export interface PlayerColors extends FocusColors {
+  /** The seconds count on the sphere (white on the teal sphere in both themes). */
+  sphereText: string;
+}
+
 /** White veils for text and shapes on a coloured hero (and the dark player). */
 export interface Veils {
   faint: string;
@@ -183,6 +189,11 @@ export interface Theme {
   tokens: ThemeTokens;
   tone: Record<ModuleTone, ToneColors>;
   focus: FocusColors;
+  /**
+   * The Kegel player (workout screen, tutorial trial set). Dark theme: exactly the focus colours it
+   * always had. Light theme: a light player on the app's warm background.
+   */
+  player: PlayerColors;
   veil: Veils;
   /** "Pelvik taban kasın nerede?" animation (always dark, same in both themes). */
   anatomy: AnatomyColors;
@@ -431,9 +442,18 @@ export interface AnatomyColors {
   muscle: string;
   label: string;
   labelOpacity: number;
-  /** Scene 7 "do not squeeze" areas and their crosses: `textMuted`, area fill 40 %. Never red. */
+  /** Scene 7 "do not squeeze" areas: `textMuted`, fill 40 %. */
   wrong: string;
   wrongOpacity: number;
+  /** The crosses beside them: a soft red. */
+  wrongMark: string;
+  /**
+   * While contracting the muscle brightens towards this light mint (the player's squeeze language:
+   * squeeze = brighter teal, release = blue), at most `muscleContractMix` of the way. Amber was tried
+   * and blended into a muddy olive over the teal.
+   */
+  muscleContract: string;
+  muscleContractMix: number;
   /** Captions and the "Geç" / "Sonra" text buttons. */
   text: string;
   /** Round play icon shown while paused: white at 20 %. */
@@ -460,8 +480,32 @@ const anatomyColors: AnatomyColors = {
   labelOpacity: 0.7,
   wrong: palette.mist400,
   wrongOpacity: 0.4,
+  wrongMark: palette.red300,
+  muscleContract: '#A8F0E6',
+  muscleContractMix: 0.6,
   text: '#FFFFFF',
   pauseBg: 'rgba(255,255,255,0.2)',
+};
+
+const darkPlayer: PlayerColors = { ...focusColors, sphereText: palette.white };
+
+const lightPlayer: PlayerColors = {
+  bg: palette.warm50,
+  bgEnd: palette.warm100,
+  text: palette.ink900,
+  icon: 'rgba(28,31,35,0.7)',
+  dim: palette.ink500,
+  control: 'rgba(28,31,35,0.08)',
+  track: 'rgba(28,31,35,0.12)',
+  orbCenter: '#7FCFC6',
+  orbEdge: palette.petrol300,
+  relax: palette.relaxBlue,
+  idle: '#9CC9C4',
+  paused: '#C5CCCF',
+  glow: palette.petrol300,
+  // Discreet mode stays black in both themes.
+  black: focusColors.black,
+  sphereText: palette.white,
 };
 
 function build(dark: boolean): Theme {
@@ -471,6 +515,7 @@ function build(dark: boolean): Theme {
     tokens,
     tone: dark ? darkTones : lightTones,
     focus: focusColors,
+    player: dark ? darkPlayer : lightPlayer,
     veil: veils,
     anatomy: anatomyColors,
     colors: legacy(tokens),

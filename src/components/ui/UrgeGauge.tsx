@@ -36,7 +36,8 @@ export function UrgeGauge({ value, onChange, label, color, compareTo }: Props) {
   const g = useMemo(() => gaugeGeometry(GAUGE.width), []);
   const main = color ?? t.tokens.primary;
   const amber = t.tokens.highlight;
-  const empty = t.dark ? t.veil.mid : t.tokens.muted;
+  // Light theme: a visible grey (the muted token was almost the page colour); dark theme unchanged.
+  const empty = t.dark ? t.veil.mid : mixHex(t.tokens.border, t.tokens.subtle, 0.4);
   const light = mixHex(main, t.dark ? t.focus.black : t.focus.text, 0.45);
   const needleLen = g.r - 34;
 

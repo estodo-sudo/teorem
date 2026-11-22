@@ -64,7 +64,8 @@ export function BlockPuzzle({ color, onPlayed, onTimeUp }: { color?: string; onP
   const buzz = (kind: 'place' | 'clear') => {
     if (strength === 0) return;
     if (kind === 'clear') void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => undefined);
-    else void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => undefined);
+    // Medium (was Light): vibration is felt 30 % stronger app-wide (HAPTIC_GAIN).
+    else void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => undefined);
   };
 
   const tryPlay = (slot: number, r: number, c: number) => {

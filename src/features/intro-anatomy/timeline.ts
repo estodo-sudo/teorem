@@ -139,6 +139,22 @@ export const LOOP_MS = 3000;
 export const CAPTION = { outMs: 200, inMs: 300, rise: 6 } as const;
 
 /**
+ * Sound (our own tones, scripts/generate-intro-sounds.js). A quiet ambient loop under the whole 50 s,
+ * fading out over the last 3 s; on top, a soft tick for each cross in scene 7 and a chime with the
+ * button. The contraction, hold and release have no sound of their own (the vibration carries them).
+ */
+export type IntroSoundId = 'tick' | 'chime';
+export const SOUND = {
+  ambient: { loopMs: 10000, volume: 0.55, fadeFrom: 47000 },
+  cues: [
+    { at: 39300, id: 'tick', ms: 90 },
+    { at: 40800, id: 'tick', ms: 90 },
+    { at: 42300, id: 'tick', ms: 90 },
+    { at: 46000, id: 'chime', ms: 1800 },
+  ] as readonly { at: number; id: IntroSoundId; ms: number }[],
+} as const;
+
+/**
  * Vibration (§6). Contraction: a light tap every 180 ms, every 120 ms in its last second. Hold: a very
  * light tap every 600 ms. Release: the gap grows from 200 to 700 ms, then stops.
  */

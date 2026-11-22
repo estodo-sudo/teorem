@@ -1,6 +1,6 @@
 import type { IconName } from '@/components/Icon';
 import { router, type Href } from 'expo-router';
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
@@ -16,22 +16,38 @@ import type { ModuleTone } from '@/config/theme';
  * Shared by Sigarasız Kamp and Odak Kampı; `tone` picks the camp colour.
  */
 
-/** Hero card: dark gradient in the camp tone, radius 24, padding 20. */
+/**
+ * Hero card: dark gradient in the camp tone, radius 24, padding 20. The gradient is drawn at the
+ * card's measured size: a "100 %" SVG behind growing content kept its first (smaller) size on Android,
+ * which left the gradient short on the right and at the bottom. The card also has the gradient's end
+ * colour as its own background, so nothing light shows before the first measure.
+ */
 export function PanelHero({ tone, children }: { tone: ModuleTone; children: ReactNode }) {
   const t = useTheme();
   const fg = t.tone[tone].fg;
   const id = `hero-${tone}`;
+  const from = mixHex(fg, t.focus.black, 0.25);
+  const to = mixHex(fg, t.focus.black, 0.62);
+  const [size, setSize] = useState<{ w: number; h: number } | null>(null);
   return (
-    <View style={{ borderRadius: t.radius.xl, overflow: 'hidden', padding: 20, gap: t.space.md }}>
-      <Svg width="100%" height="100%" style={{ position: 'absolute', left: 0, top: 0, right: 0, bottom: 0 }}>
-        <Defs>
-          <LinearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-            <Stop offset="0" stopColor={mixHex(fg, t.focus.black, 0.25)} />
-            <Stop offset="1" stopColor={mixHex(fg, t.focus.black, 0.62)} />
-          </LinearGradient>
-        </Defs>
-        <Rect width="100%" height="100%" fill={`url(#${id})`} />
-      </Svg>
+    <View
+      style={{ borderRadius: t.radius.xl, overflow: 'hidden', padding: 20, gap: t.space.md, backgroundColor: to }}
+      onLayout={(e) => {
+        const { width: w, height: h } = e.nativeEvent.layout;
+        if (!size || Math.abs(size.w - w) > 0.5 || Math.abs(size.h - h) > 0.5) setSize({ w, h });
+      }}
+    >
+      {size ? (
+        <Svg width={size.w} height={size.h} style={{ position: 'absolute', left: 0, top: 0 }} pointerEvents="none">
+          <Defs>
+            <LinearGradient id={id} x1="0" y1="0" x2="1" y2="1">
+              <Stop offset="0" stopColor={from} />
+              <Stop offset="1" stopColor={to} />
+            </LinearGradient>
+          </Defs>
+          <Rect width={size.w} height={size.h} fill={`url(#${id})`} />
+        </Svg>
+      ) : null}
       {children}
     </View>
   );

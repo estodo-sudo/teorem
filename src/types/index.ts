@@ -15,11 +15,6 @@ export interface UserProfile {
   tutorialDone: boolean;
   /** ISO timestamp when the 16+ age gate + medical disclaimer were accepted. */
   disclaimerAcceptedAt: string | null;
-  /**
-   * Whether the "Pelvik taban kasın nerede?" animation was seen (or skipped) during first-run setup.
-   * Optional so exports from before it existed still import.
-   */
-  introAnatomySeen?: boolean;
   /** Whether the post-onboarding paywall has been shown at least once. */
   paywallSeen: boolean;
   createdAt: string;
@@ -207,6 +202,8 @@ export type ThemePreference = 'light' | 'dark' | 'system';
 export interface Settings {
   hapticStrength: HapticStrength;
   soundCues: boolean;
+  /** Sound of the "Pelvik taban kasın nerede?" animation (on by default; the mute button there). */
+  introSound: boolean;
   discreetPlayer: boolean;
   /** "HH:MM" 24h strings, 1..3 entries. */
   reminderTimes: string[];

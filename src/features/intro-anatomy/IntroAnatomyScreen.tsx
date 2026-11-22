@@ -1,4 +1,3 @@
-import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { AccessibilityInfo, AppState, Platform, Pressable, StyleSheet, View } from 'react-native';
@@ -10,6 +9,7 @@ import { AppText, Icon } from '@/components';
 import { Button } from '@/components/ui';
 import { ThemeOverride } from '@/components/useTheme';
 import { darkTheme } from '@/config/theme';
+import { useSettingsStore } from '@/stores/settingsStore';
 
 import { AnatomyBackground, AnatomyScene, SCENE_COLORS } from './AnatomyScene';
 import { BUTTONS_RISE, CAPTION, SCENES, TOTAL_MS, TRACKS } from './timeline';
@@ -18,31 +18,21 @@ import { useTimeline } from './useTimeline';
 /** How long the closing buttons take to rise in (from `timeline.ts`). */
 const BUTTONS_IN_MS = TRACKS.buttons[1][0] - TRACKS.buttons[0][0];
 
-/** Where the screen goes when it is left: the "Kası bul" tutorial, or the next step ("Sonra"). */
-export type IntroAnatomyExit = 'tutorial' | 'later';
-
-const defaultExit = (to: IntroAnatomyExit) => {
-  if (to === 'tutorial') router.replace('/tutorial');
-  else if (router.canGoBack()) router.back();
-  else router.replace('/');
-};
-
 /**
  * "Pelvik taban kasın nerede?" (SPEC_ANIMASYON_PELVIK §5–§7). Always dark, light status bar.
- * - Thin progress bar on top, "Geç" top right (jumps to the end of scene 8: buttons shown, no vibration).
+ * - Thin progress bar on top. It cannot be skipped (no "Geç"); it can be paused with a tap.
+ * - Shown inside the "Kası bul" tutorial, right after "Kası nasıl bulursun?"; "Devam et" goes on.
  * - A tap on the drawing pauses or plays; while paused a round play icon sits in the middle.
  * - The caption of each scene under the drawing; the closing buttons rise in at 46 s.
  * - Pauses by itself when the app goes to the background.
  */
 export function IntroAnatomyScreen({
-  onExit = defaultExit,
-  onSkip,
+  onFinish,
   stillAt,
   forceReader = false,
 }: {
-  onExit?: (to: IntroAnatomyExit) => void;
-  /** Called when "Geç" is pressed (the flow saves the animation as seen). */
-  onSkip?: () => void;
+  /** "Devam et" on the last scene: the tutorial goes on. */
+  onFinish?: () => void;
   /** Dev frames only: show this moment, paused, without the play icon. */
   stillAt?: number;
   /** Dev only: force the screen-reader step mode (the web preview cannot detect a screen reader). */
@@ -53,19 +43,16 @@ export function IntroAnatomyScreen({
   const reduce = useReducedMotion();
   const reader = useScreenReader() || forceReader;
   const c = SCENE_COLORS;
-  const tl = useTimeline(stillAt === undefined ? {} : { autoPlay: false, haptics: false, startAt: stillAt });
-  const { time, pulse, playing, scene, buttonsOn, finished, pause, toggle, skip, restart, seek } = tl;
+  const tl = useTimeline(stillAt === undefined ? { sound: !reader } : { autoPlay: false, haptics: false, sound: false, startAt: stillAt });
+  const soundOn = useSettingsStore((s) => s.settings.introSound !== false);
+  const toggleSound = () => useSettingsStore.getState().update({ introSound: !soundOn });
+  const { time, pulse, playing, scene, buttonsOn, finished, pause, toggle, restart, seek } = tl;
 
   // Screen reader (§8): no auto play; each scene is shown in its last state, stepped with Önceki / Sonraki.
   const [step, setStep] = useState(0);
   useEffect(() => {
     if (reader) seek(sceneStill(step));
   }, [reader, step, seek]);
-  const onSkipPress = () => {
-    onSkip?.();
-    if (reader) setStep(SCENES.length - 1);
-    else skip();
-  };
 
   // The app going to the background pauses the animation (and with it the vibration).
   useEffect(() => {
@@ -83,16 +70,14 @@ export function IntroAnatomyScreen({
         <StatusBar style="light" />
         <AnatomyBackground />
 
-        {/* progress bar and "Geç" */}
+        {/* progress bar and the sound switch (there is no "Geç": the animation is watched to the end) */}
         <View style={styles.track}>
           <Animated.View style={[styles.bar, { backgroundColor: c.muscle }, progress]} />
         </View>
         <View style={styles.topRow}>
-          {!finished && !buttonsOn ? (
-            <Pressable onPress={onSkipPress} hitSlop={8} style={styles.skip} accessibilityRole="button" accessibilityLabel={t('introAnatomy.skip')}>
-              <AppText variant="callout" weight="600" color={c.text}>
-                {t('introAnatomy.skip')}
-              </AppText>
+          {!reader ? (
+            <Pressable onPress={toggleSound} hitSlop={8} style={styles.iconButton} accessibilityRole="switch" accessibilityState={{ checked: soundOn }} accessibilityLabel={t('introAnatomy.sound')}>
+              <Icon name={soundOn ? 'volume' : 'volumeOff'} size={22} color={c.text} />
             </Pressable>
           ) : null}
         </View>
@@ -127,12 +112,7 @@ export function IntroAnatomyScreen({
           ) : null}
           {buttonsOn ? (
             <Animated.View style={styles.actions} entering={stillAt === undefined ? FadeInDown.duration(BUTTONS_IN_MS).withInitialValues({ transform: [{ translateY: BUTTONS_RISE }] }) : undefined}>
-              <Button label={t('introAnatomy.findMuscle')} variant="primary" size="lg" fullWidth onPress={() => onExit('tutorial')} />
-              <Pressable onPress={() => onExit('later')} style={styles.textButton} accessibilityRole="button">
-                <AppText variant="body" weight="600" color={c.text}>
-                  {t('introAnatomy.later')}
-                </AppText>
-              </Pressable>
+              <Button label={t('introAnatomy.continue')} variant="primary" size="lg" fullWidth onPress={() => onFinish?.()} />
               <Pressable onPress={reader ? () => setStep(0) : restart} style={styles.textButtonSmall} accessibilityRole="button">
                 <AppText variant="footnote" color={c.label}>
                   {t('introAnatomy.replay')}
@@ -203,10 +183,10 @@ const styles = StyleSheet.create({
   center: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' },
   playIcon: { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', paddingLeft: 3 },
   track: { height: 2, width: '100%' },
-  topRow: { minHeight: 44, flexDirection: 'row', justifyContent: 'flex-end' },
+  topRow: { minHeight: 44, flexDirection: 'row', alignItems: 'center' },
+  iconButton: { minHeight: 44, minWidth: 44, alignItems: 'center', justifyContent: 'center' },
   stage: { flex: 1 },
   bar: { height: 2 },
-  skip: { minHeight: 44, minWidth: 44, paddingHorizontal: 16, alignItems: 'center', justifyContent: 'center' },
   bottom: { paddingHorizontal: 24, paddingTop: 12 },
   caption: { minHeight: 44, justifyContent: 'center', marginBottom: 12 },
   actions: { gap: 4, alignItems: 'center' },

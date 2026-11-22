@@ -31,7 +31,7 @@ const ACircle = Animated.createAnimatedComponent(Circle);
 
 /**
  * Session end — ui-v3 (SPEC_UI_V3 §7.5). Top: the completion ring + "Tamamlandı" + three small stats.
- * Then "Nasıldı?" as four big cards (2×2) and the optional technique question. After saving: the
+ * Then two numbered questions, both required: "Nasıldı?" (four big cards, 2×2) and the technique. After saving: the
  * "Yarın: Seviye 1 → 2" row, the daily target and one primary "Bitir". Behaviour unchanged
  * (SPEC_KEGEL_V2 §7.5): feedback drives the level; micro sets skip the questions.
  */
@@ -55,15 +55,24 @@ export default function FeedbackScreen() {
   const micro = Boolean(workout.isMicro);
   const asking = !outcome && !micro;
   const options = workout.completed ? OPTIONS : OPTIONS.filter((o) => o.value === 'hard' || o.value === 'failed');
+  // Both questions must be answered before saving; the screen says so and counts the answers.
+  const answered = (choice ? 1 : 0) + (technique ? 1 : 0);
+  const ready = answered === 2;
   const submit = () => {
-    if (!choice || !id) return;
+    if (!ready || !choice || !id) return;
     setOutcome(submitFeedback(id, choice, technique ?? undefined) ?? null);
   };
 
   return (
     <Screen
       contentStyle={{ gap: t.space.xxl }}
-      footer={asking ? <Button label={tr('feedback.submit')} size="lg" disabled={!choice} onPress={submit} fullWidth /> : <Button label={tr('feedback.finish')} size="lg" onPress={goHome} fullWidth />}
+      footer={
+        asking ? (
+          <Button label={ready ? tr('feedback.submit') : tr('feedback.answerLeft', { done: answered })} size="lg" disabled={!ready} onPress={submit} fullWidth />
+        ) : (
+          <Button label={tr('feedback.finish')} size="lg" onPress={goHome} fullWidth />
+        )
+      }
     >
       <Completion completed={workout.completed} micro={micro} />
       <Card style={{ padding: t.space.lg }}>
@@ -78,10 +87,11 @@ export default function FeedbackScreen() {
 
       {asking ? (
         <>
+          <AppText variant="callout" weight="600" color={t.tokens.primary}>
+            {tr('feedback.twoQuestions')}
+          </AppText>
           <View style={{ gap: t.space.md }}>
-            <AppText variant="title2" accessibilityRole="header">
-              {tr('feedback.howWas')}
-            </AppText>
+            <StepHeader n={1} title={tr('feedback.howWas')} done={!!choice} />
             <View accessibilityRole="radiogroup" accessibilityLabel={tr('feedback.question')} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.md }}>
               {options.map((o) => (
                 <BigChoice key={o.value} icon={o.icon} label={tr(`feedback.option.${o.value}.label`)} hint={tr(`feedback.option.${o.value}.hint`)} selected={choice === o.value} onPress={() => setChoice(o.value)} />
@@ -90,10 +100,10 @@ export default function FeedbackScreen() {
           </View>
 
           <View style={{ gap: t.space.md }}>
-            <AppText variant="title3">{tr('feedback.technique.question')}</AppText>
-            <View accessibilityRole="radiogroup" style={{ flexDirection: 'row', gap: t.space.md }}>
+            <StepHeader n={2} title={tr('feedback.technique.question')} done={!!technique} />
+            <View accessibilityRole="radiogroup" accessibilityLabel={tr('feedback.technique.question')} style={{ flexDirection: 'row', gap: t.space.md }}>
               {(['sure', 'unsure'] as const).map((v) => (
-                <BigChoice key={v} compact icon={v === 'sure' ? 'target' : 'thought'} label={tr(`feedback.technique.${v}`)} selected={technique === v} onPress={() => setTechnique(technique === v ? null : v)} />
+                <BigChoice key={v} compact icon={v === 'sure' ? 'target' : 'thought'} label={tr(`feedback.technique.${v}`)} selected={technique === v} onPress={() => setTechnique(v)} />
               ))}
             </View>
             {technique === 'unsure' ? <TechniqueTips /> : null}
@@ -159,6 +169,47 @@ function Completion({ completed, micro }: { completed: boolean; micro: boolean }
             {tr('feedback.streakPlus')}
           </AppText>
         ) : null}
+      </View>
+    </View>
+  );
+}
+
+/**
+ * Header of one of the two questions: a numbered badge (1 / 2) that turns into a filled check once
+ * answered, the question, and "Birini seç" → "Seçildi" under it, so it is clear there are two places
+ * to choose and which one is still open.
+ */
+function StepHeader({ n, title, done }: { n: number; title: string; done: boolean }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  const k = t.tokens;
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }} accessible accessibilityRole="header" accessibilityLabel={`${tr('feedback.stepOf', { n })}. ${title}. ${done ? tr('feedback.picked') : tr('feedback.pickOne')}`}>
+      <View
+        style={{
+          width: 32,
+          height: 32,
+          borderRadius: 16,
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: done ? k.success : k.primarySoft,
+          borderWidth: done ? 0 : t.border.medium,
+          borderColor: k.primary,
+        }}
+      >
+        {done ? (
+          <Icon name="check" size={18} color={k.card} strokeWidth={2.5} />
+        ) : (
+          <AppText variant="callout" weight="700" color={k.primary}>
+            {n}
+          </AppText>
+        )}
+      </View>
+      <View style={{ flex: 1, gap: 2 }}>
+        <AppText variant="title3">{title}</AppText>
+        <AppText variant="footnote" weight="600" color={done ? k.success : k.mutedForeground}>
+          {done ? tr('feedback.picked') : tr('feedback.pickOne')}
+        </AppText>
       </View>
     </View>
   );

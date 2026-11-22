@@ -234,7 +234,7 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   // Gesture layer: tap / double tap / hold 1 s / swipe left on the whole screen.
   const pan = usePlayerGestures({ onTap: toggle, onDoubleTap: () => setBlack((b) => !b), onLongPress: askFinish, onSwipeLeft: askSkip });
 
-  const f = t.focus;
+  const f = t.player;
   const colors = { neutral: f.idle, accent: f.orbEdge, cool: f.relax, breath: t.tokens.breathe, ring: f.orbEdge, track: f.track, paused: f.paused, glow: f.glow, highlight: f.orbCenter };
   const overall = state.totalMs > 0 ? Math.min(1, (state.status === 'completed' ? state.totalMs : posMs) / state.totalMs) : 0;
 
@@ -268,13 +268,13 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
       <View style={styles.center} accessible accessibilityLabel={`${label}. ${secondsLeft}`} accessibilityLiveRegion="assertive">
         <MuscleSphere size={sphereSize} phase={phase} exerciseType={exercise?.type} phaseKey={state.index} elapsedMs={elapsedMs} paused={paused} finished={state.status === 'completed' && !state.endedEarly} colors={colors}>
           {phase.durationMs >= 1000 && !paused ? (
-            <AppText variant="display" tabular color={f.text} center style={styles.shadow}>
+            <AppText variant="display" tabular color={f.sphereText} center style={styles.shadow}>
               {secondsLeft}
             </AppText>
           ) : null}
         </MuscleSphere>
       </View>
-      {/* The phase word under the sphere: calm white title, not coloured (ui-v3). */}
+      {/* The phase word under the sphere: calm title in the text colour, not coloured (ui-v3). */}
       <View style={{ minHeight: 44, justifyContent: 'center' }}>
         {paused ? (
           <AppText variant="title1" weight="600" center color={f.dim}>
@@ -428,7 +428,7 @@ function NextCard({ block, positionChanged }: { block: SessionBlock; positionCha
       : tr('player.nextRelease');
   return (
     <Animated.View pointerEvents="none" style={[styles.sheet, { backgroundColor: t.tokens.card, borderColor: positionChanged ? t.tokens.primary : t.tokens.border, borderRadius: t.radius.lg, padding: t.space.lg, gap: t.space.md }, style]}>
-      <MiniPreview type={block.type} color={t.focus.orbEdge} calm={t.tokens.breathe} />
+      <MiniPreview type={block.type} color={t.player.orbEdge} calm={t.tokens.breathe} />
       <View style={{ flex: 1, gap: 2 }}>
         <AppText variant="title3">{tr('player.nextTitle', { name: tr(`exercise.${block.type}.name`), reps: block.reps })}</AppText>
         <AppText variant="footnote" muted>

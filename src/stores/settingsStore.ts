@@ -8,6 +8,7 @@ import { persistStorage } from './storage';
 export const defaultSettings = (): Settings => ({
   hapticStrength: 2,
   soundCues: false,
+  introSound: true,
   discreetPlayer: false,
   reminderTimes: ['21:00'],
   remindersEnabled: true,

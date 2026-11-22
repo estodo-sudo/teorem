@@ -77,16 +77,31 @@ const LANGUAGE: Record<Cue, HapticEvent[]> = {
 /** Strength setting: Off / Light / Normal / Strong. */
 export const STRENGTH_SCALE: Record<HapticStrength, number> = { 0: 0, 1: 0.55, 2: 0.8, 3: 1 };
 
+/**
+ * App-wide boost of how strongly vibration is felt (+30 %, user request 2026-11-21), applied on top of
+ * the strength setting. Weak and medium intensities (up to 0.6) get the full +30 %; above that the
+ * curve bends smoothly to full intensity at 1, so Light < Normal < Strong stays true for the strongest
+ * cues too. On Android short pulses are also 30 % longer (TRANSIENT_MS).
+ */
+export const HAPTIC_GAIN = 1.3;
+const KNEE = 0.6;
+export function boostIntensity(x: number): number {
+  if (x <= 0) return 0;
+  if (x <= KNEE) return x * HAPTIC_GAIN;
+  const top = KNEE * HAPTIC_GAIN;
+  return Math.min(1, top + ((x - KNEE) * (1 - top)) / (1 - KNEE));
+}
+
 /** Events for a cue at the user's strength (empty when vibration is off). */
 export function hapticEvents(cue: Cue, strength: HapticStrength): HapticEvent[] {
   const k = STRENGTH_SCALE[strength];
   if (!k) return [];
-  const s = (v: number) => Math.round(v * k * 1000) / 1000;
+  const s = (v: number) => Math.round(boostIntensity(v * k) * 1000) / 1000;
   return LANGUAGE[cue].map((e) => (e.type === 'transient' ? { ...e, intensity: s(e.intensity) } : { ...e, intensity: s(e.intensity), intensityEnd: s(e.intensityEnd) }));
 }
 
-/** Length of a transient pulse when it has to be played as a short vibration (Android). */
-export const TRANSIENT_MS = (sharpness: number) => Math.round(45 - 25 * sharpness);
+/** Length of a transient pulse when it has to be played as a short vibration (Android); +30 % with the gain. */
+export const TRANSIENT_MS = (sharpness: number) => Math.round((45 - 25 * sharpness) * HAPTIC_GAIN);
 /** Ramp resolution on Android (amplitude steps). */
 export const RAMP_STEP_MS = 50;
 

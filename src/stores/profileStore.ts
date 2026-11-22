@@ -13,7 +13,6 @@ export const defaultProfile = (): UserProfile => ({
   onboardingDone: false,
   tutorialDone: false,
   disclaimerAcceptedAt: null,
-  introAnatomySeen: false,
   paywallSeen: false,
   createdAt: new Date().toISOString(),
 });

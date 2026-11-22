@@ -7,7 +7,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { useTheme } from '@/components';
-import { ThemeOverride } from '@/components/useTheme';
 import { generateMicroSet, generateReleaseSession } from '@/features/training/generateSession';
 import { WorkoutPlayer, type PlayerResult } from '@/features/training/player/WorkoutPlayer';
 import { todayWeekIndex } from '@/features/training/plan';
@@ -19,17 +18,9 @@ import { useTrainingStore } from '@/stores/trainingStore';
 
 /**
  * Kegel player screen. `sessionId`: "release" = release-only session (after pain or over the daily
- * cap), "micro" = micro set, anything else = today's session. Always dark (SPEC_UI_V3 §7.4).
+ * cap), "micro" = micro set, anything else = today's session. Follows the app theme (dark: the focus look of SPEC_UI_V3 §7.4; light: a light player).
  */
 export default function WorkoutScreen() {
-  return (
-    <ThemeOverride dark>
-      <WorkoutScreenBody />
-    </ThemeOverride>
-  );
-}
-
-function WorkoutScreenBody() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const { sessionId } = useLocalSearchParams<{ sessionId: string }>();
@@ -56,13 +47,13 @@ function WorkoutScreenBody() {
   );
 
   return (
-    <View style={{ flex: 1, backgroundColor: t.focus.bg }}>
-      <StatusBar style="light" />
+    <View style={{ flex: 1, backgroundColor: t.player.bg }}>
+      <StatusBar style={t.dark ? 'light' : 'dark'} />
       <Svg width="100%" height="100%" style={StyleSheet.absoluteFill} pointerEvents="none">
         <Defs>
           <LinearGradient id="focusBg" x1="0" y1="0" x2="0" y2="1">
-            <Stop offset="0" stopColor={t.focus.bg} />
-            <Stop offset="1" stopColor={t.focus.bgEnd} />
+            <Stop offset="0" stopColor={t.player.bg} />
+            <Stop offset="1" stopColor={t.player.bgEnd} />
           </LinearGradient>
         </Defs>
         <Rect width="100%" height="100%" fill="url(#focusBg)" />

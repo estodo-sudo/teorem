@@ -10,7 +10,8 @@ export function uiHaptic(kind: 'selection' | 'light'): void {
   if (useSettingsStore.getState().settings.hapticStrength === 0) return;
   try {
     if (kind === 'selection') void Haptics.selectionAsync().catch(() => undefined);
-    else void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => undefined);
+    // Medium instead of Light: vibration is felt 30 % stronger app-wide (HAPTIC_GAIN).
+    else void Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => undefined);
   } catch {
     // web / unsupported device: no feedback
   }

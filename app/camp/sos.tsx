@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Icon, Screen, useTheme } from '@/components';
 import { Button, Card, IconTile, ScalePressable, UrgeGauge } from '@/components/ui';
-import { ThemeOverride } from '@/components/useTheme';
 import { BreathPlayer } from '@/features/breath/BreathPlayer';
 import { BreathSetup } from '@/features/breath/BreathSetup';
 import { BREATH_MODES, type BreathMode } from '@/features/breath/patterns';
@@ -35,17 +34,19 @@ export const SOS_TOOL_ORDER: { id: SosTool; icon: IconName }[] = [
 ];
 
 /**
- * "Canım çekiyor" crisis tool (always free, never behind the paywall), always dark and calm.
+ * "Canım çekiyor" crisis tool (always free, never behind the paywall), calm, in the app theme (it used
+ * to be always dark; in the light theme that read as a broken screen).
  * Flow (SPEC_V4 §C.3): gauge → triggers → Başla → a tool → "Bitirdim" → the gauge again, compared with
  * the first answer → outcome. "Hâlâ zor" suggests the next tool not used yet. The 10-minute delay keeps
  * running as a small chip while another tool is open.
  */
 export default function CampSos() {
+  const t = useTheme();
   return (
-    <ThemeOverride dark>
-      <StatusBar style="light" />
+    <>
+      <StatusBar style={t.dark ? 'light' : 'dark'} />
       <CampSosBody />
-    </ThemeOverride>
+    </>
   );
 }
 

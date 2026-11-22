@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
 import { IconTile, UrgeGauge } from '@/components/ui';
-import { ThemeOverride } from '@/components/useTheme';
 import { BreathPlayer } from '@/features/breath/BreathPlayer';
 import { BreathSetup } from '@/features/breath/BreathSetup';
 import { BREATH_MODES, type BreathMode } from '@/features/breath/patterns';
@@ -31,14 +30,15 @@ type Step = 'check' | 'relocate' | 'tools' | 'end' | 'result';
  * "Dürtü anı" (SOS, SPEC_ODAK_KAMPI 5.2, SPEC_V4 §D.2): DAYY check (whole rows) + the urge gauge →
  * move first (60 s) → tools (breath by default, the block puzzle, movement, values, future self,
  * write to someone) → the gauge again, compared with the first answer → managed / still hard (another
- * tool) / slipped (no judgement). Always free; always dark and calm, in the focus (indigo) tone.
+ * tool) / slipped (no judgement). Always free; calm, in the focus (indigo) tone and the app theme.
  */
 export default function OdakSos() {
+  const t = useTheme();
   return (
-    <ThemeOverride dark>
-      <StatusBar style="light" />
+    <>
+      <StatusBar style={t.dark ? 'light' : 'dark'} />
       <OdakSosBody />
-    </ThemeOverride>
+    </>
   );
 }
 

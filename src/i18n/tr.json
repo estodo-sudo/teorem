@@ -3,6 +3,7 @@
     "back": "Geri",
     "close": "Kapat",
     "continue": "Devam et",
+    "sound": "Ses",
     "next": "İleri",
     "done": "Tamam",
     "cancel": "Vazgeç",
@@ -191,7 +192,7 @@
       }
     },
     "technique": {
-      "question": "Teknik nasıldı? (isteğe bağlı)",
+      "question": "Teknik nasıldı?",
       "sure": "Emindim",
       "unsure": "Emin değildim",
       "tips": [
@@ -258,6 +259,11 @@
     "completeTitle": "Tamamlandı",
     "partialShort": "Yarıda kaldı",
     "howWas": "Nasıldı?",
+    "twoQuestions": "Kaydetmek için aşağıdaki iki soruyu da cevapla.",
+    "pickOne": "Birini seç",
+    "picked": "Seçildi",
+    "stepOf": "Soru {{n}} / 2",
+    "answerLeft": "Soruları cevapla ({{done}}/2)",
     "finish": "Bitir",
     "tomorrowRow": "Yarın",
     "streakPlus": "+1 gün"
@@ -376,24 +382,6 @@
         "Her sıkmadan sonra kası tamamen bırak. Bırakma da egzersizin parçası."
       ],
       "warn": "Kegel ağrı yapmamalıdır. Ağrı veya rahatsızlık hissedersen dur; antrenmanda sağ üstteki kalkan butonuna dokun."
-    },
-    "vibration": {
-      "title": "Titreşim dili",
-      "body": [
-        "Antrenmanı ekrana bakmadan yapabilirsin. Telefon sana titreşimle yol gösterir."
-      ],
-      "trySqueeze": "SIK’ı hisset (yükselen)",
-      "tryRelax": "BIRAK’ı hisset (alçalan)",
-      "cta": "Deneme setine geç",
-      "gameBody": "Önce iki titreşimi hisset. Sonra telefon rastgele birini çalacak: ne demek olduğunu seç. 4 sorunun hepsini bilince devam edersin.",
-      "question": "Soru {{n}} / {{total}}",
-      "play": "Titreşimi çal",
-      "playAgain": "Bir daha çal",
-      "ask": "Bu titreşim ne demek?",
-      "passed": "Hepsi doğru! Titreşim dilini öğrendin.",
-      "missed": "{{total}} sorudan {{right}} doğru. Bir kez daha hisset ve tekrar dene.",
-      "retry": "Tekrar dene",
-      "cannotFeel": "Titreşimi hissedemiyorum, geç"
     },
     "trial": {
       "title": "Deneme seti",
@@ -1062,6 +1050,7 @@
     "read": "okundu",
     "start": "Başla",
     "continue": "Devam et",
+    "sound": "Ses",
     "campCount_one": "{{count}} kamp",
     "campCount_other": "{{count}} kamp",
     "programCount_one": "{{count}} antrenman",
@@ -2816,9 +2805,8 @@
   },
   "introAnatomy": {
     "sceneLabel": "Pelvik taban kasını gösteren şematik çizim",
-    "skip": "Geç",
-    "findMuscle": "Kası bul",
-    "later": "Sonra",
+    "continue": "Devam et",
+    "sound": "Ses",
     "replay": "Tekrar izle",
     "play": "Oynat",
     "pause": "Duraklat",

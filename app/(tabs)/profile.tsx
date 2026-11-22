@@ -82,7 +82,7 @@ export default function Profile() {
         <ExerciseGuide />
       </View>
       <RowGroup>
-        <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/intro/anatomy', params: { replay: '1' } })} />
+        <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
         <ListRow label={tr('profile.training.trophies')} icon="trophy" onPress={() => router.push('/achievements')} />
         <ListRow label={tr('settings.training.title')} icon="pulse" onPress={() => router.push('/settings/training')} />
       </RowGroup>

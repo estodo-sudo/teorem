@@ -5,7 +5,7 @@ import { HAPTIC } from './timeline';
 /**
  * Vibration of the contraction, hold and release (SPEC_ANIMASYON_PELVIK §6). The taps are a plain list
  * of times worked out from `timeline.ts`; playing them schedules only the taps still ahead of the
- * current time, and the returned function cancels them at once (pause, skip, leaving the screen).
+ * current time, and the returned function cancels them at once (pause, leaving the screen).
  */
 
 /** `light`: contraction taps; `soft`: the very light taps of the hold and the release. */
@@ -38,7 +38,8 @@ export function playIntroTaps(fromMs: number, enabled: boolean): () => void {
   const timers = TAPS.filter((p) => p.at >= fromMs).map((p) =>
     setTimeout(() => {
       try {
-        const style = p.kind === 'light' ? Haptics.ImpactFeedbackStyle.Light : Haptics.ImpactFeedbackStyle.Soft;
+        // One step stronger than the spec's Light / very light: vibration is felt 30 % stronger app-wide.
+        const style = p.kind === 'light' ? Haptics.ImpactFeedbackStyle.Medium : Haptics.ImpactFeedbackStyle.Light;
         void Haptics.impactAsync(style).catch(() => undefined);
       } catch {
         // web or a device without vibration

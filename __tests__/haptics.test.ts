@@ -1,4 +1,4 @@
-import { androidWaveform, cueForHoldSecond, cueForPhase, cueLengthMs, hapticEvents, iosFallbackCalls, onOffPattern, PREVIEW_CUES, type Cue, type HapticEvent } from '@/features/training/hapticPatterns';
+import { androidWaveform, boostIntensity, cueForHoldSecond, cueForPhase, cueLengthMs, hapticEvents, iosFallbackCalls, onOffPattern, PREVIEW_CUES, type Cue, type HapticEvent } from '@/features/training/hapticPatterns';
 import { voiceKeyForPhase } from '@/features/training/voice';
 import tr from '@/i18n/tr.json';
 
@@ -11,6 +11,13 @@ const amps = (cue: Cue, strength: 1 | 2 | 3 = 3) => {
 };
 
 describe('Titreşim Dili v2 (spec 7.4)', () => {
+  it('vibration is felt 30 % stronger app-wide, without losing the strength order', () => {
+    expect(boostIntensity(0.25)).toBeCloseTo(0.325, 5);
+    expect(boostIntensity(0.5)).toBeCloseTo(0.65, 5);
+    expect(boostIntensity(1)).toBe(1);
+    for (let x = 0; x < 1; x += 0.05) expect(boostIntensity(x + 0.05)).toBeGreaterThan(boostIntensity(x));
+  });
+
   it('off means nothing; strengths scale the intensity (light < normal < strong)', () => {
     expect(hapticEvents('squeezeStart', 0)).toEqual([]);
     const peak = (s: 1 | 2 | 3) => Math.max(...hapticEvents('quickFlick', s).map((e) => e.intensity));
@@ -20,8 +27,9 @@ describe('Titreşim Dili v2 (spec 7.4)', () => {
   });
 
   it('squeeze: 300 ms rising ramp 0.3 → 1.0; release: 500 ms falling ramp 0.6 → 0 plus a soft double pulse', () => {
-    expect(ramp('squeezeStart')).toMatchObject({ duration: 300, intensity: 0.3, intensityEnd: 1 });
-    expect(ramp('releaseStart')).toMatchObject({ duration: 500, intensity: 0.6, intensityEnd: 0 });
+    // Intensities carry the app-wide +30 % (boostIntensity): 0.3 → 0.39, 0.6 → 0.78, 1 stays 1.
+    expect(ramp('squeezeStart')).toMatchObject({ duration: 300, intensity: 0.39, intensityEnd: 1 });
+    expect(ramp('releaseStart')).toMatchObject({ duration: 500, intensity: 0.78, intensityEnd: 0 });
     expect(pulses('releaseStart')).toBe(2);
     expect(
       hapticEvents('releaseStart', 3)
@@ -30,9 +38,9 @@ describe('Titreşim Dili v2 (spec 7.4)', () => {
     ).toBe(true);
   });
 
-  it('hold ticks 0.25, last 3 s 0.5; quick flick one sharp pulse; floors 1/2/3 pulses; cough sharp double', () => {
-    expect(hapticEvents('holdTick', 3)).toEqual([{ type: 'transient', time: 0, intensity: 0.25, sharpness: 0.3 }]);
-    expect(hapticEvents('holdTickFinal', 3)[0]!.intensity).toBe(0.5);
+  it('hold ticks 0.25, last 3 s 0.5 (×1.3 app gain); quick flick one sharp pulse; floors 1/2/3 pulses; cough sharp double', () => {
+    expect(hapticEvents('holdTick', 3)).toEqual([{ type: 'transient', time: 0, intensity: 0.325, sharpness: 0.3 }]);
+    expect(hapticEvents('holdTickFinal', 3)[0]!.intensity).toBe(0.65);
     expect(hapticEvents('quickFlick', 3)).toEqual([{ type: 'transient', time: 0, intensity: 1, sharpness: 1 }]);
     expect([pulses('elevatorFloor1'), pulses('elevatorFloor2'), pulses('elevatorFloor3')]).toEqual([1, 2, 3]);
     expect(hapticEvents('knackCough', 3).map((e) => e.sharpness)).toEqual([1, 1]);

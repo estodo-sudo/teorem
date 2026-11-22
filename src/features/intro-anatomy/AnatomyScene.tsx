@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { View } from 'react-native';
-import Animated, { useAnimatedProps, useDerivedValue, useSharedValue, type SharedValue } from 'react-native-reanimated';
-import Svg, { Circle, Defs, Ellipse, G, Line, LinearGradient, Path, RadialGradient, Rect, Stop, Text as SvgText } from 'react-native-svg';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import Animated, { useAnimatedProps, useAnimatedStyle, useDerivedValue, useSharedValue, type SharedValue } from 'react-native-reanimated';
+import Svg, { Circle, Defs, Ellipse, G, Line, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
-import { darkTheme, fontFamily } from '@/config/theme';
+import { darkTheme, familyFor } from '@/config/theme';
 
 import {
   ARM,
@@ -29,7 +29,7 @@ import {
   type Organ,
   type Pt,
 } from './paths';
-import { FOCUS, poseAt, poseAtReduced } from './timeline';
+import { FOCUS, poseAt, poseAtReduced, type TimelinePose } from './timeline';
 
 /** Animation colours: theme `anatomy` group (always dark, the same in both themes). */
 export const SCENE_COLORS = darkTheme.anatomy;
@@ -66,12 +66,24 @@ export const GLOW_LAYERS: readonly (readonly [number, number])[] = [
   [16, 0.16],
 ];
 
-/** SVG `transform` that puts canvas point (cx, cy) in the middle of the view at the given zoom. */
-export function cameraTransform(scale: number, cx: number, cy: number): string {
+const IS_WEB = Platform.OS === 'web';
+
+
+/**
+ * An SVG group transform as animated props. Phones get react-native-svg's numeric `matrix` prop: a
+ * `transform` string set from the UI thread is read by Reanimated as a style transform there and
+ * rejected ("invalidTransform"). The web preview keeps the `transform` attribute.
+ */
+export function svgMatrix(a: number, b: number, c: number, d: number, e: number, f: number): { matrix?: number[]; transform?: string } {
   'worklet';
-  const tx = VIEWBOX.w / 2 - cx * scale;
-  const ty = VIEWBOX.h / 2 - cy * scale;
-  return `translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${scale.toFixed(4)})`;
+  if (IS_WEB) return { transform: `matrix(${a} ${b} ${c} ${d} ${e.toFixed(2)} ${f.toFixed(2)})` };
+  return { matrix: [a, b, c, d, e, f] };
+}
+
+/** Camera: puts canvas point (cx, cy) in the middle of the view at the given zoom. */
+export function cameraMatrix(scale: number, cx: number, cy: number) {
+  'worklet';
+  return svgMatrix(scale, 0, 0, scale, VIEWBOX.w / 2 - cx * scale, VIEWBOX.h / 2 - cy * scale);
 }
 
 const AG = Animated.createAnimatedComponent(G);
@@ -128,11 +140,11 @@ export function AnatomyScene({
 
   const camera = useAnimatedProps(() => {
     const p = posed.value;
-    return { transform: cameraTransform(p.scale, p.cx, p.cy), opacity: p.fade };
+    return { ...cameraMatrix(p.scale, p.cx, p.cy), opacity: p.fade };
   });
   const silhouette = useAnimatedProps(() => {
     const p = posed.value;
-    return { opacity: p.silhouette, transform: `translate(0 ${p.silhouetteRise.toFixed(2)})`, strokeWidth: 1.5 / p.scale };
+    return { opacity: p.silhouette, ...svgMatrix(1, 0, 0, 1, 0, p.silhouetteRise), strokeWidth: 1.5 / p.scale };
   });
   const light = useAnimatedProps(() => ({ opacity: posed.value.pelvisLight }));
   const bones = useAnimatedProps(() => {
@@ -155,7 +167,8 @@ export function AnatomyScene({
     'worklet';
     const p = posed.value;
     const dy = p.organsDrop + p.sag * SAG_SHARE;
-    return { transform: `translate(${fitAt(p.contract, k).toFixed(2)} ${(fitAt(p.contract, k + 1) + dy).toFixed(2)}) rotate(${rot})` };
+    const a = (rot * Math.PI) / 180;
+    return svgMatrix(Math.cos(a), Math.sin(a), -Math.sin(a), Math.cos(a), fitAt(p.contract, k), fitAt(p.contract, k + 1) + dy);
   };
   const bladder = useAnimatedProps(organAt(0, BLADDER.rot));
   const rectum = useAnimatedProps(organAt(2, RECTUM.rot));
@@ -163,7 +176,23 @@ export function AnatomyScene({
   const muscleGroup = useAnimatedProps(() => ({ opacity: posed.value.muscle }));
   const muscle = useAnimatedProps(() => {
     const p = posed.value;
-    return { d: floorPath(p.contract, p.sag), strokeWidth: (8 + 2 * Math.min(1, Math.max(0, p.contract))) / p.scale, strokeDashoffset: LEN.floor * (1 - p.muscleDraw) };
+    return {
+      d: floorPath(p.contract, p.sag),
+      strokeWidth: (8 + 2 * Math.min(1, Math.max(0, p.contract))) / p.scale,
+      strokeDashoffset: LEN.floor * (1 - p.muscleDraw),
+    };
+  });
+  // While contracting the muscle brightens towards the squeeze colour: the same line in light mint on
+  // top, its opacity rising with the contraction up to `muscleContractMix` (= that share of a blend),
+  // so the muscle stays recognisably itself and eases back over the 4 s release. Only numbers animate
+  // (no colour values), which every platform handles the same way.
+  const muscleTint = useAnimatedProps(() => {
+    const p = posed.value;
+    return {
+      d: floorPath(p.contract, p.sag),
+      strokeOpacity: SCENE_COLORS.muscleContractMix * Math.min(1, Math.max(0, p.contract)),
+      strokeWidth: (8 + 2 * Math.min(1, Math.max(0, p.contract))) / p.scale,
+    };
   });
   const glowLayer = ([w, o]: readonly [number, number]) => () => {
     'worklet';
@@ -211,12 +240,10 @@ export function AnatomyScene({
   const wrong = { belly: [wrongBelly, markBelly], buttock: [wrongButtock, markButtock], thigh: [wrongThigh, markThigh] } as const;
 
   const [pcx, pcy] = LANDMARKS.pelvisCentre;
-  const textSize = 13 / POSE_REST.scale;
-  const labelText = (text: string, at: Pt, anchor: 'start' | 'middle', color: string) => (
-    <SvgText x={at[0]} y={at[1]} fill={color} fontSize={textSize} fontFamily={fontFamily.medium} textAnchor={anchor}>
-      {text}
-    </SvgText>
-  );
+  /** Label text height in canvas units at the pelvis zoom (for where the label lines start). */
+  const textSize = LABEL_FONT / POSE_REST.scale;
+  // Stage size, for placing the real-text labels over the drawing.
+  const box = useSharedValue({ w: 0, h: 0 });
   // Where each label line starts: beside a start-anchored text, above or below a centred one.
   const from = {
     bladder: [LABELS.bladder.at[0] - 1.5, LABELS.bladder.at[1] - textSize * 0.35] as Pt,
@@ -225,7 +252,13 @@ export function AnatomyScene({
   };
 
   return (
-    <View style={{ flex: 1 }} accessible={!!label} accessibilityRole="image" accessibilityLabel={label}>
+    <View
+      style={{ flex: 1 }}
+      accessible={!!label}
+      accessibilityRole="image"
+      accessibilityLabel={label}
+      onLayout={(e) => box.set({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height })}
+    >
       <Svg viewBox={`0 0 ${VIEWBOX.w} ${VIEWBOX.h}`} preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
         <Defs>
           <LinearGradient id="anatomyBg" x1="0" y1="0" x2="0" y2={VIEWBOX.h} gradientUnits="userSpaceOnUse">
@@ -273,7 +306,7 @@ export function AnatomyScene({
           {/* scene 7: the crosses beside belly, buttock and inner thigh (20 px at the scene-7 zoom) */}
           {(Object.keys(WRONG) as (keyof typeof WRONG)[]).map((k) => (
             <AG key={k} animatedProps={wrong[k][1]} opacity={0}>
-              <CrossMark at={WRONG_MARKS[k]} size={20 / FOCUS.hips.scale} color={c.wrong} />
+              <CrossMark at={WRONG_MARKS[k]} size={20 / FOCUS.hips.scale} color={c.wrongMark} />
             </AG>
           ))}
 
@@ -296,26 +329,91 @@ export function AnatomyScene({
               <APath key={w} animatedProps={glows[i]} stroke={c.muscle} strokeLinecap="round" fill="none" />
             ))}
             <APath animatedProps={muscle} stroke={c.muscle} strokeDasharray={[LEN.floor, LEN.floor]} strokeLinecap="round" fill="none" />
+            <APath animatedProps={muscleTint} stroke={c.muscleContract} strokeOpacity={0} strokeLinecap="round" fill="none" />
           </AG>
 
           {/* labels */}
           <AG animatedProps={labelFloor} opacity={0}>
             <G opacity={c.labelOpacity}>
               <ALine animatedProps={lineFloor} x1={from.floor[0]} y1={from.floor[1]} stroke={c.muscle} />
-              {labelText(t('introAnatomy.labels.floor'), LABELS.floor.at, LABELS.floor.anchor, c.muscle)}
             </G>
           </AG>
           <AG animatedProps={labelOrgans} opacity={0}>
             <G opacity={c.labelOpacity}>
               <ALine animatedProps={lineBladder} x1={from.bladder[0]} y1={from.bladder[1]} stroke={c.label} />
               <ALine animatedProps={lineBowel} x1={from.bowel[0]} y1={from.bowel[1]} stroke={c.label} />
-              {labelText(t('introAnatomy.labels.bladder'), LABELS.bladder.at, LABELS.bladder.anchor, c.label)}
-              {labelText(t('introAnatomy.labels.bowel'), LABELS.bowel.at, LABELS.bowel.anchor, c.label)}
             </G>
           </AG>
         </AG>
       </Svg>
+
+      {/* The labels are real text on top of the drawing (crisp at any zoom), placed through the camera. */}
+      <View style={StyleSheet.absoluteFill} pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+        <SceneLabel text={t('introAnatomy.labels.floor')} spot={LABELS.floor} color={c.muscle} posed={posed} box={box} show="labelFloor" />
+        <SceneLabel text={t('introAnatomy.labels.bladder')} spot={LABELS.bladder} color={c.label} posed={posed} box={box} show="labelOrgans" />
+        <SceneLabel text={t('introAnatomy.labels.bowel')} spot={LABELS.bowel} color={c.label} posed={posed} box={box} show="labelOrgans" />
+      </View>
     </View>
+  );
+}
+
+/** Label size in screen points (Inter SemiBold). */
+const LABEL_FONT = 14;
+const LABEL_LINE = 18;
+/** Width of a label's box (the text is centred in it, or starts at its left edge). */
+const LABEL_BOX = 200;
+const LABEL_FAMILY = Platform.OS === 'web' ? `${familyFor('600')}, system-ui, sans-serif` : familyFor('600');
+
+/**
+ * One label as native text. Its canvas point (the SVG baseline position of `LABELS`) goes through the
+ * camera and then the `meet` fit of the 360 × 640 canvas into the stage, every frame on the UI thread.
+ */
+function SceneLabel({
+  text,
+  spot,
+  color,
+  posed,
+  box,
+  show,
+}: {
+  text: string;
+  spot: { at: Pt; anchor: 'start' | 'middle' };
+  color: string;
+  posed: SharedValue<TimelinePose>;
+  box: SharedValue<{ w: number; h: number }>;
+  show: 'labelFloor' | 'labelOrgans';
+}) {
+  const [x, y] = spot.at;
+  const middle = spot.anchor === 'middle';
+  const style = useAnimatedStyle(() => {
+    const p = posed.value;
+    const { w, h } = box.value;
+    const fit = Math.min(w / VIEWBOX.w, h / VIEWBOX.h);
+    const sx = (w - VIEWBOX.w * fit) / 2 + fit * (VIEWBOX.w / 2 + (x - p.cx) * p.scale);
+    const sy = (h - VIEWBOX.h * fit) / 2 + fit * (VIEWBOX.h / 2 + (y - p.cy) * p.scale);
+    return {
+      opacity: w > 0 ? p[show] : 0,
+      // the canvas y is the text baseline: the box top sits one font size above it
+      transform: [{ translateX: middle ? sx - LABEL_BOX / 2 : sx }, { translateY: sy - LABEL_FONT }],
+    };
+  });
+  return (
+    <Animated.View style={[{ position: 'absolute', left: 0, top: 0, width: LABEL_BOX }, style]}>
+      <Text
+        maxFontSizeMultiplier={1.2}
+        style={{
+          color,
+          fontFamily: LABEL_FAMILY,
+          fontSize: LABEL_FONT,
+          lineHeight: LABEL_LINE,
+          textAlign: middle ? 'center' : 'left',
+          textShadowColor: 'rgba(0,0,0,0.55)',
+          textShadowRadius: 3,
+        }}
+      >
+        {text}
+      </Text>
+    </Animated.View>
   );
 }
 

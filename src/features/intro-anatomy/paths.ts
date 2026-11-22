@@ -67,8 +67,15 @@ export const FLOOR = {
   contracted: [[189, 416], [170, 417.4]] as const,
 };
 
-const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
-const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+// Called from UI-thread worklets (floorControls), so they must be worklets too.
+function lerp(a: number, b: number, t: number): number {
+  'worklet';
+  return a + (b - a) * t;
+}
+function clamp01(v: number): number {
+  'worklet';
+  return Math.min(1, Math.max(0, v));
+}
 
 /** Inner control points at a given contraction (0 = rest, 1 = fully contracted). */
 export function floorControls(contract: number): [Pt, Pt] {

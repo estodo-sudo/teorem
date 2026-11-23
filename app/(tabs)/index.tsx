@@ -7,7 +7,6 @@ import { ScalePressable } from '@/components/ui';
 import { useStreak } from '@/features/gamification/service';
 import { DailyGoalCard } from '@/features/today/DailyGoalCard';
 import { StreakBadge } from '@/features/today/StreakBadge';
-import { TodayExtras } from '@/features/today/TodayExtras';
 import { GlossaryStrip } from '@/features/today/GlossaryStrip';
 import { FitnessCard, ThisWeek } from '@/features/today/WeekSections';
 import { WorkoutCard } from '@/features/today/WorkoutCard';
@@ -64,7 +63,6 @@ export default function Today() {
       <DailyGoalCard />
       <FitnessCard />
       <GlossaryStrip />
-      <TodayExtras />
     </Screen>
   );
 }

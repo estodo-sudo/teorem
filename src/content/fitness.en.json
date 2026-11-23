@@ -4,209 +4,171 @@
     {
       "id": "glute_bridge",
       "name": "Glute Bridge",
-      "target": "Glutes, hamstrings and pelvic floor",
-      "setup": "Lie on your back. Bend your knees with the soles of your feet on the floor, hip-width apart. Arms by your sides, palms on the floor.",
+      "target": "Glutes, hamstrings, pelvic floor",
+      "setup": "Lie on your back, knees bent, feet flat.",
       "steps": [
-        "Squeeze your glutes and lift your hips off the floor; form a straight line from your knees to your shoulders.",
-        "Hold for a moment at the top, keeping your glutes tight.",
-        "Lower your hips slowly to the floor."
+        "Squeeze and lift your hips.",
+        "Pause at the top.",
+        "Lower slowly."
       ],
-      "tip": "As you rise, also gently lift your pelvic floor muscle.",
-      "mistake": "Don't overarch your lower back; don't lift your hips higher than your shoulders."
+      "tip": "Lift your pelvic floor too.",
+      "mistake": "Don't overarch your back."
     },
     {
       "id": "pelvic_tilt",
       "name": "Pelvic Tilt",
       "target": "Lower abs and pelvic floor",
-      "setup": "Lie on your back, knees bent, feet on the floor. There's a small gap between your lower back and the floor.",
+      "setup": "Lie on your back, knees bent.",
       "steps": [
-        "Gently draw your belly in and press your lower back into the floor; close the gap.",
-        "Your pelvis tilts slightly upwards; your hips don't lift off the floor.",
-        "Release and let the gap return."
+        "Press your lower back down.",
+        "Tilt your pelvis up slightly.",
+        "Release."
       ],
-      "tip": "The movement is very small; only your pelvis rocks.",
-      "mistake": "Don't lift your hips off the floor or hold your breath."
+      "tip": "A small move; hips stay down.",
+      "mistake": "Don't hold your breath."
     },
     {
       "id": "pillow_squeeze",
       "name": "Pillow Squeeze",
       "target": "Inner thighs and pelvic floor",
-      "setup": "Lie on your back, knees bent, feet on the floor. Put a pillow or a folded towel between your knees.",
+      "setup": "Lie on your back, pillow between knees.",
       "steps": [
-        "Squeeze the pillow inwards with your knees.",
-        "As you squeeze, also lift your pelvic floor muscle.",
-        "Relax slowly; don't let the pillow drop."
+        "Squeeze the pillow.",
+        "Lift your pelvic floor.",
+        "Release slowly."
       ],
-      "tip": "Breathe out as you squeeze and in as you relax.",
-      "mistake": "Don't lift your hips or lower back; only your knees squeeze inwards."
+      "tip": "Breathe out as you squeeze.",
+      "mistake": "Don't lift your hips."
     },
     {
       "id": "clamshell",
       "name": "Clamshell",
       "target": "Side hip muscles",
-      "setup": "Lie on your side with your head on your lower arm. Bend your knees forward, feet and knees stacked.",
+      "setup": "Lie on your side, knees bent, feet together.",
       "steps": [
-        "Keeping your feet together, open your top knee upwards.",
-        "Pause briefly at the top without rolling your hips back.",
-        "Close your knee slowly."
+        "Open your top knee.",
+        "Pause at the top.",
+        "Close slowly."
       ],
-      "tip": "Halfway through, the screen tells you: switch to the other side.",
-      "mistake": "Don't roll your hips back; your lower back and hips stay still, only the knee opens."
+      "tip": "Switch sides halfway.",
+      "mistake": "Don't roll your hips back."
     },
     {
       "id": "knee_to_chest",
       "name": "Knee-to-Chest Stretch",
-      "target": "Lower back and hips (relaxation)",
+      "target": "Lower back and hips (relax)",
       "setup": "Lie on your back, knees bent.",
       "steps": [
-        "Pull both knees towards your chest and hug them with your arms.",
-        "Stay where you are as you breathe in.",
-        "As you breathe out, bring your knees a little closer and let your lower back relax."
+        "Pull your knees to your chest.",
+        "Breathe in, hold.",
+        "Breathe out, draw closer."
       ],
-      "tip": "Keep your head and shoulders on the floor; breathe easily.",
-      "mistake": "Don't force your knees in; the stretch should be gentle and pain-free."
+      "tip": "Head and shoulders stay down.",
+      "mistake": "Don't force it."
     },
     {
       "id": "dead_bug",
       "name": "Dead Bug",
-      "target": "Deep abdominal muscles and core stability",
-      "setup": "Lie on your back. Reach your arms to the ceiling and lift your knees into the air, bent at 90 degrees (tabletop position).",
+      "target": "Deep core and balance",
+      "setup": "On your back; arms up, knees at 90°.",
       "steps": [
-        "Slowly extend one arm behind your head and the opposite leg forward.",
-        "Reach as far as you can without lifting your lower back off the floor.",
-        "Bring the arm and leg back to the start."
+        "Reach one arm and the opposite leg.",
+        "Keep your back down.",
+        "Return, switch sides."
       ],
-      "tip": "Halfway through, switch to the other arm and leg.",
-      "mistake": "If your lower back lifts, extend your leg less."
+      "tip": "Switch sides every rep.",
+      "mistake": "If your back lifts, reach less."
     },
     {
       "id": "squat",
       "name": "Squat",
-      "target": "Glutes and legs",
-      "setup": "Stand up, feet shoulder-width apart, toes turned slightly out.",
+      "target": "Hips and legs",
+      "setup": "Feet shoulder-width apart.",
       "steps": [
-        "Push your hips back as if sitting on a chair and lower down; reach your arms forward.",
-        "Go as low as is comfortable, keeping your chest up.",
-        "Push through your heels to stand up and squeeze your glutes."
+        "Sit your hips back and down.",
+        "Keep your chest up.",
+        "Push through your heels."
       ],
-      "tip": "Breathe out as you stand up.",
-      "mistake": "Don't let your knees cave in; keep them pointing the same way as your toes."
+      "tip": "Breathe out as you rise.",
+      "mistake": "Don't let your knees cave in."
     },
     {
       "id": "sumo_squat",
       "name": "Sumo Squat",
-      "target": "Inner thighs, glutes and pelvic floor",
-      "setup": "Stand with your feet wide, toes pointing out. Bring your hands together at your chest.",
+      "target": "Inner thighs, hips, pelvic floor",
+      "setup": "Wide stance, toes out.",
       "steps": [
-        "Keeping your body upright, open your knees out and lower down.",
-        "Keep your knees over your toes.",
-        "Squeeze your inner thighs and glutes as you stand up."
+        "Open your knees and lower.",
+        "Knees over your toes.",
+        "Squeeze as you rise."
       ],
-      "tip": "As you stand up, also lift your pelvic floor muscle.",
-      "mistake": "Don't lean forward; keep your body upright the whole time."
+      "tip": "Lift your pelvic floor as you rise.",
+      "mistake": "Don't lean forward."
     },
     {
       "id": "plank",
       "name": "Plank",
       "target": "Abs and core",
-      "setup": "Lie face down. Put your elbows under your shoulders and lift your body onto your toes.",
+      "setup": "Elbows under shoulders, on your toes.",
       "steps": [
-        "Keep your body in a straight line from head to heels.",
-        "Draw your belly in gently and hold the position.",
-        "Don't forget to breathe; hold until the time is up."
+        "Body in a straight line.",
+        "Draw your belly in gently.",
+        "Hold and breathe."
       ],
-      "tip": "If it's too hard, do it with your knees on the floor.",
-      "mistake": "Don't let your hips drop or rise."
+      "tip": "Drop to your knees if needed.",
+      "mistake": "Don't let your hips sag."
     },
     {
       "id": "bird_dog",
       "name": "Bird-Dog",
-      "target": "Back, glutes and core stability",
-      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "target": "Back, hips, balance",
+      "setup": "Start on all fours.",
       "steps": [
-        "Reach one arm forward and the opposite leg back.",
-        "Pause briefly when your arm and leg are parallel to the floor.",
-        "Bring them back slowly."
+        "Reach one arm and the opposite leg.",
+        "Pause briefly.",
+        "Return, switch sides."
       ],
-      "tip": "Halfway through, switch to the other arm and leg.",
-      "mistake": "Don't let your lower back sag or your hips turn to the side."
+      "tip": "Switch sides every rep.",
+      "mistake": "Don't let your back sag."
     },
     {
       "id": "hip_opener",
       "name": "Hip Opener Stretch",
       "target": "Front of the hip (stretch)",
-      "setup": "Put one knee on the floor, the other foot in front with that knee bent at 90 degrees. Put your hands on your front knee.",
+      "setup": "One knee down, other foot in front.",
       "steps": [
-        "Keeping your body upright, slowly push your hips forward.",
-        "Feel the stretch at the front of the hip of your back leg.",
+        "Push your hips forward.",
+        "Feel the stretch at the back hip.",
         "Come back slowly."
       ],
-      "tip": "Switch legs halfway through.",
-      "mistake": "Don't let your front knee go far past your toes; the stretch should be gentle."
+      "tip": "Switch legs halfway.",
+      "mistake": "Don't lean too far forward."
     },
     {
       "id": "butterfly",
       "name": "Butterfly Stretch",
       "target": "Inner thighs and groin (stretch)",
-      "setup": "Sit on the floor, bring the soles of your feet together and hold your feet with your hands. Back upright.",
+      "setup": "Sit with the soles of your feet together.",
       "steps": [
-        "As you breathe in, straighten your back.",
-        "As you breathe out, let your knees drop towards the floor.",
-        "Without forcing, relax a little more with each breath."
+        "Breathe in, sit tall.",
+        "Breathe out, let your knees drop.",
+        "Relax a little more each breath."
       ],
-      "tip": "Don't push your knees down with your hands; let them drop under their own weight.",
+      "tip": "Don't push your knees down.",
       "mistake": "Don't round your back."
     }
   ],
   "routines": [
     {
-      "id": "beginner",
-      "name": "Beginner",
-      "level": "low",
+      "id": "standard",
+      "name": "Standard",
       "steps": [
         {
           "exerciseId": "pelvic_tilt",
-          "workSec": 36,
+          "workSec": 44,
           "restSec": 15,
           "round": 1
         },
-        {
-          "exerciseId": "glute_bridge",
-          "workSec": 36,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "pillow_squeeze",
-          "workSec": 36,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "clamshell",
-          "workSec": 40,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "butterfly",
-          "workSec": 36,
-          "restSec": 15,
-          "round": 3
-        },
-        {
-          "exerciseId": "knee_to_chest",
-          "workSec": 40,
-          "restSec": 0,
-          "round": 3
-        }
-      ]
-    },
-    {
-      "id": "intermediate",
-      "name": "Okay",
-      "level": "mid",
-      "steps": [
         {
           "exerciseId": "glute_bridge",
           "workSec": 42,
@@ -220,18 +182,6 @@
           "round": 2
         },
         {
-          "exerciseId": "dead_bug",
-          "workSec": 48,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "bird_dog",
-          "workSec": 48,
-          "restSec": 15,
-          "round": 2
-        },
-        {
           "exerciseId": "clamshell",
           "workSec": 48,
           "restSec": 15,
@@ -239,49 +189,6 @@
         },
         {
           "exerciseId": "pillow_squeeze",
-          "workSec": 42,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "hip_opener",
-          "workSec": 48,
-          "restSec": 15,
-          "round": 3
-        },
-        {
-          "exerciseId": "butterfly",
-          "workSec": 48,
-          "restSec": 0,
-          "round": 3
-        }
-      ]
-    },
-    {
-      "id": "advanced",
-      "name": "Advanced",
-      "level": "high",
-      "steps": [
-        {
-          "exerciseId": "squat",
-          "workSec": 44,
-          "restSec": 15,
-          "round": 1
-        },
-        {
-          "exerciseId": "glute_bridge",
-          "workSec": 42,
-          "restSec": 15,
-          "round": 1
-        },
-        {
-          "exerciseId": "sumo_squat",
-          "workSec": 44,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "plank",
           "workSec": 42,
           "restSec": 15,
           "round": 2
@@ -299,24 +206,6 @@
           "round": 2
         },
         {
-          "exerciseId": "clamshell",
-          "workSec": 48,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "pillow_squeeze",
-          "workSec": 48,
-          "restSec": 15,
-          "round": 2
-        },
-        {
-          "exerciseId": "pelvic_tilt",
-          "workSec": 44,
-          "restSec": 15,
-          "round": 3
-        },
-        {
           "exerciseId": "hip_opener",
           "workSec": 48,
           "restSec": 15,
@@ -330,7 +219,7 @@
         },
         {
           "exerciseId": "knee_to_chest",
-          "workSec": 56,
+          "workSec": 40,
           "restSec": 0,
           "round": 3
         }

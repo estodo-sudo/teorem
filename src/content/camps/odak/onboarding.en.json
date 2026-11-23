@@ -137,16 +137,16 @@
     "otherPlaceholder": "Write it in your own words (optional)"
   },
   "bps": {
-    "title": "Short screening (last 6 months)",
-    "hint": "Brief Pornography Screen (BPS). There are no right or wrong answers.",
-    "placeholder": true,
-    "placeholderNote": "The items of this scale will be added once the licensed wording and permission to use it are confirmed. A placeholder is shown for now.",
+    "title": "Short self-check (last 6 months)",
+    "hint": "Think about the last 6 months and pick the closest answer for each item. There are no right or wrong answers.",
+    "placeholder": false,
+    "placeholderNote": "",
     "items": [
-      "BPS item 1 (awaiting confirmation of the licensed wording)",
-      "BPS item 2 (awaiting confirmation of the licensed wording)",
-      "BPS item 3 (awaiting confirmation of the licensed wording)",
-      "BPS item 4 (awaiting confirmation of the licensed wording)",
-      "BPS item 5 (awaiting confirmation of the licensed wording)"
+      "I watched for longer than I had planned.",
+      "I wanted to cut down or stop but found it hard.",
+      "It got in the way of my work, studies, sleep or relationships.",
+      "When I felt stressed, bored or lonely, it was the first thing on my mind.",
+      "Afterwards I felt bad, guilty or uneasy."
     ],
     "options": [
       {

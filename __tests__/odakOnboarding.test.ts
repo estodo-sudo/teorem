@@ -196,8 +196,10 @@ describe('Odak content rules (spec 0.3 / 7)', () => {
     expect(ONB.mood.options.map((o) => o.value)).toEqual([0, 1, 2, 3]);
     expect(ONB.moral.scale).toHaveLength(5);
   });
-  it('the BPS stays a placeholder until the translation is confirmed (docs/SCALES.md)', () => {
-    expect(ONB.bps.placeholder).toBe(true);
+  it('the short self-check uses original items, not the unconfirmed BPS translation (2026-11-23, docs/SCALES.md)', () => {
+    expect(ONB.bps.placeholder).toBe(false);
+    expect(ONB.bps.items).toHaveLength(5);
+    for (const item of ONB.bps.items) expect(item).not.toMatch(/BPS|çeviri|teyit/i);
     const scales = fs.readFileSync(path.join(__dirname, '..', 'docs', 'SCALES.md'), 'utf8');
     expect(scales).toMatch(/BPS/);
     expect(scales).toMatch(/PHQ-2/);
@@ -209,5 +211,14 @@ describe('Odak content rules (spec 0.3 / 7)', () => {
     expect(ONB.under18.emergency).toMatch(/112/);
     expect(ONB.expert.emergency).toMatch(/112/);
     expect(ONB.expert.lastVerified).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+  });
+});
+
+describe('"Son 2 haftada kaç gün?" as ranges (2026-11-23)', () => {
+  it('offers ranges instead of a number stepper and keeps a representative day count', () => {
+    const src = fs.readFileSync(path.join(__dirname, '..', 'app', 'odak', 'onboarding.tsx'), 'utf8');
+    expect(src).toMatch(/<RangePicker label=\{ONB\.freq\.porn\}/);
+    expect(src).toMatch(/<RangePicker label=\{ONB\.freq\.mast\}/);
+    expect(src).toMatch(/\{ key: 'r3', min: 6, max: 9, value: 8 \}/);
   });
 });

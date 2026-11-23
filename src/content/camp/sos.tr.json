@@ -24,8 +24,8 @@
     "srHint": "Bu bulmaca ekranı görerek oynanıyor. Ekran okuyucu açıkken nefes aracını öneririz."
   },
   "delay": {
-    "title": "10 dakika ertele",
-    "desc": "Kararı sadece 10 dakika ertele. İstekler çoğu zaman birkaç dakikada zirve yapıp söner.",
+    "title": "Kararını 15 dakika sonra ver",
+    "desc": "Kararını şimdi değil, 15 dakika sonra ver. İstekler çoğu zaman birkaç dakikada zirve yapıp söner.",
     "ideas": [
       "Bir bardak su iç",
       "Kısa bir yürüyüş yap",
@@ -36,7 +36,7 @@
       "Ellerini yıka, yüzüne su çarp",
       "Bir şarkı aç ve eşlik et"
     ],
-    "done": "10 dakika doldu. Kararı yeniden sen verebilirsin; istek muhtemelen biraz hafifledi."
+    "done": "15 dakika doldu. Kararı yeniden sen verebilirsin; istek muhtemelen biraz hafifledi."
   },
   "reasons": {
     "title": "Nedenlerim",

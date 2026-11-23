@@ -82,10 +82,15 @@ export interface BehaviorEvent {
 }
 
 /** `surf` (urge surfing) was removed in V4 (SPEC_V4 §D.2); it stays only so old records still read. */
-export type OdakToolId = 'relocate' | 'breath' | 'puzzle' | 'move' | 'values' | 'futureSelf' | 'supporter' | 'surf';
-export const ODAK_LEGACY_TOOLS: readonly OdakToolId[] = ['surf'];
-/** Tools offered today (the legacy id excluded). */
-export type OdakActiveToolId = Exclude<OdakToolId, 'surf'>;
+export type OdakToolId = 'relocate' | 'actions' | 'puzzle' | 'breath' | 'move' | 'values' | 'futureSelf' | 'supporter' | 'surf';
+/**
+ * Tools no longer offered: kept so old records still read, shown together as "Diğer araçlar". Breath,
+ * movement, values, future self and "write to someone" were removed on 2026-11-23 (user request);
+ * "Yapabileceklerin" (actions) replaced them.
+ */
+export const ODAK_LEGACY_TOOLS: readonly OdakToolId[] = ['surf', 'breath', 'move', 'values', 'futureSelf', 'supporter'];
+/** Tools offered today. */
+export type OdakActiveToolId = 'relocate' | 'actions' | 'puzzle';
 
 /** One urge moment handled in SOS (SPEC_ODAK_KAMPI 6). */
 export interface UrgeEvent {

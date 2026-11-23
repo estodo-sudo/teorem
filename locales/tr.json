@@ -1,5 +1,7 @@
 {
-  "NSPhotoLibraryUsageDescription": "Bırakma nedenlerine kendi fotoğrafını eklemek için galerine erişim gerekiyor. Fotoğraf yalnızca cihazında saklanır.",
-  "NSContactsUsageDescription": "ALO 171 Sigara Bırakma Danışma Hattı numarasını rehberine kaydetmek için rehber erişimi gerekiyor.",
-  "NSFaceIDUsageDescription": "Kilitli bölümleri Face ID ile açmak için kullanılır."
+  "ios": {
+    "NSPhotoLibraryUsageDescription": "Bırakma nedenlerine kendi fotoğrafını eklemek için galerine erişim gerekiyor. Fotoğraf yalnızca cihazında saklanır.",
+    "NSContactsUsageDescription": "ALO 171 Sigara Bırakma Danışma Hattı numarasını rehberine kaydetmek için rehber erişimi gerekiyor.",
+    "NSFaceIDUsageDescription": "Kilitli bölümleri Face ID ile açmak için kullanılır."
+  }
 }

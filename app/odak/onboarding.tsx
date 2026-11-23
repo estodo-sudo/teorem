@@ -37,7 +37,7 @@ import type { OdakTriggerId, Score5 } from '@/features/camps/odak/types';
 import { ExpertCard, PillGroup, ScaleRow } from '@/features/camps/odak/ui';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { goBack } from '@/lib/nav';
-import { IconTile } from '@/components/ui';
+import { IconTile, ScalePressable } from '@/components/ui';
 import i18n from '@/i18n';
 import { localeOf } from '@/i18n/languages';
 
@@ -306,16 +306,16 @@ export default function OdakOnboarding() {
         <>
           {title(ONB.freq.title, ONB.freq.hint)}
           <Card style={{ gap: 10 }}>
-            <AppText weight="800" center>
+            <AppText weight="800">
               {ONB.freq.porn}
             </AppText>
-            <NumberStepper label={ONB.freq.porn} value={a.freqPorn} onChange={(v) => set({ freqPorn: v })} min={0} max={FREQ_MAX} unit={ONB.freq.unit} quick={[0, 2, 4, 7, 10, 14]} />
+            <RangePicker label={ONB.freq.porn} value={a.freqPorn} onChange={(v) => set({ freqPorn: v })} />
           </Card>
           <Card style={{ gap: 10 }}>
-            <AppText weight="800" center>
+            <AppText weight="800">
               {ONB.freq.mast}
             </AppText>
-            <NumberStepper label={ONB.freq.mast} value={a.freqMast} onChange={(v) => set({ freqMast: v })} min={0} max={FREQ_MAX} unit={ONB.freq.unit} quick={[0, 2, 4, 7, 10, 14]} />
+            <RangePicker label={ONB.freq.mast} value={a.freqMast} onChange={(v) => set({ freqMast: v })} />
           </Card>
         </>
       ) : null}
@@ -551,5 +551,45 @@ export default function OdakOnboarding() {
         </AppText>
       ) : null}
     </Screen>
+  );
+}
+
+/**
+ * "Son 2 haftada kaç gün?" as ranges instead of a number stepper (user request 2026-11-23): one tap on
+ * the closest range. Each range stores a representative number of days (0, 2, 4, 8, 12, 14), so the
+ * profile and the day-0 baseline keep their numeric meaning.
+ */
+const FREQ_RANGES: { key: string; min: number; max: number; value: number }[] = [
+  { key: 'none', min: 0, max: 0, value: 0 },
+  { key: 'r1', min: 1, max: 2, value: 2 },
+  { key: 'r2', min: 3, max: 5, value: 4 },
+  { key: 'r3', min: 6, max: 9, value: 8 },
+  { key: 'r4', min: 10, max: 13, value: 12 },
+  { key: 'daily', min: 14, max: FREQ_MAX, value: 14 },
+];
+
+function RangePicker({ label, value, onChange }: { label: string; value: number; onChange: (v: number) => void }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  return (
+    <View accessibilityRole="radiogroup" accessibilityLabel={label} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
+      {FREQ_RANGES.map((r) => {
+        const selected = value >= r.min && value <= r.max;
+        return (
+          <ScalePressable
+            key={r.key}
+            onPress={() => onChange(r.value)}
+            accessibilityRole="radio"
+            accessibilityState={{ selected }}
+            accessibilityLabel={tr(`odak.onb.freqRange.${r.key}`)}
+            style={{ flexBasis: '31%', flexGrow: 1, minHeight: 52, alignItems: 'center', justifyContent: 'center', borderRadius: t.radius.md, borderWidth: t.border.medium, borderColor: selected ? t.tokens.primary : t.tokens.border, backgroundColor: selected ? t.tokens.primarySoft : 'transparent' }}
+          >
+            <AppText variant="callout" weight={selected ? '700' : '500'} color={selected ? t.tokens.primary : undefined} center>
+              {tr(`odak.onb.freqRange.${r.key}`)}
+            </AppText>
+          </ScalePressable>
+        );
+      })}
+    </View>
   );
 }

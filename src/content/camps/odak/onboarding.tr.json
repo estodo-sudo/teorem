@@ -122,16 +122,16 @@
   "otherPlaceholder": "Kendi cümlenle yaz (isteğe bağlı)"
  },
  "bps": {
-  "title": "Kısa tarama (son 6 ay)",
-  "hint": "Kısa Pornografi Taraması (BPS). Doğru ya da yanlış yanıt yok.",
-  "placeholder": true,
-  "placeholderNote": "Bu ölçeğin maddeleri, resmi Türkçe çevirisi ve kullanım izni teyit edilince eklenecek. Şimdilik yer tutucu gösteriliyor.",
+  "title": "Kısa öz değerlendirme (son 6 ay)",
+  "hint": "Son 6 ayını düşün; her madde için en yakın yanıtı seç. Doğru ya da yanlış yanıt yok.",
+  "placeholder": false,
+  "placeholderNote": "",
   "items": [
-   "BPS maddesi 1 (resmi Türkçe çeviri teyidi bekleniyor)",
-   "BPS maddesi 2 (resmi Türkçe çeviri teyidi bekleniyor)",
-   "BPS maddesi 3 (resmi Türkçe çeviri teyidi bekleniyor)",
-   "BPS maddesi 4 (resmi Türkçe çeviri teyidi bekleniyor)",
-   "BPS maddesi 5 (resmi Türkçe çeviri teyidi bekleniyor)"
+   "Planladığımdan daha uzun süre izlediğim oldu.",
+   "Azaltmak ya da bırakmak istedim ama zorlandım.",
+   "İşimi, okulumu, uykumu ya da ilişkilerimi aksattığı oldu.",
+   "Stresli, sıkılmış ya da yalnız hissettiğimde ilk aklıma gelen şey oldu.",
+   "Sonrasında kendimi kötü, suçlu ya da huzursuz hissettim."
   ],
   "options": [
    {

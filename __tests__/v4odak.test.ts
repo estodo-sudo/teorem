@@ -30,27 +30,30 @@ describe('removed SOS tools are gone everywhere (SPEC_V4 §9)', () => {
   it('old Odak records with urge surfing show as "Diğer araçlar"', () => {
     expect(odakToolGroup('surf')).toBe('other');
     expect(odakToolLabel('other')).toBe('Diğer araçlar');
-    expect(odakToolLabel('breath')).toBe('Nefes');
+    // Tools removed on 2026-11-23 count as "Diğer araçlar" in statistics too.
+    expect(odakToolGroup('breath')).toBe('other');
+    expect(odakToolLabel('actions')).toBe('Yapabileceklerin');
   });
 });
 
 describe('Odak Dürtü anı (SPEC_V4 §D.2)', () => {
   const sos = read('app/odak/sos.tsx');
 
-  it('tools: breath (default), block puzzle, movement, values, future self, write to someone', () => {
-    expect(SOS_TOOLS).toEqual(['breath', 'puzzle', 'move', 'values', 'futureSelf', 'supporter']);
+  it('tools: "Yapabileceklerin" (default) and the block puzzle; breath, move, values, future self and "write to someone" are gone (2026-11-23)', () => {
+    expect(SOS_TOOLS).toEqual(['actions', 'puzzle']);
     expect(ODAK_SOS.tools.items.map((x) => x.id)).toEqual(SOS_TOOLS);
-    expect(sos).toMatch(/useState<OdakToolId>\('breath'\)/);
-    expect(sos).toMatch(/<BreathPlayer/);
+    expect(sos).toMatch(/useState<OdakToolId>\('actions'\)/);
+    expect(sos).toMatch(/<Actions /);
     expect(sos).toMatch(/<BlockPuzzle/);
+    expect(sos).not.toMatch(/BreathPlayer|function Move|function ValuesView|function FutureSelf|function Supporter|hardNote/);
+    expect(ODAK_SOS.actions.items).toHaveLength(8);
   });
 
-  it('DAYY rows are whole-row checkboxes; the gauge is used before and (compared) after', () => {
+  it('DAYY rows are whole-row checkboxes; no urge-strength gauge any more (2026-11-23)', () => {
     expect(sos).toMatch(/function DayyRow/);
     expect(sos).toMatch(/accessibilityRole="checkbox"/);
     expect(sos).not.toMatch(/ChoiceCard key=\{it\.id\} multi/);
-    expect((sos.match(/<UrgeGauge/g) ?? []).length).toBe(2);
-    expect(sos).toMatch(/compareTo=\{before\}/);
+    expect(sos).not.toMatch(/<UrgeGauge/);
   });
 
   it('a crisis is never blocked: "Devam" works without a value; the move-first step stays', () => {

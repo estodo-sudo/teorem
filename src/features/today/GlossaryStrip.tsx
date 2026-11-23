@@ -7,7 +7,7 @@ import { CARD, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
 
 /** App concepts ("Seviye ne demek?" …): Keşfet only. Günüm shows the sexual-health terms. */
-const APP_TERMS = new Set(['level', 'plan', 'exercises', 'vibration', 'streak', 'strength-test', 'discreet', 'privacy']);
+export const APP_TERMS = new Set(['level', 'plan', 'exercises', 'vibration', 'streak', 'strength-test', 'discreet', 'privacy']);
 const HEALTH_TERMS = GLOSSARY.filter((g) => !APP_TERMS.has(g.id));
 
 /**

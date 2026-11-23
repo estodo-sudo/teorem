@@ -37,7 +37,12 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
   const home = read('app/(tabs)/index.tsx');
 
   it('has this week, the checklist, Kasık Fitness, Rahatla and "Senin için"; no quick start, no mind list', () => {
-    const order = ['<WorkoutCard', '<ThisWeek', '<DailyGoalCard', '<FitnessCard', '<GlossaryStrip', '<TodayExtras'].map((x) => home.indexOf(x));
+    const order = ['<WorkoutCard', '<ThisWeek', '<DailyGoalCard', '<FitnessCard', '<GlossaryStrip'].map((x) => home.indexOf(x));
+    // "Senin için" was removed; today's 3 foods are tasks in "Bugün" now (2026-11-23).
+    expect(home).not.toMatch(/TodayExtras/);
+    const daily = read('src/features/today/DailyGoalCard.tsx');
+    expect(daily).toMatch(/nutritionTasksForDay/);
+    expect(daily).toMatch(/setChallengeLog/);
     expect(order.every((x) => x > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
     expect(home).not.toMatch(/QuickStart|MindSection/);
@@ -51,11 +56,14 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
     expect(tr.home.week.summary).toBe('Bu hafta {{done}}/{{total}} antrenman · {{theme}}');
   });
 
-  it('Kasık Fitness keeps "8 egzersiz · 8 dk" on one line, with the badge next to the name', () => {
+  it('Kasık Fitness is one photo card: chips and a single Başla, no level list (2026-11-23)', () => {
     const src = read('src/features/today/WeekSections.tsx');
-    const fitness = src.slice(src.indexOf('export function FitnessCard'), src.indexOf('const RELAX'));
-    expect(fitness.indexOf('<Badge')).toBeLessThan(fitness.indexOf('numberOfLines={1}'));
-    expect(fitness).toMatch(/numberOfLines=\{1\}/);
+    const fitness = src.slice(src.indexOf('export function FitnessCard'));
+    expect(fitness).toMatch(/appImage\('today\/fitness'\)/);
+    expect(fitness).toMatch(/<PhotoBackground image=\{cover\} id="fitnessVeil" textAt="bottom" \/>/);
+    expect(fitness).toMatch(/standardRoutine\(\)/);
+    expect(fitness).not.toMatch(/ROUTINES\.map|recommended/);
+    expect((fitness.match(/<Button /g) ?? []).length).toBe(1);
   });
 
   it('"Neden, Nedir ve Ne Demek?" posters replace Rahatla on Günüm (and stay in Keşfet); the breath module still exists', () => {
@@ -104,5 +112,39 @@ describe('Profil (SPEC_V4 §A.3)', () => {
   it('shows the app name from app.ts, never the placeholder', () => {
     expect(APP_NAME).toBe('Uygulama');
     expect(profile).toMatch(/\{APP_NAME\}/);
+  });
+});
+
+describe('Günün antrenmanı cover (2026-11-23)', () => {
+  it('Monday shows photo 1 … Sunday photo 7, then Monday photo 1 again', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { workoutCoverId } = require('@/features/today/weekdayCover') as typeof import('@/features/today/weekdayCover');
+    // 23 November 2026 is a Monday.
+    const ids = Array.from({ length: 8 }, (_, i) => workoutCoverId(new Date(2026, 10, 23 + i, 9)));
+    expect(ids).toEqual(['today/workout-1', 'today/workout-2', 'today/workout-3', 'today/workout-4', 'today/workout-5', 'today/workout-6', 'today/workout-7', 'today/workout-1']);
+  });
+
+  it('the card draws the couple photo as its background with a dark veil; the blur is baked into the file', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { appImage } = require('@/content/images') as typeof import('@/content/images');
+    // Seven photos, one per weekday (2026-11-23).
+    for (let n = 1; n <= 7; n++) expect(appImage(`today/workout-${n}`)?.bytes).toBeGreaterThan(0);
+    const card = read('src/features/today/WorkoutCard.tsx');
+    expect(card).toMatch(/appImage\(workoutCoverId\(new Date\(\)\)\)/);
+    expect(card).toMatch(/<PhotoBackground image=\{cover\} id="workoutVeil" \/>/);
+    expect(read('scripts/images/fetch.mjs')).toMatch(/bottomBlur: \{ from: 0\.48, to: 0\.74/);
+  });
+});
+
+describe('"Neden, Nedir ve Ne Demek?" pages (2026-11-23)', () => {
+  it('every term has its own header photo (bottom blurred) and the page puts it on top', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { IMAGES } = require('@/content/images') as typeof import('@/content/images');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { GLOSSARY } = require('@/features/content/data') as typeof import('@/features/content/data');
+    for (const g of GLOSSARY) expect([g.id, !!IMAGES[`glossary/${g.id}`]?.slide]).toEqual([g.id, true]);
+    const page = read('app/glossary/[termId].tsx');
+    expect(page).toMatch(/<Hero image=\{image\}/);
+    expect(page).toMatch(/<NextCard /);
   });
 });

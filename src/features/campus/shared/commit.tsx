@@ -1,9 +1,12 @@
+import { Image } from 'expo-image';
 import { useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, useTheme } from '@/components';
+import { AppText, Icon, useTheme, type IconName } from '@/components';
 import { IconTile } from '@/components/ui';
+import { appImage } from '@/content/images';
 import { useNow } from '@/lib/useNow';
 
 import { tint } from './ui';
@@ -25,29 +28,58 @@ export function useCommitGate(active: boolean, seconds = COMMIT_SECONDS): number
   return Math.max(0, seconds - Math.floor((now - startedAt) / 1000));
 }
 
-/** Last enrolment page of every campus: the user is the real strength of the programme. */
+const POINT_ICONS: IconName[] = ['target', 'handshake', 'rotate'];
+
+/**
+ * Last enrolment page of every camp (Sigarasız, Alkolsüz, Odak) — redesigned 2026-11-23: a photo of a
+ * man with open arms on a summit with the title on it, three short points (the decision is yours; the
+ * tools are ours, the steps are yours; determined, not perfect) and the pledge.
+ */
 export function CommitmentView() {
   const t = useTheme();
   const { t: tr } = useTranslation();
+  const photo = appImage('hero/commit');
+  const points = tr('campusCommit.points', { returnObjects: true }) as { title: string; text: string }[];
+  const f = t.focus;
   return (
-    <View style={{ gap: 18, paddingTop: t.space.sm }}>
-      <View style={{ alignItems: 'center', gap: 10 }}>
-        <View style={{ width: 96, height: 96, borderRadius: 48, backgroundColor: tint(t.colors.accent, '26'), alignItems: 'center', justifyContent: 'center' }}>
-          <IconTile icon="key" tone="campus" size="lg" round />
+    <View style={{ gap: t.space.lg, paddingTop: t.space.xs }}>
+      <View style={{ minHeight: 300, borderRadius: t.radius.xl, overflow: 'hidden', justifyContent: 'flex-end', backgroundColor: t.tone.campus.soft }}>
+        {photo ? <Image source={photo.image} placeholder={{ blurhash: photo.blurhash }} contentFit="cover" contentPosition="top" transition={200} style={StyleSheet.absoluteFill} accessibilityElementsHidden importantForAccessibility="no-hide-descendants" /> : null}
+        <Svg width="100%" height="100%" style={StyleSheet.absoluteFill} pointerEvents="none">
+          <Defs>
+            <LinearGradient id="commitVeil" x1="0" y1="0" x2="0" y2="1">
+              <Stop offset="0.35" stopColor={f.black} stopOpacity={0} />
+              <Stop offset="1" stopColor={f.black} stopOpacity={0.8} />
+            </LinearGradient>
+          </Defs>
+          <Rect width="100%" height="100%" fill="url(#commitVeil)" />
+        </Svg>
+        <View style={{ padding: t.space.lg, gap: t.space.xs }}>
+          <AppText variant="title1" accessibilityRole="header" color={f.text}>
+            {tr('campusCommit.title')}
+          </AppText>
+          <AppText variant="callout" weight="600" color={f.icon}>
+            {tr('campusCommit.lead')}
+          </AppText>
         </View>
-        <AppText variant="h1" center accessibilityRole="header">
-          {tr('campusCommit.title')}
-        </AppText>
-        <AppText variant="h3" center color={t.colors.accent}>
-          {tr('campusCommit.lead')}
-        </AppText>
       </View>
-      <View style={{ gap: t.space.md, padding: 18, borderRadius: t.radius.xl, backgroundColor: t.colors.surface, borderWidth: 1, borderColor: t.colors.border }}>
-        <AppText style={{ lineHeight: 24 }}>{tr('campusCommit.p1')}</AppText>
-        <AppText style={{ lineHeight: 24 }}>{tr('campusCommit.p2')}</AppText>
+
+      <View style={{ gap: t.space.md }}>
+        {points.map((p, i) => (
+          <View key={p.title} style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'flex-start' }}>
+            <IconTile icon={POINT_ICONS[i] ?? 'check'} tone="campus" />
+            <View style={{ flex: 1, gap: 2 }}>
+              <AppText variant="bodyStrong">{p.title}</AppText>
+              <AppText variant="callout" muted style={{ lineHeight: 22 }}>
+                {p.text}
+              </AppText>
+            </View>
+          </View>
+        ))}
       </View>
-      <View style={{ flexDirection: 'row', gap: 10, alignItems: 'center', padding: 14, borderRadius: t.radius.lg, backgroundColor: t.tokens.muted }}>
-        <IconTile icon="handshake" tone="campus" />
+
+      <View style={{ flexDirection: 'row', gap: t.space.md, alignItems: 'center', padding: t.space.lg, borderRadius: t.radius.lg, backgroundColor: tint(t.colors.accent, '1F'), borderWidth: 1, borderColor: tint(t.colors.accent, '55') }}>
+        <Icon name="handshake" size="lg" color={t.colors.accent} />
         <AppText weight="800" style={{ flex: 1 }}>
           {tr('campusCommit.pledge')}
         </AppText>

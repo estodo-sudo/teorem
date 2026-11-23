@@ -1,25 +1,19 @@
 import type { IconName } from '@/components/Icon';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useCallback, useEffect, useState } from 'react';
-import { Pressable, ScrollView, Share, TextInput, View } from 'react-native';
+import { useCallback, useState } from 'react';
+import { Pressable, ScrollView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, ChoiceCard, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
-import { IconTile, UrgeGauge } from '@/components/ui';
-import { BreathPlayer } from '@/features/breath/BreathPlayer';
-import { BreathSetup } from '@/features/breath/BreathSetup';
-import { BREATH_MODES, type BreathMode } from '@/features/breath/patterns';
-import { useBreathStore } from '@/features/breath/store';
+import { IconTile } from '@/components/ui';
 import { mmss, useCountdown } from '@/features/camps/core/sosTools';
 import { BlockPuzzle } from '@/features/games/BlockPuzzle/BlockPuzzle';
 import { useScreenReader } from '@/lib/useScreenReader';
-import { fill, ODAK_ONBOARDING as ONB, ODAK_PANEL as P, ODAK_SOS as SOS } from '@/features/camps/odak/content';
-import { buildUrge, dayyCount, LETTER_MAX, managedCount, nextTool, noDayy, SOS_TOOLS, type Dayy } from '@/features/camps/odak/engine/sos';
+import { fill, ODAK_PANEL as P, ODAK_SOS as SOS } from '@/features/camps/odak/content';
+import { buildUrge, dayyCount, managedCount, nextTool, noDayy, SOS_TOOLS, type Dayy } from '@/features/camps/odak/engine/sos';
 import { QuickExitButton } from '@/features/camps/odak/privacy/quickExit';
 import { useOdakStore } from '@/features/camps/odak/store';
-import { OdakLock } from '@/features/camps/odak/ui';
-import { useAccess } from '@/features/purchases/useGate';
 import type { BehaviorKind, OdakToolId, UrgeEvent } from '@/features/camps/odak/types';
 import { tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
@@ -27,10 +21,11 @@ import { goBack } from '@/lib/nav';
 type Step = 'check' | 'relocate' | 'tools' | 'end' | 'result';
 
 /**
- * "Dürtü anı" (SOS, SPEC_ODAK_KAMPI 5.2, SPEC_V4 §D.2): DAYY check (whole rows) + the urge gauge →
- * move first (60 s) → tools (breath by default, the block puzzle, movement, values, future self,
- * write to someone) → the gauge again, compared with the first answer → managed / still hard (another
- * tool) / slipped (no judgement). Always free; calm, in the focus (indigo) tone and the app theme.
+ * "Dürtü anı" (SOS, SPEC_ODAK_KAMPI 5.2): DAYY check (whole rows) → move first (60 s) → tools
+ * ("Yapabileceklerin": simple steps anyone can take, ticked as done; and the block puzzle) → managed /
+ * still hard (the other tool) / slipped (no judgement). Breath, movement, values, future self, "write
+ * to someone", the urge gauge and the "still hard" note were removed (user request 2026-11-23).
+ * Always free; calm, in the focus (indigo) tone and the app theme.
  */
 export default function OdakSos() {
   const t = useTheme();
@@ -49,24 +44,16 @@ function OdakSosBody() {
   const [startedAt] = useState(() => new Date());
   const [step, setStep] = useState<Step>('check');
   const [dayy, setDayy] = useState<Dayy>(noDayy);
-  const [before, setBefore] = useState<number | null>(null);
-  const [after, setAfter] = useState<number | null>(null);
-  const [tool, setTool] = useState<OdakToolId>('breath');
-  const [breathMode, setBreathMode] = useState<BreathMode>('quick');
-  const [breathMin, setBreathMin] = useState<number>(BREATH_MODES.quick.defaultMinutes);
-  const [breathing, setBreathing] = useState(false);
+  const [tool, setTool] = useState<OdakToolId>('actions');
   const screenReader = useScreenReader();
   const [used, setUsed] = useState<OdakToolId[]>([]);
-  const [hardNote, setHardNote] = useState<string | null>(null);
   const [result, setResult] = useState<UrgeEvent | null>(null);
   const [slipLogged, setSlipLogged] = useState(false);
   const use = useCallback((id: OdakToolId) => setUsed((u) => (u.includes(id) ? u : [...u, id])), []);
-  const onValuesUsed = useCallback(() => use('values'), [use]);
-  const onFutureUsed = useCallback(() => use('futureSelf'), [use]);
   const toolTitle = (id: OdakToolId) => SOS.tools.items.find((x) => x.id === id)?.title ?? id;
 
   const finish = async (outcome: UrgeEvent['outcome']) => {
-    const u = buildUrge({ startedAt, endedAt: new Date(), intensityBefore: before ?? 0, intensityAfter: after, dayy, toolsUsed: used, outcome });
+    const u = buildUrge({ startedAt, endedAt: new Date(), intensityBefore: 0, intensityAfter: null, dayy, toolsUsed: used, outcome });
     await useOdakStore.getState().logUrge(u);
     setResult(u);
     setStep('result');
@@ -74,31 +61,12 @@ function OdakSosBody() {
   const stillHard = () => {
     const n = nextTool(used);
     setTool(n);
-    setHardNote(fill(SOS.end.hardBody, { tool: toolTitle(n) }));
-    setAfter(null);
     setStep('tools');
   };
   const logSlip = async (kind: BehaviorKind) => {
     await useOdakStore.getState().logBehavior(kind);
     setSlipLogged(true);
   };
-
-  if (breathing) {
-    return (
-      <BreathPlayer
-        mode={breathMode}
-        minutes={breathMin}
-        color={t.tone.focus.fg}
-        askFeeling={false}
-        onClose={() => setBreathing(false)}
-        onDone={() => {
-          use('breath');
-          setBreathing(false);
-          setStep('end');
-        }}
-      />
-    );
-  }
 
   const footer =
     step === 'check' ? (
@@ -137,13 +105,7 @@ function OdakSosBody() {
                 ))}
             </Card>
           ) : null}
-          <AppText variant="title3">{SOS.check.intensity}</AppText>
-          <UrgeGauge value={before} onChange={setBefore} label={SOS.check.intensity} color={t.tone.focus.fg} />
-          {before === null ? (
-            <AppText variant="footnote" muted center>
-              {tr('camp.sos.canSkip')}
-            </AppText>
-          ) : null}
+          {/* The urge-strength gauge was removed (user request 2026-11-23); the log keeps 0 = not rated. */}
         </>
       ) : null}
 
@@ -154,13 +116,7 @@ function OdakSosBody() {
           <AppText variant="h2" accessibilityRole="header">
             {SOS.tools.title}
           </AppText>
-          {hardNote ? (
-            <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted }}>
-              <AppText variant="callout">{hardNote}</AppText>
-            </Card>
-          ) : (
-            <AppText muted>{SOS.tools.hint}</AppText>
-          )}
+          <AppText muted>{SOS.tools.hint}</AppText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginHorizontal: -t.space.gutter }} contentContainerStyle={{ gap: t.space.sm, paddingHorizontal: t.space.gutter }}>
             {SOS_TOOLS.map((id) => {
               const it = SOS.tools.items.find((x) => x.id === id)!;
@@ -172,7 +128,7 @@ function OdakSosBody() {
                   accessibilityRole="tab"
                   accessibilityState={{ selected: on }}
                   accessibilityLabel={`${it.title}. ${it.desc}`}
-                  style={{ width: 128, minHeight: 112, padding: t.space.md, gap: t.space.sm, borderRadius: t.radius.lg, borderWidth: on ? t.border.medium : t.border.thin, borderColor: on ? t.tokens.primary : t.tokens.border, backgroundColor: on ? t.tokens.primarySoft : t.tokens.card }}
+                  style={{ width: 156, minHeight: 112, padding: t.space.md, gap: t.space.sm, borderRadius: t.radius.lg, borderWidth: on ? t.border.medium : t.border.thin, borderColor: on ? t.tokens.primary : t.tokens.border, backgroundColor: on ? t.tokens.primarySoft : t.tokens.card }}
                 >
                   <IconTile icon={it.icon} tone="focus" />
                   <AppText variant="footnote" style={{ fontWeight: '600' }}>
@@ -183,35 +139,11 @@ function OdakSosBody() {
               );
             })}
           </ScrollView>
-          {tool === 'breath' ? (
-            <>
-              <AppText muted>{SOS.breath.desc}</AppText>
-              <BreathSetup
-                compact
-                mode={breathMode}
-                minutes={breathMin}
-                onChange={(m, n) => {
-                  setBreathMode(m);
-                  setBreathMin(n);
-                }}
-              />
-              <Button
-                label={tr('camp.sos.breathStart', { count: breathMin })}
-                icon="play"
-                variant="secondary"
-                size="lg"
-                onPress={() => {
-                  useBreathStore.getState().remember(breathMode, breathMin);
-                  setBreathing(true);
-                }}
-              />
-            </>
-          ) : null}
           {tool === 'puzzle' ? (
             screenReader ? (
               <View style={{ gap: t.space.md }}>
                 <AppText muted>{SOS.puzzle.srHint}</AppText>
-                <Button label={toolTitle('breath')} icon="wind" variant="secondary" onPress={() => setTool('breath')} />
+                <Button label={toolTitle('actions')} icon="clipboard" variant="secondary" onPress={() => setTool('actions')} />
               </View>
             ) : (
               <>
@@ -220,10 +152,7 @@ function OdakSosBody() {
               </>
             )
           ) : null}
-          {tool === 'move' ? <Move key="move" onUsed={() => use('move')} /> : null}
-          {tool === 'values' ? <ValuesView key="values" onUsed={onValuesUsed} /> : null}
-          {tool === 'futureSelf' ? <FutureSelf key="future" onUsed={onFutureUsed} /> : null}
-          {tool === 'supporter' ? <Supporter key="supporter" onUsed={() => use('supporter')} /> : null}
+          {tool === 'actions' ? <Actions key="actions" onUsed={() => use('actions')} /> : null}
         </>
       ) : null}
 
@@ -232,7 +161,6 @@ function OdakSosBody() {
           <AppText variant="h2" accessibilityRole="header">
             {SOS.end.question}
           </AppText>
-          <UrgeGauge value={after} onChange={setAfter} label={SOS.end.question} color={t.tone.focus.fg} compareTo={before} />
           <View style={{ gap: 10 }}>
             <Button label={SOS.end.managed} size="lg" variant="primary" onPress={() => void finish('managed')} />
             <Button label={SOS.end.hard} size="lg" variant="secondary" onPress={stillHard} />
@@ -337,169 +265,9 @@ function Relocate({ onUsed }: { onUsed: () => void }) {
   );
 }
 
-/** Two-minute movement set: four moves, 30 s each. */
-function Move({ onUsed }: { onUsed: () => void }) {
-  const t = useTheme();
-  const { t: tr } = useTranslation();
-  const cd = useCountdown(SOS.move.seconds);
-  const per = SOS.move.seconds / SOS.move.steps.length;
-  const current = Math.min(SOS.move.steps.length - 1, Math.floor(cd.elapsed / per));
-  return (
-    <View style={{ gap: t.space.md }}>
-      <AppText muted>{SOS.move.desc}</AppText>
-      <AppText variant="display" center style={{ fontSize: 48, lineHeight: 56 }} accessibilityLabel={tr('camp.sos.timeLeft', { time: mmss(cd.left) })}>
-        {mmss(cd.left)}
-      </AppText>
-      <ProgressBar value={cd.elapsed / SOS.move.seconds} height={8} />
-      {SOS.move.steps.map((s, i) => {
-        const active = (cd.running || cd.elapsed > 0) && !cd.finished && i === current;
-        return (
-          <View key={s} style={{ flexDirection: 'row', gap: 10, alignItems: 'center', padding: t.space.md, borderRadius: t.radius.md, backgroundColor: active ? tint(t.colors.primary, '1F') : t.colors.surface }}>
-            <AppText weight="800" color={active ? t.colors.primary : t.colors.textMuted}>
-              {i + 1}
-            </AppText>
-            <AppText weight={active ? '800' : '400'} style={{ flex: 1 }}>
-              {s}
-            </AppText>
-          </View>
-        );
-      })}
-      {cd.finished ? (
-        <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
-          <AppText weight="700">{SOS.move.done}</AppText>
-        </Card>
-      ) : (
-        <Button
-          label={cd.running ? tr('camp.sos.pause') : cd.elapsed > 0 ? tr('camp.sos.resume') : SOS.move.start}
-          icon={cd.running ? 'pause' : 'play'}
-          variant={cd.running ? 'secondary' : 'primary'}
-          onPress={() => {
-            if (cd.running) cd.pause();
-            else {
-              onUsed();
-              cd.start();
-            }
-          }}
-        />
-      )}
-    </View>
-  );
-}
 
-/** The user's own values and sentence. */
-function ValuesView({ onUsed }: { onUsed: () => void }) {
-  const t = useTheme();
-  const profile = useOdakStore((s) => s.profile);
-  // Reading the values counts as using the tool.
-  useEffect(onUsed, [onUsed]);
-  const cards = ONB.values.cards.filter((c) => profile?.values.includes(c.id));
-  return (
-    <View style={{ gap: 10 }}>
-      <AppText muted>{SOS.values.desc}</AppText>
-      {cards.length || profile?.valuesText ? (
-        <>
-          {profile?.valuesText ? (
-            <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
-              <AppText variant="h3">“{profile.valuesText}”</AppText>
-            </Card>
-          ) : null}
-          {cards.map((c) => (
-            <Card key={c.id} style={{ flexDirection: 'row', gap: 10, alignItems: 'center' }}>
-              <IconTile icon={c.icon} tone="focus" />
-              <AppText weight="800">{c.label}</AppText>
-            </Card>
-          ))}
-        </>
-      ) : (
-        <AppText muted>{SOS.values.empty}</AppText>
-      )}
-    </View>
-  );
-}
 
-/** Letter to the future self: read it in a hard moment, or write it now. Stored in the vault. */
-function FutureSelf({ onUsed }: { onUsed: () => void }) {
-  const t = useTheme();
-  const letter = useOdakStore((s) => s.letter);
-  const premium = useAccess()('odak');
-  const { t: tr } = useTranslation();
-  const [editing, setEditing] = useState(!letter);
-  const [text, setText] = useState(letter?.text ?? '');
-  const [saved, setSaved] = useState(false);
-  const hasLetter = letter !== null;
-  // Reading an existing letter counts as using the tool.
-  useEffect(() => {
-    if (hasLetter) onUsed();
-  }, [hasLetter, onUsed]);
-  return (
-    <View style={{ gap: 10 }}>
-      <AppText muted>{SOS.futureSelf.desc}</AppText>
-      {editing && !premium ? (
-        <OdakLock title={tr('odak.premium.letter')} />
-      ) : editing ? (
-        <>
-          <TextInput maxFontSizeMultiplier={1.3}
-            value={text}
-            onChangeText={setText}
-            multiline
-            maxLength={LETTER_MAX}
-            placeholder={SOS.futureSelf.placeholder}
-            accessibilityLabel={SOS.futureSelf.placeholder}
-            placeholderTextColor={t.colors.textMuted}
-            style={{ minHeight: 160, borderRadius: t.radius.md, borderWidth: 1, borderColor: t.colors.border, backgroundColor: t.colors.surfaceAlt, padding: 14, color: t.colors.text, fontSize: t.type.body.fontSize, textAlignVertical: 'top' }}
-          />
-          <Button
-            label={SOS.futureSelf.save}
-            disabled={!text.trim()}
-            onPress={() =>
-              void useOdakStore
-                .getState()
-                .saveLetter(text.trim())
-                .then(() => {
-                  onUsed();
-                  setSaved(true);
-                  setEditing(false);
-                })
-            }
-          />
-        </>
-      ) : (
-        <>
-          <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
-            <AppText>{letter?.text}</AppText>
-          </Card>
-          {saved ? (
-            <AppText variant="small" weight="700" color={t.tokens.success}>
-              ✓ {SOS.futureSelf.saved}
-            </AppText>
-          ) : null}
-          {premium ? <Button label={SOS.futureSelf.edit} variant="ghost" onPress={() => setEditing(true)} /> : null}
-        </>
-      )}
-    </View>
-  );
-}
 
-/** A neutral message to a supporter through the system share sheet (no details). */
-function Supporter({ onUsed }: { onUsed: () => void }) {
-  const t = useTheme();
-  return (
-    <View style={{ gap: 10 }}>
-      <AppText muted>{SOS.supporter.desc}</AppText>
-      <Card style={{ backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
-        <AppText variant="h3">“{SOS.supporter.message}”</AppText>
-      </Card>
-      <Button
-        label={SOS.supporter.share}
-        icon="bell"
-        onPress={() => {
-          onUsed();
-          void Share.share({ message: SOS.supporter.message }).catch(() => undefined);
-        }}
-      />
-    </View>
-  );
-}
 
 /**
  * A DAYY row (SPEC_V4 §D.2): the whole row is the control (no small checkbox). Selected: primary
@@ -527,5 +295,61 @@ function DayyRow({ icon, letter, label, selected, onPress }: { icon: IconName; l
       </AppText>
       {selected ? <Icon name="check" size={22} color={k.primary} /> : null}
     </Pressable>
+  );
+}
+
+/**
+ * "Yapabileceklerin" (2026-11-23): eight short steps anyone can take anywhere (change the room, put the
+ * phone away, cold water, a walk, busy hands, a shower, the next task, decide in 15 minutes). Ticking
+ * one counts the tool as used.
+ */
+function Actions({ onUsed }: { onUsed: () => void }) {
+  const t = useTheme();
+  const A = SOS.actions;
+  const [done, setDone] = useState<string[]>([]);
+  const toggle = (id: string) => {
+    setDone((d) => (d.includes(id) ? d.filter((x) => x !== id) : [...d, id]));
+    onUsed();
+  };
+  return (
+    <View style={{ gap: t.space.md }}>
+      <AppText variant="callout" muted>
+        {A.lead}
+      </AppText>
+      <Card style={{ padding: 0 }}>
+        {A.items.map((it, i) => {
+          const on = done.includes(it.id);
+          return (
+            <Pressable
+              key={it.id}
+              onPress={() => toggle(it.id)}
+              accessibilityRole="checkbox"
+              accessibilityState={{ checked: on }}
+              accessibilityLabel={`${it.title}. ${it.text}`}
+              style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 64, paddingHorizontal: t.space.lg, paddingVertical: t.space.md, borderTopWidth: i ? t.border.thin : 0, borderTopColor: t.tokens.border, backgroundColor: on ? tint(t.tone.focus.fg, '14') : 'transparent' }}
+            >
+              <IconTile icon={it.icon} tone="focus" />
+              <View style={{ flex: 1, gap: 2 }}>
+                <AppText variant="bodyStrong">{it.title}</AppText>
+                <AppText variant="footnote" muted>
+                  {it.text}
+                </AppText>
+              </View>
+              <View style={{ width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center', borderWidth: t.border.medium, borderColor: on ? t.tone.focus.fg : t.tokens.subtle, backgroundColor: on ? t.tone.focus.fg : 'transparent' }}>
+                {on ? <Icon name="check" size={14} color={t.tokens.primaryForeground} /> : null}
+              </View>
+            </Pressable>
+          );
+        })}
+      </Card>
+      {done.length ? (
+        <AppText variant="footnote" weight="600" color={t.tone.focus.fg} accessibilityLiveRegion="polite">
+          {fill(A.doneCount, { n: done.length })}
+        </AppText>
+      ) : null}
+      <AppText variant="footnote" muted>
+        {A.note}
+      </AppText>
+    </View>
   );
 }

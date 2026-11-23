@@ -1060,6 +1060,13 @@
     "streakDays_one": "{{count}} gün",
     "streakDays_other": "{{count}} gün",
     "checklist": "Bugün",
+    "tasks": {
+      "count": "{{done}}/{{total}}",
+      "progressA11y": "Bugün {{done}}/{{total}} görev tamamlandı",
+      "training": "Antrenman",
+      "foods": "Bugünün 3 besini",
+      "foodsDay": "Gün {{day}}/{{total}}"
+    },
     "forYou": "Senin için",
     "forYouStory": "Günün hikâyesi",
     "forYouFitness": "Kasık rutini",
@@ -1366,9 +1373,74 @@
       "snooze60": "1 saat ertele"
     }
   },
+    "fitnessProgram": {
+      "title": "Kasık Fitness",
+      "kicker": "7 haftalık program",
+      "weekOf": "Hafta {{n}} / {{total}}",
+      "sessions": "{{done}}/{{total}} seans",
+      "progressA11y": "Program ilerlemesi: {{done}}/{{total}} seans",
+      "thisWeek": "Bu hafta",
+      "thisWeekCount": "Bu hafta {{done}}/{{target}} seans",
+      "todayDone": "Bugünkü seans tamam. Yarın dinlenebilirsin.",
+      "todayTodo": "Haftada 3 seans hedefle; seanslar arasında bir gün ara ver.",
+      "today": "Bugünün seansı",
+      "start": "Seansı başlat",
+      "again": "Tekrar yap",
+      "chart": "7 haftalık ilerleme",
+      "chartHint": "Her sütun bir hafta; hedef haftada 3 seans.",
+      "chartA11y": "Hafta {{n}}: {{done}}/{{target}} seans",
+      "target": "Hedef",
+      "weeksTitle": "Haftalar",
+      "status": {
+        "done": "Tamamlandı",
+        "current": "Bu hafta",
+        "missed": "Eksik kaldı",
+        "upcoming": "Sırada"
+      },
+      "notStarted": "İlk seansını yaptığın gün program başlar.",
+      "finished": "Programı tamamladın! Kazanımlarını korumak için haftada 2-3 seansa devam et.",
+      "over": "7 hafta doldu. Rutine istediğin kadar devam edebilirsin.",
+      "weeks": {
+        "1": {
+          "title": "Hareketleri öğren",
+          "text": "Her hareketi yavaş yap ve figürü izle; doğru pozisyon hızdan önemli."
+        },
+        "2": {
+          "title": "Ritmi oturt",
+          "text": "Haftada 3 seansı alışkanlığa çevir; nefesini hareketle eşle."
+        },
+        "3": {
+          "title": "Kalçayı uyandır",
+          "text": "Köprü ve istiridyede kalçanı bilinçli sık, tepede bir an bekle."
+        },
+        "4": {
+          "title": "Merkezi güçlendir",
+          "text": "Ölü böcek ve kuş-köpekte belini sabit tut, karnını hafifçe içeri çek."
+        },
+        "5": {
+          "title": "Kontrolü artır",
+          "text": "İndirme anlarını yavaşlat; kas kontrolü en çok inerken gelişir."
+        },
+        "6": {
+          "title": "Dayanıklılık",
+          "text": "Seans boyunca formunu koru; dinlenmelerde nefesini düzene sok."
+        },
+        "7": {
+          "title": "Kalıcı alışkanlık",
+          "text": "Kazandığın gücü koru; program bitince de haftada 2-3 seans yeterli."
+        }
+      }
+    },
   "fitness": {
     "title": "Kasık Fitness",
     "subtitle": "Kalça, karın ve iç bacak kaslarını destekleyen vücut ağırlığı egzersizleri.",
+    "kicker": "Tek rutin · herkes için",
+    "chipMoves": "{{count}} egzersiz",
+    "chipMin": "{{min}} dk",
+    "chipRounds": "{{count}} tur",
+    "startHint": "Kasık Fitness rutinini açar",
+    "openProgram": "Programa git",
+    "chipWeek": "Hafta {{n}}/{{total}}",
     "routineTitle": "{{name}} rutini",
     "overview": "{{count}} hareket · {{rounds}} tur · yaklaşık {{min}} dakika",
     "cardMeta": "{{count}} egzersiz · {{min}} dk",
@@ -1865,6 +1937,8 @@
     "home": "Ana sayfaya dön"
   },
   "glossary": {
+    "kindHealth": "Sağlık rehberi",
+    "kindApp": "Uygulama rehberi",
     "title": "Neden, Nedir ve Ne Demek?",
     "subtitle": "Uygulamadaki kavramlar ve cinsel sağlık konularının açıklamaları.",
     "notFound": "Açıklama bulunamadı.",
@@ -2001,6 +2075,20 @@
     "p1": "Gerçekten istediğinde tek bir cümle bile hayatını değiştirmeye yetebilir. İstemediğinde ise en iyi program da, en iyi uzman da yeterli olmaz.",
     "p2": "Bu program sana bilgi, araçlar ve yol arkadaşlığı sunar; ama adımları atacak olan sensin. Zorlandığın günler olacak. Önemli olan mükemmel olmak değil; vazgeçmemek ve gerektiğinde yeniden başlayabilmek.",
     "pledge": "Hazırsan kendine söz ver ve ilk adımı at.",
+    "points": [
+      {
+        "title": "Karar senin",
+        "text": "Gerçekten istediğinde tek bir karar bile hayatını değiştirmeye yeter. Bu programın en güçlü yanı sensin."
+      },
+      {
+        "title": "Araçlar bizden, adımlar senden",
+        "text": "Bilgi, plan ve kriz anı araçları burada. Onları kullanıp ilerleyecek olan sensin."
+      },
+      {
+        "title": "Mükemmel değil, kararlı ol",
+        "text": "Zorlandığın günler olacak. Önemli olan vazgeçmemek ve gerektiğinde yeniden başlayabilmek."
+      }
+    ],
     "wait": "Bir an düşün… {{count}}"
   },
   "camp": {
@@ -2157,6 +2245,8 @@
         "contactSaved": "Rehbere kaydedildi",
         "contactName": "ALO 171 Sigara Bırakma",
         "contactUnavailable": "Rehbere buradan kaydedilemedi. Numarayı \"171\" olarak telefon rehberine kendin ekleyebilirsin.",
+        "aloMini": "ALO 171 · ücretsiz bırakma hattı",
+        "aloCall": "Ara",
         "age": "Yaş aralığın"
       },
       "plans": {
@@ -2290,7 +2380,7 @@
       "minutes": "{{count}} dakika",
       "timeLeft": "Kalan süre {{time}}",
       "breathStart": "{{count}} dakika nefese başla",
-      "delayStart": "10 dakikayı başlat",
+      "delayStart": "15 dakikayı başlat",
       "pause": "Duraklat",
       "resume": "Devam et",
       "meanwhile": "Bu sürede yapabileceklerin",
@@ -2773,6 +2863,14 @@
       "offConfirm": "Kilidi kapat"
     },
     "onb": {
+      "freqRange": {
+        "none": "Hiç",
+        "r1": "1–2 gün",
+        "r2": "3–5 gün",
+        "r3": "6–9 gün",
+        "r4": "10–13 gün",
+        "daily": "Her gün"
+      },
       "question": "Soru {{n}}/{{total}}",
       "optional": "İsteğe bağlı",
       "progress": "Adım {{n}}/{{total}}",
@@ -3050,6 +3148,9 @@
     "backToGauge": "İsteğine tekrar bak"
   },
   "puzzle": {
+    "scoreLabel": "Puan",
+    "plus": "+{{points}}",
+    "combo": "Kombo ×{{n}} · +{{points}}",
     "score": "{{n}} puan",
     "timeA11y": "Kalan süre {{time}}",
     "timeUpShort": "3 dk doldu",

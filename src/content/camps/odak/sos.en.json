@@ -72,11 +72,11 @@
     "hint": "Try as many as you like. When you finish one you can move on to another.",
     "items": [
       {
-        "id": "breath",
-        "icon": "wind",
+        "id": "actions",
+        "icon": "clipboard",
         "tone": "focus",
-        "title": "Breathing",
-        "desc": "Quick calm, 1 minute"
+        "title": "What you can do",
+        "desc": "8 steps you can take right now"
       },
       {
         "id": "puzzle",
@@ -84,34 +84,6 @@
         "tone": "focus",
         "title": "Block Puzzle",
         "desc": "A 3-minute visual puzzle"
-      },
-      {
-        "id": "move",
-        "icon": "footprints",
-        "tone": "focus",
-        "title": "Movement",
-        "desc": "A quick 2-minute set"
-      },
-      {
-        "id": "values",
-        "icon": "compass",
-        "tone": "focus",
-        "title": "My values",
-        "desc": "Your own sentences"
-      },
-      {
-        "id": "futureSelf",
-        "icon": "mail",
-        "tone": "focus",
-        "title": "Future me",
-        "desc": "The letter you wrote to yourself"
-      },
-      {
-        "id": "supporter",
-        "icon": "chat",
-        "tone": "focus",
-        "title": "Write to someone",
-        "desc": "A ready-made, neutral message"
       }
     ],
     "other": "Other tools"
@@ -165,5 +137,61 @@
     "logSlip": "Add the entry",
     "back": "Back to the panel"
   },
-  "emergency": "In an emergency, call 112 (or your local emergency number)."
+  "emergency": "In an emergency, call 112 (or your local emergency number).",
+  "actions": {
+    "title": "What you can do",
+    "lead": "An urge is like a wave: it rises, peaks and usually fades within 15–20 minutes. Do one or more of these now and tick what you did.",
+    "items": [
+      {
+        "id": "room",
+        "icon": "door",
+        "title": "Change your surroundings",
+        "text": "Leave the room you're in; turn on the light or go where there are people."
+      },
+      {
+        "id": "phone",
+        "icon": "phoneOff",
+        "title": "Put the phone away",
+        "text": "Leave the phone in another room, or turn the screen off and face it down."
+      },
+      {
+        "id": "water",
+        "icon": "droplet",
+        "title": "Cold water",
+        "text": "Wash your face with cold water or slowly drink a glass of water."
+      },
+      {
+        "id": "walk",
+        "icon": "footprints",
+        "title": "A short walk",
+        "text": "Go outside or walk briskly around the house for 5–10 minutes."
+      },
+      {
+        "id": "hands",
+        "icon": "hand",
+        "title": "Keep your hands busy",
+        "text": "Find a small hands-on job: the dishes, tidying up, fixing something."
+      },
+      {
+        "id": "shower",
+        "icon": "shower",
+        "title": "Take a shower",
+        "text": "A warm or cool shower resets body and mind."
+      },
+      {
+        "id": "plan",
+        "icon": "calendar",
+        "title": "Move on to your next task",
+        "text": "Pick something on your plan and do its first 2 minutes right away."
+      },
+      {
+        "id": "wait",
+        "icon": "hourglass",
+        "title": "Decide in 15 minutes",
+        "text": "Tell yourself \"not now, I'll decide in 15 minutes\"; the urge usually passes in that time."
+      }
+    ],
+    "note": "These are steps anyone can take anywhere. If urges are frequent and hard, getting support from a professional is a strong step.",
+    "doneCount": "You did {{n}} steps, well done."
+  }
 }

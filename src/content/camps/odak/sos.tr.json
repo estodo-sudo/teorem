@@ -72,11 +72,11 @@
   "hint": "İstediğin kadarını dene. Birini bitirince başka birine geçebilirsin.",
   "items": [
    {
-    "id": "breath",
-    "icon": "wind",
+    "id": "actions",
+    "icon": "clipboard",
     "tone": "focus",
-    "title": "Nefes",
-    "desc": "Hızlı sakinleş, 1 dakika"
+    "title": "Yapabileceklerin",
+    "desc": "Hemen yapılabilecek 8 adım"
    },
    {
     "id": "puzzle",
@@ -84,34 +84,6 @@
     "tone": "focus",
     "title": "Blok Bulmaca",
     "desc": "3 dakikalık görsel bulmaca"
-   },
-   {
-    "id": "move",
-    "icon": "footprints",
-    "tone": "focus",
-    "title": "Hareket",
-    "desc": "2 dakikalık hızlı set"
-   },
-   {
-    "id": "values",
-    "icon": "compass",
-    "tone": "focus",
-    "title": "Değerlerim",
-    "desc": "Kendi cümlelerin"
-   },
-   {
-    "id": "futureSelf",
-    "icon": "mail",
-    "tone": "focus",
-    "title": "Gelecekteki ben",
-    "desc": "Kendine yazdığın mektup"
-   },
-   {
-    "id": "supporter",
-    "icon": "chat",
-    "tone": "focus",
-    "title": "Birine yaz",
-    "desc": "Hazır, nötr bir mesaj"
    }
   ],
   "other": "Diğer araçlar"
@@ -165,5 +137,61 @@
   "logSlip": "Kaydı ekle",
   "back": "Panele dön"
  },
- "emergency": "Acil bir durumda 112'yi ara."
+ "emergency": "Acil bir durumda 112'yi ara.",
+ "actions": {
+  "title": "Yapabileceklerin",
+  "lead": "Dürtü dalga gibidir: yükselir, zirve yapar ve çoğu zaman 15–20 dakikada söner. Aşağıdakilerden birini ya da birkaçını hemen yap; yaptıklarını işaretle.",
+  "items": [
+   {
+    "id": "room",
+    "icon": "door",
+    "title": "Ortamını değiştir",
+    "text": "Bulunduğun odadan çık; ışığı aç ya da insanların olduğu bir yere geç."
+   },
+   {
+    "id": "phone",
+    "icon": "phoneOff",
+    "title": "Telefonu uzaklaştır",
+    "text": "Telefonu başka bir odaya bırak ya da ekranı kapatıp ters çevir."
+   },
+   {
+    "id": "water",
+    "icon": "droplet",
+    "title": "Soğuk su",
+    "text": "Yüzünü soğuk suyla yıka ya da yavaşça bir bardak su iç."
+   },
+   {
+    "id": "walk",
+    "icon": "footprints",
+    "title": "Kısa bir yürüyüş",
+    "text": "Dışarı çık ya da evin içinde 5–10 dakika tempolu yürü."
+   },
+   {
+    "id": "hands",
+    "icon": "hand",
+    "title": "Ellerini meşgul et",
+    "text": "Bulaşık, toparlama, bir şeyi tamir etmek gibi elle yapılan küçük bir iş bul."
+   },
+   {
+    "id": "shower",
+    "icon": "shower",
+    "title": "Duş al",
+    "text": "Ilık ya da serin bir duş bedeni ve zihni sıfırlar."
+   },
+   {
+    "id": "plan",
+    "icon": "calendar",
+    "title": "Sıradaki işine geç",
+    "text": "Planında olan bir işi seç ve ilk 2 dakikasını hemen yap."
+   },
+   {
+    "id": "wait",
+    "icon": "hourglass",
+    "title": "15 dakika sonra karar ver",
+    "text": "Kendine \"şimdi değil, 15 dakika sonra karar vereceğim\" de; çoğu zaman dürtü o süre içinde geçer."
+   }
+  ],
+  "note": "Bunlar herkesin her yerde yapabileceği adımlardır. Dürtüler sık ve zorlayıcıysa bir uzmandan destek almak güçlü bir adımdır.",
+  "doneCount": "{{n}} adım yaptın, harika."
+ }
 }

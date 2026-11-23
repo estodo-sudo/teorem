@@ -18,7 +18,8 @@ export function premiumRuleFor(segments: readonly string[]): RouteRule | null {
       // Only the player itself; feedback / next / round2-intro follow a session that was already allowed.
       return second === '[sessionId]' ? 'workout' : null;
     case 'fitness':
-      return 'fitness';
+      // The programme overview (/fitness) is free to look at; the session player is premium.
+      return second === '[routineId]' ? 'fitness' : null;
     case 'story':
       return 'stories';
     case 'strength-test':

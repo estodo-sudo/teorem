@@ -24,8 +24,8 @@
     "srHint": "This puzzle is played by looking at the screen. With a screen reader on, we suggest the breathing tool."
   },
   "delay": {
-    "title": "Delay 10 minutes",
-    "desc": "Just put off the decision for 10 minutes. Cravings often peak within a few minutes and then fade.",
+    "title": "Decide in 15 minutes",
+    "desc": "Make the decision in 15 minutes, not now. Cravings often peak within a few minutes and then fade.",
     "ideas": [
       "Drink a glass of water",
       "Go for a short walk",
@@ -36,7 +36,7 @@
       "Wash your hands and splash water on your face",
       "Put on a song and sing along"
     ],
-    "done": "The 10 minutes are up. The decision is yours again; the craving has probably eased a little."
+    "done": "The 15 minutes are up. The decision is yours again; the craving has probably eased a little."
   },
   "reasons": {
     "title": "My reasons",

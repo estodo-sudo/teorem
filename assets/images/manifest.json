@@ -3403,6 +3403,195 @@
       },
       "alt": "Matın üstünde oturup lastik bantla ayaklarına uzanarak esneyen bir adam",
       "status": "accepted"
+    },
+    {
+      "id": "today/workout-1",
+      "source": {
+        "site": "pexels",
+        "photoId": 7218660,
+        "page": "https://www.pexels.com/photo/a-couple-relaxing-on-a-couch-7218660/",
+        "photographer": "Blue Bird",
+        "photographerUrl": "https://www.pexels.com/@blue-bird",
+        "license": "Pexels License",
+        "width": 4000,
+        "height": 6000
+      },
+      "download": "https://images.pexels.com/photos/7218660/pexels-photo-7218660.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "alt": "Kanepede birbirine sarılıp gülümseyen, rahat giyimli bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/workout-2",
+      "source": {
+        "site": "pexels",
+        "photoId": 4406643,
+        "page": "https://www.pexels.com/photo/woman-in-brown-shirt-and-black-framed-eyeglasses-sitting-on-couch-4406643/",
+        "photographer": "Anastasia Shuraeva",
+        "photographerUrl": "https://www.pexels.com/@anastasia-shuraeva",
+        "license": "Pexels License",
+        "width": 4338,
+        "height": 6507
+      },
+      "download": "https://images.pexels.com/photos/4406643/pexels-photo-4406643.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.52
+      },
+      "alt": "Yatakta yorganın altında oturan, başını eşinin omzuna yaslayıp gülen bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/workout-3",
+      "source": {
+        "site": "pexels",
+        "photoId": 3754294,
+        "page": "https://www.pexels.com/photo/woman-in-green-top-whispering-to-a-man-in-a-gray-tank-top-3754294/",
+        "photographer": "Ba Tik",
+        "photographerUrl": "https://www.pexels.com/@ba-tik",
+        "license": "Pexels License",
+        "width": 3503,
+        "height": 5260
+      },
+      "download": "https://images.pexels.com/photos/3754294/pexels-photo-3754294.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "alt": "Sedirde kahve içerken birbirine fısıldayan bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/workout-4",
+      "source": {
+        "site": "pexels",
+        "photoId": 19109113,
+        "page": "https://www.pexels.com/photo/smiling-couple-together-in-room-19109113/",
+        "photographer": "Avery Arwood",
+        "photographerUrl": "https://www.pexels.com/@avery-arwood-713708816",
+        "license": "Pexels License",
+        "width": 3456,
+        "height": 5184
+      },
+      "download": "https://images.pexels.com/photos/19109113/pexels-photo-19109113.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.4
+      },
+      "alt": "Evde mutfakta birbirine gülümseyen bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/workout-5",
+      "source": {
+        "site": "pexels",
+        "photoId": 6309258,
+        "page": "https://www.pexels.com/photo/couple-wearing-black-shirts-drinking-coffee-6309258/",
+        "photographer": "Vitalik Yamskiy",
+        "photographerUrl": "https://www.pexels.com/@vitalik-yamskiy-210583",
+        "license": "Pexels License",
+        "width": 3376,
+        "height": 6000
+      },
+      "download": "https://images.pexels.com/photos/6309258/pexels-photo-6309258.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.3
+      },
+      "alt": "Mutfakta ellerinde kahveyle birbirine gülen bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/workout-6",
+      "source": {
+        "site": "pexels",
+        "photoId": 19628419,
+        "page": "https://www.pexels.com/photo/couple-cuddle-on-sofa-19628419/",
+        "photographer": "Alexander Mass",
+        "photographerUrl": "https://www.pexels.com/@rebornfilmes",
+        "license": "Pexels License",
+        "width": 4160,
+        "height": 6240
+      },
+      "download": "https://images.pexels.com/photos/19628419/pexels-photo-19628419.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.28
+      },
+      "alt": "Kanepede sarılan, adamın kadının yanağını öptüğü bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/workout-7",
+      "source": {
+        "site": "pexels",
+        "photoId": 6248935,
+        "page": "https://www.pexels.com/photo/romantic-couple-cuddling-with-closed-eyes-6248935/",
+        "photographer": "Gary Barnes",
+        "photographerUrl": "https://www.pexels.com/@gary-barnes",
+        "license": "Pexels License",
+        "width": 4000,
+        "height": 6000
+      },
+      "download": "https://images.pexels.com/photos/6248935/pexels-photo-6248935.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "alt": "Kanepede gözlerini kapatıp sarılan orta yaşlı bir çift",
+      "status": "accepted"
+    },
+    {
+      "id": "today/fitness",
+      "source": {
+        "site": "pexels",
+        "photoId": 8899516,
+        "page": "https://www.pexels.com/photo/a-man-in-blue-crew-neck-t-shirt-working-out-on-the-floor-8899516/",
+        "photographer": "SHVETS production",
+        "photographerUrl": "https://www.pexels.com/@shvets-production",
+        "license": "Pexels License",
+        "width": 6000,
+        "height": 4000
+      },
+      "download": "https://images.pexels.com/photos/8899516/pexels-photo-8899516.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.4,
+        "y": 0.5
+      },
+      "alt": "Aydınlık bir oturma odasında matta oturup bacaklarını esneten, tişörtlü orta yaşlı bir adam",
+      "status": "accepted"
+    },
+    {
+      "id": "hero/commit",
+      "source": {
+        "site": "pexels",
+        "photoId": 18913148,
+        "page": "https://www.pexels.com/photo/man-standing-against-the-setting-sun-18913148/",
+        "photographer": "Shojol Islam",
+        "photographerUrl": "https://www.pexels.com/@shojol",
+        "license": "Pexels License",
+        "width": 3905,
+        "height": 5857
+      },
+      "download": "https://images.pexels.com/photos/18913148/pexels-photo-18913148.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-23",
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "alt": "Gün batımında dağ zirvesinde kollarını açmış duran bir adam, arkadan",
+      "status": "accepted"
     }
   ]
 }

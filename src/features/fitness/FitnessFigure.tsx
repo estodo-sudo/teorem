@@ -4,7 +4,7 @@ import Svg, { Circle, Ellipse, G, Line, Rect } from 'react-native-svg';
 
 import { useTheme } from '@/components';
 
-import { motionAt, type MoveSpec, type Pose } from './motion';
+import { motionAt, pillowRx, type MoveSpec, type Pose } from './motion';
 
 type P = [number, number];
 const mid = (a: P, b: P, f = 0.5): P => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
@@ -84,7 +84,6 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
           {seg(pose.n, pose.e2, 7.5, far, 'fa1', farO)}
           {seg(pose.e2, pose.w2, 6.5, far, 'fa2', farO)}
           <Circle cx={pose.w2[0]} cy={pose.w2[1]} r={3.6} fill={far} opacity={farO} />
-          {move.prop === 'pillow' ? <Ellipse cx={k1[0] + 4} cy={k1[1] + 4} rx={9} ry={7} fill={t.tone.mind.fg} opacity={0.75} /> : null}
           {/* Torso: wide at the chest, narrower at the waist; neck and head. */}
           {seg(pose.n, neckEnd, 6.5, near, 'neck')}
           {seg(pose.n, chest, 17, near, 'chest')}
@@ -98,6 +97,15 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
           {seg(pose.n, pose.e1, 8, near, 'na1')}
           {seg(pose.e1, pose.w1, 7, near, 'na2')}
           <Circle cx={pose.w1[0]} cy={pose.w1[1]} r={4} fill={near} />
+          {/* The pillow between the knees, drawn on top so it stays visible (2026-11-23): an outlined cushion
+              in the accent colour with a seam; it gets thinner as the knees squeeze together. */}
+          {move.prop === 'pillow' ? (
+            <G>
+              <Ellipse cx={k1[0] - 2} cy={k1[1] + 5} rx={pillowRx(pose) + 2.5} ry={10.5} fill={edge} />
+              <Ellipse cx={k1[0] - 2} cy={k1[1] + 5} rx={pillowRx(pose)} ry={9} fill={glow} />
+              <Ellipse cx={k1[0] - 2} cy={k1[1] + 5} rx={Math.max(2, pillowRx(pose) - 4)} ry={5.5} fill={edge} opacity={0.35} />
+            </G>
+          ) : null}
         </G>
       </Svg>
     </View>

@@ -49,7 +49,8 @@ describe('assessment answers', () => {
     expect(stepError('reasons', { ...empty, customReason: '  Kızım için ' })).toBeNull();
     expect(stepError('triggers', empty)).toBe('triggers');
     expect(stepError('attempts', empty)).toBe('attempts');
-    expect(stepError('support', empty)).toBe('age');
+    // The age question was removed from the support step (2026-11-23).
+    expect(stepError('support', empty)).toBeNull();
     expect(stepError('amount', empty)).toBeNull();
     const a = answers();
     for (const s of ['products', 'firstCig', 'price', 'reasons', 'triggers', 'attempts', 'support'] as const) expect(stepError(s, a)).toBeNull();

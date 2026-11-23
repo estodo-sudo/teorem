@@ -24,6 +24,11 @@ export interface MoveSpec {
   kind: 'reps' | 'hold';
   /** One side first, the other after half the time. */
   sides: boolean;
+  /**
+   * With `sides`: the sides take turns every rep instead (dead bug, bird dog: one arm and the opposite
+   * leg, then the other pair — as the steps say). Animation review 2026-11-23.
+   */
+  alternate?: boolean;
   prop?: 'pillow';
   /** Which way the toes point when the feet are drawn automatically (default right). */
   facing?: 'left' | 'right';
@@ -37,7 +42,7 @@ export interface MoveSpec {
 
 const JOINTS: Joint[] = ['h', 'n', 'p', 'k1', 'a1', 'k2', 'a2', 'e1', 'w1', 'e2', 'w2'];
 
-type RawMove = { view: 'side' | 'front'; kind: 'reps' | 'hold'; sides: boolean; prop?: 'pillow'; facing?: 'left' | 'right'; focus?: Focus[]; props?: MoveSpec['props']; tempo: [string, number, string][] } & Record<string, unknown>;
+type RawMove = { view: 'side' | 'front'; kind: 'reps' | 'hold'; sides: boolean; alternate?: boolean; prop?: 'pillow'; facing?: 'left' | 'right'; focus?: Focus[]; props?: MoveSpec['props']; tempo: [string, number, string][] } & Record<string, unknown>;
 
 /** Moves from a poses JSON file (keys starting with "_" are notes). */
 export function buildMoves(raw: unknown): Record<string, MoveSpec> {
@@ -50,6 +55,7 @@ export function buildMoves(raw: unknown): Record<string, MoveSpec> {
           view: m.view,
           kind: m.kind,
           sides: m.sides,
+          ...(m.alternate && m.sides ? { alternate: true } : {}),
           ...(m.prop ? { prop: m.prop } : {}),
           ...(m.facing ? { facing: m.facing } : {}),
           ...(m.focus ? { focus: m.focus } : {}),
@@ -63,6 +69,9 @@ export function buildMoves(raw: unknown): Record<string, MoveSpec> {
 
 /** Kasık Fitness moves. */
 export const MOVES: Record<string, MoveSpec> = buildMoves(posesJson);
+
+/** Pillow width from how far apart the knees are: wide when relaxed, squeezed thin when pressed. */
+export const pillowRx = (pose: Pose) => Math.max(6, Math.min(12, 5 + Math.hypot(pose.k1[0] - pose.k2[0], pose.k1[1] - pose.k2[1])));
 
 /** One tempo cycle (ms). */
 export const cycleMs = (m: MoveSpec) => m.tempo.reduce((a, s) => a + s.sec * 1000, 0);
@@ -98,11 +107,15 @@ const lerp = (a: Pose, b: Pose, f: number): Pose => {
  * pose over the whole step (a hold step keeps it), so the figure goes at the speed the user should.
  */
 export function motionAt(m: MoveSpec, elapsedMs: number, workMs = Number.POSITIVE_INFINITY): MotionState {
-  const half = m.sides && Number.isFinite(workMs) ? workMs / 2 : Number.POSITIVE_INFINITY;
-  const side: 1 | 2 = elapsedMs >= half ? 2 : 1;
-  const local = Math.max(0, side === 2 ? elapsedMs - half : elapsedMs);
   const cyc = cycleMs(m);
+  // Alternating moves switch side every rep; the others do one side, then the other at half time.
+  const half = m.sides && !m.alternate && Number.isFinite(workMs) ? workMs / 2 : Number.POSITIVE_INFINITY;
+  const halfSide: 1 | 2 = elapsedMs >= half ? 2 : 1;
+  const local = Math.max(0, halfSide === 2 ? elapsedMs - half : elapsedMs);
   const cycle = Math.floor(local / cyc);
+  const side: 1 | 2 = m.alternate ? (cycle % 2 === 0 ? 1 : 2) : halfSide;
+  // Rep number per side: alternating moves count a rep when both sides are done.
+  const repIndex = m.alternate ? Math.floor(cycle / 2) : cycle;
   let within = local - cycle * cyc;
   let i = 0;
   while (i < m.tempo.length - 1 && within >= m.tempo[i]!.sec * 1000) within -= m.tempo[i++]!.sec * 1000;
@@ -115,10 +128,10 @@ export function motionAt(m: MoveSpec, elapsedMs: number, workMs = Number.POSITIV
   const perSide = Number.isFinite(workMs) ? repsIn(m, workMs) : Number.POSITIVE_INFINITY;
   return {
     word: step.word,
-    rep: Math.min(cycle + 1, perSide === Number.POSITIVE_INFINITY ? cycle + 1 : perSide),
+    rep: Math.min(repIndex + 1, perSide === Number.POSITIVE_INFINITY ? repIndex + 1 : perSide),
     reps: perSide === Number.POSITIVE_INFINITY ? 0 : perSide,
     side,
-    stepKey: (side - 1) * 10000 + cycle * m.tempo.length + i,
+    stepKey: (halfSide - 1) * 10000 + cycle * m.tempo.length + i,
     stepLeft: Math.max(0, Math.ceil(step.sec - within / 1000)),
     pose: lerp(from, to, f),
   };

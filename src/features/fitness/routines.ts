@@ -1,7 +1,6 @@
 import { pick } from '@/i18n/content';
 import fitnessTr from '@/content/fitness.tr.json';
 import fitnessEn from '@/content/fitness.en.json';
-import type { ActivityLevel } from '@/types';
 
 import { MOVES, type MoveSpec } from './motion';
 
@@ -28,10 +27,10 @@ export interface RoutineStep {
   round: FitnessRound;
 }
 
+/** Kasık Fitness has one standard routine, no levels (user request 2026-11-23). */
 export interface Routine {
   id: string;
   name: string;
-  level: ActivityLevel;
   steps: RoutineStep[];
 }
 
@@ -57,19 +56,19 @@ export function routineRounds(r: Routine): { round: FitnessRound; steps: { step:
   return out;
 }
 
+/** Ids of the former level routines; old links, stories and notifications open the standard one. */
+const LEGACY_IDS = ['beginner', 'intermediate', 'advanced'];
+
 export function getRoutine(id: string): Routine | undefined {
-  return ROUTINES.find((r) => r.id === id);
+  return ROUTINES.find((r) => r.id === id) ?? (LEGACY_IDS.includes(id) ? ROUTINES[0] : undefined);
 }
 
 export function routineDurationSec(r: Routine): number {
   return FITNESS_COUNTDOWN_SEC + r.steps.reduce((a, s) => a + s.workSec + s.restSec, 0);
 }
 
-/** Routine suggested on Today based on onboarding activity level. */
-export function recommendedRoutine(activity: ActivityLevel | null): Routine {
-  const target: ActivityLevel = activity ?? 'low';
-  return ROUTINES.find((r) => r.level === target) ?? ROUTINES[0]!;
-}
+/** The one standard routine (no levels). */
+export const standardRoutine = (): Routine => ROUTINES[0]!;
 
 export interface FitnessPhase {
   kind: 'countdown' | 'work' | 'rest';

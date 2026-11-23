@@ -6,11 +6,7 @@ import { Linking, Pressable, ScrollView, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Icon, Screen, useTheme } from '@/components';
-import { Button, Card, IconTile, ScalePressable, UrgeGauge } from '@/components/ui';
-import { BreathPlayer } from '@/features/breath/BreathPlayer';
-import { BreathSetup } from '@/features/breath/BreathSetup';
-import { BREATH_MODES, type BreathMode } from '@/features/breath/patterns';
-import { useBreathStore } from '@/features/breath/store';
+import { Button, Card, IconTile, ScalePressable } from '@/components/ui';
 import { mmss, useCountdown } from '@/features/camps/core/sosTools';
 import { CAMP_ONBOARDING as ONB, CAMP_SOS as SOS } from '@/features/camps/smoking/content';
 import { triggerOrder } from '@/features/camps/smoking/engine/panel';
@@ -25,9 +21,8 @@ import { useCampEventsStore, useCampStore } from '@/stores/campStore';
 
 type Stage = 'start' | 'tools' | 'end' | 'resisted' | 'smoked';
 type SosTool = Exclude<ActiveToolId, 'call171'>;
-/** SPEC_V4 §C.3: breath first (default), then the block puzzle, the 10-minute delay and the reasons. */
+/** The block puzzle, the delay and the reasons (breathing removed, user request 2026-11-23). */
 export const SOS_TOOL_ORDER: { id: SosTool; icon: IconName }[] = [
-  { id: 'breath', icon: 'wind' },
   { id: 'puzzle', icon: 'blocks' },
   { id: 'delay', icon: 'hourglass' },
   { id: 'reasons', icon: 'target' },
@@ -36,8 +31,8 @@ export const SOS_TOOL_ORDER: { id: SosTool; icon: IconName }[] = [
 /**
  * "Canım çekiyor" crisis tool (always free, never behind the paywall), calm, in the app theme (it used
  * to be always dark; in the light theme that read as a broken screen).
- * Flow (SPEC_V4 §C.3): gauge → triggers → Başla → a tool → "Bitirdim" → the gauge again, compared with
- * the first answer → outcome. "Hâlâ zor" suggests the next tool not used yet. The 10-minute delay keeps
+ * Flow: what triggered it → Başla → a tool → "Bitirdim" → outcome. The urge-strength gauges were removed
+ * (user request 2026-11-23: "miktarı kaldır, sadece ne tetikledi kalsın"); the log keeps 0 = not rated. "Hâlâ zor" suggests the next tool not used yet. The 10-minute delay keeps
  * running as a small chip while another tool is open.
  */
 export default function CampSos() {
@@ -58,18 +53,13 @@ function CampSosBody() {
   const cigarettes = useCampEventsStore((s) => s.cigarettes);
   const [startedAt] = useState(() => Date.now());
   const [stage, setStage] = useState<Stage>('start');
-  const [before, setBefore] = useState<number | null>(null);
-  const [after, setAfter] = useState<number | null>(null);
   const [triggers, setTriggers] = useState<TriggerId[]>([]);
   const [otherOn, setOtherOn] = useState(false);
   const [otherText, setOtherText] = useState('');
-  const [tool, setTool] = useState<SosTool>('breath');
+  const [tool, setTool] = useState<SosTool>('puzzle');
   const [used, setUsed] = useState<ToolId[]>([]);
   const [hardNote, setHardNote] = useState(false);
   const [planUsed, setPlanUsed] = useState<string | null>(null);
-  const [breathMode, setBreathMode] = useState<BreathMode>('quick');
-  const [breathMin, setBreathMin] = useState<number>(BREATH_MODES.quick.defaultMinutes);
-  const [breathing, setBreathing] = useState(false);
   const screenReader = useScreenReader();
   const delay = useCountdown(DELAY_MINUTES * 60);
   const profile = camp.profile;
@@ -86,9 +76,8 @@ function CampSosBody() {
 
   const log = (outcome: 'resisted' | 'still_hard' | 'smoked') =>
     useCampEventsStore.getState().logCraving({
-      // 0 = skipped in the crisis (kept out of averages).
-      intensityBefore: before ?? 0,
-      intensityAfter: after ?? undefined,
+      // 0 = not rated (kept out of averages); the gauge is no longer asked.
+      intensityBefore: 0,
       trigger: triggers[0],
       triggers: triggers.length > 1 ? triggers : undefined,
       otherTrigger: otherOn && otherText.trim() ? otherText.trim() : undefined,
@@ -106,23 +95,6 @@ function CampSosBody() {
     markUsed('call171');
     void Linking.openURL('tel:171');
   };
-
-  if (breathing) {
-    return (
-      <BreathPlayer
-        mode={breathMode}
-        minutes={breathMin}
-        color={t.tone.smokefree.fg}
-        askFeeling={false}
-        onClose={() => setBreathing(false)}
-        onDone={() => {
-          markUsed('breath');
-          setBreathing(false);
-          setStage('end');
-        }}
-      />
-    );
-  }
 
   const footer =
     stage === 'resisted' || stage === 'smoked' ? (
@@ -144,15 +116,6 @@ function CampSosBody() {
           <AppText variant="title2" accessibilityRole="header">
             {SOS.intro}
           </AppText>
-          <View style={{ gap: t.space.sm }}>
-            <AppText variant="title3">{tr('camp.sos.howStrong')}</AppText>
-            <UrgeGauge value={before} onChange={setBefore} label={tr('camp.sos.howStrong')} color={t.tone.smokefree.fg} />
-            {before === null ? (
-              <AppText variant="footnote" muted center>
-                {tr('camp.sos.canSkip')}
-              </AppText>
-            ) : null}
-          </View>
           <View style={{ gap: t.space.sm }}>
             <AppText variant="title3">{tr('camp.sos.whatTriggered')}</AppText>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
@@ -239,36 +202,11 @@ function CampSosBody() {
           <AppText variant="title2" accessibilityRole="header">
             {SOS[tool].title}
           </AppText>
-          {tool === 'breath' ? (
-            <>
-              <AppText muted>{SOS.breath.desc}</AppText>
-              <BreathSetup
-                compact
-                mode={breathMode}
-                minutes={breathMin}
-                onChange={(m, n) => {
-                  setBreathMode(m);
-                  setBreathMin(n);
-                }}
-              />
-              <Button
-                label={tr('camp.sos.breathStart', { count: breathMin })}
-                icon="play"
-                variant="secondary"
-                size="lg"
-                fullWidth
-                onPress={() => {
-                  useBreathStore.getState().remember(breathMode, breathMin);
-                  setBreathing(true);
-                }}
-              />
-            </>
-          ) : null}
           {tool === 'puzzle' ? (
             screenReader ? (
               <View style={{ gap: t.space.md }}>
                 <AppText muted>{SOS.puzzle.srHint}</AppText>
-                <Button label={SOS.breath.title} icon="wind" variant="secondary" onPress={() => setTool('breath')} />
+                <Button label={SOS.delay.title} icon="hourglass" variant="secondary" onPress={() => setTool('delay')} />
               </View>
             ) : (
               <>
@@ -290,7 +228,6 @@ function CampSosBody() {
           <AppText variant="title2" accessibilityRole="header">
             {SOS.end.question}
           </AppText>
-          <UrgeGauge value={after} onChange={setAfter} label={SOS.end.question} color={t.tone.smokefree.fg} compareTo={before} />
           <View style={{ gap: 10, marginTop: 6 }}>
             <Button
               label={SOS.end.resisted}

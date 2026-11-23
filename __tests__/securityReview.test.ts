@@ -20,7 +20,8 @@ describe('premium screens cannot be opened by a direct link', () => {
     expect(premiumRuleFor(['campus', 'alcohol'])).toBe('courses');
     expect(premiumRuleFor(['bodyweight'])).toBe('soon');
     // Free areas and the steps after an allowed session.
-    for (const s of [['(tabs)'], ['legal', 'terms'], ['paywall'], ['workout', 'feedback'], ['workout', 'next'], ['glossary', '[termId]']]) expect(premiumRuleFor(s)).toBeNull();
+    // The Kasık Fitness programme overview is free to look at (2026-11-23); the session player is not.
+    for (const s of [['fitness'], ['(tabs)'], ['legal', 'terms'], ['paywall'], ['workout', 'feedback'], ['workout', 'next'], ['glossary', '[termId]']]) expect(premiumRuleFor(s)).toBeNull();
   });
 
   it('checks on entering an area, not while moving inside it', () => {
@@ -97,9 +98,12 @@ describe('App Store build settings', () => {
     expect(cfg).toMatch(/withoutUnusedIosBackgroundMode/);
     expect(cfg).toMatch(/microphonePermission: false, recordAudioAndroid: false, enableBackgroundPlayback: false/);
     expect(cfg).toMatch(/locales: \{ tr: '.\/locales\/tr.json', en: '.\/locales\/en.json' \}/);
-    const tr = JSON.parse(read('locales/tr.json')) as Record<string, string>;
-    const en = JSON.parse(read('locales/en.json')) as Record<string, string>;
-    expect(Object.keys(en).sort()).toEqual(Object.keys(tr).sort());
+    // iOS-only keys: at the top level Expo would also write them to Android strings, which release lint rejects.
+    const tr = JSON.parse(read('locales/tr.json')) as Record<string, Record<string, string>>;
+    const en = JSON.parse(read('locales/en.json')) as Record<string, Record<string, string>>;
+    expect(Object.keys(tr)).toEqual(['ios']);
+    expect(Object.keys(en)).toEqual(['ios']);
+    expect(Object.keys(en.ios!).sort()).toEqual(Object.keys(tr.ios!).sort());
   });
 
   it('the paywall promises only what exists (no "Antrenmanlar" while they are "Yakında")', () => {

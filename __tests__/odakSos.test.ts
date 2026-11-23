@@ -31,16 +31,16 @@ describe('SOS logic', () => {
     expect(managedCount([...list, urge('slipped', [])])).toBe(2);
   });
   it('suggests a tool not tried yet when it is still hard', () => {
-    expect(SOS_TOOLS).toEqual(['breath', 'puzzle', 'move', 'values', 'futureSelf', 'supporter']);
-    expect(nextTool([])).toBe('breath');
-    expect(nextTool(['relocate', 'breath'])).toBe('puzzle');
-    expect(nextTool([...SOS_TOOLS])).toBe('breath');
+    expect(SOS_TOOLS).toEqual(['actions', 'puzzle']);
+    expect(nextTool([])).toBe('actions');
+    expect(nextTool(['relocate', 'actions'])).toBe('puzzle');
+    expect(nextTool([...SOS_TOOLS])).toBe('actions');
   });
   it('ranks tools by how often they were part of a managed moment; removed tools count as "other"', () => {
-    const r = toolEffectiveness([urge('managed', ['surf', 'breath']), urge('slipped', ['breath']), urge('managed', ['surf'])]);
+    const r = toolEffectiveness([urge('managed', ['surf', 'actions']), urge('slipped', ['actions']), urge('managed', ['breath'])]);
     expect(r.map((x) => [x.tool, x.used, x.managed])).toEqual([
       ['other', 2, 2],
-      ['breath', 2, 1],
+      ['actions', 2, 1],
     ]);
   });
   it('keeps a skipped intensity as 0 (left out of averages)', () => {
@@ -90,9 +90,7 @@ describe('SOS content (spec 5.2)', () => {
     const shortcut = fs.readFileSync(path.join(root, 'src', 'features', 'camps', 'smoking', 'shortcut.ts'), 'utf8');
     expect(shortcut).toContain("href: '/odak/sos'");
     const sos = fs.readFileSync(path.join(root, 'app', 'odak', 'sos.tsx'), 'utf8');
-    // Every SOS step and tool is free; only writing the future-self letter is premium (spec 8).
-    const [flow, letter] = sos.split('function FutureSelf');
-    expect(flow!.replace(/^import .*$/gm, '')).not.toMatch(/useAccess|PremiumLock|OdakLock|openGated|paywall/);
-    expect(letter).toMatch(/editing && !premium/);
+    // Every SOS step and tool is free (the premium future-self letter was removed, 2026-11-23).
+    expect(sos.replace(/^import .*$/gm, '')).not.toMatch(/useAccess|PremiumLock|OdakLock|openGated|paywall/);
   });
 });

@@ -153,6 +153,8 @@ export interface OdakSosContent {
   check: { title: string; hint: string; items: { id: 'tired' | 'hungry' | 'lonely' | 'loaded'; letter: string; icon: IconName; label: string; tip: string }[]; intensity: string; intensityLabels: { low: string; high: string } };
   relocate: { title: string; lead: string; seconds: number; steps: string[]; start: string; done: string };
   tools: { title: string; hint: string; other: string; items: { id: string; icon: IconName; title: string; desc: string }[] };
+  /** "Yapabileceklerin" (2026-11-23): simple steps anyone can take, ticked as done. */
+  actions: { title: string; lead: string; note: string; doneCount: string; items: { id: string; icon: IconName; title: string; text: string }[] };
   breath: { desc: string };
   puzzle: { desc: string; srHint: string };
   move: { desc: string; seconds: number; steps: string[]; start: string; done: string };

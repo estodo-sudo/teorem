@@ -3,23 +3,24 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, useTheme, type IconName } from '@/components';
-import { Badge, Card, IconTile } from '@/components/ui';
-import { recommendedRoutine, routineDurationSec, ROUTINES } from '@/features/fitness/routines';
+import { Button, Card } from '@/components/ui';
+import { appImage } from '@/content/images';
+import { PROGRAM_WEEKS, programState } from '@/features/fitness/program';
+import { routineDurationSec, standardRoutine } from '@/features/fitness/routines';
 import { completedDates } from '@/features/gamification/service';
-import { openGated, useAccess } from '@/features/purchases/useGate';
 import { todayPlanDay } from '@/features/training/plan';
 import { protectedDays } from '@/features/training/returns';
 import { weekTheme } from '@/features/training/roadmap';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
-import { useProfileStore } from '@/stores/profileStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
+import { PhotoBackground } from './PhotoCard';
 import { weekCount, weekDays, type WeekDay } from './week';
 import { localeOf } from '@/i18n/languages';
 
 /** Short weekday names, Monday first (tr: Pzt, Sal, Çar, Per, Cum, Cmt, Paz). */
-function dayLabels(lang: string): string[] {
+export function dayLabels(lang: string): string[] {
   // 1 January 2024 was a Monday.
   return Array.from({ length: 7 }, (_, i) => new Date(2024, 0, 1 + i).toLocaleDateString(localeOf(lang), { weekday: 'short' }).replace('.', ''));
 }
@@ -66,7 +67,7 @@ export function ThisWeek() {
   );
 }
 
-function DayDot({ day, label }: { day: WeekDay; label: string }) {
+export function DayDot({ day, label }: { day: WeekDay; label: string }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const k = t.tokens;
@@ -85,55 +86,59 @@ function DayDot({ day, label }: { day: WeekDay; label: string }) {
   );
 }
 
-const ROUTINE_ICON: Record<string, IconName> = { beginner: 'leaf', intermediate: 'layers', advanced: 'trophy' };
-
 /**
- * Kasık Fitness (moved from the Antrenman tab): a title with one line of description and the three
- * routines. "Senin için önerilen" sits next to the routine name, so "8 egzersiz · 8 dk" never wraps.
+ * Kasık Fitness (user request 2026-11-23): one standard routine, no levels, on a photo card — kicker,
+ * title and one line on top, the photo in the middle, then three chips (week · moves · minutes) and one
+ * button that opens the 7-week programme (app/fitness.tsx), where the session starts.
  */
 export function FitnessCard() {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const activity = useProfileStore((s) => s.profile.activity);
-  const rec = recommendedRoutine(activity);
-  const access = useAccess()('fitness');
+  const routine = standardRoutine();
+  const logs = useHistoryStore((h) => h.fitnessLogs);
+  const week = programState(logs, toDateKey()).week;
+  const cover = appImage('today/fitness');
+  const fg = cover ? t.focus.text : t.tokens.foreground;
+  const soft = cover ? t.focus.icon : t.tokens.mutedForeground;
+  const min = Math.round(routineDurationSec(routine) / 60);
+  const chips: { icon: IconName; label: string }[] = [
+    { icon: 'calendar', label: tr('fitness.chipWeek', { n: week, total: PROGRAM_WEEKS }) },
+    { icon: 'layers', label: tr('fitness.chipMoves', { count: routine.steps.length }) },
+    { icon: 'clock', label: tr('fitness.chipMin', { min }) },
+  ];
+  // Opens the 7-week programme (2026-11-23); the session starts from there.
+  const open = () => router.push('/fitness');
   return (
-    <View style={{ gap: t.space.md }}>
-      <View style={{ gap: 2 }}>
-        <AppText variant="title2" accessibilityRole="header">
-          {tr('fitness.title')}
-        </AppText>
-        <AppText variant="footnote" muted>
-          {tr('fitness.subtitle')}
-        </AppText>
+    <Card style={{ padding: 0, overflow: 'hidden' }}>
+      {cover ? <PhotoBackground image={cover} id="fitnessVeil" textAt="bottom" /> : null}
+      <View style={{ padding: t.space.gutter, gap: t.space.md }}>
+        {/* The photo shows at the top (2026-11-23: the person's face stays free); the text sits on the blurred bottom. */}
+        {cover ? <View style={{ height: 150 }} /> : null}
+        <View style={{ gap: t.space.xs }}>
+          <AppText variant="caption" color={soft}>
+            {tr('fitness.kicker')}
+          </AppText>
+          <AppText variant="title2" accessibilityRole="header" color={fg}>
+            {tr('fitness.title')}
+          </AppText>
+          <AppText variant="footnote" color={soft} numberOfLines={2}>
+            {tr('fitness.subtitle')}
+          </AppText>
+        </View>
+        {/* One row of chips, so the card keeps the photo's wide shape. */}
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.xs }} accessible accessibilityLabel={chips.map((c) => c.label).join(', ')}>
+          {chips.map((c) => (
+            <View key={c.icon} style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs, paddingHorizontal: t.space.sm, paddingVertical: t.space.xs, borderRadius: t.radius.pill, backgroundColor: cover ? t.veil.mid : t.tokens.muted }}>
+              <Icon name={c.icon} size="sm" color={fg} />
+              <AppText variant="footnote" weight="600" color={fg}>
+                {c.label}
+              </AppText>
+            </View>
+          ))}
+        </View>
+        <Button label={tr('fitness.openProgram')} icon="chevron" size="lg" fullWidth onPress={open} accessibilityHint={tr('fitness.startHint')} />
       </View>
-      <Card style={{ padding: 0, overflow: 'hidden' }}>
-        {ROUTINES.map((r, i) => {
-          const meta = tr('fitness.cardMeta', { count: r.steps.length, min: Math.round(routineDurationSec(r) / 60) });
-          return (
-            <Pressable
-              key={r.id}
-              onPress={() => openGated('fitness', { pathname: '/fitness/[routineId]', params: { routineId: r.id } })}
-              accessibilityRole="button"
-              accessibilityLabel={`${r.name}, ${meta}${r.id === rec.id ? `, ${tr('fitness.recommended')}` : ''}`}
-              style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 64, paddingHorizontal: t.space.lg, paddingVertical: t.space.md, borderTopWidth: i ? 1 : 0, borderTopColor: t.tokens.border, backgroundColor: pressed ? t.tokens.muted : 'transparent' })}
-            >
-              <IconTile icon={ROUTINE_ICON[r.id] ?? 'body'} size="sm" />
-              <View style={{ flex: 1, gap: 2 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: t.space.sm }}>
-                  <AppText variant="bodyStrong">{r.name}</AppText>
-                  {r.id === rec.id ? <Badge label={tr('fitness.recommended')} /> : null}
-                </View>
-                <AppText variant="footnote" muted numberOfLines={1}>
-                  {meta}
-                </AppText>
-              </View>
-              <Icon name={access ? 'chevron' : 'lock'} size="md" color={t.tokens.subtle} />
-            </Pressable>
-          );
-        })}
-      </Card>
-    </View>
+    </Card>
   );
 }
 

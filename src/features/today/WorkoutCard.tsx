@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Icon, useTheme, type IconName } from '@/components';
 import { Button, Card, IconTile, Ring, ScalePressable, Sheet } from '@/components/ui';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
+import { appImage } from '@/content/images';
 import { generateMicroSet } from '@/features/training/generateSession';
 import { todayPlanDay } from '@/features/training/plan';
 import { blockText } from '@/features/training/player/playerUi';
@@ -18,6 +19,9 @@ import { useHistoryStore } from '@/stores/historyStore';
 import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { KegelExerciseType } from '@/types';
+
+import { PhotoBackground } from './PhotoCard';
+import { workoutCoverId } from './weekdayCover';
 
 /** Neutral icon per exercise (Lucide). */
 const BLOCK_ICON: Record<KegelExerciseType, IconName> = { slow_hold: 'clock', quick_flick: 'pulse', max_contraction: 'target', elevator: 'layers', endurance: 'clock', knack: 'wind', release: 'leaf', breath: 'wind' };
@@ -50,6 +54,12 @@ export function WorkoutCard() {
   const target = training.dailyTarget;
 
   const { go, dialog } = useSessionStarter();
+  // Cover photo (user request 2026-11-23): a couple on a bed, sharp at the top and blurred towards the
+  // bottom (baked into the file), with a dark veil so the white text stays readable in both themes.
+  // A different photo every weekday: Monday 1 … Sunday 7, then Monday 1 again.
+  const cover = appImage(workoutCoverId(new Date()));
+  const fg = cover ? t.focus.text : undefined;
+  const soft = cover ? t.focus.icon : t.tokens.mutedForeground;
 
   const notices: { key: string; text: string; tone: 'alert' | 'info' }[] = [];
   if (training.returnNotice && training.returnNotice.date === today) notices.push({ key: 'return', text: tr(`kegel.return.${training.returnNotice.kind}`, { count: training.returnNotice.days }), tone: 'info' });
@@ -59,67 +69,73 @@ export function WorkoutCard() {
   if (cap.locked) notices.push({ key: 'cap', text: tr('today.workout.capReached'), tone: 'info' });
 
   return (
-    <Card style={{ padding: t.space.gutter, gap: t.space.lg }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
-        <View style={{ flex: 1, gap: t.space.xs }}>
-          <AppText variant="caption" muted>
-            {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
-            {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
-          </AppText>
-          <AppText variant="title2" accessibilityRole="header">
-            {mainDone ? tr('today.workout.doneTitle') : tr('today.workout.title')}
-          </AppText>
+    <Card style={{ padding: 0, overflow: 'hidden' }}>
+      {cover ? <PhotoBackground image={cover} id="workoutVeil" /> : null}
+      <View style={{ padding: t.space.gutter, gap: t.space.lg }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
+          <View style={{ flex: 1, gap: t.space.xs }}>
+            <AppText variant="caption" muted={!cover} color={cover ? soft : undefined}>
+              {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
+              {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
+            </AppText>
+            <AppText variant="title2" accessibilityRole="header" color={fg}>
+              {mainDone ? tr('today.workout.doneTitle') : tr('today.workout.title')}
+            </AppText>
+          </View>
+          <Ring size={56} label="" center={`${Math.min(doneCount, target)}/${target}`} value={doneCount / Math.max(1, target)} trackColor={cover ? t.veil.bold : undefined} textColor={fg} />
         </View>
-        <Ring size={56} label="" center={`${Math.min(doneCount, target)}/${target}`} value={doneCount / Math.max(1, target)} />
-      </View>
 
-      <ScalePressable
-        onPress={() => setBlocksOpen(true)}
-        accessibilityRole="button"
-        accessibilityLabel={`${tr('today.workout.summary', { count: blocks.length, min: minutes })}. ${tr('today.workout.summaryA11y')}`}
-        style={{ minHeight: t.touch, flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}
-      >
-        <Icon name="layers" size="md" color={t.tokens.mutedForeground} />
-        <AppText variant="callout" muted style={{ flex: 1 }}>
-          {tr('today.workout.summary', { count: blocks.length, min: minutes })}
-        </AppText>
-        <Icon name="chevron" size="md" color={t.tokens.subtle} />
-      </ScalePressable>
+        {/* Room for the photo between the title and the actions. */}
+        {cover ? <View style={{ height: 150 }} /> : null}
 
-      {notices.length ? (
+        <ScalePressable
+          onPress={() => setBlocksOpen(true)}
+          accessibilityRole="button"
+          accessibilityLabel={`${tr('today.workout.summary', { count: blocks.length, min: minutes })}. ${tr('today.workout.summaryA11y')}`}
+          style={{ minHeight: t.touch, flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}
+        >
+          <Icon name="layers" size="md" color={soft} />
+          <AppText variant="callout" muted={!cover} color={fg} style={{ flex: 1 }}>
+            {tr('today.workout.summary', { count: blocks.length, min: minutes })}
+          </AppText>
+          <Icon name="chevron" size="md" color={cover ? soft : t.tokens.subtle} />
+        </ScalePressable>
+
+        {notices.length ? (
+          <View style={{ gap: t.space.sm }}>
+            {notices.map((n) => (
+              <View key={n.key} style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start' }} accessibilityRole={n.tone === 'alert' ? 'alert' : undefined}>
+                <Icon name={n.tone === 'alert' ? 'alert' : 'info'} size="sm" color={n.tone === 'alert' ? t.tokens.destructive : soft} />
+                <AppText variant="footnote" style={{ flex: 1, color: n.tone === 'alert' ? t.tokens.destructive : (fg ?? t.tokens.mutedForeground) }}>
+                  {n.text}
+                </AppText>
+              </View>
+            ))}
+          </View>
+        ) : null}
+
         <View style={{ gap: t.space.sm }}>
-          {notices.map((n) => (
-            <View key={n.key} style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start' }} accessibilityRole={n.tone === 'alert' ? 'alert' : undefined}>
-              <Icon name={n.tone === 'alert' ? 'alert' : 'info'} size="sm" color={n.tone === 'alert' ? t.tokens.destructive : t.tokens.mutedForeground} />
-              <AppText variant="footnote" style={{ flex: 1, color: n.tone === 'alert' ? t.tokens.destructive : t.tokens.mutedForeground }}>
-                {n.text}
-              </AppText>
-            </View>
-          ))}
+          {mainDone ? (
+            <Button label={tr('today.workout.again')} variant="secondary" icon="play" size="lg" onPress={() => go(today, session.contractions)} fullWidth />
+          ) : (
+            <Button label={tr('common.start')} size="lg" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" fullWidth />
+          )}
+          {/* The "Nefes · 1 dk" button was removed (user request 2026-11-22); the micro set stays. */}
+          <Button label={tr('today.workout.microShort')} accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })} icon="pulse" variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
         </View>
-      ) : null}
 
-      <View style={{ gap: t.space.sm }}>
-        {mainDone ? (
-          <Button label={tr('today.workout.again')} variant="secondary" icon="play" size="lg" onPress={() => go(today, session.contractions)} fullWidth />
-        ) : (
-          <Button label={tr('common.start')} size="lg" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" fullWidth />
-        )}
-        {/* The "Nefes · 1 dk" button was removed (user request 2026-11-22); the micro set stays. */}
-        <Button label={tr('today.workout.microShort')} accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })} icon="pulse" variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
+        <Sheet visible={blocksOpen} onClose={() => setBlocksOpen(false)} title={tr('today.workout.contents')} description={tr('today.workout.contentsCount', { count: blocks.length })}>
+          <View accessibilityRole="list">
+            {blocks.map((b, i) => (
+              <Animated.View key={`${session.id}-${i}`} entering={FadeInDown.delay(Math.min(i, t.motion.staggerMax) * t.motion.stagger).duration(t.motion.normal).reduceMotion(ReduceMotion.System)}>
+                <BlockRow block={b} divider={i > 0} />
+              </Animated.View>
+            ))}
+          </View>
+        </Sheet>
+
+        {dialog}
       </View>
-
-      <Sheet visible={blocksOpen} onClose={() => setBlocksOpen(false)} title={tr('today.workout.contents')} description={tr('today.workout.contentsCount', { count: blocks.length })}>
-        <View accessibilityRole="list">
-          {blocks.map((b, i) => (
-            <Animated.View key={`${session.id}-${i}`} entering={FadeInDown.delay(Math.min(i, t.motion.staggerMax) * t.motion.stagger).duration(t.motion.normal).reduceMotion(ReduceMotion.System)}>
-              <BlockRow block={b} divider={i > 0} />
-            </Animated.View>
-          ))}
-        </View>
-      </Sheet>
-
-      {dialog}
     </Card>
   );
 }

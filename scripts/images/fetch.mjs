@@ -10,7 +10,7 @@
  * result in assets/images/fetch-lock.json, and regenerates src/content/images.ts (the single registry).
  *
  * Ids: "story/<id>" (cover → 2:3 card + 9:16 slide), "story/<id>/<n>" (slide), "camp/<id>",
- * "program/<id>", "glossary/<id>".
+ * "program/<id>", "glossary/<id>", "today/<id>" (a card background on Günüm, bottom part blurred).
  */
 import { Buffer } from 'node:buffer';
 import crypto from 'node:crypto';
@@ -37,6 +37,14 @@ export const KINDS = {
   camp: { w: 900, h: 420, q: 70, max: 70 * 1024 },
   program: { w: 660, h: 390, q: 70, max: 60 * 1024 },
   glossary: { w: 320, h: 320, q: 72, max: 40 * 1024 },
+  // "Neden, Nedir ve Ne Demek?" page header (2026-11-23): the same photo as the poster, wide, its bottom
+  // softly blurred so the title can sit on it.
+  glossaryHero: { w: 900, h: 720, q: 72, max: 110 * 1024, bottomBlur: { from: 0.45, to: 0.8, sigma: 14 } },
+  // Günüm card background (2026-11-23): sharp at the top, softly blurred from 48 % down to the bottom,
+  // baked into the file so the phone draws a single image.
+  hero: { w: 720, h: 840, q: 72, max: 110 * 1024, bottomBlur: { from: 0.48, to: 0.74, sigma: 14 } },
+  // Wider card background for a whole-body move (a person lying on the floor): the blur starts lower.
+  heroWide: { w: 900, h: 760, q: 72, max: 110 * 1024, bottomBlur: { from: 0.62, to: 0.86, sigma: 12 } },
 };
 export const TOTAL_MAX = 18 * 1024 * 1024;
 
@@ -69,6 +77,9 @@ export function scrimAt(t, max) {
   return max;
 }
 
+/** Günüm backgrounds that use the wider frame. */
+const WIDE_HEROES = ['today/fitness'];
+
 /** What files an id produces: [{kind, file}] relative to assets/images/. */
 export function outputsFor(id) {
   const parts = id.split('/');
@@ -76,7 +87,10 @@ export function outputsFor(id) {
   if (parts[0] === 'story' && parts.length === 3) return [{ kind: 'slide', file: `story/${parts[1]}/${parts[2]}.webp` }];
   if (parts[0] === 'camp') return [{ kind: 'camp', file: `camp/${parts[1]}.webp` }];
   if (parts[0] === 'program') return [{ kind: 'program', file: `program/${parts[1]}.webp` }];
-  if (parts[0] === 'glossary') return [{ kind: 'glossary', file: `glossary/${parts[1]}.webp` }];
+  if (parts[0] === 'glossary') return [{ kind: 'glossary', file: `glossary/${parts[1]}.webp` }, { kind: 'glossaryHero', file: `glossary/${parts[1]}-hero.webp` }];
+  // Full-width page headers (camp commitment page, 2026-11-23).
+  if (parts[0] === 'hero') return [{ kind: 'heroWide', file: `hero/${parts[1]}.webp` }];
+  if (parts[0] === 'today') return [{ kind: WIDE_HEROES.includes(id) ? 'heroWide' : 'hero', file: `today/${parts[1]}.webp` }];
   throw new Error(`unknown image id ${id}`);
 }
 
@@ -163,7 +177,19 @@ async function render(src, kind, focus, quality, soften = 0) {
   const box = cropBox(meta.width, meta.height, spec.w, spec.h, focus);
   let base = sharp(src).rotate().extract(box).resize(spec.w, spec.h, { kernel: 'lanczos3' });
   if (soften) base = base.blur(soften);
+  if (spec.bottomBlur) base = sharp(await withBottomBlur(await base.png().toBuffer(), spec.w, spec.h, spec.bottomBlur));
   return grade(base).webp({ quality, effort: 6, smartSubsample: true }).toBuffer();
+}
+
+/** Blurred copy laid over the sharp image through a vertical alpha ramp (0 at `from`, 1 at `to`). */
+async function withBottomBlur(png, w, h, { from, to, sigma }) {
+  const ramp = Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">` +
+      `<stop offset="${from}" stop-color="#fff" stop-opacity="0"/><stop offset="${to}" stop-color="#fff" stop-opacity="1"/></linearGradient></defs>` +
+      `<rect width="100%" height="100%" fill="url(#g)"/></svg>`,
+  );
+  const blurred = await sharp(png).blur(sigma).ensureAlpha().composite([{ input: ramp, blend: 'dest-in' }]).png().toBuffer();
+  return sharp(png).composite([{ input: blurred }]).png().toBuffer();
 }
 
 async function blurhashOf(buf) {
@@ -237,8 +263,9 @@ function writeRegistry(manifest, lock) {
   for (const entry of manifest.images) {
     const l = lock.images[entry.id];
     if (entry.status !== 'accepted' || !l) continue;
-    const main = l.files.card ?? l.files.camp ?? l.files.program ?? l.files.glossary ?? l.files.slide;
-    const slide = l.files.card ? l.files.slide : undefined;
+    const main = l.files.card ?? l.files.camp ?? l.files.program ?? l.files.glossary ?? l.files.hero ?? l.files.heroWide ?? l.files.slide;
+    // Second, larger image: a story's full-screen slide, or a glossary page header.
+    const slide = l.files.card ? l.files.slide : l.files.glossaryHero;
     const fields = [
       `image: require('../../assets/images/${main.file}')`,
       slide ? `slide: require('../../assets/images/${slide.file}')` : null,
@@ -256,7 +283,7 @@ function writeRegistry(manifest, lock) {
  * do not edit by hand. Sources and licences: assets/images/CREDITS.md.
  *
  * Ids: "story/<id>" is a story cover (\`image\` = 2:3 card, \`slide\` = 9:16 full-screen slide),
- * "story/<id>/<n>" a story slide, "camp/<id>", "program/<id>", "glossary/<id>" cards.
+ * "story/<id>/<n>" a story slide, "camp/<id>", "program/<id>", "glossary/<id>" cards, "today/<id>" Günüm card backgrounds.
  * Anything without an entry falls back to a tone gradient with an icon.
  */
 export interface AppImage {

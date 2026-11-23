@@ -148,6 +148,15 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `program/bodyweight` | kabul | Gün doğumunda parkta şınav çeken, eşofmanlı erkek: aletsiz, açık havada antrenman. | kart dışı | 4803878: Çıplak üst beden (yasak); 4775195: Kadın; hedef kitle değil |
 | `program/posture` | kabul | Dik durup kollarını açan, tişörtlü erkek: göğsü açan, dik duruş. | kart dışı | 8187683, 6798416: Çıplak üst beden (yasak) |
 | `program/mobility` | kabul | Matta lastik bantla esneyen, giyinik erkek: esneklik ve hareket açıklığı. | kart dışı | 6339722: Dikey, dizüstü bilgisayar dikkati dağıtıyor |
+| `today/workout-1` | kabul | Pazartesi arka planı: kanepede birbirine sarılıp gülümseyen, rahat giyimli bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | — |
+| `today/workout-2` | kabul | Salı arka planı: yatakta yorganın altında oturan, başını eşinin omzuna yaslayıp gülen bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | 6517113: Kadın sinirli görünüyor, sevgi dolu değil |
+| `today/workout-3` | kabul | Çarşamba arka planı: sedirde kahve içerken birbirine fısıldayan bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | — |
+| `today/workout-4` | kabul | Perşembe arka planı: evde mutfakta birbirine gülümseyen bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | — |
+| `today/workout-5` | kabul | Cuma arka planı: mutfakta ellerinde kahveyle birbirine gülen bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | 7719171: Yüzler fotoğrafın en üstünde, başlığın altına giriyor |
+| `today/workout-6` | kabul | Cumartesi arka planı: kanepede sarılan, adamın kadının yanağını öptüğü bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | — |
+| `today/workout-7` | kabul | Pazar arka planı: kanepede gözlerini kapatıp sarılan orta yaşlı bir çift; doğal, sıcak, giyinik. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | — |
+| `today/fitness` | kabul | Aydınlık oturma odasında matta oturup bacaklarını esneten orta yaşlı erkek: evde, aletsiz, sakin bir çalışma. Alt kısım dosyada bulanıklaştırıldı. | kart dışı | 7500136: Zaten bir hikâyede kullanılıyor (story/pf-basics/4); 6926028: Kullanıcı görseli beğenmedi; 6303739: Sadece baş görünüyordu; 14942844: Zaten kullanılıyor |
+| `hero/commit` | kabul | Gün batımında zirvede kollarını açmış duran adam, arkadan: özgürlük ve kararlılık; üç kampın "asıl gücü sensin" sayfası. Yüz görünmez. | kart dışı | — |
 | `glossary/discreet` | kabul | Tül perdeden süzülen yumuşak ışık. | kart dışı | 14740202: Perde arkasında kişi; 33939018: Sırtı açık kadın (yasak) |
 | `glossary/dribble` | kabul | Eski musluktan damlayan su. | kart dışı | 12271457: Siyah-beyaz; 4328899: Şişede etiket okunuyor; 40214245: Siyah fon, musluk yok |
 | `glossary/erectile-dysfunction` | kabul | Masada konuşan iki kişinin elleri: doktor görüşmesi, yüz yok. | kart dışı | 9951403: Yüzler görünüyor; 19814054: Siyah-beyaz, hastane |

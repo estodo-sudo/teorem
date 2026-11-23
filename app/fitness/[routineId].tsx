@@ -328,12 +328,13 @@ function WorkView({ move, state, paused, durationMs, strength, remain }: { move:
   const lastStep = useRef(m.stepKey);
   const lastSide = useRef(m.side);
   useEffect(() => {
-    if (m.side !== lastSide.current) playCue('blockChange', strength);
+    // A longer cue only for a real side change, not on every rep of an alternating move.
+    if (m.side !== lastSide.current && !move.alternate) playCue('blockChange', strength);
     else if (m.stepKey !== lastStep.current) playCue('tap', strength);
     lastStep.current = m.stepKey;
     lastSide.current = m.side;
-  }, [m.stepKey, m.side, strength]);
-  const sideJustChanged = move.sides && m.side === 2 && elapsed - durationMs / 2 < 2500;
+  }, [m.stepKey, m.side, strength, move.alternate]);
+  const sideJustChanged = move.sides && !move.alternate && m.side === 2 && elapsed - durationMs / 2 < 2500;
   return (
     <View style={{ alignItems: 'center', gap: 6 }}>
       <FitnessFigure move={move} pose={m.pose} mirrored={m.side === 2} width={280} />

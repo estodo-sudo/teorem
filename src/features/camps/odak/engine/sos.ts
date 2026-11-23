@@ -2,8 +2,8 @@ import { makeId } from '@/lib/random';
 
 import { ODAK_LEGACY_TOOLS, type OdakActiveToolId, type OdakToolId, type OdakTriggerId, type UrgeEvent } from '../types';
 
-/** Tools offered after "move first", in order (SPEC_V4 §D.2: breath first; relocation is the step before them). */
-export const SOS_TOOLS: OdakToolId[] = ['breath', 'puzzle', 'move', 'values', 'futureSelf', 'supporter'];
+/** Tools offered after "move first", in order (2026-11-23): "Yapabileceklerin" first, then the block puzzle. */
+export const SOS_TOOLS: OdakToolId[] = ['actions', 'puzzle'];
 
 /** A tool as statistics show it: tools removed in V4 count together as "other" ("Diğer araçlar"). */
 export type OdakToolGroup = OdakActiveToolId | 'other';

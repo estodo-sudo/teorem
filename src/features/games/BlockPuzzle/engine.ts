@@ -8,9 +8,14 @@ export type Board = boolean[];
 /** Cells of a piece as [row, col] offsets from its top-left corner. */
 export type Shape = readonly (readonly [number, number])[];
 
+/** Number of block colours (the UI palette); a piece's colour stays with its cells on the board. */
+export const TINTS = 6;
+
 export interface Piece {
   id: number;
   shape: Shape;
+  /** Colour index 0…TINTS-1 (cycles with the piece id, so tests stay deterministic). */
+  tint: number;
 }
 
 const S = (...cells: [number, number][]): Shape => cells;
@@ -82,7 +87,10 @@ export const hasMove = (board: Board, pieces: Piece[]) => pieces.some((p) => fit
 
 let nextId = 1;
 export function deal(random: () => number = Math.random): Piece[] {
-  return [0, 1, 2].map(() => ({ id: nextId++, shape: SHAPES[Math.floor(random() * SHAPES.length)]! }));
+  return [0, 1, 2].map(() => {
+    const id = nextId++;
+    return { id, shape: SHAPES[Math.floor(random() * SHAPES.length)]!, tint: id % TINTS };
+  });
 }
 
 /**

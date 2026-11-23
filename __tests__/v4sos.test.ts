@@ -3,6 +3,7 @@ import path from 'path';
 
 import { breathState, BREATH_MODES, cyclesFor, hapticOffsets, orbTarget, sessionMs } from '@/features/breath/patterns';
 import { CAMP_ONBOARDING as ONB, CAMP_SOS } from '@/features/camps/smoking/content';
+import { DELAY_MINUTES } from '@/features/camps/smoking/engine/sos';
 import { toolGroup } from '@/features/camps/smoking/engine/checkin';
 import { triggerCoverage, triggerMapGroups, triggerOrder } from '@/features/camps/smoking/engine/panel';
 import type { TriggerId } from '@/features/camps/smoking/types';
@@ -25,11 +26,13 @@ describe('SOS tool set (SPEC_V4 §C.3)', () => {
     expect(['surf', 'fourE', 'game'].filter((k) => k in CAMP_SOS)).toEqual([]);
   });
 
-  it('offers breath (default), the block puzzle, the 10-minute delay and reasons, in that order', () => {
+  it('offers the block puzzle (default), the delay and reasons; no breathing, no urge gauge (2026-11-23)', () => {
     const src = read('app/camp/sos.tsx');
     const order = [...src.matchAll(/\{ id: '(\w+)', icon: '\w+' \}/g)].map((m) => m[1]);
-    expect(order).toEqual(['breath', 'puzzle', 'delay', 'reasons']);
-    expect(src).toMatch(/useState<SosTool>\('breath'\)/);
+    expect(order).toEqual(['puzzle', 'delay', 'reasons']);
+    expect(src).toMatch(/useState<SosTool>\('puzzle'\)/);
+    expect(src).not.toMatch(/UrgeGauge|BreathPlayer|howStrong/);
+    expect(src).toMatch(/whatTriggered/);
     expect(CAMP_SOS.puzzle.title).toBe('Blok Bulmaca');
   });
 
@@ -137,7 +140,7 @@ describe('Blok Bulmaca (SPEC_V4 §C.5)', () => {
     expect(fitsAnywhere(b, [[0, 0]])).toBe(false);
     const r = relief(b);
     expect(r.cleared).toHaveLength(32);
-    expect(hasMove(r.board, [{ id: 1, shape: SHAPES[14]! }])).toBe(true);
+    expect(hasMove(r.board, [{ id: 1, shape: SHAPES[14]!, tint: 0 }])).toBe(true);
   });
 
   it('never gets stuck: 300 random moves always leave a move', () => {
@@ -189,5 +192,18 @@ describe('triggers (SPEC_V4 §C.2)', () => {
     expect(tr.camp.triggers.coverageEmpty).toBe('Sık karşılaştığın durumları işaretle, her birine bir plan hazırla');
     expect(tr.camp.triggers.addOwn).toBe('Kendi durumunu ekle');
     expect(tr.camp.triggers.coverage).toBeUndefined();
+  });
+});
+
+describe('Blok Bulmaca polish and the 15-minute decision (2026-11-23)', () => {
+  it('pieces carry a colour that stays deterministic; the delay is "Kararını 15 dakika sonra ver"', () => {
+    const pieces = deal(() => 0);
+    for (const p of pieces) expect(p.tint).toBe(p.id % 6);
+    expect(DELAY_MINUTES).toBe(15);
+    expect(CAMP_SOS.delay.title).toBe('Kararını 15 dakika sonra ver');
+    const ui = read('src/features/games/BlockPuzzle/BlockPuzzle.tsx');
+    expect(ui).toMatch(/BLOCK_COLORS/);
+    expect(ui).toMatch(/willClear/);
+    expect(ui).toMatch(/fitsAnywhere\(game\.board, p\.shape\)/);
   });
 });

@@ -1060,6 +1060,13 @@
     "streakDays_one": "{{count}} day",
     "streakDays_other": "{{count}} days",
     "checklist": "Today",
+    "tasks": {
+      "count": "{{done}}/{{total}}",
+      "progressA11y": "{{done}}/{{total}} tasks done today",
+      "training": "Training",
+      "foods": "Today's 3 foods",
+      "foodsDay": "Day {{day}}/{{total}}"
+    },
     "forYou": "For you",
     "forYouStory": "Story of the day",
     "forYouFitness": "Pelvic routine",
@@ -1366,9 +1373,74 @@
       "snooze60": "Snooze 1 hour"
     }
   },
+    "fitnessProgram": {
+      "title": "Pelvic Fitness",
+      "kicker": "7-week programme",
+      "weekOf": "Week {{n}} / {{total}}",
+      "sessions": "{{done}}/{{total}} sessions",
+      "progressA11y": "Programme progress: {{done}}/{{total}} sessions",
+      "thisWeek": "This week",
+      "thisWeekCount": "This week {{done}}/{{target}} sessions",
+      "todayDone": "Today's session is done. You can rest tomorrow.",
+      "todayTodo": "Aim for 3 sessions a week, with a day off between them.",
+      "today": "Today's session",
+      "start": "Start session",
+      "again": "Do it again",
+      "chart": "7-week progress",
+      "chartHint": "Each bar is a week; the goal is 3 sessions a week.",
+      "chartA11y": "Week {{n}}: {{done}}/{{target}} sessions",
+      "target": "Goal",
+      "weeksTitle": "Weeks",
+      "status": {
+        "done": "Done",
+        "current": "This week",
+        "missed": "Incomplete",
+        "upcoming": "Up next"
+      },
+      "notStarted": "The programme starts on the day of your first session.",
+      "finished": "You finished the programme! Keep 2-3 sessions a week to hold on to your gains.",
+      "over": "The 7 weeks are over. Keep going with the routine as long as you like.",
+      "weeks": {
+        "1": {
+          "title": "Learn the moves",
+          "text": "Do every move slowly and watch the figure; good form matters more than speed."
+        },
+        "2": {
+          "title": "Find the rhythm",
+          "text": "Turn 3 sessions a week into a habit; match your breath to the movement."
+        },
+        "3": {
+          "title": "Wake up the hips",
+          "text": "Squeeze your glutes on purpose in the bridge and clamshell; pause at the top."
+        },
+        "4": {
+          "title": "Strengthen the core",
+          "text": "Keep your back still in dead bug and bird dog; draw your belly in gently."
+        },
+        "5": {
+          "title": "More control",
+          "text": "Slow down the lowering; muscle control grows most on the way down."
+        },
+        "6": {
+          "title": "Endurance",
+          "text": "Keep your form for the whole session; settle your breath in the rests."
+        },
+        "7": {
+          "title": "A lasting habit",
+          "text": "Keep the strength you built; after the programme 2-3 sessions a week are enough."
+        }
+      }
+    },
   "fitness": {
     "title": "Pelvic Fitness",
     "subtitle": "Bodyweight exercises that support your hip, core and inner-thigh muscles.",
+    "kicker": "One routine · for everyone",
+    "chipMoves": "{{count}} moves",
+    "chipMin": "{{min}} min",
+    "chipRounds": "{{count}} rounds",
+    "startHint": "Opens the Pelvic Fitness routine",
+    "openProgram": "Open programme",
+    "chipWeek": "Week {{n}}/{{total}}",
     "routineTitle": "{{name}} routine",
     "overview": "{{count}} moves · {{rounds}} rounds · about {{min}} minutes",
     "cardMeta": "{{count}} exercises · {{min}} min",
@@ -1865,6 +1937,8 @@
     "home": "Back to home"
   },
   "glossary": {
+    "kindHealth": "Health guide",
+    "kindApp": "App guide",
     "title": "Why, What and What Does It Mean?",
     "subtitle": "Explanations of the app's concepts and of sexual health topics.",
     "notFound": "Explanation not found.",
@@ -2001,6 +2075,20 @@
     "p1": "When you truly want it, a single sentence can be enough to change your life. When you don't, even the best programme or the best expert won't be enough.",
     "p2": "This programme gives you knowledge, tools and companionship along the way; but you're the one who takes the steps. There will be hard days. What matters isn't being perfect; it's not giving up and being able to start again when needed.",
     "pledge": "If you're ready, make yourself a promise and take the first step.",
+    "points": [
+      {
+        "title": "It's your decision",
+        "text": "When you truly want it, a single decision can be enough to change your life. You are the strongest part of this programme."
+      },
+      {
+        "title": "We bring the tools, you take the steps",
+        "text": "The knowledge, the plan and the crisis tools are here. You are the one who uses them and moves forward."
+      },
+      {
+        "title": "Not perfect, just determined",
+        "text": "There will be hard days. What matters is not giving up, and starting again when you need to."
+      }
+    ],
     "wait": "Take a moment to think… {{count}}"
   },
   "camp": {
@@ -2157,6 +2245,8 @@
         "contactSaved": "Saved to contacts",
         "contactName": "ALO 171 Quit Smoking",
         "contactUnavailable": "It couldn't be saved to your contacts from here. You can add the number \"171\" to your phone's contacts yourself.",
+        "aloMini": "ALO 171 · free quit line",
+        "aloCall": "Call",
         "age": "Your age range"
       },
       "plans": {
@@ -2290,7 +2380,7 @@
       "minutes": "{{count}} minutes",
       "timeLeft": "Time left {{time}}",
       "breathStart": "Start {{count}} minutes of breathing",
-      "delayStart": "Start the 10 minutes",
+      "delayStart": "Start the 15 minutes",
       "pause": "Pause",
       "resume": "Resume",
       "meanwhile": "Things you can do meanwhile",
@@ -2773,6 +2863,14 @@
       "offConfirm": "Turn off the lock"
     },
     "onb": {
+      "freqRange": {
+        "none": "None",
+        "r1": "1–2 days",
+        "r2": "3–5 days",
+        "r3": "6–9 days",
+        "r4": "10–13 days",
+        "daily": "Every day"
+      },
       "question": "Question {{n}}/{{total}}",
       "optional": "Optional",
       "progress": "Step {{n}}/{{total}}",
@@ -3050,6 +3148,9 @@
     "backToGauge": "Check your urge again"
   },
   "puzzle": {
+    "scoreLabel": "Score",
+    "plus": "+{{points}}",
+    "combo": "Combo ×{{n}} · +{{points}}",
     "score": "{{n}} points",
     "timeA11y": "Time left {{time}}",
     "timeUpShort": "3 min up",

@@ -21,7 +21,7 @@ interface Entry {
 const manifest = JSON.parse(read('assets/images/manifest.json')) as { images: Entry[] };
 const lock = JSON.parse(read('assets/images/fetch-lock.json')) as { images: Record<string, { files: Record<string, { file: string; bytes: number }>; readability: { scrim: number | null; contrast: number } | null }> };
 const accepted = manifest.images.filter((e) => e.status === 'accepted');
-const LIMITS: Record<string, number> = { slide: 110, card: 80, camp: 70, program: 60, glossary: 40 };
+const LIMITS: Record<string, number> = { slide: 110, card: 80, camp: 70, program: 60, glossary: 40, hero: 110, heroWide: 110, glossaryHero: 110 };
 
 describe('image manifest and records (§1)', () => {
   it('every entry has id, source, download, focus, alt and status', () => {
@@ -90,7 +90,8 @@ describe('clean-up and completeness (§8 G3)', () => {
 
   it('no Keşfet card falls back to the gradient any more', () => {
     for (const id of Object.keys(IMAGES)) expect([id, IMAGES[id]!.bytes > 0]).toEqual([id, true]);
-    expect(Object.keys(IMAGES).filter((k) => k.split('/').length === 2)).toHaveLength(45);
+    // 45 Keşfet cards + the Günüm backgrounds (7 weekday photos, today/fitness) + the camp commitment header (2026-11-23).
+    expect(Object.keys(IMAGES).filter((k) => k.split('/').length === 2)).toHaveLength(54);
   });
 
   it('REVIEW.md has a decision for every photo and no slide left to pick by hand', () => {

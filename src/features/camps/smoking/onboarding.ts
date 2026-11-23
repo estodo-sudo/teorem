@@ -101,8 +101,7 @@ export function stepError(step: StepId, a: Answers): string | null {
       return a.triggers.length ? null : 'triggers';
     case 'attempts':
       return a.pastAttempts === null ? 'attempts' : null;
-    case 'support':
-      return a.ageRange === null ? 'age' : null;
+    // The support step no longer asks the age (2026-11-23); the profile uses a default range.
     default:
       return null;
   }

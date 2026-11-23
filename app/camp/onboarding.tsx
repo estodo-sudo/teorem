@@ -1,9 +1,9 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Image, Pressable, TextInput, View } from 'react-native';
+import { Image, Linking, Pressable, TextInput, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
+import { AppText, Button, Card, ChoiceCard, Header, Icon, ProgressBar, Screen, useTheme } from '@/components';
 import { CAMP_ONBOARDING as ONB, CAMP_PLANS } from '@/features/camps/smoking/content';
 import {
   ALREADY_QUIT_MAX_DAYS,
@@ -24,7 +24,7 @@ import {
 } from '@/features/camps/smoking/onboarding';
 import { deleteReasonPhoto, pickReasonPhoto, saveAlo171Contact, type SaveContactResult } from '@/features/camps/smoking/device';
 import { MAX_PREP_DAYS, MIN_PREP_DAYS } from '@/features/camps/smoking/state';
-import { Alo171Card, HsiCard, NumberStepper, PlanSummary, useCampDate, type DraftPlan } from '@/features/camps/smoking/ui';
+import { HsiCard, NumberStepper, PlanSummary, useCampDate, type DraftPlan } from '@/features/camps/smoking/ui';
 import type { TriggerId } from '@/features/camps/smoking/types';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { InfoToggle, tint } from '@/features/campus/shared/ui';
@@ -383,50 +383,32 @@ export default function CampOnboarding() {
               {tr('camp.onb.support.supporterNote')}
             </AppText>
           </View>
-          <Alo171Card />
-          <Button
-            label={contact === 'saved' ? tr('camp.onb.support.contactSaved') : tr('camp.onb.support.saveContact')}
-            icon={contact === 'saved' ? 'check' : 'user'}
-            variant="secondary"
-            disabled={contact === 'saved'}
-            onPress={async () => setContact(await saveAlo171Contact(tr('camp.onb.support.contactName')))}
-          />
+          {/* ALO 171 as one short line (user request 2026-11-23); the age question was removed (the app is 16+). */}
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm, paddingVertical: t.space.sm, paddingHorizontal: t.space.md, borderRadius: t.radius.md, backgroundColor: tint(t.colors.success, '14') }}>
+            <Icon name="phone" size="sm" color={t.colors.success} />
+            <AppText variant="footnote" style={{ flex: 1 }}>
+              {tr('camp.onb.support.aloMini')}
+            </AppText>
+            <Pressable onPress={() => void Linking.openURL('tel:171')} accessibilityRole="button" accessibilityLabel={tr('camp.ui.call171')} accessibilityHint={tr('camp.ui.call171Hint')} hitSlop={8} style={{ paddingHorizontal: t.space.sm, minHeight: 48, justifyContent: 'center' }}>
+              <AppText variant="footnote" weight="700" color={t.colors.success}>
+                {tr('camp.onb.support.aloCall')}
+              </AppText>
+            </Pressable>
+            <Pressable
+              onPress={async () => setContact(await saveAlo171Contact(tr('camp.onb.support.contactName')))}
+              disabled={contact === 'saved'}
+              accessibilityRole="button"
+              accessibilityLabel={contact === 'saved' ? tr('camp.onb.support.contactSaved') : tr('camp.onb.support.saveContact')}
+              hitSlop={8}
+              style={{ paddingHorizontal: t.space.xs, minHeight: 48, minWidth: 48, alignItems: 'center', justifyContent: 'center' }}
+            >
+              <Icon name={contact === 'saved' ? 'check' : 'user'} size="sm" color={t.colors.success} />
+            </Pressable>
+          </View>
           {contact === 'unavailable' ? (
             <AppText variant="small" muted accessibilityLiveRegion="polite">
               {tr('camp.onb.support.contactUnavailable')}
             </AppText>
-          ) : null}
-          <AppText weight="800">{tr('camp.onb.support.age')}</AppText>
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
-            {ONB.ageRanges.map((r) => {
-              const selected = a.ageRange === r.id;
-              return (
-                <Pressable
-                  key={r.id}
-                  onPress={() => set({ ageRange: r.id })}
-                  accessibilityRole="radio"
-                  accessibilityState={{ selected }}
-                  style={{
-                    minHeight: 48,
-                    paddingHorizontal: t.space.lg,
-                    borderRadius: t.radius.pill,
-                    borderWidth: 2,
-                    borderColor: selected ? t.colors.primary : t.colors.border,
-                    backgroundColor: selected ? t.colors.primary : t.colors.surface,
-                    justifyContent: 'center',
-                  }}
-                >
-                  <AppText weight="700" color={selected ? t.colors.primaryText : t.colors.text}>
-                    {r.label}
-                  </AppText>
-                </Pressable>
-              );
-            })}
-          </View>
-          {a.ageRange === 'under18' ? (
-            <Card style={{ gap: t.space.xs, backgroundColor: t.tokens.muted, borderColor: t.tokens.muted}}>
-              <AppText variant="small">{ONB.under18}</AppText>
-            </Card>
           ) : null}
         </>
       ) : null}

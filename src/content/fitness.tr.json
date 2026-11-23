@@ -1,161 +1,34 @@
 {
   "reviewed": false,
   "exercises": [
-    {
-      "id": "glute_bridge",
-      "name": "Köprü",
-      "target": "Kalça, arka bacak ve pelvik taban",
-      "setup": "Sırtüstü uzan. Dizlerini bük, ayak tabanların yere bassın ve kalça genişliğinde açık olsun. Kolların yanında, avuçlar yerde.",
-      "steps": ["Kalçanı sıkarak yerden kaldır; dizlerinden omuzlarına düz bir çizgi oluşsun.", "Tepede kısa bir an bekle, kalçanı sıkı tut.", "Kalçanı yavaşça yere indir."],
-      "tip": "Kalkarken pelvik taban kasını da hafifçe yukarı çek.",
-      "mistake": "Beli fazla kaldırıp kamburlaştırma; kalça omuz hizasını geçmesin."
-    },
-    {
-      "id": "pelvic_tilt",
-      "name": "Pelvik Eğim",
-      "target": "Alt karın ve pelvik taban",
-      "setup": "Sırtüstü uzan, dizlerin bükülü, ayakların yerde. Belinle yer arasında küçük bir boşluk olur.",
-      "steps": ["Karnını hafifçe içe çek ve belini yere bastır; bel boşluğu kapansın.", "Leğen kemiğin hafifçe yukarı doğru döner; kalça yerden kalkmaz.", "Bırak, bel boşluğu geri gelsin."],
-      "tip": "Hareket çok küçük; sadece leğen kemiğin sallanır gibi döner.",
-      "mistake": "Kalçayı yerden kaldırma ve nefesini tutma."
-    },
-    {
-      "id": "pillow_squeeze",
-      "name": "Yastık Sıkıştırma",
-      "target": "İç bacak ve pelvik taban",
-      "setup": "Sırtüstü uzan, dizlerin bükülü, ayakların yerde. Dizlerinin arasına bir yastık ya da katlanmış havlu koy.",
-      "steps": ["Dizlerinle yastığı ortaya doğru sık.", "Sıkarken pelvik taban kasını da yukarı çek.", "Yavaşça gevşet; yastık düşmesin."],
-      "tip": "Sıkarken nefes ver, gevşetirken nefes al.",
-      "mistake": "Kalçanı ya da belini kaldırma; sadece dizler içe doğru sıkar."
-    },
-    {
-      "id": "clamshell",
-      "name": "İstiridye",
-      "target": "Kalçanın yan kasları",
-      "setup": "Yan yat, başını alttaki koluna koy. Dizlerini öne doğru bük, ayakların ve dizlerin üst üste dursun.",
-      "steps": ["Ayaklarını birleşik tutarak üstteki dizini yukarı aç.", "Kalçanı geriye devirmeden en üstte kısa dur.", "Dizini yavaşça kapat."],
-      "tip": "Süre yarıya gelince ekran söyler: öbür yanına dön.",
-      "mistake": "Kalçanı arkaya yatırma; bel ve kalça sabit kalır, sadece diz açılır."
-    },
-    {
-      "id": "knee_to_chest",
-      "name": "Diz-Göğüs Esnetme",
-      "target": "Bel ve kalça (gevşeme)",
-      "setup": "Sırtüstü uzan, dizlerin bükülü.",
-      "steps": ["İki dizini göğsüne doğru çek ve kollarınla sarıl.", "Nefes alırken olduğun yerde kal.", "Nefes verirken dizlerini biraz daha yaklaştır, belin gevşesin."],
-      "tip": "Başın ve omuzların yerde kalsın; rahatça nefes al.",
-      "mistake": "Dizleri zorla çekme; esneme hafif ve ağrısız olmalı."
-    },
-    {
-      "id": "dead_bug",
-      "name": "Ölü Böcek",
-      "target": "Derin karın kasları ve gövde dengesi",
-      "setup": "Sırtüstü uzan. Kollarını tavana uzat, dizlerini 90 derece bükerek havaya kaldır (masa pozisyonu).",
-      "steps": ["Bir kolunu başının arkasına, karşı bacağını ileri doğru yavaşça uzat.", "Belini yerden ayırmadan uzanabildiğin kadar uzan.", "Kol ve bacağı başlangıca geri getir."],
-      "tip": "Süre yarıya gelince öbür kol ve bacağa geç.",
-      "mistake": "Belin yerden kalkıyorsa bacağı daha az uzat."
-    },
-    {
-      "id": "squat",
-      "name": "Squat",
-      "target": "Kalça ve bacaklar",
-      "setup": "Ayakta dur, ayakların omuz genişliğinde, parmak uçları hafif dışa dönük.",
-      "steps": ["Sandalyeye oturur gibi kalçanı geriye ver ve aşağı in; kollarını öne uzat.", "Rahat olduğun kadar in, göğsün dik kalsın.", "Topuklarına basarak kalk ve kalçanı sık."],
-      "tip": "Kalkarken nefes ver.",
-      "mistake": "Dizlerin içe kapanmasın; ayak uçlarıyla aynı yöne baksın."
-    },
-    {
-      "id": "sumo_squat",
-      "name": "Sumo Squat",
-      "target": "İç bacak, kalça ve pelvik taban",
-      "setup": "Ayaklarını geniş aç, parmak uçların dışa baksın. Ellerini göğsünde birleştir.",
-      "steps": ["Gövden dik kalarak dizlerini yanlara açıp aşağı in.", "Dizlerin ayak uçlarının üstünde kalsın.", "Kalkarken iç bacaklarını ve kalçanı sık."],
-      "tip": "Kalkarken pelvik taban kasını da yukarı çek.",
-      "mistake": "Öne eğilme; gövden hep dik kalsın."
-    },
-    {
-      "id": "plank",
-      "name": "Plank",
-      "target": "Karın ve gövde",
-      "setup": "Yüzüstü uzan. Dirseklerini omuzlarının altına koy, ayak parmaklarına basarak gövdeni kaldır.",
-      "steps": ["Başından topuklarına kadar vücudun düz bir çizgi olsun.", "Karnını hafifçe içe çek ve pozisyonu koru.", "Nefes almayı unutma; süre bitene kadar bekle."],
-      "tip": "Zor gelirse dizlerini yere koyarak yap.",
-      "mistake": "Kalçayı düşürme ya da yukarı kaldırma."
-    },
-    {
-      "id": "bird_dog",
-      "name": "Kuş-Köpek",
-      "target": "Sırt, kalça ve gövde dengesi",
-      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
-      "steps": ["Bir kolunu öne, karşı bacağını geriye uzat.", "Kol ve bacak yere paralel olunca kısa dur.", "Yavaşça geri getir."],
-      "tip": "Süre yarıya gelince öbür kol ve bacağa geç.",
-      "mistake": "Belini çökertme ya da kalçanı yana döndürme."
-    },
-    {
-      "id": "hip_opener",
-      "name": "Kalça Açıcı Esneme",
-      "target": "Kalçanın ön kısmı (esneme)",
-      "setup": "Bir dizini yere koy, diğer ayağın önde ve dizin 90 derece bükülü olsun. Ellerini öndeki dizine koy.",
-      "steps": ["Gövden dik kalarak kalçanı yavaşça öne doğru it.", "Arkadaki bacağının ön kalçasında gerilme hisset.", "Yavaşça geri gel."],
-      "tip": "Süre yarıya gelince bacak değiştir.",
-      "mistake": "Öndeki dizin ayak ucunu çok geçmesin; gerilme hafif olmalı."
-    },
-    {
-      "id": "butterfly",
-      "name": "Kelebek Esnetme",
-      "target": "İç bacak ve kasık (esneme)",
-      "setup": "Yere otur, ayak tabanlarını birleştir ve ellerinle ayaklarını tut. Sırtın dik.",
-      "steps": ["Nefes alırken sırtını dikleştir.", "Nefes verirken dizlerini yere doğru bırak.", "Zorlamadan, her nefeste biraz daha gevşe."],
-      "tip": "Dizlerini elinle bastırma; kendi ağırlığıyla aşağı insin.",
-      "mistake": "Sırtını kamburlaştırma."
-    }
+    { "id": "glute_bridge", "name": "Köprü", "target": "Kalça, arka bacak, pelvik taban", "setup": "Sırtüstü uzan, dizler bükülü, ayaklar yerde.", "steps": ["Kalçanı sıkarak kaldır.", "Tepede kısa bekle.", "Yavaşça indir."], "tip": "Kalkarken pelvik tabanı da çek.", "mistake": "Beli aşırı kaldırma." },
+    { "id": "pelvic_tilt", "name": "Pelvik Eğim", "target": "Alt karın ve pelvik taban", "setup": "Sırtüstü uzan, dizler bükülü.", "steps": ["Belini yere bastır.", "Leğeni hafifçe yukarı döndür.", "Bırak, bel boşluğu dönsün."], "tip": "Küçük bir hareket; kalça yerde kalır.", "mistake": "Nefesini tutma." },
+    { "id": "pillow_squeeze", "name": "Yastık Sıkıştırma", "target": "İç bacak ve pelvik taban", "setup": "Sırtüstü uzan, dizlerin arasına yastık koy.", "steps": ["Yastığı dizlerinle sık.", "Pelvik tabanı yukarı çek.", "Yavaşça gevşet."], "tip": "Sıkarken nefes ver.", "mistake": "Kalçanı kaldırma." },
+    { "id": "clamshell", "name": "İstiridye", "target": "Kalçanın yan kasları", "setup": "Yan yat, dizler bükülü, ayaklar birlikte.", "steps": ["Üstteki dizini aç.", "En üstte kısa dur.", "Yavaşça kapat."], "tip": "Süre yarıda öbür yana dön.", "mistake": "Kalçanı geriye devirme." },
+    { "id": "knee_to_chest", "name": "Diz-Göğüs Esnetme", "target": "Bel ve kalça (gevşeme)", "setup": "Sırtüstü uzan, dizler bükülü.", "steps": ["Dizlerini göğsüne çek.", "Nefes al, bekle.", "Nefes verirken biraz yaklaştır."], "tip": "Baş ve omuzlar yerde kalsın.", "mistake": "Zorla çekme." },
+    { "id": "dead_bug", "name": "Ölü Böcek", "target": "Derin karın ve gövde dengesi", "setup": "Sırtüstü; kollar yukarı, dizler 90°.", "steps": ["Bir kolu ve karşı bacağı uzat.", "Bel yerde kalsın.", "Geri getir, taraf değiştir."], "tip": "Her tekrarda taraf değiştir.", "mistake": "Bel kalkarsa az uzat." },
+    { "id": "squat", "name": "Squat", "target": "Kalça ve bacaklar", "setup": "Ayaklar omuz genişliğinde.", "steps": ["Kalçanı geriye vererek in.", "Göğsün dik kalsın.", "Topuklardan itip kalk."], "tip": "Kalkarken nefes ver.", "mistake": "Dizler içe kapanmasın." },
+    { "id": "sumo_squat", "name": "Sumo Squat", "target": "İç bacak, kalça, pelvik taban", "setup": "Ayaklar geniş, uçlar dışa.", "steps": ["Dizleri açarak in.", "Dizler ayak ucu hizasında.", "Sıkarak kalk."], "tip": "Kalkarken pelvik tabanı çek.", "mistake": "Öne eğilme." },
+    { "id": "plank", "name": "Plank", "target": "Karın ve gövde", "setup": "Dirsekler omuz altında, parmak uçlarında.", "steps": ["Vücudun düz bir çizgi.", "Karnını hafifçe çek.", "Nefes alarak bekle."], "tip": "Zorsa dizleri yere koy.", "mistake": "Kalçayı düşürme." },
+    { "id": "bird_dog", "name": "Kuş-Köpek", "target": "Sırt, kalça, gövde dengesi", "setup": "Dört ayak üstüne gel.", "steps": ["Bir kolu ve karşı bacağı uzat.", "Kısa dur.", "Geri getir, taraf değiştir."], "tip": "Her tekrarda taraf değiştir.", "mistake": "Belini çökertme." },
+    { "id": "hip_opener", "name": "Kalça Açıcı Esneme", "target": "Kalçanın önü (esneme)", "setup": "Bir diz yerde, öbür ayak önde.", "steps": ["Kalçanı öne it.", "Arka kalçada gerilmeyi hisset.", "Yavaşça geri gel."], "tip": "Süre yarıda bacak değiştir.", "mistake": "Öne fazla eğilme." },
+    { "id": "butterfly", "name": "Kelebek Esnetme", "target": "İç bacak ve kasık (esneme)", "setup": "Otur, ayak tabanlarını birleştir.", "steps": ["Nefes alırken dikleş.", "Nefes verirken dizleri bırak.", "Her nefeste gevşe."], "tip": "Dizlere bastırma.", "mistake": "Sırtını kamburlaştırma." }
   ],
   "routines": [
     {
-      "id": "beginner",
-      "name": "Başlangıç",
-      "level": "low",
+      "id": "standard",
+      "name": "Standart",
       "steps": [
-        { "exerciseId": "pelvic_tilt", "workSec": 36, "restSec": 15, "round": 1 },
-        { "exerciseId": "glute_bridge", "workSec": 36, "restSec": 15, "round": 2 },
-        { "exerciseId": "pillow_squeeze", "workSec": 36, "restSec": 15, "round": 2 },
-        { "exerciseId": "clamshell", "workSec": 40, "restSec": 15, "round": 2 },
-        { "exerciseId": "butterfly", "workSec": 36, "restSec": 15, "round": 3 },
-        { "exerciseId": "knee_to_chest", "workSec": 40, "restSec": 0, "round": 3 }
-      ]
-    },
-    {
-      "id": "intermediate",
-      "name": "Orta",
-      "level": "mid",
-      "steps": [
+        { "exerciseId": "pelvic_tilt", "workSec": 44, "restSec": 15, "round": 1 },
         { "exerciseId": "glute_bridge", "workSec": 42, "restSec": 15, "round": 1 },
         { "exerciseId": "squat", "workSec": 44, "restSec": 15, "round": 2 },
-        { "exerciseId": "dead_bug", "workSec": 48, "restSec": 15, "round": 2 },
-        { "exerciseId": "bird_dog", "workSec": 48, "restSec": 15, "round": 2 },
         { "exerciseId": "clamshell", "workSec": 48, "restSec": 15, "round": 2 },
         { "exerciseId": "pillow_squeeze", "workSec": 42, "restSec": 15, "round": 2 },
-        { "exerciseId": "hip_opener", "workSec": 48, "restSec": 15, "round": 3 },
-        { "exerciseId": "butterfly", "workSec": 48, "restSec": 0, "round": 3 }
-      ]
-    },
-    {
-      "id": "advanced",
-      "name": "İleri",
-      "level": "high",
-      "steps": [
-        { "exerciseId": "squat", "workSec": 44, "restSec": 15, "round": 1 },
-        { "exerciseId": "glute_bridge", "workSec": 42, "restSec": 15, "round": 1 },
-        { "exerciseId": "sumo_squat", "workSec": 44, "restSec": 15, "round": 2 },
-        { "exerciseId": "plank", "workSec": 42, "restSec": 15, "round": 2 },
         { "exerciseId": "dead_bug", "workSec": 48, "restSec": 15, "round": 2 },
         { "exerciseId": "bird_dog", "workSec": 48, "restSec": 15, "round": 2 },
-        { "exerciseId": "clamshell", "workSec": 48, "restSec": 15, "round": 2 },
-        { "exerciseId": "pillow_squeeze", "workSec": 48, "restSec": 15, "round": 2 },
-        { "exerciseId": "pelvic_tilt", "workSec": 44, "restSec": 15, "round": 3 },
         { "exerciseId": "hip_opener", "workSec": 48, "restSec": 15, "round": 3 },
         { "exerciseId": "butterfly", "workSec": 48, "restSec": 15, "round": 3 },
-        { "exerciseId": "knee_to_chest", "workSec": 56, "restSec": 0, "round": 3 }
+        { "exerciseId": "knee_to_chest", "workSec": 40, "restSec": 0, "round": 3 }
       ]
     }
   ]

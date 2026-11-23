@@ -21,7 +21,7 @@ interface Entry {
 const manifest = JSON.parse(read('assets/images/manifest.json')) as { images: Entry[] };
 const lock = JSON.parse(read('assets/images/fetch-lock.json')) as { images: Record<string, { files: Record<string, { file: string; bytes: number }>; readability: { scrim: number | null; contrast: number } | null }> };
 const accepted = manifest.images.filter((e) => e.status === 'accepted');
-const LIMITS: Record<string, number> = { slide: 110, card: 80, camp: 70, program: 60, glossary: 40, hero: 110, heroWide: 110, glossaryHero: 110 };
+const LIMITS: Record<string, number> = { slide: 110, card: 80, camp: 70, program: 60, glossary: 40, hero: 110, heroWide: 110, glossaryHero: 110, wide: 70 };
 
 describe('image manifest and records (§1)', () => {
   it('every entry has id, source, download, focus, alt and status', () => {

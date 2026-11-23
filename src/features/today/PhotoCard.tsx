@@ -6,6 +6,12 @@ import { useTheme } from '@/components';
 import type { AppImage } from '@/content/images';
 
 /**
+ * Standard photo space of the Günüm photo cards (2026-11-23: "görsel çok uzun", was 150): the same
+ * height on the workout and Kasık Fitness cards, so both cards keep one size (64 since the second "kısalt").
+ */
+export const PHOTO_SPACE = 64;
+
+/**
  * Photo background for the Günüm cards (user request 2026-11-23): the image fills the card (its bottom
  * part is blurred in the file itself) and a dark veil keeps the white text readable in both themes —
  * a little at the top for the title, more at the bottom for the actions. `id` keeps the SVG gradient

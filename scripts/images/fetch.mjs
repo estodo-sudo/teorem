@@ -37,14 +37,17 @@ export const KINDS = {
   camp: { w: 900, h: 420, q: 70, max: 70 * 1024 },
   program: { w: 660, h: 390, q: 70, max: 60 * 1024 },
   glossary: { w: 320, h: 320, q: 72, max: 40 * 1024 },
+  // Keşfet "story of the day" banner (2026-11-23): a real wide crop of the source instead of the 2:3
+  // card cropped again on the phone. Optional manifest field `wideFocus` sets its own crop centre.
+  wide: { w: 860, h: 500, q: 70, max: 70 * 1024 },
   // "Neden, Nedir ve Ne Demek?" page header (2026-11-23): the same photo as the poster, wide, its bottom
   // softly blurred so the title can sit on it.
   glossaryHero: { w: 900, h: 720, q: 72, max: 110 * 1024, bottomBlur: { from: 0.45, to: 0.8, sigma: 14 } },
   // Günüm card background (2026-11-23): sharp at the top, softly blurred from 48 % down to the bottom,
   // baked into the file so the phone draws a single image.
-  hero: { w: 720, h: 840, q: 72, max: 110 * 1024, bottomBlur: { from: 0.48, to: 0.74, sigma: 14 } },
+  hero: { w: 720, h: 840, q: 72, max: 110 * 1024, bottomBlur: { from: 0.48, to: 0.74, sigma: 14, top: 0.16 } },
   // Wider card background for a whole-body move (a person lying on the floor): the blur starts lower.
-  heroWide: { w: 900, h: 760, q: 72, max: 110 * 1024, bottomBlur: { from: 0.62, to: 0.86, sigma: 12 } },
+  heroWide: { w: 900, h: 760, q: 72, max: 110 * 1024, bottomBlur: { from: 0.62, to: 0.86, sigma: 12, top: 0.16 } },
 };
 export const TOTAL_MAX = 18 * 1024 * 1024;
 
@@ -83,7 +86,7 @@ const WIDE_HEROES = ['today/fitness'];
 /** What files an id produces: [{kind, file}] relative to assets/images/. */
 export function outputsFor(id) {
   const parts = id.split('/');
-  if (parts[0] === 'story' && parts.length === 2) return [{ kind: 'card', file: `story/${parts[1]}/card.webp` }, { kind: 'slide', file: `story/${parts[1]}/1.webp` }];
+  if (parts[0] === 'story' && parts.length === 2) return [{ kind: 'card', file: `story/${parts[1]}/card.webp` }, { kind: 'slide', file: `story/${parts[1]}/1.webp` }, { kind: 'wide', file: `story/${parts[1]}/wide.webp` }];
   if (parts[0] === 'story' && parts.length === 3) return [{ kind: 'slide', file: `story/${parts[1]}/${parts[2]}.webp` }];
   if (parts[0] === 'camp') return [{ kind: 'camp', file: `camp/${parts[1]}.webp` }];
   if (parts[0] === 'program') return [{ kind: 'program', file: `program/${parts[1]}.webp` }];
@@ -101,6 +104,10 @@ export function cropBox(W, H, w, h, focus) {
   let ch = H;
   if (W / H > r) cw = Math.round(H * r);
   else ch = Math.round(W / r);
+  // Optional zoom (focus.zoom > 1): a tighter crop around the focus, e.g. a small subject in a wide banner.
+  const zoom = Math.max(1, focus.zoom ?? 1);
+  cw = Math.round(cw / zoom);
+  ch = Math.round(ch / zoom);
   const left = Math.round(Math.min(Math.max(focus.x * W - cw / 2, 0), W - cw));
   const top = Math.round(Math.min(Math.max(focus.y * H - ch / 2, 0), H - ch));
   return { left, top, width: cw, height: ch };
@@ -181,10 +188,15 @@ async function render(src, kind, focus, quality, soften = 0) {
   return grade(base).webp({ quality, effort: 6, smartSubsample: true }).toBuffer();
 }
 
-/** Blurred copy laid over the sharp image through a vertical alpha ramp (0 at `from`, 1 at `to`). */
-async function withBottomBlur(png, w, h, { from, to, sigma }) {
+/**
+ * Blurred copy laid over the sharp image through a vertical alpha ramp (0 at `from`, 1 at `to`). With
+ * `top` the top edge is blurred too (fully at 0, sharp again by `top`; 2026-11-23 "üstlerine de blur").
+ */
+async function withBottomBlur(png, w, h, { from, to, sigma, top }) {
+  const topStops = top ? `<stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="${top}" stop-color="#fff" stop-opacity="0"/>` : '';
   const ramp = Buffer.from(
     `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">` +
+      topStops +
       `<stop offset="${from}" stop-color="#fff" stop-opacity="0"/><stop offset="${to}" stop-color="#fff" stop-opacity="1"/></linearGradient></defs>` +
       `<rect width="100%" height="100%" fill="url(#g)"/></svg>`,
   );
@@ -197,7 +209,7 @@ async function blurhashOf(buf) {
   return encode(new Uint8ClampedArray(data), info.width, info.height, 4, 3);
 }
 
-const hashOf = (entry, slideQ) => crypto.createHash('sha1').update(JSON.stringify([PIPELINE, entry.download, entry.focus, slideQ])).digest('hex').slice(0, 12);
+const hashOf = (entry, slideQ) => crypto.createHash('sha1').update(JSON.stringify([PIPELINE, entry.download, entry.focus, slideQ, ...(entry.wideFocus ? [entry.wideFocus] : [])])).digest('hex').slice(0, 12);
 
 /** "story/<id>/<n>" → slide type, from the story content. */
 function slideTypes() {
@@ -231,15 +243,16 @@ async function processAll({ force, slideQuality }) {
     for (const o of outs) {
       const spec = KINDS[o.kind];
       let q = o.kind === 'slide' ? slideQuality : spec.q;
-      let buf = await render(src, o.kind, entry.focus, q);
+      const focus = o.kind === 'wide' && entry.wideFocus ? entry.wideFocus : entry.focus;
+      let buf = await render(src, o.kind, focus, q);
       while (buf.length > spec.max && q > 50) {
         q -= 4;
-        buf = await render(src, o.kind, entry.focus, q);
+        buf = await render(src, o.kind, focus, q);
       }
       // Very fine textures (gravel, leaves): soften slightly instead of dropping quality further.
       for (const sigma of [0.5, 0.7, 0.9]) {
         if (buf.length <= spec.max) break;
-        buf = await render(src, o.kind, entry.focus, q, sigma);
+        buf = await render(src, o.kind, focus, q, sigma);
       }
       const out = path.join(ROOT, 'assets/images', o.file);
       fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -269,11 +282,12 @@ function writeRegistry(manifest, lock) {
     const fields = [
       `image: require('../../assets/images/${main.file}')`,
       slide ? `slide: require('../../assets/images/${slide.file}')` : null,
+      l.files.wide ? `wide: require('../../assets/images/${l.files.wide.file}')` : null,
       `blurhash: ${q(l.blurhash)}`,
       `alt: ${q(entry.alt)}`,
       `focus: { x: ${entry.focus.x}, y: ${entry.focus.y} }`,
       l.readability?.scrim ? `scrim: ${l.readability.scrim}` : null,
-      `bytes: ${main.bytes + (slide?.bytes ?? 0)}`,
+      `bytes: ${main.bytes + (slide?.bytes ?? 0) + (l.files.wide?.bytes ?? 0)}`,
     ].filter(Boolean);
     lines.push(`  ${q(entry.id)}: { ${fields.join(', ')} },`);
   }
@@ -290,6 +304,8 @@ export interface AppImage {
   image: number;
   /** Full-screen 9:16 crop of a story cover. */
   slide?: number;
+  /** Wide crop of a story cover for the Keşfet banner. */
+  wide?: number;
   blurhash: string;
   alt: string;
   /** Crop focus, 0–1; also used as expo-image \`contentPosition\`. */

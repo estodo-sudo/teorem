@@ -15,7 +15,7 @@ import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
-import { PhotoBackground } from './PhotoCard';
+import { PHOTO_SPACE, PhotoBackground } from './PhotoCard';
 import { weekCount, weekDays, type WeekDay } from './week';
 import { localeOf } from '@/i18n/languages';
 
@@ -113,7 +113,7 @@ export function FitnessCard() {
       {cover ? <PhotoBackground image={cover} id="fitnessVeil" textAt="bottom" /> : null}
       <View style={{ padding: t.space.gutter, gap: t.space.md }}>
         {/* The photo shows at the top (2026-11-23: the person's face stays free); the text sits on the blurred bottom. */}
-        {cover ? <View style={{ height: 150 }} /> : null}
+        {cover ? <View style={{ height: PHOTO_SPACE }} /> : null}
         <View style={{ gap: t.space.xs }}>
           <AppText variant="caption" color={soft}>
             {tr('fitness.kicker')}

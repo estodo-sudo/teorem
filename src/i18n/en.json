@@ -1065,7 +1065,8 @@
       "progressA11y": "{{done}}/{{total}} tasks done today",
       "training": "Training",
       "foods": "Today's 3 foods",
-      "foodsDay": "Day {{day}}/{{total}}"
+      "foodsDay": "Day {{day}}/{{total}}",
+      "foodsMeta": "{{done}}/{{total}} eaten · Day {{day}}/{{days}}"
     },
     "forYou": "For you",
     "forYouStory": "Story of the day",

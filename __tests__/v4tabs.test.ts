@@ -148,3 +148,20 @@ describe('"Neden, Nedir ve Ne Demek?" pages (2026-11-23)', () => {
     expect(page).toMatch(/<NextCard /);
   });
 });
+
+describe('second polish round (2026-11-23)', () => {
+  it('Bugün: no micro set task; the foods are one drawer task; photo cards share one short height', () => {
+    const daily = read('src/features/today/DailyGoalCard.tsx');
+    expect(daily).not.toMatch(/today\.goals\.micro/);
+    expect(daily).toMatch(/foodsOpen/);
+    expect(read('src/features/today/PhotoCard.tsx')).toMatch(/export const PHOTO_SPACE = 64;/);
+  });
+  it('every story cover has a wide banner crop and the story of the day uses it', () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { IMAGES } = require('@/content/images') as typeof import('@/content/images');
+    const covers = Object.keys(IMAGES).filter((k) => /^story\/[^/]+$/.test(k));
+    expect(covers.length).toBeGreaterThan(0);
+    for (const k of covers) expect([k, !!IMAGES[k]!.wide]).toEqual([k, true]);
+    expect(read('src/features/content/explore/ExploreCards.tsx')).toMatch(/style=\{StyleSheet\.absoluteFill\} wide \/>/);
+  });
+});

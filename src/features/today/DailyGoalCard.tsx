@@ -12,7 +12,6 @@ import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
 import { useProgressStore } from '@/stores/progressStore';
-import { useTrainingStore } from '@/stores/trainingStore';
 import type { ChallengeCategory } from '@/types';
 
 interface Goal {
@@ -34,21 +33,20 @@ const FOOD_ICON: Record<ChallengeCategory, IconName> = { snack: 'leaf', fruit: '
 export function DailyGoalCard() {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const training = useTrainingStore((s) => s.training);
   const workouts = useHistoryStore((s) => s.workouts);
   const tests = useHistoryStore((s) => s.strengthTests);
   const startedAt = useProfileStore((s) => s.profile.createdAt);
   const logs = useProgressStore((s) => s.challengeLogs);
   const setLog = useProgressStore((s) => s.setChallengeLog);
   const [openId, setOpenId] = useState<string | null>(null);
+  const [foodsOpen, setFoodsOpen] = useState(false);
   const today = toDateKey();
   const todays = workouts.filter((w) => w.date === today && w.completed);
   const mainDone = todays.some((w) => !w.isMicro);
-  const microDone = todays.some((w) => w.isMicro);
 
   const goals: Goal[] = [{ id: 'main', icon: 'play', title: tr('today.goals.main'), done: mainDone, onPress: () => openGated('workout', { pathname: '/workout/[sessionId]', params: { sessionId: today } }) }];
-  if (training.dailyTarget > 1) goals.push({ id: 'micro', icon: 'pulse', title: tr('today.goals.micro'), done: microDone, onPress: () => openGated('workout', { pathname: '/workout/[sessionId]', params: { sessionId: 'micro' } }) });
-  if (strengthTestDue(tests, today)) goals.push({ id: 'test', icon: 'chart', title: tr('today.goals.test'), done: false, onPress: () => openGated('strengthTest', '/strength-test') });
+  // The micro set is no longer a task here (2026-11-23); it stays on the workout card.
+  const testDue = strengthTestDue(tests, today);
 
   const dayIdx = nutritionDayIndex(toDateKey(new Date(startedAt)), today, NUTRITION_DAYS);
   const foods = nutritionTasksForDay(NUTRITION_PLAN, CHALLENGES, dayIdx);
@@ -58,8 +56,11 @@ export function DailyGoalCard() {
     setLog({ date: today, challengeIds: foods.map((f) => f.id), completedIds: next });
   };
 
-  const total = goals.length + foods.length;
-  const done = goals.filter((g) => g.done).length + foods.filter((f) => eaten.includes(f.id)).length;
+  const eatenCount = foods.filter((f) => eaten.includes(f.id)).length;
+  const foodsDone = foods.length > 0 && eatenCount === foods.length;
+  // Tasks: the main session, today's foods (one task, done when all three are ticked), the test when due.
+  const total = 1 + (foods.length ? 1 : 0) + (testDue ? 1 : 0);
+  const done = (mainDone ? 1 : 0) + (foodsDone ? 1 : 0);
 
   return (
     <View style={{ gap: t.space.md }}>
@@ -74,45 +75,41 @@ export function DailyGoalCard() {
       <Card style={{ padding: t.space.lg, gap: t.space.md }}>
         <ProgressBar value={total ? done / total : 0} height={6} accessibilityLabel={tr('today.tasks.progressA11y', { done, total })} />
 
-        <GroupLabel icon="play" label={tr('today.tasks.training')} />
+        {/* Order (2026-11-23): main session, today's foods as a drawer (in the micro set's place), the test. */}
         <View>
           {goals.map((g, i) => (
             <TaskRow key={g.id} first={i === 0} done={g.done} title={g.title} onPress={g.done ? undefined : g.onPress} trailing={!g.done ? <Icon name="chevron" size="md" color={t.tokens.subtle} /> : null} />
           ))}
-        </View>
-
-        {foods.length ? (
-          <>
-            <View style={{ height: t.border.thin, backgroundColor: t.tokens.border }} />
-            <GroupLabel icon="leaf" label={tr('today.tasks.foods')} meta={tr('today.tasks.foodsDay', { day: dayIdx + 1, total: NUTRITION_DAYS })} />
-            <View>
-              {foods.map((f, i) => (
-                <FoodRow key={f.id} food={f} first={i === 0} done={eaten.includes(f.id)} open={openId === f.id} onToggle={() => toggleFood(f.id)} onWhy={() => setOpenId(openId === f.id ? null : f.id)} />
-              ))}
+          {foods.length ? (
+            <View style={{ borderTopWidth: t.border.thin, borderTopColor: t.tokens.border }}>
+              <TaskRow
+                first
+                done={foodsDone}
+                title={tr('today.tasks.foods')}
+                subtitle={tr('today.tasks.foodsMeta', { done: eatenCount, total: foods.length, day: dayIdx + 1, days: NUTRITION_DAYS })}
+                onPress={() => setFoodsOpen((o) => !o)}
+                expanded={foodsOpen}
+                trailing={<Icon name={foodsOpen ? 'chevronUp' : 'chevronDown'} size="md" color={t.tokens.subtle} />}
+              />
+              {foodsOpen ? (
+                <View style={{ marginLeft: t.space.xl, marginBottom: t.space.sm, paddingLeft: t.space.md, borderLeftWidth: t.border.medium, borderLeftColor: t.tokens.border }}>
+                  {foods.map((f, i) => (
+                    <FoodRow key={f.id} food={f} first={i === 0} done={eaten.includes(f.id)} open={openId === f.id} onToggle={() => toggleFood(f.id)} onWhy={() => setOpenId(openId === f.id ? null : f.id)} />
+                  ))}
+                  <AppText variant="caption" muted>
+                    {tr('today.challengesNote')}
+                  </AppText>
+                </View>
+              ) : null}
             </View>
-            <AppText variant="caption" muted>
-              {tr('today.challengesNote')}
-            </AppText>
-          </>
-        ) : null}
+          ) : null}
+          {testDue ? (
+            <View style={{ borderTopWidth: t.border.thin, borderTopColor: t.tokens.border }}>
+              <TaskRow first done={false} title={tr('today.goals.test')} onPress={() => openGated('strengthTest', '/strength-test')} trailing={<Icon name="chevron" size="md" color={t.tokens.subtle} />} />
+            </View>
+          ) : null}
+        </View>
       </Card>
-    </View>
-  );
-}
-
-function GroupLabel({ icon, label, meta }: { icon: IconName; label: string; meta?: string }) {
-  const t = useTheme();
-  return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs }}>
-      <Icon name={icon} size="sm" color={t.tokens.primary} />
-      <AppText variant="caption" weight="700" color={t.tokens.primary} style={{ flex: 1, letterSpacing: 0.4 }}>
-        {label}
-      </AppText>
-      {meta ? (
-        <AppText variant="caption" muted>
-          {meta}
-        </AppText>
-      ) : null}
     </View>
   );
 }
@@ -138,7 +135,7 @@ function Check({ done }: { done: boolean }) {
 }
 
 /** A task: the tick and title are one button; `aside` (e.g. "Neden?") sits next to it, never inside it. */
-function TaskRow({ title, subtitle, done, first, onPress, trailing, aside }: { title: string; subtitle?: string; done: boolean; first: boolean; onPress?: () => void; trailing?: ReactNode; aside?: ReactNode }) {
+function TaskRow({ title, subtitle, done, first, onPress, trailing, aside, expanded }: { title: string; subtitle?: string; done: boolean; first: boolean; onPress?: () => void; trailing?: ReactNode; aside?: ReactNode; expanded?: boolean }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   return (
@@ -147,7 +144,7 @@ function TaskRow({ title, subtitle, done, first, onPress, trailing, aside }: { t
         onPress={onPress}
         disabled={!onPress}
         accessibilityRole="button"
-        accessibilityState={{ checked: done, disabled: !onPress }}
+        accessibilityState={{ checked: done, disabled: !onPress, ...(expanded === undefined ? {} : { expanded }) }}
         accessibilityLabel={`${title}${done ? `, ${tr('today.goals.doneA11y')}` : ''}`}
         style={{ flex: 1, minHeight: 52, flexDirection: 'row', alignItems: 'center', gap: t.space.md }}
       >

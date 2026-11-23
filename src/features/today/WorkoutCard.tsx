@@ -20,7 +20,7 @@ import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { KegelExerciseType } from '@/types';
 
-import { PhotoBackground } from './PhotoCard';
+import { PHOTO_SPACE, PhotoBackground } from './PhotoCard';
 import { workoutCoverId } from './weekdayCover';
 
 /** Neutral icon per exercise (Lucide). */
@@ -86,7 +86,7 @@ export function WorkoutCard() {
         </View>
 
         {/* Room for the photo between the title and the actions. */}
-        {cover ? <View style={{ height: 150 }} /> : null}
+        {cover ? <View style={{ height: PHOTO_SPACE }} /> : null}
 
         <ScalePressable
           onPress={() => setBlocksOpen(true)}

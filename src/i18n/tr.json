@@ -1065,7 +1065,8 @@
       "progressA11y": "Bugün {{done}}/{{total}} görev tamamlandı",
       "training": "Antrenman",
       "foods": "Bugünün 3 besini",
-      "foodsDay": "Gün {{day}}/{{total}}"
+      "foodsDay": "Gün {{day}}/{{total}}",
+      "foodsMeta": "{{done}}/{{total}} yenildi · Gün {{day}}/{{days}}"
     },
     "forYou": "Senin için",
     "forYouStory": "Günün hikâyesi",

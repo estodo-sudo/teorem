@@ -21,13 +21,13 @@ export const CARD = {
  * Bundled photo with its blurhash placeholder and a 200 ms fade (expo-image), or — when an item has no
  * photo — the tone gradient with a big icon (§5.5). In dark mode a 10 % veil keeps photos from glaring.
  */
-export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl', blur }: { image?: ExploreImage; icon: IconName; tone: ModuleTone; style?: ViewStyle; iconSize?: 'lg' | 'xl' | number; blur?: number }) {
+export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl', blur, wide }: { image?: ExploreImage; icon: IconName; tone: ModuleTone; style?: ViewStyle; iconSize?: 'lg' | 'xl' | number; blur?: number; /** Use the wide banner crop when the photo has one (Keşfet story of the day). */ wide?: boolean }) {
   const t = useTheme();
   const c = t.tone[tone];
   return (
     <View style={[{ overflow: 'hidden', backgroundColor: c.soft }, style]} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
       {image ? (
-        <Image source={image.image} placeholder={{ blurhash: image.blurhash }} contentFit="cover" contentPosition={focusPosition(image)} transition={200} blurRadius={blur} style={StyleSheet.absoluteFill} />
+        <Image source={wide && image.wide ? image.wide : image.image} placeholder={{ blurhash: image.blurhash }} contentFit="cover" contentPosition={wide && image.wide ? 'center' : focusPosition(image)} transition={200} blurRadius={blur} style={StyleSheet.absoluteFill} />
       ) : (
         <>
           <Svg width="100%" height="100%" style={StyleSheet.absoluteFill}>
@@ -94,7 +94,8 @@ export function FeaturedStoryCard({ title, kicker, meta, resume, image, icon, to
   const f = t.focus;
   return (
     <Shell onPress={onPress} label={`${kicker}: ${title}. ${resume ? `${resume}. ` : ''}${meta}`} style={{ minHeight: CARD.featured.h }}>
-      <ExplorePhoto image={image} icon={icon} tone={tone} style={StyleSheet.absoluteFill} />
+      {/* The wide crop made for this banner (2026-11-23), not the 2:3 poster cut again. */}
+      <ExplorePhoto image={image} icon={icon} tone={tone} style={StyleSheet.absoluteFill} wide />
       <Scrim height="70%" />
       <View style={{ flex: 1, minHeight: CARD.featured.h, flexDirection: 'row', alignItems: 'flex-end', padding: t.space.lg, gap: t.space.md }}>
         <View style={{ flex: 1, gap: 2 }}>

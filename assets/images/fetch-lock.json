@@ -3,7 +3,7 @@
   "slideQuality": 62,
   "images": {
     "story/alcohol": {
-      "hash": "22feab0fcbea",
+      "hash": "73d732543de3",
       "files": {
         "card": {
           "file": "story/alcohol/card.webp",
@@ -15,6 +15,12 @@
           "file": "story/alcohol/1.webp",
           "bytes": 20328,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/alcohol/wide.webp",
+          "bytes": 12032,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -111,7 +117,7 @@
       }
     },
     "story/bladder-control": {
-      "hash": "e15e0dff1354",
+      "hash": "456dc48a0010",
       "files": {
         "card": {
           "file": "story/bladder-control/card.webp",
@@ -123,6 +129,12 @@
           "file": "story/bladder-control/1.webp",
           "bytes": 108108,
           "quality": 58,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/bladder-control/wide.webp",
+          "bytes": 41122,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -249,6 +261,12 @@
           "bytes": 22030,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/core-hips/wide.webp",
+          "bytes": 22500,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LWJt-hoJjYoI~WfQbIV@?voeoffl",
@@ -373,6 +391,12 @@
           "file": "story/cycling/1.webp",
           "bytes": 48616,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/cycling/wide.webp",
+          "bytes": 32874,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -499,6 +523,12 @@
           "bytes": 79840,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/erection-blood/wide.webp",
+          "bytes": 57682,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LSEpApo#Iot85_t7xFWY5FNHj]f6",
@@ -623,6 +653,12 @@
           "file": "story/intimacy-beyond/1.webp",
           "bytes": 44858,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/intimacy-beyond/wide.webp",
+          "bytes": 29160,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -749,6 +785,12 @@
           "bytes": 15358,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/kegel-mistakes/wide.webp",
+          "bytes": 11678,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LDDbl}~VEixu0NE2s9ae01IUWXRj",
@@ -873,6 +915,12 @@
           "file": "story/mindfulness/1.webp",
           "bytes": 24690,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/mindfulness/wide.webp",
+          "bytes": 15948,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -999,6 +1047,12 @@
           "bytes": 73138,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/move-more/wide.webp",
+          "bytes": 59102,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LOL4sXIUIUWB~p9GD%WB_3IUM{WC",
@@ -1123,6 +1177,12 @@
           "file": "story/night-bathroom/1.webp",
           "bytes": 21622,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/night-bathroom/wide.webp",
+          "bytes": 21722,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -1249,6 +1309,12 @@
           "bytes": 31662,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/performance-anxiety/wide.webp",
+          "bytes": 20854,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LTEo_I_34nDi~qx]D%M{MyRQkCkC",
@@ -1373,6 +1439,12 @@
           "file": "story/pf-basics/1.webp",
           "bytes": 24668,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/pf-basics/wide.webp",
+          "bytes": 12270,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -1499,6 +1571,12 @@
           "bytes": 72700,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/plate/wide.webp",
+          "bytes": 51254,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LOJtIoTxPUaJT@r^v~Ee_N-W%NRP",
@@ -1607,6 +1685,12 @@
           "bytes": 12430,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/sleep-hormones/wide.webp",
+          "bytes": 7100,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LAHL9z4T4T~q01IUM{WX00.8xuRj",
@@ -1714,6 +1798,12 @@
           "file": "story/sleep-routine/1.webp",
           "bytes": 22322,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/sleep-routine/wide.webp",
+          "bytes": 12582,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -1827,7 +1917,7 @@
       }
     },
     "story/smoking": {
-      "hash": "bacafbe2db4d",
+      "hash": "6747481c6c64",
       "files": {
         "card": {
           "file": "story/smoking/card.webp",
@@ -1839,6 +1929,12 @@
           "file": "story/smoking/1.webp",
           "bytes": 28896,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/smoking/wide.webp",
+          "bytes": 33652,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -1952,7 +2048,7 @@
       }
     },
     "story/stress-body": {
-      "hash": "587ac9299aad",
+      "hash": "b85db88fa2c0",
       "files": {
         "card": {
           "file": "story/stress-body/card.webp",
@@ -1964,6 +2060,12 @@
           "file": "story/stress-body/1.webp",
           "bytes": 24410,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/stress-body/wide.webp",
+          "bytes": 16234,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -2090,6 +2192,12 @@
           "bytes": 25222,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/talk-partner/wide.webp",
+          "bytes": 15336,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "LiL;Qw%2xu-;_NofozxuWBWCRjjt",
@@ -2215,6 +2323,12 @@
           "bytes": 27012,
           "quality": 62,
           "overLimit": false
+        },
+        "wide": {
+          "file": "story/water/wide.webp",
+          "bytes": 12598,
+          "quality": 70,
+          "overLimit": false
         }
       },
       "blurhash": "L4B{iVxt4o~VL1x]?ut6t6-oxuIV",
@@ -2339,6 +2453,12 @@
           "file": "story/worry-time/1.webp",
           "bytes": 19012,
           "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/worry-time/wide.webp",
+          "bytes": 15156,
+          "quality": 70,
           "overLimit": false
         }
       },
@@ -2895,7 +3015,7 @@
       "files": {
         "hero": {
           "file": "today/workout-1.webp",
-          "bytes": 19052,
+          "bytes": 18624,
           "quality": 72,
           "overLimit": false
         }
@@ -2908,7 +3028,7 @@
       "files": {
         "hero": {
           "file": "today/workout-2.webp",
-          "bytes": 20412,
+          "bytes": 20342,
           "quality": 72,
           "overLimit": false
         }
@@ -2921,12 +3041,12 @@
       "files": {
         "hero": {
           "file": "today/workout-3.webp",
-          "bytes": 14678,
+          "bytes": 14406,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LABz2t~q%#tRXTRjIVM{X8M|xYxu",
+      "blurhash": "LABz2t~q%#tRXTRjIVM{X8M|xFxu",
       "readability": null
     },
     "today/workout-4": {
@@ -2934,7 +3054,7 @@
       "files": {
         "hero": {
           "file": "today/workout-4.webp",
-          "bytes": 15344,
+          "bytes": 15010,
           "quality": 72,
           "overLimit": false
         }
@@ -2947,12 +3067,12 @@
       "files": {
         "hero": {
           "file": "today/workout-5.webp",
-          "bytes": 16478,
+          "bytes": 14798,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LREe[J%2S4xa~pWVt6kC-;j?jFRj",
+      "blurhash": "LREe=C%2S4xa~pWVt6kC-;j?jFRj",
       "readability": null
     },
     "today/workout-6": {
@@ -2960,12 +3080,12 @@
       "files": {
         "hero": {
           "file": "today/workout-6.webp",
-          "bytes": 16518,
+          "bytes": 15332,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LJC$r__3t7M{~p?bozs.T0xuxat6",
+      "blurhash": "LJC$o;_3t7M{~p?bozs.T0xuxat7",
       "readability": null
     },
     "today/workout-7": {
@@ -2973,12 +3093,12 @@
       "files": {
         "hero": {
           "file": "today/workout-7.webp",
-          "bytes": 25138,
+          "bytes": 23786,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LRFYGd9FtRs,~p9Ft7ofELIUaKt7",
+      "blurhash": "LRFOu?9FtRs,~p9Ft7ofELIUadt7",
       "readability": null
     },
     "today/fitness": {
@@ -2986,7 +3106,7 @@
       "files": {
         "heroWide": {
           "file": "today/fitness.webp",
-          "bytes": 21614,
+          "bytes": 20308,
           "quality": 72,
           "overLimit": false
         }
@@ -2999,12 +3119,12 @@
       "files": {
         "heroWide": {
           "file": "hero/commit.webp",
-          "bytes": 10288,
+          "bytes": 10366,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "L~LNiDNGofof~qofayofj]xtWBj@",
+      "blurhash": "L~LNiDNGofof~qofayofj[xtWBj@",
       "readability": null
     }
   }

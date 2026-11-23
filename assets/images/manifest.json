@@ -21,7 +21,11 @@
         "y": 0.5
       },
       "alt": "Masada misket limonlu bir bardak maden suyu",
-      "status": "accepted"
+      "status": "accepted",
+      "wideFocus": {
+        "x": 0.55,
+        "y": 0.62
+      }
     },
     {
       "id": "story/alcohol/2",
@@ -147,7 +151,11 @@
         "y": 0.5
       },
       "alt": "Sabah ışığında şehirde çantasıyla rahatça yürüyen bir adam, arkadan",
-      "status": "accepted"
+      "status": "accepted",
+      "wideFocus": {
+        "x": 0.5,
+        "y": 0.42
+      }
     },
     {
       "id": "story/bladder-control/2",
@@ -2163,7 +2171,12 @@
         "y": 0.5
       },
       "alt": "Gün doğumunda sisli vadilere bakan bir yürüyüşçü",
-      "status": "accepted"
+      "status": "accepted",
+      "wideFocus": {
+        "x": 0.42,
+        "y": 0.78,
+        "zoom": 1.8
+      }
     },
     {
       "id": "story/smoking/2",
@@ -2310,7 +2323,11 @@
         "y": 0.5
       },
       "alt": "Masada ellerini başının arkasına koyup gerinen bir adam, arkadan",
-      "status": "accepted"
+      "status": "accepted",
+      "wideFocus": {
+        "x": 0.3,
+        "y": 0.45
+      }
     },
     {
       "id": "story/stress-body/2",

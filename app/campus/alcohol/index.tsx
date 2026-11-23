@@ -12,13 +12,14 @@ import { toDateKey } from '@/lib/date';
 import { useClock } from '@/lib/useNow';
 import { useCampusStore } from '@/stores/campusStore';
 import { IconTile } from '@/components/ui';
+import { localeOf } from '@/i18n/languages';
 
 const fmt = (n: number) => String(n).replace('.', ',');
 
 export default function AlcCampusHome() {
   const t = useTheme();
   const { t: tr, i18n } = useTranslation();
-  const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
+  const locale = localeOf(i18n.language);
   const s = useCampusStore((x) => x.alcohol);
   const { now, refresh } = useClock(30_000);
   const phase = alcPhase(s);

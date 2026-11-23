@@ -7,11 +7,12 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Icon, Screen, useTheme, type IconName } from '@/components';
 import { Badge, Button, Card, EmptyState, IconTile, ScalePressable, uiHaptic } from '@/components/ui';
 import { APP_NAME } from '@/config/app';
-import type { PlanKey } from '@/config/monetization';
+import { PREVIEW_PRICES, SHOW_PREVIEW_PRICES, YEARLY_TRIAL_DAYS, type PlanKey } from '@/config/monetization';
 import { isUserCancelled, loadOffers, purchase, restorePurchases, startPurchaseListener } from '@/features/purchases/iap';
-import { trialEndDate, weeklyEquivalent, yearlySavingPercent, type Offer } from '@/features/purchases/pricing';
+import { previewOffers, trialEndDate, weeklyEquivalent, yearlySavingPercent, type Offer } from '@/features/purchases/pricing';
 import { goHome } from '@/lib/nav';
 import { useProfileStore } from '@/stores/profileStore';
+import { localeOf } from '@/i18n/languages';
 
 /** At most five benefits, one line each (SPEC_UI_V3 §7.10). */
 const BENEFITS = ['plan', 'levels', 'tools', 'content', 'noAds'] as const;
@@ -26,7 +27,7 @@ export default function Paywall() {
   const t = useTheme();
   const { t: tr, i18n } = useTranslation();
   const { source } = useLocalSearchParams<{ source?: string }>();
-  const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
+  const locale = localeOf(i18n.language);
   const [offers, setOffers] = useState<Offer[] | null>(null);
   const [selected, setSelected] = useState<PlanKey>('yearly');
   const [busy, setBusy] = useState(false);
@@ -43,18 +44,21 @@ export default function Paywall() {
     if (o.length && !o.some((x) => x.key === 'yearly')) setSelected(o[0]!.key);
   }, []);
 
+  // Without a store (Expo Go, web) previews show the trial prices; store builds never do.
+  const fetchOffers = useCallback(() => loadOffers().then((o) => (o.length || !SHOW_PREVIEW_PRICES ? o : previewOffers(PREVIEW_PRICES, YEARLY_TRIAL_DAYS, locale))), [locale]);
+
   const load = useCallback(() => {
     setOffers(null);
-    void loadOffers().then(applyOffers);
-  }, [applyOffers]);
+    void fetchOffers().then(applyOffers);
+  }, [applyOffers, fetchOffers]);
 
   useEffect(() => {
-    void loadOffers().then(applyOffers);
+    void fetchOffers().then(applyOffers);
     return startPurchaseListener(() => {
       setBusy(false);
       leave();
     });
-  }, [applyOffers, leave]);
+  }, [applyOffers, fetchOffers, leave]);
 
   const close = () => {
     const p = useProfileStore.getState();
@@ -73,6 +77,7 @@ export default function Paywall() {
 
   const buy = async (o: Offer | undefined) => {
     if (!o) return;
+    if (o.preview) return setMessage(tr('paywall.previewBuy'));
     setBusy(true);
     setMessage(null);
     try {
@@ -110,6 +115,10 @@ export default function Paywall() {
         {' · '}
       </AppText>
       <LinkText label={tr('paywall.privacyShort')} onPress={() => router.push('/legal/privacy')} />
+      <AppText variant="footnote" muted accessibilityElementsHidden importantForAccessibility="no">
+        {' · '}
+      </AppText>
+      <LinkText label={tr('paywall.presaleShort')} onPress={() => router.push('/legal/presale')} />
     </View>
   );
 
@@ -216,6 +225,14 @@ export default function Paywall() {
           </Card>
         ) : (
           <View style={{ gap: t.space.md }} accessibilityRole="radiogroup" accessibilityLabel={tr('paywall.choosePlan')}>
+            {offers.some((o) => o.preview) ? (
+              <View style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start', padding: t.space.md, borderRadius: t.radius.md, backgroundColor: t.tokens.muted }}>
+                <Icon name="info" size="sm" color={t.tokens.mutedForeground} />
+                <AppText variant="footnote" muted style={{ flex: 1 }}>
+                  {tr('paywall.previewNote')}
+                </AppText>
+              </View>
+            ) : null}
             {offers.map((o) => (
               <PlanCard key={o.key} offer={o} active={o.key === selected} saving={o.key === 'yearly' ? saving : null} locale={locale} onPress={() => setSelected(o.key)} />
             ))}

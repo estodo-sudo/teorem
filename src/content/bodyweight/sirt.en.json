@@ -1,0 +1,210 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Back",
+    "intro": "Programmes that strengthen your back, shoulder blades and lower back and support your posture. You train without equipment using face-down raises and the under-table row.",
+    "science": [
+      "The strongest pulling move in equipment-free back training is the under-table row; it has been shown to work the muscles at a level that builds strength.",
+      "Prone Y and T raises are among the best moves for the lower trapezius, the muscle that holds the shoulder blades.",
+      "Back muscle endurance has been linked to lower-back health; moves that keep the lower back in its natural position are considered safer.",
+      "Evidence that equipment-free pulling moves build muscle is limited compared with weight training; that's why the programme progresses by increasing time and difficulty."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "scapular_squeeze",
+      "name": "Shoulder Blade Squeeze",
+      "target": "Between the shoulder blades (mid back)",
+      "setup": "Stand tall. Bend your elbows to 90 degrees, arms in front.",
+      "steps": [
+        "Pull your elbows back to squeeze your shoulder blades together.",
+        "Squeeze briefly at the back.",
+        "Release slowly."
+      ],
+      "tip": "Imagine squeezing a pencil between your shoulder blades.",
+      "mistake": "Don't hunch your shoulders towards your ears."
+    },
+    {
+      "id": "superman",
+      "name": "Superman",
+      "target": "Lower back, back and glutes",
+      "setup": "Lie face down, arms stretched out in front of your head, legs straight.",
+      "steps": [
+        "Lift your arms, chest and legs slightly off the floor at the same time.",
+        "Hold for a moment at the top.",
+        "Lower slowly to the floor."
+      ],
+      "tip": "Keep your eyes on the floor; don't bend your neck upwards.",
+      "mistake": "Don't force it high; lifting a few centimetres is enough."
+    },
+    {
+      "id": "superman_hold",
+      "name": "Superman Hold",
+      "target": "Lower back and back (endurance)",
+      "setup": "Lie face down, arms stretched out in front.",
+      "steps": [
+        "Lift your arms, chest and legs slightly off the floor.",
+        "Stay in this position.",
+        "Keep breathing and hold until the time is up."
+      ],
+      "tip": "If it's too hard, lift only your arms or only your legs.",
+      "mistake": "Don't hold your breath; if your lower back hurts, lift less."
+    },
+    {
+      "id": "prone_y_raise",
+      "name": "Prone Y Raise",
+      "target": "Lower trapezius and back of the shoulders",
+      "setup": "Lie face down. Stretch your arms overhead in a Y shape, thumbs pointing up.",
+      "steps": [
+        "Lift your arms off the floor; pull your shoulder blades back and down.",
+        "Hold for a moment at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Your chest may lift slightly; the main movement comes from the arms.",
+      "mistake": "Don't hunch your shoulders towards your ears."
+    },
+    {
+      "id": "prone_t_raise",
+      "name": "Prone T Raise",
+      "target": "Middle trapezius and back of the shoulders",
+      "setup": "Lie face down and open your arms out to the sides in a T shape, palms facing the floor.",
+      "steps": [
+        "Keeping your arms straight, lift them up from the sides.",
+        "Squeeze your shoulder blades together and hold briefly.",
+        "Lower slowly."
+      ],
+      "tip": "Turning your thumbs up makes it easier on the shoulder.",
+      "mistake": "Don't swing your arms up; keep the movement slow."
+    },
+    {
+      "id": "prone_w_raise",
+      "name": "Prone W Raise",
+      "target": "Shoulder blades and back of the shoulders",
+      "setup": "Lie face down, bend your elbows and put your hands on the floor at shoulder level; your arms form a W.",
+      "steps": [
+        "Lift your elbows and hands off the floor.",
+        "Pull your elbows towards your hips and squeeze your shoulder blades.",
+        "Lower slowly."
+      ],
+      "tip": "It's easier than the Y and T; a good move to start with.",
+      "mistake": "Don't lift from your lower back; let the movement come from your shoulder blades."
+    },
+    {
+      "id": "reverse_snow_angel",
+      "name": "Reverse Snow Angel",
+      "target": "Upper back and shoulders",
+      "setup": "Lie face down and lift your chest and arms slightly off the floor; hands by your hips.",
+      "steps": [
+        "Keeping your arms off the floor, sweep them out to the sides and in front of your head.",
+        "Pause briefly when they meet in front.",
+        "Bring them back to your hips the same way."
+      ],
+      "tip": "Draw a wide arc as if making a snow angel.",
+      "mistake": "Don't rest your arms on the floor; keep them in the air throughout."
+    },
+    {
+      "id": "swimmers",
+      "name": "Swimmers",
+      "target": "Lower back, back and glutes",
+      "setup": "Lie face down, arms in front. Lift your chest and legs slightly off the floor.",
+      "steps": [
+        "Lift your right arm and left leg a little higher.",
+        "Switch sides: left arm and right leg.",
+        "Keep alternating as if swimming."
+      ],
+      "tip": "Keep the movement small and rhythmic.",
+      "mistake": "Don't bend your neck upwards; keep your eyes on the floor."
+    },
+    {
+      "id": "bird_dog",
+      "name": "Bird-Dog",
+      "target": "Back, glutes and core stability",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "steps": [
+        "Reach one arm forward and the opposite leg back.",
+        "Pause briefly when your arm and leg are parallel to the floor.",
+        "Bring them back slowly; switch sides halfway through."
+      ],
+      "tip": "Imagine a glass of water on your back; don't spill it.",
+      "mistake": "Don't let your lower back sag or your hips turn to the side."
+    },
+    {
+      "id": "table_row",
+      "name": "Under-Table Row",
+      "target": "Back width, rear shoulders and biceps",
+      "setup": "Lie on your back under a sturdy table that won't tip over. Hold the edge of the table shoulder-width apart; heels on the floor, body straight.",
+      "steps": [
+        "Pull your chest towards the table; your elbows go back, not out to the sides.",
+        "Squeeze your shoulder blades at the top.",
+        "Lower slowly until your arms are straight."
+      ],
+      "tip": "Bending your knees makes the move easier. Make sure the table is sturdy.",
+      "mistake": "Don't let your hips drop; keep a straight line from heels to shoulders."
+    },
+    {
+      "id": "good_morning",
+      "name": "Good Morning",
+      "target": "Lower back, hamstrings and glutes",
+      "setup": "Standing, feet hip-width apart, hands behind your head, knees slightly bent.",
+      "steps": [
+        "Push your hips back and lean your body forward; keep your back straight.",
+        "Stop when you feel a stretch in your hamstring.",
+        "Push your hips forward to return upright."
+      ],
+      "tip": "Let the movement come from your hips, not your lower back.",
+      "mistake": "Don't round your back."
+    },
+    {
+      "id": "wall_angel",
+      "name": "Wall Angel",
+      "target": "Upper back and shoulder mobility",
+      "setup": "Lean your back, head and hips against the wall. Raise your arms like goalposts; elbows and backs of your hands on the wall.",
+      "steps": [
+        "Slide your arms up, trying to keep them touching the wall.",
+        "Reach as high as is comfortable.",
+        "Lower slowly back to the start."
+      ],
+      "tip": "If your lower back comes off the wall, raise your arms less.",
+      "mistake": "Don't make it easier by taking your elbows or hands off the wall."
+    },
+    {
+      "id": "cobra",
+      "name": "Cobra Stretch",
+      "target": "Lower back and abs (stretch)",
+      "setup": "Lie face down and put your hands under your shoulders.",
+      "steps": [
+        "As you breathe in, push with your arms to lift your chest; your hips stay on the floor.",
+        "Hold briefly at a comfortable height.",
+        "Lower slowly as you breathe out."
+      ],
+      "tip": "You can keep your elbows slightly bent.",
+      "mistake": "If you feel pinching in your lower back, come up less."
+    },
+    {
+      "id": "cat_cow",
+      "name": "Cat-Cow",
+      "target": "Spinal mobility",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "steps": [
+        "As you breathe in, let your belly drop towards the floor and lift your chest and head.",
+        "As you breathe out, round your back towards the ceiling and bring your chin towards your chest.",
+        "Move slowly back and forth between the two."
+      ],
+      "tip": "Ideal for warming up and cooling down.",
+      "mistake": "Don't do it fast; one move per breath."
+    },
+    {
+      "id": "child_pose",
+      "name": "Child's Pose",
+      "target": "Lower back and back (relaxation)",
+      "setup": "Kneel and sit your hips back on your heels.",
+      "steps": [
+        "Stretch your body forward and bring your forehead towards the floor.",
+        "Reach your arms forward on the floor.",
+        "Breathe deeply; relax a little more with each out-breath."
+      ],
+      "tip": "It relaxes the back at the end of a workout.",
+      "mistake": "If your knees hurt, put a towel under them."
+    }
+  ]
+}

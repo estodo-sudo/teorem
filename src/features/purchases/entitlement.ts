@@ -1,4 +1,4 @@
-import { ENTITLEMENT_OFFLINE_GRACE_DAYS } from '@/config/monetization';
+import { ENTITLEMENT_OFFLINE_GRACE_DAYS, ONE_TIME_SKUS } from '@/config/monetization';
 import type { Entitlement } from '@/types';
 
 const DAY = 86_400_000;
@@ -10,10 +10,12 @@ const DAY = 86_400_000;
  *   (When online, the platform is re-checked at launch and the cache updated.)
  */
 export function isEntitlementValid(e: Entitlement, now: Date, graceDays = ENTITLEMENT_OFFLINE_GRACE_DAYS): boolean {
-  if (!e.active) return false;
-  if (!e.expiresAt) return true;
+  if (!e || e.active !== true) return false;
+  // No expiry is only right for a one-time (lifetime) product; a damaged or edited cache never unlocks
+  // forever (security review 2026-11-23).
+  if (!e.expiresAt) return typeof e.productId === 'string' && ONE_TIME_SKUS.includes(e.productId);
   const exp = Date.parse(e.expiresAt);
-  if (Number.isNaN(exp)) return true;
+  if (Number.isNaN(exp)) return false;
   return now.getTime() <= exp + graceDays * DAY;
 }
 

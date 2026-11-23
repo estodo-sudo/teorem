@@ -1,0 +1,28 @@
+{
+  "title": "Focus Camp – personal summary",
+  "subtitle": "Generated on the device from the user's own entries. Not a diagnostic tool.",
+  "note": "This summary is based on entries in a self-help programme; it doesn't replace a clinical assessment. Interpreting the screening scales is up to the professional.",
+  "rows": {
+    "date": "Summary date",
+    "day": "Programme day",
+    "phase": "Phase",
+    "goal": "Goal",
+    "fitTotal": "Total days in line with the goal",
+    "longest": "Longest streak",
+    "current": "Current streak",
+    "urges": "Urge moments logged (total)",
+    "managed": "Urge moments managed",
+    "urgeIntensity": "Average urge intensity (1–10)",
+    "slipDays14": "Slip days in the last 14 days",
+    "slipDays30": "Slip days in the last 30 days",
+    "triggers": "Most frequent situations",
+    "tools": "Tools that helped most",
+    "bps": "Brief Pornography Screen (BPS)",
+    "phq2": "PHQ-2 (latest)",
+    "gad2": "GAD-2 (latest)",
+    "mood": "Average mood (last 14 days, 1–5)",
+    "sleep": "Average sleep quality (last 14 days, 1–5)"
+  },
+  "none": "No entries",
+  "dayN": "Day {n}"
+}

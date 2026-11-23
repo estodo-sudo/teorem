@@ -1,0 +1,67 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "review",
+  "sourceIds": [
+    "marlatt",
+    "bothe2021",
+    "crosby2016",
+    "grubbs2019b"
+  ],
+  "welcome": {
+    "title": "This is part of the journey",
+    "body": "Being hard on yourself doesn't make the next time easier. Let's look at it together."
+  },
+  "what": {
+    "title": "What happened?",
+    "hint": "Noticing is preparing for next time. All of it is optional.",
+    "kind": "What happened?",
+    "trigger": "In what situation?",
+    "emotion": "What were you feeling before?",
+    "when": "When?",
+    "whenOptions": [
+      {
+        "id": "now",
+        "label": "Just now"
+      },
+      {
+        "id": "today",
+        "label": "Earlier today"
+      },
+      {
+        "id": "yesterday",
+        "label": "Yesterday"
+      }
+    ]
+  },
+  "notErased": {
+    "title": "A slip doesn't mean all your effort is erased",
+    "body": "The thought \"It's ruined anyway, so it doesn't matter now\" is very common and makes a slip last longer. The truth is: your effort is still there.",
+    "total": "Total days in line with your goal: {n}",
+    "longest": "Your longest streak: {n} days",
+    "managed": "Urge moments you managed: {n}"
+  },
+  "compassion": {
+    "title": "Be kind to yourself for a minute",
+    "seconds": 60,
+    "prompts": [
+      "Put a hand on your chest. Acknowledge that you're struggling right now: \"This is a hard moment.\"",
+      "You're not the only one going through this. Change has ups and downs for everyone.",
+      "Say to yourself what you'd say to a friend: \"I can make mistakes; I'm still carrying on.\""
+    ],
+    "start": "Start the 1 minute",
+    "done": "Being kind to yourself makes it easier to take the next step."
+  },
+  "plan": {
+    "title": "Update your plan",
+    "hint": "How could this situation be different next time? Choose an \"If… then…\" plan.",
+    "own": "I'll write my own plan",
+    "ownPlaceholder": "Then…",
+    "skip": "Skip for now",
+    "save": "Save plan"
+  },
+  "done": {
+    "title": "Carry on",
+    "body": "You noticed the slip, learned from it and updated your plan. That's a powerful skill.",
+    "back": "Back to the panel"
+  }
+}

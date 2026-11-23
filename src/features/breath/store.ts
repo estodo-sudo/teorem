@@ -14,6 +14,8 @@ interface BreathPrefs {
   remember: (mode: BreathMode, minutes: number) => void;
   setHaptics: (on: boolean) => void;
   markSafetySeen: () => void;
+  /** Back to the defaults ("Verilerimi ve hesabımı sil"). */
+  reset: () => void;
 }
 
 export const useBreathStore = create<BreathPrefs>()(
@@ -26,6 +28,7 @@ export const useBreathStore = create<BreathPrefs>()(
       remember: (mode, minutes) => set((s) => ({ lastMode: mode, minutes: { ...s.minutes, [mode]: minutes } })),
       setHaptics: (on) => set({ haptics: on }),
       markSafetySeen: () => set({ safetySeen: true }),
+      reset: () => set({ lastMode: 'quick', minutes: {}, haptics: true, safetySeen: false }),
     }),
     {
       name: 'breath',

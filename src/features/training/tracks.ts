@@ -1,7 +1,13 @@
 import type { IconName } from '@/components/Icon';
-import cuesJson from '@/content/kegel/cues.tr.json';
-import tracksJson from '@/content/kegel/tracks.tr.json';
+import { pick } from '@/i18n/content';
+import cuesJsonTr from '@/content/kegel/cues.tr.json';
+import cuesJsonEn from '@/content/kegel/cues.en.json';
+import tracksJsonTr from '@/content/kegel/tracks.tr.json';
+import tracksJsonEn from '@/content/kegel/tracks.en.json';
 import type { DurationPreset, Goal, KegelExerciseType, Position, TrackId } from '@/types';
+
+const cuesJson = pick({ tr: cuesJsonTr, en: cuesJsonEn });
+const tracksJson = pick({ tr: tracksJsonTr, en: tracksJsonEn });
 
 /** Programme tracks (SPEC_KEGEL_V2 §3) and position progression (§5). Pure. */
 

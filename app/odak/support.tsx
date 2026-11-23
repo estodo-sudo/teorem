@@ -14,6 +14,8 @@ import { useOdakStore } from '@/features/camps/odak/store';
 import { OdakLock } from '@/features/camps/odak/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
+import i18n from '@/i18n';
+import { localeOf } from '@/i18n/languages';
 
 /**
  * Destek ve profesyonel yardım (SPEC_ODAK_KAMPI 5.11): 112 always on top, Yeşilay 115, MHRS 182
@@ -46,7 +48,7 @@ export default function OdakSupport() {
     const bps = screenings.filter((s) => s.type === 'BPS');
     const phase = odakPhase(programStart(goal), now);
     const rows: [string, string][] = [
-      [R.date, now.toLocaleDateString('tr-TR')],
+      [R.date, now.toLocaleDateString(localeOf(i18n.language))],
       [R.day, fill(SM.dayN, { n: programDay(programStart(goal), now) })],
       [R.phase, ONB.summary.phases[ODAK_PHASE_ORDER.indexOf(phase)]?.name ?? ''],
       [R.goal, goalText],
@@ -60,7 +62,7 @@ export default function OdakSupport() {
       [R.slipDays30, String(n.slipDays30)],
       [R.triggers, n.triggers.length ? n.triggers.map(trig).join(', ') : none],
       [R.tools, n.tools.length ? n.tools.map(tool).join(', ') : none],
-      [R.bps, bps.length ? bps.map((s) => `${new Date(s.at).toLocaleDateString('tr-TR')}: ${s.score}/10`).join(' · ') : none],
+      [R.bps, bps.length ? bps.map((s) => `${new Date(s.at).toLocaleDateString(localeOf(i18n.language))}: ${s.score}/10`).join(' · ') : none],
       [R.phq2, last('PHQ2') ? `${last('PHQ2')!.score}/6` : none],
       [R.gad2, last('GAD2') ? `${last('GAD2')!.score}/6` : none],
       [R.mood, n.mood14 === null ? none : String(n.mood14).replace('.', ',')],

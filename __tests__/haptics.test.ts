@@ -1,4 +1,4 @@
-import { androidWaveform, boostIntensity, cueForHoldSecond, cueForPhase, cueLengthMs, hapticEvents, iosFallbackCalls, onOffPattern, phaseVibration, PREVIEW_CUES, RUMBLE_GRAIN_MS, scaleEvents, type Cue, type HapticEvent } from '@/features/training/hapticPatterns';
+import { androidWaveform, boostIntensity, dutyFor, cueForHoldSecond, cueForPhase, cueLengthMs, hapticEvents, iosFallbackCalls, onOffPattern, phaseVibration, PREVIEW_CUES, RUMBLE_GRAIN_MS, scaleEvents, type Cue, type HapticEvent } from '@/features/training/hapticPatterns';
 import { voiceKeyForPhase } from '@/features/training/voice';
 import tr from '@/i18n/tr.json';
 
@@ -187,3 +187,31 @@ describe('Kegel vibration follows the squeeze, like an earthquake (user decision
     expect(scaleEvents(hold, 0)).toEqual([]);
   });
 });
+
+describe('strength setting is really felt (user report 2026-11-23)', () => {
+  const peak = (strength: 1 | 2 | 3) => Math.max(...hapticEvents('squeezeStart', strength).map((e) => (e.type === 'continuous' ? Math.max(e.intensity, e.intensityEnd) : e.intensity)));
+  it('Light, Normal and Strong are clearly apart (about 45 / 75 / 100 %)', () => {
+    const [l, n, s] = [peak(1), peak(2), peak(3)];
+    expect(n - l).toBeGreaterThan(0.2);
+    expect(s - n).toBeGreaterThan(0.2);
+    expect(s).toBe(1);
+  });
+
+  it('on/off-only phones (Expo Go) vibrate for less of the time at a lighter strength', () => {
+    const steady: HapticEvent[] = [{ type: 'continuous', time: 0, duration: 1000, intensity: 1, intensityEnd: 1, sharpness: 0.3 }];
+    const onTime = (strength: 1 | 2 | 3) => onOffPattern(scaleEvents(steady, strength)).filter((_, i) => i % 2 === 1).reduce((a, b) => a + b, 0);
+    expect(onTime(3)).toBe(1000);
+    expect(onTime(2)).toBeLessThan(onTime(3));
+    expect(onTime(1)).toBeLessThan(onTime(2) * 0.8);
+    expect(dutyFor(1)).toBe(1);
+  });
+
+  it('iPhone impacts get lighter with the strength setting', () => {
+    const styles = (cue: Cue, strength: 1 | 2 | 3) => [...new Set(iosFallbackCalls(hapticEvents(cue, strength)).map((c) => c.style))];
+    expect(styles('squeezeStart', 3)).toContain('heavy');
+    expect(styles('squeezeStart', 1)).not.toContain('heavy');
+    // Sharp cues are rigid only when strong enough, so Light quick flicks are softer too.
+    expect(styles('quickFlick', 1)).not.toEqual(styles('quickFlick', 3));
+  });
+});
+

@@ -1,0 +1,570 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "review",
+  "sourceIds": [
+    "icd11",
+    "briken2024",
+    "roza2024",
+    "rowland2024",
+    "grubbs2019"
+  ],
+  "stories": [
+    {
+      "id": "csbd",
+      "icon": "book",
+      "tone": "focus",
+      "title": "What CSBD is, and what it isn't",
+      "summary": "The World Health Organization's definition.",
+      "slides": [
+        {
+          "icon": "book",
+          "tone": "focus",
+          "title": "The official definition",
+          "text": "The World Health Organization's ICD-11 classification includes “Compulsive Sexual Behaviour Disorder” (6C72). The core of the definition: being unable to control intense, repetitive sexual urges."
+        },
+        {
+          "icon": "puzzle",
+          "tone": "focus",
+          "title": "The criterion isn't frequency",
+          "text": "What matters isn't how often a behaviour is done, but being unable to control it despite wanting to, continuing despite negative consequences and little satisfaction, and marked distress or impairment."
+        },
+        {
+          "icon": "bookmark",
+          "tone": "focus",
+          "title": "Not an addiction",
+          "text": "ICD-11 doesn't classify this condition as an addiction but among impulse control disorders. There's no official diagnosis called “masturbation addiction”."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "focus",
+          "title": "Who makes the diagnosis?",
+          "text": "A diagnosis can only be made through an assessment by a mental health professional. This app doesn't diagnose; it only helps you see where you are and move towards your goal."
+        }
+      ],
+      "sourceIds": [
+        "icd11",
+        "briken2024"
+      ],
+      "evidenceLevel": "guideline",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "mast-facts",
+      "icon": "sprout",
+      "tone": "focus",
+      "title": "Masturbation: medical facts",
+      "summary": "A natural behaviour, and when does it become a problem?",
+      "slides": [
+        {
+          "icon": "sprout",
+          "tone": "focus",
+          "title": "Common and natural",
+          "text": "Masturbation is a common behaviour at every age and a natural part of human sexuality."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "focus",
+          "title": "Not medically harmful",
+          "text": "Masturbation itself isn't considered medically harmful. Frightening claims about eyesight, muscles, memory or general health aren't supported by science."
+        },
+        {
+          "icon": "scale",
+          "tone": "focus",
+          "title": "When does a problem start?",
+          "text": "The problem isn't the behaviour itself; it's feeling unable to control it, other areas of life suffering, or a deep conflict with your own values."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "The goal is yours",
+          "text": "That's why in the camp you choose your masturbation goal: no goal, cutting down, or taking a break for a while. None of them is “more correct” than the others."
+        }
+      ],
+      "sourceIds": [
+        "briken2024",
+        "icd11"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "nofap-claims",
+      "icon": "microscope",
+      "tone": "focus",
+      "title": "NoFap and similar claims: what does science say?",
+      "summary": "The promises of not ejaculating for a long time.",
+      "slides": [
+        {
+          "icon": "microscope",
+          "tone": "focus",
+          "title": "The promises online",
+          "text": "Some online communities claim that not ejaculating for a long time permanently changes hormones and brings extraordinary energy, muscle or attractiveness."
+        },
+        {
+          "icon": "trendDown",
+          "tone": "focus",
+          "title": "No evidence",
+          "text": "There's no solid scientific evidence for these claims. A few studies showing small, short-lived hormone fluctuations don't support these big promises."
+        },
+        {
+          "icon": "warning",
+          "tone": "focus",
+          "title": "Why does it matter?",
+          "text": "Unrealistic promises can cause disappointment and shame when expectations aren't met. That makes change harder, not easier."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "The real gain",
+          "text": "The real gain is a sense of control, being able to give your time and attention to your values, better sleep and relationships. These are measurable and they're yours."
+        }
+      ],
+      "sourceIds": [
+        "briken2024",
+        "roza2024"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "erection",
+      "icon": "flask",
+      "tone": "focus",
+      "title": "Pornography and erection problems",
+      "summary": "What does the evidence show?",
+      "slides": [
+        {
+          "icon": "flask",
+          "tone": "focus",
+          "title": "No strong link has been proven",
+          "text": "Current reviews show that claims of a strong, direct link between pornography use and erection problems are generally not supported."
+        },
+        {
+          "icon": "link",
+          "tone": "focus",
+          "title": "Indirect links",
+          "text": "Even if there is a link, it may be indirect: performance anxiety, body dissatisfaction, unrealistic expectations or relationship problems."
+        },
+        {
+          "icon": "heartPulse",
+          "tone": "focus",
+          "title": "Other causes",
+          "text": "Erection problems can have many causes, such as blood vessel health, diabetes, smoking, sleep, medicines and stress."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "focus",
+          "title": "What to do?",
+          "text": "If you're worried about erections, seeing a urologist or a doctor is the right step, rather than frightening claims online."
+        }
+      ],
+      "sourceIds": [
+        "rowland2024",
+        "dwulit2019"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "moral",
+      "icon": "scale",
+      "tone": "focus",
+      "title": "Moral conflict and shame",
+      "summary": "Why is the feeling of “I'm addicted” sometimes bigger than the behaviour?",
+      "slides": [
+        {
+          "icon": "scale",
+          "tone": "focus",
+          "title": "An interesting finding",
+          "text": "Research shows that people who believe pornography is morally wrong but use it anyway tend to see themselves as “addicted”, even when their use is low or average."
+        },
+        {
+          "icon": "brain",
+          "tone": "focus",
+          "title": "Perception and behaviour",
+          "text": "This perception is linked more to the conflict with values and to shame than to the amount of the behaviour."
+        },
+        {
+          "icon": "heart",
+          "tone": "focus",
+          "title": "Direction, not shame",
+          "text": "Shame magnifies this feeling and makes change harder. Taking your values seriously and being kind to yourself works better in the long run."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "Your values",
+          "text": "The camp's aim isn't to judge you; it's to help you live in line with your own values. Your values, including your faith, belong to you."
+        }
+      ],
+      "sourceIds": [
+        "grubbs2019",
+        "grubbs2019b"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "urges-pass",
+      "icon": "waves",
+      "tone": "focus",
+      "title": "Why do urges pass?",
+      "summary": "A wave rising and falling.",
+      "slides": [
+        {
+          "icon": "waves",
+          "tone": "focus",
+          "title": "Like a wave",
+          "text": "Urges usually peak quickly and then fade. The fall happens even when you don't act on them."
+        },
+        {
+          "icon": "repeat",
+          "tone": "focus",
+          "title": "Every moment you manage",
+          "text": "Watching an urge without turning it into behaviour helps your brain learn that “this urge can pass”."
+        },
+        {
+          "icon": "zap",
+          "tone": "focus",
+          "title": "Suppressing doesn't work",
+          "text": "Forcing yourself not to think about an urge often makes it stronger. Watching it and making room for it works better."
+        },
+        {
+          "icon": "trendDown",
+          "tone": "focus",
+          "title": "Realistic expectations",
+          "text": "According to research, behaviour can decrease markedly with treatment, while the urge itself changes more slowly. The aim isn't to eliminate the urge but to manage the behaviour."
+        }
+      ],
+      "sourceIds": [
+        "crosby2016",
+        "meta2025"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "slips-normal",
+      "icon": "repeat",
+      "tone": "focus",
+      "title": "Why is a slip normal?",
+      "summary": "The ups and downs of change.",
+      "slides": [
+        {
+          "icon": "repeat",
+          "tone": "focus",
+          "title": "Change isn't linear",
+          "text": "Almost everyone who changes a habit has slips along the way. It's a normal part of the process."
+        },
+        {
+          "icon": "blocks",
+          "tone": "focus",
+          "title": "The abstinence violation effect",
+          "text": "After a slip, the thought “I've already blown it, so it doesn't matter now” is very common and makes the slip last longer. Recognising it makes it easier not to get swept up in it."
+        },
+        {
+          "icon": "book",
+          "tone": "focus",
+          "title": "A chance to learn",
+          "text": "Every slip shows which situation is hard. Updating your plan with this information makes the next time easier."
+        },
+        {
+          "icon": "sprout",
+          "tone": "focus",
+          "title": "Your effort isn't erased",
+          "text": "That's why in the camp a slip doesn't erase your total days, your longest streak or the urge moments you've managed."
+        }
+      ],
+      "sourceIds": [
+        "marlatt",
+        "bothe2021"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "when-expert",
+      "icon": "stethoscope",
+      "tone": "focus",
+      "title": "When should you see a professional?",
+      "summary": "Signs you could use professional support.",
+      "slides": [
+        {
+          "icon": "stethoscope",
+          "tone": "focus",
+          "title": "Getting support is strength",
+          "text": "Getting support from a professional isn't a weakness; it's an investment in yourself."
+        },
+        {
+          "icon": "flag",
+          "tone": "focus",
+          "title": "Signs to watch for",
+          "text": "If the behaviour clearly affects your work, studies or relationships; if you've felt anxious or low for a long time; or if you're having compulsive thoughts, talking to a professional can help."
+        },
+        {
+          "icon": "hospital",
+          "tone": "focus",
+          "title": "Where to go?",
+          "text": "A psychiatry clinic or a clinical psychologist can be a first step. In Türkiye, the Yeşilay Helpline 115 also offers free counselling."
+        },
+        {
+          "icon": "lifeBuoy",
+          "tone": "focus",
+          "title": "Emergency",
+          "text": "If you have thoughts of harming yourself or are in an emergency, call 112 (or your local emergency number) right away."
+        }
+      ],
+      "sourceIds": [
+        "briken2024",
+        "yedam"
+      ],
+      "evidenceLevel": "guideline",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "mood-link",
+      "icon": "cloudRain",
+      "tone": "focus",
+      "title": "Anxiety, depression and compulsive behaviour",
+      "summary": "A cycle that feeds itself.",
+      "slides": [
+        {
+          "icon": "cloudRain",
+          "tone": "focus",
+          "title": "They often go together",
+          "text": "Anxiety, depression and behaviours that are hard to control often occur together and can feed each other."
+        },
+        {
+          "icon": "rotate",
+          "tone": "focus",
+          "title": "Short relief, long burden",
+          "text": "The behaviour can give a short escape from difficult feelings; the guilt or emptiness that follows can lower your mood even further."
+        },
+        {
+          "icon": "wrench",
+          "tone": "focus",
+          "title": "Looking at both",
+          "text": "Steps that improve your mood (sleep, movement, connection, treatment when needed) can also have a positive effect on the behaviour."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "focus",
+          "title": "Support",
+          "text": "If your mood has been low for a long time, this camp alone may not be enough; talking to a professional is an important step."
+        }
+      ],
+      "sourceIds": [
+        "briken2024",
+        "phq2",
+        "gad2"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "partner",
+      "icon": "chat",
+      "tone": "focus",
+      "title": "Talking with a partner",
+      "summary": "For an open, respectful conversation.",
+      "slides": [
+        {
+          "icon": "chat",
+          "tone": "focus",
+          "title": "You don't have to talk about it",
+          "text": "Whether to share this with your partner is your decision. You may want to share; you may not be ready yet."
+        },
+        {
+          "icon": "clock",
+          "tone": "focus",
+          "title": "The right moment",
+          "text": "Choose a calm, unhurried time. Instead of blaming or defending, talk using “I” statements: “I'm struggling with this and I'm working on it.”"
+        },
+        {
+          "icon": "ear",
+          "tone": "focus",
+          "title": "Listening",
+          "text": "Your partner will have feelings too. Listening to them and trying to understand builds trust."
+        },
+        {
+          "icon": "handshake",
+          "tone": "focus",
+          "title": "Support together",
+          "text": "If needed, a couples therapist or a professional can make this conversation easier."
+        }
+      ],
+      "sourceIds": [
+        "briken2024"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "families",
+      "icon": "users",
+      "tone": "focus",
+      "title": "Resources for young people and families",
+      "summary": "If you want to help someone close to you.",
+      "slides": [
+        {
+          "icon": "users",
+          "tone": "focus",
+          "title": "This camp is for adults",
+          "text": "This camp is for ages 18 and over. If you want to help a young person, resources suited to their age are better."
+        },
+        {
+          "icon": "speech",
+          "tone": "focus",
+          "title": "Talking without judgement",
+          "text": "When talking about this with young people, approaching it calmly and with curiosity, without shaming, builds trust."
+        },
+        {
+          "icon": "school",
+          "tone": "focus",
+          "title": "School and professionals",
+          "text": "School counsellors and school psychologists can be a first point of contact."
+        },
+        {
+          "icon": "phone",
+          "tone": "focus",
+          "title": "Yeşilay 115 (Türkiye)",
+          "text": "YEDAM also gives free counselling to children, teenagers and their families in Türkiye."
+        }
+      ],
+      "sourceIds": [
+        "yedam"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "sleep-control",
+      "icon": "moon",
+      "tone": "focus",
+      "title": "Sleep and impulse control",
+      "summary": "A tired brain brakes less well.",
+      "slides": [
+        {
+          "icon": "moon",
+          "tone": "focus",
+          "title": "Sleep and self-regulation",
+          "text": "Lack of sleep weakens your ability to manage urges and make plans. That's why late at night is the riskiest time."
+        },
+        {
+          "icon": "phoneOff",
+          "tone": "focus",
+          "title": "Screens and sleep",
+          "text": "Using screens in bed both delays sleep and creates a risky setting."
+        },
+        {
+          "icon": "bed",
+          "tone": "focus",
+          "title": "Small steps",
+          "text": "A regular bedtime, taking the phone out of the room and a calm night routine can make a noticeable difference."
+        },
+        {
+          "icon": "info",
+          "tone": "focus",
+          "title": "General information",
+          "text": "These are general recommendations; for long-lasting sleep problems, see a doctor."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "filters",
+      "icon": "blocks",
+      "tone": "focus",
+      "title": "Digital boundaries and filters",
+      "summary": "Realistic expectations.",
+      "slides": [
+        {
+          "icon": "blocks",
+          "tone": "focus",
+          "title": "A filter is a brake",
+          "text": "Filters and app limits slow down automatic behaviour and buy you time in hard moments."
+        },
+        {
+          "icon": "lockOpen",
+          "tone": "focus",
+          "title": "It's not unbeatable",
+          "text": "No filter is unbeatable. Relying on a filter alone can lead to disappointment when it's bypassed."
+        },
+        {
+          "icon": "wrench",
+          "tone": "focus",
+          "title": "Together with skills",
+          "text": "Filters work best together with values, plans, urge surfing and support."
+        },
+        {
+          "icon": "smartphone",
+          "tone": "focus",
+          "title": "Your phone's own tools",
+          "text": "Screen Time on iPhone and Digital Wellbeing on Android are a good start, with no extra app needed."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021",
+        "apple"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "reviewed": false
+    },
+    {
+      "id": "values-faith",
+      "icon": "bird",
+      "tone": "focus",
+      "title": "Values and spirituality",
+      "summary": "Living in line with your own values.",
+      "slides": [
+        {
+          "icon": "bird",
+          "tone": "focus",
+          "title": "Everyone's values",
+          "text": "For some, faith and spirituality come first; for others, relationships, health or freedom. All of them deserve respect."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "The app doesn't pass judgement",
+          "text": "This app doesn't make religious or moral judgements. You write your values; the app only reminds you of them."
+        },
+        {
+          "icon": "heart",
+          "tone": "focus",
+          "title": "Compassion instead of shame",
+          "text": "Being committed to your values doesn't require being hard on yourself. A compassionate attitude makes it easier to live by your values."
+        },
+        {
+          "icon": "sprout",
+          "tone": "focus",
+          "title": "Direction, not perfection",
+          "text": "The aim isn't to become perfect overnight; it's to live a little closer to your values every day."
+        }
+      ],
+      "sourceIds": [
+        "grubbs2019b"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "reviewed": false
+    }
+  ]
+}

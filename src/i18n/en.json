@@ -1,10 +1,3220 @@
 {
-  "_meta": { "note": "English skeleton — Phase 2. Missing keys fall back to Turkish." },
+  "common": {
+    "back": "Back",
+    "close": "Close",
+    "continue": "Continue",
+    "sound": "Sound",
+    "next": "Next",
+    "done": "Done",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "yes": "Yes",
+    "no": "No",
+    "start": "Start",
+    "minutes": "{{count}} min",
+    "seconds": "{{count}} s",
+    "level": "Level {{level}}",
+    "premium": "Premium",
+    "comingSoon": "Coming soon",
+    "moreInfo": "{{label}}: explanation"
+  },
   "tabs": {
-    "today": "Today",
-    "training": "Training",
+    "home": "My Day",
     "progress": "Progress",
     "discover": "Discover",
     "profile": "Profile"
+  },
+  "consent": {
+    "title": "Welcome to {{app}}",
+    "subtitle": "Two quick confirmations before you start.",
+    "medicalTitle": "Important health notice",
+    "medicalBody": "This app is not medical advice and is not a medical device. If you have pain, urinary problems, are recovering from surgery or similar, talk to your doctor first.",
+    "readMore": "Read the full medical notice",
+    "age": "I am {{age}} or older.",
+    "medicalCheck": "I have read and understood the medical notice.",
+    "accept": "Accept and start",
+    "acceptHint": "Becomes active once both boxes are ticked.",
+    "legalNote": "By continuing you accept the Terms of Service. What you enter is stored only on this phone; you can read how it is used in the documents below.",
+    "medicalTap": "Tap to read"
+  },
+  "exercise": {
+    "hold": {
+      "name": "Long Squeeze",
+      "desc": "Squeeze the muscle, hold for a few seconds, then relax completely."
+    },
+    "quick": {
+      "name": "Quick Squeeze",
+      "desc": "Squeeze for 1 second, relax for 1 second. Fast and controlled."
+    },
+    "elevator": {
+      "name": "Slow Squeeze",
+      "desc": "Squeeze the muscle slowly, hold at the top for half a second, let go and wait 1 second."
+    },
+    "pulse": {
+      "name": "Rhythm",
+      "desc": "Short, rhythmic squeeze pulses with rests between blocks."
+    },
+    "endurance": {
+      "name": "Endurance",
+      "desc": "One long squeeze followed by a long rest."
+    },
+    "relax": {
+      "name": "Relax and Breathe",
+      "desc": "Breathe deeply and consciously let the muscles go."
+    },
+    "slow_hold": {
+      "name": "Long Squeeze",
+      "desc": "Squeeze the muscle once and hold it without letting go until the time is up."
+    },
+    "quick_flick": {
+      "name": "Quick Squeeze-Release",
+      "desc": "Squeeze for 1 second, release for 1 second; keep this rhythm until the time is up."
+    },
+    "max_contraction": {
+      "name": "Full Power",
+      "desc": "A short contraction as strong as you can without using your glutes or belly, then a long rest."
+    },
+    "knack": {
+      "name": "Knack Practice",
+      "desc": "Squeeze just before the “Cough” cue, hold through the cough, then let go."
+    },
+    "release": {
+      "name": "Release",
+      "desc": "Let the muscle go completely and gently, as if it were sinking down. No bearing down."
+    },
+    "breath": {
+      "name": "Breathing",
+      "desc": "Breathe in for 4 seconds, out for 6. For warming up and cooling down."
+    }
+  },
+  "player": {
+    "phase": {
+      "countdown": "READY",
+      "contract": "SQUEEZE",
+      "release": "LET GO",
+      "relax": "RELAX",
+      "rest": "REST",
+      "transition": "NEXT",
+      "inhale": "BREATHE IN",
+      "exhale": "BREATHE OUT",
+      "cough": "COUGH",
+      "hold": "HOLD",
+      "letGo": "LET GO",
+      "slowSqueeze": "SQUEEZE SLOWLY",
+      "slowRelease": "RELEASE SLOWLY",
+      "settle": "RELAX"
+    },
+    "stage": "FLOOR {{stage}}",
+    "getReady": "Get ready",
+    "next": "Next: {{name}}",
+    "rep": "{{rep}} / {{reps}}",
+    "setRep": "Set {{set}}/{{sets}} · {{rep}} / {{reps}}",
+    "block": "Block {{rep}} / {{reps}}",
+    "paused": "PAUSED",
+    "pause": "Pause",
+    "resume": "Resume",
+    "restart": "Start over",
+    "skip": "Skip block",
+    "finish": "Finish",
+    "keepGoing": "Keep going",
+    "progress": "Workout progress",
+    "help": "Help",
+    "helpTitle": "Correct technique",
+    "helpTips": [
+      "Don't tense your belly, glutes or legs; only the pelvic floor muscle should work.",
+      "Don't hold your breath. Breathe easily while squeezing and while letting go.",
+      "The phone vibrates while you squeeze and stops when you let go. You don't need to look at the screen.",
+      "The release phase matters at least as much as the squeeze; let the muscle go completely.",
+      "Tap the screen: pause. Hold for a second: finish. Swipe left: skip the block. Double tap: black screen."
+    ],
+    "painWarning": "If you feel pain, burning or discomfort, stop right away and see a health professional.",
+    "interruptedTitle": "Workout paused",
+    "interruptedBody": "We paused the workout because you left the app. How would you like to continue?",
+    "finishTitle": "Finish the workout?",
+    "finishBody": "If you finish now, this session is saved as incomplete.",
+    "voice": {
+      "squeeze": "Squeeze",
+      "release": "Let go",
+      "cough": "Cough",
+      "inhale": "Breathe in",
+      "exhale": "Breathe out",
+      "letGo": "Gently let go",
+      "floor1": "First floor",
+      "floor2": "Second floor",
+      "floor3": "Third floor",
+      "slowSqueeze": "Squeeze slowly",
+      "slowRelease": "Release slowly",
+      "hold": "Hold"
+    },
+    "restartBlock": "Restart the block",
+    "gestureHint": "Tap the screen: pause or resume. Hold for a second: finish. Swipe left: skip the block. Double tap: black screen.",
+    "positionNow": "Position: {{position}}",
+    "painButton": "Pain",
+    "painTitle": "We stopped the session",
+    "painBody": "Kegels should not hurt. Today you can carry on with the release and breathing exercise. Level increases will pause for 7 days.",
+    "painRefer": "This is the second time this week you've reported discomfort. We suggest seeing a urologist or a pelvic floor physiotherapist. If you like, you can switch to the Relaxation-Focused programme.",
+    "painRelease": "Continue with release and breathing",
+    "painEnd": "Stop for today",
+    "skipTitle": "Skip this block?",
+    "skipBody": "A skipped block doesn't count towards levelling up. We won't ask again this session.",
+    "startIn": "Start in this position",
+    "nextTitle": "Next: {{name}} ×{{reps}}",
+    "nextDetail": "Squeeze {{hold}} s · release {{rest}} s",
+    "positionChange": "Position changes: {{position}}",
+    "blackMode": "Black screen mode",
+    "blackHint": "Double tap to exit. Tap to pause.",
+    "nextSlow": "Squeeze slowly {{slow}} s · hold {{top}} s · release slowly {{slow}} s",
+    "nextRelease": "Relax 3 s · let go completely 6 s",
+    "round": "Round {{n}}",
+    "nextName": "Next: {{name}}"
+  },
+  "feedback": {
+    "doneTitle": "Great, today's workout is done!",
+    "partialTitle": "You stopped halfway, and that's okay",
+    "duration": "Duration",
+    "level": "Level",
+    "question": "How was today's workout?",
+    "submit": "Save",
+    "note": "Difficulty adjusts automatically based on your answer. The level raises intensity; you choose the session length.",
+    "option": {
+      "easy": {
+        "label": "Too easy",
+        "hint": "Let's move up a level."
+      },
+      "ok": {
+        "label": "Just right",
+        "hint": "Three “just right” answers in a row with almost everything completed raise your level."
+      },
+      "hard": {
+        "label": "Hard",
+        "hint": "Your level stays the same; a shorter session is suggested for tomorrow. Hard twice in a row means one level down."
+      },
+      "failed": {
+        "label": "I couldn't finish",
+        "hint": "Let's go back one level and repeat the same day tomorrow."
+      }
+    },
+    "technique": {
+      "question": "How was your technique?",
+      "sure": "I was sure",
+      "unsure": "I wasn't sure",
+      "tips": [
+        {
+          "title": "Don't hold your breath",
+          "text": "Keep breathing while you squeeze and while you let go. Count out loud to help."
+        },
+        {
+          "title": "Glutes and belly relaxed",
+          "text": "Put a hand on your belly and your glutes: nothing there should move while you squeeze."
+        },
+        {
+          "title": "Don't bear down",
+          "text": "The muscle draws in and up; pushing down is the wrong direction."
+        },
+        {
+          "title": "Let go completely",
+          "text": "At the end of every rep let the muscle settle back fully; releasing is training too."
+        }
+      ]
+    },
+    "summary": {
+      "title": "Session summary",
+      "microTitle": "Micro set done",
+      "contractions": "Contractions",
+      "holdTotal": "Total hold",
+      "longest": "Longest hold",
+      "sec_one": "{{count}} s",
+      "sec_other": "{{count}} s",
+      "tomorrow": "TOMORROW",
+      "daily": "Daily goal",
+      "dailyCount": "{{done}}/{{target}}",
+      "dailyDone": "Today's goal is done",
+      "dailyLeft": "{{count}} session(s) left to reach your goal; a short micro set counts too."
+    },
+    "outlook": {
+      "up": {
+        "title": "Level {{from}} → {{to}}",
+        "body": "Hold times will get a little longer; your session length stays the same."
+      },
+      "down": {
+        "title": "Level {{from}} → {{to}}",
+        "body": "Taking a small step back is part of progress. Keep going without straining."
+      },
+      "same": {
+        "title": "Same level, you're doing great",
+        "body": "Continuing at Level {{level}}. Consistency matters most."
+      },
+      "sameShorter": {
+        "title": "Your level stays the same",
+        "body": "You said it was hard. Trying a shorter session tomorrow may help."
+      },
+      "locked": {
+        "title": "Level fixed this week",
+        "body": "Because you reported discomfort, there's no level increase for 7 days. Listen to your body."
+      },
+      "shorten": "Do the {{preset}} length tomorrow",
+      "shortened": "Done: length set to {{preset}}.",
+      "steady": {
+        "title": "Continuing at Level {{level}}",
+        "body": "If today was hard, that's fine. Tomorrow, carry on at the same level without straining."
+      }
+    },
+    "completeTitle": "Completed",
+    "partialShort": "Stopped halfway",
+    "howWas": "How was it?",
+    "twoQuestions": "Answer both questions below to save.",
+    "pickOne": "Pick one",
+    "picked": "Selected",
+    "stepOf": "Question {{n}} / 2",
+    "answerLeft": "Answer the questions ({{done}}/2)",
+    "finish": "Finish",
+    "tomorrowRow": "Tomorrow",
+    "streakPlus": "+1 day"
+  },
+  "time": {
+    "hour": "Hour",
+    "minute": "Minute"
+  },
+  "goal": {
+    "endurance": "Stamina",
+    "bladder": "Bladder control",
+    "erection": "Erection quality",
+    "confidence": "Confidence",
+    "general": "General health",
+    "postSurgery": "Recovery after surgery"
+  },
+  "onboarding": {
+    "progress": "Step {{step}} / {{total}}",
+    "welcome": {
+      "title": "Strengthen your pelvic floor muscles with {{app}}.",
+      "body": "5 minutes a day, without anyone noticing.",
+      "point1": "A short, personal daily workout",
+      "point2": "Guided by vibration, no need to watch the screen",
+      "point3": "Your data stays on this phone only",
+      "kicker": "Welcome"
+    },
+    "goals": {
+      "title": "What are your goals?",
+      "hint": "You can choose more than one.",
+      "selected_one": "{{count}} goal selected",
+      "selected_other": "{{count}} goals selected",
+      "none": "Nothing selected yet"
+    },
+    "age": {
+      "title": "Your age range?",
+      "55": "55 and over"
+    },
+    "experience": {
+      "title": "Have you done Kegel exercises before?",
+      "none": {
+        "label": "Never",
+        "hint": "We'll start from the very beginning, step by step."
+      },
+      "some": {
+        "label": "I've tried a few times",
+        "hint": "We'll start by refreshing your technique; your level rises quickly with your feedback."
+      },
+      "regular": {
+        "label": "I do them regularly",
+        "hint": "We start at Level 1; if it's easy, your level rises quickly."
+      }
+    },
+    "activity": {
+      "title": "Your physical activity level?",
+      "hint": "We'll tailor our extra pelvic exercise suggestion to this.",
+      "low": {
+        "label": "Low",
+        "hint": "I sit most of the day."
+      },
+      "mid": {
+        "label": "Moderate",
+        "hint": "Walking or sport a few times a week."
+      },
+      "high": {
+        "label": "High",
+        "hint": "I train regularly and hard."
+      }
+    },
+    "reminder": {
+      "title": "When should we remind you?",
+      "hint": "We'll send a gentle reminder at this time every day.",
+      "privacy": "The notification text is neutral; the lock screen doesn't say what the exercise is.",
+      "allow": "Turn on reminders",
+      "skip": "Skip for now"
+    },
+    "plan": {
+      "title": "Your plan is ready",
+      "body": "We've prepared a {{days}}-day plan for you, starting at Level {{level}}.",
+      "start": "Start",
+      "daily": "Daily time",
+      "reminder": "Reminder",
+      "next": "Next step: a short lesson to find the right muscle (about 3 minutes).",
+      "cta": "Start the lesson",
+      "ready": "All set",
+      "goals": "Your goals",
+      "reminderOff": "Off"
+    },
+    "back": "Back"
+  },
+  "tutorial": {
+    "header": "Lesson",
+    "understood": "Got it",
+    "close": "Close the lesson",
+    "what": {
+      "title": "What is the pelvic floor muscle?",
+      "body": [
+        "The pelvic floor is a group of muscles stretched like a hammock across the bottom of your pelvis.",
+        "It supports the bladder and bowel and contributes to urinary control and sexual function.",
+        "Like other muscles, it can get stronger when trained regularly and correctly."
+      ]
+    },
+    "find": {
+      "title": "How do you find the muscle?",
+      "body": [
+        "Imagine trying to stop your urine flow midstream, or holding back wind.",
+        "The area that tightens inwards and upwards at that moment is your pelvic floor muscle.",
+        "Once you've found it, repeat that feeling while not urinating, sitting or lying down."
+      ],
+      "warn": "Don't exercise while urinating. Imagine stopping the flow only once to find the muscle; repeating it as an exercise can stop the bladder from emptying fully."
+    },
+    "technique": {
+      "title": "Correct technique",
+      "body": [
+        "Squeeze only the pelvic floor muscle: keep your belly, glutes and legs relaxed.",
+        "Don't hold your breath; keep breathing calmly and steadily.",
+        "Let the muscle go completely after every squeeze. Releasing is part of the exercise."
+      ],
+      "warn": "Kegels should not hurt. If you feel pain or discomfort, stop and end the workout."
+    },
+    "trial": {
+      "title": "Practice set",
+      "body": "3 reps: squeeze for 3 seconds, relax for 3 seconds. Follow the vibration."
+    },
+    "check": {
+      "title": "Could you do it?",
+      "body": "Could you feel the muscle squeeze and let go?",
+      "yes": "Yes, I could",
+      "unsure": "I'm not sure"
+    },
+    "tips": {
+      "title": "A few tips",
+      "body": [
+        "Try lying down: knees bent, back on the floor. The muscle is easier to feel in this position.",
+        "Put a hand on your belly: it shouldn't move while you squeeze.",
+        "Don't try to squeeze too hard; a light but clear in-and-up lift is enough.",
+        "It can be hard to feel in the first days; that's completely normal and gets easier with practice."
+      ],
+      "retry": "Try again"
+    },
+    "position": {
+      "title": "Starting position",
+      "body": [
+        "In the first week you always train lying down: the muscle is easiest to feel in this position.",
+        "As the weeks go on you'll move to sitting and standing. When the position changes, a card appears on the screen."
+      ]
+    },
+    "checklist": {
+      "title": "Am I doing it right?",
+      "body": "Squeeze once and hold. While holding, check the points below; tick each one you can answer “yes” to.",
+      "items": {
+        "glutes": {
+          "title": "My glutes are relaxed",
+          "text": "Your buttock muscles aren't clenching and you aren't lifting up off your seat."
+        },
+        "belly": {
+          "title": "My belly is relaxed",
+          "text": "Put a hand on your belly: it doesn't pull in or harden while you squeeze."
+        },
+        "breath": {
+          "title": "I'm still breathing",
+          "text": "You aren't holding your breath while squeezing; you can breathe in and out easily."
+        },
+        "legs": {
+          "title": "My legs are relaxed",
+          "text": "Your thigh and inner-leg muscles aren't working and you aren't pressing your knees together."
+        }
+      }
+    },
+    "release": {
+      "title": "Release practice",
+      "body": "2 reps: squeeze for 3 seconds, then let go completely for 6 seconds. Let the muscle relax as if sinking down."
+    },
+    "releaseCheck": {
+      "title": "Did you feel it let go?",
+      "body": "After the squeeze, did you feel the muscle relax completely and drop back down?",
+      "yes": "Yes, I felt it",
+      "unsure": "I'm not sure"
+    },
+    "releaseTips": {
+      "title": "Tips for letting go",
+      "body": [
+        "Don't rush: let the muscle go little by little, as if sinking down.",
+        "Relax your shoulders and jaw too; tension usually travels together.",
+        "Don't bear down as you let go; simply stop holding."
+      ]
+    },
+    "mistakes": {
+      "title": "Common mistakes",
+      "items": [
+        {
+          "icon": "wind",
+          "title": "Holding your breath",
+          "text": "Don't hold your breath while squeezing. Counting out loud helps keep your breath flowing."
+        },
+        {
+          "icon": "apple",
+          "title": "Clenching your glutes",
+          "text": "When your glutes, belly and legs join in, the pelvic floor works less."
+        },
+        {
+          "icon": "arrowDown",
+          "title": "Bearing down",
+          "text": "The muscle draws in and up. Pushing down is the wrong direction; don't bear down when letting go either."
+        },
+        {
+          "icon": "repeat",
+          "title": "Too many reps",
+          "text": "More is not always better. A tired muscle works incorrectly; the app sets a daily limit."
+        }
+      ]
+    },
+    "ready": {
+      "title": "You're ready!",
+      "body": [
+        "You've found the muscle, learned the vibration language and practised squeezing and letting go.",
+        "Your first session is Quick (3 minutes). After that you choose the length; it adapts to your level feedback."
+      ],
+      "cta": "I'm ready"
+    }
+  },
+  "legal": {
+    "updated": "Last updated: 22 November 2026 · A legal review before publication is recommended.",
+    "disclaimer": {
+      "title": "Medical Notice",
+      "sections": [
+        {
+          "heading": "Not medical advice",
+          "paragraphs": [
+            "{{app}} is an educational app for general health and exercise. It is not a medical device; it does not diagnose, treat or prevent any disease.",
+            "The information in the app does not replace an examination by, or the advice of, a doctor, urologist or physiotherapist."
+          ]
+        },
+        {
+          "heading": "Talk to your doctor first",
+          "paragraphs": [
+            "If you have pain in the pelvic area, burning or blood when urinating, a urinary tract infection, prostate problems, recent surgery (especially prostate or pelvic surgery) or a chronic illness, talk to a health professional before you start exercising.",
+            "After surgery, your doctor must decide when and how you start exercising."
+          ]
+        },
+        {
+          "heading": "Stop if you feel pain",
+          "paragraphs": [
+            "If you feel pain, cramps, burning or unexpected discomfort during or after exercise, stop immediately. If the symptoms don't go away, see a health professional.",
+            "Overworking the muscles doesn't help. The relaxation phase matters at least as much as the squeeze."
+          ]
+        },
+        {
+          "heading": "Results vary from person to person",
+          "paragraphs": [
+            "The effect of pelvic floor exercises differs from person to person. {{app}} does not promise any particular improvement or result.",
+            "The educational content in the app is for general information, is based on reliable sources and may not yet have had a final expert review."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "sections": [
+        {
+          "heading": "In short",
+          "paragraphs": [
+            "Your data never leaves your phone. The {{app}} app has no server; it doesn't ask you to create an account or give an email address or phone number. No analytics, advertising or tracking software is used."
+          ]
+        },
+        {
+          "heading": "What information do we collect?",
+          "paragraphs": [
+            "None. {{company}} does not collect, see or store any personal data about you.",
+            "Not collected: your name, email, phone number, location, contacts, photos, device and advertising IDs, statistics about how you use the app, and crash reports."
+          ]
+        },
+        {
+          "heading": "What is kept on your phone, and why?",
+          "paragraphs": [
+            "Your starting answers: your goals, age range, experience and activity level. Purpose: to tailor your programme to you.",
+            "The date you confirmed you are 16+ and accepted the medical notice. Purpose: not to ask again.",
+            "Your training history, level, strength test results and the notes you write. Purpose: to show your progress and to make the programme harder or easier.",
+            "Your camp records (Smoke-Free, Alcohol-Free and Focus Camp) and your Bodyweight Fitness progress. Purpose: to show your camp progress, statistics and the next day. A copy of the photo you optionally add to the Smoke-Free Camp is kept in the app's own folder.",
+            "Focus Camp records are additionally encrypted on your device with AES-256. The encryption key and, if you set one, a hash of your app PIN are kept only on this device in your phone's secure key store (iOS Keychain, Android Keystore).",
+            "The stories you've read, what you've saved, your badges and your settings (such as theme, reminder times and vibration strength). Purpose: so you can pick up where you left off.",
+            "A short-lived copy of whether your subscription is active. Purpose: to keep Premium on even when you're offline."
+          ]
+        },
+        {
+          "heading": "Permissions and why they're requested",
+          "paragraphs": [
+            "Notifications: to show reminders. Reminders are scheduled on your phone; no notification server is used.",
+            "Photos (optional): to add your own photo to the Smoke-Free Camp. Only a copy of the photo you pick is placed in the app's folder.",
+            "Contacts (optional): to save the ALO 171 number (Turkey's quit-smoking line) to your contacts, your phone's own add-contact screen opens. Your contacts are not read.",
+            "Face ID / fingerprint (optional): to open locked sections. Your biometric data stays in your phone's operating system; the app only receives a \"verified / not verified\" result.",
+            "Vibration and store payments. No camera, microphone or location permission is requested."
+          ]
+        },
+        {
+          "heading": "Internet connection",
+          "paragraphs": [
+            "The app's only network connection is made with the App Store or Google Play, to process purchases and verify your subscription. Everything else works offline."
+          ]
+        },
+        {
+          "heading": "Purchases",
+          "paragraphs": [
+            "Subscriptions and payments are handled entirely by Apple or Google under their own privacy policies. The app never sees your payment details."
+          ]
+        },
+        {
+          "heading": "Backups",
+          "paragraphs": [
+            "On Android, app data is not included in Google backups. On iPhone, if iCloud Backup is on, your phone's backup may include app data; that backup is kept by Apple in your Apple account and never reaches us. The Focus Camp encryption key is tied to this device and is not included in backups.",
+            "In Profile > Data you can export your data as a JSON file and move it to a new phone. You decide where to save that file and who to share it with."
+          ]
+        },
+        {
+          "heading": "Deleting your data",
+          "paragraphs": [
+            "The \"Delete my data and account\" button at the bottom of the Profile page permanently deletes all records, the encrypted vault's key, the PIN, the photos you added, export copies and scheduled reminders. This can't be undone. Deleting the app also removes the data from your phone.",
+            "Deleting your data doesn't cancel your subscription; you must cancel it in your App Store or Google Play account."
+          ]
+        },
+        {
+          "heading": "Children",
+          "paragraphs": [
+            "{{app}} is for users aged 16 and over; it does not knowingly ask anyone under 16 for information."
+          ]
+        },
+        {
+          "heading": "Changes",
+          "paragraphs": [
+            "This policy may be updated. Important changes are announced with an app update; the current text is always on this page."
+          ]
+        },
+        {
+          "heading": "Data controller and contact",
+          "paragraphs": [
+            "Data controller and seller: {{company}}, {{address}}.",
+            "Email: {{email}}. You can also send written requests to the address above. If you live in the EU, EEA or UK, you also have the rights given to you by the GDPR and may complain to your local data protection authority."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "heading": "Parties and scope",
+          "paragraphs": [
+            "These terms govern your use of the {{app}} app provided by {{company}} ({{address}}). By using the app you accept these terms.",
+            "If you downloaded the app from the App Store, Apple's standard End User License Agreement (EULA) also applies. {{company}}, not Apple or Google, is responsible for the app's content and support."
+          ]
+        },
+        {
+          "heading": "The service",
+          "paragraphs": [
+            "{{app}} is an educational and exercise app offering pelvic floor exercises, training programmes, informative content and habit camps. The app is for users aged 16 and over."
+          ]
+        },
+        {
+          "heading": "Health responsibility",
+          "paragraphs": [
+            "The app does not provide medical advice, diagnosis or treatment and is not a medical device. You do the exercises at your own responsibility, following the rules in the Medical Notice. If you feel pain or discomfort, stop and talk to a health professional."
+          ]
+        },
+        {
+          "heading": "Account and your data",
+          "paragraphs": [
+            "The app doesn't require an account; all your data is stored only on your phone. So if your phone is lost or reset, or you delete the app, we cannot restore your data. To make a backup you can use the export in Profile > Data."
+          ]
+        },
+        {
+          "heading": "Subscriptions",
+          "paragraphs": [
+            "Premium features are offered as weekly, monthly or yearly auto-renewing subscriptions. Prices are shown on the purchase screen as the real amounts, including taxes, displayed by the store.",
+            "Unless cancelled at least 24 hours before the end of the period, the subscription renews automatically for the same length and price. Details are in the Renewal Policy, the Refund Policy and the Subscription Pre-Contract Information."
+          ]
+        },
+        {
+          "heading": "Rules of use",
+          "paragraphs": [
+            "You may use the app only for personal, non-commercial purposes. Copying the app, reverse engineering it, reproducing its content without permission or trying to bypass the purchase system is prohibited."
+          ]
+        },
+        {
+          "heading": "Intellectual property",
+          "paragraphs": [
+            "The texts, illustrations, animations and sounds in the app belong to {{company}} or its licensors. The sources of the photos are credited in the app."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "paragraphs": [
+            "The app is provided \"as is\". To the extent permitted by law, {{company}} is not liable for indirect damages arising from use of the app. This clause does not limit your rights under consumer protection law."
+          ]
+        },
+        {
+          "heading": "Governing law",
+          "paragraphs": [
+            "These terms are governed by the laws of the Republic of Türkiye. In consumer disputes you may apply to the Consumer Arbitration Committees within the monetary limits set each year, and to the Consumer Courts above those limits. If you live outside Türkiye, this does not take away the mandatory consumer rights of your country of residence."
+          ]
+        },
+        {
+          "heading": "Changes",
+          "paragraphs": [
+            "These terms may be updated. Important changes are announced with an app update."
+          ]
+        },
+        {
+          "heading": "Seller and contact",
+          "paragraphs": [
+            "{{app}} is provided by {{company}} ({{address}}).",
+            "For support, suggestions and complaints: {{email}}."
+          ]
+        }
+      ]
+    },
+    "kvkk": {
+      "title": "Privacy Notice (KVKK)",
+      "sections": [
+        {
+          "heading": "Data controller",
+          "paragraphs": [
+            "This notice is provided to users of the {{app}} app under Article 10 of Türkiye's Personal Data Protection Law No. 6698 (KVKK).",
+            "Data controller: {{company}}, {{address}}. Email: {{email}}."
+          ]
+        },
+        {
+          "heading": "Core principle: your data never leaves your phone",
+          "paragraphs": [
+            "The {{app}} app has no server and doesn't ask you to create an account. The information you enter is stored only on your own phone; it is not sent to us or to any other person or organisation.",
+            "For this reason {{company}} does not collect, see, store or transfer personal data about you. No name, email, phone number, location, device ID, advertising ID, usage statistics or crash reports are collected."
+          ]
+        },
+        {
+          "heading": "What is kept on your phone, and why?",
+          "paragraphs": [
+            "Your starting answers: your goals, age range, experience and activity level. Purpose: to tailor your programme to you.",
+            "The date you confirmed you are 16+ and accepted the medical notice. Purpose: not to ask again.",
+            "Your training history, level, strength test results and the notes you write. Purpose: to show your progress and to make the programme harder or easier.",
+            "Your camp records (Smoke-Free, Alcohol-Free and Focus Camp) and your Bodyweight Fitness progress. Purpose: to show your camp progress, statistics and the next day. A copy of the photo you optionally add to the Smoke-Free Camp is kept in the app's own folder.",
+            "Focus Camp records are additionally encrypted on your device with AES-256. The encryption key and, if you set one, a hash of your app PIN are kept only on this device in your phone's secure key store (iOS Keychain, Android Keystore).",
+            "The stories you've read, what you've saved, your badges and your settings (such as theme, reminder times and vibration strength). Purpose: so you can pick up where you left off.",
+            "A short-lived copy of whether your subscription is active. Purpose: to keep Premium on even when you're offline."
+          ]
+        },
+        {
+          "heading": "Special categories of data",
+          "paragraphs": [
+            "Your answers and records about the pelvic floor, sexual health, smoking, alcohol and content habits may count as special categories of personal data relating to health or sexual life within the meaning of Article 6 of the KVKK.",
+            "This information is created only on your phone, by you, and stays under your control. {{company}} cannot access it and does not process it."
+          ]
+        },
+        {
+          "heading": "Method of collection and legal basis",
+          "paragraphs": [
+            "The information is created on your phone as you enter it while using the app. Keeping it on your phone is necessary to provide the service the app offers you (KVKK Art. 5/2-c).",
+            "For in-app purchases, payment and billing details are processed directly by Apple (App Store) or Google (Google Play) under their own privacy policies. The app only asks the store, from your phone, whether your subscription is active; it never sees your payment details."
+          ]
+        },
+        {
+          "heading": "Transfers",
+          "paragraphs": [
+            "Your personal data is not transferred to anyone, in Türkiye or abroad. We have no server and no analytics, advertising or tracking services."
+          ]
+        },
+        {
+          "heading": "Your rights (KVKK Art. 11)",
+          "paragraphs": [
+            "You have the right to learn whether your personal data is processed; to request information if it is; to learn the purpose of processing and whether it is used accordingly; to know the third parties it is transferred to; to request correction if it is incomplete or inaccurate and deletion; to request that these actions be notified to recipients; to object to a result against you arising from analysis by automated systems; and to claim compensation if you suffer damage from unlawful processing.",
+            "Because your data is only on your phone, you can view, correct and delete it yourself at any time: the \"Delete my data and account\" button at the bottom of the Profile page deletes all of it permanently.",
+            "You can send your requests to {{email}} or in writing to {{address}}. Your request will be answered free of charge within 30 days at the latest. You also have the right to complain to the Turkish Personal Data Protection Board."
+          ]
+        }
+      ]
+    },
+    "presale": {
+      "title": "Subscription Pre-Contract Information",
+      "sections": [
+        {
+          "heading": "Seller",
+          "paragraphs": [
+            "Name: {{company}}",
+            "Address: {{address}}",
+            "Email: {{email}}"
+          ]
+        },
+        {
+          "heading": "Subject of the service",
+          "paragraphs": [
+            "{{app}} Premium: a digital subscription that unlocks all training levels, programmes, camps and content. The service is provided in the app as soon as the purchase is confirmed."
+          ]
+        },
+        {
+          "heading": "Plans and price",
+          "paragraphs": [
+            "Weekly, monthly and yearly plans are offered. The current price and currency, including taxes, are shown before purchase on the purchase screen and in the store's confirmation window. The yearly plan may include a free trial of the length stated in the store."
+          ]
+        },
+        {
+          "heading": "Payment",
+          "paragraphs": [
+            "When you confirm the purchase, payment is collected by the store from the payment method registered to your App Store or Google Play account. The invoice or receipt is issued by the store and sent to your email."
+          ]
+        },
+        {
+          "heading": "Term, renewal and cancellation",
+          "paragraphs": [
+            "The subscription is valid for the period you choose and, unless cancelled at least 24 hours before the period ends, renews automatically for the same length and price. The renewal fee is charged within the 24 hours before the period ends.",
+            "You can cancel the subscription at any time in your App Store or Google Play account settings; cancellation takes effect at the end of the paid period."
+          ]
+        },
+        {
+          "heading": "Right of withdrawal",
+          "paragraphs": [
+            "Because Premium content is a service made available electronically immediately upon confirmation of the purchase, the right of withdrawal cannot be exercised under Article 15(ğ) of Türkiye's Regulation on Distance Contracts.",
+            "If you cancel the free trial before it ends, you pay nothing. Refund requests are made through the store as described in the Refund Policy."
+          ]
+        },
+        {
+          "heading": "Complaints and applications",
+          "paragraphs": [
+            "You can send your complaints to {{email}}. You may apply to the Consumer Arbitration Committees within the monetary limits set each year, and to the Consumer Courts above those limits."
+          ]
+        }
+      ]
+    },
+    "renewal": {
+      "title": "Renewal Policy",
+      "sections": [
+        {
+          "heading": "Plans",
+          "paragraphs": [
+            "Premium is offered as weekly, monthly and yearly auto-renewing subscriptions."
+          ]
+        },
+        {
+          "heading": "Automatic renewal",
+          "paragraphs": [
+            "Unless cancelled at least 24 hours before the end of the period, your subscription renews automatically for the same length and price. The renewal fee is charged to your App Store or Google Play account within the 24 hours before the period ends."
+          ]
+        },
+        {
+          "heading": "Free trial",
+          "paragraphs": [
+            "The yearly plan may offer a free trial. Unless you cancel at least 24 hours before the trial ends, the subscription becomes a paid plan and the yearly fee is charged. If you buy a paid plan during the trial, the rest of the trial ends.",
+            "The purchase screen shows the date of your first charge."
+          ]
+        },
+        {
+          "heading": "Price changes",
+          "paragraphs": [
+            "If the price changes, the store informs you in advance; where the store's rules require it, your consent to the new price is requested. If you don't consent, the subscription doesn't renew at the end of the period."
+          ]
+        },
+        {
+          "heading": "Managing and cancelling",
+          "paragraphs": [
+            "iPhone: Settings > your name > Subscriptions.",
+            "Android: Google Play Store > your profile picture > Payments & subscriptions > Subscriptions.",
+            "In the app: Profile > Subscription > Manage subscription.",
+            "Deleting the app or deleting your data doesn't cancel the subscription."
+          ]
+        },
+        {
+          "heading": "Changing plan",
+          "paragraphs": [
+            "You can change your plan in the store's subscription settings. The store decides when the change takes effect and shows it to you."
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "Refund Policy",
+      "sections": [
+        {
+          "heading": "Who takes the payment?",
+          "paragraphs": [
+            "All payments are taken by Apple (App Store) or Google (Google Play). {{company}} never sees your payment details, so refund requests are made through the store, under the store's rules."
+          ]
+        },
+        {
+          "heading": "App Store",
+          "paragraphs": [
+            "Sign in at reportaproblem.apple.com with your Apple account, choose the purchase and use the \"Request a refund\" option. Apple decides on the refund."
+          ]
+        },
+        {
+          "heading": "Google Play",
+          "paragraphs": [
+            "If less than 48 hours have passed since the purchase, you can request a refund from Google Play. If more than 48 hours have passed, write to {{email}} with your order number; we'll consider your request within Google Play's rules."
+          ]
+        },
+        {
+          "heading": "Free trial and cancellation",
+          "paragraphs": [
+            "If you cancel the free trial before it ends, you aren't charged. Cancelling a subscription doesn't mean a refund for past periods; cancellation takes effect at the end of the paid period and Premium stays on until then."
+          ]
+        },
+        {
+          "heading": "Right of withdrawal",
+          "paragraphs": [
+            "Because digital content is provided immediately upon confirmation of the purchase, there is no right of withdrawal under Article 15/1-(ğ) of Türkiye's Regulation on Distance Contracts. This doesn't remove the store's own refund options or your other rights under consumer law."
+          ]
+        },
+        {
+          "heading": "Contact",
+          "paragraphs": [
+            "If you have a problem, write to {{email}}; we'll do our best to help."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "sections": [
+        {
+          "heading": "We don't use cookies",
+          "paragraphs": [
+            "{{app}} is a mobile app and does not use cookies, web beacons, advertising IDs, fingerprinting or any similar tracking technology. That's why the app never asks you for tracking permission (App Tracking Transparency)."
+          ]
+        },
+        {
+          "heading": "Essential records kept on your phone",
+          "paragraphs": [
+            "To work, the app uses your phone's own storage: a local key-value store for settings and progress, local databases for history and encrypted records, and the secure key store for the encryption key.",
+            "These are not cookies; they are needed only for the app to work, never leave your phone and are deleted with Profile > \"Delete my data and account\"."
+          ]
+        },
+        {
+          "heading": "Website",
+          "paragraphs": [
+            "If a website is launched in the future and uses cookies, a separate cookie notice and preference screen will be provided."
+          ]
+        },
+        {
+          "heading": "Data controller and contact",
+          "paragraphs": [
+            "Data controller and seller: {{company}}, {{address}}.",
+            "Email: {{email}}. You can also send written requests to the address above."
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "sections": [
+        {
+          "heading": "Do I need to create an account?",
+          "paragraphs": [
+            "No. {{app}} doesn't ask for an account, email or phone number."
+          ]
+        },
+        {
+          "heading": "What information of mine do you collect?",
+          "paragraphs": [
+            "None. Everything you enter is stored only on your phone; it isn't sent to us or anyone else. We don't use analytics, advertising or tracking software. Details are in the Privacy Policy."
+          ]
+        },
+        {
+          "heading": "Where is my data, and who can see it?",
+          "paragraphs": [
+            "Only on your phone. We can't see it. Focus Camp records are also encrypted on your phone and can be locked with Face ID, fingerprint or a PIN if you like."
+          ]
+        },
+        {
+          "heading": "Does it work offline?",
+          "paragraphs": [
+            "Yes. The internet is needed only for purchases and to verify your subscription. Your subscription status stays valid for a while even when you're offline."
+          ]
+        },
+        {
+          "heading": "What happens if I change phones?",
+          "paragraphs": [
+            "Export your data as a file in Profile > Data and import it on your new phone. You can bring back your subscription with the same Apple or Google account by tapping \"Restore purchases\"."
+          ]
+        },
+        {
+          "heading": "How do I delete my data completely?",
+          "paragraphs": [
+            "Tap the \"Delete my data and account\" button at the bottom of the Profile page and confirm. Everything is deleted permanently; it can't be undone."
+          ]
+        },
+        {
+          "heading": "How does the free trial work?",
+          "paragraphs": [
+            "If you start the yearly plan with a free trial, you aren't charged until the trial ends. Unless you cancel at least 24 hours before the trial ends, the yearly fee is charged. The date of the first charge is shown on the purchase screen."
+          ]
+        },
+        {
+          "heading": "How do I cancel my subscription?",
+          "paragraphs": [
+            "On iPhone: Settings > your name > Subscriptions; on Android: Google Play > Payments & subscriptions > Subscriptions. In the app, Profile > Manage subscription takes you there too. Deleting the app doesn't cancel the subscription."
+          ]
+        },
+        {
+          "heading": "Can I get a refund?",
+          "paragraphs": [
+            "Because Apple or Google take the payments, refund requests are made through the store. The steps are in the Refund Policy."
+          ]
+        },
+        {
+          "heading": "What do the notifications say?",
+          "paragraphs": [
+            "Notifications are neutral by default and don't name the topic. You can change reminder times and the discreet notification option in Profile > Notifications."
+          ]
+        },
+        {
+          "heading": "Does the app replace treatment?",
+          "paragraphs": [
+            "No. {{app}} is an educational and exercise app; it doesn't replace a doctor's examination. If you have pain or symptoms, talk to a health professional."
+          ]
+        },
+        {
+          "heading": "How can I contact you?",
+          "paragraphs": [
+            "You can write to {{email}}. Address: {{company}}, {{address}}."
+          ]
+        }
+      ]
+    }
+  },
+  "today": {
+    "greeting": {
+      "morning": "Good morning",
+      "afternoon": "Good afternoon",
+      "evening": "Good evening",
+      "night": "Good night"
+    },
+    "levelShort": "Lv {{level}}",
+    "streakA11y": "{{count}}-day streak",
+    "workout": {
+      "plan": "PLAN {{plan}} · DAY {{day}}/{{total}}",
+      "sessions": "{{done}}/{{total}} sessions",
+      "title": "Today's workout",
+      "doneTitle": "Today's workout is done",
+      "meta": "{{min}} min · Level {{level}}",
+      "repeat": "We're repeating the day you couldn't finish, one level easier.",
+      "again": "One more session",
+      "duration": "Session length",
+      "deload": "light week",
+      "targetA11y": "Daily goal: {{done}} of {{total}} sessions done",
+      "shorterHint": "Yesterday was hard; pick a shorter session today if you like.",
+      "micro": "Micro set ({{sec}} s)",
+      "capReached": "You've reached today's contraction limit. See you tomorrow; you can still do release and breathing only if you like.",
+      "capTitle": "Enough for today",
+      "capBody": "You've worked your muscles enough today; rest is part of training too. See you tomorrow. If you like, you can do a release and breathing session without contractions.",
+      "capRelease": "Release session",
+      "reps_one": "{{count}} rep",
+      "reps_other": "{{count}} reps",
+      "contents": "What's in the workout",
+      "contentsCount_one": "{{count}} part",
+      "contentsCount_other": "{{count}} parts",
+      "contentsShow": "Tap to show the exercises",
+      "contentsHide": "Tap to hide the exercises",
+      "dayKicker": "Day {{day}} / {{total}}",
+      "summaryA11y": "Show the exercises",
+      "microShort": "Micro set",
+      "breathShort": "Breathing · 1 min",
+      "targetShort": "Daily goal",
+      "microHint": "A short {{sec}}-second set",
+      "summary_one": "{{count}} part · about {{min}} min",
+      "summary_other": "{{count}} parts · about {{min}} min"
+    },
+    "challenges": "Nutrition tip",
+    "strengthDue": "Time for your weekly strength test",
+    "strengthDueBody": "Measure your progress in 1 minute.",
+    "fitnessLabel": "SUGGESTED PELVIC ROUTINE",
+    "fitness": "{{name}} routine",
+    "breathing": "A 1-minute breathing break",
+    "achievements": "My trophies",
+    "challengesHint": "Today's 3 foods · Day {{day}}/{{total}}",
+    "challengeWhy": "Why?",
+    "challengeWhyA11y": "{{task}} — why does it matter?",
+    "challengeSource": "Source: {{title}}",
+    "challengesNote": "General information, not medical advice.",
+    "strengthKicker": "WEEKLY TEST",
+    "goals": {
+      "title": "Today's progress",
+      "category": "Daily goal",
+      "sessions": "Sessions",
+      "streak": "Streak",
+      "plan": "Plan",
+      "days": "days",
+      "listTitle": "Today's goals",
+      "main": "Today's workout",
+      "micro": "One micro set",
+      "test": "Weekly strength test",
+      "doneA11y": "done",
+      "details": "See progress"
+    },
+    "levelChip": "Level {{level}}",
+    "streakDays_one": "{{count}} day",
+    "streakDays_other": "{{count}} days",
+    "checklist": "Today",
+    "forYou": "For you",
+    "forYouStory": "Story of the day",
+    "forYouFitness": "Pelvic routine",
+    "nutritionTitle": "Nutrition tip",
+    "nutritionSub": "Today's 3 foods",
+    "campTitle": "Camps",
+    "campSub": "Smoke-free and Focus",
+    "campOpen": "Take a look"
+  },
+  "training": {
+    "title": "Training",
+    "planTitle": "Plan {{plan}}",
+    "planProgress": "{{done}}/30 days",
+    "planHint": "You move forward one step each day. Tap a day to see that day's session. When the 30 days are over, the next plan starts at the level you reached.",
+    "planA11y": "30-day plan, {{done}} days completed",
+    "dayDone": "Day {{day}}, completed",
+    "dayToday": "Day {{day}}, today",
+    "dayTodo": "Day {{day}}",
+    "exercisesTitle": "Exercise types",
+    "topicsTitle": "Common questions",
+    "preset": {
+      "quick": "Quick (3 min)",
+      "standard": "Standard (5 min)",
+      "full": "Full (8 min)"
+    },
+    "roadmap": {
+      "title": "Plan {{plan}} · Roadmap",
+      "level": "Level {{level}}",
+      "open": "The full roadmap"
+    },
+    "preview": {
+      "title": "Day {{day}}",
+      "meta": "{{time}} · {{count}} contractions"
+    },
+    "functional": {
+      "title": "Today's everyday tasks",
+      "hint": "Done during the day, outside your session. Tick them off as you go."
+    },
+    "daysDone": "days completed",
+    "legend": {
+      "done": "Completed",
+      "today": "Today",
+      "next": "Up next"
+    },
+    "weekStatus": {
+      "done": "Completed",
+      "current": "Now",
+      "next": "Up next"
+    },
+    "readMore": "Read more",
+    "activeTrack": "Active track",
+    "levelTheme": "Level {{level}} · {{theme}}",
+    "weekProgress": "This week {{done}}/{{total}} days",
+    "thisWeek": "This week",
+    "seePlan": "See the whole plan",
+    "quickStart": "Quick start",
+    "quickMain": "Today's workout",
+    "quickMicro": "Micro set",
+    "quickTest": "Strength test",
+    "quickTestMeta": "~1 min measurement",
+    "quickTestDue": "It's time",
+    "library": "Exercise library",
+    "howTo": "How to do it",
+    "howToA11y": "{{name}}: how to do it",
+    "dayLabel": "Day {{day}}",
+    "weekCount": "{{done}}/{{total}}",
+    "weekA11y": "{{title}}, {{done}} / {{total}} days completed",
+    "deloadDay": "Light day",
+    "programmeKicker": "YOUR PROGRAMME"
+  },
+  "achievements": {
+    "title": "Trophies",
+    "summary": "{{count}} / {{total}} trophies earned",
+    "unlocked": "NEW TROPHY",
+    "great": "Great!",
+    "earned": "earned",
+    "locked": "locked",
+    "items": {
+      "first_workout": {
+        "title": "First Step",
+        "desc": "Complete your first workout."
+      },
+      "streak_3": {
+        "title": "3 Days in a Row",
+        "desc": "Reach a 3-day streak."
+      },
+      "streak_7": {
+        "title": "One Week",
+        "desc": "Reach a 7-day streak."
+      },
+      "streak_14": {
+        "title": "Two Weeks",
+        "desc": "Reach a 14-day streak."
+      },
+      "streak_30": {
+        "title": "One Month",
+        "desc": "Reach a 30-day streak."
+      },
+      "streak_60": {
+        "title": "Two Months",
+        "desc": "Reach a 60-day streak."
+      },
+      "streak_100": {
+        "title": "A Hundred Days",
+        "desc": "Reach a 100-day streak."
+      },
+      "workouts_10": {
+        "title": "10 Workouts",
+        "desc": "Complete 10 workouts in total."
+      },
+      "workouts_50": {
+        "title": "50 Workouts",
+        "desc": "Complete 50 workouts in total."
+      },
+      "workouts_100": {
+        "title": "100 Workouts",
+        "desc": "Complete 100 workouts in total."
+      },
+      "workouts_250": {
+        "title": "250 Workouts",
+        "desc": "Complete 250 workouts in total."
+      },
+      "level_5": {
+        "title": "Level 5",
+        "desc": "Reach Level 5."
+      },
+      "level_10": {
+        "title": "Level 10",
+        "desc": "Reach Level 10."
+      },
+      "level_20": {
+        "title": "Level 20",
+        "desc": "Reach Level 20."
+      },
+      "first_strength_test": {
+        "title": "First Measurement",
+        "desc": "Take your first strength test."
+      },
+      "strength_plus_25": {
+        "title": "25% Better",
+        "desc": "Improve 25% on the strength test compared with your first measurement."
+      },
+      "lessons_5": {
+        "title": "Student",
+        "desc": "Complete 5 lessons in Training."
+      },
+      "all_stories": {
+        "title": "Bookworm",
+        "desc": "Read all the info stories."
+      }
+    },
+    "unit": {
+      "day": "days",
+      "workout": "workouts",
+      "level": "level"
+    },
+    "progress": "{{value}}/{{target}} {{unit}}",
+    "progressPlain": "{{value}}/{{target}}",
+    "percent": "{{pct}}%",
+    "earnedA11y": "{{title}}, earned: {{date}}",
+    "lockedA11y": "{{title}}, locked. {{progress}}",
+    "summaryShort": "{{count}}/{{total}} earned"
+  },
+  "progress": {
+    "title": "Progress",
+    "totalWorkouts": "Total workouts",
+    "totalMinutes": "Total minutes",
+    "longestStreak": "Longest streak",
+    "level": "Current level",
+    "days": "{{count}} days",
+    "unitSec": " s",
+    "unitMin": " min",
+    "achievements": "My trophies",
+    "dayLetters": [
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa",
+      "Su"
+    ],
+    "strength": {
+      "title": "Weekly strength test",
+      "due": "It's test time. Measuring your progress takes 1 minute.",
+      "notDue": "You did your last test this week. You can measure again if you like.",
+      "start": "Start the test"
+    },
+    "charts": {
+      "hold": "Hold time (best attempt)",
+      "quick": "Quick contractions (10 s)",
+      "weekly": "Weekly training minutes",
+      "calendar": "Training calendar",
+      "empty": "Your chart will appear here after your first strength test.",
+      "score": "Muscle Score"
+    },
+    "heat": {
+      "none": "None",
+      "partial": "Partial",
+      "done": "Done",
+      "multi": "2+ sessions"
+    },
+    "notes": {
+      "title": "My notes",
+      "hint": "Jot down short notes for yourself. They're stored only on this device.",
+      "placeholder": "E.g. I felt better today",
+      "add": "Add note"
+    },
+    "statWorkouts": "Workouts",
+    "statMinutes": "Minutes",
+    "statStreak": "Longest streak",
+    "statLevel": "Level",
+    "strengthSection": "Strength progress",
+    "empty": {
+      "strengthTitle": "No measurements yet",
+      "strengthBody": "After your first strength test, your hold time, quick contractions and Muscle Score appear here.",
+      "weeklyTitle": "No sessions yet",
+      "weeklyBody": "Once you finish your first session, your weekly minutes will add up here."
+    },
+    "habitSection": "Habit",
+    "exercisesSection": "Exercises"
+  },
+  "strength": {
+    "title": "Strength test",
+    "testA": "TEST A · HOLD TIME",
+    "testB": "TEST B · QUICK CONTRACTIONS",
+    "holdTitle": "How long can you hold?",
+    "holdBody": "Squeeze the muscle and keep the button pressed. Release it when the muscle relaxes or when {{max}} seconds are up. We'll do {{n}} attempts with 20-second rests in between; the best one is saved.",
+    "quickTitle": "How many times in 10 seconds?",
+    "quickBody": "How many times can you squeeze and relax the muscle in {{sec}} seconds? Tap the button on every squeeze. The timer starts with the first tap.",
+    "honest": "This test is not a medical measurement; it's only for tracking your own progress. Be honest and relaxed, don't strain.",
+    "ready": "I'm ready",
+    "attempt": "Attempt {{n}} / {{total}}",
+    "holdHint": "Keep the button pressed while squeezing the muscle.",
+    "holdingHint": "Lift your finger as soon as you relax.",
+    "holdButton": "Press and hold",
+    "pressHold": "PRESS AND HOLD",
+    "release": "Release when you relax",
+    "attemptResult": "{{n}}: {{sec}} s",
+    "tapToStart": "Tap to start",
+    "secondsLeft": "{{sec}} s left",
+    "tapButton": "Tap on every squeeze",
+    "tap": "TAP",
+    "doneTitle": "Test complete",
+    "bestHold": "Best hold",
+    "quickCount": "Quick contractions",
+    "doneBody": "Measure again in a week to see your progress on the chart.",
+    "conditions": {
+      "title": "Same conditions every test",
+      "body": "To keep your results comparable, do the test the same way every time:",
+      "items": [
+        "Sitting, upright and relaxed",
+        "Before a session, with rested muscles",
+        "At roughly the same time each week"
+      ]
+    },
+    "testC": "TEST C",
+    "restTitle": "Rest",
+    "restBody": "Let the muscle go completely and breathe. Start the next attempt rested.",
+    "restSkip": "I'm ready",
+    "nextAttempt": "Next attempt",
+    "releaseTitle": "Release awareness",
+    "releaseBody": "This isn't a speed test but a self-assessment. Squeeze the muscle once, then tap when you feel you've let it go completely, and rate how fully you could release.",
+    "releaseDo": "Squeeze the muscle… now let it go completely.",
+    "releaseTap": "I've let go completely",
+    "releaseRate": "How fully could you let go?",
+    "releaseScale": "{{v}} / 5",
+    "releaseLow": "1 · It was hard",
+    "releaseHigh": "5 · Completely",
+    "releaseShort": "Release",
+    "recordTitle": "Personal best!",
+    "record": "Record!",
+    "scoreTitle": "Muscle Score",
+    "scoreBody": "Your change compared with your first test. 50 = start, 100 = double.",
+    "scoreFirst": "Your first test became your baseline (50). Later tests are calculated from it.",
+    "scoreLabel": "Your own progress measure — not a medical measurement."
+  },
+  "reminders": {
+    "discreet": {
+      "title": "Your daily 5 minutes",
+      "body0": "Your daily 5 minutes are waiting",
+      "body1": "Time for a short break. We're here when you're ready.",
+      "body2": "Today's small goal is waiting for you",
+      "body3": "A good moment for your 5-minute routine",
+      "body4": "Just one short step to keep your streak going",
+      "body5": "It's time for the 5 minutes you set aside for yourself.",
+      "testTitle": "Weekly check",
+      "testBody": "It's time for your weekly measurement. It takes a minute"
+    },
+    "explicit": {
+      "title": "Time for Kegel training",
+      "body0": "Your daily pelvic floor workout is waiting",
+      "body1": "Ready for your 5-minute Kegel session?",
+      "body2": "Time to work your pelvic floor muscles",
+      "body3": "Complete today's Kegel workout and keep your streak.",
+      "testTitle": "Strength test time",
+      "testBody": "Take the weekly pelvic floor strength test and see your progress"
+    },
+    "actions": {
+      "start": "Start (3 min)",
+      "micro": "Micro set (1 min)",
+      "snooze15": "Snooze 15 min",
+      "skipToday": "Skip today",
+      "snooze60": "Snooze 1 hour"
+    }
+  },
+  "fitness": {
+    "title": "Pelvic Fitness",
+    "subtitle": "Bodyweight exercises that support your hip, core and inner-thigh muscles.",
+    "routineTitle": "{{name}} routine",
+    "overview": "{{count}} moves · {{rounds}} rounds · about {{min}} minutes",
+    "cardMeta": "{{count}} exercises · {{min}} min",
+    "recommended": "Recommended for you",
+    "safety": "Do the moves without rushing and within a pain-free range. Stop if you feel pain.",
+    "stepOf": "{{n}} / {{total}}",
+    "nextUp": "Next: {{name}}",
+    "done": "Routine complete!",
+    "partial": "That's it for today, nice work",
+    "doneMeta": "Active time: {{time}}",
+    "finishTitle": "Finish the routine?",
+    "notFound": "Routine not found.",
+    "howTitle": "How does it work?",
+    "how": [
+      "Before you start, tap the moves below: the figure shows the movement and the steps explain how to do it.",
+      "During the workout, follow the figure and the big word: LIFT, HOLD, LOWER and so on. The phone gives a short vibration at every step.",
+      "You rest 15 seconds between moves; the next move is shown meanwhile."
+    ],
+    "roundTitle": "Round {{n}} · {{name}}",
+    "rounds": {
+      "1": {
+        "name": "Warm-up",
+        "hint": "Slow moves that wake the muscles up."
+      },
+      "2": {
+        "name": "Strength",
+        "hint": "Moves that strengthen the hips, inner thighs and pelvic floor."
+      },
+      "3": {
+        "name": "Stretch",
+        "hint": "Finish by relaxing."
+      }
+    },
+    "metaWork": "{{sec}} s",
+    "metaReps": "{{sec}} s · {{reps}} reps",
+    "metaSides": "{{sec}} s · {{reps}} reps each side",
+    "metaHold": "Stay in this position for {{sec}} s",
+    "works": "Works: {{target}}",
+    "setup": "STARTING POSITION",
+    "restHint": "Rest and get into position for the next move.",
+    "getReadyHint": "Get into position; we're starting shortly.",
+    "holdOn": "Hold the position",
+    "rep": "Rep {{rep}} / {{reps}}",
+    "side": "Side {{n}}",
+    "switchSide": "Switch sides",
+    "secLeft": "{{sec}} s",
+    "tempo": {
+      "lift": "LIFT",
+      "hold": "HOLD",
+      "lower": "LOWER",
+      "press": "PRESS",
+      "release": "RELEASE",
+      "squeeze": "SQUEEZE",
+      "relax": "RELAX",
+      "open": "OPEN",
+      "close": "CLOSE",
+      "reach": "REACH",
+      "back": "BACK",
+      "down": "DOWN",
+      "up": "UP",
+      "forward": "FORWARD",
+      "breatheIn": "BREATHE IN",
+      "breatheOut": "BREATHE OUT",
+      "circle": "CIRCLE",
+      "jump": "JUMP",
+      "pull": "PULL",
+      "left": "LEFT",
+      "right": "RIGHT"
+    }
+  },
+  "mind": {
+    "title": "Mind Relaxation",
+    "subtitle": "Stress and performance anxiety can affect the body too. A few minutes of calming down can make the rest of the day easier.",
+    "note": "These tools are meant to help you relax; they don't replace treatment. If anxiety has been making life hard for a long time, getting support from a professional is a good step.",
+    "breathing": {
+      "title": "Breathing",
+      "card": "Calm down with box breathing or 4-7-8",
+      "intro": "Follow the circle: breathe in as it grows, breathe out as it shrinks. Your phone guides you with vibration too, so you can close your eyes.",
+      "pattern": "Breathing pattern",
+      "duration": "Duration",
+      "box": {
+        "name": "Box breathing (4-4-4-4)",
+        "desc": "In for 4 s, hold for 4 s, out for 4 s, wait 4 s. Balanced and focusing."
+      },
+      "478": {
+        "name": "4-7-8 breathing",
+        "desc": "In for 4 s, hold for 7 s, slowly out for 8 s. A long out-breath can help you calm down."
+      },
+      "phase": {
+        "inhale": "Breathe in",
+        "holdIn": "Hold",
+        "exhale": "Breathe out",
+        "holdOut": "Wait"
+      },
+      "done": "Good. Stay in this calm for a few seconds."
+    },
+    "unload": {
+      "title": "Mind Unload",
+      "card": "Write down what's on your mind and let it go",
+      "intro": "Write down whatever is keeping you busy: worries, to-dos, thoughts going round in your head. Then tap \"Let go\".",
+      "placeholder": "What's on my mind…",
+      "release": "Let go",
+      "again": "Write again",
+      "privateHint": "What you write isn't saved anywhere; it disappears when you let go.",
+      "savedHint": "Saving is on in Settings: what you write is stored only on this device.",
+      "afterTitle": "You let it go.",
+      "afterBody": "Thoughts may come back, and that's normal. Each time they do, you can notice them and let go again. Now take a deep breath."
+    },
+    "bodyScan": {
+      "title": "Body Scan",
+      "card": "A 5-minute guided relaxation",
+      "intro": "For about {{min}} minutes we'll guide your attention step by step through different parts of your body. Each step moves on by itself.",
+      "tip": "Choose a quiet place and a comfortable position. You'll feel a light vibration at the start of each step.",
+      "step": "Step {{n}} / {{total}}",
+      "next": "Next step",
+      "done": "Scan complete. Take care of yourself"
+    }
+  },
+  "challengeCategory": {
+    "snack": "Snack",
+    "fruit": "Fruit",
+    "plate": "Add to your plate"
+  },
+  "discover": {
+    "title": "Discover",
+    "growing": "Growing with new content",
+    "read": "read",
+    "start": "Start",
+    "continue": "Continue",
+    "sound": "Sound",
+    "campCount_one": "{{count}} camp",
+    "campCount_other": "{{count}} camps",
+    "termCount_one": "{{count}} entry",
+    "termCount_other": "{{count}} entries",
+    "dayOf": "Day {{day}} / {{total}}",
+    "listA11y": "{{title}}, {{count}} items, scrolls horizontally",
+    "campDesc": {
+      "smoking": "A 90-day programme to quit smoking",
+      "odak": "Your own plan to manage urges",
+      "alcohol": "To cut down on or quit alcohol"
+    }
+  },
+  "stories": {
+    "title": "Info Stories",
+    "readCount": "{{read}}/{{total}} read",
+    "ofTheDay": "Story of the day",
+    "favorites": "My favourites",
+    "minutes": "~{{count}} min read",
+    "didYouKnow": "DID YOU KNOW?",
+    "prev": "Previous slide",
+    "next": "Next slide",
+    "favorite": "Add to favourites",
+    "unfavorite": "Remove from favourites",
+    "finished": "You've finished the story.",
+    "sources": "Sources",
+    "disclaimer": "For general information only, not medical advice. The content has not yet been reviewed by an expert.",
+    "notFound": "Story not found.",
+    "category": {
+      "menHealth": "Men's Health",
+      "relationships": "Relationships",
+      "nutrition": "Nutrition",
+      "sleep": "Sleep",
+      "stress": "Stress",
+      "exercise": "Exercise"
+    },
+    "allRow": "Stories",
+    "meta": "{{min}} min · {{count}} slides",
+    "position": "Slide {{index}} / {{count}}",
+    "save": "Save",
+    "unsave": "Remove from saved",
+    "flipFirst": "Flip the card first",
+    "mythLabel": "Common belief",
+    "factLabel": "Fact",
+    "tapToFlip": "Tap to see the fact",
+    "didYouKnowTitle": "Did you know?",
+    "quizLabel": "A quick question",
+    "quizHint": "Choose an answer",
+    "correct": "correct answer",
+    "tryToday": "Try it today",
+    "doctorTitle": "When should you see a doctor?",
+    "summaryTitle": "Remember",
+    "nextStory": "Next story",
+    "sourcesLink": "Sources ({{count}})",
+    "resume": "Continue where you left off: {{n}}/{{total}}",
+    "state": {
+      "partial": "unfinished",
+      "saved": "saved"
+    }
+  },
+  "camps": {
+    "title": "Camps",
+    "allTitle": "All camps",
+    "subtitle": "Each camp runs with its own panel. You can join more than one camp at the same time.",
+    "ui": {
+      "plus": "increase",
+      "minus": "decrease"
+    },
+    "length_one": "{{count}} day",
+    "length_other": "{{count}} days",
+    "open": "Start"
+  },
+  "courses": {
+    "title": "Workouts"
+  },
+  "programsSoon": {
+    "posture": "Posture Correction",
+    "mobility": "Flexibility and Mobility"
+  },
+  "paywall": {
+    "title": "One step forward every day with {{app}} Premium",
+    "titleLocked": "This feature is included in Premium",
+    "benefits": {
+      "plan": "A daily training plan that adapts to your level (30 levels)",
+      "levels": "Unlimited sessions, strength test and progress charts",
+      "fitness": "Pelvic Fitness routines",
+      "courses": "All the info stories and the Alcohol-Free Camp",
+      "camp": "Smoke-Free Camp included: 90-day mission programme, all skill lessons, detailed statistics and a summary for your doctor",
+      "mind": "Breathing, mind unload and body scan",
+      "privacy": "No ads, no tracking. Your data stays on this phone."
+    },
+    "plan": {
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "lifetime": "Lifetime"
+    },
+    "per": {
+      "weekly": "/ week",
+      "monthly": "/ month",
+      "yearly": "/ year",
+      "lifetime": "one-time"
+    },
+    "perMonthEq": "About {{price}} a month",
+    "trialTag": "{{days}} days free",
+    "saving": "{{pct}}% less than monthly",
+    "cta": "Continue",
+    "ctaTrial": "Start {{days}} days free",
+    "noteTrial": "Your {{days}}-day free trial ends on {{date}}. Unless you cancel before the trial ends, you'll be charged {{price}} {{period}} and the subscription renews automatically. You can cancel any time in your store settings.",
+    "noteSub": "You'll be charged {{price}} {{period}}, renewing automatically until cancelled. You can cancel any time in your store settings.",
+    "noteLifetime": "{{price}} one-time payment. Not a subscription; it doesn't renew.",
+    "restore": "Restore purchases",
+    "restoreNone": "No active purchase was found on this account.",
+    "previewNote": "Trial prices are shown. When published, real prices come from the App Store and Google Play.",
+    "previewBuy": "This is a trial price; purchasing only works in the store version.",
+    "terms": "Terms of Use",
+    "privacy": "Privacy Policy",
+    "error": "The purchase couldn't be completed. Please try again.",
+    "unavailableTitle": "Prices couldn't be loaded right now",
+    "unavailableBody": "Seeing the plans requires connecting to the store. Check your internet connection and try again. The rest of the app keeps working offline.",
+    "retry": "Try again",
+    "soft": {
+      "title": "Try {{days}} days free",
+      "body": "Try all the features at your own pace before you decide.",
+      "step1": "All Premium features unlock.",
+      "step2": "{{date}}: a good day to cancel if you don't want to continue.",
+      "step3": "{{date}}: unless you cancelled, the yearly plan ({{price}}) begins.",
+      "cta": "Start {{days}} days free",
+      "later": "Not now",
+      "step1Title": "Today",
+      "step2Title": "2 days before the end",
+      "step3Title": "When the trial ends"
+    },
+    "included": "WHAT'S IN PREMIUM",
+    "choosePlan": "Choose your plan",
+    "diffMore": "{{amount}} more per month",
+    "diffLess": "{{amount}} less per month",
+    "benefitsV3": {
+      "plan": "A daily plan adjusted to your level",
+      "levels": "Unlimited sessions, strength test and charts",
+      "tools": "Pelvic Fitness, breathing and body scan",
+      "content": "Camps, Workouts and all the stories",
+      "noAds": "No ads, no tracking"
+    },
+    "bestValue": "Best value",
+    "perWeekEq": "About {{price}} a week",
+    "trustLocal": "Your data stays on this phone",
+    "trustCancel": "Cancel any time",
+    "termsShort": "Terms",
+    "privacyShort": "Privacy",
+    "restoreShort": "Restore purchases",
+    "selected": "selected",
+    "presaleShort": "Pre-contract information"
+  },
+  "profile": {
+    "title": "Profile",
+    "level": "Level",
+    "streak": "Streak",
+    "trophies": "Trophies",
+    "settings": "Settings",
+    "legal": "Legal",
+    "replayTutorial": "Replay the lesson",
+    "sub": {
+      "active": "Premium active",
+      "free": "Free version",
+      "renews": "Renews / ends: {{date}}",
+      "upgrade": "Go Premium",
+      "manage": "Manage subscription"
+    },
+    "devGallery": "Component Gallery (developer)",
+    "groups": {
+      "training": "Training",
+      "notifications": "Notifications",
+      "appearance": "Appearance",
+      "data": "Data and privacy",
+      "legal": "Legal",
+      "developer": "Developer",
+      "policies": "Policies",
+      "other": "Other",
+      "policiesAndOther": "Policies and Other"
+    },
+    "subscription": "Subscription",
+    "avatarA11y": "Profile",
+    "training": {
+      "activeTrack": "Active track · {{track}}",
+      "levelWeek": "Level {{level}} · {{theme}}",
+      "muscleTitle": "Let's get to know your muscles",
+      "muscleSummary": "Your muscle profile: {{track}}, {{relax}}",
+      "relaxFirst": "relaxation first",
+      "relaxOk": "balanced training",
+      "update": "Update",
+      "rescreen": "Redo",
+      "guide": "Exercise guide",
+      "trophies": "My trophies",
+      "programme": "Kegel training"
+    },
+    "deleteAll": {
+      "button": "Delete my data and account",
+      "hint": "All your records on this phone are permanently deleted. Your subscription isn't cancelled; cancel it in the App Store or Google Play.",
+      "title1": "Delete everything?",
+      "body1": "Your training history, progress, camp records, the encrypted Focus vault and its key, your PIN, the photos you added, your settings and reminders will be permanently deleted from your phone. If you like, make a backup first in Profile > Data.",
+      "title2": "Are you sure?",
+      "body2": "This can't be undone. The app returns to how it was when first opened.",
+      "confirm": "Delete permanently"
+    }
+  },
+  "settings": {
+    "training": {
+      "title": "Settings",
+      "level": "Level",
+      "levelUp": "Increase level",
+      "levelDown": "Decrease level",
+      "levelHint": "Your level is normally adjusted automatically from your feedback. The level increases hold times and contraction strength; you choose the session length.",
+      "applyLevel": "Set to Level {{level}}",
+      "confirmTitle": "Level {{level}}?",
+      "confirmUp": "Your long-squeeze hold time will go up from {{from}} to {{to}} seconds. Session length doesn't change. If it's too hard, your feedback will adjust the level again.",
+      "confirmDown": "Your long-squeeze hold time will go down from {{from}} to {{to}} seconds. Session length doesn't change.",
+      "haptics": "Vibration strength",
+      "hapticsHint": "When you choose, you'll feel a sample “SQUEEZE” vibration. You can try each pattern one by one below.",
+      "strength": {
+        "0": "Off",
+        "1": "Light",
+        "2": "Normal",
+        "3": "Strong"
+      },
+      "sound": "Sound cues",
+      "soundHint": "Rising tone = squeeze, falling tone = let go, short click = second. Best heard with headphones; doesn't play in silent mode.",
+      "discreet": "Discreet mode",
+      "discreetHint": "The player shows only the circle and colours instead of text.",
+      "perDay": "Daily session goal",
+      "perDayHint": "1 main session plus short micro sets during the day. 1 session a day is enough for your streak.",
+      "voice": "Voice coach",
+      "voiceHint": "Short cues in your phone's own voice: “Squeeze”, “Let go”. No internet needed.",
+      "voiceTry": "Try the voice",
+      "langTitle": "Try the vibration language",
+      "langHint": "Each phase feels different so you can train without looking at the screen. Tap and feel.",
+      "langTry": "Try",
+      "langAll": "Play them all in order",
+      "langNative": "Advanced vibration (ramps and intensity) is used on this device.",
+      "langBasic": "Basic vibration is used on this device; ramps are imitated with short pulses.",
+      "langOff": "Vibration is off. Turn it on above to try it.",
+      "cue": {
+        "squeezeStart": {
+          "title": "Squeeze start",
+          "text": "Rising ramp: “lift up”."
+        },
+        "holdTick": {
+          "title": "While holding",
+          "text": "A light tick every second."
+        },
+        "holdTickFinal": {
+          "title": "Last 3 seconds",
+          "text": "Slightly stronger ticks: the end is near."
+        },
+        "releaseStart": {
+          "title": "Let-go start",
+          "text": "Falling ramp and a soft double pulse."
+        },
+        "quickFlick": {
+          "title": "Quick squeeze",
+          "text": "A single sharp pulse."
+        },
+        "knackCough": {
+          "title": "Knack “cough”",
+          "text": "A sharp double pulse."
+        },
+        "blockChange": {
+          "title": "Block change",
+          "text": "Long – short."
+        },
+        "sessionEnd": {
+          "title": "End of session",
+          "text": "Three rising pulses."
+        },
+        "slowSqueeze": {
+          "title": "Squeeze slowly",
+          "text": "A long, slowly rising vibration."
+        },
+        "slowRelease": {
+          "title": "Release slowly",
+          "text": "A long, slowly fading vibration."
+        }
+      },
+      "holdAt": "Long squeeze: {{sec}} s",
+      "vibration": "Vibration",
+      "vibrationHint": "Guidance by vibration in workouts and around the app. When off, nothing vibrates."
+    },
+    "reminders": {
+      "title": "Reminders",
+      "enabled": "Daily reminder",
+      "discreet": "Neutral notification text",
+      "discreetHint": "The lock screen doesn't say what the exercise is.",
+      "weekly": "Weekly strength test reminder",
+      "weeklyHint": "Reminds you 7 days after your last test.",
+      "times": "Reminder times",
+      "timeN": "Reminder {{n}}",
+      "remove": "Delete reminder {{n}}",
+      "add": "Add a time (up to 4)",
+      "hint": "Add times in any order; they're sorted automatically. Once you've met your daily goal the remaining reminders stay silent; in vacation mode none arrive.",
+      "noPermission": "Notification permission is off. Allow it to receive reminders.",
+      "allow": "Allow notifications",
+      "presetsTitle": "Link it to a habit",
+      "presetsHint": "Linking it to something you already do makes remembering easier. Tap to add or remove (up to 4).",
+      "preset": {
+        "coffee": "With morning coffee",
+        "lunch": "Lunch break",
+        "dinner": "After dinner",
+        "bed": "Before bed"
+      }
+    },
+    "appearance": {
+      "title": "Appearance and language",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "language": "Language",
+      "languageHint": "When you change the language, the app restarts in the new language."
+    },
+    "data": {
+      "title": "My data",
+      "privacyTitle": "Your data never leaves this device",
+      "privacyBody": "All your records are stored only on this phone. You decide when and where to save a backup.",
+      "backup": "Back up and restore",
+      "backupHint": "Export all your data as a single JSON file; import it when moving to a new phone.",
+      "export": "Export",
+      "import": "Import",
+      "shareUnavailable": "The share menu isn't available on this device.",
+      "exportError": "Something went wrong during export.",
+      "importTitle": "Restore the backup?",
+      "importBody": "The data in the backup will replace your current data on this device.",
+      "importConfirm": "Restore",
+      "importDone": "Backup restored successfully.",
+      "importErrors": {
+        "invalidJson": "The file couldn't be read. Choose a valid backup file.",
+        "wrongFormat": "This file isn't a backup of this app.",
+        "newerVersion": "This backup was made with a newer version of the app. Update the app first.",
+        "corrupt": "The backup file seems to be damaged."
+      },
+      "saveUnload": "Save Mind Unload notes",
+      "saveUnloadHint": "Off by default: what you write isn't saved anywhere.",
+      "deleteUnload": "Delete {{count}} saved notes",
+      "dangerTitle": "Delete all data",
+      "wipeHint": "Training history, settings, progress and notes are permanently deleted. Your subscription stays with your store account; you can restore it.",
+      "wipe": "Delete all data",
+      "wipeTitle1": "Are you sure?",
+      "wipeBody1": "This can't be undone. If you like, export a backup first.",
+      "wipeTitle2": "Final confirmation",
+      "wipeBody2": "All your data will be permanently deleted from this device and the app will return to the first-launch screen.",
+      "wipeConfirm": "Yes, delete everything"
+    },
+    "about": {
+      "title": "About {{app}}",
+      "version": "Version {{version}}",
+      "privacyTitle": "Your data never leaves this device",
+      "privacyBody": "No servers, no accounts, no ads or tracking software. The app works offline; only purchases use the internet, through the store.",
+      "medicalTitle": "Not a medical device",
+      "medicalBody": "This app is for general health and exercise purposes; it doesn't replace medical advice."
+    }
+  },
+  "error": {
+    "title": "Something went wrong",
+    "body": "An unexpected error occurred. Your data is safe; you can try again.",
+    "retry": "Try again",
+    "home": "Back to home"
+  },
+  "glossary": {
+    "title": "Why, What and What Does It Mean?",
+    "subtitle": "Explanations of the app's concepts and of sexual health topics.",
+    "notFound": "Explanation not found.",
+    "meta": "{{sections}} sections · {{minutes}} min read",
+    "sourcesTitle": "Sources",
+    "next": "Next entry",
+    "homeSubtitle": "Explanations of sexual health and pelvic floor topics."
+  },
+  "campusShared": {
+    "guideBadge": "CAMPUS GUIDE · {{n}}/{{total}}",
+    "guideActionsTitle": "In this step",
+    "hoursMinutes": "{{hours}} h {{minutes}} min"
+  },
+  "acampus": {
+    "card": {
+      "setup": "See your weekly status in 3 minutes",
+      "cut": "{{total}}/{{limit}} standard drinks this week",
+      "quit": "Alcohol-free day {{count}}"
+    },
+    "home": {
+      "cutLabel": "CUT DOWN · THIS WEEK",
+      "quitLabel": "QUIT · ALCOHOL-FREE",
+      "ringCut": "{{total}}/{{limit}}",
+      "ringQuit": "{{done}}/{{goal}}",
+      "stdUnit": "standard drinks",
+      "cutLeft": "{{left}} standard drinks left before your limit",
+      "cutAt": "You've reached your weekly limit",
+      "cutOver": "You've gone over your limit this week",
+      "weekResets": "The new week starts on Monday",
+      "days": "{{count}} days",
+      "hoursMinutes": "{{hours}} h {{minutes}} min",
+      "goalOf": "Goal: {{goal}} alcohol-free days",
+      "today": "Drunk today",
+      "freeDays": "Alcohol-free days this week",
+      "freeDaysValue": "{{done}}/{{target}}",
+      "longest": "Longest break",
+      "weekTotal": "Total this week",
+      "addDrink": "Add a drink",
+      "addHint": "Log every drink as you have it",
+      "added": "{{title}} added · {{total}} standard drinks today",
+      "undo": "Undo the last entry",
+      "dailyWarn": "Today you've gone over the recommended maximum of 4 standard drinks a day. From here on, choose water or an alcohol-free drink.",
+      "quitDrinkNote": "You're on the quit path; a logged drink restarts your alcohol-free counter. One slip doesn't mean it's all over.",
+      "chartTitle": "Last 7 days",
+      "chartHint": "The dashed line is the recommended maximum of 4 standard drinks a day.",
+      "chartA11y": "{{day}}: {{std}} standard drinks",
+      "plansTitle": "My risky-situation plans",
+      "plansIf": "If: {{trigger}}",
+      "plansEmpty": "You haven't chosen any risky situations yet. You can add them by editing your plan.",
+      "sexualTitle": "Alcohol and sexual health",
+      "auditTitle": "Your AUDIT-C result",
+      "auditScore": "{{score}}/12",
+      "guideTitle": "Camp guide",
+      "guideBody": "The {{count}}-part guide you read when you signed up.",
+      "guideOpen": "Read the guide from the start",
+      "helpTitle": "Get support",
+      "quitDoneTitle": "You've completed {{goal}} alcohol-free days!",
+      "quitDoneBody": "That's a big achievement. You can set a new goal or switch to the cut-down path.",
+      "newGoal": "Set a new goal",
+      "editPlan": "Edit plan",
+      "reset": "Reset the camp",
+      "sources": "Sources",
+      "disclaimerToggle": "Important information",
+      "disclaimer": "For general information only; not medical advice or a diagnosis. The content has not yet been reviewed by an expert. If you have withdrawal symptoms, don't stop drinking suddenly on your own.",
+      "tipsTitle": "Tips",
+      "tipsHint": "Research-backed methods that make cutting down easier.",
+      "callAmatem": "Call AMATEM · {{phone}}"
+    },
+    "drinkSheet": {
+      "title": "What did you drink?",
+      "hint": "Standard drinks are calculated automatically.",
+      "std": "{{std}} standard drinks"
+    },
+    "resetDialog": {
+      "title": "Reset the camp?",
+      "body": "Your plan and drink log will be deleted. This can't be undone.",
+      "confirmTitle": "Are you sure?",
+      "confirmBody": "All your data in the Alcohol-Free Camp will be permanently deleted.",
+      "confirm": "Yes, reset"
+    },
+    "setup": {
+      "header": "Camp plan",
+      "stepOf": "Step {{n}} / {{total}}",
+      "start": "Let's begin",
+      "enrol": "Join the camp",
+      "save": "Save plan",
+      "privacy": "Your answers and drink log are stored only on this phone.",
+      "auditTitle": "Short alcohol test",
+      "auditHint": "Answer thinking about the past year. You can skip this step if you like.",
+      "auditResult": "Your AUDIT-C score: {{score}}/12",
+      "withdrawalTitle": "Safety check",
+      "withdrawalHint": "These questions help tell whether you need medical support while cutting down or quitting.",
+      "yes": "Yes",
+      "no": "No",
+      "reasonsTitle": "Why do you want to change?",
+      "reasonsHint": "You can choose more than one.",
+      "reasonsError": "Choose at least one reason to continue.",
+      "triggersTitle": "What makes you drink most?",
+      "triggersHint": "Ready-made plans for the situations you choose appear on your home screen.",
+      "pathTitle": "Choose your goal",
+      "pathHint": "Both paths work. You can change it later by editing your plan.",
+      "limitTitle": "Your weekly limit",
+      "limitOption": "At most {{count}} standard drinks a week",
+      "limitDesc": {
+        "10": "The upper limit in the Australian guidelines",
+        "7": "Lower risk",
+        "4": "A clear reduction"
+      },
+      "quitTitle": "How many alcohol-free days?",
+      "quitOption": "{{count}} days",
+      "quitDesc": {
+        "14": "A two-week start",
+        "30": "One month; the most studied break",
+        "60": "For a lasting habit"
+      },
+      "riskNote": "The safety check showed a risk of withdrawal. Whichever path you choose, plan cutting down and quitting with a doctor or an addiction treatment centre such as AMATEM.",
+      "summaryTitle": "Your plan is ready",
+      "summaryPath": "Your goal",
+      "summaryCut": "Cut down · at most {{count}} standard drinks a week",
+      "summaryQuit": "Quit · {{count}} alcohol-free days",
+      "summaryAudit": "AUDIT-C",
+      "summaryReasons": "Your reasons",
+      "summaryTriggers": "Your risky situations",
+      "none": "Not chosen"
+    },
+    "guide": {
+      "title": "Camp guide",
+      "finish": "Finish the guide"
+    }
+  },
+  "campusCommit": {
+    "title": "You are the real strength of this journey",
+    "lead": "You will shape the most important quality of this programme.",
+    "p1": "When you truly want it, a single sentence can be enough to change your life. When you don't, even the best programme or the best expert won't be enough.",
+    "p2": "This programme gives you knowledge, tools and companionship along the way; but you're the one who takes the steps. There will be hard days. What matters isn't being perfect; it's not giving up and being able to start again when needed.",
+    "pledge": "If you're ready, make yourself a promise and take the first step.",
+    "wait": "Take a moment to think… {{count}}"
+  },
+  "camp": {
+    "title": "Smoke-Free Camp (90 Days)",
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "weekdays": [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "ui": {
+      "plus": "increase",
+      "minus": "decrease",
+      "call171": "Call ALO 171",
+      "call171Hint": "Opens 171 (Türkiye's quit line) in your phone app",
+      "lastVerified": "(Information date: {{date}})",
+      "hsiLabel": "HEAVINESS OF SMOKING INDEX",
+      "hsiInfo": "What is this score?",
+      "under18Title": "For under-18s",
+      "medTitle": "About medication support"
+    },
+    "plan": {
+      "quitDay": "YOUR QUIT DAY",
+      "lastCig": "YOUR LAST CIGARETTE",
+      "inDays": "in {{count}} days",
+      "alreadyHint": "The camp will start from the stage you're at.",
+      "cutTitle": "Your cut-down plan (maximum per day)",
+      "cutWeek": "Week {{n}}",
+      "cutPerDay": "{{count}} a day",
+      "cutNote": "After the last week comes your quit day. Drop first the autopilot cigarettes you marked \"needed it little\" in your diary.",
+      "phasesTitle": "Camp phases",
+      "hsiTitle": "Your level of dependence",
+      "triggersTitle": "Your triggers",
+      "plansTitle": "Your first If–Then plans",
+      "if": "If",
+      "then": "then",
+      "plansInfo": "What is an If–Then plan?",
+      "savingsTitle": "Your estimated savings",
+      "month": "per month",
+      "year": "per year",
+      "tl": "{{amount}}",
+      "savingsNote": "An estimate based on today's price and your daily average. When the price changes you can update it in settings; your past savings are kept at the old price."
+    },
+    "onb": {
+      "question": "QUESTION {{n}} / {{total}}",
+      "progress": "Step {{n}} / {{total}}",
+      "toCommit": "Continue",
+      "enrol": "Start the camp",
+      "err": {
+        "products": "Choose at least one product to continue.",
+        "firstCig": "Tick an option to continue.",
+        "price": "Please enter a valid price (e.g. 95 or 95.50).",
+        "packSize": "The pack size must be at least 1.",
+        "reasons": "Choose at least one reason or write your own sentence.",
+        "triggers": "Choose at least one situation.",
+        "attempts": "Tick an option to continue.",
+        "age": "Choose your age range to continue.",
+        "plan": "If you chose your own plan, briefly write what you'll do."
+      },
+      "products": {
+        "title": "What do you use?",
+        "hint": "You can choose more than one.",
+        "note": "E-cigarettes, heated tobacco, hookah and nicotine pouches are not ways to quit; if you use them, we'll quit them together in this camp too."
+      },
+      "amount": {
+        "title": "How much do you use?",
+        "hint": "Think of an average day; it doesn't have to be exact.",
+        "perDay": "How many a day?",
+        "unit": "per day",
+        "hookah": "How many hookah sessions a week?",
+        "hookahUnit": "sessions / week"
+      },
+      "firstCig": {
+        "title": "How soon after waking do you smoke your first cigarette?",
+        "hint": "How early your first need for nicotine comes is one of the best signs of your level of dependence."
+      },
+      "hsi": {
+        "title": "Your level of dependence",
+        "hint": "Calculated from your first two answers.",
+        "nonJudge": "This result doesn't define you; it only shows which support will help you."
+      },
+      "years": {
+        "title": "How many years have you smoked?",
+        "unit": "years",
+        "note": "The benefits of quitting begin whatever your age and however many years you've smoked."
+      },
+      "price": {
+        "title": "Pack price",
+        "hint": "To calculate your savings. You can update it later when the price changes.",
+        "priceLabel": "Price of one pack",
+        "placeholder": "E.g. 95",
+        "packSize": "Cigarettes per pack",
+        "packUnit": "per pack",
+        "note": "If you use rolling tobacco or hookah, you can think of your weekly spend as a pack price."
+      },
+      "reasons": {
+        "title": "Why do you want to quit?",
+        "hint": "We'll remind you of these in your own words when things get hard.",
+        "ownLabel": "Your own sentence (optional)",
+        "ownPlaceholder": "E.g. To be able to run with my daughter",
+        "private": "What you write stays only on this device.",
+        "photoLabel": "A photo (optional)",
+        "photoAlt": "Photo of your reason to quit",
+        "photoAdd": "Add a photo",
+        "photoChange": "Change the photo",
+        "photoRemove": "Remove",
+        "photoNote": "It could be a photo of someone or a goal that gives you strength. The photo is stored inside the app, only on this device."
+      },
+      "triggers": {
+        "title": "When do you smoke most?",
+        "hint": "Knowing your triggers lets you plan ahead for those moments. Choose as many as you like."
+      },
+      "attempts": {
+        "title": "Have you tried to quit before?",
+        "why": "What made you start again? (you can choose more than one)"
+      },
+      "method": {
+        "title": "How would you like to quit?",
+        "hint": "Setting a quit day is the most recommended way.",
+        "recommended": "recommended",
+        "inDays": "In how many days will you quit?",
+        "daysUnit": "days from now",
+        "weeks": "How many weeks should cutting down take?",
+        "weeksN": "{{count}} weeks",
+        "daysAgo": "How many days ago was your last cigarette?",
+        "daysAgoUnit": "days ago",
+        "quitOn": "Your quit day: {{date}}",
+        "lastCigOn": "Your last cigarette: {{date}}"
+      },
+      "support": {
+        "title": "Support",
+        "hint": "The road is easier when someone is beside you and you know where to call.",
+        "supporter": "Who will you tell that you're quitting? (optional)",
+        "supporterPlaceholder": "A name",
+        "supporterNote": "The name stays only on this device; it's used in the ready-made messages you send them.",
+        "saveContact": "Save ALO 171 to my contacts",
+        "contactSaved": "Saved to contacts",
+        "contactName": "ALO 171 Quit Smoking",
+        "contactUnavailable": "It couldn't be saved to your contacts from here. You can add the number \"171\" to your phone's contacts yourself.",
+        "age": "Your age range"
+      },
+      "plans": {
+        "title": "Your first If–Then plans",
+        "hint": "Decide now what you'll do in the three situations you chose most. You can change them and add new ones later.",
+        "own": "I'll write my own",
+        "ownPlaceholder": "Then what will you do?"
+      },
+      "summary": {
+        "title": "Your personal quit plan",
+        "hint": "Everything's ready. Take a look, then start the camp."
+      }
+    },
+    "home": {
+      "planTitle": "Your plan · Attempt #{{n}}",
+      "reset": "Delete camp data",
+      "resetTitle": "Delete camp data?",
+      "resetBody": "Your plan, diaries and all camp records will be deleted from this device. You can then redo the assessment.",
+      "resetConfirmTitle": "Are you sure?",
+      "resetConfirmBody": "This can't be undone.",
+      "resetConfirm": "Delete"
+    },
+    "card": {
+      "setup": "Free assessment · about 3 minutes",
+      "preparing": "Preparation · {{count}} days to quit day",
+      "active": "{{count}} days smoke-free",
+      "graduated": "You've completed the 90 days"
+    },
+    "dur": {
+      "min": "{{count}} min",
+      "hour": "{{count}} h",
+      "day": "{{count}} days",
+      "month": "{{count}} months",
+      "year": "{{count}} years"
+    },
+    "panel": {
+      "attempt": "ATTEMPT #{{n}}",
+      "toQuit": "To quit day",
+      "toQuitA11y": "{{count}} days to quit day, {{date}}",
+      "days": "{{count}} days",
+      "smokeFree": "Smoke-free",
+      "sinceLast": "Since your last cigarette",
+      "hoursMinutes": "{{hours}} hours {{minutes}} minutes",
+      "freeA11y": "Smoke-free for {{days}} days {{hours}} hours {{minutes}} minutes",
+      "totalDays": "Total smoke-free days: {{count}}",
+      "saved": "saved",
+      "notSmoked": "cigarettes not smoked",
+      "nextGain": "to the next health gain",
+      "firstGain": "first health gain",
+      "prepNote": "The savings and not-smoked counters start running from your quit day.",
+      "nextAt": "NEXT GAIN · {{label}}",
+      "phaseTitle": "Your camp journey",
+      "toNextPhase": "{{count}} days to the {{phase}} phase",
+      "lastPhase": "You're in the last phase. Keep protecting what you've gained.",
+      "reasonTitle": "Remember today: why are you quitting?",
+      "healthOpen": "Health recovery timeline",
+      "planOpen": "See my quit plan",
+      "gainKicker": "NEW HEALTH GAIN",
+      "gainTitle": "{{label}} smoke-free!",
+      "gainCta": "Great",
+      "diaryHint": "Log every cigarette you smoke during preparation; let's see your triggers and hardest hours together.",
+      "todayLogged": "cigarettes logged today",
+      "reportReady": "cigarettes logged today · Your diary report is ready",
+      "diaryOpen": "My smoking diary",
+      "triggersOpen": "My trigger map and plans",
+      "checkin": {
+        "morning": "Your morning check is waiting",
+        "evening": "Your evening check is waiting",
+        "daily": "Today's check is waiting",
+        "twice_weekly": "Time for a quick check"
+      },
+      "checkinHint": "30 seconds: how did today go, and what symptoms do you have?",
+      "slip": "I slipped",
+      "settingsTitle": "Camp settings",
+      "restart": "Restart the camp",
+      "restartTitle": "Restart the camp?",
+      "restartBody": "You redo the assessment and start a new attempt with a new quit plan. Your records, plans and badges are kept.",
+      "restartConfirm": "Start the assessment"
+    },
+    "health": {
+      "title": "Health recovery timeline",
+      "notYet": "The gains start from your quit day. When that day comes, you'll see your progress here.",
+      "reached": "Reached",
+      "left": "{{left}} left",
+      "leftA11y": "{{left}} left"
+    },
+    "settings": {
+      "title": "Camp settings",
+      "quitTitle": "Quit day",
+      "quitHint": "Your current quit day: {{date}}",
+      "quitSave": "Update quit day",
+      "quitSaved": "Your quit day has been updated.",
+      "quitNow": "I'm ready to quit today",
+      "quitNowTitle": "Are you quitting today?",
+      "quitNowBody": "The counter starts from now and the camp moves to the Quit Day phase.",
+      "quitNowConfirm": "Yes, I'm quitting now",
+      "priceTitle": "Pack price",
+      "priceNow": "Current price: {{price}} · {{size}} per pack",
+      "priceSave": "Save the new price",
+      "priceSaved": "The new price applies from today.",
+      "priceNote": "The new price is used from today; your savings so far continue to be calculated at the old price.",
+      "priceHistory": "Price history",
+      "priceRow": "{{price}} · {{size}} per pack",
+      "resetTitle": "Camp data",
+      "relapseTitle": "If you've started smoking regularly again",
+      "relapseHint": "You can start again after a short preparation, keeping what you've learned.",
+      "relapseButton": "I've started smoking regularly again",
+      "notifTitle": "Camp notifications",
+      "notifHint": "Based on your phase: once a day during preparation; in the critical week, morning and evening checks plus a reminder 10 minutes before your hardest hour; less often after that.",
+      "notifSwitch": "Get camp notifications",
+      "notifSwitchHint": "Notifications are scheduled on your device; nothing is sent out.",
+      "notifNoPermission": "Notification permission is off. You need to allow it to receive reminders.",
+      "notifAllow": "Allow notifications",
+      "notifDiscreet": "While \"Neutral notification text\" in Settings is on, camp notifications don't use the word \"cigarette\" either.",
+      "sourcesHint": "The full list of scientific and institutional sources used in the camp."
+    },
+    "sos": {
+      "title": "I have a craving",
+      "panelButton": "I have a craving",
+      "panelHint": "Opens the crisis tool: breathing, block puzzle, delay and your reasons",
+      "shortcut": "I have a craving",
+      "shortcutSub": "Open the crisis tool",
+      "howStrong": "How strong is your urge?",
+      "whatTriggered": "What triggered it?",
+      "triggerOptional": "You can choose more than one. You can skip this if you like.",
+      "yourPlan": "YOUR PLAN",
+      "planUse": "I'm using this plan",
+      "planOn": "You're using your plan",
+      "go": "Start",
+      "finish": "Done · How am I?",
+      "minutes": "{{count}} minutes",
+      "timeLeft": "Time left {{time}}",
+      "breathStart": "Start {{count}} minutes of breathing",
+      "delayStart": "Start the 10 minutes",
+      "pause": "Pause",
+      "resume": "Resume",
+      "meanwhile": "Things you can do meanwhile",
+      "resistedCount": "So far you've got through {{count}} cravings.",
+      "backToPanel": "Back to the panel",
+      "tryAgain": "Open the crisis tool again",
+      "prepLoggedTitle": "Logged",
+      "prepLogged": "Logging every cigarette you smoke during preparation lets you see your triggers and hardest hours. We're preparing for quit day together.",
+      "canSkip": "You can start without choosing a value",
+      "other": "Other",
+      "otherPlaceholder": "What happened? Write briefly",
+      "triggerHint": "You can choose more than one. The dotted ones are those you chose in the assessment.",
+      "assessedA11y": "you chose this in the assessment",
+      "delayChipA11y": "Delay running, {{time}} left. Tap to open."
+    },
+    "log": {
+      "title": "Cigarette log",
+      "noAttempt": "Join the camp first to log.",
+      "prepNote": "Log every cigarette during preparation. The time is added automatically; two taps are enough.",
+      "slipNote": "A cigarette after your quit day is logged as a slip. Your total smoke-free days are kept; what matters is understanding what happened.",
+      "when": "When?",
+      "now": "Now",
+      "ago": "{{count}} min ago",
+      "trigger": "Why did you smoke? (trigger)",
+      "more": "More…",
+      "need": "How much did you need it?",
+      "needHint": "1 = out of habit, 5 = needed it a lot",
+      "needLabel": {
+        "1": "Out of habit, almost without noticing",
+        "2": "Didn't really need it",
+        "3": "Moderately",
+        "4": "Wanted it quite a bit",
+        "5": "Needed it a lot"
+      },
+      "mood": "How were you feeling? (optional)",
+      "moodLabel": {
+        "1": "Very bad",
+        "2": "Bad",
+        "3": "Okay",
+        "4": "Good",
+        "5": "Very good"
+      },
+      "tag": "Where? (optional)",
+      "tagPlaceholder": "E.g. balcony, work, car",
+      "save": "Save",
+      "savedTitle": "Logged",
+      "savedBody": "You've logged {{count}} cigarettes today. Every entry shows your triggers a little more clearly.",
+      "slipSavedTitle": "Logged",
+      "slipSavedBody": "One cigarette doesn't erase your effort. Noticing what happened helps you be ready next time. If you like, add a new plan for this situation from your trigger map.",
+      "another": "Log another one",
+      "done": "Done",
+      "openDiary": "Go to the diary",
+      "toSlip": "Let's look at what happened together"
+    },
+    "diary": {
+      "title": "Smoking diary",
+      "today": "Today",
+      "prepHint": "Cigarettes you logged during preparation",
+      "activeHint": "Entries after your quit day appear as slips",
+      "log": "I smoked · Log it",
+      "reportTitle": "Your diary report",
+      "reportHint": "At what times and in which situations do you smoke most?",
+      "reportSoon": "Your report needs {{count}} more entries. Keep logging every cigarette.",
+      "hoursTitle": "Your hardest hours",
+      "chartA11y": "Cigarettes by hour. Busiest hours: {{hours}}",
+      "times": "{{count}} times",
+      "triggersTitle": "Your most frequent triggers",
+      "toPlans": "Make plans for these situations",
+      "statsTitle": "An average of {{perDay}} cigarettes on the days you logged ({{days}} days)",
+      "autopilot": "You smoked {{count}} cigarettes out of habit, without really needing them (about {{share}} out of every 10). These are the \"autopilot\" cigarettes to drop first.",
+      "avgNeed": "Your average need score: {{avg}} / 5",
+      "autopilotInfoTitle": "What is an autopilot cigarette?",
+      "autopilotInfo": "The cigarettes you marked with a need of 1 or 2 are smoked more out of habit than real desire. Noticing them and giving them up first is an easy start to preparing for quit day.",
+      "historyTitle": "Entries",
+      "empty": "No entries yet.",
+      "noTrigger": "No trigger chosen",
+      "needShort": "need {{n}}/5",
+      "slip": "slip",
+      "remove": "Delete entry",
+      "removeTitle": "Delete this entry?",
+      "removeBody": "You can delete an entry you added by mistake.",
+      "removeConfirm": "Delete"
+    },
+    "triggers": {
+      "title": "My trigger map",
+      "intro": "The situations that start your urge to smoke and the If–Then plans you've made for each. The ones you meet most often are at the top.",
+      "count": "{{count}} times (diary and crisis entries)",
+      "noPlan": "No plan",
+      "used": "You used it {{count}} times during a craving",
+      "addPlan": "Add a plan",
+      "savePlan": "Save plan",
+      "removePlan": "Delete plan",
+      "removeTitle": "Delete this plan?",
+      "removeConfirm": "Delete",
+      "acceptNote": "Some situations can't be avoided. A plan can also be \"I'll do this while the urge is there\".",
+      "coverage2": "{{done}} of the {{total}} situations you've faced have a plan",
+      "coverageEmpty": "Mark the situations you face often and make a plan for each",
+      "groupPlanned": "With a plan",
+      "groupLived": "Faced, no plan",
+      "groupOther": "Other situations",
+      "groupOwn": "Your own situations",
+      "addPlanShort": "Add a plan",
+      "addOwn": "Add your own situation",
+      "ownIfPlaceholder": "Example: when I come out of a meeting at work",
+      "fromAssessment": "You chose this in the assessment"
+    },
+    "checkin": {
+      "title": "Daily check",
+      "morning": "Morning check",
+      "evening": "Evening check",
+      "intro": "Short, honest answers are best; there's no judgement here.",
+      "smoked": "Did you smoke today?",
+      "yes": "Yes",
+      "no": "No",
+      "smokedNote": "After saving we'll look at what happened together. Your total smoke-free days are kept.",
+      "cravings": "How many strong urges to smoke did you have today?",
+      "orMore": "{{n}}+",
+      "mood": "How is your mood?",
+      "symptoms": "Symptoms you felt today (if any)",
+      "save": "Save",
+      "saved": "Your check has been saved",
+      "savedSmoked": "Saved; now let's look at what happened",
+      "tipsTitle": "Tips for your symptoms",
+      "tipsSource": "Source: US National Cancer Institute (NCI) and Smokefree.gov withdrawal guides. Symptoms vary from person to person.",
+      "toSlip": "Continue",
+      "done": "Done"
+    },
+    "slip": {
+      "title": "Slip",
+      "savePlan": "Save plan and continue",
+      "toPanel": "Back to the panel",
+      "totalKept": "Your total smoke-free days are kept: {{count}} days"
+    },
+    "relapse": {
+      "attempt": "Attempt #{{n}}",
+      "days": "smoke-free days",
+      "resisted": "cravings got through",
+      "hard": "The situations that challenged you most",
+      "helped": "Tools that worked for you",
+      "plans": "Plans you used during cravings",
+      "tool": {
+        "call171": "ALO 171",
+        "other": "Other tools"
+      }
+    },
+    "mission": {
+      "title": "Today's mission",
+      "kicker": "{{type}} · {{min}} MIN",
+      "type": {
+        "action": "ACTION",
+        "reflection": "REFLECT",
+        "learning": "LEARN",
+        "social": "SUPPORT"
+      },
+      "complete": "Done",
+      "done": "You've completed today's mission"
+    },
+    "quitDay": {
+      "title": "Quit Day",
+      "panelHint": "Complete your checklist and remember the rule",
+      "upcoming": "Your quit day: {{date}}. You can get the list ready now.",
+      "checklist": "Quit day checklist",
+      "ready": "Everything's ready. Today, not a single puff; if it gets hard, \"I have a craving\" is right there."
+    },
+    "skills": {
+      "title": "Skill lessons",
+      "intro": "Short lessons based on Acceptance and Commitment Therapy (ACT): learn to stay with the urge instead of fighting it. Lessons unlock in order.",
+      "progress": "{{done}} of {{total}} lessons completed",
+      "lessonN": "LESSON {{n}}",
+      "bonus": "BONUS LESSON",
+      "recommended": "RECOMMENDED FOR YOU",
+      "status": {
+        "done": "completed",
+        "open": "open",
+        "locked": "locked, complete the previous lesson"
+      },
+      "today": "Today's skill lesson",
+      "todayKicker": "TODAY'S SKILL LESSON · {{min}} MIN",
+      "toPractice": "Go to practice",
+      "toQuiz": "Go to the quick check",
+      "quizTitle": "Quick check",
+      "finish": "Complete the lesson",
+      "doneTitle": "Lesson completed",
+      "backToList": "Back to lessons",
+      "sources": "Sources",
+      "notFound": "This lesson wasn't found."
+    },
+    "library": {
+      "title": "Info library",
+      "intro": "What you need to know about smoking, addiction and quitting, in short stories with sources.",
+      "minutes": "{{count}}-minute read",
+      "back": "Back to the library",
+      "disclaimer": "This content is for general information and doesn't replace medical advice. It has not yet been reviewed by an expert."
+    },
+    "reasons": {
+      "title": "My reasons to quit"
+    },
+    "support": {
+      "title": "Support and professional help",
+      "callYesilay": "Call the YEDAM Helpline {{number}} (Türkiye)",
+      "lastVerified": "Institutional information was checked on {{date}}; it may have changed.",
+      "supporterTitle": "My supporter",
+      "share": "Share",
+      "doctorTitle": "Show my doctor",
+      "doctorButton": "Create the summary as a PDF",
+      "doctorBusy": "Preparing…",
+      "doctorFailed": "The summary couldn't be created. Please try again.",
+      "doc": {
+        "title": "Smoking cessation progress summary",
+        "subtitle": "Smoke-Free Camp (90 Days) · {{date}}",
+        "attempt": "Attempt",
+        "quitDate": "Quit date",
+        "phase": "Phase",
+        "smokeFree": "Total smoke-free days",
+        "sinceLast": "Since the last cigarette",
+        "days": "{{count}} days",
+        "before": "Before quitting",
+        "perDay": "{{count}} a day · {{years}} years",
+        "products": "Products used",
+        "hsi": "Heaviness of Smoking Index",
+        "slips": "Slips (number of cigarettes)",
+        "cravings": "Craving entries",
+        "cravingsValue": "{{total}} cravings, {{resisted}} got through without smoking · average intensity {{before}} → {{after}} / 10",
+        "checkins": "Number of daily checks",
+        "symptoms": "Most frequently reported symptoms (30 days)",
+        "mood": "Average mood (7 days)",
+        "triggers": "Most frequent triggers",
+        "saved": "Estimated savings"
+      },
+      "yourSupporter": "your supporter"
+    },
+    "stats": {
+      "title": "My statistics",
+      "calendar": "Smoke-free days",
+      "calendarHint": "Each square is one day from your quit day on.",
+      "legend": {
+        "free": "Smoke-free",
+        "slip": "Slip",
+        "today": "Today"
+      },
+      "notYet": "The calendar starts filling from your quit day.",
+      "cravings": "Daily cravings",
+      "cravingsHint": "Last 14 days · you've got through {{count}} cravings so far",
+      "cravingsA11y": "Cravings in the last 14 days: {{list}}",
+      "intensity": "Craving intensity",
+      "intensityHint": "Weekly average (1–10). A decline over time shows your brain is relearning.",
+      "intensityA11y": "Weekly average craving intensity: {{list}}",
+      "weekAgo": "-{{n}}w",
+      "triggers": "Most frequent triggers",
+      "noData": "Not enough entries yet.",
+      "savings": "Your savings",
+      "savingsHint": "Total {{amount}}",
+      "badges": "Badges",
+      "badgesHint": "{{earned}} of {{total}} badges earned",
+      "prepHours": "Your preparation hours",
+      "prepHoursHint": "The {{count}} cigarettes you logged during preparation, by hour"
+    },
+    "rewards": {
+      "title": "Badges and reward jar",
+      "jarTitle": "Reward jar",
+      "saved": "MONEY YOU DIDN'T SPEND ON CIGARETTES",
+      "add": "Add a new goal",
+      "titleLabel": "What do you want to buy?",
+      "titlePlaceholder": "E.g. {{example}}",
+      "amountLabel": "Amount",
+      "amountPlaceholder": "Amount",
+      "addButton": "Add the goal",
+      "remove": "Delete goal",
+      "left": "{{amount}} left to your goal",
+      "reached": "You've reached your goal! Treat yourself.",
+      "reachedKicker": "YOU'VE REACHED YOUR REWARD GOAL",
+      "reachedBody": "The money you didn't spend on cigarettes has filled your {{amount}} goal. You've earned it.",
+      "badgesTitle": "Badges",
+      "badgeKicker": "NEW BADGE",
+      "earned": "earned",
+      "notEarned": "not earned yet"
+    },
+    "graduation": {
+      "title": "Graduation",
+      "notYet": "{{count}} days left to graduation",
+      "celebrate": "Celebrate my graduation",
+      "share": "Share the certificate",
+      "shareFailed": "The certificate couldn't be shared. Please try again.",
+      "smokeFree": "smoke-free days",
+      "dates": "{{from}} – {{to}}",
+      "panelReady": "You've completed the 90 days! Your graduation is waiting",
+      "panelDone": "Your graduation certificate"
+    },
+    "notif": {
+      "actions": {
+        "sos": "I have a craving",
+        "checkin": "Check in",
+        "snooze": "Snooze"
+      },
+      "explicit": {
+        "prepTitle": "{{days}} days to quit day",
+        "prepBody": "Take a look at today's mission and don't forget to log the cigarettes you smoke.",
+        "quitTitle": "Today is your quit day",
+        "quitBody": "Not a single puff. Complete your checklist; if it gets hard, \"I have a craving\" is right there.",
+        "morningTitle": "Good morning, morning check",
+        "morningBody": "How was the night? Start the day with a 30-second check.",
+        "eveningTitle": "Evening check",
+        "eveningBody": "Was today smoke-free? Do your quick check.",
+        "dailyTitle": "Daily check",
+        "dailyBody": "How did today go? Log your smoke-free day.",
+        "maintenanceTitle": "A quick check",
+        "maintenanceBody": "How is your smoke-free journey going? Take a minute.",
+        "riskyTitle": "A hard hour is coming up",
+        "riskyBody": "You usually struggle around this time. Is your plan ready?",
+        "badgeTitle": "{{days}} days smoke-free!",
+        "badgeBody": "You've earned a new badge. Come and celebrate.",
+        "healthTitle": "New health gain: {{label}}",
+        "healthBody": "Your body keeps healing without cigarettes. Take a look at your timeline."
+      },
+      "discreet": {
+        "prepTitle": "Preparation time",
+        "prepBody": "Today's small step is waiting for you.",
+        "quitTitle": "Today is an important day",
+        "quitBody": "Go over your list; we'll be with you.",
+        "morningTitle": "Good morning",
+        "morningBody": "Your short morning check is waiting.",
+        "eveningTitle": "How was your day?",
+        "eveningBody": "Your short evening check is waiting.",
+        "dailyTitle": "A quick check",
+        "dailyBody": "How did today go? Take a minute.",
+        "maintenanceTitle": "A quick check",
+        "maintenanceBody": "How is your journey going? Take a minute.",
+        "riskyTitle": "A small reminder",
+        "riskyBody": "These hours can be hard for you. Is your plan ready?",
+        "badgeTitle": "A new badge",
+        "badgeBody": "Happy day {{days}}.",
+        "healthTitle": "A new gain",
+        "healthBody": "Would you like to look at your progress?"
+      }
+    },
+    "premium": {
+      "text": "This section is included in the subscription. The crisis tool, counters, ALO 171 and the support screen always stay free.",
+      "unlock": "Unlock with Premium",
+      "badge": "PREMIUM",
+      "mission": "Today's mission: {{title}}",
+      "lesson": "The {{title}} lesson is included in the subscription",
+      "story": "\"{{title}}\" is included in the subscription",
+      "stats": "Detailed statistics",
+      "jar": "Reward jar",
+      "doctor": "Summary for your doctor (PDF)"
+    },
+    "sources": {
+      "title": "Sources and Method",
+      "intro": "Every feature in the Smoke-Free Camp is based on research or an official guideline. Here you can see how the camp was built and all the sources it uses.",
+      "methodTitle": "Method",
+      "method": {
+        "act": {
+          "title": "Acceptance and Commitment Therapy (ACT)",
+          "text": "The skill lessons and urge surfing teach you to stay with the urge instead of fighting it. In a large randomised trial this approach was linked to higher quit rates than a standard quit-smoking app."
+        },
+        "missions": {
+          "title": "Daily missions",
+          "text": "A short mission every day; each mission is tagged with a behaviour change technique (BCT) code so the content can be checked scientifically."
+        },
+        "hsi": {
+          "title": "Level of dependence",
+          "text": "The Heaviness of Smoking Index gives a score from 0 to 6 from two questions; it doesn't diagnose, it shows which support will help."
+        },
+        "health": {
+          "title": "Health timeline",
+          "text": "Based on the World Health Organization's list of the health benefits of quitting smoking; it varies from person to person."
+        },
+        "withdrawal": {
+          "title": "Withdrawal tips",
+          "text": "Written originally from the US National Cancer Institute and Smokefree.gov guides."
+        },
+        "support": {
+          "title": "Professional support",
+          "text": "The app is not a treatment; it points you to free support such as ALO 171, quit-smoking clinics and Yeşilay in Türkiye. It doesn't recommend medicine names or doses."
+        }
+      },
+      "reviewTitle": "Expert review",
+      "reviewText": "Before publication, the camp's content will be reviewed by a pulmonologist or a certified smoking cessation physician. Right now all content is marked \"not yet reviewed\".",
+      "listTitle": "Sources ({{count}})",
+      "accessed": "accessed {{date}}"
+    },
+    "home2": {
+      "phaseChip": "Phase {{n}} · {{phase}} · attempt {{attempt}}",
+      "toQuit": "{{count}} days to quitting",
+      "smokeFree": "Smoke-free for {{days}} days {{hours}} hours",
+      "sinceSlip": "{{days}} days {{hours}} hours since the last cigarette",
+      "saved": "Saved",
+      "notSmoked": "Not smoked",
+      "today": "Today",
+      "todayDone": "Today {{done}}/{{total}} done",
+      "checkin": "Daily check",
+      "checkinDone": "You've done today's check",
+      "mission": "Mission of the day",
+      "skill": "Skill of the day",
+      "logToday": "{{count}} cigarettes today",
+      "logHint": "Note every cigarette during the cut-down period",
+      "logAction": "Log",
+      "doneA11y": "done",
+      "lockedA11y": "Premium",
+      "quitSoon": "{{count}} days to quit day",
+      "quitToday": "Your quit day is today",
+      "quitSoonHint": "Let's look at your plan together",
+      "slipTitle": "There was a slip yesterday",
+      "slipText": "Let's look at what happened together",
+      "reasonKicker": "Why I'm quitting",
+      "toolsTitle": "Tools",
+      "tools": {
+        "triggers": "My trigger map",
+        "diary": "Diary",
+        "reasons": "My reasons",
+        "skills": "Skills",
+        "library": "Library",
+        "stats": "Statistics",
+        "rewards": "Rewards",
+        "health": "Health gains"
+      },
+      "coverage": "{{done}}/{{total}} situations planned",
+      "lessons": "Lesson {{done}}/{{total}}",
+      "badges": "{{count}} badges",
+      "alo": "ALO 171",
+      "aloSub": "Quit-smoking line (Türkiye)",
+      "network": "My support network",
+      "networkSub": "Loved ones and professionals",
+      "planLink": "My quit plan",
+      "phaseTitle": "Phases",
+      "nextGain": "Next gain",
+      "firstGain": "First gain",
+      "nextAt": "Next gain · {{label}}"
+    }
+  },
+  "odak": {
+    "title": "Focus Camp",
+    "cardTitle": "Focus Camp (18+ content addiction)",
+    "exit": {
+      "button": "Quick exit"
+    },
+    "lock": {
+      "title": "Focus Camp is locked",
+      "prompt": "Unlock Focus Camp",
+      "deviceHint": "You can unlock it with your phone's lock (face, fingerprint or passcode).",
+      "deviceFailed": "Couldn't unlock. You can try again.",
+      "unlock": "Unlock",
+      "pinHint": "Enter your PIN.",
+      "pinWrong": "Wrong PIN. Try again.",
+      "pinEntered": "{{count}} digits entered",
+      "wait": "Too many wrong attempts. You can try again in {{count}} s.",
+      "delete": "Delete the last digit",
+      "setupTitle": "Set a PIN",
+      "setupHint": "Your phone has no screen lock. Set a 4–6 digit PIN for Focus Camp. This PIN is stored only on this phone.",
+      "setupConfirm": "Enter the PIN again",
+      "setupConfirmHint": "Enter the same PIN once more to confirm.",
+      "setupSave": "Save PIN",
+      "pinMismatch": "The two PINs don't match. Start again."
+    },
+    "privacy": {
+      "title": "Privacy settings",
+      "lock": "Camp lock",
+      "lockDevice": "Your phone's lock (face, fingerprint or passcode) is asked every time you enter the camp. The camp locks again when the app goes to the background.",
+      "lockPin": "Your PIN is asked every time you enter the camp. The camp locks again when the app goes to the background.",
+      "changePin": "Change PIN",
+      "changePinHint": "Enter your new 4–6 digit PIN.",
+      "pinSaved": "New PIN saved.",
+      "howTitle": "How is your data protected?",
+      "how": [
+        "Your records are kept only on this phone, encrypted with AES-256. No server, no account.",
+        "The encryption key stays in your phone's secure keychain; it doesn't go into backups or to other devices.",
+        "The camp screen is hidden in the app switcher; screenshots of camp screens may be blocked.",
+        "Swipe down with two fingers or use the home button in the corner to return to the home screen instantly.",
+        "Notifications are always worded neutrally."
+      ],
+      "dataTitle": "Camp data",
+      "wipe": "Delete Focus Camp data",
+      "wipeTitle": "Delete all Focus Camp data?",
+      "wipeBody": "Your records, settings, PIN and encryption key will be deleted from this phone.",
+      "wipeConfirmTitle": "Are you sure?",
+      "wipeConfirmBody": "This can't be undone. Deleted data can't be recovered.",
+      "wipeConfirm": "Yes, delete permanently",
+      "offTitle": "Turn off the camp lock?",
+      "offBody": "With the lock off, anyone who picks up your phone can open the camp screens. Your records stay encrypted.",
+      "offConfirm": "Turn off the lock"
+    },
+    "onb": {
+      "question": "Question {{n}}/{{total}}",
+      "optional": "Optional",
+      "progress": "Step {{n}}/{{total}}",
+      "next": "Next",
+      "skip": "Skip this question",
+      "toCommit": "Go to the last step",
+      "enrol": "Join the camp",
+      "home": "Back to home",
+      "call": "Call {{phone}}",
+      "lockDevice": "Your phone's own lock will be used.",
+      "lockPinReady": "Your PIN is saved.",
+      "lockOff": "The lock is off. You can turn it on any time in Privacy settings.",
+      "pinSetup": "Your phone has no screen lock; set a PIN for the camp.",
+      "bpsYour": "Your score: {{score}}/10",
+      "moodYour": "Mood: {{phq}}/6 · Anxiety: {{gad}}/6",
+      "scaleOf": "{{n}}/5",
+      "emergency": "In an emergency, call 112",
+      "err": {
+        "age": "Tick an option to continue.",
+        "reasons": "Tick at least one option.",
+        "bps": "Choose an answer for each item.",
+        "values": "Choose at least one value or write your own sentence.",
+        "mood": "Choose an answer for each of the four items.",
+        "goal": "Choose a goal for both headings.",
+        "goalNumber": "Set a valid number for the goal you chose.",
+        "lockPin": "With the lock on, you must set a PIN first, or turn the lock off."
+      }
+    },
+    "panel": {
+      "day": "Day {{day}} / {{total}}",
+      "nextPhase": "{{count}} days to the next phase",
+      "sos": "Urge moment",
+      "sosHint": "Tap here if you're struggling right now",
+      "missingTitle": "Your camp data couldn't be read",
+      "missingBody": "This phone doesn't have the key to open your camp data. This happens when the app is moved to another phone from a backup: for security, the key never leaves the device. You can continue with a new sign-up.",
+      "missingRestart": "Sign up again",
+      "managed": "You managed {{count}} urge moments",
+      "diary": "My diary",
+      "boundaries": "Environment and digital boundaries",
+      "mission": "Today's mission",
+      "missionComplete": "Done",
+      "missionDone": "Today's mission is done",
+      "lesson": "Today's skill lesson",
+      "rebuild": "Rebuild",
+      "stats": "Statistics",
+      "rewards": "Badges",
+      "support": "Support and professional help",
+      "sources": "Sources and Method",
+      "skillsProgress": "{{done}}/{{total}} lessons completed"
+    },
+    "card": {
+      "setup": "Create your own plan",
+      "day": "Day {{day}} / {{total}}",
+      "locked": "Locked"
+    },
+    "sos": {
+      "next": "Continue",
+      "toTools": "Go to the tools",
+      "toEnd": "How am I now?",
+      "toSlip": "Let's look at it together"
+    },
+    "shortcut": "Focus",
+    "skills": {
+      "title": "Skill lessons",
+      "intro": "{{done}}/{{total}} lessons completed. Lessons unlock by phase; start with the recommended one.",
+      "next": "NEXT FOR YOU",
+      "minutes": "{{count}} min",
+      "done": "Completed",
+      "upcoming": "Unlocks in the {{phase}} phase",
+      "toPractice": "Go to practice",
+      "toQuiz": "Go to the quick check",
+      "finish": "Finish the lesson",
+      "backToList": "Back to lessons",
+      "quizTitle": "Quick check",
+      "doneTitle": "Lesson completed",
+      "sources": "Sources"
+    },
+    "library": {
+      "title": "What Does Science Say?",
+      "intro": "Myths and facts, with reliable sources. {{read}}/{{total}} read. This section is always free.",
+      "read": "Read",
+      "finish": "Finish",
+      "done": "You've read it. You'll find the sources for this content below.",
+      "back": "Back to the library"
+    },
+    "premium": {
+      "text": "This section is included in the subscription. The urge-moment tool, slip steps, support screen, “What Does Science Say?” and the basic counter always stay free.",
+      "unlock": "Unlock with Premium",
+      "mission": "90-day mission programme",
+      "lesson": "This lesson is included in the subscription",
+      "stats": "Detailed statistics",
+      "summary": "Summary for a professional (PDF)",
+      "reminder": "Risky-hour reminder",
+      "letter": "Writing a letter to your future self"
+    },
+    "notif": {
+      "riskyTitle": "Focus time is coming up",
+      "riskyBody": "Is your plan ready?",
+      "checkinTitle": "Your daily check is ready",
+      "checkinBody": "Take 30 seconds.",
+      "weeklyTitle": "Your weekly summary is ready",
+      "weeklyBody": "Let's look back at the week together.",
+      "actionSos": "SOS",
+      "actionPlan": "See my plan",
+      "switch": "Focus notifications",
+      "switchHint": "15 minutes before risky hours, at check-in time and once a week. The text is always neutral; no content details are shown."
+    },
+    "home2": {
+      "phaseChip": "Phase {{n}} · {{phase}} · Day {{day}}/{{total}}",
+      "checkin": "Daily check",
+      "checkinLater": "It's not time for today's check yet",
+      "logHint": "Noting what happened helps you see patterns",
+      "logAction": "Log",
+      "managed": "Moments managed",
+      "longest": "Longest streak",
+      "nextPhase": "To the next phase",
+      "rebuildTitle": "Time to rebuild",
+      "rebuildText": "Fill the freed-up time with things that are good for you",
+      "tools": {
+        "boundaries": "My boundaries",
+        "diary": "Diary",
+        "skills": "Skills",
+        "library": "Library",
+        "stats": "Statistics",
+        "rewards": "Rewards",
+        "rebuild": "Rebuild",
+        "privacy": "Privacy"
+      },
+      "lockOn": "Lock on",
+      "lockOff": "Lock off",
+      "support": "Support",
+      "supportSub": "Professionals and helplines",
+      "sources": "Sources",
+      "sourcesSub": "Method and scientific basis"
+    },
+    "bpsRow": "Day {{d}} · {{s}}/10"
+  },
+  "kegel": {
+    "painNotice": "Stop if it hurts. Kegels should not cause pain.",
+    "screening": {
+      "skip": "Skip for now",
+      "progress": "Question {{step}} / {{total}}",
+      "startRelax": "Start with relaxation focus",
+      "keepTrack": "Continue with my own goal"
+    },
+    "tracks": {
+      "title": "Programme track",
+      "intro": "The exercise mix changes with your goal. You can change it any time; your level is kept.",
+      "suggested": "Suggested",
+      "needsClearance": "Needs your doctor's approval",
+      "surgeryTitle": "Doctor's approval",
+      "surgeryText": "Your doctor decides when to start pelvic floor exercises before or after prostate surgery. This track only unlocks if your doctor has approved it.",
+      "catheter": "Don't exercise while a catheter is in place.",
+      "doctorOk": "My doctor has approved me starting these exercises.",
+      "openSurgery": "Unlock the track",
+      "positionsTitle": "Week {{week}} positions",
+      "positionsHint": "As the weeks go on, positions get harder: lying → sitting → standing.",
+      "functionalOn": "Everyday tasks are unlocked too: squeeze first when standing up or on the stairs.",
+      "screen": "Take the muscle profile screening",
+      "rescreen": "Redo your muscle profile"
+    },
+    "card": {
+      "track": "PROGRAMME TRACK",
+      "change": "Change",
+      "positions": "This week: {{list}}",
+      "screenTitle": "Complete your muscle profile",
+      "screenText": "8 short questions (1 minute). It helps us choose the right programme for you; it's not a diagnosis.",
+      "rescreenTitle": "Time to redo the screening",
+      "rescreenText": "You're on the relaxation track. Let's keep your programme up to date with a short screening every two weeks.",
+      "screenStart": "Start",
+      "later": "Later"
+    },
+    "selfRating": {
+      "track": "Track: {{track}}",
+      "cardTitle": "Monthly self-assessment",
+      "due": "This month's assessment is ready (1 minute).",
+      "notDue": "You've done it this month. We'll remind you next month.",
+      "start": "Assess",
+      "higherBetter": "Higher is better.",
+      "lowerBetter": "Lower is better."
+    },
+    "vacation": {
+      "title": "Streak protection and vacation",
+      "freezes": "You have {{left}}/{{total}} streak freezes this month. If you miss a day or two they're used automatically, so your streak isn't broken.",
+      "hint": "In vacation mode ({{min}}–{{max}} days) your streak is protected and reminders go quiet.",
+      "length": "Vacation length",
+      "days_one": "{{count}} day",
+      "days_other": "{{count}} days",
+      "startLabel": "Start",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "start": "Start vacation mode",
+      "end": "End vacation",
+      "onNow": "You're on vacation: your streak is protected until {{to}} and there are no reminders.",
+      "planned": "Vacation planned: {{from}} – {{to}}.",
+      "cardNote": "You're in vacation mode: your streak is protected. You can still train if you like."
+    },
+    "return": {
+      "frozen_one": "A streak freeze was used yesterday; your streak is safe.",
+      "frozen_other": "{{count}} streak freezes were used; your streak is safe.",
+      "gentle_one": "Welcome back! We're picking up where you left off, a little more gently (level −1).",
+      "gentle_other": "Welcome back! You took {{count}} days off; we're picking up where you left off, a little more gently (level −1).",
+      "rewarm_one": "After a long break we're starting gently by lowering your level by 2.",
+      "rewarm_other": "After a {{count}}-day break we're starting gently by lowering your level by 2."
+    }
+  },
+  "sources": {
+    "open": "Open source",
+    "kind": {
+      "who": "WHO",
+      "rct": "RCT",
+      "review": "Review",
+      "guideline": "Guideline",
+      "institution": "Institution",
+      "study": "Study"
+    }
+  },
+  "ui": {
+    "urge": {
+      "hint": "Tap or drag",
+      "low": "Mild",
+      "mid": "Moderate",
+      "strong": "Strong",
+      "veryStrong": "Very strong",
+      "none": "Not chosen",
+      "a11y": "{{v}}, {{word}}",
+      "down": "{{a}} → {{b}} · down {{d}} points",
+      "up": "{{a}} → {{b}} · up {{d}} points",
+      "same": "{{a}} → {{b}} · same"
+    }
+  },
+  "breath": {
+    "intro": "Slowing your breath calms your body. Choose a method and a length; watch the sphere or close your eyes and follow the vibration.",
+    "mode": {
+      "quick": {
+        "name": "Quick calm",
+        "rhythm": "Breathe in deeply through your nose, add one more short breath on top, then breathe out slowly and long through your mouth.",
+        "when": "For crises and sudden stress."
+      },
+      "slow": {
+        "name": "Slow breathing",
+        "rhythm": "In for 4 seconds, out for 6; about 6 breaths a minute.",
+        "when": "Before sleep and for everyday relaxation."
+      },
+      "box": {
+        "name": "Box breathing",
+        "rhythm": "In 4 · hold 4 · out 4 · hold 4.",
+        "when": "For focus."
+      }
+    },
+    "duration": "Duration",
+    "haptics": "Follow by vibration",
+    "hapticsHint": "Light taps that speed up as you breathe in and slow down as you breathe out",
+    "infoLink": "About these methods",
+    "infoTitle": "About breathing exercises",
+    "safety": "If you feel dizzy, return to normal breathing.",
+    "evidence": "In studies, a few minutes a day of slow breathing with long out-breaths had positive effects on mood and stress. It doesn't replace treatment.",
+    "ok": "OK",
+    "step": {
+      "in": "In",
+      "inMore": "In again",
+      "hold": "Hold",
+      "out": "Out"
+    },
+    "cycleLeft": "Cycle {{n}} · {{left}} left",
+    "dim": "Dim the screen",
+    "undim": "Brighten the screen",
+    "feelingQ": "How do you feel?",
+    "feeling": {
+      "calmer": "Calmer",
+      "same": "The same",
+      "tenser": "Tenser"
+    },
+    "doneTitle": "Breathing done",
+    "backToGauge": "Check your urge again"
+  },
+  "puzzle": {
+    "score": "{{n}} points",
+    "timeA11y": "Time left {{time}}",
+    "timeUpShort": "3 min up",
+    "timeUp": "3 minutes are up; keep going if you like.",
+    "relief": "No space left; we cleared half the board for you.",
+    "boardA11y": "8 by 8 puzzle board",
+    "cellA11y": "Row {{r}}, column {{c}}, {{state}}",
+    "full": "filled",
+    "empty": "empty",
+    "pieceA11y": "{{n}}-cell piece. Select it, then tap a cell."
+  },
+  "home": {
+    "week": {
+      "title": "This week",
+      "seePlan": "See the whole plan",
+      "summary": "This week {{done}}/{{total}} workouts · {{theme}}",
+      "state": {
+        "done": "done",
+        "today": "today",
+        "todayDone": "today, done",
+        "missed": "missed",
+        "future": "upcoming",
+        "rest": "rest day"
+      }
+    },
+    "relax": {
+      "title": "Relax",
+      "breathing": "Breathing",
+      "unload": "Mind unload",
+      "bodyScan": "Body scan"
+    }
+  },
+  "introAnatomy": {
+    "sceneLabel": "A schematic drawing showing the pelvic floor muscle",
+    "continue": "Continue",
+    "sound": "Sound",
+    "replay": "Watch again",
+    "play": "Play",
+    "pause": "Pause",
+    "stageHint": "Tap to pause or resume",
+    "prev": "Previous",
+    "next": "Next",
+    "labels": {
+      "bladder": "Bladder",
+      "bowel": "Bowel",
+      "floor": "Pelvic floor"
+    },
+    "captions": {
+      "s1": "Let's see together where your pelvic floor muscle is.",
+      "s2": "Your pelvis is shaped like a bowl.",
+      "s3": "Beneath it is a muscle stretched like a hammock: the pelvic floor.",
+      "s4": "It carries your bladder and bowel and lets you hold in urine and wind.",
+      "s5": "Act as if you're holding in urine and wind. The muscle you feel is the one.",
+      "s6": "Now let go. Relaxing is part of the exercise too.",
+      "s7": "Don't tense your belly, glutes or legs. Only this muscle should work.",
+      "s8": "Let's try it together."
+    }
+  },
+  "round": {
+    "doneTitle": "Round 1 complete",
+    "offer": "If you like, move on to Round 2: slow squeezes are added. It takes about {{min}} minutes.",
+    "start": "Go to Round 2 · {{min}} min",
+    "finish": "Finish",
+    "contents": "In Round 2, in order",
+    "new": "New move",
+    "restNote": "The moves repeat twice; you rest 5 seconds in between.",
+    "intro": {
+      "kicker": "ROUND 2 · SHORT LESSON",
+      "title": "New move: Slow squeeze",
+      "steps": [
+        "Squeeze the muscle slowly; reach the top in about 3 seconds.",
+        "Hold at the top for half a second.",
+        "Let go and wait 1 second, then squeeze slowly again."
+      ],
+      "note": "In Round 2, slow squeezes, quick squeeze-releases and long squeezes come in turn. The phone vibrates while you squeeze and stops when you let go.",
+      "go": "Got it, start Round 2",
+      "demoA11y": "Example: the circle grows slowly, pauses briefly at the top and shrinks."
+    }
+  },
+  "block": {
+    "long": "Squeeze for {{sec}} s without letting go",
+    "quick": "{{sec}} s · squeeze 1 s, let go 1 s",
+    "slow": "{{count}} times · squeeze slowly, hold at the top, let go"
+  },
+  "bodyweight": {
+    "title": "Bodyweight Fitness",
+    "chip": "New",
+    "intro": "Workouts you can do at home or outdoors with just your own bodyweight, no equipment needed.",
+    "preparing": "Workouts are being prepared; they'll be here very soon.",
+    "categoriesTitle": "Sections",
+    "soon": "Coming soon",
+    "programsMeta": "3 programmes · 30 / 60 / 90 days",
+    "warmupMeta": "10-min warm-up",
+    "activeMeta": "{{program}} · Day {{day}}/{{days}}",
+    "programs": {
+      "toparla": {
+        "title": "Get Going",
+        "desc": "For beginners. You learn correct form and wake your muscles up."
+      },
+      "gelistir": {
+        "title": "Build Up",
+        "desc": "For regular exercisers. Sets get longer and moves get harder."
+      },
+      "guclendir": {
+        "title": "Get Strong",
+        "desc": "An ambitious goal: 5 days a week, advanced moves and longer sets."
+      }
+    },
+    "programMeta": "{{days}} days · {{perWeek}} days a week · {{min}}–{{max}} min",
+    "start": "Start programme",
+    "activeBadge": "In progress",
+    "switchTitle": "Switch programme?",
+    "switchBody": "Your progress in {{current}} will be deleted and {{next}} starts from the beginning.",
+    "switchOk": "Switch",
+    "todayTitle": "Day {{day}} · Workout {{id}}",
+    "todayMeta": "{{count}} moves · {{rounds}} rounds · {{work}} s work / {{rest}} s rest · about {{min}} min",
+    "light": "Light week",
+    "startWorkout": "Start workout",
+    "routineTitle": "10-minute warm-up",
+    "routineBody": "You can do it before any workout; there's no programme or day tracking.",
+    "startWarmup": "Start warm-up",
+    "warmupDoneTitle": "Warm-up complete!",
+    "warmupDoneBody": "Your body is ready; you can move on to your workout now.",
+    "doneToday": "You've done today's workout. The next workout unlocks tomorrow.",
+    "restNext": "Today's workout is done; tomorrow is a rest day.",
+    "finished": "You've completed the programme! Move up to the next programme if you like.",
+    "progressTitle": "Progress",
+    "progressMeta": "{{done}}/{{total}} workouts",
+    "legendDone": "Done",
+    "legendRest": "Rest",
+    "legendToday": "Up next",
+    "week": "Week {{n}}",
+    "scienceTitle": "What does research say?",
+    "movesTitle": "Moves",
+    "movesHint": "Tap: the figure shows the movement and the steps explain how to do it.",
+    "stop": "Leave programme",
+    "stopTitle": "Leave the programme?",
+    "stopBody": "Your progress in this section will be deleted.",
+    "roundOf": "Round {{r}}/{{n}}",
+    "moveOf": "Move {{k}}/{{n}}",
+    "doneTitle": "Day {{day}} complete!",
+    "doneBody": "Great work. Your next workout is waiting for you tomorrow.",
+    "partial": "That's it for today",
+    "partialBody": "You stopped the workout halfway; this day doesn't count as completed.",
+    "metaHoldSides": "{{sec}} s · half the time each side",
+    "safety": "Do the moves within a pain-free range. Stop if you feel pain, dizziness or shortness of breath. If you have a health condition, talk to your doctor before you start.",
+    "notFound": "Section not found.",
+    "categories": {
+      "karin": "Abs",
+      "gogus": "Chest",
+      "sirt": "Back",
+      "omuz": "Shoulders",
+      "kol": "Arms",
+      "bacak": "Legs",
+      "kalca": "Glutes",
+      "baldir": "Calves",
+      "tamVucut": "Full Body",
+      "kardiyo": "Cardio",
+      "isinma": "Warm-up"
+    },
+    "programTitle": "{{title}} · {{days}} days",
+    "programMetaOne": "{{days}} days · {{perWeek}} days a week · {{min}} min"
+  },
+  "exerciseSoon": {
+    "title": "Exercise {{n}}",
+    "locked": "Unlocks at higher levels"
   }
 }

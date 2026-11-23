@@ -8,12 +8,14 @@ import { useStreak } from '@/features/gamification/service';
 import { DailyGoalCard } from '@/features/today/DailyGoalCard';
 import { StreakBadge } from '@/features/today/StreakBadge';
 import { TodayExtras } from '@/features/today/TodayExtras';
-import { FitnessCard, RelaxCard, ThisWeek } from '@/features/today/WeekSections';
+import { GlossaryStrip } from '@/features/today/GlossaryStrip';
+import { FitnessCard, ThisWeek } from '@/features/today/WeekSections';
 import { WorkoutCard } from '@/features/today/WorkoutCard';
 import { todayWeekIndex } from '@/features/training/plan';
 import { FunctionalTasksCard } from '@/features/training/RoadmapViews';
 import { toDateKey } from '@/lib/date';
 import { useTrainingStore } from '@/stores/trainingStore';
+import { localeOf } from '@/i18n/languages';
 
 function greetingKey(hour: number) {
   if (hour >= 5 && hour < 12) return 'morning';
@@ -24,7 +26,8 @@ function greetingKey(hour: number) {
 
 /**
  * Günüm (SPEC_V4 §A.2): greeting with streak and level chips · today's workout · this week (moved from
- * the old Antrenman tab) · the Bugün checklist · Kasık Fitness · Rahatla · "Senin için".
+ * the old Antrenman tab) · the Bugün checklist · Kasık Fitness · "Neden, Nedir ve Ne Demek?" posters
+ * (in place of Rahatla, user request 2026-11-22) · "Senin için".
  */
 export default function Today() {
   const t = useTheme();
@@ -33,7 +36,7 @@ export default function Today() {
   const training = useTrainingStore((s) => s.training);
   const level = training.level;
   const now = new Date();
-  const dateLabel = now.toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US', { weekday: 'long', day: 'numeric', month: 'long' });
+  const dateLabel = now.toLocaleDateString(localeOf(i18n.language), { weekday: 'long', day: 'numeric', month: 'long' });
 
   return (
     <Screen contentStyle={{ gap: t.space.xxl }}>
@@ -60,7 +63,7 @@ export default function Today() {
       <FunctionalTasksCard track={training.track} weekIndex={todayWeekIndex(training, toDateKey())} />
       <DailyGoalCard />
       <FitnessCard />
-      <RelaxCard />
+      <GlossaryStrip />
       <TodayExtras />
     </Screen>
   );

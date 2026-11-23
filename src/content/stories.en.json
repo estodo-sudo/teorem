@@ -1,0 +1,2179 @@
+[
+  {
+    "id": "pf-basics",
+    "title": "The pelvic floor in men",
+    "category": "menHealth",
+    "icon": "compass",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "layers",
+        "support": [
+          "droplet",
+          "shield"
+        ],
+        "title": "An invisible hammock",
+        "text": "The pelvic floor is a set of muscles stretched like a hammock beneath the pelvis. It carries the bladder and bowel and helps you hold in urine and wind. During an erection it presses on the base of the penis to help keep it firm, and it contributes to ejaculation with its rhythmic contractions.",
+        "tone": "knowledge",
+        "image": "story/pf-basics/2",
+        "imageAlt": "An empty hammock strung between two trees in a misty garden"
+      },
+      {
+        "type": "info",
+        "icon": "trendDown",
+        "support": [
+          "clock",
+          "droplet"
+        ],
+        "title": "What happens when it weakens?",
+        "text": "Common signs: a few drops coming out after urinating (post-micturition dribble) and leaking a little urine when coughing, sneezing or lifting something heavy. Age, long sitting, a chronic cough, excess weight and prostate surgery can affect these muscles.",
+        "tone": "knowledge",
+        "image": "story/pf-basics/3",
+        "imageAlt": "An old brass tap dripping in a park"
+      },
+      {
+        "type": "myth",
+        "myth": "Kegel exercises are only for women.",
+        "fact": "Men have the same muscles, and they can be trained. Mayo Clinic notes that Kegel exercises can help bladder control in men. They're also often recommended after prostate surgery.",
+        "tone": "knowledge",
+        "image": "story/pf-basics/4",
+        "imageAlt": "An older man exercising on a yoga mat in a bright room"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Which can help reduce dribbling after urinating?",
+          "options": [
+            "Squeezing the pelvic floor muscle a few times after urinating",
+            "Drinking less water during the day",
+            "Stopping the flow now and then while urinating"
+          ],
+          "correct": 0,
+          "explain": "Squeezing the muscle pushes out the last drops left in the urethra. In a small study of 55 men, about three quarters of the participants had no more dribbling after 6 months of exercises that included this move. Drinking less water, on the other hand, concentrates the urine."
+        },
+        "tone": "knowledge",
+        "image": "story/pf-basics/5",
+        "imageAlt": "A plain, clean bathroom sink with grey tiles"
+      },
+      {
+        "type": "action",
+        "icon": "target",
+        "title": "Find the muscle",
+        "text": "In the short lesson you'll see step by step how to find your pelvic floor muscle and how to work it without tensing your belly or glutes.",
+        "action": {
+          "route": "/tutorial",
+          "label": "Open the find-the-muscle lesson"
+        },
+        "tone": "knowledge",
+        "image": "story/pf-basics/6",
+        "imageAlt": "A man lying on his back resting in a sunny meadow"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If you see blood in your urine",
+          "If you have pain or burning when urinating or in your groin",
+          "If urine leaking or erection problems started suddenly",
+          "If your urine flow has become markedly weaker or you feel you can't empty your bladder fully"
+        ],
+        "tone": "knowledge",
+        "image": "story/pf-basics/7",
+        "imageAlt": "A stethoscope lying on a wooden table"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "The pelvic floor is a muscle group that plays a role in urinary control and sexual function.",
+          "Dribbling after urinating and leaking when coughing are common signs of weakness.",
+          "It can get stronger with regular, correct exercise; the difference usually shows within a few months."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mayo Clinic – Kegel exercises for men: Understand the benefits",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+      },
+      {
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
+      },
+      {
+        "title": "Dorey G et al. (2004) – Pelvic floor exercises for treating post-micturition dribble in men with erectile dysfunction: a randomized controlled trial. Urologic Nursing 24(6)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15658735/"
+      },
+      {
+        "title": "Dorey G et al. (2005) – Pelvic floor exercises for erectile dysfunction. BJU International 96(4)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16104916/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "kegel-mistakes",
+    "title": "The 5 most common Kegel mistakes",
+    "category": "menHealth",
+    "icon": "warning",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "wind",
+        "support": [
+          "ban",
+          "body"
+        ],
+        "title": "1–2: Breathing and the wrong muscles",
+        "text": "Don't hold your breath while squeezing; keep breathing. Keep your belly, glutes and legs relaxed. When you use the right muscle, almost nothing shows from the outside; the feeling is inside, like your testicles being drawn up slightly.",
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/2",
+        "imageAlt": "A man outdoors lifting his head and taking a deep breath, side view"
+      },
+      {
+        "type": "info",
+        "icon": "repeat",
+        "support": [
+          "timer",
+          "moon"
+        ],
+        "title": "3–4: Relaxing and overdoing it",
+        "text": "After every squeeze, relax the muscle completely for at least as long as you squeezed; relaxing is part of the exercise. More reps don't mean faster results: a tired muscle works incorrectly. Stick to the number of reps in the programme.",
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/3",
+        "imageAlt": "Hands resting loosely on a knee on a bench"
+      },
+      {
+        "type": "info",
+        "icon": "droplet",
+        "support": [
+          "ban",
+          "info"
+        ],
+        "title": "5: Exercising while urinating",
+        "text": "Stopping your urine flow can be tried once to find the muscle, but don't do it as an exercise. If it becomes a habit, it can interfere with the bladder emptying fully. Do your exercises outside the toilet, at a relaxed moment.",
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/4",
+        "imageAlt": "A toilet sign in a plain corridor, without text"
+      },
+      {
+        "type": "myth",
+        "myth": "The more I squeeze, the faster I'll get stronger.",
+        "fact": "Like other muscles, the pelvic floor gets stronger while resting. Too many reps lead to fatigue and using the wrong muscles. Training regularly, correctly and in moderation gives better results.",
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/5",
+        "imageAlt": "A tired man wiping his sweat with a towel after exercise"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What is the most important step after a contraction?",
+          "options": [
+            "Relaxing the muscle completely",
+            "Going straight into the next contraction",
+            "Keeping on holding your breath"
+          ],
+          "correct": 0,
+          "explain": "Relaxing lets the muscle rest and get ready for the next contraction. Skipping the relaxation tires the muscle; holding your breath also increases pressure inside the abdomen."
+        },
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/6",
+        "imageAlt": "A calm water surface in evening light"
+      },
+      {
+        "type": "action",
+        "icon": "play",
+        "title": "A set with the right breathing",
+        "text": "In today's workout, focus on breathing out as you squeeze and breathing in as you relax. Put one hand on your belly; it should hardly move.",
+        "action": {
+          "route": "/",
+          "label": "Open today's workout"
+        },
+        "tone": "knowledge",
+        "image": "story/kegel-mistakes/7",
+        "imageAlt": "A man sitting on a mat breathing with his hand on his chest"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Keep breathing while you squeeze; keep your belly, glutes and legs relaxed.",
+          "Relax the muscle completely after every squeeze.",
+          "Don't exercise while urinating, and stick to the number of reps in the programme."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Mayo Clinic – Kegel exercises for men: Understand the benefits",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074"
+      },
+      {
+        "title": "North Bristol NHS Trust – Pelvic floor exercises for men",
+        "url": "https://www.nbt.nhs.uk/our-services/a-z-services/physiotherapy/physiotherapy-patient-information/pelvic-floor-exercises-men"
+      },
+      {
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "erection-blood",
+    "title": "Erections and blood vessel health",
+    "category": "menHealth",
+    "icon": "heart",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "heartPulse",
+        "support": [
+          "droplet",
+          "zap"
+        ],
+        "title": "An erection is about blood flow",
+        "text": "When you're aroused, the blood vessels in the penis widen and the spongy tissue fills with blood. For this, the blood vessels need to be flexible and healthy. Because the penis's blood vessels are very narrow, they can show damage to blood vessel health early.",
+        "tone": "knowledge",
+        "image": "story/erection-blood/2",
+        "imageAlt": "An aerial shot of river channels branching like the limbs of a tree"
+      },
+      {
+        "type": "info",
+        "icon": "alert",
+        "support": [
+          "ban",
+          "scale"
+        ],
+        "title": "Risk factors",
+        "text": "Smoking, high blood pressure, diabetes, high cholesterol, excess weight and inactivity wear down blood vessels. Most of these can be changed: movement, nutrition and quitting smoking are good for both your heart and your erections.",
+        "tone": "knowledge",
+        "image": "story/erection-blood/3",
+        "imageAlt": "A blood pressure monitor strapped to an arm on a table"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "The American Urological Association notes that erection problems can be a warning sign of cardiovascular disease. In some studies, this problem appeared a few years before events such as a heart attack.",
+        "tone": "knowledge",
+        "image": "story/erection-blood/4",
+        "imageAlt": "Hands looking at a smartwatch on a wrist"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Which is a risk factor that affects erections and can be changed?",
+          "options": [
+            "Smoking",
+            "Height",
+            "Eye colour"
+          ],
+          "correct": 0,
+          "explain": "Smoking narrows blood vessels and wears down their inner lining. Quitting, moving and keeping your blood pressure and blood sugar under control support blood vessel health."
+        },
+        "tone": "knowledge",
+        "image": "story/erection-blood/5",
+        "imageAlt": "Hands tying a running shoe on the asphalt"
+      },
+      {
+        "type": "action",
+        "icon": "footprints",
+        "title": "Go for a walk today",
+        "text": "Plan a 20–30 minute brisk walk and put it in your calendar. Regular movement supports the flexibility of your blood vessels; you can aim for 150 minutes a week in total.",
+        "tone": "knowledge",
+        "image": "story/erection-blood/6",
+        "imageAlt": "Someone walking down a tree-lined path in autumn, from behind"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If erection problems started suddenly or keep coming back",
+          "If you have chest pain, shortness of breath or palpitations",
+          "If you haven't had your blood pressure, blood sugar or cholesterol checked in a long time",
+          "If you have pain in the penis or a marked curve"
+        ],
+        "tone": "knowledge",
+        "image": "story/erection-blood/7",
+        "imageAlt": "A hand taking notes at a doctor's desk, no face"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "An erection depends on healthy, flexible blood vessels.",
+          "Erection problems can be an early warning for cardiovascular health.",
+          "Quitting smoking, movement and healthy eating protect both at once."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "American Urological Association – Erectile Dysfunction (ED) guideline",
+        "url": "https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-(ed)-guideline"
+      },
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
+      {
+        "title": "UChicago Medicine – What can erectile dysfunction tell you about your heart health?",
+        "url": "https://www.uchicagomedicine.org/forefront/health-and-wellness-articles/2022/july/erectile-dysfunction-linked-to-heart-disease"
+      },
+      {
+        "title": "Mayo Clinic – Erectile dysfunction: symptoms and causes",
+        "url": "https://www.mayoclinic.org/diseases-conditions/erectile-dysfunction/symptoms-causes/syc-20355776"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "bladder-control",
+    "title": "Bladder control",
+    "category": "menHealth",
+    "icon": "droplet",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "droplet",
+        "support": [
+          "zap",
+          "timer"
+        ],
+        "title": "Two types of leaking",
+        "text": "Stress type: leaking a small amount when coughing, sneezing or lifting something heavy. Urge type: a sudden, strong need to go and not making it in time. Both can happen together; pelvic floor exercises support both.",
+        "tone": "knowledge",
+        "image": "story/bladder-control/2",
+        "imageAlt": "A man carrying a heavy box on the stairs"
+      },
+      {
+        "type": "info",
+        "icon": "hand",
+        "support": [
+          "pause",
+          "wind"
+        ],
+        "title": "When a sudden urge comes",
+        "text": "Don't rush; stop where you are or sit down. Quickly squeeze and release your pelvic floor muscle a few times. Breathe calmly and turn your attention to something else. When the urge fades, walk slowly to the toilet.",
+        "tone": "knowledge",
+        "image": "story/bladder-control/3",
+        "imageAlt": "A man stopping to catch his breath at the edge of a pavement"
+      },
+      {
+        "type": "myth",
+        "myth": "If I drink less water, I won't leak.",
+        "fact": "Drinking less water concentrates the urine and can irritate the bladder; this can make urgency worse. Drinking enough, evenly through the day, is better for the bladder.",
+        "tone": "knowledge",
+        "image": "story/bladder-control/4",
+        "imageAlt": "A hand filling a glass with water at a table"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What is the first step when a sudden urge to go comes?",
+          "options": [
+            "Stopping and doing a few quick contractions",
+            "Rushing to the toilet straight away",
+            "Holding your breath and waiting"
+          ],
+          "correct": 0,
+          "explain": "Rushing and panicking can make the urge stronger. Stopping, a few quick contractions and calm breathing help the urge pass; then you can walk calmly."
+        },
+        "tone": "knowledge",
+        "image": "story/bladder-control/5",
+        "imageAlt": "A man sitting on a bench at sunset, from behind"
+      },
+      {
+        "type": "action",
+        "icon": "zap",
+        "title": "Try it at the next sudden urge",
+        "text": "Next time a sudden urge comes, instead of rushing, stop, do 3–5 quick contractions and wait for the urge to ease. Notice how many seconds it takes to pass.",
+        "tone": "knowledge",
+        "image": "story/bladder-control/6",
+        "imageAlt": "Two feet standing on a gravel path"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If you see blood in your urine",
+          "If you have burning, pain or a fever when urinating",
+          "If leaking started suddenly or keeps getting worse",
+          "If you have difficulty urinating or feel your bladder doesn't empty fully"
+        ],
+        "tone": "knowledge",
+        "image": "story/bladder-control/7",
+        "imageAlt": "Two empty chairs by a window in a clinic"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Leaking can be of the stress or the urge type.",
+          "Don't rush when a sudden urge comes: stop, do quick contractions, breathe calmly.",
+          "Drinking less water isn't the answer; drinking evenly is good for the bladder."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      },
+      {
+        "title": "Kent Community Health NHS – Urinary urge: urge suppression techniques",
+        "url": "https://kentcht.nhs.uk/leaflet/urinary-urge-urge-suppression-techniques"
+      },
+      {
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "talk-partner",
+    "title": "Talking with your partner",
+    "category": "relationships",
+    "icon": "chat",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "clock",
+        "support": [
+          "coffee",
+          "sofa"
+        ],
+        "title": "Choose the right time",
+        "text": "Don't have this conversation in bed or right after a difficult moment. Choose a time when you're both calm and unhurried: a walk, a coffee. Starting small is fine too; you don't need to solve everything in one conversation.",
+        "tone": "knowledge",
+        "image": "story/talk-partner/2",
+        "imageAlt": "A couple walking hand in hand on the beach at sunset, from behind"
+      },
+      {
+        "type": "info",
+        "icon": "speech",
+        "support": [
+          "heart",
+          "users"
+        ],
+        "title": "Speak in \"I\" statements",
+        "text": "Instead of blaming, describe your own feelings: something like “I've been feeling tense lately.” An example opening: “I want to talk to you about something important, because I care about us.” This sentence turns the conversation into teamwork.",
+        "tone": "knowledge",
+        "image": "story/talk-partner/3",
+        "imageAlt": "Two cups of coffee and hands facing each other on a wooden table"
+      },
+      {
+        "type": "info",
+        "icon": "ear",
+        "support": [
+          "chat",
+          "hand"
+        ],
+        "title": "Listening is part of talking",
+        "text": "Ask your partner what they think and listen without interrupting. They may have worries or questions too. Repeating what you heard in your own words makes them feel understood.",
+        "tone": "knowledge",
+        "image": "story/talk-partner/4",
+        "imageAlt": "An older man listening attentively, side view"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "The International Society for Sexual Medicine (ISSM) notes that couples may avoid this topic out of embarrassment or fear of hurting each other, and that this can reduce closeness. Even if talking feels strange, it's often a relief.",
+        "tone": "knowledge",
+        "image": "story/talk-partner/5",
+        "imageAlt": "A couple sitting side by side at a window, from behind"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What is the best moment for this conversation?",
+          "options": [
+            "A moment when you're both calm",
+            "Right after a difficult moment, in bed",
+            "In the middle of an argument"
+          ],
+          "correct": 0,
+          "explain": "Talking at a calm moment makes getting defensive less likely. Things said in tense moments are more easily misunderstood."
+        },
+        "tone": "knowledge",
+        "image": "story/talk-partner/6",
+        "imageAlt": "Two chairs on a balcony by the sea"
+      },
+      {
+        "type": "action",
+        "icon": "pen",
+        "title": "Write your own opening sentence",
+        "text": "On your phone or a piece of paper, write the first sentence you want to say to your partner: in your own words, with \"I\" statements, and short. When you're ready, start with that sentence.",
+        "tone": "knowledge",
+        "image": "story/talk-partner/7",
+        "imageAlt": "Hands writing a note on a phone"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Choose a calm, unhurried moment; not in bed or during an argument.",
+          "Describe your own feelings with \"I\" statements instead of blaming.",
+          "Listening is half of talking; ask what they think too."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "ISSM – How does erectile dysfunction impact sexual partners?",
+        "url": "https://www.issm.info/sexual-health-qa/how-does-erectile-dysfunction-impact-sexual-partners"
+      },
+      {
+        "title": "ISSM – How can I manage performance anxiety and psychogenic ED?",
+        "url": "https://www.issm.info/sexual-health-qa/how-can-i-manage-performance-anxiety-and-psychogenic-erectile-dysfunction-ed"
+      },
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "performance-anxiety",
+    "title": "Performance anxiety",
+    "category": "relationships",
+    "icon": "drama",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "users",
+        "support": [
+          "heart",
+          "clock"
+        ],
+        "title": "A very common situation",
+        "text": "Having an erection problem now and then is very common and usually nothing to worry about. Stress, tiredness and anxiety are among the most common causes. It's not a measure of strength or manhood.",
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/2",
+        "imageAlt": "Blurred people walking through a busy square"
+      },
+      {
+        "type": "info",
+        "icon": "rotate",
+        "support": [
+          "brain",
+          "heartPulse"
+        ],
+        "title": "The anxiety cycle",
+        "text": "When you worry, your body releases stress hormones; these can reduce blood flow and make an erection harder. When there's difficulty, worry about the next time grows and the cycle feeds itself. To break the cycle, move your attention from the outcome to your senses and reduce the pressure.",
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/3",
+        "imageAlt": "A spiral staircase photographed from above"
+      },
+      {
+        "type": "myth",
+        "myth": "It happened once, so it'll always happen.",
+        "fact": "One-off or occasional difficulties are very common and don't predict the future. Anxiety-related erection problems can be managed: talking, reducing pressure and, if needed, working with a professional help.",
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/4",
+        "imageAlt": "A rainbow among the clouds after rain"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What helps most to break the anxiety cycle?",
+          "options": [
+            "Paying attention to your senses instead of performance",
+            "Pushing yourself harder every time",
+            "Trying never to think about it"
+          ],
+          "correct": 0,
+          "explain": "Pushing yourself and trying to suppress the thought often increase anxiety. Paying attention to touch, warmth and breath reduces pressure. The \"sensate focus\" exercises used by sex therapists are also based on this idea."
+        },
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/5",
+        "imageAlt": "The silhouette of a man breathing in front of a curtain"
+      },
+      {
+        "type": "action",
+        "icon": "wind",
+        "title": "2 minutes of slow breathing",
+        "text": "Now, or before getting close, breathe slowly for a few minutes; make the out-breath a little longer than the in-breath. The aim isn't to force an erection but to calm your body.",
+        "action": {
+          "route": "/mind/breathing",
+          "label": "Open the breathing exercise"
+        },
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/6",
+        "imageAlt": "A calm sea and horizon in morning light"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If the problem has been coming back often for a few weeks",
+          "If you also don't get erections in the morning or when you're alone",
+          "If there's pain, a curve or another new symptom",
+          "If anxiety or low mood affects your daily life"
+        ],
+        "tone": "knowledge",
+        "image": "story/performance-anxiety/7",
+        "imageAlt": "Two armchairs facing each other in an empty room"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Occasional erection problems are common and usually temporary.",
+          "Anxiety can set up a self-feeding cycle by reducing blood flow.",
+          "Paying attention to your senses, reducing pressure and slow breathing help break the cycle."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
+      {
+        "title": "ISSM – How can I manage performance anxiety and psychogenic erectile dysfunction (ED)?",
+        "url": "https://www.issm.info/sexual-health-qa/how-can-i-manage-performance-anxiety-and-psychogenic-erectile-dysfunction-ed"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "intimacy-beyond",
+    "title": "Intimacy isn't just sex",
+    "category": "relationships",
+    "icon": "heart",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "heart",
+        "support": [
+          "hand",
+          "users"
+        ],
+        "title": "There are many ways to be close",
+        "text": "Hugging, holding hands, laughing together and talking are also intimacy. Sex is just one of them. These small moments nourish a sense of trust and connection.",
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/2",
+        "imageAlt": "A couple cooking together in the kitchen and laughing"
+      },
+      {
+        "type": "info",
+        "icon": "hand",
+        "support": [
+          "eye",
+          "feather"
+        ],
+        "title": "Sensate focus",
+        "text": "In this method used in sex therapy, partners take turns touching each other. The aim isn't arousal but noticing warmth, texture and pressure. In the first stages, the genitals aren't touched, so the pressure to “perform” eases.",
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/3",
+        "imageAlt": "Two hands touching, close-up"
+      },
+      {
+        "type": "info",
+        "icon": "scale",
+        "support": [
+          "heart",
+          "sun"
+        ],
+        "title": "Less pressure, more closeness",
+        "text": "Knowing that not every moment of closeness has to end a certain way is a relief. When expectations drop, the body relaxes more easily too; that's good for erections and pleasure as well.",
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/4",
+        "imageAlt": "Two cups on a tray on a blanket in bed"
+      },
+      {
+        "type": "myth",
+        "myth": "Intimacy means sex.",
+        "fact": "Intimacy also includes touching, talking and spending time together. The ISSM notes that even without an erection, couples can stay close by hugging, kissing and touching.",
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/5",
+        "imageAlt": "A couple walking side by side in a park in autumn, from behind"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What is the aim of the sensate focus exercise?",
+          "options": [
+            "Noticing touch without pressure",
+            "Getting aroused as fast as possible",
+            "Measuring performance"
+          ],
+          "correct": 0,
+          "explain": "This method was developed to reduce anticipatory anxiety. Attention goes to the senses in the moment, not to the outcome."
+        },
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/6",
+        "imageAlt": "Hands reaching towards each other in warm light"
+      },
+      {
+        "type": "action",
+        "icon": "smartphone",
+        "title": "20 minutes without phones",
+        "text": "This week, leave your phones in another room and spend 20 minutes together with your partner: a walk, a meal or just talking. You don't have to achieve anything.",
+        "tone": "knowledge",
+        "image": "story/intimacy-beyond/7",
+        "imageAlt": "Playing cards and dice on a table"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Intimacy also includes touching, talking and spending time together.",
+          "Sensate focus is a sex therapy method that reduces pressure.",
+          "As expectations drop, both the body and the relationship relax."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "SMSNA – What is sensate focus and how does it work?",
+        "url": "https://www.smsna.org/patients/did-you-know/what-is-sensate-focus-and-how-does-it-work"
+      },
+      {
+        "title": "ISSM – How does erectile dysfunction impact sexual partners?",
+        "url": "https://www.issm.info/sexual-health-qa/how-does-erectile-dysfunction-impact-sexual-partners"
+      },
+      {
+        "title": "WHO – Sexual health",
+        "url": "https://www.who.int/health-topics/sexual-health"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "water",
+    "title": "Water and the bladder",
+    "category": "nutrition",
+    "icon": "cup",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "droplet",
+        "support": [
+          "cup",
+          "sun"
+        ],
+        "title": "How much fluid?",
+        "text": "The NHS recommends about 6–8 glasses of fluid a day. Water, milk and sugar-free drinks all count. You may need more in hot weather, when exercising or when you're ill.",
+        "tone": "knowledge",
+        "image": "story/water/2",
+        "imageAlt": "A glass jug full of water and a glass on a table"
+      },
+      {
+        "type": "info",
+        "icon": "eye",
+        "support": [
+          "droplet",
+          "check"
+        ],
+        "title": "Check with your urine colour",
+        "text": "Pale straw-coloured urine usually shows you're getting enough fluid. Dark yellow, strong-smelling urine can be a sign you need to drink more. Drinking too little concentrates the urine and can irritate the bladder.",
+        "tone": "knowledge",
+        "image": "story/water/3",
+        "imageAlt": "A glass of water with a slice of lemon by a window"
+      },
+      {
+        "type": "info",
+        "icon": "coffee",
+        "support": [
+          "milk",
+          "clock"
+        ],
+        "title": "Caffeine and fizzy drinks",
+        "text": "Coffee, tea, cola and fizzy drinks can make urgency worse for some people. You don't need to give them all up; cut down and notice the difference. Spreading your drinks across the day is better than drinking a lot at once.",
+        "tone": "knowledge",
+        "image": "story/water/4",
+        "imageAlt": "A cup of Turkish coffee on a wooden tray with a glass of water beside it"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Concentrated urine can irritate the bladder wall and cause a frequent need to go. That's why, with bladder problems, drinking evenly rather than cutting back on fluids is usually recommended.",
+        "tone": "knowledge",
+        "image": "story/water/5",
+        "imageAlt": "Water droplets on a glass surface, close-up"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What's the easiest way to tell you're getting enough fluid?",
+          "options": [
+            "Your urine being pale straw-coloured",
+            "Never feeling thirsty",
+            "Going to the toilet once a day"
+          ],
+          "correct": 0,
+          "explain": "Urine colour is a practical indicator. Thirst sometimes comes late; going to the toilet very rarely can also show you're getting too little fluid."
+        },
+        "tone": "knowledge",
+        "image": "story/water/6",
+        "imageAlt": "A man walking with a water bottle in the side pocket of his backpack, from behind"
+      },
+      {
+        "type": "action",
+        "icon": "bell",
+        "title": "Set yourself a water reminder",
+        "text": "Add 3–4 water reminders during the day to your phone's clock or calendar. Putting a bottle of water on your desk also helps.",
+        "tone": "knowledge",
+        "image": "story/water/7",
+        "imageAlt": "A notebook and a reusable water bottle on a desk"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Aim for about 6–8 glasses of fluid a day; more in the heat and during sport.",
+          "Pale straw-coloured urine is a good sign.",
+          "Caffeine and fizzy drinks can make urgency worse for some people."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Water, drinks and hydration",
+        "url": "https://www.nhs.uk/live-well/eat-well/food-guidelines-and-food-labels/water-drinks-nutrition/"
+      },
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      },
+      {
+        "title": "Gloucestershire Hospitals NHS – Fluid and caffeine intake for bladder and bowel health",
+        "url": "https://www.gloshospitals.nhs.uk/media/documents/Fluid_and_caffeine_intake_for_bladder_and_bowel_health_GHPI0533_02_23.pdf"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "plate",
+    "title": "A blood-vessel-friendly plate",
+    "category": "nutrition",
+    "icon": "salad",
+    "tone": "knowledge",
+    "minutes": 2,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "salad",
+        "support": [
+          "fish",
+          "apple"
+        ],
+        "title": "Eating for your blood vessels",
+        "text": "A Mediterranean-style diet rich in vegetables, fruit, whole grains, pulses, fish and olive oil supports heart and blood vessel health. When your blood vessels are healthy, the blood flow needed for an erection is supported too.",
+        "tone": "knowledge",
+        "image": "story/plate/2",
+        "imageAlt": "A bowl full of pulses and vegetables on a wooden table"
+      },
+      {
+        "type": "info",
+        "icon": "utensils",
+        "support": [
+          "wheat",
+          "drumstick"
+        ],
+        "title": "The plate model",
+        "text": "Fill half your plate with vegetables and salad, a quarter with a protein such as fish, chicken or pulses, and the remaining quarter with a whole grain such as bulgur, wholemeal bread or brown rice. Add a portion of fruit on the side.",
+        "tone": "knowledge",
+        "image": "story/plate/3",
+        "imageAlt": "A plate half full of vegetables, from above"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "In a study of 65 men with metabolic syndrome, erectile function improved more in the group that ate a Mediterranean-style diet for 2 years than in the control group. In another study of obese men, weight loss and movement improved sexual function in about a third of participants.",
+        "tone": "knowledge",
+        "image": "story/plate/4",
+        "imageAlt": "A Mediterranean table with vegetables, outdoors"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "According to the plate model, what should half the plate be filled with?",
+          "options": [
+            "Vegetables and salad",
+            "Bread and rice",
+            "Meat"
+          ],
+          "correct": 0,
+          "explain": "Vegetables provide fibre, vitamins and minerals and keep you full. Protein and whole grains share the other half of the plate."
+        },
+        "tone": "knowledge",
+        "image": "story/plate/5",
+        "imageAlt": "A colourful salad bowl on a wooden table"
+      },
+      {
+        "type": "action",
+        "icon": "utensils",
+        "title": "Make one meal using the plate model",
+        "text": "This week, make at least one meal using the plate model: half vegetables, a quarter protein, a quarter whole grains. If you like, take a photo of your plate to track yourself.",
+        "tone": "knowledge",
+        "image": "story/plate/6",
+        "imageAlt": "Hands slicing cucumber on a board"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "A Mediterranean-style diet supports blood vessel health.",
+          "The plate model: half vegetables, a quarter protein, a quarter whole grains.",
+          "Losing weight and moving can also help sexual function."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Healthy diet fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet"
+      },
+      {
+        "title": "Esposito K et al. (2006) – Mediterranean diet improves erectile function in subjects with the metabolic syndrome. Int J Impot Res 18",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      },
+      {
+        "title": "Esposito K et al. (2004) – Effect of lifestyle changes on erectile dysfunction in obese men: a randomized controlled trial. JAMA 291",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15213209/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "alcohol",
+    "title": "Alcohol and performance",
+    "category": "nutrition",
+    "icon": "glass",
+    "tone": "knowledge",
+    "minutes": 2,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "moon",
+        "support": [
+          "zap",
+          "clock"
+        ],
+        "title": "In the short term",
+        "text": "Alcohol slows down the nervous system; it can make arousal, erections and ejaculation harder. It also disrupts sleep: even though it makes falling asleep easier, it can break up sleep in the second half of the night.",
+        "tone": "knowledge",
+        "image": "story/alcohol/2",
+        "imageAlt": "A dim bedroom and a window at night"
+      },
+      {
+        "type": "info",
+        "icon": "heartPulse",
+        "support": [
+          "trendDown",
+          "shield"
+        ],
+        "title": "In the long term",
+        "text": "Regular heavy drinking raises blood pressure, strains the liver and can affect hormone balance. Over time these harm blood vessel health and sexual function. According to the World Health Organization, there's no amount of alcohol considered safe for health.",
+        "tone": "knowledge",
+        "image": "story/alcohol/3",
+        "imageAlt": "A blood pressure monitor on a table"
+      },
+      {
+        "type": "myth",
+        "myth": "A little alcohol relaxes you and improves performance.",
+        "fact": "A small amount of alcohol can reduce shyness for some people, but it does the opposite in the body: it can weaken erections and sensation. The more you drink, the clearer this effect becomes.",
+        "tone": "knowledge",
+        "image": "story/alcohol/4",
+        "imageAlt": "Iced herbal tea with mint in a plain glass"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "How does alcohol affect sleep?",
+          "options": [
+            "It can break up sleep in the second half of the night",
+            "It always deepens sleep",
+            "It doesn't affect it at all"
+          ],
+          "correct": 0,
+          "explain": "Although alcohol makes falling asleep easier, it lowers sleep quality and can increase night-time waking."
+        },
+        "tone": "knowledge",
+        "image": "story/alcohol/5",
+        "imageAlt": "A man stretching in bed in the morning"
+      },
+      {
+        "type": "action",
+        "icon": "leaf",
+        "title": "Take a look at the Alcohol-Free Camp",
+        "text": "If you want to cut down on alcohol or take a break for a while, the Alcohol-Free Camp offers a step-by-step plan. Taking a look doesn't commit you to anything.",
+        "action": {
+          "route": "/campus/alcohol",
+          "label": "Open the Alcohol-Free Camp"
+        },
+        "tone": "knowledge",
+        "image": "story/alcohol/6",
+        "imageAlt": "A road stretching through the countryside at sunrise and someone running"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "In the short term, alcohol can disrupt erections and sleep.",
+          "In the long term it affects blood pressure, blood vessels and hormone balance.",
+          "Cutting down or taking a break is good for both sleep and sexual health."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      },
+      {
+        "title": "NHS – Alcohol advice",
+        "url": "https://www.nhs.uk/live-well/alcohol-advice/"
+      },
+      {
+        "title": "WHO – Alcohol fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/alcohol"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "sleep-hormones",
+    "title": "Sleep and hormones",
+    "category": "sleep",
+    "icon": "moon",
+    "tone": "knowledge",
+    "minutes": 2,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "moon",
+        "support": [
+          "zap",
+          "clock"
+        ],
+        "title": "Sleep and testosterone",
+        "text": "In men, a large part of daily testosterone release happens during sleep. That's why regular, sufficient sleep is a natural part of hormone balance.",
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/2",
+        "imageAlt": "The moon in a blue night sky"
+      },
+      {
+        "type": "info",
+        "icon": "trendDown",
+        "support": [
+          "bed",
+          "alarm"
+        ],
+        "title": "The effect of short sleep",
+        "text": "In a small study of healthy young men, sleeping about 5 hours a night for a week lowered daytime testosterone levels by about 10–15%. It's a single small study, but it shows how important sleep is.",
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/3",
+        "imageAlt": "An alarm clock standing on a wooden floor"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "The American Academy of Sleep Medicine recommends that adults sleep at least 7 hours a night. Regularly sleeping less than 7 hours has been linked to weight gain, high blood pressure and heart disease.",
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/4",
+        "imageAlt": "A plain, made bed in morning light"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What happened to testosterone in the one-week short-sleep study?",
+          "options": [
+            "It fell by about 10–15%",
+            "It doubled",
+            "It didn't change at all"
+          ],
+          "correct": 0,
+          "explain": "Although the study was small, the result shows how important sleep is for hormone balance. At least 7 hours of sleep is recommended for adults."
+        },
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/5",
+        "imageAlt": "A cup of coffee by a window"
+      },
+      {
+        "type": "action",
+        "icon": "alarm",
+        "title": "Fix your bedtime tonight",
+        "text": "This week, try going to bed at the same time every night and make room for 7–8 hours of sleep. Set a reminder on your phone for 30 minutes before bedtime.",
+        "tone": "knowledge",
+        "image": "story/sleep-hormones/6",
+        "imageAlt": "A bedside lamp and an open notebook"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "A large part of testosterone is released during sleep.",
+          "Even a week of short sleep can lower testosterone.",
+          "The target for adults: at least 7 hours a night, at regular times."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Leproult R, Van Cauter E (2011) – Effect of 1 week of sleep restriction on testosterone levels in young healthy men. JAMA 305",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21632481/"
+      },
+      {
+        "title": "AASM & Sleep Research Society (2015) – Recommended amount of sleep for a healthy adult",
+        "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
+      },
+      {
+        "title": "NHS – How to get to sleep",
+        "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "sleep-routine",
+    "title": "An evening routine for better sleep",
+    "category": "sleep",
+    "icon": "moon",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "sunrise",
+        "support": [
+          "alarm",
+          "sun"
+        ],
+        "title": "Get up at the same time every day",
+        "text": "Getting up at the same time every day, weekends included, sets your body clock. Getting daylight in the morning also helps sleep come more easily in the evening.",
+        "tone": "knowledge",
+        "image": "story/sleep-routine/2",
+        "imageAlt": "A hand opening the curtain in the morning sun"
+      },
+      {
+        "type": "info",
+        "icon": "smartphone",
+        "support": [
+          "moon",
+          "bulb"
+        ],
+        "title": "Dim the lights and screens",
+        "text": "In the hour before bed, dim the lights and step away from screens. Reading a book, a warm shower or light stretching tell your body the day is over. Avoid caffeine in the evening too.",
+        "tone": "knowledge",
+        "image": "story/sleep-routine/3",
+        "imageAlt": "Hands holding an open book in dim light"
+      },
+      {
+        "type": "info",
+        "icon": "clock",
+        "support": [
+          "sofa",
+          "book"
+        ],
+        "title": "If you can't sleep, get up",
+        "text": "If you can't sleep after about 20 minutes in bed, get up and do something calm in dim light. Go back when you feel sleepy. That way your brain pairs the bed with sleep, not with tossing and turning awake.",
+        "tone": "knowledge",
+        "image": "story/sleep-routine/4",
+        "imageAlt": "A steaming kettle and a cup in a dim kitchen"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Experts recommend at least 7 hours of sleep a night for adults. A regular evening routine makes it easier to fall asleep and wake up refreshed.",
+        "tone": "knowledge",
+        "image": "story/sleep-routine/5",
+        "imageAlt": "A shower and a bathrobe on a hook in a plain bathroom"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What should you do if you can't sleep for a long time in bed?",
+          "options": [
+            "Get up and do something calm in dim light",
+            "Scroll on your phone",
+            "Keep checking the clock"
+          ],
+          "correct": 0,
+          "explain": "Screen light and looking at the clock increase wakefulness. Taking a short break and going back to bed when you feel sleepy works better."
+        },
+        "tone": "knowledge",
+        "image": "story/sleep-routine/6",
+        "imageAlt": "A blanket and a book on an armchair"
+      },
+      {
+        "type": "action",
+        "icon": "thought",
+        "title": "10 minutes of mind unload",
+        "text": "Writing down what's on your mind before bed can calm it. Try the mind unload exercise in the app this evening.",
+        "action": {
+          "route": "/mind/unload",
+          "label": "Open mind unload"
+        },
+        "tone": "knowledge",
+        "image": "story/sleep-routine/7",
+        "imageAlt": "An open notebook and pens under an evening lamp"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Get up at the same time every day; get daylight in the morning.",
+          "Before bed, cut down on light, screens and caffeine.",
+          "If you can't sleep in 20 minutes, get up and go back when you're sleepy."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – How to get to sleep",
+        "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+      },
+      {
+        "title": "AASM & Sleep Research Society (2015) – Recommended amount of sleep for a healthy adult",
+        "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "night-bathroom",
+    "title": "Getting up at night to urinate",
+    "category": "sleep",
+    "icon": "moon",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "moon",
+        "support": [
+          "droplet",
+          "clock"
+        ],
+        "title": "Getting up at night to urinate",
+        "text": "Waking up from sleep to urinate is called nocturia. It becomes more frequent with age and is very common. Getting up once a night is usually not a problem; twice or more can break up your sleep.",
+        "tone": "knowledge",
+        "image": "story/night-bathroom/2",
+        "imageAlt": "A corridor with a night light on"
+      },
+      {
+        "type": "info",
+        "icon": "cup",
+        "support": [
+          "coffee",
+          "clock"
+        ],
+        "title": "Adjust your evening fluids",
+        "text": "Drink enough during the day, but cut down on fluids in the 2 hours before bed. Avoid coffee, tea and alcohol in the evening; they can increase the amount of urine. Make going to the toilet just before bed a habit.",
+        "tone": "knowledge",
+        "image": "story/night-bathroom/3",
+        "imageAlt": "A glass of water and a grapefruit on a table in the evening"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Fluid that collects in the legs during the day returns to the circulation when you lie down and can be passed as urine at night. That's why resting with your legs raised for a while in the evening can help. Loud snoring and pauses in breathing during sleep can also be linked to getting up at night to urinate.",
+        "tone": "knowledge",
+        "image": "story/night-bathroom/4",
+        "imageAlt": "Feet in socks resting on a cushion on a sofa"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What helps most in the 2 hours before bed?",
+          "options": [
+            "Cutting down on fluids and avoiding caffeine",
+            "Drinking plenty of tea",
+            "Putting off going to the toilet"
+          ],
+          "correct": 0,
+          "explain": "Cutting down on fluids and caffeine in the evening reduces the urine produced at night. Going to the toilet before bed helps too."
+        },
+        "tone": "knowledge",
+        "image": "story/night-bathroom/5",
+        "imageAlt": "A clock on the wall in evening light"
+      },
+      {
+        "type": "action",
+        "icon": "clock",
+        "title": "Evening fluid reminder",
+        "text": "Set a reminder on your phone for 2 hours before bedtime: “Today's last big glass.” For a week, note how many times you get up at night.",
+        "tone": "knowledge",
+        "image": "story/night-bathroom/6",
+        "imageAlt": "A lit lamp and a phone on a bedside table"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If you get up more than twice a night and it disrupts your sleep",
+          "If there's blood in your urine, burning or a fever",
+          "If you're very thirsty and urinate a lot",
+          "If loud snoring or pauses in breathing during sleep have been noticed"
+        ],
+        "tone": "knowledge",
+        "image": "story/night-bathroom/7",
+        "imageAlt": "A doctor's hands fitting a pulse oximeter on a finger"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Getting up at night to urinate is common; twice or more can break up sleep.",
+          "Cut down on fluids and caffeine in the 2 hours before bed.",
+          "Swollen legs and snoring may play a part too; talk to a doctor."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "European Association of Urology (patient information) – Self-management of nocturia symptoms",
+        "url": "https://patients.uroweb.org/condition/nocturia/treatment-options-nocturia/self-management-of-nocturia-symptoms"
+      },
+      {
+        "title": "Oxford Health NHS – Understanding nocturia",
+        "url": "https://oxfordhealth.nhs.uk/ababs/advice/understanding-nocturia"
+      },
+      {
+        "title": "NHS – Urinary incontinence",
+        "url": "https://www.nhs.uk/conditions/urinary-incontinence/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "stress-body",
+    "title": "How does stress feel in the body?",
+    "category": "stress",
+    "icon": "tornado",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "zap",
+        "support": [
+          "heartPulse",
+          "wind"
+        ],
+        "title": "Fight or flight",
+        "text": "When you sense danger, the body releases adrenaline and cortisol: your heart speeds up, you breathe faster and your muscles tense. This response, useful in short-term danger, wears the body out when stress is constant.",
+        "tone": "knowledge",
+        "image": "story/stress-body/2",
+        "imageAlt": "Cars waiting in traffic in evening light"
+      },
+      {
+        "type": "info",
+        "icon": "body",
+        "support": [
+          "dumbbell",
+          "hand"
+        ],
+        "title": "Tense muscles",
+        "text": "Long-lasting stress keeps the muscles on constant alert; the neck, shoulders and jaw are where it's felt most. The pelvic floor can tense up too. A constantly tense pelvic floor can contribute to pain and to difficulties in the toilet or with sexual function.",
+        "tone": "knowledge",
+        "image": "story/stress-body/3",
+        "imageAlt": "A man stretching his neck with his hands behind his head"
+      },
+      {
+        "type": "info",
+        "icon": "feather",
+        "support": [
+          "wind",
+          "check"
+        ],
+        "title": "Relaxing is a skill too",
+        "text": "Learning to let a muscle go matters as much as squeezing it. Breathing exercises, the body scan and regular movement reduce muscle tension. The relaxation moments in your workouts are part of this skill too.",
+        "tone": "knowledge",
+        "image": "story/stress-body/4",
+        "imageAlt": "A man lying on the grass with his eyes closed"
+      },
+      {
+        "type": "myth",
+        "myth": "Stress only happens in your head.",
+        "fact": "Stress is felt in the body too: muscle tension, headaches, digestive problems and poor sleep are common signs. The American Psychological Association notes that relaxation techniques reduce muscle tension.",
+        "tone": "knowledge",
+        "image": "story/stress-body/5",
+        "imageAlt": "A man thinking at a laptop, from behind"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "How does long-lasting stress affect the muscles?",
+          "options": [
+            "It can keep them constantly tense",
+            "It always makes them stronger",
+            "It doesn't affect it at all"
+          ],
+          "correct": 0,
+          "explain": "Short-term stress tenses the muscles for a moment and then releases them. When stress continues, the muscles stay on alert; this can lead to pain and fatigue."
+        },
+        "tone": "knowledge",
+        "image": "story/stress-body/6",
+        "imageAlt": "Two ropes hanging side by side"
+      },
+      {
+        "type": "action",
+        "icon": "body",
+        "title": "Do a body scan",
+        "text": "Take a few minutes and scan your body from head to toe: notice where there's tension and let it go as you breathe out.",
+        "action": {
+          "route": "/mind/body-scan",
+          "label": "Open the body scan"
+        },
+        "tone": "knowledge",
+        "image": "story/stress-body/7",
+        "imageAlt": "A man lying on his back on the floor with his eyes closed"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "The stress response tenses the muscles; constant stress wears the body out.",
+          "The pelvic floor can tense up with stress too.",
+          "Relaxing is as important a skill as squeezing."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "American Psychological Association – Stress effects on the body",
+        "url": "https://www.apa.org/topics/stress/body"
+      },
+      {
+        "title": "NHS – Tips to reduce stress",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "worry-time",
+    "title": "The worry time technique",
+    "category": "stress",
+    "icon": "notebook",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "notebook",
+        "support": [
+          "pen",
+          "clock"
+        ],
+        "title": "Postpone the worry",
+        "text": "When a worry comes to mind during the day, don't try to solve it right away. Jot it down briefly and tell yourself: “I'll think about this in my worry time.” Then go back to what you were doing.",
+        "tone": "knowledge",
+        "image": "story/worry-time/2",
+        "imageAlt": "A man holding a small notebook in front of his shirt"
+      },
+      {
+        "type": "info",
+        "icon": "clock",
+        "support": [
+          "calendar",
+          "sunset"
+        ],
+        "title": "Worry time",
+        "text": "Every day at the same time, at least a few hours before bed, set aside 15 minutes. Read what you noted. Some will no longer seem important; for the rest, think about whether there's a step you can take.",
+        "tone": "knowledge",
+        "image": "story/worry-time/3",
+        "imageAlt": "A small clock on a notebook"
+      },
+      {
+        "type": "info",
+        "icon": "puzzle",
+        "support": [
+          "check",
+          "thought"
+        ],
+        "title": "Can it be solved?",
+        "text": "Split your worries in two: the ones you can do something about and the “what if” kind of assumptions. For the first, plan a small step; notice the second and let it go. When time is up, close the notebook.",
+        "tone": "knowledge",
+        "image": "story/worry-time/4",
+        "imageAlt": "A path splitting in two in the countryside"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "This technique comes from cognitive behavioural therapy and is among the NHS's self-help suggestions. With regular practice, you may notice you get caught up in worries less during the day.",
+        "tone": "knowledge",
+        "image": "story/worry-time/5",
+        "imageAlt": "An open book and a pen"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What do you do when a worry comes during the day?",
+          "options": [
+            "I note it down and leave it for worry time",
+            "I think about it for hours straight away",
+            "I ignore it and try to suppress it"
+          ],
+          "correct": 0,
+          "explain": "Trying to suppress a worry often makes it stronger; thinking about it for hours is exhausting too. Postponing gives the worry a place while protecting your day from it."
+        },
+        "tone": "knowledge",
+        "image": "story/worry-time/6",
+        "imageAlt": "A hand taking notes in a notebook next to a phone"
+      },
+      {
+        "type": "action",
+        "icon": "calendar",
+        "title": "Set a worry time for tomorrow",
+        "text": "Choose a 15-minute worry time for tomorrow and put it in your calendar; not close to bedtime. Collect the worries that come during the day in one note.",
+        "tone": "knowledge",
+        "image": "story/worry-time/7",
+        "imageAlt": "A hand writing in a planner, the writing unreadable"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Note down the worry that comes and postpone it to worry time.",
+          "Set aside 15 minutes at the same time every day; well before bed.",
+          "Plan a step for what can be solved; notice the assumption and let it go."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS Every Mind Matters – Tackling your worries",
+        "url": "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/self-help-cbt-techniques/tackling-your-worries"
+      },
+      {
+        "title": "Oxford Health NHS – Set aside worry time",
+        "url": "https://oxfordhealth.nhs.uk/camhs/self-care/sleep/anxiety-worry/worry-time/"
+      },
+      {
+        "title": "NHS – Tips to reduce stress",
+        "url": "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/tips-to-reduce-stress/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "mindfulness",
+    "title": "What is mindfulness?",
+    "category": "stress",
+    "icon": "leaf",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "leaf",
+        "support": [
+          "eye",
+          "wind"
+        ],
+        "title": "Attention to the present",
+        "text": "Mindfulness means paying attention, without judgement, to what's happening right now: your thoughts, feelings, sounds and the sensations in your body. It isn't anything mystical; it's an attention exercise you can practise regularly.",
+        "tone": "knowledge",
+        "image": "story/mindfulness/2",
+        "imageAlt": "A single drop of water on a leaf, close-up"
+      },
+      {
+        "type": "info",
+        "icon": "brain",
+        "support": [
+          "thought",
+          "repeat"
+        ],
+        "title": "When the mind wanders",
+        "text": "During practice your mind will drift elsewhere; that's normal and not a mistake. As soon as you notice, gently bring your attention back to your breath. Every return is the exercise itself.",
+        "tone": "knowledge",
+        "image": "story/mindfulness/3",
+        "imageAlt": "White clouds passing in a blue sky"
+      },
+      {
+        "type": "info",
+        "icon": "wind",
+        "support": [
+          "clock",
+          "sofa"
+        ],
+        "title": "A 1-minute try",
+        "text": "Sit comfortably, close your eyes or look at one spot. Notice your breath going in and out through your nose. For one minute, just watch without counting or changing it. If your attention drifts, come back to the breath.",
+        "tone": "knowledge",
+        "image": "story/mindfulness/4",
+        "imageAlt": "A man sitting on a chair with his eyes closed"
+      },
+      {
+        "type": "myth",
+        "myth": "For mindfulness, you have to empty your head completely.",
+        "fact": "The aim isn't to stop thoughts but to notice them and come back to the breath without getting pulled in. Thoughts coming is a natural part of the practice.",
+        "tone": "knowledge",
+        "image": "story/mindfulness/5",
+        "imageAlt": "A wavy water surface shining in the light"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What do you do if your mind wanders during practice?",
+          "options": [
+            "I notice it and gently come back to the breath",
+            "I think I've failed and give up",
+            "I try to force my thoughts to stop"
+          ],
+          "correct": 0,
+          "explain": "The mind wanders; what matters is noticing and coming back. Trying to force it to stop increases tension."
+        },
+        "tone": "knowledge",
+        "image": "story/mindfulness/6",
+        "imageAlt": "A gentle wave breaking on the beach"
+      },
+      {
+        "type": "action",
+        "icon": "wind",
+        "title": "1 minute of attention to the breath",
+        "text": "Take a minute now and pay attention to your breath. If you like, start with the breathing exercise in the app.",
+        "action": {
+          "route": "/mind/breathing",
+          "label": "Open the breathing exercise"
+        },
+        "tone": "knowledge",
+        "image": "story/mindfulness/7",
+        "imageAlt": "A man sipping his coffee outdoors, side view"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Mindfulness is non-judgemental attention to the present.",
+          "The mind wanders; noticing and gently coming back is the practice itself.",
+          "Even starting with one minute a day is a good enough step."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS – Mindfulness",
+        "url": "https://www.nhs.uk/mental-health/self-help/tips-and-support/mindfulness/"
+      },
+      {
+        "title": "NCCIH – Meditation and mindfulness: what you need to know",
+        "url": "https://www.nccih.nih.gov/health/meditation-and-mindfulness-what-you-need-to-know"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "move-more",
+    "title": "More movement",
+    "category": "exercise",
+    "icon": "footprints",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "footprints",
+        "support": [
+          "clock",
+          "heartPulse"
+        ],
+        "title": "How much movement?",
+        "text": "The World Health Organization recommends 150–300 minutes of moderate movement a week for adults: brisk walking, cycling or swimming, for example. On top of this, strength training should be done on at least 2 days a week.",
+        "tone": "knowledge",
+        "image": "story/move-more/2",
+        "imageAlt": "A man walking along a flowery path in a park, from behind"
+      },
+      {
+        "type": "info",
+        "icon": "chair",
+        "support": [
+          "alarm",
+          "footprints"
+        ],
+        "title": "Break up long sitting",
+        "text": "Staying inactive for long periods is bad for your health. Get up for a few minutes every hour, walk or stretch. Even a little movement is better than none.",
+        "tone": "knowledge",
+        "image": "story/move-more/3",
+        "imageAlt": "A man stretching his arms while sitting on a bench with his laptop"
+      },
+      {
+        "type": "info",
+        "icon": "heartPulse",
+        "support": [
+          "trendUp",
+          "smile"
+        ],
+        "title": "Benefits for blood vessels and erections",
+        "text": "Regular movement helps regulate blood pressure and blood sugar and supports the flexibility of your blood vessels. In a study of obese men, weight loss and movement improved sexual function in about a third of participants.",
+        "tone": "knowledge",
+        "image": "story/move-more/4",
+        "imageAlt": "A man cycling in the city"
+      },
+      {
+        "type": "myth",
+        "myth": "To get any benefit, I need to go to the gym every day.",
+        "fact": "Climbing stairs, walking briskly or a short routine at home count too. According to the World Health Organization, every move counts; even a little movement brings benefits.",
+        "tone": "knowledge",
+        "image": "story/move-more/5",
+        "imageAlt": "A foot climbing up bright steps"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "How much moderate movement a week does the World Health Organization recommend for adults?",
+          "options": [
+            "150–300 minutes",
+            "30 minutes",
+            "1,000 minutes"
+          ],
+          "correct": 0,
+          "explain": "150–300 minutes a week can be met with, for example, a walk of about 30 minutes a day. Strength training on 2 days a week is added to this."
+        },
+        "tone": "knowledge",
+        "image": "story/move-more/6",
+        "imageAlt": "Running shoes on autumn leaves"
+      },
+      {
+        "type": "action",
+        "icon": "dumbbell",
+        "title": "Pelvic Fitness: Beginner",
+        "text": "Start strength training with a small step: the Pelvic Fitness beginner routine takes about 7 minutes and works your hips, abs and pelvic floor together.",
+        "action": {
+          "route": "/fitness/beginner",
+          "label": "Open the beginner routine"
+        },
+        "tone": "knowledge",
+        "image": "story/move-more/7",
+        "imageAlt": "An older man doing squats at home"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "150–300 minutes of moderate movement a week and 2 days of strength.",
+          "Break up long sitting with a few minutes every hour.",
+          "Movement supports your blood vessels and sexual health."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO (2020) – Guidelines on physical activity and sedentary behaviour",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK566048/"
+      },
+      {
+        "title": "WHO – Physical activity fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      },
+      {
+        "title": "Esposito K et al. (2004) – Effect of lifestyle changes on erectile dysfunction in obese men: a randomized controlled trial. JAMA 291",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15213209/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "core-hips",
+    "title": "Why do the hips and core matter?",
+    "category": "exercise",
+    "icon": "dumbbell",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "layers",
+        "support": [
+          "body",
+          "shield"
+        ],
+        "title": "A team that works together",
+        "text": "The pelvic floor doesn't work alone; together with the deep abdominal muscles, the back muscles and the diaphragm, it forms the “box” of the core. When one contracts, the others usually join in.",
+        "tone": "knowledge",
+        "image": "story/core-hips/2",
+        "imageAlt": "A rowing team on the water at sunset, from a distance"
+      },
+      {
+        "type": "info",
+        "icon": "dumbbell",
+        "support": [
+          "footprints",
+          "body"
+        ],
+        "title": "The role of the hips",
+        "text": "The hip muscles keep the pelvis balanced; they support the body when walking, climbing stairs and lifting. Strong hip and abdominal muscles share the load on the pelvic floor.",
+        "tone": "knowledge",
+        "image": "story/core-hips/3",
+        "imageAlt": "A man climbing stairs, side view"
+      },
+      {
+        "type": "info",
+        "icon": "shield",
+        "support": [
+          "droplet",
+          "check"
+        ],
+        "title": "Control and posture",
+        "text": "A strong core that works in harmony can support bladder control and posture when coughing or lifting. Moves like the bridge, bird-dog and plank work these muscles together.",
+        "tone": "knowledge",
+        "image": "story/core-hips/4",
+        "imageAlt": "A man walking with good posture carrying boxes"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Research shows that when the pelvic floor contracts, the deep abdominal muscles work along with it. That's why gently drawing in your belly during exercises, without holding your breath, also supports the pelvic floor.",
+        "tone": "knowledge",
+        "image": "story/core-hips/5",
+        "imageAlt": "A man doing a forearm plank on a mat"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Which muscles does the pelvic floor work with?",
+          "options": [
+            "The deep abdominal and back muscles, and the diaphragm",
+            "Only the leg muscles",
+            "No other muscles"
+          ],
+          "correct": 0,
+          "explain": "These muscles work like a team and manage the pressure inside the abdomen together. That's why core exercises also help the pelvic floor."
+        },
+        "tone": "knowledge",
+        "image": "story/core-hips/6",
+        "imageAlt": "Stones balanced on top of pebbles"
+      },
+      {
+        "type": "action",
+        "icon": "dumbbell",
+        "title": "Pelvic Fitness routine",
+        "text": "Today, try a short routine of moves that work the core together, like the bridge and the bird-dog.",
+        "action": {
+          "route": "/fitness/beginner",
+          "label": "Open Pelvic Fitness"
+        },
+        "tone": "knowledge",
+        "image": "story/core-hips/7",
+        "imageAlt": "A man lying on his back on a mat at home, raising his legs"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "The pelvic floor works together with the abs, back and diaphragm.",
+          "Strong hip and abdominal muscles share the pelvic floor's load.",
+          "The bridge, bird-dog and plank strengthen this team together."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "North Bristol NHS Trust – Pelvic floor exercises for men",
+        "url": "https://www.nbt.nhs.uk/our-services/a-z-services/physiotherapy/physiotherapy-patient-information/pelvic-floor-exercises-men"
+      },
+      {
+        "title": "Neumann P, Gill V (2002) – Pelvic floor and abdominal muscle interaction: EMG activity and intra-abdominal pressure. Int Urogynecol J 13",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12054180/"
+      },
+      {
+        "title": "WHO – Physical activity fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "cycling",
+    "title": "Cycling and the pelvic area",
+    "category": "exercise",
+    "icon": "bike",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "bike",
+        "support": [
+          "alert",
+          "clock"
+        ],
+        "title": "Saddle pressure",
+        "text": "When cycling, part of your weight rests on the perineum (between the anus and testicles), where nerves and blood vessels pass. On long rides this pressure can cause numbness or tingling.",
+        "tone": "knowledge",
+        "image": "story/cycling/2",
+        "imageAlt": "A bicycle saddle, close-up"
+      },
+      {
+        "type": "info",
+        "icon": "sliders",
+        "support": [
+          "ruler",
+          "check"
+        ],
+        "title": "Precautions",
+        "text": "Choose a saddle that suits you, with a cut-out or a wider shape. Adjust the saddle height and angle; don't keep the handlebars much lower than the saddle. Stand on the pedals now and then while riding to relieve the pressure.",
+        "tone": "knowledge",
+        "image": "story/cycling/3",
+        "imageAlt": "Hands checking a bicycle on the grass"
+      },
+      {
+        "type": "myth",
+        "myth": "Cycling definitely causes impotence.",
+        "fact": "Research shows that men who cycle regularly don't have worse erectile function than those who don't. To reduce numbness, the right saddle, the right setup and short breaks matter.",
+        "tone": "knowledge",
+        "image": "story/cycling/4",
+        "imageAlt": "Someone cycling along a road through the countryside, from a distance"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "In one study, what reduced genital numbness?",
+          "options": [
+            "Standing on the pedals for part of the ride",
+            "Keeping the handlebars much lower than the saddle",
+            "Never taking a break"
+          ],
+          "correct": 0,
+          "explain": "Those who stood on the pedals for more than 20% of the ride had less numbness. Having the handlebars lower than the saddle increased numbness."
+        },
+        "tone": "knowledge",
+        "image": "story/cycling/5",
+        "imageAlt": "A blue bicycle saddle, close-up"
+      },
+      {
+        "type": "action",
+        "icon": "timer",
+        "title": "Stand up every 10 minutes when riding",
+        "text": "On your next ride, stand on the pedals about every 10 minutes to relieve the pressure for a few seconds. Notice whether the numbness decreases.",
+        "tone": "knowledge",
+        "image": "story/cycling/6",
+        "imageAlt": "The legs of a cyclist pedalling"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If numbness is frequent or doesn't go away after riding (take a break from cycling meanwhile)",
+          "If you've noticed a new problem with erections",
+          "If there's pain, swelling or a sore in the perineal area",
+          "If you have straining or burning when urinating"
+        ],
+        "tone": "knowledge",
+        "image": "story/cycling/7",
+        "imageAlt": "A doctor working at their desk in a bright practice"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Long saddle pressure can cause numbness in the perineal area.",
+          "A suitable saddle, the right setup and standing up now and then matter.",
+          "Cycling alone doesn't cause erection problems; taking precautions is enough."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "SMSNA – Is cycling a risk factor for erectile dysfunction?",
+        "url": "https://www.smsna.org/patients/did-you-know/is-cycling-a-risk-factor-for-erectile-dysfunction"
+      },
+      {
+        "title": "Awad MA et al. (2018) – Erectile and urinary function in men who cycle. Journal of Urology",
+        "url": "https://doi.org/10.1016/j.juro.2017.10.017"
+      }
+    ],
+    "reviewed": false
+  },
+  {
+    "id": "smoking",
+    "title": "Smoking and sexual health",
+    "category": "menHealth",
+    "icon": "ban",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "ban",
+        "support": [
+          "heartPulse",
+          "droplet"
+        ],
+        "title": "Smoking and blood vessels",
+        "text": "The substances in cigarettes damage the inner lining of blood vessels and narrow them. Because erections depend on healthy blood flow, smokers have a higher risk of erection problems; the more they smoke, the higher the risk.",
+        "tone": "knowledge",
+        "image": "story/smoking/2",
+        "imageAlt": "Thin tree branches against the sky"
+      },
+      {
+        "type": "info",
+        "icon": "trendUp",
+        "support": [
+          "sprout",
+          "clock"
+        ],
+        "title": "What changes when you quit?",
+        "text": "When you quit, blood vessel function starts to recover over time: in the first hours the carbon monoxide in your blood drops, and within weeks circulation and breathing improve. In one study, erectile function improved after a year in about a quarter of the men who quit.",
+        "tone": "knowledge",
+        "image": "story/smoking/3",
+        "imageAlt": "A window with a sheer curtain opening onto a garden"
+      },
+      {
+        "type": "myth",
+        "myth": "I've smoked for years; quitting won't help now.",
+        "fact": "Quitting helps at any age. According to the World Health Organization, the gains start in the first hours and grow over the years. Quitting while young and while the problem is mild makes more of a difference for erections.",
+        "tone": "knowledge",
+        "image": "story/smoking/4",
+        "imageAlt": "An older man walking in a park with a cane in autumn, from behind"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "What happens to blood vessel health when you quit smoking?",
+          "options": [
+            "It starts to recover over time",
+            "It doesn't change at all",
+            "It gets worse"
+          ],
+          "correct": 0,
+          "explain": "Blood vessels start to repair themselves after you quit. That's why the benefits of quitting can show in both the heart and erections."
+        },
+        "tone": "knowledge",
+        "image": "story/smoking/5",
+        "imageAlt": "A man in a meadow opening his arms and taking a deep breath, from behind"
+      },
+      {
+        "type": "action",
+        "icon": "flag",
+        "title": "Smoke-Free Camp assessment",
+        "text": "If you're thinking about quitting, the Smoke-Free Camp prepares a plan for you with a short assessment. You can take a look even if you don't feel ready.",
+        "action": {
+          "route": "/camp",
+          "label": "Open the Smoke-Free Camp"
+        },
+        "tone": "knowledge",
+        "image": "story/smoking/6",
+        "imageAlt": "A trail starting in a forest in morning light"
+      },
+      {
+        "type": "doctor",
+        "items": [
+          "If erection problems keep coming back",
+          "If you have chest pain, shortness of breath or a cough that won't go away",
+          "If withdrawal symptoms are really hard while quitting (ALO 171 in Türkiye or your local quitline can also help)",
+          "If you have heart disease, diabetes or high blood pressure, about medicines that support quitting"
+        ],
+        "tone": "knowledge",
+        "image": "story/smoking/7",
+        "imageAlt": "A results sheet in a doctor's hand"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Smoking narrows blood vessels and increases the risk of erection problems.",
+          "When you quit, blood vessel function recovers over time.",
+          "Quitting helps at any age; getting support makes it easier."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "WHO – Tobacco fact sheet",
+        "url": "https://www.who.int/news-room/fact-sheets/detail/tobacco"
+      },
+      {
+        "title": "NHS Better Health – Quit smoking",
+        "url": "https://www.nhs.uk/better-health/quit-smoking/"
+      },
+      {
+        "title": "Pourmand G et al. (2004) – Do cigarette smokers with erectile dysfunction benefit from stopping? A prospective study. BJU Int 94",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15610111/"
+      },
+      {
+        "title": "NHS – Erection problems (erectile dysfunction)",
+        "url": "https://www.nhs.uk/conditions/erection-problems-erectile-dysfunction/"
+      }
+    ],
+    "reviewed": false
+  }
+]

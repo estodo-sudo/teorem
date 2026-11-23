@@ -1,0 +1,132 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Bacak",
+    "intro": "Ön ve arka bacağı, kalçayı güçlendiren programlar. Sandalyeye oturup kalkmaktan başlar; hamleler, Bulgar squat ve sıçramalı squatla ilerlersin.",
+    "science": [
+      "Hafif yükle ama tükenmeye yakın yapılan setler, ağır yük kadar kas büyütebilir (21 çalışmalı bir analiz); en yüksek güç için ağır yük daha etkilidir.",
+      "Aletsizken yükü artırmanın en iyi yolu tek bacak hareketleridir; Bulgar squat, kalçayı normal squattan daha çok çalıştırır.",
+      "Duvarda oturma gibi sabit tutuşlar, 270 çalışmayı birleştiren bir analizde kan basıncını en çok düşüren egzersizler arasında çıktı.",
+      "Dizlerin ayak uçlarınla aynı yöne baksın; dizinde ağrı olursa hareketin derinliğini azalt."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "chair_squat",
+      "name": "Sandalyeye Oturup Kalkma",
+      "target": "Ön bacak ve kalça (kolay)",
+      "setup": "Sağlam bir sandalyenin önünde, sırtın sandalyeye dönük dur. Ayakların omuz genişliğinde.",
+      "steps": ["Kalçanı geriye vererek yavaşça sandalyeye otur; kolların öne uzansın.", "Kalçan sandalyeye hafifçe değince dur.", "Topuklarına basarak kalk."],
+      "tip": "Squat'ı öğrenmenin en güvenli yolu; zamanla sandalyeye oturmadan sadece dokun.",
+      "mistake": "Sandalyeye kendini bırakma; kontrollü otur."
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "target": "Ön bacak, kalça ve arka bacak",
+      "setup": "Ayakların omuz genişliğinde, parmak uçları hafif dışa dönük.",
+      "steps": ["Kalçanı geriye vererek aşağı in; kollarını öne uzat.", "Uyluğun yere paralele yaklaşınca dur; göğsün dik.", "Topuklarına basarak kalk."],
+      "tip": "İnerken nefes al, kalkarken ver.",
+      "mistake": "Dizlerin içe kapanmasın, topukların yerden kalkmasın."
+    },
+    {
+      "id": "wall_sit",
+      "name": "Duvarda Oturma",
+      "target": "Ön bacak (dayanıklılık)",
+      "setup": "Sırtını duvara daya, ayaklarını duvardan iki adım öne koy.",
+      "steps": ["Sırtını duvardan kaydırarak in; dizlerin 90 derece olsun.", "Dizlerin topuklarının üstünde kalsın.", "Nefes alarak süre bitene kadar bekle."],
+      "tip": "Zor gelirse daha yukarıda, dizler 90 dereceden açık bekle.",
+      "mistake": "Ellerinle dizlerine bastırma; nefesini tutma."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Geri Hamle",
+      "target": "Ön bacak ve kalça",
+      "setup": "Ayakta dik dur, ayakların kalça genişliğinde.",
+      "steps": ["Bir ayağınla geriye büyük bir adım at ve iki dizini de bükerek in.", "Arkadaki dizin yere yaklaşınca dur; öndeki dizin ayak bileğinin üstünde.", "Öndeki topuğa basarak başlangıca dön; süre yarısında bacak değiştir."],
+      "tip": "Geri hamle, öne hamleden dize daha dosttur.",
+      "mistake": "Gövdeni öne eğme; dik kal."
+    },
+    {
+      "id": "split_squat",
+      "name": "Sabit Hamle",
+      "target": "Ön bacak ve kalça",
+      "setup": "Bir ayağın önde, öbürü bir adım geride, arka topuğun kalkık.",
+      "steps": ["Ayaklarını yerinden oynatmadan iki dizini bükerek dikey in.", "Arka dizin yere yaklaşınca dur.", "Öndeki topuğa basarak kalk; süre yarısında bacak değiştir."],
+      "tip": "Dengen zayıfsa bir eline duvardan destek al.",
+      "mistake": "Öndeki dizin içe kaymasın."
+    },
+    {
+      "id": "bulgarian_split_squat",
+      "name": "Bulgar Squat",
+      "target": "Ön bacak ve kalça (zor)",
+      "setup": "Sağlam bir sandalyenin önünde dur; bir ayağının üstünü arkadaki sandalyeye koy. Öndeki ayak bir adım ileride.",
+      "steps": ["Öndeki dizini bükerek dikey in.", "Arka dizin yere yaklaşınca dur.", "Öndeki topuğa basarak kalk; süre yarısında bacak değiştir."],
+      "tip": "Öndeki ayak ne kadar ilerideyse kalça o kadar çok çalışır.",
+      "mistake": "Arka bacakla itme; işi öndeki bacak yapsın."
+    },
+    {
+      "id": "step_up",
+      "name": "Basamağa Çıkış",
+      "target": "Ön bacak ve kalça",
+      "setup": "Sağlam bir basamağın ya da alçak bir sandalyenin önünde dur; bir ayağını üstüne koy.",
+      "steps": ["Üstteki topuğa basarak basamağın üstüne çık.", "Yukarıda dik dur.", "Yavaşça aynı bacakla geri in; süre yarısında bacak değiştir."],
+      "tip": "Basamak ne kadar yüksekse o kadar zorlaşır; dizin kalça hizasını geçmesin.",
+      "mistake": "Yerdeki ayakla zıplayarak çıkma."
+    },
+    {
+      "id": "side_lunge",
+      "name": "Yan Hamle",
+      "target": "Ön bacak, iç bacak ve kalça",
+      "setup": "Ayaklarını geniş aç, parmak uçların öne baksın. Ellerini göğsünde birleştir.",
+      "steps": ["Ağırlığını bir bacağına verip o dizini bükerek yana otur; öbür bacak düz kalsın.", "Kalçan geride, göğsün dik.", "İterek ortaya dön; süre yarısında taraf değiştir."],
+      "tip": "Düz bacağın iç kısmında hafif gerilme hissetmelisin.",
+      "mistake": "Bükülen dizin ayak ucunu çok geçmesin."
+    },
+    {
+      "id": "sumo_squat",
+      "name": "Sumo Squat",
+      "target": "İç bacak, kalça ve ön bacak",
+      "setup": "Ayaklarını geniş aç, parmak uçların dışa baksın. Ellerini göğsünde birleştir.",
+      "steps": ["Gövden dik kalarak dizlerini yanlara açıp aşağı in.", "Dizlerin ayak uçlarının üstünde kalsın.", "Kalkarken iç bacaklarını ve kalçanı sık."],
+      "tip": "Geniş duruş, normal squattan daha az öne eğilmeni sağlar.",
+      "mistake": "Dizlerini içe kapatma."
+    },
+    {
+      "id": "jump_squat",
+      "name": "Sıçramalı Squat",
+      "target": "Bacak ve kalça (güç)",
+      "setup": "Ayakların omuz genişliğinde.",
+      "steps": ["Squat pozisyonuna in.", "Patlayıcı şekilde yukarı sıçra, kolların yukarı.", "Dizlerin hafif bükülü, yumuşak in ve hemen sonraki squat'a geç."],
+      "tip": "Gürültüsüz inmeye çalış; iniş ne kadar sessizse o kadar kontrollüdür.",
+      "mistake": "Dizler kilitli inme; dizinde ağrı varsa normal squat yap."
+    },
+    {
+      "id": "single_leg_rdl",
+      "name": "Tek Bacak Öne Eğilme",
+      "target": "Arka bacak, kalça ve denge",
+      "setup": "Tek bacağının üstünde dur, dizin hafif bükülü.",
+      "steps": ["Gövdeni öne eğerken öbür bacağını geriye uzat; gövde ve bacak bir çizgi olsun.", "Arka bacağında gerilme hissedince dur.", "Kalçanı sıkarak dik pozisyona dön; süre yarısında bacak değiştir."],
+      "tip": "Dengen zayıfsa bir eline duvardan destek al.",
+      "mistake": "Sırtını kamburlaştırma; kalçanı yana açma."
+    },
+    {
+      "id": "pulse_squat",
+      "name": "Squatta Yaylanma",
+      "target": "Ön bacak (dayanıklılık)",
+      "setup": "Ayakların omuz genişliğinde, squat pozisyonuna in.",
+      "steps": ["Aşağıda kal.", "Birkaç santim yukarı kalk ve yeniden in; küçük yaylanmalar yap.", "Süre boyunca tamamen kalkmadan devam et."],
+      "tip": "Bacaklarında yanma hissetmek normaldir.",
+      "mistake": "Dizlerin içe kapanmasın."
+    },
+    {
+      "id": "chair_pistol",
+      "name": "Sandalyeye Tek Bacak Oturma",
+      "target": "Ön bacak ve kalça (ileri)",
+      "setup": "Sağlam bir sandalyenin önünde dur. Tek bacağının üstünde dur, öbür bacağını öne uzat.",
+      "steps": ["Tek bacakla yavaşça sandalyeye otur; kolların öne uzansın.", "Kalçan sandalyeye değince dur.", "Aynı bacakla kalk; süre yarısında bacak değiştir."],
+      "tip": "Tek bacak squat'a giden yol; zorlanırsan inişte tek, kalkışta iki bacak kullan.",
+      "mistake": "Sandalyeye düşme; inişi 3 saniyede yap."
+    }
+  ]
+}

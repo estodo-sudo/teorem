@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { APP_NAME } from '@/config/app';
-import { EXERCISE_GUIDE } from '@/features/training/exerciseGuide';
+import { EXERCISE_GUIDE, LOCKED_EXERCISES } from '@/features/training/exerciseGuide';
 import { weekCount, weekDays, weekStartKey } from '@/features/today/week';
 import tr from '@/i18n/tr.json';
 
@@ -37,7 +37,7 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
   const home = read('app/(tabs)/index.tsx');
 
   it('has this week, the checklist, Kasık Fitness, Rahatla and "Senin için"; no quick start, no mind list', () => {
-    const order = ['<WorkoutCard', '<ThisWeek', '<DailyGoalCard', '<FitnessCard', '<RelaxCard', '<TodayExtras'].map((x) => home.indexOf(x));
+    const order = ['<WorkoutCard', '<ThisWeek', '<DailyGoalCard', '<FitnessCard', '<GlossaryStrip', '<TodayExtras'].map((x) => home.indexOf(x));
     expect(order.every((x) => x > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
     expect(home).not.toMatch(/QuickStart|MindSection/);
@@ -58,30 +58,41 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
     expect(fitness).toMatch(/numberOfLines=\{1\}/);
   });
 
-  it('Rahatla has three equal boxes; Nefes opens the breath module', () => {
-    const src = read('src/features/today/WeekSections.tsx');
-    expect(src).toMatch(/key: 'breathing', route: '\/mind\/breathing'/);
-    expect(src).toMatch(/key: 'unload'/);
-    expect(src).toMatch(/key: 'bodyScan'/);
+  it('"Neden, Nedir ve Ne Demek?" posters replace Rahatla on Günüm (and stay in Keşfet); the breath module still exists', () => {
+    const strip = read('src/features/today/GlossaryStrip.tsx');
+    expect(strip).toMatch(/StoryPosterCard/);
+    expect(strip).toMatch(/\/glossary\/\[termId\]/);
+    expect(read('app/(tabs)/discover.tsx')).toMatch(/GlossaryCompactCard/);
+    expect(read('src/features/today/WeekSections.tsx')).not.toMatch(/RelaxCard/);
     expect(read('app/mind/breathing.tsx')).toMatch(/BreathPlayer/);
   });
 
-  it('the micro set and breath buttons carry icons', () => {
+  it('the micro set button carries an icon; the 1-minute breath button is gone (2026-11-22)', () => {
     const card = read('src/features/today/WorkoutCard.tsx');
     expect(card).toMatch(/microShort[^\n]*icon="pulse"/);
-    expect(card).toMatch(/breathShort'\)\} icon="wind"/);
+    expect(card).not.toMatch(/breathShort/);
   });
 });
 
 describe('Profil (SPEC_V4 §A.3)', () => {
   const profile = read('app/(tabs)/profile.tsx');
 
-  it('Antrenman: active track, "Kas yapını öğrenelim", the exercise guide, then tutorial · trophies · settings', () => {
-    const order = ['<ActiveTrackCard', '<MuscleStructureCard', '<ExerciseGuide', "profile.replayTutorial", "profile.training.trophies", "settings.training.title"].map((x) => profile.indexOf(x));
+  it('Antrenman: active track, "Kas yapını öğrenelim", then tutorial · trophies; Ayarlar under restore', () => {
+    const order = ['<ActiveTrackCard', '<MuscleStructureCard', "profile.replayTutorial", "profile.training.trophies"].map((x) => profile.indexOf(x));
+    // "Ayarlar" sits right under "Satın alımları geri yükle" (2026-11-23).
+    expect(profile.indexOf("settings.training.title")).toBeGreaterThan(profile.indexOf("paywall.restore"));
+    expect(profile.indexOf("settings.training.title")).toBeLessThan(profile.indexOf('<ActiveTrackCard'));
+    expect(tr.settings.training.title).toBe('Ayarlar');
     expect(order.every((x) => x > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
     // The programme's three moves (user decision 2026-11-22).
     expect(EXERCISE_GUIDE.map((x) => x.type)).toEqual(['slow_hold', 'quick_flick', 'elevator']);
+    // Plus nine locked ones "for higher levels": 12 in the guide, each with a name and a short description.
+    expect(EXERCISE_GUIDE.length + LOCKED_EXERCISES.length).toBe(12);
+    // The guide lives on İlerleme now; locked rows don't reveal their names.
+    expect(read('app/(tabs)/progress.tsx')).toContain('<ExerciseGuide');
+    expect(profile).not.toContain('<ExerciseGuide');
+    expect(read('src/features/training/ProfileTraining.tsx')).not.toMatch(/exerciseSoon\.\$\{x\.id\}/);
     expect(tr.profile.training.muscleTitle).toBe('Kas yapını öğrenelim');
   });
 

@@ -71,14 +71,11 @@ export const sessionContractionCap = (level: number) => getLevel(level).sessionC
 /** Max contractions in one day (the session twice + a micro set); above it only a release session opens (§11.5). */
 export const dailyContractionCap = (level: number) => 2 * sessionContractionCap(level) + 40;
 
-/** Starting level derived from onboarding experience answer. */
-export function startingLevelFor(experience: 'none' | 'some' | 'regular' | null): number {
-  switch (experience) {
-    case 'regular':
-      return 5;
-    case 'some':
-      return 3;
-    default:
-      return 1;
-  }
+/**
+ * Starting level: always 1 (user request 2026-11-23: after "Verilerimi ve hesabımı sil" everything starts
+ * from zero). The experience answer is kept in the profile but no longer skips levels; feedback raises the
+ * level quickly for someone who already knows the exercise, and it can be set in Ayarlar.
+ */
+export function startingLevelFor(_experience: 'none' | 'some' | 'regular' | null): number {
+  return 1;
 }

@@ -1,8 +1,12 @@
-import selfRatingJson from '@/content/kegel/self-rating.tr.json';
+import { pick } from '@/i18n/content';
+import selfRatingJsonTr from '@/content/kegel/self-rating.tr.json';
+import selfRatingJsonEn from '@/content/kegel/self-rating.en.json';
 import { daysBetween } from '@/lib/date';
 import type { SelfRating, StrengthTest, TrackId } from '@/types';
 
 import { muscleScore } from './schedule';
+
+const selfRatingJson = pick({ tr: selfRatingJsonTr, en: selfRatingJsonEn });
 
 /** Güç Testi v2, Kas Skoru and the monthly self rating (SPEC_KEGEL_V2 §9, §10). Pure. */
 

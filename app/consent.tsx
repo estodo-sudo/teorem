@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Icon, Screen, useTheme } from '@/components';
-import { Button, IconTile, OptionCard, ScalePressable } from '@/components/ui';
+import { AppText, Screen, useTheme } from '@/components';
+import { AccordionCard, Button, IconTile, OptionCard, ScalePressable } from '@/components/ui';
 import { APP_NAME, MIN_AGE } from '@/config/app';
 import { useProfileStore } from '@/stores/profileStore';
 
-/** Consent — ui-v3 (SPEC_UI_V3 §7.9): calm header, the medical note on a soft warning panel and the two confirmations as selection cards. Logic unchanged. */
+/** Consent — ui-v3 (SPEC_UI_V3 §7.9): calm header, the medical note in a closed drawer (2026-11-23) and the two confirmations as selection cards. */
 export default function Consent() {
   const t = useTheme();
   const { t: tr } = useTranslation();
@@ -32,23 +32,33 @@ export default function Consent() {
           {tr('consent.subtitle')}
         </AppText>
       </View>
-      <View style={{ padding: t.space.gutter, gap: t.space.sm, borderRadius: t.radius.lg, backgroundColor: t.tokens.warningSoft }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
-          <Icon name="warning" size="md" color={t.tokens.warning} />
-          <AppText variant="title3" style={{ flex: 1 }}>
-            {tr('consent.medicalTitle')}
-          </AppText>
-        </View>
+      {/* The medical notice sits in a closed drawer (user request 2026-11-23); tap the title to read it. */}
+      <AccordionCard title={tr('consent.medicalTitle')} subtitle={tr('consent.medicalTap')} icon="warning" iconColor={t.tokens.warning}>
         <AppText variant="callout">{tr('consent.medicalBody')}</AppText>
         <ScalePressable onPress={() => router.push('/legal/disclaimer')} accessibilityRole="link" style={{ minHeight: t.touch, justifyContent: 'center', alignSelf: 'flex-start' }}>
           <AppText variant="callout" style={{ fontWeight: '600', color: t.tokens.primary, textDecorationLine: 'underline' }}>
             {tr('consent.readMore')}
           </AppText>
         </ScalePressable>
-      </View>
+      </AccordionCard>
       <View style={{ gap: t.space.sm }}>
         <OptionCard multi icon="user" label={tr('consent.age', { age: MIN_AGE })} selected={age} onPress={() => setAge(!age)} />
         <OptionCard multi icon="book" label={tr('consent.medicalCheck')} selected={medical} onPress={() => setMedical(!medical)} />
+      </View>
+      {/* KVKK m.10: the disclosure is offered before first use; the data stays on the phone. */}
+      <View style={{ gap: t.space.xs }}>
+        <AppText variant="footnote" muted>
+          {tr('consent.legalNote')}
+        </AppText>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', columnGap: t.space.md }}>
+          {(['kvkk', 'privacy', 'terms'] as const).map((d) => (
+            <ScalePressable key={d} onPress={() => router.push(`/legal/${d}`)} accessibilityRole="link" style={{ minHeight: t.touch, justifyContent: 'center' }}>
+              <AppText variant="footnote" style={{ fontWeight: '600', color: t.tokens.primary, textDecorationLine: 'underline' }}>
+                {tr(`legal.${d}.title`)}
+              </AppText>
+            </ScalePressable>
+          ))}
+        </View>
       </View>
     </Screen>
   );

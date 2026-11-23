@@ -1,0 +1,171 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Calves",
+    "intro": "Programmes that strengthen your calf muscles, Achilles tendon and the front of your shins. You start with calf raises on the floor and progress to the step, single-leg work and hops.",
+    "science": [
+      "Working calf raises with the heel down, that is with the muscle in a stretched position, was the method that increased muscle growth most in an 8-week study; that's why dropping the heel below the step is valuable.",
+      "With the knee bent, the big calf muscle works less and the one beneath it relatively more; the difference is small, so both positions are used together.",
+      "Calf raises with a slow lowering phase are the basis of the programmes recommended for the Achilles tendon.",
+      "Because the calves work constantly in daily life they are very enduring; to grow, sets need to go until they're truly tired."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "calf_raise",
+      "name": "Calf Raise",
+      "target": "Calves",
+      "setup": "Stand tall, feet hip-width apart. You can hold a wall lightly for balance.",
+      "steps": [
+        "Rise up onto your toes by lifting your heels.",
+        "Pause briefly at the top and squeeze your calves.",
+        "Lower your heels slowly to the floor."
+      ],
+      "tip": "Keep your weight between your big toe and second toe.",
+      "mistake": "Don't let your ankle roll outwards."
+    },
+    {
+      "id": "single_leg_calf_raise",
+      "name": "Single-Leg Calf Raise",
+      "target": "Calves (hard)",
+      "setup": "Stand on one foot and lift the other slightly behind you. Support yourself with one hand on a wall.",
+      "steps": [
+        "Rise up onto your toes.",
+        "Pause briefly at the top.",
+        "Lower slowly; switch legs halfway through."
+      ],
+      "tip": "Try it once you can do 25 reps comfortably on two legs.",
+      "mistake": "Don't lock your knee; keep it slightly soft."
+    },
+    {
+      "id": "step_calf_raise",
+      "name": "Step Calf Raise",
+      "target": "Calves (in a stretched position)",
+      "setup": "Stand with the balls of your feet on the edge of a step, heels hanging off. Support yourself with one hand on a wall or railing.",
+      "steps": [
+        "Let your heels drop below the level of the step; feel the stretch in your calves.",
+        "Rise up onto your toes.",
+        "Slowly lower back down."
+      ],
+      "tip": "The stretched part at the bottom is the part that helps most.",
+      "mistake": "Keep half your foot on the step so you don't slip off."
+    },
+    {
+      "id": "slow_eccentric_raise",
+      "name": "Slow-Lowering Calf Raise",
+      "target": "Calves and Achilles tendon",
+      "setup": "Stand with the balls of your feet on the edge of a step, holding on with one hand.",
+      "steps": [
+        "Rise quickly onto your toes on both feet.",
+        "Lower your heel slowly over 4 seconds, on one foot if you can.",
+        "Rise again on both feet and repeat."
+      ],
+      "tip": "There may be mild discomfort on the way down; stop if there's sharp pain.",
+      "mistake": "Don't rush the lowering; the real work is in the slow descent."
+    },
+    {
+      "id": "calf_raise_hold",
+      "name": "Tiptoe Hold",
+      "target": "Calves (endurance)",
+      "setup": "Stand up and support yourself with one hand on a wall.",
+      "steps": [
+        "Rise up onto your toes.",
+        "Stay at the top; don't let your heels drop.",
+        "Keep breathing and hold until the time is up."
+      ],
+      "tip": "A burning feeling is normal.",
+      "mistake": "Don't let yourself sink by bending your knees."
+    },
+    {
+      "id": "bent_knee_calf_raise",
+      "name": "Bent-Knee Calf Raise",
+      "target": "Lower calf muscle (soleus)",
+      "setup": "Stand, bend your knees slightly and keep that angle. Reach your arms forward for balance.",
+      "steps": [
+        "Lift your heels while keeping your knees bent.",
+        "Pause briefly at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Keep the knee angle the same throughout the move.",
+      "mistake": "Don't straighten your knees as you rise."
+    },
+    {
+      "id": "seated_calf_raise",
+      "name": "Seated Calf Raise",
+      "target": "Lower calf muscle (easy)",
+      "setup": "Sit upright on a chair, feet on the floor, hands on your knees.",
+      "steps": [
+        "Lift your heels off the floor.",
+        "Pause briefly at the top; you can make it harder by pressing down on your knees with your hands.",
+        "Lower slowly."
+      ],
+      "tip": "Putting a heavy bag on your knees makes the move harder.",
+      "mistake": "Don't do it fast and bouncy."
+    },
+    {
+      "id": "pogo_hops",
+      "name": "Pogo Hops",
+      "target": "Calves and Achilles tendon (elasticity and power)",
+      "setup": "Stand on your toes, feet hip-width apart.",
+      "steps": [
+        "Bend your knees very slightly, spring from your ankles and do small hops.",
+        "Land softly on your toes.",
+        "Keep going in rhythm without your heels touching the floor."
+      ],
+      "tip": "Spend little time on the ground; bounce like a spring.",
+      "mistake": "Don't do it if you have pain in your Achilles tendon."
+    },
+    {
+      "id": "jump_rope",
+      "name": "Imaginary Jump Rope",
+      "target": "Calves and conditioning",
+      "setup": "Stand on your toes with your hands beside your hips as if holding a rope.",
+      "steps": [
+        "Do small jumps while drawing small circles with your wrists.",
+        "Land softly on your toes.",
+        "Keep the rhythm and continue."
+      ],
+      "tip": "If you have a real rope, you can use that too.",
+      "mistake": "Don't jump high; a few centimetres is enough."
+    },
+    {
+      "id": "tibialis_raise",
+      "name": "Wall Toe Raise",
+      "target": "Front of the shins",
+      "setup": "Lean your back against a wall and place your feet one step in front of it.",
+      "steps": [
+        "Keep your heels on the floor and lift the front of your feet.",
+        "Pause briefly at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Because it balances the calves, it may help runners against shin pain.",
+      "mistake": "Don't let your hips come away from the wall."
+    },
+    {
+      "id": "calf_stretch_wall",
+      "name": "Wall Calf Stretch",
+      "target": "Calves (stretch)",
+      "setup": "Face a wall and put your hands on it. One foot forward, the other a step behind.",
+      "steps": [
+        "Keep the back leg straight and the heel on the floor.",
+        "Bend your front knee and move your body towards the wall.",
+        "Feel the stretch in your back calf and hold; switch legs halfway through."
+      ],
+      "tip": "Bending the back knee slightly stretches the lower calf.",
+      "mistake": "Don't lift your back heel."
+    },
+    {
+      "id": "downdog_calf_pedal",
+      "name": "Downward-Dog Pedal",
+      "target": "Calves and back of the legs (stretch)",
+      "setup": "Hands and feet on the floor, hips up high; your body like an upside-down V.",
+      "steps": [
+        "Bend one knee and press the other heel towards the floor.",
+        "Switch sides.",
+        "Keep going slowly, as if pedalling."
+      ],
+      "tip": "It's fine if your heels don't touch the floor.",
+      "mistake": "Don't let your shoulders sink; keep pushing the floor away with your hands."
+    }
+  ]
+}

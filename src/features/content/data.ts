@@ -1,9 +1,17 @@
 import type { ModuleTone } from '@/config/theme';
 import type { IconName } from '@/components/Icon';
-import challengesJson from '@/content/challenges.tr.json';
-import glossaryJson from '@/content/glossary.tr.json';
-import storiesJson from '@/content/stories.tr.json';
+import { pick } from '@/i18n/content';
+import challengesJsonTr from '@/content/challenges.tr.json';
+import challengesJsonEn from '@/content/challenges.en.json';
+import glossaryJsonTr from '@/content/glossary.tr.json';
+import glossaryJsonEn from '@/content/glossary.en.json';
+import storiesJsonTr from '@/content/stories.tr.json';
+import storiesJsonEn from '@/content/stories.en.json';
 import type { ChallengeCategory } from '@/types';
+
+const challengesJson = pick({ tr: challengesJsonTr, en: challengesJsonEn });
+const glossaryJson = pick({ tr: glossaryJsonTr, en: glossaryJsonEn });
+const storiesJson = pick({ tr: storiesJsonTr, en: storiesJsonEn });
 
 export type StoryCategory = 'menHealth' | 'relationships' | 'nutrition' | 'sleep' | 'stress' | 'exercise';
 

@@ -1,0 +1,122 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs"
+  ],
+  "title": "Monthly self-assessment",
+  "intro": "These are the app's own simple self-assessment questions; they're not a licensed clinical scale or a medical measurement. Answer once a month and see your own trend.",
+  "tracks": {
+    "erection": [
+      {
+        "id": "hardness",
+        "text": "My satisfaction with the firmness of my erection",
+        "minLabel": "Not satisfied at all",
+        "maxLabel": "Very satisfied",
+        "better": "high"
+      },
+      {
+        "id": "maintain",
+        "text": "My satisfaction with keeping an erection",
+        "minLabel": "Not satisfied at all",
+        "maxLabel": "Very satisfied",
+        "better": "high"
+      },
+      {
+        "id": "confidence",
+        "text": "My self-confidence",
+        "minLabel": "Very low",
+        "maxLabel": "Very high",
+        "better": "high"
+      }
+    ],
+    "bladder": [
+      {
+        "id": "dribble",
+        "text": "How often I dribble",
+        "minLabel": "Never",
+        "maxLabel": "Every time",
+        "better": "low"
+      },
+      {
+        "id": "control",
+        "text": "My sense of control",
+        "minLabel": "None",
+        "maxLabel": "Full control",
+        "better": "high"
+      }
+    ],
+    "surgery": [
+      {
+        "id": "leak",
+        "text": "How often I leak urine",
+        "minLabel": "Never",
+        "maxLabel": "Very often",
+        "better": "low"
+      },
+      {
+        "id": "control",
+        "text": "My sense of control",
+        "minLabel": "None",
+        "maxLabel": "Full control",
+        "better": "high"
+      },
+      {
+        "id": "confidence",
+        "text": "My confidence in everyday life",
+        "minLabel": "Very low",
+        "maxLabel": "Very high",
+        "better": "high"
+      }
+    ],
+    "control": [
+      {
+        "id": "timing",
+        "text": "My sense of control over timing",
+        "minLabel": "None",
+        "maxLabel": "Full control",
+        "better": "high"
+      },
+      {
+        "id": "awareness",
+        "text": "My sense of noticing and releasing the muscle",
+        "minLabel": "None",
+        "maxLabel": "Very clear",
+        "better": "high"
+      }
+    ],
+    "general": [
+      {
+        "id": "control",
+        "text": "My sense of control over my pelvic floor muscle",
+        "minLabel": "None",
+        "maxLabel": "Full control",
+        "better": "high"
+      },
+      {
+        "id": "confidence",
+        "text": "My self-confidence",
+        "minLabel": "Very low",
+        "maxLabel": "Very high",
+        "better": "high"
+      }
+    ],
+    "relax": [
+      {
+        "id": "tension",
+        "text": "Tension or discomfort in the pelvic area",
+        "minLabel": "None",
+        "maxLabel": "A lot",
+        "better": "low"
+      },
+      {
+        "id": "letgo",
+        "text": "My sense of being able to let the muscle go",
+        "minLabel": "None",
+        "maxLabel": "Very clear",
+        "better": "high"
+      }
+    ]
+  }
+}

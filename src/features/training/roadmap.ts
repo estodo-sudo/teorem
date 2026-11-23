@@ -1,6 +1,8 @@
 import type { ModuleTone } from '@/config/theme';
 import type { IconName } from '@/components/Icon';
-import tasksJson from '@/content/kegel/functional-tasks.tr.json';
+import { pick } from '@/i18n/content';
+import tasksJsonTr from '@/content/kegel/functional-tasks.tr.json';
+import tasksJsonEn from '@/content/kegel/functional-tasks.en.json';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
 import { createRng, hashString, shuffle } from '@/lib/random';
 import type { TrackId, TrainingState } from '@/types';
@@ -8,6 +10,8 @@ import type { TrackId, TrainingState } from '@/types';
 import { advancedToday, todayPlanDay, todayPlanPosition, todayWeekIndex } from './plan';
 import { deloadDue, planWeekNumber, planWeekOf } from './schedule';
 import { functionalUnlocked, KEGEL_WEEK_THEMES } from './tracks';
+
+const tasksJson = pick({ tr: tasksJsonTr, en: tasksJsonEn });
 
 /** Plan roadmap (SPEC_KEGEL_V2 §8) and functional tasks (§5). Pure. */
 

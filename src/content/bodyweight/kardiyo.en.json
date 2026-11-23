@@ -1,0 +1,184 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Cardio",
+    "intro": "Equipment-free interval programmes that build heart and lung fitness. You start with low-impact moves and increase the intensity with jumping jacks, skaters and burpees.",
+    "science": [
+      "The World Health Organization recommends 150–300 minutes of moderate or 75–150 minutes of vigorous aerobic exercise a week for adults; short sessions count too.",
+      "Interval training improves fitness; its advantage over steady continuous exercise shows in longer programmes lasting at least a few weeks.",
+      "For beginners, no-jump (low-impact) moves raise the pulse enough while protecting the joints.",
+      "If you have chest pain, dizziness or unusual shortness of breath, stop immediately and talk to a doctor."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "march_in_place",
+      "name": "Marching on the Spot",
+      "target": "Conditioning (low impact)",
+      "setup": "Stand tall.",
+      "steps": [
+        "Lift one knee towards hip height and swing the opposite arm forward.",
+        "Lower your foot and lift the other knee.",
+        "Keep marching briskly and upright."
+      ],
+      "tip": "Actively swinging your arms raises your pulse more.",
+      "mistake": "Don't lean forward; keep your body upright."
+    },
+    {
+      "id": "high_knees",
+      "name": "High Knees",
+      "target": "Conditioning and hip flexors",
+      "setup": "Stand up with your arms bent at the elbows.",
+      "steps": [
+        "Running on the spot, pull your knees up to hip height.",
+        "Land softly on the balls of your feet.",
+        "Swing your arms as if running; keep the rhythm."
+      ],
+      "tip": "If it's too hard, switch to marching on the spot and speed up again once you've caught your breath.",
+      "mistake": "Don't lean back; keep your body tilted slightly forward."
+    },
+    {
+      "id": "butt_kicks",
+      "name": "Butt Kicks",
+      "target": "Conditioning and hamstrings",
+      "setup": "Stand up with your arms bent at the elbows.",
+      "steps": [
+        "Pull one heel towards your bottom.",
+        "As you lower that foot, pull the other heel up.",
+        "Keep going as if running or walking on the spot."
+      ],
+      "tip": "If you're just starting out, do it without hopping, as if walking.",
+      "mistake": "Don't arch your lower back."
+    },
+    {
+      "id": "step_jack",
+      "name": "Step Jack",
+      "target": "Conditioning (low impact)",
+      "setup": "Stand up, feet together, arms by your sides.",
+      "steps": [
+        "Step out to the side with one foot while raising your arms above your head.",
+        "Return to the start.",
+        "Repeat stepping out to the other side."
+      ],
+      "tip": "Jumping jacks without the jump; kind to your knees and your neighbours.",
+      "mistake": "Don't hunch your shoulders towards your ears."
+    },
+    {
+      "id": "jumping_jack",
+      "name": "Jumping Jack",
+      "target": "Conditioning",
+      "setup": "Stand up, feet together, arms by your sides.",
+      "steps": [
+        "Jump your feet apart and raise your arms above your head.",
+        "Jump your feet back together and lower your arms to your sides.",
+        "Keep going in rhythm."
+      ],
+      "tip": "Land softly on your toes.",
+      "mistake": "Don't land hard on your heels."
+    },
+    {
+      "id": "skater",
+      "name": "Skater",
+      "target": "Conditioning, glutes and balance",
+      "setup": "Stand up with your knees slightly bent.",
+      "steps": [
+        "Hop sideways onto your right foot; your left leg crosses behind your right.",
+        "Swing your arms as if skating.",
+        "Repeat by hopping to the left."
+      ],
+      "tip": "If jumping is too hard, step to the side instead.",
+      "mistake": "Don't let your knee cave in when you land."
+    },
+    {
+      "id": "shadow_boxing",
+      "name": "Shadow Boxing",
+      "target": "Conditioning, shoulders and core",
+      "setup": "Stand with one foot forward and the other back; knees slightly bent, fists at your chin.",
+      "steps": [
+        "Throw a straight punch with your front hand and pull it straight back.",
+        "Punch with your back hand; let your body turn slightly.",
+        "Keep going, bouncing lightly on your feet."
+      ],
+      "tip": "Throw the punch without locking your arm; the real power comes from turning your body.",
+      "mistake": "Don't lock your elbow fully; don't let your hands drift away from your chin."
+    },
+    {
+      "id": "fast_feet",
+      "name": "Fast Feet",
+      "target": "Conditioning and calves",
+      "setup": "Crouch slightly: knees bent, body tilted a little forward, arms in front.",
+      "steps": [
+        "Lift and lower your feet in turn, very fast and small.",
+        "Stay on the balls of your feet.",
+        "Keep going until the time is up without breaking the position."
+      ],
+      "tip": "Small steps, fast rhythm.",
+      "mistake": "Don't stand up straight; keep the slight crouch."
+    },
+    {
+      "id": "mountain_climber",
+      "name": "Mountain Climber",
+      "target": "Abs, hips and conditioning",
+      "setup": "Get into a push-up position: hands under your shoulders, arms straight, body in a straight line.",
+      "steps": [
+        "Pull your right knee towards your chest.",
+        "As you take it back, pull your left knee in.",
+        "Keep going in rhythm with your hips steady."
+      ],
+      "tip": "Get the form right before you speed up; slow is fine.",
+      "mistake": "Don't lift your hips up or let your back sag."
+    },
+    {
+      "id": "jump_rope",
+      "name": "Imaginary Jump Rope",
+      "target": "Calves and conditioning",
+      "setup": "Stand on your toes with your hands beside your hips as if holding a rope.",
+      "steps": [
+        "Do small jumps while drawing small circles with your wrists.",
+        "Land softly on your toes.",
+        "Keep the rhythm and continue."
+      ],
+      "tip": "If you have a real rope, you can use that too.",
+      "mistake": "Don't jump high; a few centimetres is enough."
+    },
+    {
+      "id": "half_burpee",
+      "name": "Half Burpee",
+      "target": "Full body and conditioning",
+      "setup": "Stand up, feet shoulder-width apart.",
+      "steps": [
+        "Crouch and put your hands on the floor in front of you.",
+        "Jump your feet back into a push-up position, then bring your feet back towards your hands.",
+        "Stand up."
+      ],
+      "tip": "If jumping your feet back is too hard, step them back one at a time.",
+      "mistake": "Don't let your lower back sag in the plank position."
+    },
+    {
+      "id": "burpee",
+      "name": "Burpee",
+      "target": "Full body and conditioning (hard)",
+      "setup": "Stand up, feet shoulder-width apart.",
+      "steps": [
+        "Crouch, put your hands on the floor and jump your feet back into a push-up position.",
+        "Bring your feet back towards your hands.",
+        "Jump with your arms up and land softly."
+      ],
+      "tip": "Good form before speed; when you get tired, drop the jump and do half burpees.",
+      "mistake": "Don't land hard; land quietly with your knees slightly bent."
+    },
+    {
+      "id": "jump_squat",
+      "name": "Jump Squat",
+      "target": "Legs and glutes (power)",
+      "setup": "Feet shoulder-width apart.",
+      "steps": [
+        "Lower into a squat.",
+        "Jump up explosively, arms up.",
+        "Land softly with your knees slightly bent and go straight into the next squat."
+      ],
+      "tip": "Try to land without noise; the quieter the landing, the more controlled it is.",
+      "mistake": "Don't land with locked knees; if your knee hurts, do a normal squat."
+    }
+  ]
+}

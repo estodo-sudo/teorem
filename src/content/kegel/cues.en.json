@@ -1,0 +1,283 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs",
+    "miller1996_knack",
+    "nebraska_hypertonic"
+  ],
+  "cues": [
+    {
+      "id": "sq_glutes",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Don't clench your glutes."
+    },
+    {
+      "id": "sq_breath",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Don't hold your breath; keep it flowing."
+    },
+    {
+      "id": "sq_belly",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Keep your belly relaxed."
+    },
+    {
+      "id": "sq_up",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Draw in and up."
+    },
+    {
+      "id": "sq_legs",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Keep your legs and thighs relaxed."
+    },
+    {
+      "id": "sq_face",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Keep your face and jaw relaxed."
+    },
+    {
+      "id": "sq_quiet",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Someone watching shouldn't notice anything."
+    },
+    {
+      "id": "sq_gentle",
+      "phase": "squeeze",
+      "types": [
+        "slow_hold",
+        "endurance"
+      ],
+      "text": "Keep the strength steady while holding; ease off a little if it starts to shake."
+    },
+    {
+      "id": "sq_full_release",
+      "phase": "squeeze",
+      "types": [
+        "slow_hold",
+        "max_contraction"
+      ],
+      "text": "Let go completely after each hold."
+    },
+    {
+      "id": "quick_sharp",
+      "phase": "squeeze",
+      "types": [
+        "quick_flick"
+      ],
+      "text": "Squeeze short and sharp, then let go right away."
+    },
+    {
+      "id": "quick_rhythm",
+      "phase": "squeeze",
+      "types": [
+        "quick_flick"
+      ],
+      "text": "Keep the rhythm; clarity matters, not speed."
+    },
+    {
+      "id": "quick_release",
+      "phase": "release",
+      "types": [
+        "quick_flick"
+      ],
+      "text": "After each squeeze let the muscle settle back fully."
+    },
+    {
+      "id": "max_strong",
+      "phase": "squeeze",
+      "types": [
+        "max_contraction"
+      ],
+      "text": "Squeeze as hard as you can, but don't let your glutes and belly join in."
+    },
+    {
+      "id": "max_rest",
+      "phase": "release",
+      "types": [
+        "max_contraction"
+      ],
+      "text": "A long rest after a strong contraction protects the muscle."
+    },
+    {
+      "id": "max_quality",
+      "phase": "squeeze",
+      "types": [
+        "max_contraction"
+      ],
+      "text": "If your strength drops, take a good rest rather than finishing the rep."
+    },
+    {
+      "id": "el_floors",
+      "phase": "squeeze",
+      "types": [
+        "elevator"
+      ],
+      "text": "Squeeze slowly, building up second by second; not all at once."
+    },
+    {
+      "id": "el_top",
+      "phase": "squeeze",
+      "types": [
+        "elevator"
+      ],
+      "text": "Hold briefly at the strongest point, then let go slowly."
+    },
+    {
+      "id": "el_down",
+      "phase": "release",
+      "types": [
+        "elevator"
+      ],
+      "text": "Don't rush the release; let the muscle come down little by little."
+    },
+    {
+      "id": "end_steady",
+      "phase": "squeeze",
+      "types": [
+        "endurance"
+      ],
+      "text": "Hold at medium strength, long and calm."
+    },
+    {
+      "id": "end_breathe",
+      "phase": "squeeze",
+      "types": [
+        "endurance"
+      ],
+      "text": "Don't forget to breathe during a long hold."
+    },
+    {
+      "id": "kn_before",
+      "phase": "squeeze",
+      "types": [
+        "knack"
+      ],
+      "text": "Squeeze just before you cough."
+    },
+    {
+      "id": "kn_hold",
+      "phase": "squeeze",
+      "types": [
+        "knack"
+      ],
+      "text": "Hold through the cough, then let go."
+    },
+    {
+      "id": "kn_daily",
+      "phase": "squeeze",
+      "types": [
+        "knack"
+      ],
+      "text": "In everyday life too, squeeze before sneezing, coughing or lifting something heavy."
+    },
+    {
+      "id": "rl_down",
+      "phase": "release",
+      "types": [
+        "release"
+      ],
+      "text": "Gently let the pelvic floor drop."
+    },
+    {
+      "id": "rl_no_push",
+      "phase": "release",
+      "types": [
+        "release"
+      ],
+      "text": "Don't bear down; gently let go."
+    },
+    {
+      "id": "rl_soft",
+      "phase": "release",
+      "types": [
+        "release",
+        "breath"
+      ],
+      "text": "Soften your belly and glutes too."
+    },
+    {
+      "id": "rel_ground",
+      "phase": "release",
+      "types": [
+        "all"
+      ],
+      "text": "Let go completely, as if the muscle were sinking down."
+    },
+    {
+      "id": "rel_jaw",
+      "phase": "release",
+      "types": [
+        "all",
+        "release",
+        "breath"
+      ],
+      "text": "Relax your jaw; don't clench your teeth."
+    },
+    {
+      "id": "rel_equal",
+      "phase": "release",
+      "types": [
+        "all"
+      ],
+      "text": "Letting go is as much training as squeezing."
+    },
+    {
+      "id": "br_belly",
+      "phase": "breath",
+      "types": [
+        "breath",
+        "release"
+      ],
+      "text": "Breathe in through your nose and let your belly rise."
+    },
+    {
+      "id": "br_long",
+      "phase": "breath",
+      "types": [
+        "breath",
+        "release"
+      ],
+      "text": "Make the out-breath a little longer than the in-breath."
+    },
+    {
+      "id": "br_scan",
+      "phase": "breath",
+      "types": [
+        "breath"
+      ],
+      "text": "If there's a tense spot in your body, soften it with your breath."
+    },
+    {
+      "id": "pain_stop",
+      "phase": "squeeze",
+      "types": [
+        "all"
+      ],
+      "text": "Stop if it hurts; Kegels shouldn't cause pain."
+    }
+  ]
+}

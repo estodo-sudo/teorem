@@ -1,0 +1,150 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Karın",
+    "intro": "Karın kaslarını ve gövdeyi güçlendiren, alet gerektirmeyen programlar. Omurgayı koruyan temel hareketlerle başlar, haftalar ilerledikçe hareketler zorlaşır.",
+    "science": [
+      "Başlangıçta her hareketi kısa sürelerle ve doğru formla yapmak, tekrar sayısını artırmaktan daha önemlidir.",
+      "Plank gibi tutuş hareketlerinde önce 20–30 saniyeye ulaşmak, sonra hareketi zorlaştırmak önerilir.",
+      "Kuş-köpek, yan plank ve kısa mekik gibi hareketler, belin doğal duruşunu koruyarak gövdeyi çalıştırır.",
+      "Karın egzersizi tek başına karın yağını eritmez; kas dayanıklılığını ve duruşu geliştirir. Yağ kaybı için beslenme ve genel hareket gerekir."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "crunch",
+      "name": "Mekik (Crunch)",
+      "target": "Düz karın kası",
+      "setup": "Sırtüstü uzan, dizlerini bük, ayak tabanların yerde. Kolların yanında, ellerin ayaklarına doğru uzansın.",
+      "steps": ["Karnını sıkarak başını ve omuzlarını yerden kaldır; ellerin dizlerine doğru uzansın.", "Yukarıda kısa bir an dur.", "Yavaşça omuzlarını yere indir."],
+      "tip": "Kalkarken nefes ver. Belin yerde kalır; sadece omuzların kalkar.",
+      "mistake": "Boynundan çekerek kalkma; çenen ile göğsün arasında yumruk kadar boşluk olsun."
+    },
+    {
+      "id": "reverse_crunch",
+      "name": "Ters Mekik",
+      "target": "Alt karın",
+      "setup": "Sırtüstü uzan, kolların yanında. Dizlerini 90 derece bükerek havaya kaldır.",
+      "steps": ["Karnını sıkarak dizlerini göğsüne doğru çek; kalçan hafifçe yerden kalksın.", "Kısa bir an dur.", "Kalçanı yavaşça indir ve dizleri başlangıca getir."],
+      "tip": "Hareketi bacakların sallanmasıyla değil, karınla yap.",
+      "mistake": "Bacakları hızla savurma; iniş yavaş ve kontrollü olsun."
+    },
+    {
+      "id": "leg_raise",
+      "name": "Bacak Kaldırma",
+      "target": "Alt karın ve kalça bükücüler",
+      "setup": "Sırtüstü uzan, bacakların düz, kolların yanında, avuçlar yerde.",
+      "steps": ["Bacaklarını düz tutarak tavana doğru kaldır.", "Belini yere bastırarak bacaklarını yavaşça indir.", "Topuklar yere değmeden yeniden kaldır."],
+      "tip": "Zor gelirse dizlerini hafifçe bük.",
+      "mistake": "Belin yerden kalkıyorsa bacakları o kadar aşağı indirme."
+    },
+    {
+      "id": "heel_tap",
+      "name": "Topuk Dokunma",
+      "target": "Yan karın kasları",
+      "setup": "Sırtüstü uzan, dizlerin bükülü. Başını ve omuzlarını hafifçe kaldır, kolların yanlarda.",
+      "steps": ["Gövdeni yana bükerek sağ elinle sağ topuğuna dokun.", "Ortaya dön ve sol elinle sol topuğuna dokun.", "Omuzlar yerden kalkık, sırayla devam et."],
+      "tip": "Hareket küçük; gövdeni yana bükerek uzan.",
+      "mistake": "Başını yere bırakıp kaldırma; omuzlar baştan sona havada kalsın."
+    },
+    {
+      "id": "dead_bug",
+      "name": "Ölü Böcek",
+      "target": "Derin karın kasları ve gövde dengesi",
+      "setup": "Sırtüstü uzan. Kollarını tavana uzat, dizlerini 90 derece bükerek havaya kaldır.",
+      "steps": ["Sağ kolunu başının arkasına, sol bacağını ileri doğru yavaşça uzat.", "Başlangıca dön.", "Sol kol ve sağ bacakla aynısını yap."],
+      "tip": "Uzatırken nefes ver; belin hep yere değsin.",
+      "mistake": "Belin kalkıyorsa bacağı daha az uzat."
+    },
+    {
+      "id": "bicycle_crunch",
+      "name": "Bisiklet Mekik",
+      "target": "Yan ve düz karın kasları",
+      "setup": "Sırtüstü uzan, ellerini başının arkasına koy, omuzlarını hafifçe kaldır. Bacakların havada.",
+      "steps": ["Sağ dizini göğsüne çekerken sol dirseğini ona doğru çevir; sol bacağın uzansın.", "Taraf değiştir: sol diz ve sağ dirsek.", "Bisiklet pedalı gibi, ritimle devam et."],
+      "tip": "Dirseği dize değdirmek şart değil; gövdeni döndürmen yeterli.",
+      "mistake": "Elinle başını çekme; dönüş gövdeden gelsin."
+    },
+    {
+      "id": "plank",
+      "name": "Plank",
+      "target": "Tüm gövde",
+      "setup": "Yüzüstü uzan. Dirseklerini omuzlarının altına koy, ayak parmaklarına basarak gövdeni kaldır.",
+      "steps": ["Başından topuklarına düz bir çizgi oluştur.", "Karnını içe çek, kalçanı sık.", "Rahat nefes alarak süre bitene kadar bekle."],
+      "tip": "Form bozulursa dizlerini yere koy ve devam et.",
+      "mistake": "Kalçayı düşürme ya da yukarı kaldırma."
+    },
+    {
+      "id": "knee_plank",
+      "name": "Dizden Plank",
+      "target": "Tüm gövde (kolay)",
+      "setup": "Yüzüstü uzan. Dirseklerin omuzlarının altında, dizlerin yerde, ayakların havada.",
+      "steps": ["Gövdeni kaldır; başından dizlerine düz bir çizgi olsun.", "Karnını hafifçe içe çek.", "Nefes alarak bekle."],
+      "tip": "Plank'ın başlangıç hali; 30 saniyeyi rahat geçince normal plank'a geç.",
+      "mistake": "Kalçayı yukarı kaldırma."
+    },
+    {
+      "id": "side_plank",
+      "name": "Yan Plank",
+      "target": "Yan karın kasları ve kalça",
+      "setup": "Yan yat, dirseğin omzunun altında, bacakların düz ve üst üste.",
+      "steps": ["Kalçanı kaldır; başından ayaklarına düz bir çizgi oluşsun.", "Üstteki kolunu tavana uzat.", "Süre yarıya gelince öbür yanına dön."],
+      "tip": "Zorlanırsan alttaki dizini yere koy.",
+      "mistake": "Kalçanın yere sarkmasına izin verme."
+    },
+    {
+      "id": "side_plank_knee",
+      "name": "Dizden Yan Plank",
+      "target": "Yan karın kasları (kolay)",
+      "setup": "Yan yat, dirseğin omzunun altında, dizlerin bükülü ve üst üste.",
+      "steps": ["Kalçanı kaldır; başından dizlerine düz bir çizgi oluşsun.", "Üstteki kolunu tavana uzat.", "Süre yarıya gelince öbür yanına dön."],
+      "tip": "Yan plank'ın kolay hali; rahat geçince bacaklar düz yap.",
+      "mistake": "Omzunu kulağına doğru çökertme."
+    },
+    {
+      "id": "mountain_climber",
+      "name": "Dağcı",
+      "target": "Karın, kalça ve kondisyon",
+      "setup": "Şınav pozisyonuna gel: ellerin omuzlarının altında, kolların düz, vücudun düz bir çizgi.",
+      "steps": ["Sağ dizini göğsüne doğru çek.", "Geri götürürken sol dizini çek.", "Kalçan sabit kalarak ritimle devam et."],
+      "tip": "Hızlanmadan önce formu oturt; yavaş da olur.",
+      "mistake": "Kalçayı yukarı kaldırma, sırtı çökertme."
+    },
+    {
+      "id": "plank_shoulder_tap",
+      "name": "Plankta Omuz Dokunma",
+      "target": "Gövde dengesi ve omuzlar",
+      "setup": "Şınav pozisyonuna gel; ayaklarını biraz aç, denge kolaylaşır.",
+      "steps": ["Sağ elinle sol omzuna dokun.", "Elini yere koy, sol elinle sağ omzuna dokun.", "Kalçanı sallamadan sırayla devam et."],
+      "tip": "Zor gelirse dizlerini yere koy.",
+      "mistake": "Her dokunuşta kalçanı yana sallama."
+    },
+    {
+      "id": "hollow_hold",
+      "name": "Çanak Tutuş",
+      "target": "Düz karın kası (ileri)",
+      "setup": "Sırtüstü uzan, kollarını başının üstüne uzat.",
+      "steps": ["Belini yere bastırarak omuzlarını ve bacaklarını yerden kaldır.", "Vücudun bir çanak gibi hafif kavisli olsun.", "Nefes alarak bekle."],
+      "tip": "Zor gelirse dizlerini bük ya da kollarını yanına al.",
+      "mistake": "Belin yerden kalkıyorsa bacakları daha yükseğe kaldır."
+    },
+    {
+      "id": "flutter_kicks",
+      "name": "Makas Vuruşu",
+      "target": "Alt karın",
+      "setup": "Sırtüstü uzan, ellerini kalçanın altına koy, bacaklarını düz tutup yerden biraz kaldır.",
+      "steps": ["Bir bacağını biraz yukarı, diğerini biraz aşağı götür.", "Makas gibi sırayla değiştir.", "Belin yere değsin, ritimle devam et."],
+      "tip": "Hareket küçük ve sürekli olsun.",
+      "mistake": "Belin kalkıyorsa bacakları biraz daha yukarıda tut."
+    },
+    {
+      "id": "bird_dog",
+      "name": "Kuş-Köpek",
+      "target": "Gövde dengesi, sırt ve kalça",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
+      "steps": ["Bir kolunu öne, karşı bacağını geriye uzat.", "Kol ve bacak yere paralel olunca kısa dur.", "Yavaşça geri getir; süre yarısında taraf değiştir."],
+      "tip": "Sırtına bir bardak su konmuş gibi düşün; dökülmesin.",
+      "mistake": "Belini çökertme ya da kalçanı yana döndürme."
+    }
+  ]
+}

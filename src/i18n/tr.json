@@ -34,7 +34,9 @@
     "age": "{{age}} yaşından büyüğüm.",
     "medicalCheck": "Tıbbi uyarıyı okudum ve anladım.",
     "accept": "Kabul et ve başla",
-    "acceptHint": "İki onay kutusu işaretlenince etkinleşir."
+    "acceptHint": "İki onay kutusu işaretlenince etkinleşir.",
+    "legalNote": "Devam ederek Hizmet Şartları'nı kabul etmiş olursun. Girdiğin bilgiler yalnızca bu telefonda saklanır; nasıl kullanıldıklarını aşağıdaki metinlerde okuyabilirsin.",
+    "medicalTap": "Okumak için dokun"
   },
   "exercise": {
     "hold": {
@@ -311,11 +313,11 @@
       },
       "some": {
         "label": "Birkaç kez denedim",
-        "hint": "Biraz daha ileriden başlarız."
+        "hint": "Tekniği tazeleyerek başlarız; seviyen geri bildirimine göre hızla yükselir."
       },
       "regular": {
         "label": "Düzenli yapıyorum",
-        "hint": "Orta seviyeden başlarız."
+        "hint": "Seviye 1'den başlarız; zorlanmazsan seviyen hızla yükselir."
       }
     },
     "activity": {
@@ -487,7 +489,7 @@
     }
   },
   "legal": {
-    "updated": "Son güncelleme: Kasım 2026 · Taslak metin, yayın öncesi hukuki kontrol gerektirir.",
+    "updated": "Son güncelleme: 22 Kasım 2026 · Yayın öncesi hukuki kontrolden geçirilmesi önerilir.",
     "disclaimer": {
       "title": "Tıbbi Uyarı",
       "sections": [
@@ -527,70 +529,459 @@
         {
           "heading": "Kısaca",
           "paragraphs": [
-            "Verilerin telefonundan hiç çıkmaz. {{app}}'ın bir sunucusu yoktur; hesap açmanı, e-posta veya telefon numarası vermeni istemez."
+            "Verilerin telefonundan hiç çıkmaz. {{app}} uygulamasının bir sunucusu yoktur; hesap açmanı, e-posta veya telefon numarası vermeni istemez. Analiz, reklam veya izleme yazılımı kullanılmaz."
           ]
         },
         {
-          "heading": "Hangi veriler, nerede?",
+          "heading": "Hangi bilgileri topluyoruz?",
           "paragraphs": [
-            "Onboarding cevapların, ayarların, antrenman geçmişin, güç testi sonuçların, notların ve içerik ilerlemen yalnızca bu cihazda, uygulamanın kendi depolama alanında saklanır.",
-            "Bu veriler bize, reklam ağlarına veya üçüncü taraflara gönderilmez. Uygulamada analiz (analytics), reklam veya izleme (tracking) yazılımı bulunmaz."
+            "Hiçbirini. {{company}} senin hakkında hiçbir kişisel veri toplamaz, görmez ve saklamaz.",
+            "Toplanmayanlar: adın, e-postan, telefon numaran, konumun, rehberin, fotoğrafların, cihaz ve reklam kimliğin, uygulamayı nasıl kullandığına dair istatistikler ve çökme raporları."
+          ]
+        },
+        {
+          "heading": "Telefonunda neler tutulur, neden?",
+          "paragraphs": [
+            "Başlangıç cevapların: hedeflerin, yaş aralığın, deneyimin ve hareket düzeyin. Amaç: programını sana göre ayarlamak.",
+            "16 yaş ve tıbbi uyarı onayının tarihi. Amaç: onayı bir daha sormamak.",
+            "Antrenman geçmişin, seviyen, güç testi sonuçların ve yazdığın notlar. Amaç: ilerlemeni göstermek ve programı zorlaştırıp kolaylaştırmak.",
+            "Kamp kayıtların (Sigarasız, Alkolsüz ve Odak Kampı) ve Aletsiz Fitness ilerlemen. Amaç: kamp ilerlemeni, istatistiklerini ve sıradaki günü göstermek. Sigarasız Kamp'a isteğe bağlı eklediğin fotoğrafın bir kopyası uygulamanın kendi klasöründe tutulur.",
+            "Odak Kampı kayıtları ayrıca cihazında AES-256 ile şifrelenir. Şifre anahtarı ve varsa uygulama PIN'inin özeti telefonun güvenli anahtar deposunda (iOS Keychain, Android Keystore) bu cihaza özel olarak durur.",
+            "Okuduğun hikâyeler, kaydettiklerin, rozetlerin ve ayarların (tema, hatırlatma saatleri, titreşim gücü gibi). Amaç: kaldığın yerden devam etmen.",
+            "Aboneliğinin aktif olup olmadığının kısa süreli bir kopyası. Amaç: internet yokken de Premium'un açık kalması."
+          ]
+        },
+        {
+          "heading": "İzinler ve neden istendikleri",
+          "paragraphs": [
+            "Bildirimler: hatırlatmaları göstermek için. Hatırlatmalar telefonunda planlanır; bildirim sunucusu kullanılmaz.",
+            "Fotoğraflar (isteğe bağlı): Sigarasız Kamp'a kendi fotoğrafını eklemek için. Yalnızca seçtiğin fotoğrafın bir kopyası uygulamanın klasörüne alınır.",
+            "Rehber (isteğe bağlı): ALO 171 numarasını rehberine kaydetmek için telefonunun kendi kişi ekleme ekranı açılır. Rehberin okunmaz.",
+            "Face ID / parmak izi (isteğe bağlı): kilitli bölümleri açmak için. Biyometrik verin telefonunun işletim sisteminde kalır; uygulama yalnızca \"doğrulandı / doğrulanmadı\" sonucunu alır.",
+            "Titreşim ve mağaza ödemeleri. Kamera, mikrofon ve konum izni istenmez."
+          ]
+        },
+        {
+          "heading": "İnternet bağlantısı",
+          "paragraphs": [
+            "Uygulamanın tek ağ bağlantısı, satın alma ve aboneliğini doğrulamak için App Store veya Google Play ile kurulur. Diğer her şey internetsiz çalışır."
           ]
         },
         {
           "heading": "Satın alımlar",
           "paragraphs": [
-            "Abonelik ve satın alma işlemleri tamamen Apple App Store veya Google Play tarafından, kendi gizlilik politikaları çerçevesinde yürütülür. Uygulama yalnızca aboneliğinin aktif olup olmadığını platformdan sorgular; ödeme bilgilerini görmez."
+            "Abonelik ve ödeme işlemleri tamamen Apple veya Google tarafından, kendi gizlilik politikaları çerçevesinde yürütülür. Uygulama ödeme bilgilerini görmez."
           ]
         },
         {
-          "heading": "Bildirimler",
+          "heading": "Yedekler",
           "paragraphs": [
-            "Hatırlatmalar cihazında yerel olarak planlanır; bir bildirim sunucusu kullanılmaz. Bildirim metinleri varsayılan olarak nötrdür."
+            "Android'de uygulama verileri Google yedeğine alınmaz. iPhone'da iCloud Yedekleme açıksa, telefonunun yedeği uygulama verilerini de içerebilir; bu yedek Apple tarafından senin Apple hesabında tutulur ve bize ulaşmaz. Odak Kampı şifre anahtarı bu cihaza özeldir ve yedeğe girmez.",
+            "Profil > Veri bölümünden verilerini bir JSON dosyası olarak dışa aktarabilir ve yeni telefonuna aktarabilirsin. Bu dosyayı nereye kaydedeceğine veya kiminle paylaşacağına sen karar verirsin."
           ]
         },
         {
-          "heading": "Kontrol sende",
+          "heading": "Verilerini silmek",
           "paragraphs": [
-            "Ayarlar > Veri bölümünden tüm verilerini bir JSON dosyası olarak dışa aktarabilir, geri yükleyebilir veya kalıcı olarak silebilirsin. Uygulamayı silmek de tüm verileri cihazdan kaldırır.",
-            "Dışa aktardığın dosyayı nereye kaydedeceğine veya kiminle paylaşacağına sen karar verirsin."
+            "Profil sayfasının en altındaki \"Verilerimi ve hesabımı sil\" düğmesi; tüm kayıtları, şifreli kasanın anahtarını, PIN'i, eklediğin fotoğrafları, dışa aktarma kopyalarını ve planlanmış hatırlatmaları kalıcı olarak siler. Bu işlem geri alınamaz. Uygulamayı silmek de verileri telefondan kaldırır.",
+            "Verilerini silmek aboneliğini iptal etmez; aboneliğini App Store veya Google Play hesabından iptal etmelisin."
+          ]
+        },
+        {
+          "heading": "Çocuklar",
+          "paragraphs": [
+            "{{app}} 16 yaş ve üzeri kullanıcılar içindir; bilerek 16 yaş altındaki kişilerden bilgi istemez."
+          ]
+        },
+        {
+          "heading": "Değişiklikler",
+          "paragraphs": [
+            "Bu politika güncellenebilir. Önemli değişiklikler uygulama güncellemesiyle birlikte duyurulur; güncel metin her zaman bu sayfadadır."
+          ]
+        },
+        {
+          "heading": "Veri sorumlusu ve iletişim",
+          "paragraphs": [
+            "Veri sorumlusu ve satıcı: {{company}}, {{address}}.",
+            "E-posta: {{email}}. Yazılı başvurularını yukarıdaki adrese de gönderebilirsin."
           ]
         }
       ]
     },
     "terms": {
-      "title": "Kullanım Şartları",
+      "title": "Hizmet Şartları",
       "sections": [
         {
-          "heading": "Kapsam",
+          "heading": "Taraflar ve kapsam",
           "paragraphs": [
-            "{{app}}'ı kullanarak bu şartları kabul etmiş olursun. Uygulama 16 yaş ve üzeri kullanıcılar içindir."
+            "Bu şartlar, {{company}} ({{address}}) tarafından sunulan {{app}} uygulamasının kullanımını düzenler. Uygulamayı kullanarak bu şartları kabul etmiş olursun.",
+            "Uygulamayı App Store'dan indirdiysen Apple'ın standart Son Kullanıcı Lisans Sözleşmesi (EULA) de geçerlidir. Uygulamanın içeriğinden ve desteğinden Apple veya Google değil, {{company}} sorumludur."
+          ]
+        },
+        {
+          "heading": "Hizmet",
+          "paragraphs": [
+            "{{app}}; pelvik taban egzersizleri, antrenman programları, bilgilendirici içerikler ve alışkanlık kampları sunan bir eğitim ve egzersiz uygulamasıdır. Uygulama 16 yaş ve üzeri kullanıcılar içindir."
           ]
         },
         {
           "heading": "Sağlık sorumluluğu",
           "paragraphs": [
-            "Uygulama tıbbi tavsiye vermez. Egzersizleri kendi sorumluluğunda ve Tıbbi Uyarı'da belirtilen kurallara uyarak yaparsın."
+            "Uygulama tıbbi tavsiye, teşhis veya tedavi sunmaz ve bir tıbbi cihaz değildir. Egzersizleri kendi sorumluluğunda ve Tıbbi Uyarı'daki kurallara uyarak yaparsın. Ağrı veya rahatsızlık hissedersen dur ve bir sağlık profesyoneline danış."
+          ]
+        },
+        {
+          "heading": "Hesap ve verilerin",
+          "paragraphs": [
+            "Uygulama hesap gerektirmez; tüm verilerin yalnızca telefonunda saklanır. Bu yüzden telefonun kaybolur, sıfırlanır veya uygulamayı silersen verilerini biz geri getiremeyiz. Yedek almak için Profil > Veri bölümündeki dışa aktarmayı kullanabilirsin."
           ]
         },
         {
           "heading": "Abonelikler",
           "paragraphs": [
-            "Premium özellikler otomatik yenilenen abonelik veya tek seferlik satın alma ile sunulur. Fiyatlar satın alma ekranında, mağazanın gösterdiği gerçek tutarlarla yer alır.",
-            "Ücretsiz deneme süresi bitmeden iptal etmezsen abonelik, seçtiğin plan üzerinden ücretlendirilir. Aboneliği App Store veya Google Play hesap ayarlarından istediğin zaman yönetebilir veya iptal edebilirsin. İptal, mevcut dönemin sonunda geçerli olur.",
-            "İade talepleri ilgili mağazanın kurallarına tabidir."
+            "Premium özellikler haftalık, aylık veya yıllık otomatik yenilenen abonelikle sunulur. Fiyatlar satın alma ekranında, mağazanın gösterdiği vergiler dahil gerçek tutarlarla yer alır.",
+            "Abonelik, dönem bitmeden en az 24 saat önce iptal edilmezse aynı süre ve fiyatla otomatik olarak yenilenir. Ayrıntılar Yenileme Politikası, İade Politikası ve Abonelik Ön Bilgilendirme Formu'ndadır."
           ]
         },
         {
-          "heading": "İçerik",
+          "heading": "Kullanım kuralları",
           "paragraphs": [
-            "Uygulamadaki tüm metin, illüstrasyon ve sesler özgündür ve izinsiz çoğaltılamaz. Eğitim içerikleri genel bilgilendirme amaçlıdır."
+            "Uygulamayı yalnızca kişisel ve ticari olmayan amaçla kullanabilirsin. Uygulamayı kopyalamak, tersine mühendislik yapmak, içeriklerini izinsiz çoğaltmak veya satın alma sistemini atlatmaya çalışmak yasaktır."
+          ]
+        },
+        {
+          "heading": "Fikri mülkiyet",
+          "paragraphs": [
+            "Uygulamadaki metinler, illüstrasyonlar, animasyonlar ve sesler {{company}}'e veya lisans verenlerine aittir. Fotoğrafların kaynakları uygulama içinde belirtilmiştir."
+          ]
+        },
+        {
+          "heading": "Sorumluluğun sınırı",
+          "paragraphs": [
+            "Uygulama \"olduğu gibi\" sunulur. Yasaların izin verdiği ölçüde {{company}}, uygulamanın kullanımından doğan dolaylı zararlardan sorumlu değildir. Bu madde, tüketici mevzuatından doğan haklarını sınırlamaz."
+          ]
+        },
+        {
+          "heading": "Uygulanacak hukuk",
+          "paragraphs": [
+            "Bu şartlara Türkiye Cumhuriyeti hukuku uygulanır. Tüketici uyuşmazlıklarında, her yıl belirlenen parasal sınırlar içinde Tüketici Hakem Heyetlerine, bu sınırların üzerinde Tüketici Mahkemelerine başvurabilirsin."
           ]
         },
         {
           "heading": "Değişiklikler",
           "paragraphs": [
             "Bu şartlar güncellenebilir. Önemli değişiklikler uygulama güncellemesiyle birlikte duyurulur."
+          ]
+        },
+        {
+          "heading": "Satıcı ve iletişim",
+          "paragraphs": [
+            "{{app}}, {{company}} ({{address}}) tarafından sunulur.",
+            "Destek, öneri ve şikâyetlerin için: {{email}}."
+          ]
+        }
+      ]
+    },
+    "kvkk": {
+      "title": "KVKK Aydınlatma Metni",
+      "sections": [
+        {
+          "heading": "Veri sorumlusu",
+          "paragraphs": [
+            "Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 10. maddesi uyarınca {{app}} uygulamasını kullananları bilgilendirmek için hazırlanmıştır.",
+            "Veri sorumlusu: {{company}}, {{address}}. E-posta: {{email}}."
+          ]
+        },
+        {
+          "heading": "Temel ilke: Verilerin telefonundan çıkmaz",
+          "paragraphs": [
+            "{{app}} uygulamasının bir sunucusu yoktur ve hesap açmanı istemez. Uygulamaya girdiğin bilgiler yalnızca kendi telefonunda saklanır; bize, başka bir kişiye veya kuruma gönderilmez.",
+            "Bu nedenle {{company}} senin hakkında kişisel veri toplamaz, görmez, saklamaz ve aktarmaz. Ad, e-posta, telefon numarası, konum, cihaz kimliği, reklam kimliği, kullanım istatistiği ve çökme raporu toplanmaz."
+          ]
+        },
+        {
+          "heading": "Telefonunda hangi bilgiler, neden tutulur?",
+          "paragraphs": [
+            "Başlangıç cevapların: hedeflerin, yaş aralığın, deneyimin ve hareket düzeyin. Amaç: programını sana göre ayarlamak.",
+            "16 yaş ve tıbbi uyarı onayının tarihi. Amaç: onayı bir daha sormamak.",
+            "Antrenman geçmişin, seviyen, güç testi sonuçların ve yazdığın notlar. Amaç: ilerlemeni göstermek ve programı zorlaştırıp kolaylaştırmak.",
+            "Kamp kayıtların (Sigarasız, Alkolsüz ve Odak Kampı) ve Aletsiz Fitness ilerlemen. Amaç: kamp ilerlemeni, istatistiklerini ve sıradaki günü göstermek. Sigarasız Kamp'a isteğe bağlı eklediğin fotoğrafın bir kopyası uygulamanın kendi klasöründe tutulur.",
+            "Odak Kampı kayıtları ayrıca cihazında AES-256 ile şifrelenir. Şifre anahtarı ve varsa uygulama PIN'inin özeti telefonun güvenli anahtar deposunda (iOS Keychain, Android Keystore) bu cihaza özel olarak durur.",
+            "Okuduğun hikâyeler, kaydettiklerin, rozetlerin ve ayarların (tema, hatırlatma saatleri, titreşim gücü gibi). Amaç: kaldığın yerden devam etmen.",
+            "Aboneliğinin aktif olup olmadığının kısa süreli bir kopyası. Amaç: internet yokken de Premium'un açık kalması."
+          ]
+        },
+        {
+          "heading": "Özel nitelikli veriler",
+          "paragraphs": [
+            "Pelvik taban, cinsel sağlık, sigara, alkol ve içerik alışkanlıklarıyla ilgili cevapların ve kayıtların KVKK'nın 6. maddesi anlamında sağlık veya cinsel hayata ilişkin özel nitelikli kişisel veri sayılabilir.",
+            "Bu bilgiler yalnızca senin telefonunda, senin girmenle oluşur ve senin kontrolündedir. {{company}} bunlara erişemez ve bunları işlemez."
+          ]
+        },
+        {
+          "heading": "Toplama yöntemi ve hukuki sebep",
+          "paragraphs": [
+            "Bilgiler, uygulamayı kullanırken senin girmenle telefonunda oluşur. Telefonunda tutulmaları, uygulamanın sana sunduğu hizmetin yerine getirilmesi için gereklidir (KVKK m.5/2-c).",
+            "Uygulama içi satın almalarda ödeme ve fatura bilgileri doğrudan Apple (App Store) veya Google (Google Play) tarafından, kendi gizlilik politikalarına göre işlenir. Uygulama yalnızca aboneliğinin aktif olup olmadığını mağazadan, telefonunun üzerinden sorgular; ödeme bilgilerini görmez."
+          ]
+        },
+        {
+          "heading": "Aktarım",
+          "paragraphs": [
+            "Kişisel verilerin yurt içinde veya yurt dışında hiç kimseye aktarılmaz. Bizim bir sunucumuz, analiz, reklam veya izleme hizmetimiz yoktur."
+          ]
+        },
+        {
+          "heading": "Hakların (KVKK m.11)",
+          "paragraphs": [
+            "Kişisel verilerinin işlenip işlenmediğini öğrenme, işlenmişse bilgi isteme, işlenme amacını ve amaca uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini ve silinmesini isteme, bu işlemlerin aktarılan kişilere bildirilmesini isteme, otomatik sistemlerle analiz sonucu aleyhine bir sonuca itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğrarsan zararın giderilmesini talep etme hakların vardır.",
+            "Verilerin zaten yalnızca telefonunda olduğu için onları her an kendin görebilir, düzeltebilir ve silebilirsin: Profil sayfasının en altındaki \"Verilerimi ve hesabımı sil\" düğmesi hepsini kalıcı olarak siler.",
+            "Başvurularını {{email}} adresine veya yazılı olarak {{address}} adresine iletebilirsin. Başvurun en geç 30 gün içinde ücretsiz olarak sonuçlandırılır. Ayrıca Kişisel Verileri Koruma Kurulu'na şikâyette bulunma hakkın vardır."
+          ]
+        }
+      ]
+    },
+    "presale": {
+      "title": "Abonelik Ön Bilgilendirme Formu",
+      "sections": [
+        {
+          "heading": "Satıcı",
+          "paragraphs": [
+            "Unvan: {{company}}",
+            "Adres: {{address}}",
+            "E-posta: {{email}}"
+          ]
+        },
+        {
+          "heading": "Hizmetin konusu",
+          "paragraphs": [
+            "{{app}} Premium: tüm antrenman seviyeleri, programlar, kamplar ve içeriklerin kilidini açan dijital abonelik. Hizmet uygulama içinde, satın alma onaylandığı anda sunulur."
+          ]
+        },
+        {
+          "heading": "Planlar ve fiyat",
+          "paragraphs": [
+            "Haftalık, aylık ve yıllık planlar sunulur. Güncel fiyat ve para birimi, satın almadan önce satın alma ekranında ve mağazanın onay penceresinde vergiler dahil gösterilir. Yıllık planda mağazada belirtilen süre kadar ücretsiz deneme bulunabilir."
+          ]
+        },
+        {
+          "heading": "Ödeme",
+          "paragraphs": [
+            "Ödeme, satın almayı onayladığında App Store veya Google Play hesabına kayıtlı ödeme yönteminden mağaza tarafından tahsil edilir. Fatura veya makbuz mağaza tarafından düzenlenir ve e-postana gönderilir."
+          ]
+        },
+        {
+          "heading": "Süre, yenileme ve iptal",
+          "paragraphs": [
+            "Abonelik seçtiğin süre için geçerlidir ve dönem bitmeden en az 24 saat önce iptal edilmezse aynı süre ve fiyatla otomatik olarak yenilenir. Yenileme ücreti, dönem bitmeden önceki 24 saat içinde tahsil edilir.",
+            "Aboneliği App Store veya Google Play hesap ayarlarından istediğin zaman iptal edebilirsin; iptal, ödenmiş dönemin sonunda geçerli olur."
+          ]
+        },
+        {
+          "heading": "Cayma hakkı",
+          "paragraphs": [
+            "Premium içerik, satın alma onayıyla birlikte elektronik ortamda anında erişime açılan bir hizmet olduğundan, Mesafeli Sözleşmeler Yönetmeliği'nin 15. maddesinin (ğ) bendi uyarınca cayma hakkı kullanılamaz.",
+            "Ücretsiz denemeyi, deneme bitmeden iptal edersen hiçbir ücret ödemezsin. İade talepleri İade Politikası'nda anlatıldığı gibi mağaza üzerinden yapılır."
+          ]
+        },
+        {
+          "heading": "Şikâyet ve başvuru",
+          "paragraphs": [
+            "Şikâyetlerini {{email}} adresine iletebilirsin. Her yıl belirlenen parasal sınırlar içinde Tüketici Hakem Heyetlerine, bu sınırların üzerinde Tüketici Mahkemelerine başvurabilirsin."
+          ]
+        }
+      ]
+    },
+    "renewal": {
+      "title": "Yenileme Politikası",
+      "sections": [
+        {
+          "heading": "Planlar",
+          "paragraphs": [
+            "Premium haftalık, aylık ve yıllık otomatik yenilenen abonelik olarak sunulur."
+          ]
+        },
+        {
+          "heading": "Otomatik yenileme",
+          "paragraphs": [
+            "Aboneliğin, dönem bitmeden en az 24 saat önce iptal edilmezse aynı süre ve aynı fiyatla otomatik olarak yenilenir. Yenileme ücreti, dönem bitmeden önceki 24 saat içinde App Store veya Google Play hesabından alınır."
+          ]
+        },
+        {
+          "heading": "Ücretsiz deneme",
+          "paragraphs": [
+            "Yıllık planda ücretsiz deneme sunulabilir. Deneme bitmeden en az 24 saat önce iptal etmezsen abonelik ücretli plana dönüşür ve yıllık ücret alınır. Deneme sırasında ücretli bir plan satın alırsan denemenin kalan kısmı sona erer.",
+            "Satın alma ekranı, ilk ücretin hangi tarihte alınacağını gösterir."
+          ]
+        },
+        {
+          "heading": "Fiyat değişikliği",
+          "paragraphs": [
+            "Fiyat değişirse mağaza seni önceden bilgilendirir; mağaza kuralları gerektirdiğinde yeni fiyat için onayın istenir. Onay vermezsen abonelik dönem sonunda yenilenmez."
+          ]
+        },
+        {
+          "heading": "Yönetme ve iptal",
+          "paragraphs": [
+            "iPhone: Ayarlar > adın > Abonelikler.",
+            "Android: Google Play Store > profil fotoğrafın > Ödemeler ve abonelikler > Abonelikler.",
+            "Uygulamada: Profil > Abonelik > Aboneliği yönet.",
+            "Uygulamayı silmek veya verilerini silmek aboneliği iptal etmez."
+          ]
+        },
+        {
+          "heading": "Plan değişikliği",
+          "paragraphs": [
+            "Planını mağazanın abonelik ayarlarından değiştirebilirsin. Değişikliğin ne zaman geçerli olacağını mağaza belirler ve sana gösterir."
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "İade Politikası",
+      "sections": [
+        {
+          "heading": "Ödemeyi kim alır?",
+          "paragraphs": [
+            "Tüm ödemeler Apple (App Store) veya Google (Google Play) tarafından alınır. {{company}} ödeme bilgilerini görmez; bu yüzden iade talepleri mağazanın kurallarına göre mağaza üzerinden yapılır."
+          ]
+        },
+        {
+          "heading": "App Store",
+          "paragraphs": [
+            "reportaproblem.apple.com adresine Apple hesabınla gir, ilgili satın almayı seç ve \"İade talep et\" seçeneğini kullan. İadeye Apple karar verir."
+          ]
+        },
+        {
+          "heading": "Google Play",
+          "paragraphs": [
+            "Satın almanın üzerinden 48 saat geçmediyse Google Play'den iade isteyebilirsin. 48 saat geçtiyse {{email}} adresine sipariş numaranla yaz; talebini Google Play kuralları çerçevesinde değerlendiririz."
+          ]
+        },
+        {
+          "heading": "Ücretsiz deneme ve iptal",
+          "paragraphs": [
+            "Ücretsiz denemeyi, deneme bitmeden iptal edersen ücret alınmaz. Aboneliği iptal etmek geçmiş dönemler için iade anlamına gelmez; iptal, ödenmiş dönemin sonunda geçerli olur ve o güne kadar Premium açık kalır."
+          ]
+        },
+        {
+          "heading": "Cayma hakkı",
+          "paragraphs": [
+            "Dijital içerik satın alma onayıyla anında sunulduğundan Mesafeli Sözleşmeler Yönetmeliği m.15/1-(ğ) uyarınca cayma hakkı bulunmaz. Bu, mağazanın kendi iade imkânlarını ve tüketici mevzuatından doğan diğer haklarını ortadan kaldırmaz."
+          ]
+        },
+        {
+          "heading": "İletişim",
+          "paragraphs": [
+            "Sorun yaşarsan {{email}} adresine yaz; sana yardımcı olmaya çalışırız."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "sections": [
+        {
+          "heading": "Çerez kullanmıyoruz",
+          "paragraphs": [
+            "{{app}} bir mobil uygulamadır ve çerez (cookie), web işaretçisi, reklam kimliği, parmak izi tekniği veya benzeri bir izleme teknolojisi kullanmaz. Bu yüzden uygulama sana izleme izni (App Tracking Transparency) sormaz."
+          ]
+        },
+        {
+          "heading": "Telefonda tutulan zorunlu kayıtlar",
+          "paragraphs": [
+            "Uygulama çalışmak için telefonunun kendi depolama alanını kullanır: ayarlar ve ilerleme için yerel bir anahtar-değer deposu, geçmiş ve şifreli kayıtlar için yerel veritabanları, şifre anahtarı için güvenli anahtar deposu.",
+            "Bunlar çerez değildir; yalnızca uygulamanın çalışması için gereklidir, telefonundan çıkmaz ve Profil > \"Verilerimi ve hesabımı sil\" ile silinir."
+          ]
+        },
+        {
+          "heading": "Web sitesi",
+          "paragraphs": [
+            "İleride bir web sitesi açılırsa ve orada çerez kullanılırsa, ayrı bir çerez bildirimi ve tercih ekranı sunulur."
+          ]
+        },
+        {
+          "heading": "Veri sorumlusu ve iletişim",
+          "paragraphs": [
+            "Veri sorumlusu ve satıcı: {{company}}, {{address}}.",
+            "E-posta: {{email}}. Yazılı başvurularını yukarıdaki adrese de gönderebilirsin."
+          ]
+        }
+      ]
+    },
+    "faq": {
+      "title": "Sık Sorulan Sorular",
+      "sections": [
+        {
+          "heading": "Hesap açmam gerekiyor mu?",
+          "paragraphs": [
+            "Hayır. {{app}} hesap, e-posta veya telefon numarası istemez."
+          ]
+        },
+        {
+          "heading": "Hangi bilgilerimi topluyorsunuz?",
+          "paragraphs": [
+            "Hiçbirini. Girdiğin her şey yalnızca telefonunda saklanır; bize veya başka birine gönderilmez. Analiz, reklam veya izleme yazılımı kullanmıyoruz. Ayrıntılar Gizlilik Politikası'nda."
+          ]
+        },
+        {
+          "heading": "Verilerim nerede, kim görebilir?",
+          "paragraphs": [
+            "Yalnızca telefonunda. Biz göremeyiz. Odak Kampı kayıtları ayrıca telefonunda şifrelenir ve istersen Face ID, parmak izi veya PIN ile kilitlenir."
+          ]
+        },
+        {
+          "heading": "İnternetsiz çalışır mı?",
+          "paragraphs": [
+            "Evet. İnternet yalnızca satın alma ve aboneliği doğrulamak için gerekir. Abonelik durumun internetsizken de bir süre geçerli kalır."
+          ]
+        },
+        {
+          "heading": "Telefonumu değiştirirsem ne olur?",
+          "paragraphs": [
+            "Profil > Veri bölümünden verilerini dosya olarak dışa aktar, yeni telefonda içe aktar. Aboneliğini aynı Apple veya Google hesabıyla \"Satın alımları geri yükle\" diyerek geri getirebilirsin."
+          ]
+        },
+        {
+          "heading": "Verilerimi nasıl tamamen silerim?",
+          "paragraphs": [
+            "Profil sayfasının en altındaki \"Verilerimi ve hesabımı sil\" düğmesine bas ve onayla. Her şey kalıcı olarak silinir; geri alınamaz."
+          ]
+        },
+        {
+          "heading": "Ücretsiz deneme nasıl çalışır?",
+          "paragraphs": [
+            "Yıllık planı ücretsiz denemeyle başlatırsan deneme bitene kadar ücret alınmaz. Deneme bitmeden en az 24 saat önce iptal etmezsen yıllık ücret alınır. İlk ücret tarihi satın alma ekranında yazar."
+          ]
+        },
+        {
+          "heading": "Aboneliğimi nasıl iptal ederim?",
+          "paragraphs": [
+            "iPhone'da Ayarlar > adın > Abonelikler; Android'de Google Play > Ödemeler ve abonelikler > Abonelikler. Uygulamada Profil > Aboneliği yönet de seni oraya götürür. Uygulamayı silmek aboneliği iptal etmez."
+          ]
+        },
+        {
+          "heading": "İade alabilir miyim?",
+          "paragraphs": [
+            "Ödemeleri Apple veya Google aldığı için iade talebi mağaza üzerinden yapılır. Adımlar İade Politikası'nda."
+          ]
+        },
+        {
+          "heading": "Bildirimlerde ne yazıyor?",
+          "paragraphs": [
+            "Bildirimler varsayılan olarak nötrdür ve konuyu açıkça yazmaz. Hatırlatma saatlerini ve gizli bildirim seçeneğini Profil > Bildirimler'den değiştirebilirsin."
+          ]
+        },
+        {
+          "heading": "Uygulama tedavi yerine geçer mi?",
+          "paragraphs": [
+            "Hayır. {{app}} bir eğitim ve egzersiz uygulamasıdır; doktor muayenesinin yerini tutmaz. Ağrı veya şikâyetin varsa bir sağlık profesyoneline danış."
+          ]
+        },
+        {
+          "heading": "Size nasıl ulaşırım?",
+          "paragraphs": [
+            "{{email}} adresine yazabilirsin. Adres: {{company}}, {{address}}."
           ]
         }
       ]
@@ -888,7 +1279,8 @@
       "weeklyTitle": "Henüz seans yok",
       "weeklyBody": "İlk seansını bitirince haftalık dakikaların burada birikir."
     },
-    "habitSection": "Alışkanlık"
+    "habitSection": "Alışkanlık",
+    "exercisesSection": "Egzersizler"
   },
   "strength": {
     "title": "Güç testi",
@@ -1039,7 +1431,12 @@
       "up": "KALK",
       "forward": "İLERİ",
       "breatheIn": "NEFES AL",
-      "breatheOut": "NEFES VER"
+      "breatheOut": "NEFES VER",
+      "circle": "ÇEVİR",
+      "jump": "ZIPLA",
+      "pull": "ÇEK",
+      "left": "SOL",
+      "right": "SAĞ"
     }
   },
   "mind": {
@@ -1098,7 +1495,6 @@
   "discover": {
     "title": "Keşfet",
     "growing": "Yeni içeriklerle büyümeye devam ediyor",
-    "programsSoon": "Antrenmanlar yenileniyor; yakında burada olacak.",
     "read": "okundu",
     "start": "Başla",
     "continue": "Devam et",
@@ -1177,6 +1573,10 @@
   "courses": {
     "title": "Antrenmanlar"
   },
+  "programsSoon": {
+    "posture": "Duruş Düzeltme",
+    "mobility": "Esneklik ve Mobilite"
+  },
   "paywall": {
     "title": "{{app}} Premium ile her gün bir adım ileri",
     "titleLocked": "Bu özellik Premium'a dahil",
@@ -1184,7 +1584,7 @@
       "plan": "Seviyene göre kendini ayarlayan günlük antrenman planı (30 seviye)",
       "levels": "Sınırsız seans, güç testi ve ilerleme grafikleri",
       "fitness": "Kasık Fitness rutinleri",
-      "courses": "Antrenmanlar ve tüm bilgi hikâyeleri",
+      "courses": "Tüm bilgi hikâyeleri ve Alkolsüz Kamp",
       "camp": "Sigarasız Kamp dahil: 90 günlük görev programı, tüm beceri dersleri, ayrıntılı istatistikler ve hekime özet",
       "mind": "Nefes, zihin boşaltma ve beden taraması",
       "privacy": "Reklam yok, takip yok. Verilerin sadece bu telefonda."
@@ -1211,6 +1611,8 @@
     "noteLifetime": "{{price}} tek seferlik ödeme. Abonelik değildir, yenilenmez.",
     "restore": "Satın alımları geri yükle",
     "restoreNone": "Bu hesapta aktif bir satın alım bulunamadı.",
+    "previewNote": "Deneme fiyatları gösteriliyor. Yayında gerçek fiyatlar App Store ve Google Play'den gelir.",
+    "previewBuy": "Bu bir deneme fiyatı; satın alma yalnızca mağaza sürümünde çalışır.",
     "terms": "Kullanım Şartları",
     "privacy": "Gizlilik Politikası",
     "error": "Satın alma tamamlanamadı. Lütfen tekrar dene.",
@@ -1247,7 +1649,8 @@
     "termsShort": "Şartlar",
     "privacyShort": "Gizlilik",
     "restoreShort": "Satın alımları geri yükle",
-    "selected": "seçili"
+    "selected": "seçili",
+    "presaleShort": "Ön bilgilendirme"
   },
   "profile": {
     "title": "Profil",
@@ -1271,7 +1674,10 @@
       "appearance": "Görünüm",
       "data": "Veri ve gizlilik",
       "legal": "Yasal",
-      "developer": "Geliştirici"
+      "developer": "Geliştirici",
+      "policies": "Politikalar",
+      "other": "Diğer",
+      "policiesAndOther": "Politikalar ve Diğer"
     },
     "subscription": "Abonelik",
     "avatarA11y": "Profil",
@@ -1287,11 +1693,20 @@
       "guide": "Egzersiz rehberi",
       "trophies": "Kupalarım",
       "programme": "Kegel antrenmanı"
+    },
+    "deleteAll": {
+      "button": "Verilerimi ve hesabımı sil",
+      "hint": "Telefonundaki tüm kayıtların kalıcı olarak silinir. Aboneliğin iptal olmaz; onu App Store veya Google Play'den iptal etmelisin.",
+      "title1": "Her şey silinsin mi?",
+      "body1": "Antrenman geçmişin, ilerlemen, kamp kayıtların, şifreli Odak kasası ve anahtarı, PIN'in, eklediğin fotoğraflar, ayarların ve hatırlatmaların telefonundan kalıcı olarak silinecek. İstersen önce Profil > Veri bölümünden yedek al.",
+      "title2": "Emin misin?",
+      "body2": "Bu işlem geri alınamaz. Uygulama ilk açıldığı haline döner.",
+      "confirm": "Kalıcı olarak sil"
     }
   },
   "settings": {
     "training": {
-      "title": "Antrenman",
+      "title": "Ayarlar",
       "level": "Seviye",
       "levelUp": "Seviyeyi artır",
       "levelDown": "Seviyeyi azalt",
@@ -1323,7 +1738,7 @@
       "langAll": "Hepsini sırayla çal",
       "langNative": "Bu cihazda gelişmiş titreşim (rampa ve yoğunluk) kullanılıyor.",
       "langBasic": "Bu cihazda temel titreşim kullanılıyor; rampalar kısa darbelerle taklit edilir.",
-      "langOff": "Titreşim kapalı. Denemek için yukarıdan şiddet seç.",
+      "langOff": "Titreşim kapalı. Denemek için yukarıdan titreşimi aç.",
       "cue": {
         "squeezeStart": {
           "title": "Sık başlangıcı",
@@ -1366,7 +1781,9 @@
           "text": "Uzun, yavaş sönen titreşim."
         }
       },
-      "holdAt": "Uzun sıkma: {{sec}} sn"
+      "holdAt": "Uzun sıkma: {{sec}} sn",
+      "vibration": "Titreşim",
+      "vibrationHint": "Antrenmanda ve uygulamada titreşimle yönlendirme. Kapatınca hiçbir yerde titreşim olmaz."
     },
     "reminders": {
       "title": "Hatırlatıcılar",
@@ -1398,7 +1815,7 @@
       "dark": "Koyu",
       "system": "Sistem",
       "language": "Dil",
-      "languageHint": "İngilizce desteği yakında geliyor."
+      "languageHint": "Dil değiştiğinde uygulama yeni dilde yeniden başlar."
     },
     "data": {
       "title": "Verilerim",
@@ -1453,7 +1870,8 @@
     "notFound": "Açıklama bulunamadı.",
     "meta": "{{sections}} bölüm · {{minutes}} dk okuma",
     "sourcesTitle": "Kaynaklar",
-    "next": "Sonraki madde"
+    "next": "Sonraki madde",
+    "homeSubtitle": "Cinsel sağlık ve pelvik taban konularının açıklamaları."
   },
   "campusShared": {
     "guideBadge": "KAMPÜS REHBERİ · {{n}}/{{total}}",
@@ -2489,7 +2907,8 @@
       "supportSub": "Uzman ve yardım hatları",
       "sources": "Kaynaklar",
       "sourcesSub": "Yöntem ve bilimsel dayanak"
-    }
+    },
+    "bpsRow": "{{d}}. gün · {{s}}/10"
   },
   "kegel": {
     "painNotice": "Ağrı olursa dur. Kegel ağrı yapmamalıdır.",
@@ -2714,5 +3133,88 @@
     "long": "{{sec}} sn bırakmadan sık",
     "quick": "{{sec}} sn · 1 sn sık, 1 sn bırak",
     "slow": "{{count}} kez · yavaşça sık, tepede tut, bırak"
+  },
+  "bodyweight": {
+    "title": "Aletsiz Fitness",
+    "chip": "Yeni",
+    "intro": "Hiçbir alete ihtiyaç duymadan, sadece kendi vücut ağırlığınla evde ya da dışarıda yapabileceğin antrenmanlar.",
+    "preparing": "Antrenmanlar hazırlanıyor; çok yakında burada olacak.",
+    "categoriesTitle": "Bölümler",
+    "soon": "Yakında",
+    "programsMeta": "3 program · 30 / 60 / 90 gün",
+    "warmupMeta": "10 dk ısınma",
+    "activeMeta": "{{program}} · Gün {{day}}/{{days}}",
+    "programs": {
+      "toparla": {
+        "title": "Toparla",
+        "desc": "Yeni başlayanlar için. Doğru formu öğrenir, kasları uyandırırsın."
+      },
+      "gelistir": {
+        "title": "Geliştir",
+        "desc": "Düzenli çalışanlar için. Süreler uzar, hareketler zorlaşır."
+      },
+      "guclendir": {
+        "title": "Güçlendir",
+        "desc": "İddialı bir hedef: haftada 5 gün, ileri hareketler ve daha uzun setler."
+      }
+    },
+    "programMeta": "{{days}} gün · haftada {{perWeek}} gün · {{min}}–{{max}} dk",
+    "start": "Programı başlat",
+    "activeBadge": "Devam ediyor",
+    "switchTitle": "Program değişsin mi?",
+    "switchBody": "{{current}} programındaki ilerlemen silinir ve {{next}} baştan başlar.",
+    "switchOk": "Değiştir",
+    "todayTitle": "Gün {{day}} · Antrenman {{id}}",
+    "todayMeta": "{{count}} hareket · {{rounds}} tur · {{work}} sn çalış / {{rest}} sn dinlen · yaklaşık {{min}} dk",
+    "light": "Hafif hafta",
+    "startWorkout": "Antrenmanı başlat",
+    "routineTitle": "10 dakikalık ısınma",
+    "routineBody": "Her antrenmandan önce yapabilirsin; program ya da gün takibi yok.",
+    "startWarmup": "Isınmayı başlat",
+    "warmupDoneTitle": "Isınma tamamlandı!",
+    "warmupDoneBody": "Vücudun hazır; şimdi antrenmanına geçebilirsin.",
+    "doneToday": "Bugünkü antrenmanını yaptın. Sıradaki antrenman yarın açılır.",
+    "restNext": "Bugünkü antrenmanın tamam; yarın dinlenme günü.",
+    "finished": "Programı tamamladın! İstersen bir üst programa geç.",
+    "progressTitle": "İlerleme",
+    "progressMeta": "{{done}}/{{total}} antrenman",
+    "legendDone": "Yapıldı",
+    "legendRest": "Dinlenme",
+    "legendToday": "Sıradaki",
+    "week": "{{n}}. hafta",
+    "scienceTitle": "Araştırmalar ne diyor?",
+    "movesTitle": "Hareketler",
+    "movesHint": "Dokun: figür hareketi gösterir, adımlar nasıl yapılacağını anlatır.",
+    "stop": "Programı bırak",
+    "stopTitle": "Program bırakılsın mı?",
+    "stopBody": "Bu bölümdeki ilerlemen silinir.",
+    "roundOf": "Tur {{r}}/{{n}}",
+    "moveOf": "Hareket {{k}}/{{n}}",
+    "doneTitle": "Gün {{day}} tamamlandı!",
+    "doneBody": "Harika iş. Sıradaki antrenman yarın seni bekliyor.",
+    "partial": "Bugünlük bu kadar",
+    "partialBody": "Antrenmanı yarıda bıraktın; bu gün tamamlanmış sayılmadı.",
+    "metaHoldSides": "{{sec}} sn · her taraf yarı süre",
+    "safety": "Hareketleri ağrısız bir aralıkta yap. Ağrı, baş dönmesi ya da nefes darlığı olursa dur. Sağlık sorunun varsa başlamadan önce doktoruna danış.",
+    "notFound": "Bölüm bulunamadı.",
+    "categories": {
+      "karin": "Karın",
+      "gogus": "Göğüs",
+      "sirt": "Sırt",
+      "omuz": "Omuz",
+      "kol": "Kol",
+      "bacak": "Bacak",
+      "kalca": "Kalça",
+      "baldir": "Baldır",
+      "tamVucut": "Tam Vücut",
+      "kardiyo": "Kardiyo",
+      "isinma": "Isınma"
+    },
+    "programTitle": "{{title}} · {{days}} gün",
+    "programMetaOne": "{{days}} gün · haftada {{perWeek}} gün · {{min}} dk"
+  },
+  "exerciseSoon": {
+    "title": "{{n}}. egzersiz",
+    "locked": "İlerleyen seviyelerde açılacak"
   }
 }

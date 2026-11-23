@@ -1,0 +1,58 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "bricker2020",
+    "bricker2021",
+    "nci-withdrawal",
+    "smokefree-withdrawal",
+    "balban2023",
+    "zaccaro2018",
+    "skorkabrown2015"
+  ],
+  "intro": "This urge will come and go. Let's stay with it together for a few minutes.",
+  "intensityLabels": {
+    "low": "Mild",
+    "high": "Very strong"
+  },
+  "breath": {
+    "title": "Breathing",
+    "desc": "Quick calm: take two short breaths in and one long breath out. In studies, a few minutes of slow breathing had positive effects on reducing stress."
+  },
+  "puzzle": {
+    "title": "Block Puzzle",
+    "desc": "Place the pieces on the board and full rows disappear. In studies, a visual puzzle that keeps your mind busy reduced the strength of cravings.",
+    "srHint": "This puzzle is played by looking at the screen. With a screen reader on, we suggest the breathing tool."
+  },
+  "delay": {
+    "title": "Delay 10 minutes",
+    "desc": "Just put off the decision for 10 minutes. Cravings often peak within a few minutes and then fade.",
+    "ideas": [
+      "Drink a glass of water",
+      "Go for a short walk",
+      "Brush your teeth",
+      "Text or call someone",
+      "Do some stretches",
+      "Chew sugar-free gum",
+      "Wash your hands and splash water on your face",
+      "Put on a song and sing along"
+    ],
+    "done": "The 10 minutes are up. The decision is yours again; the craving has probably eased a little."
+  },
+  "reasons": {
+    "title": "My reasons",
+    "desc": "Remind yourself in your own words why you want to quit.",
+    "empty": "You don't have any reasons saved yet."
+  },
+  "alo": "You're not alone. If you're in Türkiye, the counsellors at ALO 171 can talk to you right now.",
+  "end": {
+    "question": "How are you now?",
+    "resisted": "It passed, I didn't smoke",
+    "hard": "Still hard",
+    "smoked": "I smoked",
+    "resistedTitle": "You got through this craving!",
+    "resistedBody": "Getting through an urge without smoking teaches your brain a new path. Every craving you get through makes the next one easier.",
+    "hardBody": "Sometimes the urge lasts a little longer. Try another tool, or call ALO 171 and talk to someone.",
+    "smokedTitle": "This is a learning moment",
+    "smokedBody": "One cigarette doesn't erase your effort. Your total smoke-free days are kept. Understanding what happened helps you be ready next time."
+  }
+}

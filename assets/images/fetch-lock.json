@@ -2736,6 +2736,45 @@
       },
       "blurhash": "LHF~aHofM{?a?aNGRkt7~qM{IUWB",
       "readability": null
+    },
+    "program/bodyweight": {
+      "hash": "2bdeee0e37ac",
+      "files": {
+        "program": {
+          "file": "program/bodyweight.webp",
+          "bytes": 29656,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LhJHHo%LNHIV_Nt7xZV?.8oft6Rj",
+      "readability": null
+    },
+    "program/posture": {
+      "hash": "ba5b697250db",
+      "files": {
+        "program": {
+          "file": "program/posture.webp",
+          "bytes": 11140,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LRK-d*^+_N_M~qt7IVxut7aeM{j[",
+      "readability": null
+    },
+    "program/mobility": {
+      "hash": "75e1f0406f02",
+      "files": {
+        "program": {
+          "file": "program/mobility.webp",
+          "bytes": 10696,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LPFYcFM{IU%g~qxZM{tRNHkCxtjZ",
+      "readability": null
     }
   }
 }

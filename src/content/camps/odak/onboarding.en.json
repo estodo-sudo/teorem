@@ -1,0 +1,740 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "icd11",
+    "briken2024",
+    "bothe2021",
+    "crosby2016",
+    "kraus2020",
+    "grubbs2019",
+    "phq2",
+    "gad2",
+    "yedam"
+  ],
+  "age": {
+    "title": "Your age",
+    "hint": "This camp is for adults only.",
+    "adult": "I'm 18 or older",
+    "minor": "I'm under 18"
+  },
+  "under18": {
+    "title": "This camp is for ages 18 and over",
+    "body": [
+      "It's completely natural to be curious about this or to want to change something. You're not alone.",
+      "This camp was made for adults. Getting support suited to your age is best."
+    ],
+    "help": [
+      {
+        "id": "adult",
+        "icon": "handshake",
+        "tone": "focus",
+        "title": "An adult you trust",
+        "text": "Talking to your mother, father, a relative or an older person you trust can be a first step."
+      },
+      {
+        "id": "school",
+        "icon": "school",
+        "tone": "focus",
+        "title": "School counsellor",
+        "text": "The counsellor or school psychologist at your school will listen to you in confidence."
+      },
+      {
+        "id": "yedam",
+        "icon": "phone",
+        "tone": "focus",
+        "title": "Yeşilay Helpline 115 (Türkiye)",
+        "text": "YEDAM also gives free counselling to children and teenagers in Türkiye. You can call and talk.",
+        "phone": "115",
+        "lastVerified": "2026-11-18",
+        "needsVerification": true
+      }
+    ],
+    "emergency": "In an emergency, call 112 (or your local emergency number)."
+  },
+  "facts": {
+    "title": "Things to know",
+    "items": [
+      {
+        "icon": "stethoscope",
+        "tone": "focus",
+        "text": "This isn't a diagnostic tool. It doesn't put a label on you; it only helps you see where you are."
+      },
+      {
+        "icon": "sprout",
+        "tone": "focus",
+        "text": "Sexuality and masturbation are part of human nature. The aim here is to bring the behaviour to where you want it to be."
+      },
+      {
+        "icon": "heart",
+        "tone": "focus",
+        "text": "Shame makes change harder. There's no judgement here; every step is a chance to learn."
+      },
+      {
+        "icon": "lock",
+        "tone": "focus",
+        "text": "Everything stays on this phone, behind a lock and encrypted. No server, no account."
+      }
+    ]
+  },
+  "lock": {
+    "title": "Camp lock",
+    "body": "Your phone's lock (face, fingerprint or passcode) is asked every time you enter the camp; if your phone has no lock, you set your own PIN. The camp locks again when the app goes to the background."
+  },
+  "reasons": {
+    "title": "What brings you here?",
+    "hint": "You can choose more than one.",
+    "options": [
+      {
+        "id": "porn_control",
+        "icon": "phoneOff",
+        "tone": "focus",
+        "label": "I can't control watching pornography"
+      },
+      {
+        "id": "mast_freq",
+        "icon": "repeat",
+        "tone": "focus",
+        "label": "How often I masturbate bothers me"
+      },
+      {
+        "id": "time",
+        "icon": "hourglass",
+        "tone": "focus",
+        "label": "Lost time (sleep, work, studies)"
+      },
+      {
+        "id": "relationship",
+        "icon": "handshake",
+        "tone": "focus",
+        "label": "It's harming my relationship"
+      },
+      {
+        "id": "values",
+        "icon": "compass",
+        "tone": "focus",
+        "label": "It conflicts with my values"
+      },
+      {
+        "id": "feel_bad",
+        "icon": "cloudRain",
+        "tone": "focus",
+        "label": "I feel bad about myself (shame / guilt)"
+      },
+      {
+        "id": "coping",
+        "icon": "wind",
+        "tone": "focus",
+        "label": "It has become my way of coping with anxiety or stress"
+      },
+      {
+        "id": "other",
+        "icon": "pencil",
+        "tone": "focus",
+        "label": "Other"
+      }
+    ],
+    "otherPlaceholder": "Write it in your own words (optional)"
+  },
+  "bps": {
+    "title": "Short screening (last 6 months)",
+    "hint": "Brief Pornography Screen (BPS). There are no right or wrong answers.",
+    "placeholder": true,
+    "placeholderNote": "The items of this scale will be added once the licensed wording and permission to use it are confirmed. A placeholder is shown for now.",
+    "items": [
+      "BPS item 1 (awaiting confirmation of the licensed wording)",
+      "BPS item 2 (awaiting confirmation of the licensed wording)",
+      "BPS item 3 (awaiting confirmation of the licensed wording)",
+      "BPS item 4 (awaiting confirmation of the licensed wording)",
+      "BPS item 5 (awaiting confirmation of the licensed wording)"
+    ],
+    "options": [
+      {
+        "value": 0,
+        "label": "Not at all"
+      },
+      {
+        "value": 1,
+        "label": "Sometimes"
+      },
+      {
+        "value": 2,
+        "label": "Often"
+      }
+    ],
+    "threshold": 4,
+    "resultHigh": "Your answers may show that your use is causing you difficulty. Talking to a professional could help.",
+    "resultLow": "Your answers don't point to a high level of difficulty. Still, if something bothers you, this camp can help.",
+    "nonJudge": "This isn't a diagnosis. It only shows where you are today; on days 42 and 90 you can look again and see your own progress."
+  },
+  "freq": {
+    "title": "On how many days in the last 2 weeks?",
+    "hint": "A rough number is enough. This is only so you can see your own starting point.",
+    "porn": "Number of days you watched pornography",
+    "mast": "Number of days you masturbated",
+    "unit": "days"
+  },
+  "triggers": {
+    "title": "In which situations does it happen most?",
+    "hint": "You can choose more than one. These will be the topic of your first plans.",
+    "options": [
+      {
+        "id": "night_bed",
+        "icon": "moon",
+        "tone": "focus",
+        "label": "At night in bed with my phone"
+      },
+      {
+        "id": "alone_home",
+        "icon": "home",
+        "tone": "focus",
+        "label": "When I'm home alone"
+      },
+      {
+        "id": "stress",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Stress / tension"
+      },
+      {
+        "id": "boredom",
+        "icon": "moon",
+        "tone": "focus",
+        "label": "Boredom"
+      },
+      {
+        "id": "loneliness",
+        "icon": "eyeOff",
+        "tone": "focus",
+        "label": "Loneliness"
+      },
+      {
+        "id": "anxiety",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Anxiety"
+      },
+      {
+        "id": "sadness",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Sadness"
+      },
+      {
+        "id": "tired",
+        "icon": "wind",
+        "tone": "focus",
+        "label": "Tiredness"
+      },
+      {
+        "id": "sleepless",
+        "icon": "bed",
+        "tone": "focus",
+        "label": "Trouble sleeping"
+      },
+      {
+        "id": "after_argument",
+        "icon": "angry",
+        "tone": "focus",
+        "label": "After an argument"
+      },
+      {
+        "id": "social_media",
+        "icon": "smartphone",
+        "tone": "focus",
+        "label": "While scrolling social media"
+      },
+      {
+        "id": "alcohol",
+        "icon": "glass",
+        "tone": "focus",
+        "label": "After drinking alcohol"
+      },
+      {
+        "id": "waking",
+        "icon": "sunrise",
+        "tone": "focus",
+        "label": "When I wake up in the morning"
+      }
+    ]
+  },
+  "emotions": {
+    "title": "What do you feel before and after?",
+    "hint": "Noticing the feeling afterwards helps you see what the behaviour really gives you.",
+    "beforeTitle": "Usually before…",
+    "afterTitle": "Usually after…",
+    "before": [
+      {
+        "id": "stressed",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Tense"
+      },
+      {
+        "id": "anxious",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Anxious"
+      },
+      {
+        "id": "bored",
+        "icon": "moon",
+        "tone": "focus",
+        "label": "Bored"
+      },
+      {
+        "id": "lonely",
+        "icon": "eyeOff",
+        "tone": "focus",
+        "label": "Lonely"
+      },
+      {
+        "id": "sad",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Sad"
+      },
+      {
+        "id": "tired",
+        "icon": "wind",
+        "tone": "focus",
+        "label": "Tired"
+      },
+      {
+        "id": "angry",
+        "icon": "angry",
+        "tone": "focus",
+        "label": "Angry"
+      },
+      {
+        "id": "curious",
+        "icon": "thought",
+        "tone": "focus",
+        "label": "Curious"
+      },
+      {
+        "id": "neutral",
+        "icon": "meh",
+        "tone": "focus",
+        "label": "No particular feeling"
+      }
+    ],
+    "after": [
+      {
+        "id": "relieved",
+        "icon": "wind",
+        "tone": "focus",
+        "label": "Relieved"
+      },
+      {
+        "id": "empty",
+        "icon": "circle",
+        "tone": "focus",
+        "label": "Empty"
+      },
+      {
+        "id": "guilty",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Guilty"
+      },
+      {
+        "id": "ashamed",
+        "icon": "eyeOff",
+        "tone": "focus",
+        "label": "Ashamed"
+      },
+      {
+        "id": "regret",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Regretful"
+      },
+      {
+        "id": "tired",
+        "icon": "moon",
+        "tone": "focus",
+        "label": "Tired"
+      },
+      {
+        "id": "calm",
+        "icon": "smile",
+        "tone": "focus",
+        "label": "Calm"
+      },
+      {
+        "id": "neutral",
+        "icon": "meh",
+        "tone": "focus",
+        "label": "Nothing changed"
+      }
+    ]
+  },
+  "values": {
+    "title": "What kind of person do you want to be in this?",
+    "hint": "Choose the values that matter to you and, if you like, write your own sentence. We'll remind you of them in hard moments.",
+    "cards": [
+      {
+        "id": "honesty",
+        "icon": "handshake",
+        "tone": "focus",
+        "label": "Honesty"
+      },
+      {
+        "id": "commitment",
+        "icon": "handshake",
+        "tone": "focus",
+        "label": "Commitment to my relationship"
+      },
+      {
+        "id": "self_respect",
+        "icon": "star",
+        "tone": "focus",
+        "label": "Self-respect"
+      },
+      {
+        "id": "focus",
+        "icon": "target",
+        "tone": "focus",
+        "label": "Focus"
+      },
+      {
+        "id": "health",
+        "icon": "dumbbell",
+        "tone": "focus",
+        "label": "Health"
+      },
+      {
+        "id": "faith",
+        "icon": "bird",
+        "tone": "focus",
+        "label": "Faith / spirituality"
+      },
+      {
+        "id": "family",
+        "icon": "home",
+        "tone": "focus",
+        "label": "Family"
+      },
+      {
+        "id": "productivity",
+        "icon": "wrench",
+        "tone": "focus",
+        "label": "Productivity"
+      },
+      {
+        "id": "learning",
+        "icon": "book",
+        "tone": "focus",
+        "label": "Learning"
+      },
+      {
+        "id": "freedom",
+        "icon": "feather",
+        "tone": "focus",
+        "label": "Freedom"
+      },
+      {
+        "id": "connection",
+        "icon": "handshake",
+        "tone": "focus",
+        "label": "Closeness and connection"
+      },
+      {
+        "id": "responsibility",
+        "icon": "blocks",
+        "tone": "focus",
+        "label": "Responsibility"
+      }
+    ],
+    "textPlaceholder": "Example: I want to give my time and attention to the things I care about."
+  },
+  "moral": {
+    "title": "Fit with your values",
+    "statement": "This behaviour conflicts with my values.",
+    "scale": [
+      "Strongly disagree",
+      "Disagree",
+      "Undecided",
+      "Agree",
+      "Strongly agree"
+    ],
+    "note": "This answer is only used to order the content for you, not to judge you."
+  },
+  "mood": {
+    "title": "Your mood over the last 2 weeks",
+    "hint": "Over the last 2 weeks, how often have you been bothered by the following problems?",
+    "phq": [
+      "Little interest or pleasure in doing things",
+      "Feeling down, depressed or hopeless"
+    ],
+    "gad": [
+      "Feeling nervous, anxious or on edge",
+      "Not being able to stop or control worrying"
+    ],
+    "options": [
+      {
+        "value": 0,
+        "label": "Not at all"
+      },
+      {
+        "value": 1,
+        "label": "Several days"
+      },
+      {
+        "value": 2,
+        "label": "More than half the days"
+      },
+      {
+        "value": 3,
+        "label": "Nearly every day"
+      }
+    ],
+    "threshold": 3,
+    "resultHigh": "The last few days may have been hard. Talking to a professional could help; this camp doesn't replace that, but it can be alongside you.",
+    "resultLow": "Thank you. Your mood matters in this process; we'll ask about it in the daily checks too."
+  },
+  "attempts": {
+    "title": "Have you tried before? What happened?",
+    "hint": "You can choose more than one. Previous attempts show us what to watch out for this time.",
+    "options": [
+      {
+        "id": "first",
+        "icon": "sparkle",
+        "tone": "focus",
+        "label": "This is my first try"
+      },
+      {
+        "id": "short",
+        "icon": "timer",
+        "tone": "focus",
+        "label": "I gave up quickly"
+      },
+      {
+        "id": "slip_quit",
+        "icon": "undo",
+        "tone": "focus",
+        "label": "I gave up completely after a slip"
+      },
+      {
+        "id": "filter",
+        "icon": "blocks",
+        "tone": "focus",
+        "label": "I set up a filter but got around it"
+      },
+      {
+        "id": "shame",
+        "icon": "cloudRain",
+        "tone": "focus",
+        "label": "Shame made it worse"
+      }
+    ],
+    "note": "Having tried before is really valuable: you know what didn't work."
+  },
+  "goal": {
+    "title": "Choose your goal",
+    "hint": "You choose separately for each behaviour. No goal is more correct than another; you can change it any time.",
+    "porn": {
+      "title": "Pornography",
+      "options": [
+        {
+          "id": "quit",
+          "icon": "hand",
+          "tone": "focus",
+          "label": "Quit completely"
+        },
+        {
+          "id": "reduce",
+          "icon": "trendDown",
+          "tone": "focus",
+          "label": "Cut down (weekly maximum)"
+        },
+        {
+          "id": "undecided",
+          "icon": "thought",
+          "tone": "focus",
+          "label": "I haven't decided yet"
+        }
+      ]
+    },
+    "mast": {
+      "title": "Masturbation",
+      "options": [
+        {
+          "id": "none",
+          "icon": "minus",
+          "tone": "focus",
+          "label": "No goal (pornography only)"
+        },
+        {
+          "id": "reduce",
+          "icon": "trendDown",
+          "tone": "focus",
+          "label": "Cut down (weekly maximum)"
+        },
+        {
+          "id": "pause",
+          "icon": "pause",
+          "tone": "focus",
+          "label": "Take a break for a set time"
+        },
+        {
+          "id": "undecided",
+          "icon": "thought",
+          "tone": "focus",
+          "label": "I haven't decided yet"
+        }
+      ]
+    },
+    "weeklyMax": "At most per week",
+    "weeklyUnit": "days",
+    "pauseTitle": "For how long?",
+    "pauseUnit": "days",
+    "note": "Masturbation itself isn't considered medically harmful. Your goal should be set by what you want for your values and quality of life.",
+    "undecidedNote": "Not having decided is also a start. In the first week you can get clear on what you want by monitoring yourself."
+  },
+  "risky": {
+    "title": "Your riskiest hours",
+    "hint": "You can choose more than one time range. Notifications and your boundaries plan are set around these hours.",
+    "ranges": [
+      {
+        "id": "06-09",
+        "label": "06:00–09:00",
+        "from": "06:00",
+        "to": "09:00"
+      },
+      {
+        "id": "09-12",
+        "label": "09:00–12:00",
+        "from": "09:00",
+        "to": "12:00"
+      },
+      {
+        "id": "12-15",
+        "label": "12:00–15:00",
+        "from": "12:00",
+        "to": "15:00"
+      },
+      {
+        "id": "15-18",
+        "label": "15:00–18:00",
+        "from": "15:00",
+        "to": "18:00"
+      },
+      {
+        "id": "18-21",
+        "label": "18:00–21:00",
+        "from": "18:00",
+        "to": "21:00"
+      },
+      {
+        "id": "21-23",
+        "label": "21:00–23:00",
+        "from": "21:00",
+        "to": "23:00"
+      },
+      {
+        "id": "23-01",
+        "label": "23:00–01:00",
+        "from": "23:00",
+        "to": "01:00"
+      },
+      {
+        "id": "01-06",
+        "label": "01:00–06:00",
+        "from": "01:00",
+        "to": "06:00"
+      }
+    ]
+  },
+  "plans": {
+    "title": "Your first 3 plans",
+    "hint": "Choose an \"If… then…\" plan for the situations you struggle with most. Deciding in advance is much easier than deciding in the moment.",
+    "if": "If",
+    "then": "Then",
+    "empty": "You didn't choose a situation. You can add your plans later from the camp panel."
+  },
+  "expert": {
+    "title": "Talking to a professional could help",
+    "body": "You can get an appointment at a psychiatry clinic or with a clinical psychologist. In Türkiye, the Yeşilay Helpline 115 also offers free counselling; you can ask on the line about the scope of help.",
+    "phone": "115",
+    "phoneLabel": "Call 115",
+    "lastVerified": "2026-11-18",
+    "needsVerification": true,
+    "emergency": "In an emergency, call 112 (or your local emergency number)."
+  },
+  "summary": {
+    "title": "Your plan is ready",
+    "goalsTitle": "Your goals",
+    "valuesTitle": "Your values",
+    "plansTitle": "Your first plans",
+    "boundariesTitle": "Shape your environment",
+    "boundaries": [
+      "Charge your phone outside the bedroom.",
+      "Switch your screen to greyscale at night.",
+      "Separate your work and sleep areas.",
+      "Plan another activity for your risky hours."
+    ],
+    "boundariesNote": "No filter is unbeatable. A filter is a brake; the real strength is your skills and your plan.",
+    "programTitle": "Your programme",
+    "programIntro": "A 6-week core programme, then consolidation up to day 90.",
+    "phases": [
+      {
+        "icon": "search",
+        "tone": "focus",
+        "name": "Awareness",
+        "days": "Days 1–7",
+        "focus": "Self-monitoring, triggers, values, shaping your environment"
+      },
+      {
+        "icon": "blocks",
+        "tone": "focus",
+        "name": "Boundaries",
+        "days": "Days 8–14",
+        "focus": "Environment and digital boundaries, risky-hour plans"
+      },
+      {
+        "icon": "waves",
+        "tone": "focus",
+        "name": "Skills",
+        "days": "Days 15–28",
+        "focus": "Urge surfing, defusing from thoughts, emotion regulation"
+      },
+      {
+        "icon": "construction",
+        "tone": "focus",
+        "name": "Rebuild",
+        "days": "Days 29–42",
+        "focus": "Healthy routines, connection, meaning, sleep, movement"
+      },
+      {
+        "icon": "link",
+        "tone": "focus",
+        "name": "Consolidation",
+        "days": "Days 43–90",
+        "focus": "Relapse prevention, identity, weekly missions"
+      },
+      {
+        "icon": "leaf",
+        "tone": "focus",
+        "name": "Maintenance",
+        "days": "After day 90",
+        "focus": "Monthly check, graduation"
+      }
+    ],
+    "goalLabels": {
+      "porn": {
+        "quit": "Pornography: quit completely",
+        "reduce": "Pornography: at most {n} days a week",
+        "undecided": "Pornography: not decided yet"
+      },
+      "mast": {
+        "none": "Masturbation: no goal",
+        "reduce": "Masturbation: at most {n} days a week",
+        "pause": "Masturbation: a {n}-day break",
+        "undecided": "Masturbation: not decided yet"
+      }
+    },
+    "bpsAgain": "We'll redo the short screening on days 42 and 90; only so you can see your own progress."
+  }
+}

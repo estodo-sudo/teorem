@@ -163,7 +163,7 @@ function CampSosBody() {
               <TriggerChip icon="plus" label={tr('camp.sos.other')} selected={otherOn} onPress={() => setOtherOn((v) => !v)} />
             </View>
             {otherOn ? (
-              <TextInput
+              <TextInput maxFontSizeMultiplier={1.3}
                 value={otherText}
                 onChangeText={setOtherText}
                 placeholder={tr('camp.sos.otherPlaceholder')}

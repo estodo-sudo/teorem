@@ -1,4 +1,5 @@
 import type { ExpoConfig } from 'expo/config';
+import { withInfoPlist, type ConfigPlugin } from 'expo/config-plugins';
 
 import {
   ANDROID_PACKAGE,
@@ -10,6 +11,23 @@ import {
   IOS_BUNDLE_ID,
 } from './src/config/app.ts';
 
+/**
+ * App Store review (2026-11-23): expo-background-task declares the iOS "processing" background mode, but
+ * the Odak reminder task runs on Android only. Apple rejects unused background modes (guideline 2.5.4),
+ * so the mode and its task identifier are removed from the iOS build.
+ */
+const withoutUnusedIosBackgroundMode: ConfigPlugin = (c) =>
+  withInfoPlist(c, (cfg) => {
+    // 'fetch' comes from expo-task-manager (used by the same Android-only task).
+    const modes = (cfg.modResults.UIBackgroundModes as string[] | undefined)?.filter((m) => m !== 'processing' && m !== 'fetch');
+    if (modes?.length) cfg.modResults.UIBackgroundModes = modes;
+    else delete cfg.modResults.UIBackgroundModes;
+    const ids = (cfg.modResults.BGTaskSchedulerPermittedIdentifiers as string[] | undefined)?.filter((id) => !id.startsWith('com.expo.modules.backgroundtask'));
+    if (ids?.length) cfg.modResults.BGTaskSchedulerPermittedIdentifiers = ids;
+    else delete cfg.modResults.BGTaskSchedulerPermittedIdentifiers;
+    return cfg;
+  });
+
 const config: ExpoConfig = {
   name: APP_NAME,
   slug: APP_SLUG,
@@ -20,6 +38,9 @@ const config: ExpoConfig = {
   orientation: 'portrait',
   icon: './assets/icon.png',
   userInterfaceStyle: 'automatic',
+  // Permission texts in the app's languages: an English-speaking reviewer must be able to read why each
+  // permission is asked (App Store guideline 5.1.1).
+  locales: { tr: './locales/tr.json', en: './locales/en.json' },
   backgroundColor: '#0B1D2E',
   ios: {
     supportsTablet: false,
@@ -30,6 +51,8 @@ const config: ExpoConfig = {
   },
   android: {
     package: ANDROID_PACKAGE,
+    // Data stays on the phone (privacy policy): no Android Auto Backup to Google Drive.
+    allowBackup: false,
     adaptiveIcon: {
       backgroundColor: '#0B1D2E',
       foregroundImage: './assets/android-icon-foreground.png',
@@ -58,9 +81,12 @@ const config: ExpoConfig = {
     ],
     'expo-sqlite',
     'expo-font',
+    ['expo-screen-orientation', { initialOrientation: 'PORTRAIT_UP' }],
     'expo-localization',
     'expo-sharing',
-    'expo-audio',
+    // Playback only, in the foreground: no microphone, no background audio (App Store 2.5.4 / 5.1.1,
+    // Play foreground-service rules). The app never records sound.
+    ['expo-audio', { microphonePermission: false, recordAudioAndroid: false, enableBackgroundPlayback: false }],
     [
       'expo-notifications',
       {
@@ -119,4 +145,5 @@ const config: ExpoConfig = {
   },
 };
 
-export default config;
+// Registered before the `plugins` list is applied; mods run in reverse order, so this one runs last.
+export default withoutUnusedIosBackgroundMode(config);

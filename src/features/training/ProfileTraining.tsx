@@ -1,17 +1,19 @@
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, type ViewStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, useTheme } from '@/components';
+import { SHOW_COMING_SOON } from '@/config/app';
 import { Button, Card, IconTile, Sheet } from '@/components/ui';
+import { ExplorePhoto } from '@/features/content/explore/ExploreCards';
 import { toDateKey } from '@/lib/date';
 import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { KegelExerciseType } from '@/types';
 
 import { ExerciseDemo } from './ExerciseDemo';
-import { EXERCISE_GUIDE } from './exerciseGuide';
+import { EXERCISE_GUIDE, LOCKED_EXERCISES } from './exerciseGuide';
 import { needsScreening, rescreenReminder } from './kegelProfile';
 import { todayPlanDay } from './plan';
 import { weekTheme } from './roadmap';
@@ -83,12 +85,17 @@ export function MuscleStructureCard() {
 }
 
 /** "Egzersiz rehberi": the 8 moves as list rows; a row opens its animated how-to. */
+type Theme = ReturnType<typeof useTheme>;
+const rowStyle = (t: Theme, i: number): ViewStyle => ({ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 72, paddingHorizontal: t.space.lg, paddingVertical: t.space.md, borderTopWidth: i ? 1 : 0, borderTopColor: t.tokens.border });
+const coverStyle = (t: Theme): ViewStyle => ({ width: 52, height: 52, borderRadius: t.radius.button });
+
 export function ExerciseGuide() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const [demo, setDemo] = useState<KegelExerciseType | null>(null);
   return (
     <>
+      {/* 12 moves, one under the other: the 3 of the programme open, 9 locked "for higher levels" (2026-11-22). */}
       <Card style={{ padding: 0, overflow: 'hidden' }}>
         {EXERCISE_GUIDE.map((x, i) => (
           <Pressable
@@ -96,14 +103,33 @@ export function ExerciseGuide() {
             onPress={() => setDemo(x.type)}
             accessibilityRole="button"
             accessibilityLabel={tr('training.howToA11y', { name: tr(`exercise.${x.type}.name`) })}
-            style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 56, paddingHorizontal: t.space.lg, paddingVertical: t.space.sm, borderTopWidth: i ? 1 : 0, borderTopColor: t.tokens.border, backgroundColor: pressed ? t.tokens.muted : 'transparent' })}
+            style={({ pressed }) => [rowStyle(t, i), { backgroundColor: pressed ? t.tokens.muted : 'transparent' }]}
           >
-            <IconTile icon={x.icon} tone={x.type === 'release' || x.type === 'breath' ? 'mind' : 'kegel'} size="sm" />
-            <AppText variant="body" style={{ flex: 1 }}>
-              {tr(`exercise.${x.type}.name`)}
-            </AppText>
+            <ExplorePhoto icon={x.icon} tone="kegel" iconSize="lg" style={coverStyle(t)} />
+            <View style={{ flex: 1, gap: 2 }}>
+              <AppText variant="bodyStrong">{tr(`exercise.${x.type}.name`)}</AppText>
+              <AppText variant="footnote" muted numberOfLines={2}>
+                {tr(`exercise.${x.type}.desc`)}
+              </AppText>
+            </View>
             <Icon name="chevron" size="sm" color={t.tokens.subtle} />
           </Pressable>
+        ))}
+        {/* Locked "İlerleyen seviyelerde açılacak" rows: hidden while SHOW_COMING_SOON is off (2026-11-23). */}
+        {(SHOW_COMING_SOON ? LOCKED_EXERCISES : []).map((x, i) => (
+          <View key={x.id} style={rowStyle(t, EXERCISE_GUIDE.length + i)} accessible accessibilityLabel={`${tr('exerciseSoon.title', { n: EXERCISE_GUIDE.length + i + 1 })}. ${tr('exerciseSoon.locked')}`}>
+            <View style={[coverStyle(t), { alignItems: 'center', justifyContent: 'center', backgroundColor: t.tokens.muted }]}>
+              <Icon name="lock" size="md" color={t.tokens.mutedForeground} />
+            </View>
+            <View style={{ flex: 1, gap: 2 }}>
+              <AppText variant="bodyStrong" muted>
+                {tr('exerciseSoon.title', { n: EXERCISE_GUIDE.length + i + 1 })}
+              </AppText>
+              <AppText variant="footnote" muted>
+                {tr('exerciseSoon.locked')}
+              </AppText>
+            </View>
+          </View>
         ))}
       </Card>
       <Sheet visible={demo !== null} onClose={() => setDemo(null)} title={demo ? tr(`exercise.${demo}.name`) : undefined}>

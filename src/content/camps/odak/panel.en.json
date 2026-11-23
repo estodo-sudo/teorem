@@ -1,0 +1,61 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "bothe2021",
+    "crosby2016",
+    "marlatt"
+  ],
+  "targets": {
+    "porn": "Pornography",
+    "mast": "Masturbation"
+  },
+  "counter": {
+    "quit": "{n} days on target",
+    "zero": "You've logged today; your streak starts again tomorrow",
+    "pause": "Break: day {n}/{limit}",
+    "pauseDone": "You've completed your {limit}-day break",
+    "reduce": "This week {used}/{limit} days",
+    "reduceOver": "This week {used}/{limit} days · You're a little over your limit; tomorrow is a new day.",
+    "detail": "{total} days in line with your goal in total · Longest streak {longest} days"
+  },
+  "undecided": {
+    "title": "Self-monitoring",
+    "body": "You haven't chosen a number goal yet. You've made {n} entries this week; your entries help you get clear on what you want."
+  },
+  "value": {
+    "title": "One of your values",
+    "own": "The sentence you wrote for yourself:"
+  },
+  "log": {
+    "title": "Log a behaviour",
+    "hint": "No judgement. Logging helps you see your patterns; it's kept only on this phone, encrypted.",
+    "options": [
+      {
+        "id": "porn",
+        "icon": "phoneOff",
+        "tone": "focus",
+        "label": "Pornography"
+      },
+      {
+        "id": "mast",
+        "icon": "repeat",
+        "tone": "focus",
+        "label": "Masturbation"
+      },
+      {
+        "id": "both",
+        "icon": "plus",
+        "tone": "focus",
+        "label": "Both together"
+      }
+    ],
+    "saved": "Logged. Logging honestly is a skill too.",
+    "slipTitle": "This is part of the journey",
+    "slipBody": "Being hard on yourself doesn't make the next time easier. Let's look at it together: noticing what happened is preparing for next time.",
+    "kept": "A slip doesn't mean all your effort is erased: {total} days in total were in line with your goal, and your longest streak is {longest} days."
+  },
+  "sosStub": {
+    "title": "Urge moment"
+  }
+}

@@ -285,7 +285,7 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
         ) : null}
       </ScrollView>
       <View style={styles.controls}>
-        <Pressable accessibilityRole="button" accessibilityLabel={tr('player.skip')} onPress={player.skip} style={styles.icon}>
+        <Pressable accessibilityRole="button" accessibilityLabel={tr('player.skip')} onPress={phase && phase.kind !== 'work' ? player.skipPhase : player.skip} style={styles.icon}>
           <Icon name="skip" color={t.colors.text} size={28} />
         </Pressable>
         <Pressable accessibilityRole="button" accessibilityLabel={paused ? tr('player.resume') : tr('player.pause')} onPress={paused ? player.resume : player.pause} style={[styles.main, { backgroundColor: t.colors.accent }]}>

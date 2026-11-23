@@ -1,0 +1,61 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "guideline",
+  "sourceIds": [
+    "yedam",
+    "briken2024"
+  ],
+  "title": "Support and professional help",
+  "emergency": {
+    "title": "In an emergency, 112",
+    "text": "If you have thoughts of harming yourself or are in an emergency, call 112 (or your local emergency number) right away.",
+    "phone": "112",
+    "button": "Call 112"
+  },
+  "help": [
+    {
+      "id": "yedam",
+      "icon": "phone",
+      "tone": "focus",
+      "title": "Yeşilay Helpline 115 (YEDAM, Türkiye)",
+      "text": "Provides free counselling on addiction to individuals, their families and anyone who wants information; it also covers technology addiction and can arrange an appointment in your province if needed. You can ask on the line about the scope of help for this issue.",
+      "phone": "115",
+      "button": "Call 115",
+      "lastVerified": "2026-11-18",
+      "needsVerification": true
+    },
+    {
+      "id": "mhrs",
+      "icon": "hospital",
+      "tone": "focus",
+      "title": "Psychiatry appointment (MHRS, Türkiye)",
+      "text": "You can get an appointment at a psychiatry clinic or with a clinical psychologist. For hospital appointments you can call the ALO 182 (MHRS) line or use the MHRS / e-Nabız app.",
+      "phone": "182",
+      "button": "Call 182",
+      "lastVerified": "2026-11-18",
+      "needsVerification": true
+    }
+  ],
+  "expert": {
+    "title": "When should you see a professional?",
+    "text": "If the behaviour clearly affects your work, studies or relationships; if you've felt anxious or low for a long time; or if you're finding it hard to cope alone, talking to a professional can help."
+  },
+  "supporter": {
+    "title": "Write to your supporter",
+    "desc": "Send a neutral message to someone you trust. The messages contain no details.",
+    "templates": [
+      "I'm going through a hard moment right now, can we talk?",
+      "I'm feeling a bit lonely this evening, shall we go for a short walk?",
+      "I'm working on a goal; it would help me to message you now and then."
+    ],
+    "share": "Send"
+  },
+  "summary": {
+    "title": "Show a professional",
+    "desc": "A summary of your urge and slip statistics, screening results and triggers. It's created on this phone; you decide where to send it.",
+    "privacy": "The summary file is not encrypted. Share it only with a professional you trust, through a secure channel.",
+    "button": "Create and share the summary",
+    "confirm": "Got it, share",
+    "failed": "The summary couldn't be created. You can try again."
+  }
+}

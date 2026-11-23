@@ -1,0 +1,107 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "gollwitzer2006",
+    "michie2013",
+    "bricker2020"
+  ],
+  "info": "An \"If–then\" plan means thinking about a hard moment in advance and deciding now what you'll do. Research shows these plans make it easier to turn an intention into action. Some situations can't be avoided, so a plan can also be \"I'll do this while the urge is there\".",
+  "templates": {
+    "waking": {
+      "if": "When I wake up in the morning",
+      "then": [
+        "I'll drink a glass of water first and take a shower",
+        "instead of a cigarette I'll open the window and take five deep breaths",
+        "I'll notice the urge and have breakfast in another room"
+      ]
+    },
+    "coffee_tea": {
+      "if": "When I'm having my coffee or tea",
+      "then": [
+        "I'll sit somewhere different from usual",
+        "I'll hold a pen or a stress ball to keep my hand busy",
+        "I'll notice the urge and focus on my sips"
+      ]
+    },
+    "after_meal": {
+      "if": "When I finish a meal",
+      "then": [
+        "I'll get up straight away and brush my teeth",
+        "I'll leave the table and walk for five minutes",
+        "I'll keep my hands busy by washing the dishes"
+      ]
+    },
+    "work_break": {
+      "if": "When I take a break at work",
+      "then": [
+        "I'll walk in a different direction, not to the smoking area",
+        "I'll call someone for a chat during my break",
+        "I'll grab my water bottle and do a short stretch"
+      ]
+    },
+    "stress": {
+      "if": "When I feel stressed or angry",
+      "then": [
+        "I'll breathe slowly and watch the urge pass",
+        "I'll breathe in for four seconds and out for six",
+        "I'll wait ten minutes and write down what I feel"
+      ]
+    },
+    "boredom": {
+      "if": "When I'm bored",
+      "then": [
+        "I'll put on a song I like and go for a short walk",
+        "I'll start a small task I can do with my hands",
+        "I'll message someone"
+      ]
+    },
+    "alcohol": {
+      "if": "When I'm somewhere with alcohol",
+      "then": [
+        "I'll hold my glass in the hand I'd hold a cigarette with",
+        "I'll keep away from the smokers",
+        "I'll go over my plan before I arrive"
+      ]
+    },
+    "friends": {
+      "if": "When my friends light up",
+      "then": [
+        "I'll say \"Thanks, I've quit\"",
+        "I'll have something to drink and keep chatting",
+        "I'll notice the urge and remind myself of my reasons"
+      ]
+    },
+    "driving": {
+      "if": "When I get a craving while driving",
+      "then": [
+        "I'll chew gum",
+        "I'll put on a podcast I like",
+        "I'll open the window and take a deep breath"
+      ]
+    },
+    "phone": {
+      "if": "When I'm talking on the phone",
+      "then": [
+        "I'll hold a pen in my free hand",
+        "I'll walk while I talk",
+        "I'll move somewhere inside, not to the balcony"
+      ]
+    },
+    "bedtime": {
+      "if": "Before bed",
+      "then": [
+        "I'll drink a warm herbal tea",
+        "I'll do a short breathing exercise",
+        "I'll brush my teeth early"
+      ]
+    },
+    "toilet": {
+      "if": "When I get a craving in the toilet",
+      "then": [
+        "I'll open a short game on my phone",
+        "I'll spend less time there",
+        "I'll notice the urge and focus on my breath for a minute"
+      ]
+    }
+  }
+}

@@ -1,27 +1,26 @@
-import { router } from 'expo-router';
-import { useMemo, useState, type ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Icon, Screen, useTheme, type IconName } from '@/components';
-import { Button, Card, EmptyState, IconTile, Input, ScalePressable, StatRow } from '@/components/ui';
+import { AppText, Screen, useTheme, type IconName } from '@/components';
+import { Button, Card, EmptyState, IconTile, StatRow } from '@/components/ui';
 import { useStreak } from '@/features/gamification/service';
-import { BarChart } from '@/features/progress/charts/BarChart';
 import { HeatMap } from '@/features/progress/charts/HeatMap';
 import { LineChart } from '@/features/progress/charts/LineChart';
-import { heatMap, holdTrend, quickTrend, strengthTestDue, summarize, weeklyMinutes } from '@/features/progress/stats';
+import { heatMap, holdTrend, quickTrend, strengthTestDue, summarize } from '@/features/progress/stats';
 import { openGated } from '@/features/purchases/useGate';
-import { scoreTrend, selfRatingDue, selfRatingQuestions, selfRatingTrend } from '@/features/training/strengthV2';
+import { ExerciseGuide } from '@/features/training/ProfileTraining';
+import { scoreTrend } from '@/features/training/strengthV2';
 import { fromDateKey, toDateKey } from '@/lib/date';
-import { makeId } from '@/lib/random';
 import { useHistoryStore } from '@/stores/historyStore';
-import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
+import { localeOf } from '@/i18n/languages';
 
 /**
- * İlerleme — ui-v3 (SPEC_UI_V3 §7.6): one summary card (4 stats side by side), the strength test card
- * (soft primary when due, no orange border), charts only when there is data (otherwise one compact empty
- * state), the self-rating card, weekly minutes, the calendar heat map and notes.
+ * İlerleme (user request 2026-11-22: only these): the summary card (4 stats), the strength test card with its
+ * charts (one compact empty state until the first test), the training calendar heat map and, under it,
+ * the exercise guide (3 open, 9 locked). The monthly
+ * self-rating, weekly minutes, notes and the trophies link were removed from this tab.
  */
 export default function ProgressTab() {
   const t = useTheme();
@@ -29,25 +28,17 @@ export default function ProgressTab() {
   const workouts = useHistoryStore((s) => s.workouts);
   const tests = useHistoryStore((s) => s.strengthTests);
   const level = useTrainingStore((s) => s.training.level);
-  const track = useTrainingStore((s) => s.training.track);
-  const ratings = useKegelStore((s) => s.selfRatings);
   const streak = useStreak();
   const today = toDateKey();
-  const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
+  const locale = localeOf(i18n.language);
   const short = (d: string) => fromDateKey(d).toLocaleDateString(locale, { day: 'numeric', month: 'short' });
 
   const summary = summarize(workouts, streak.longest, level);
-  const weeks = useMemo(() => weeklyMinutes(workouts, today, 8), [workouts, today]);
   const heat = useMemo(() => heatMap(workouts, today, 12), [workouts, today]);
   const hold = holdTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const quick = quickTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const score = scoreTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const due = strengthTestDue(tests, today);
-  const ratingDue = selfRatingDue(ratings, track, today);
-  const ratingCharts = selfRatingQuestions(track)
-    .map((q) => ({ q, data: selfRatingTrend(ratings, track, q.id).map((p) => ({ label: short(p.date), value: p.value })) }))
-    .filter((x) => x.data.length);
-  const anyMinutes = weeks.some((w) => w.minutes > 0);
 
   return (
     <Screen contentStyle={{ gap: t.space.xxl }}>
@@ -97,30 +88,9 @@ export default function ProgressTab() {
             <EmptyState illustration="empty-progress" title={tr('progress.empty.strengthTitle')} description={tr('progress.empty.strengthBody')} />
           </Card>
         )}
-        <ActionCard
-          icon="notebook"
-          title={tr('kegel.selfRating.cardTitle')}
-          text={ratingDue ? tr('kegel.selfRating.due') : tr('kegel.selfRating.notDue')}
-          highlight={ratingDue}
-          action={<Button label={tr('kegel.selfRating.start')} variant={ratingDue && !due ? 'primary' : 'secondary'} onPress={() => router.push('/kegel/self-rating')} fullWidth />}
-        />
-        {ratingCharts.map(({ q, data }) => (
-          <ChartCard key={q.id} title={q.text} note={q.better === 'high' ? tr('kegel.selfRating.higherBetter') : tr('kegel.selfRating.lowerBetter')}>
-            <LineChart data={data} accessibilityLabel={q.text} emptyText={tr('progress.charts.empty')} />
-          </ChartCard>
-        ))}
       </Section>
 
       <Section title={tr('progress.habitSection')}>
-        {anyMinutes ? (
-          <ChartCard title={tr('progress.charts.weekly')}>
-            <BarChart data={weeks.map((w) => ({ label: short(w.week), value: Math.round(w.minutes) }))} unit={tr('progress.unitMin')} accessibilityLabel={tr('progress.charts.weekly')} />
-          </ChartCard>
-        ) : (
-          <Card style={{ paddingHorizontal: t.space.gutter }}>
-            <EmptyState illustration="empty-history" title={tr('progress.empty.weeklyTitle')} description={tr('progress.empty.weeklyBody')} />
-          </Card>
-        )}
         <ChartCard title={tr('progress.charts.calendar')}>
           <HeatMap
             columns={heat}
@@ -131,8 +101,9 @@ export default function ProgressTab() {
         </ChartCard>
       </Section>
 
-      <Notes />
-      <Button label={tr('progress.achievements')} variant="ghost" icon="trophy" onPress={() => router.push('/achievements')} />
+      <Section title={tr('progress.exercisesSection')}>
+        <ExerciseGuide />
+      </Section>
     </Screen>
   );
 }
@@ -180,51 +151,5 @@ function ChartCard({ title, note, children }: { title: string; note?: string; ch
         </AppText>
       ) : null}
     </Card>
-  );
-}
-
-/** Own notes, kept on this device only. */
-function Notes() {
-  const t = useTheme();
-  const { t: tr, i18n } = useTranslation();
-  const notes = useHistoryStore((s) => s.notes);
-  const addNote = useHistoryStore((s) => s.addNote);
-  const deleteNote = useHistoryStore((s) => s.deleteNote);
-  const [note, setNote] = useState('');
-  const today = toDateKey();
-  const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
-  const list = notes
-    .filter((n) => n.kind === 'progress')
-    .slice()
-    .reverse();
-  const save = () => {
-    const text = note.trim();
-    if (!text) return;
-    addNote({ id: makeId('n_'), date: today, createdAt: new Date().toISOString(), text, kind: 'progress' });
-    setNote('');
-  };
-  return (
-    <Section title={tr('progress.notes.title')}>
-      <AppText variant="footnote" muted>
-        {tr('progress.notes.hint')}
-      </AppText>
-      <Card style={{ padding: t.space.gutter, gap: t.space.md }}>
-        <Input value={note} onChangeText={setNote} placeholder={tr('progress.notes.placeholder')} multiline maxLength={500} accessibilityLabel={tr('progress.notes.title')} />
-        <Button label={tr('progress.notes.add')} variant="secondary" icon="plus" disabled={!note.trim()} onPress={save} fullWidth />
-        {list.map((n) => (
-          <View key={n.id} style={{ flexDirection: 'row', gap: t.space.sm, alignItems: 'flex-start', paddingTop: t.space.md, borderTopWidth: t.border.thin, borderTopColor: t.tokens.border }}>
-            <View style={{ flex: 1, gap: 2 }}>
-              <AppText variant="caption" muted>
-                {fromDateKey(n.date).toLocaleDateString(locale, { day: 'numeric', month: 'short' })}
-              </AppText>
-              <AppText variant="body">{n.text}</AppText>
-            </View>
-            <ScalePressable onPress={() => deleteNote(n.id)} accessibilityRole="button" accessibilityLabel={tr('common.delete')} style={{ width: t.touch, height: t.touch, alignItems: 'center', justifyContent: 'center' }}>
-              <Icon name="trash" color={t.tokens.mutedForeground} size="md" />
-            </ScalePressable>
-          </View>
-        ))}
-      </Card>
-    </Section>
   );
 }

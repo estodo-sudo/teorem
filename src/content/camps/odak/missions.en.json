@@ -1,0 +1,513 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "rct",
+  "sourceIds": [
+    "bothe2021",
+    "crosby2016",
+    "twohig2010",
+    "marlatt",
+    "gollwitzer2006"
+  ],
+  "missions": [
+    {
+      "id": "d1",
+      "phase": "awareness",
+      "day": 1,
+      "title": "Starting snapshot",
+      "body": "Don't try to change anything today. Just log your urges and behaviours in your diary; seeing where you stand is the first step.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d2",
+      "phase": "awareness",
+      "day": 2,
+      "title": "Trigger hunt",
+      "body": "Today, when an urge comes, notice what happened just before: the place, the time, the feeling. Write one sentence in your diary.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d3",
+      "phase": "awareness",
+      "day": 3,
+      "title": "Your value sentence",
+      "body": "Choose one of the value cards and complete this sentence: “The small step I'll take this week in line with this value: …”",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d4",
+      "phase": "awareness",
+      "day": 4,
+      "title": "Before and after",
+      "body": "If a behaviour happened, compare the feeling before and after it. If not, write what you felt during an urge moment.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d5",
+      "phase": "awareness",
+      "day": 5,
+      "title": "First friction",
+      "body": "Tonight, charge your phone outside the bedroom. A small obstacle slows down an automatic behaviour.",
+      "durationMin": 5,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d6",
+      "phase": "awareness",
+      "day": 6,
+      "title": "HALT check",
+      "body": "Ask yourself three times during the day: am I hungry, angry, lonely or tired? Note your answer.",
+      "durationMin": 3,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d7",
+      "phase": "awareness",
+      "day": 7,
+      "title": "First week's summary",
+      "body": "Look at the weekly summary in your diary. Which is your riskiest hour? Choose an If–Then plan for that hour.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d8",
+      "phase": "boundaries",
+      "day": 8,
+      "title": "Your phone's own filter",
+      "body": "Set up your phone's own filter from the Environment and digital boundaries screen (Screen Time on iPhone, Digital Wellbeing on Android).",
+      "durationMin": 15,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d9",
+      "phase": "boundaries",
+      "day": 9,
+      "title": "Night rule",
+      "body": "Turn off screens 30 minutes before bed. Put a book, music or a calm conversation in their place.",
+      "durationMin": 30,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d10",
+      "phase": "boundaries",
+      "day": 10,
+      "title": "Home screen layout",
+      "body": "Remove trigger apps from your home screen or move them into a folder. An extra few seconds becomes a brake.",
+      "durationMin": 10,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d11",
+      "phase": "boundaries",
+      "day": 11,
+      "title": "Risky-hour plan",
+      "body": "Write two alternative activities for your riskiest time range: a walk, a shower, calling someone, a breathing session…",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d12",
+      "phase": "boundaries",
+      "day": 12,
+      "title": "Greyscale",
+      "body": "Tonight, switch your screen to greyscale and notice how the screen feels to you.",
+      "durationMin": 5,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d13",
+      "phase": "boundaries",
+      "day": 13,
+      "title": "Your supporter",
+      "body": "Without giving details, tell someone you trust that you might message them in hard moments. Saying “Sometimes I might need to talk” is enough.",
+      "durationMin": 10,
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "d14",
+      "phase": "boundaries",
+      "day": 14,
+      "title": "Boundary check",
+      "body": "Which of the boundaries you set this week worked? Make one of them a little stronger.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d15",
+      "phase": "skills",
+      "day": 15,
+      "title": "First wave",
+      "body": "When an urge comes, watch it like a wave: notice it rise, peak and fall. If you like, do it together with the breathing on the Urge moment screen.",
+      "durationMin": 5,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d16",
+      "phase": "skills",
+      "day": 16,
+      "title": "Name the thought",
+      "body": "When a thought like “Just once won't hurt” comes, say to yourself: “Right now I'm noticing the thought that …”",
+      "durationMin": 3,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d17",
+      "phase": "skills",
+      "day": 17,
+      "title": "Breathing practice",
+      "body": "Do two minutes of breathing exercise when there's no urge. A skill practised in calm moments is easier to remember in hard ones.",
+      "durationMin": 2,
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "d18",
+      "phase": "skills",
+      "day": 18,
+      "title": "Make room",
+      "body": "Watch an uncomfortable feeling for 60 seconds without trying to change it. Where is it in your body, and what does it feel like?",
+      "durationMin": 3,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d19",
+      "phase": "skills",
+      "day": 19,
+      "title": "New paths list",
+      "body": "List three new things you can do in stressful or difficult moments.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d20",
+      "phase": "skills",
+      "day": 20,
+      "title": "Your self-compassion sentence",
+      "body": "Write a kind sentence you'll say to yourself in a hard moment. What would you say to a friend?",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d21",
+      "phase": "skills",
+      "day": 21,
+      "title": "Tool review",
+      "body": "Look at the weekly summary in your diary: which tool helped most? Get it ready for the next hard moment.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d22",
+      "phase": "skills",
+      "day": 22,
+      "title": "Riding the wave with movement",
+      "body": "During an urge moment, try the 2-minute movement set and note how you feel afterwards.",
+      "durationMin": 2,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d23",
+      "phase": "skills",
+      "day": 23,
+      "title": "Future me",
+      "body": "Write yourself a short letter in the “Future me” section of the Urge moment screen.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d24",
+      "phase": "skills",
+      "day": 24,
+      "title": "What the feeling needs",
+      "body": "Which feeling came before the urge today? What did that feeling need, and how else could you take care of it?",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d25",
+      "phase": "skills",
+      "day": 25,
+      "title": "Ten minutes",
+      "body": "During an urge moment, put off your decision for 10 minutes and watch how the urge changes.",
+      "durationMin": 10,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d26",
+      "phase": "skills",
+      "day": 26,
+      "title": "Kind inner voice",
+      "body": "Notice a harsh sentence in your self-talk and replace it with a kinder one.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d27",
+      "phase": "skills",
+      "day": 27,
+      "title": "Your favourite skill",
+      "body": "Today, consciously use the skill that has helped you most so far.",
+      "durationMin": 5,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d28",
+      "phase": "skills",
+      "day": 28,
+      "title": "Skills week",
+      "body": "What have you learned in these two weeks? Write it in one sentence.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d29",
+      "phase": "rebuild",
+      "day": 29,
+      "title": "Bedtime",
+      "body": "This week, try going to bed at the same time every day. Regular sleep can ease urges that come at night.",
+      "durationMin": 5,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d30",
+      "phase": "rebuild",
+      "day": 30,
+      "title": "Night routine",
+      "body": "Create a calm three-step routine before bed: turn off the screen, dim the light, a few minutes of breathing or reading.",
+      "durationMin": 10,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d31",
+      "phase": "rebuild",
+      "day": 31,
+      "title": "Connection plan",
+      "body": "Make a plan to meet a friend or a family member this week.",
+      "durationMin": 10,
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "d32",
+      "phase": "rebuild",
+      "day": 32,
+      "title": "A new pastime",
+      "body": "Spend 20 minutes on a hobby you're curious about: drawing, music, cooking, a language…",
+      "durationMin": 20,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d33",
+      "phase": "rebuild",
+      "day": 33,
+      "title": "Time to move",
+      "body": "Go for a 20-minute walk or do a fitness session in the app.",
+      "durationMin": 20,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d34",
+      "phase": "rebuild",
+      "day": 34,
+      "title": "Take care of your body",
+      "body": "Give your body a few minutes with a Kegel or breathing session in the app.",
+      "durationMin": 10,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d35",
+      "phase": "rebuild",
+      "day": 35,
+      "title": "Weekly connection task",
+      "body": "Join a community activity or call someone you haven't talked to in a long time.",
+      "durationMin": 30,
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "d36",
+      "phase": "rebuild",
+      "day": 36,
+      "title": "Instead of the screen",
+      "body": "During your risky hour, do the alternative activity you planned.",
+      "durationMin": 20,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d37",
+      "phase": "rebuild",
+      "day": 37,
+      "title": "Meaning",
+      "body": "Write three things you did this week in line with your values.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d38",
+      "phase": "rebuild",
+      "day": 38,
+      "title": "Sleep check",
+      "body": "Look at your daily checks: has your sleep quality changed?",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d39",
+      "phase": "rebuild",
+      "day": 39,
+      "title": "A respectful view",
+      "body": "Read the “Healthy view of sexuality” lesson and write a principle that suits you.",
+      "durationMin": 10,
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "d40",
+      "phase": "rebuild",
+      "day": 40,
+      "title": "Thank you",
+      "body": "Thank someone who has supported you through this.",
+      "durationMin": 5,
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "d41",
+      "phase": "rebuild",
+      "day": 41,
+      "title": "Routine check",
+      "body": "Which new routine has done you the most good? Plan to keep it up in the coming weeks.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d42",
+      "phase": "rebuild",
+      "day": 42,
+      "title": "End of the core programme",
+      "body": "You've completed six weeks. Redo the short screening and look at your own progress; it's not a grade, just a snapshot.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d43",
+      "phase": "consolidation",
+      "day": 43,
+      "title": "High-risk situations map",
+      "body": "Read the “Relapse prevention plan” lesson and make a plan for your three riskiest situations.",
+      "durationMin": 15,
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "d50",
+      "phase": "consolidation",
+      "day": 50,
+      "title": "Early warning signs",
+      "body": "Write three signs you usually notice before a slip (e.g. poor sleep, loneliness, late-night phone use).",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d57",
+      "phase": "consolidation",
+      "day": 57,
+      "title": "Your identity sentence",
+      "body": "Write the sentence “I'm someone who lives by my values” in your own words.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d64",
+      "phase": "consolidation",
+      "day": 64,
+      "title": "Update your plans",
+      "body": "Update one of your If–Then plans to fit your life today.",
+      "durationMin": 10,
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "d71",
+      "phase": "consolidation",
+      "day": 71,
+      "title": "Keep connecting",
+      "body": "Spend face-to-face time with someone this week.",
+      "durationMin": 30,
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "d78",
+      "phase": "consolidation",
+      "day": 78,
+      "title": "Thank yourself",
+      "body": "Write three things you thank yourself for in this process.",
+      "durationMin": 5,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d85",
+      "phase": "consolidation",
+      "day": 85,
+      "title": "Maintenance plan",
+      "body": "Day 90 is close. Prepare a small monthly check plan for the months ahead.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "d90",
+      "phase": "consolidation",
+      "day": 90,
+      "title": "90 days",
+      "body": "You've completed 90 days. Redo the short screening and look back on your journey. From now on, a monthly check is enough.",
+      "durationMin": 10,
+      "type": "reflection",
+      "reviewed": false
+    }
+  ]
+}

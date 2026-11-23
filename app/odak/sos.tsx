@@ -438,7 +438,7 @@ function FutureSelf({ onUsed }: { onUsed: () => void }) {
         <OdakLock title={tr('odak.premium.letter')} />
       ) : editing ? (
         <>
-          <TextInput
+          <TextInput maxFontSizeMultiplier={1.3}
             value={text}
             onChangeText={setText}
             multiline

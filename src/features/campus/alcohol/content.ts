@@ -1,5 +1,9 @@
 import type { IconName } from '@/components/Icon';
-import json from '@/content/alcohol.tr.json';
+import { pick } from '@/i18n/content';
+import jsonTr from '@/content/alcohol.tr.json';
+import jsonEn from '@/content/alcohol.en.json';
+
+const json = pick({ tr: jsonTr, en: jsonEn });
 
 export interface AlcDrinkType {
   id: string;

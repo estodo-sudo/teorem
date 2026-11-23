@@ -1,0 +1,59 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "smsna_hypertonic",
+    "nebraska_hypertonic",
+    "mkuh_nhs",
+    "papworth_nhs"
+  ],
+  "title": "Muscle profile",
+  "intro": "Thinking about the last month, answer 8 short questions with Yes or No. This isn't a diagnosis; it's only used to choose the right programme for you. Your answers stay only on this phone.",
+  "questions": [
+    {
+      "id": "pelvic_pain",
+      "text": "Do you have ongoing pain or a feeling of pressure in your pelvis, perineum (between the anus and testicles), groin or anus?",
+      "pain": true
+    },
+    {
+      "id": "sitting_pain",
+      "text": "Do you have pain that gets worse after sitting for a long time?",
+      "pain": true
+    },
+    {
+      "id": "ejaculation_pain",
+      "text": "Do you have pain during or after ejaculation?",
+      "pain": true
+    },
+    {
+      "id": "urgency",
+      "text": "Do you often feel a sudden need to urinate?"
+    },
+    {
+      "id": "incomplete",
+      "text": "Do you feel you can't empty your bladder fully, or have trouble starting to urinate?"
+    },
+    {
+      "id": "constipation",
+      "text": "Do you have constipation or a need to strain?"
+    },
+    {
+      "id": "clenching",
+      "text": "Do you find yourself clenching your buttocks or belly without noticing when you're stressed?"
+    },
+    {
+      "id": "dribble",
+      "text": "Do you dribble after urinating?",
+      "note": "This can be a sign of muscle weakness; it doesn't count towards the tension score."
+    }
+  ],
+  "result": {
+    "relaxTitle": "We suggest seeing a specialist first",
+    "relaxText": "Your answers suggest your pelvic floor may be holding tension. In that case, squeezing exercises can make discomfort worse. We suggest seeing a urologist or a pelvic floor physiotherapist before you start training.",
+    "relaxNote": "If you feel pain or discomfort during training, stop right away and end the workout. We suggest redoing the screening every 2 weeks.",
+    "okTitle": "Your profile is ready",
+    "okText": "Nothing in your answers clearly points to tension. You can start training.",
+    "dribbleText": "For dribbling after urinating, the habit of “squeeze twice after urinating” can help.",
+    "painNotice": "Stop if it hurts. Kegels should not cause pain; if you feel discomfort, end the workout."
+  }
+}

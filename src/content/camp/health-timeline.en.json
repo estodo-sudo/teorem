@@ -1,0 +1,66 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "who-benefits"
+  ],
+  "intro": "From the moment you quit smoking, your body starts to repair itself. The timeline below is based on the World Health Organization's list.",
+  "note": "Source: WHO · Varies from person to person.",
+  "items": [
+    {
+      "id": "min20",
+      "label": "20 minutes",
+      "icon": "heart",
+      "tone": "smokefree",
+      "text": "Your heart rate and blood pressure drop."
+    },
+    {
+      "id": "h12",
+      "label": "12 hours",
+      "icon": "droplet",
+      "tone": "smokefree",
+      "text": "The carbon monoxide level in your blood returns to normal."
+    },
+    {
+      "id": "w2",
+      "label": "2–12 weeks",
+      "icon": "wind",
+      "tone": "smokefree",
+      "text": "Your circulation improves and your lung function increases."
+    },
+    {
+      "id": "m1",
+      "label": "1–9 months",
+      "icon": "wind",
+      "tone": "smokefree",
+      "text": "Coughing and shortness of breath decrease."
+    },
+    {
+      "id": "y1",
+      "label": "1 year",
+      "icon": "dumbbell",
+      "tone": "smokefree",
+      "text": "Your risk of coronary heart disease falls to about half that of a smoker."
+    },
+    {
+      "id": "y5",
+      "label": "5–15 years",
+      "icon": "brain",
+      "tone": "smokefree",
+      "text": "Your risk of stroke falls to that of someone who has never smoked."
+    },
+    {
+      "id": "y10",
+      "label": "10 years",
+      "icon": "ribbon",
+      "tone": "smokefree",
+      "text": "Your risk of lung cancer falls to about half that of a smoker. The risks of cancer of the mouth, throat, oesophagus, bladder, cervix and pancreas also decrease."
+    },
+    {
+      "id": "y15",
+      "label": "15 years",
+      "icon": "bird",
+      "tone": "smokefree",
+      "text": "Your risk of coronary heart disease becomes that of someone who has never smoked."
+    }
+  ]
+}

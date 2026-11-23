@@ -189,6 +189,31 @@ export function resume<P extends TimedPhase>(s: PlayerState<P>, now: number): St
   };
 }
 
+/**
+ * Ends only the current phase and starts the next one (fitness players: skipping a countdown or a rest
+ * starts the coming move right away instead of jumping over it — user report 2026-11-22). Nothing is
+ * marked as skipped.
+ */
+export function skipPhase<P extends TimedPhase>(s: PlayerState<P>, now: number): Step<P> {
+  if (s.status !== 'running' && s.status !== 'paused') return { state: s, events: [] };
+  const settled = s.status === 'running' ? tick(s, now) : { state: s, events: [] as PlayerEvent<P>[] };
+  const st = settled.state;
+  if (st.status === 'completed' || !currentPhase(st)) return settled;
+  const next = st.index + 1;
+  const active = activeTime(st, now);
+  if (next >= st.phases.length) {
+    return {
+      state: { ...st, status: 'completed', index: st.phases.length, phaseOffsetMs: 0, checkpointAt: now, activeMs: active },
+      events: [...settled.events, { type: 'completed', endedEarly: false }],
+    };
+  }
+  const phase = st.phases[next] as P;
+  return {
+    state: { ...st, index: next, phaseOffsetMs: 0, checkpointAt: now, activeMs: active, lastSecond: 0 },
+    events: [...settled.events, { type: 'phaseStart', index: next, phase }],
+  };
+}
+
 /** Skips the rest of the current exercise (group). */
 export function skipExercise<P extends TimedPhase>(s: PlayerState<P>, now: number): Step<P> {
   if (s.status !== 'running' && s.status !== 'paused') return { state: s, events: [] };

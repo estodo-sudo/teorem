@@ -21,6 +21,9 @@ export function lockoutMs(failures: number): number {
 /** Milliseconds left before the next PIN try (0 = can try now). */
 export function waitLeft(failures: number, lastFailAt: number | null, now: number): number {
   if (lastFailAt === null) return 0;
+  // Clock set back after a wrong PIN (or a wrong saved time): the wait is the normal one, never
+  // months or years that would lock the owner out (security review 2026-11-23).
+  if (now < lastFailAt) return lockoutMs(failures);
   return Math.max(0, lastFailAt + lockoutMs(failures) - now);
 }
 

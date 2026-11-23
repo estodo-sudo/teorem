@@ -1,0 +1,1018 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "rct",
+  "sourceIds": [
+    "crosby2016",
+    "twohig2010",
+    "bothe2021",
+    "meta2025",
+    "marlatt"
+  ],
+  "lessons": [
+    {
+      "id": "values",
+      "order": 1,
+      "phase": "awareness",
+      "icon": "compass",
+      "tone": "focus",
+      "title": "Why are you here? The compass of your values",
+      "summary": "Your values show the direction of change.",
+      "slides": [
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "What does your compass show?",
+          "text": "Values are your compass for what matters in life: your relationship, your health, your focus, your faith, your work. Goals end one day; values always guide you."
+        },
+        {
+          "icon": "target",
+          "tone": "focus",
+          "title": "Direction, not rules",
+          "text": "Forcing yourself with rules often backfires. Values help you ask: “Does this behaviour bring me closer to what I care about?”"
+        },
+        {
+          "icon": "pen",
+          "tone": "focus",
+          "title": "Concrete sentences",
+          "text": "A concrete sentence like “Giving my evenings to sleep and my studies” instead of “focus” is a much stronger reminder in a hard moment."
+        },
+        {
+          "icon": "sprout",
+          "tone": "focus",
+          "title": "You don't have to be perfect",
+          "text": "Living by your values isn't being flawless every day; it's turning back towards them each time."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Think of the two values that matter most to you. For each one, write a small, concrete behaviour you could do this week."
+      },
+      "quiz": [
+        {
+          "q": "How do values help in this process?",
+          "options": [
+            "They wipe out the urge completely",
+            "They make me ask whether the behaviour brings me closer to what I care about",
+            "They're a yardstick for blaming myself"
+          ],
+          "answer": 1,
+          "explain": "Values don't erase the urge, but by reminding you which way you want to go, they make choosing easier."
+        }
+      ],
+      "sourceIds": [
+        "crosby2016",
+        "twohig2010",
+        "bothe2021"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "cycle",
+      "order": 2,
+      "phase": "awareness",
+      "icon": "rotate",
+      "tone": "focus",
+      "title": "The anatomy of an urge",
+      "summary": "Trigger → thought → feeling → urge → behaviour.",
+      "slides": [
+        {
+          "icon": "rotate",
+          "tone": "focus",
+          "title": "A chain",
+          "text": "Behaviour usually doesn't happen all at once. A trigger (place, time, feeling) comes first, then a thought, a feeling, an urge and finally the behaviour."
+        },
+        {
+          "icon": "search",
+          "tone": "focus",
+          "title": "Seeing the chain",
+          "text": "The better you know the chain, the easier it is to break it at an early link. Your phone in bed at night can be a trigger; “I'll just have a quick look” is a thought."
+        },
+        {
+          "icon": "scissors",
+          "tone": "focus",
+          "title": "Stepping in at an early link",
+          "text": "The easiest intervention is often at the very start: changing the trigger (taking the phone out of the room) or noticing the thought."
+        },
+        {
+          "icon": "puzzle",
+          "tone": "focus",
+          "title": "Your chain",
+          "text": "Everyone's chain is a little different. Your diary helps you see the links in yours."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Think of the last time you struggled and write your chain: trigger → thought → feeling → urge → behaviour."
+      },
+      "quiz": [
+        {
+          "q": "Where is it usually easiest to break the chain?",
+          "options": [
+            "At the very end, in the middle of the behaviour",
+            "At the early links: the trigger or the thought",
+            "The chain can't be broken"
+          ],
+          "answer": 1,
+          "explain": "The earlier you notice, the easier it is to change."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021",
+        "meta2025"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "monitoring",
+      "order": 3,
+      "phase": "awareness",
+      "icon": "notebook",
+      "tone": "focus",
+      "title": "Why does self-monitoring work?",
+      "summary": "You can't change a pattern you can't see.",
+      "slides": [
+        {
+          "icon": "notebook",
+          "tone": "focus",
+          "title": "Noticing is a skill",
+          "text": "Self-monitoring makes automatic behaviours visible. Research shows that keeping regular records supports change even on its own."
+        },
+        {
+          "icon": "clock",
+          "tone": "focus",
+          "title": "What to record?",
+          "text": "The time, the place, the feeling before and what you felt afterwards. No need to write a lot; a few taps are enough."
+        },
+        {
+          "icon": "ban",
+          "tone": "focus",
+          "title": "Data, not judgement",
+          "text": "A record isn't a report card. The aim isn't to criticise yourself but to see the pattern: “So I struggle at night when I'm tired.”"
+        },
+        {
+          "icon": "chart",
+          "tone": "focus",
+          "title": "The weekly view",
+          "text": "The weekly summary shows your riskiest hour and the tool that helps most. You adjust your plans accordingly."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Today, make at least one urge or behaviour entry; just to notice."
+      },
+      "quiz": [
+        {
+          "q": "What is the purpose of keeping records?",
+          "options": [
+            "To judge myself",
+            "To see patterns and adjust my plan to them",
+            "To collect points"
+          ],
+          "answer": 1,
+          "explain": "A record is a source of data; it shows when and why you struggle."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "environment",
+      "order": 4,
+      "phase": "boundaries",
+      "icon": "blocks",
+      "tone": "focus",
+      "title": "Designing your environment",
+      "summary": "Brakes and friction.",
+      "slides": [
+        {
+          "icon": "blocks",
+          "tone": "focus",
+          "title": "Friction",
+          "text": "Making a behaviour even a little harder reduces how often it happens. Charging the phone in another room or moving a trigger app into a folder are brakes."
+        },
+        {
+          "icon": "door",
+          "tone": "focus",
+          "title": "Change what's easy",
+          "text": "Environment is stronger than willpower. So instead of resisting in a hard moment, it's smarter to make hard moments less likely to come."
+        },
+        {
+          "icon": "lock",
+          "tone": "focus",
+          "title": "Filters are a brake",
+          "text": "Your phone's own filter and app timers help. No filter is unbeatable; the real strength is in your plan and your skills."
+        },
+        {
+          "icon": "moon",
+          "tone": "focus",
+          "title": "Risky hours",
+          "text": "Preparing your environment in advance for your riskiest hours (light on, phone away, an activity planned) makes the biggest difference."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Choose one change you can make to your environment for your riskiest hour and do it this evening."
+      },
+      "quiz": [
+        {
+          "q": "What is the logic of shaping your environment?",
+          "options": [
+            "Resisting harder in a hard moment",
+            "Making hard moments less likely from the start",
+            "Filters solving everything"
+          ],
+          "answer": 1,
+          "explain": "Adding friction makes the moment of decision easier."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021",
+        "apple"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "dayy",
+      "order": 5,
+      "phase": "boundaries",
+      "icon": "battery",
+      "tone": "focus",
+      "title": "HALT: hungry, angry, lonely, tired",
+      "summary": "Four states make urges stronger.",
+      "slides": [
+        {
+          "icon": "battery",
+          "tone": "focus",
+          "title": "Four states",
+          "text": "Urges come on stronger when we're Hungry, Angry (stressed or irritated), Lonely or Tired."
+        },
+        {
+          "icon": "moon",
+          "tone": "focus",
+          "title": "Tiredness and night",
+          "text": "Lack of sleep reduces your ability to regulate yourself. That's why late at night is the riskiest time."
+        },
+        {
+          "icon": "eyeOff",
+          "tone": "focus",
+          "title": "Loneliness",
+          "text": "Loneliness is a common trigger. Even if the behaviour brings short relief, it often doesn't ease the loneliness."
+        },
+        {
+          "icon": "wrench",
+          "tone": "focus",
+          "title": "Look at the root",
+          "text": "When an urge comes, first ask yourself: which one is it? Sometimes a glass of water, a short nap or a phone call changes the urge."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Do a HALT check three times today and note what you notice each time."
+      },
+      "quiz": [
+        {
+          "q": "When an urge comes while you're lonely, what helps to look at?",
+          "options": [
+            "Suppressing the urge",
+            "The real need: making a connection",
+            "Nothing"
+          ],
+          "answer": 1,
+          "explain": "Meeting the need underneath the urge eases it more lastingly."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021",
+        "marlatt"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "surfing",
+      "order": 6,
+      "phase": "skills",
+      "icon": "waves",
+      "tone": "focus",
+      "title": "Urge surfing",
+      "summary": "Being able to stay with the urge without fighting it.",
+      "slides": [
+        {
+          "icon": "waves",
+          "tone": "focus",
+          "title": "Like a wave",
+          "text": "Urges are like waves: they rise, peak and fall. They pass even when you don't act on them."
+        },
+        {
+          "icon": "zap",
+          "tone": "focus",
+          "title": "Fighting is exhausting",
+          "text": "Trying to suppress an urge or not think about it often makes it bigger. ACT suggests watching the urge instead of fighting it."
+        },
+        {
+          "icon": "eye",
+          "tone": "focus",
+          "title": "Watch it in your body",
+          "text": "Notice where in your body you feel the urge. Use your breath like a surfboard; stay on top of the wave."
+        },
+        {
+          "icon": "success",
+          "tone": "focus",
+          "title": "The choice is yours",
+          "text": "Feeling an urge doesn't mean you have to act on it. Feeling and choosing are separate things."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "When an urge comes, watch it like a wave and note how it changes. If you like, do it together with the breathing on the Urge moment screen."
+      },
+      "quiz": [
+        {
+          "q": "What is the aim of urge surfing?",
+          "options": [
+            "To get rid of the urge right away",
+            "To watch the urge and let it pass without acting on it",
+            "To try not to think about the urge"
+          ],
+          "answer": 1,
+          "explain": "Watching an urge is less tiring than fighting it and lets you choose your behaviour."
+        }
+      ],
+      "sourceIds": [
+        "crosby2016",
+        "twohig2010",
+        "meta2025"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "defusion",
+      "order": 7,
+      "phase": "skills",
+      "icon": "thought",
+      "tone": "focus",
+      "title": "A thought is just a thought",
+      "summary": "“Just once won't hurt”, “I've already ruined it”.",
+      "slides": [
+        {
+          "icon": "thought",
+          "tone": "focus",
+          "title": "The voice of the mind",
+          "text": "In hard moments the mind comes up with persuasive lines: “Just once won't hurt.” “I've already blown it, so it doesn't matter now.”"
+        },
+        {
+          "icon": "tag",
+          "tone": "focus",
+          "title": "Name it",
+          "text": "To put distance between you and the thought, name it: “Right now I'm noticing the thought ‘just once won't hurt’.”"
+        },
+        {
+          "icon": "radio",
+          "tone": "focus",
+          "title": "Like a radio",
+          "text": "You can think of thoughts like a radio playing in the background. You hear it, but you don't have to do everything it says."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "Come back to your values",
+          "text": "After noticing the thought, ask: “Does following this thought bring me closer to what I care about?”"
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "This week, write down the sentence your mind comes up with most often and put “Right now I'm noticing the thought that …” in front of it."
+      },
+      "quiz": [
+        {
+          "q": "What helps when the thought “I've already ruined it” comes?",
+          "options": [
+            "Believing it and carrying on",
+            "Noticing it as a thought and coming back to your values",
+            "Blaming yourself"
+          ],
+          "answer": 1,
+          "explain": "Noticing the thought reminds you that you don't have to do what it says."
+        }
+      ],
+      "sourceIds": [
+        "crosby2016",
+        "twohig2010"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "acceptance",
+      "order": 8,
+      "phase": "skills",
+      "icon": "painCare",
+      "tone": "focus",
+      "title": "Acceptance: making room for uncomfortable feelings",
+      "summary": "Carrying a feeling without trying to change it.",
+      "slides": [
+        {
+          "icon": "painCare",
+          "tone": "focus",
+          "title": "Acceptance isn't giving up",
+          "text": "Acceptance isn't liking an uncomfortable feeling or giving in to it; it's being able to act in line with your values alongside it."
+        },
+        {
+          "icon": "box",
+          "tone": "focus",
+          "title": "Making room",
+          "text": "When tension, unease or a feeling of emptiness comes, notice it in your body and make a little room for it: “This feeling is here, and I can stay with it.”"
+        },
+        {
+          "icon": "hourglass",
+          "tone": "focus",
+          "title": "Feelings are temporary",
+          "text": "When we don't try to escape, feelings often change faster than we expect."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "The direction isn't lost",
+          "text": "Even with the uncomfortable feeling there, you can take a small values step: a walk, a message, a page of a book."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Watch an uncomfortable feeling for 60 seconds without trying to change it; then take a small values step."
+      },
+      "quiz": [
+        {
+          "q": "What does acceptance mean?",
+          "options": [
+            "Liking the uncomfortable feeling",
+            "Being able to stay with the uncomfortable feeling and act by my values",
+            "Giving up"
+          ],
+          "answer": 1,
+          "explain": "Acceptance is being able to make your choice without fighting the feeling."
+        }
+      ],
+      "sourceIds": [
+        "crosby2016",
+        "twohig2010"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "emotions",
+      "order": 9,
+      "phase": "skills",
+      "icon": "cloudSun",
+      "tone": "focus",
+      "title": "Emotion regulation",
+      "summary": "New ways for stress, anxiety and unease.",
+      "slides": [
+        {
+          "icon": "cloudSun",
+          "tone": "focus",
+          "title": "A way of coping",
+          "text": "Behaviour is often a short escape from difficult feelings. That's very human; but in the long run it doesn't resolve the feeling."
+        },
+        {
+          "icon": "wrench",
+          "tone": "focus",
+          "title": "New tools",
+          "text": "Breathing or movement for stress, 5-4-3-2-1 awareness for anxiety, and writing to someone or a small task for unease can help."
+        },
+        {
+          "icon": "tag",
+          "tone": "focus",
+          "title": "Name the feeling",
+          "text": "Even saying “I'm tense right now” lightens the brain's emotional load."
+        },
+        {
+          "icon": "clipboard",
+          "tone": "focus",
+          "title": "Your own list",
+          "text": "Setting one or two new ways for each feeling means you know in advance what to do in a hard moment."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write a new way of coping for each of the two feelings you struggle with most, and try one this week."
+      },
+      "quiz": [
+        {
+          "q": "What is the benefit of naming a feeling?",
+          "options": [
+            "It has no benefit",
+            "It lightens the feeling's load and opens up room to choose",
+            "It makes the feeling permanent"
+          ],
+          "answer": 1,
+          "explain": "Naming puts a little distance between you and the feeling."
+        }
+      ],
+      "sourceIds": [
+        "meta2025",
+        "bothe2021"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "shame",
+      "order": 10,
+      "phase": "skills",
+      "icon": "heart",
+      "tone": "focus",
+      "title": "The difference between shame and guilt",
+      "summary": "Why shame doesn't work and self-compassion does.",
+      "slides": [
+        {
+          "icon": "heart",
+          "tone": "focus",
+          "title": "Two different feelings",
+          "text": "Guilt says “What I did didn't match my values.” Shame says “I'm bad.” They aren't the same."
+        },
+        {
+          "icon": "repeat",
+          "tone": "focus",
+          "title": "The shame cycle",
+          "text": "Shame makes a person feel bad, and feeling bad can trigger the search for escape again. Research shows that shame makes change harder."
+        },
+        {
+          "icon": "heart",
+          "tone": "focus",
+          "title": "Self-compassion",
+          "text": "Self-compassion isn't excusing yourself; it's acknowledging your mistake and being as kind to yourself as you would be to a friend."
+        },
+        {
+          "icon": "sprout",
+          "tone": "focus",
+          "title": "Responsibility and kindness",
+          "text": "“This is a hard moment. I can make mistakes; I'm still carrying on.” This attitude makes it easier to take the next step."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write a kind sentence you'll say to yourself in a hard moment and note it on your phone."
+      },
+      "quiz": [
+        {
+          "q": "What is the difference between shame and guilt?",
+          "options": [
+            "There's no difference",
+            "Guilt is about the behaviour, shame is about the person themselves",
+            "Shame is more useful"
+          ],
+          "answer": 1,
+          "explain": "Guilt focused on the behaviour opens room for change; shame aimed at the person often gets you stuck."
+        }
+      ],
+      "sourceIds": [
+        "grubbs2019b",
+        "grubbs2019",
+        "marlatt"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "sleep",
+      "order": 11,
+      "phase": "rebuild",
+      "icon": "moon",
+      "tone": "focus",
+      "title": "Sleep and a night routine",
+      "summary": "Preparing for the riskiest time of day.",
+      "slides": [
+        {
+          "icon": "moon",
+          "tone": "focus",
+          "title": "Why at night?",
+          "text": "At night tiredness increases, things get quiet and the phone is in your hand. That's why late at night is the riskiest time."
+        },
+        {
+          "icon": "bed",
+          "tone": "focus",
+          "title": "A calm routine",
+          "text": "Going to bed at a similar time every day, turning off screens before bed and dimming the light make sleep easier."
+        },
+        {
+          "icon": "phoneOff",
+          "tone": "focus",
+          "title": "Bed = sleep",
+          "text": "Not taking the phone to bed pairs the bed with sleep. If you can't sleep, getting up and reading a book in dim light can help."
+        },
+        {
+          "icon": "info",
+          "tone": "focus",
+          "title": "General information",
+          "text": "These are general sleep recommendations, not medical treatment. If your sleep problem lasts a long time, see a doctor."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write a three-step night routine for this evening and follow it."
+      },
+      "quiz": [
+        {
+          "q": "What is the easiest way to reduce night-time risk?",
+          "options": [
+            "Going to bed with the phone and trying to resist",
+            "Leaving the phone outside the bedroom and setting up a calm routine",
+            "Going to bed later"
+          ],
+          "answer": 1,
+          "explain": "Shaping your environment in advance makes deciding easier at night."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "connection",
+      "order": 12,
+      "phase": "rebuild",
+      "icon": "handshake",
+      "tone": "focus",
+      "title": "Loneliness and connection",
+      "summary": "Reconnecting with people.",
+      "slides": [
+        {
+          "icon": "handshake",
+          "tone": "focus",
+          "title": "The need for connection",
+          "text": "People need connection. When loneliness grows, the search for short-term relief can grow too."
+        },
+        {
+          "icon": "smartphone",
+          "tone": "focus",
+          "title": "Small steps",
+          "text": "Connection doesn't need big steps: a message, a short call, a coffee, a walk."
+        },
+        {
+          "icon": "users",
+          "tone": "focus",
+          "title": "Community",
+          "text": "A course, sport, volunteering or an interest group is a good way to have regular connection."
+        },
+        {
+          "icon": "chat",
+          "tone": "focus",
+          "title": "Being open",
+          "text": "Even without giving details, you can tell someone you trust that you're struggling. A load you don't carry alone gets lighter."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "This week, message someone to meet face to face and set a day."
+      },
+      "quiz": [
+        {
+          "q": "When you feel lonely, which helps more lastingly?",
+          "options": [
+            "A short escape",
+            "Making a real connection",
+            "More screen time"
+          ],
+          "answer": 1,
+          "explain": "Connection meets the need underneath the urge."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021",
+        "meta2025"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "leisure",
+      "order": 13,
+      "phase": "rebuild",
+      "icon": "palette",
+      "tone": "focus",
+      "title": "Redesigning your free time",
+      "summary": "Hobbies, movement and productivity.",
+      "slides": [
+        {
+          "icon": "palette",
+          "tone": "focus",
+          "title": "Gaps get filled",
+          "text": "When you cut down on a behaviour and the time it frees up stays empty, the old habit tries to come back into that gap."
+        },
+        {
+          "icon": "footprints",
+          "tone": "focus",
+          "title": "Movement",
+          "text": "Regular movement reduces stress and improves sleep. The fitness and breathing sessions in the app count too."
+        },
+        {
+          "icon": "wrench",
+          "tone": "focus",
+          "title": "Meaningful pursuits",
+          "text": "Learning something, making something or helping someone else gives satisfaction in line with your values."
+        },
+        {
+          "icon": "calendar",
+          "tone": "focus",
+          "title": "Planning",
+          "text": "Putting an activity in your risky hours in advance stops that time from being “empty”."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Plan an enjoyable or meaningful activity this week for one of your risky hours."
+      },
+      "quiz": [
+        {
+          "q": "Why is it important to plan the free time that opens up?",
+          "options": [
+            "It isn't important",
+            "Unplanned empty time makes it easier for the old habit to come back",
+            "To get more tired"
+          ],
+          "answer": 1,
+          "explain": "A planned activity fills the risky hour with new meaning."
+        }
+      ],
+      "sourceIds": [
+        "bothe2021"
+      ],
+      "evidenceLevel": "expert",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "sexuality",
+      "order": 14,
+      "phase": "rebuild",
+      "icon": "handshake",
+      "tone": "focus",
+      "title": "A healthy view of sexuality",
+      "summary": "Respect for yourself and your partner, realistic expectations.",
+      "slides": [
+        {
+          "icon": "handshake",
+          "tone": "focus",
+          "title": "A natural part",
+          "text": "Sexuality is a natural part of human life. Masturbation itself isn't considered medically harmful; what matters is how the behaviour fits with your values and quality of life."
+        },
+        {
+          "icon": "play",
+          "tone": "focus",
+          "title": "Realistic expectations",
+          "text": "What's shown in pornography is often fiction and doesn't reflect real relationships. Knowing this makes expectations of yourself and your partner more realistic."
+        },
+        {
+          "icon": "chat",
+          "tone": "focus",
+          "title": "Respect and communication",
+          "text": "The foundation of a healthy sex life is mutual consent, respect and open communication."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "focus",
+          "title": "For your concerns",
+          "text": "If you have a concern about sexual health, talking to a doctor or a professional is best, rather than claims on the internet."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write a principle for yourself about “respect” and “realistic expectations”."
+      },
+      "quiz": [
+        {
+          "q": "Which is true in this lesson?",
+          "options": [
+            "The measure is what other people think",
+            "What matters is how the behaviour fits with my values and quality of life",
+            "Pornography reflects real relationships"
+          ],
+          "answer": 1,
+          "explain": "The measure is a person's own values and quality of life."
+        }
+      ],
+      "sourceIds": [
+        "rowland2024",
+        "dwulit2019",
+        "briken2024"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "relapse",
+      "order": 15,
+      "phase": "consolidation",
+      "icon": "map",
+      "tone": "focus",
+      "title": "Relapse prevention plan",
+      "summary": "A map of high-risk situations.",
+      "slides": [
+        {
+          "icon": "map",
+          "tone": "focus",
+          "title": "Draw the map",
+          "text": "The relapse prevention model suggests recognising high-risk situations in advance: particular times, places, feelings and people."
+        },
+        {
+          "icon": "warning",
+          "tone": "focus",
+          "title": "Early warnings",
+          "text": "A slip often starts with small signs: poor sleep, loneliness, the thought “I'll just have a look”."
+        },
+        {
+          "icon": "notebook",
+          "tone": "focus",
+          "title": "A plan for each situation",
+          "text": "Prepare an If–Then plan for each risky situation. A decision made in advance is much easier than one made in the moment."
+        },
+        {
+          "icon": "repeat",
+          "tone": "focus",
+          "title": "Slip ≠ the end",
+          "text": "If a slip happens, the thought “I've already blown it” can make it last longer. A slip doesn't mean your effort is erased; you can learn from it and carry on."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write down your three riskiest situations and make an If–Then plan for each."
+      },
+      "quiz": [
+        {
+          "q": "What attitude helps most after a slip?",
+          "options": [
+            "Saying “I've already blown it, so it doesn't matter”",
+            "Learning what happened, updating the plan and carrying on",
+            "Giving up on everything"
+          ],
+          "answer": 1,
+          "explain": "Seeing a slip as a chance to learn makes it easier to carry on."
+        }
+      ],
+      "sourceIds": [
+        "marlatt",
+        "bothe2021"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 4,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "identity",
+      "order": 16,
+      "phase": "consolidation",
+      "icon": "star",
+      "tone": "focus",
+      "title": "Your new identity",
+      "summary": "“I'm someone who lives by my values.”",
+      "slides": [
+        {
+          "icon": "star",
+          "tone": "focus",
+          "title": "From behaviour to identity",
+          "text": "Small, repeated behaviours change how we see ourselves over time."
+        },
+        {
+          "icon": "scanFace",
+          "tone": "focus",
+          "title": "Who do you want to be?",
+          "text": "Being “someone who lives by my values” instead of “someone trying not to do this” shifts the focus from prohibition to direction."
+        },
+        {
+          "icon": "blocks",
+          "tone": "focus",
+          "title": "The evidence",
+          "text": "Every urge moment you've managed, every boundary you've set and every plan you've followed in this process is evidence of this new identity."
+        },
+        {
+          "icon": "leaf",
+          "tone": "focus",
+          "title": "Keeping it up",
+          "text": "Identity isn't something earned once and done; it's confirmed again every day through small choices."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Complete the sentence “I'm someone who …” in line with your values and write three pieces of evidence from this process."
+      },
+      "quiz": [
+        {
+          "q": "What is the benefit of identity-focused thinking?",
+          "options": [
+            "It shifts the focus from prohibitions to values and direction",
+            "It has no benefit",
+            "It makes being perfect a requirement"
+          ],
+          "answer": 0,
+          "explain": "Defining yourself by your values makes the behaviour more natural."
+        }
+      ],
+      "sourceIds": [
+        "crosby2016",
+        "twohig2010",
+        "bothe2021"
+      ],
+      "evidenceLevel": "rct",
+      "minutes": 3,
+      "bonus": false,
+      "reviewed": false
+    },
+    {
+      "id": "congruence",
+      "order": 17,
+      "phase": "awareness",
+      "icon": "bird",
+      "tone": "focus",
+      "title": "Being at peace with your values",
+      "summary": "Direction, not perfection.",
+      "slides": [
+        {
+          "icon": "bird",
+          "tone": "focus",
+          "title": "A feeling of conflict",
+          "text": "When a behaviour conflicts with your values, you may feel inner tension. This feeling shows what matters to you."
+        },
+        {
+          "icon": "scale",
+          "tone": "focus",
+          "title": "The perfection trap",
+          "text": "Research shows that intense moral conflict and shame can lead people to see themselves as more “out of control”; this perception doesn't always match the amount of the behaviour."
+        },
+        {
+          "icon": "compass",
+          "tone": "focus",
+          "title": "Direction is enough",
+          "text": "The aim isn't to become perfect overnight; it's to live a little closer to your values every day."
+        },
+        {
+          "icon": "heart",
+          "tone": "focus",
+          "title": "Be kind to yourself",
+          "text": "Whatever your values, faith or principles, being kind to yourself is your strongest helper on this path."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write a small step you could take today for one of your values; it doesn't have to be perfect."
+      },
+      "quiz": [
+        {
+          "q": "What does this lesson emphasise?",
+          "options": [
+            "Becoming perfect immediately",
+            "Not perfection, but a direction towards your values",
+            "Criticising yourself harshly"
+          ],
+          "answer": 1,
+          "explain": "Direction and self-compassion make change sustainable."
+        }
+      ],
+      "sourceIds": [
+        "grubbs2019",
+        "grubbs2019b"
+      ],
+      "evidenceLevel": "review",
+      "minutes": 3,
+      "bonus": true,
+      "reviewed": false
+    }
+  ]
+}

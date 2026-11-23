@@ -12,6 +12,7 @@ import { tint } from '@/features/campus/shared/ui';
 import { OdakLock } from '@/features/camps/odak/ui';
 import { useAccess } from '@/features/purchases/useGate';
 import { goBack } from '@/lib/nav';
+import i18n from '@/i18n';
 
 const label = (list: { id: string; label: string }[], id: string) => list.find((o) => o.id === id)?.label ?? id;
 
@@ -176,7 +177,7 @@ export default function OdakStats() {
             {bps.length ? (
               bps.map((b, i) => (
                 <AppText key={i} variant="small">
-                  {fill('{d}. gün · {s}/10', { d: b.day, s: b.score })}
+                  {i18n.t('odak.bpsRow', { d: b.day, s: b.score })}
                 </AppText>
               ))
             ) : (

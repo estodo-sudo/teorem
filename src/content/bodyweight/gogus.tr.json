@@ -1,0 +1,132 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Göğüs",
+    "intro": "Göğüs, ön omuz ve arka kolu çalıştıran şınav temelli programlar. Duvardan başlayıp tam şınava, oradan zor çeşitlere doğru adım adım ilerlersin.",
+    "science": [
+      "Şınav, yeterince zorlayıcı setlerle yapıldığında bench press'e yakın kas ve kuvvet kazancı sağlayabilir (8 haftalık küçük bir çalışma).",
+      "Sıralama: duvar → eğimli → dizden → tam şınav. Bir basamakta 12–15 temiz tekrarı rahat yapınca bir sonrakine geç.",
+      "Dar el aralığı ve elmas şınav göğsü ve arka kolu daha çok çalıştırma eğiliminde; el aralığının etkisi çalışmalar arasında tam tutarlı değil.",
+      "Az ama doğru tekrar, çok ama bozuk tekrardan iyidir: dirsekler en az 90 derece bükülsün, gövde düz kalsın."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "wall_pushup",
+      "name": "Duvar Şınavı",
+      "target": "Göğüs ve ön omuz (en kolay)",
+      "setup": "Duvara bir kol boyu uzakta dur. Ellerini omuz hizasında ve omuz genişliğinde duvara koy.",
+      "steps": ["Dirseklerini bükerek göğsünü duvara yaklaştır.", "Gövden baştan topuğa düz kalsın.", "Avuçlarınla iterek başlangıca dön."],
+      "tip": "Ayaklarını duvardan uzaklaştırdıkça hareket zorlaşır.",
+      "mistake": "Kalçanı geriye çıkarma; vücudun tek bir çizgi gibi hareket etsin."
+    },
+    {
+      "id": "incline_pushup",
+      "name": "Eğimli Şınav",
+      "target": "Göğüs ve arka kol",
+      "setup": "Ellerini sağlam bir sandalyenin, koltuğun ya da basamağın kenarına omuz genişliğinde koy; ayakların geride.",
+      "steps": ["Göğsünü kenara doğru indir; dirsekler gövdeye 45 derece açıyla dursun.", "Göğsün kenara yaklaşınca dur.", "İterek kollarını düzelt."],
+      "tip": "Yüzey ne kadar alçaksa hareket o kadar zorlaşır.",
+      "mistake": "Kayabilecek bir sandalye kullanma; duvara dayalı, sabit bir yüzey seç."
+    },
+    {
+      "id": "knee_pushup",
+      "name": "Dizden Şınav",
+      "target": "Göğüs, ön omuz ve arka kol",
+      "setup": "Ellerin omuzlarının biraz dışında, dizlerin yerde, ayakların havada. Başından dizlerine düz bir çizgi oluştur.",
+      "steps": ["Dirseklerini bükerek göğsünü yere yaklaştır.", "Göğsün yere bir yumruk kalınca dur.", "İterek kollarını düzelt."],
+      "tip": "20 temiz tekrarı rahat yapınca tam şınava geç.",
+      "mistake": "Sadece başını eğerek inme; tüm gövde birlikte insin."
+    },
+    {
+      "id": "pushup",
+      "name": "Şınav",
+      "target": "Göğüs, ön omuz, arka kol ve gövde",
+      "setup": "Ellerin omuzlarının biraz dışında, kolların düz, ayak parmaklarına bas. Başından topuklarına düz bir çizgi.",
+      "steps": ["Dirsekler gövdeye yaklaşık 45 derece açıyla göğsünü yere indir.", "Dirsekler en az 90 derece bükülünce dur.", "Yeri iterek kollarını düzelt."],
+      "tip": "Karnını ve kalçanı hafifçe sık; gövde tahta gibi kalsın.",
+      "mistake": "Kalçayı düşürme ya da havaya kaldırma; dirsekleri tam yana açma."
+    },
+    {
+      "id": "wide_pushup",
+      "name": "Geniş Şınav",
+      "target": "Göğsün dış kısmı ve ön omuz",
+      "setup": "Şınav pozisyonu, ama ellerin omuz genişliğinin yaklaşık bir buçuk katı açık.",
+      "steps": ["Göğsünü ellerinin arasına doğru indir.", "Göğsünde gerilmeyi hissettiğin yerde dur.", "İterek yukarı çık."],
+      "tip": "Elleri çok açma; omzunda baskı hissedersen aralığı daralt.",
+      "mistake": "Dirsekleri tam yana açıp omzu zorlama."
+    },
+    {
+      "id": "diamond_pushup",
+      "name": "Elmas Şınav",
+      "target": "Arka kol ve göğsün iç kısmı",
+      "setup": "Şınav pozisyonu; ellerini göğsünün altında birleştir, baş parmak ve işaret parmakları bir elmas oluştursun.",
+      "steps": ["Dirseklerini gövdene yakın tutarak göğsünü ellerine doğru indir.", "Göğsün ellerine yaklaşınca dur.", "İterek yukarı çık."],
+      "tip": "Zor gelirse dizlerin yerde yap.",
+      "mistake": "Dirsekleri yana açma; geriye doğru, gövdeye yakın bükülsünler."
+    },
+    {
+      "id": "decline_pushup",
+      "name": "Ayaklar Yüksekte Şınav",
+      "target": "Göğsün üst kısmı ve ön omuz",
+      "setup": "Ayaklarını sağlam bir sandalyeye ya da basamağa koy, ellerin yerde omuz genişliğinde.",
+      "steps": ["Gövden düz kalarak göğsünü yere indir.", "Dirsekler 90 dereceyi geçince dur.", "İterek yukarı çık."],
+      "tip": "Ayaklar ne kadar yüksekse o kadar zorlaşır; alçak bir basamakla başla.",
+      "mistake": "Belini çökertme; kalçanı sıkı tut."
+    },
+    {
+      "id": "negative_pushup",
+      "name": "Yavaş İnişli Şınav",
+      "target": "Göğüs ve arka kol (kuvvet)",
+      "setup": "Şınav pozisyonunda başla: kollar düz, vücudun düz bir çizgi.",
+      "steps": ["4 saniye boyunca çok yavaş in.", "Göğsün yere yaklaşınca dizlerini yere koy.", "Dizlerinin yardımıyla yukarı it ve yeniden tam pozisyona geç."],
+      "tip": "Tam şınavı henüz yapamıyorsan en iyi köprü budur: iniş kası en çok çalıştıran kısım.",
+      "mistake": "İnişi hızlandırma; asıl iş yavaş inişte."
+    },
+    {
+      "id": "pushup_hold",
+      "name": "Şınavda Bekleme",
+      "target": "Göğüs, arka kol ve gövde (dayanıklılık)",
+      "setup": "Şınav pozisyonuna gel ve yarıya kadar in; dirsekler yaklaşık 90 derece.",
+      "steps": ["Bu yükseklikte kal.", "Gövden düz, karnın sıkı.", "Nefes alarak süre bitene kadar bekle."],
+      "tip": "Zor gelirse dizlerin yerde bekle.",
+      "mistake": "Kalçanın sarkmasına izin verme."
+    },
+    {
+      "id": "chair_dips",
+      "name": "Sandalye Dips",
+      "target": "Arka kol ve göğsün alt kısmı",
+      "setup": "Duvara dayalı sağlam bir sandalyenin önünde dur. Ellerini arkada sandalyenin kenarına koy, dizlerin bükülü, ayakların yerde.",
+      "steps": ["Dirseklerini geriye bükerek kalçanı aşağı indir.", "Dirsekler 90 dereceye gelince dur.", "Avuçlarınla iterek yukarı çık."],
+      "tip": "Bacaklarını uzattıkça hareket zorlaşır.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma; omzunda ağrı olursa daha az in."
+    },
+    {
+      "id": "chest_squeeze",
+      "name": "Avuç Bastırma",
+      "target": "Göğüs (izometrik)",
+      "setup": "Ayakta dik dur. Avuçlarını göğsünün önünde birleştir, dirsekler yanlara açık.",
+      "steps": ["Avuçlarını birbirine olabildiğince güçlü bastır.", "Göğsünde kasılmayı hisset ve bekle.", "Gevşet ve yeniden bastır."],
+      "tip": "Bastırırken nefes vermeyi unutma.",
+      "mistake": "Omuzlarını yukarı kaldırma."
+    },
+    {
+      "id": "plyo_pushup",
+      "name": "Patlayıcı Şınav",
+      "target": "Göğüs ve arka kol (güç)",
+      "setup": "Şınav pozisyonu: kollar düz, gövde düz bir çizgi.",
+      "steps": ["Kontrollü in.", "Yeri hızla it; ellerin yerden kısa bir an kalksın.", "Dirsekler hafif bükülü, yumuşak in ve yeniden başla."],
+      "tip": "Sadece temiz şınavlar rahatsa dene; zor gelirse dizlerin yerde yap.",
+      "mistake": "Kollar kilitli inme; bileklerini korumak için iniş yumuşak olsun."
+    },
+    {
+      "id": "spiderman_pushup",
+      "name": "Örümcek Şınav",
+      "target": "Göğüs, gövde ve kalça",
+      "setup": "Şınav pozisyonu: kollar düz, vücudun düz bir çizgi.",
+      "steps": ["İnerken sağ dizini yandan sağ dirseğine doğru çek.", "Yukarı çıkarken bacağını geri götür.", "Bir sonraki inişte sol diz; sırayla devam et."],
+      "tip": "Diz dirseğe değmese de olur; gövdeyi düz tut.",
+      "mistake": "Diz çekerken kalçayı havaya kaldırma."
+    }
+  ]
+}

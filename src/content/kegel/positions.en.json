@@ -1,0 +1,38 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs"
+  ],
+  "positions": [
+    {
+      "id": "lying",
+      "icon": "bed",
+      "tone": "kegel",
+      "title": "Lying down",
+      "text": "Lie on your back with your knees bent and the soles of your feet on the floor. The muscle is easiest to feel in this position."
+    },
+    {
+      "id": "sitting",
+      "icon": "chair",
+      "tone": "kegel",
+      "title": "Sitting",
+      "text": "Sit upright on a chair, feet on the floor, knees slightly apart. Don't lean back; keep your shoulders relaxed."
+    },
+    {
+      "id": "standing",
+      "icon": "body",
+      "tone": "kegel",
+      "title": "Standing",
+      "text": "Feet shoulder-width apart, knees not locked. Spread your weight evenly over both feet."
+    },
+    {
+      "id": "functional",
+      "icon": "footprints",
+      "tone": "kegel",
+      "title": "In everyday life",
+      "text": "When walking, climbing stairs or standing up: squeeze just before you move."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "rct",
+  "sourceIds": [
+    "bothe2021",
+    "crosby2016",
+    "marlatt"
+  ],
+  "title": "My diary",
+  "intro": "Self-monitoring is the first step of change. Your entries are kept only on this phone, encrypted.",
+  "urge": {
+    "title": "Urge entry",
+    "hint": "In three taps: how strong, what happened, what you did.",
+    "intensity": "How strong was it?",
+    "trigger": "When / where? (optional)",
+    "dayy": "How were you at that moment? (optional)",
+    "outcome": "What did you do?",
+    "managed": "I managed it",
+    "slipped": "I slipped",
+    "saved": "Logged. Noticing is half of managing.",
+    "pick": "Pick one"
+  },
+  "behavior": {
+    "title": "Behaviour entry",
+    "hint": "No judgement. Noticing what happened is preparing for next time.",
+    "kind": "What happened?",
+    "trigger": "In what situation? (optional)",
+    "before": "What were you feeling before? (optional)",
+    "after": "What did you feel afterwards? (optional)",
+    "satisfaction": "How satisfying was it? (optional)",
+    "satisfactionScale": [
+      "Not at all",
+      "A little",
+      "Somewhat",
+      "Quite",
+      "Very"
+    ],
+    "save": "Save"
+  },
+  "week": {
+    "title": "This week's summary",
+    "empty": "The summary needs at least {min} entries this week. You have {n} entries now.",
+    "counts": "{urges} urge moments · {managed} managed · {behaviors} behaviour entries",
+    "riskyHour": "Riskiest hour: {range}",
+    "riskyDay": "Riskiest day: {day}",
+    "topTrigger": "Most frequent situation: {trigger}",
+    "bestTool": "Tool that helped most: {tool}",
+    "emotions": "You usually felt “{before}” before and “{after}” afterwards.",
+    "satisfaction": "Average satisfaction: {avg}/5",
+    "note": "This summary is for awareness; it's not an assessment or a grade."
+  },
+  "days": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ],
+  "list": {
+    "title": "Recent entries",
+    "empty": "No entries yet. You can add an urge or behaviour entry.",
+    "urge": "Urge · {n}/10",
+    "managed": "managed",
+    "still_hard": "was hard",
+    "slipped": "slip"
+  }
+}

@@ -1,20 +1,24 @@
 import { createInstance } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import { useSettingsStore } from '@/stores/settingsStore';
+
 import en from './en.json';
+import { isLanguage, type Language } from './languages';
 import tr from './tr.json';
 
-export const SUPPORTED_LANGUAGES = ['tr', 'en'] as const;
-export type Language = (typeof SUPPORTED_LANGUAGES)[number];
+export { LANGUAGE_NAMES, LOCALES, SUPPORTED_LANGUAGES, localeOf, type Language } from './languages';
 
 const i18n = createInstance();
 
-// Turkish is the primary language. English is a skeleton for Phase 2 and
-// falls back to Turkish for any missing key.
+const saved = useSettingsStore.getState().settings.language;
+
+// Turkish is the source language; every other language is complete (checked by the i18n tests) and
+// falls back to English, then Turkish, should a key ever be missing.
 void i18n.use(initReactI18next).init({
   resources: { tr: { translation: tr }, en: { translation: en } },
-  lng: 'tr',
-  fallbackLng: 'tr',
+  lng: isLanguage(saved) ? saved : 'tr',
+  fallbackLng: { tr: [], default: ['en', 'tr'] },
   interpolation: { escapeValue: false },
   returnNull: false,
   initAsync: false,

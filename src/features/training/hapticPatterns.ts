@@ -74,8 +74,12 @@ const LANGUAGE: Record<Cue, HapticEvent[]> = {
   exerciseEnd: [tr(0, 0.8, 0.6), tr(170, 0.8, 0.6), tr(340, 0.8, 0.6)],
 };
 
-/** Strength setting: Off / Light / Normal / Strong. */
-export const STRENGTH_SCALE: Record<HapticStrength, number> = { 0: 0, 1: 0.55, 2: 0.8, 3: 1 };
+/**
+ * Strength setting: Off / Light / Normal / Strong. Chosen so that after the app-wide boost below the
+ * three are clearly apart (≈ 45 % / 75 % / 100 % of full intensity). The old 0.55 / 0.8 / 1 landed at
+ * 88 / 95 / 100 % and felt the same (user report 2026-11-23).
+ */
+export const STRENGTH_SCALE: Record<HapticStrength, number> = { 0: 0, 1: 0.28, 2: 0.47, 3: 1 };
 
 /**
  * App-wide boost of how strongly vibration is felt (+60 %: raised to +80 % on 2026-11-22, then a touch lower),
@@ -202,15 +206,24 @@ export function androidWaveform(events: HapticEvent[]): { timings: number[]; amp
  * Intensity becomes length: a rising ramp is short pulses getting longer, a falling one the reverse,
  * so squeeze and release still feel different.
  */
+const PWM_MS = 40;
+/** On-share of an on/off slice for an intensity: 1 at full strength, about a third at Light. */
+export const dutyFor = (intensity: number) => Math.max(0.2, Math.min(1, Math.pow(Math.min(1, intensity), 1.6)));
+
 export function onOffPattern(events: HapticEvent[]): number[] {
   const pulses: { start: number; dur: number }[] = [];
   for (const e of events) {
     if (e.type === 'transient') pulses.push({ start: e.time, dur: Math.round(20 + 50 * e.intensity) });
     // A rumble grain (≤ 60 ms, steady): on for most of it, with a hairline gap that grows as the grain
     // weakens — on/off-only phones feel the dips without real pauses.
-    else if (e.duration <= 60 && Math.abs(e.intensity - e.intensityEnd) < 0.05) pulses.push({ start: e.time, dur: Math.max(8, Math.round(e.duration * (0.55 + 0.45 * Math.min(1, e.intensity)))) });
-    // A steady strong vibration stays one unbroken vibration.
-    else if (Math.abs(e.intensity - e.intensityEnd) < 0.05 && e.intensity >= 0.3) pulses.push({ start: e.time, dur: Math.round(e.duration) });
+    else if (e.duration <= 60 && Math.abs(e.intensity - e.intensityEnd) < 0.05) pulses.push({ start: e.time, dur: Math.max(6, Math.round(e.duration * dutyFor(e.intensity))) });
+    // A steady vibration: unbroken at full strength; weaker ones are chopped into short on/off slices
+    // (pulse-width), so Light really feels lighter on phones that can only switch the motor on and off.
+    else if (Math.abs(e.intensity - e.intensityEnd) < 0.05 && e.intensity >= 0.3) {
+      const duty = dutyFor(e.intensity);
+      if (duty >= 0.95) pulses.push({ start: e.time, dur: Math.round(e.duration) });
+      else for (let t = 0; t < e.duration; t += PWM_MS) pulses.push({ start: e.time + t, dur: Math.max(6, Math.round(Math.min(PWM_MS, e.duration - t) * duty)) });
+    }
     else {
       const n = Math.max(2, Math.round(e.duration / 110));
       for (let i = 0; i < n; i++) {
@@ -235,7 +248,8 @@ export function onOffPattern(events: HapticEvent[]): number[] {
 export type IosImpact = 'light' | 'medium' | 'heavy' | 'soft' | 'rigid';
 /** iOS fallback without Core Haptics (Expo Go): timed expo-haptics impacts approximating the events. */
 export function iosFallbackCalls(events: HapticEvent[]): { style: IosImpact; delayMs: number }[] {
-  const style = (i: number, sharp: number): IosImpact => (sharp >= 0.9 ? 'rigid' : i >= 0.75 ? 'heavy' : i >= 0.45 ? 'medium' : i >= 0.2 ? 'light' : 'soft');
+  // Light / Normal / Strong (≈ 0.45 / 0.75 / 1) map to light / medium / heavy impacts.
+  const style = (i: number, sharp: number): IosImpact => (sharp >= 0.9 && i >= 0.6 ? 'rigid' : i >= 0.9 ? 'heavy' : i >= 0.6 ? 'medium' : i >= 0.2 ? 'light' : 'soft');
   const out: { style: IosImpact; delayMs: number }[] = [];
   for (const e of events) {
     if (e.type === 'transient') out.push({ style: style(e.intensity, e.sharpness), delayMs: e.time });

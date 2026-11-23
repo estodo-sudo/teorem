@@ -1,0 +1,627 @@
+{
+  "days": 28,
+  "items": [
+    {
+      "id": "sn01",
+      "category": "snack",
+      "icon": "nut",
+      "tone": "campus",
+      "text": "Eat a handful of walnuts.",
+      "why": "They contain arginine and plant omega-3; they support blood vessel health.",
+      "source": {
+        "title": "Esposito et al. (2006) – Mediterranean diet and erectile function",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      }
+    },
+    {
+      "id": "sn02",
+      "category": "snack",
+      "icon": "nut",
+      "tone": "campus",
+      "text": "Eat a handful of unsalted pistachios.",
+      "why": "Rich in arginine and antioxidants.",
+      "source": {
+        "title": "L-arginine and erectile function – meta-analysis (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "sn03",
+      "category": "snack",
+      "icon": "nut",
+      "tone": "campus",
+      "text": "Eat a handful of raw almonds.",
+      "why": "A source of magnesium and vitamin E.",
+      "source": {
+        "title": "NIH ODS – Magnesium",
+        "url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer/"
+      }
+    },
+    {
+      "id": "sn04",
+      "category": "snack",
+      "icon": "nut",
+      "tone": "campus",
+      "text": "Add 1 tablespoon of pumpkin seeds to your yoghurt or salad.",
+      "why": "One of the good sources of zinc, which is needed to produce testosterone.",
+      "source": {
+        "title": "NIH ODS – Zinc",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    },
+    {
+      "id": "sn05",
+      "category": "snack",
+      "icon": "cookie",
+      "tone": "campus",
+      "text": "Eat 1–2 squares of 70%+ cocoa dark chocolate.",
+      "why": "Cocoa flavanols support the function of the inner lining of blood vessels.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "sn06",
+      "category": "snack",
+      "icon": "nut",
+      "tone": "campus",
+      "text": "Eat 1 Brazil nut; no more.",
+      "why": "A single one covers your daily selenium need; selenium is important for reproductive health.",
+      "source": {
+        "title": "NIH ODS – Selenium",
+        "url": "https://ods.od.nih.gov/factsheets/Selenium-Consumer/"
+      }
+    },
+    {
+      "id": "sn07",
+      "category": "snack",
+      "icon": "nut",
+      "tone": "campus",
+      "text": "Eat a handful of cashews.",
+      "why": "They contain zinc and magnesium.",
+      "source": {
+        "title": "NIH ODS – Zinc",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    },
+    {
+      "id": "sn08",
+      "category": "snack",
+      "icon": "flower",
+      "tone": "campus",
+      "text": "Eat a handful of unsalted sunflower seeds.",
+      "why": "A source of vitamin E and zinc.",
+      "source": {
+        "title": "NIH ODS – Zinc",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    },
+    {
+      "id": "sn09",
+      "category": "snack",
+      "icon": "bean",
+      "tone": "campus",
+      "text": "Eat a handful of roasted chickpeas as a snack.",
+      "why": "They provide plant protein, arginine and folate.",
+      "source": {
+        "title": "NIH ODS – Folate",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "sn10",
+      "category": "snack",
+      "icon": "wheat",
+      "tone": "campus",
+      "text": "Add 1 teaspoon of ground flaxseed to your yoghurt.",
+      "why": "Contains plant omega-3 and fibre.",
+      "source": {
+        "title": "NIH ODS – Omega-3 fatty acids",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "sn11",
+      "category": "snack",
+      "icon": "utensils",
+      "tone": "campus",
+      "text": "Add 1 teaspoon of chia seeds to your yoghurt or milk.",
+      "why": "Contains omega-3, fibre and magnesium.",
+      "source": {
+        "title": "NIH ODS – Omega-3 fatty acids",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "sn12",
+      "category": "snack",
+      "icon": "coffee",
+      "tone": "campus",
+      "text": "Add 1 teaspoon of unsweetened cocoa to your milk.",
+      "why": "Pure cocoa is one of the richest sources of flavanols.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "sn13",
+      "category": "snack",
+      "icon": "coffee",
+      "tone": "campus",
+      "text": "Drink 1–2 cups of green tea.",
+      "why": "Rich in flavonoids called catechins.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr01",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a bowl of blueberries.",
+      "why": "Fruits rich in anthocyanins have been linked to a lower risk of erection problems.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr02",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a bowl of strawberries.",
+      "why": "Strawberries were among the fruits that contributed most in the flavonoid research.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr03",
+      "category": "fruit",
+      "icon": "circle",
+      "tone": "campus",
+      "text": "Eat half a pomegranate.",
+      "why": "Rich in polyphenols; supports blood vessel health.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr04",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a few slices of watermelon; out of season, swap it for a bowl of strawberries.",
+      "why": "Contains citrulline, which the body turns into arginine.",
+      "source": {
+        "title": "L-arginine and erectile function – meta-analysis (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "fr05",
+      "category": "fruit",
+      "icon": "citrus",
+      "tone": "campus",
+      "text": "Eat an orange.",
+      "why": "Citrus flavanones have been linked to a lower risk of erection problems.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr06",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat an apple.",
+      "why": "Apples were among the fruits that stood out in the flavonoid research.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr07",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a banana.",
+      "why": "Potassium and magnesium help keep blood pressure balanced.",
+      "source": {
+        "title": "NIH ODS – Magnesium",
+        "url": "https://ods.od.nih.gov/factsheets/Magnesium-Consumer/"
+      }
+    },
+    {
+      "id": "fr08",
+      "category": "fruit",
+      "icon": "grape",
+      "tone": "campus",
+      "text": "Eat a handful of red or black grapes.",
+      "why": "Their skins contain anthocyanins and resveratrol.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr09",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a bowl of cherries or sour cherries; out of season, a handful of dried ones.",
+      "why": "Rich in anthocyanins.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr10",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a handful of blackberries or mulberries.",
+      "why": "A source of anthocyanins and fibre.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr11",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat half an avocado.",
+      "why": "Contains healthy fats, folate and magnesium.",
+      "source": {
+        "title": "NIH ODS – Folate",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "fr12",
+      "category": "fruit",
+      "icon": "citrus",
+      "tone": "campus",
+      "text": "Eat two mandarins.",
+      "why": "A source of flavanones and vitamin C.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr13",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a pear.",
+      "why": "Pears, along with apples, were among the fruits that stood out in the flavonoid research.",
+      "source": {
+        "title": "Cassidy et al. (2016) – Flavonoid intake and erectile dysfunction, AJCN",
+        "url": "https://ueaeprints.uea.ac.uk/id/eprint/57156/"
+      }
+    },
+    {
+      "id": "fr14",
+      "category": "fruit",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat a kiwi.",
+      "why": "One covers most of your daily vitamin C need.",
+      "source": {
+        "title": "NIH ODS – Vitamin C",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminC-Consumer/"
+      }
+    },
+    {
+      "id": "pl01",
+      "category": "plate",
+      "icon": "circle",
+      "tone": "campus",
+      "text": "Add beetroot to your meal.",
+      "why": "Contains natural nitrate; nitrate turns into nitric oxide, which relaxes blood vessels.",
+      "source": {
+        "title": "Beetroot nitrate and blood pressure – meta-analysis (2022)",
+        "url": "https://www.frontiersin.org/articles/10.3389/fnut.2022.823039/full"
+      }
+    },
+    {
+      "id": "pl02",
+      "category": "plate",
+      "icon": "salad",
+      "tone": "campus",
+      "text": "Add a handful of rocket to your salad.",
+      "why": "One of the greens richest in nitrate.",
+      "source": {
+        "title": "Inorganic nitrate and cardiovascular risk factors – meta-analysis (2018)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29506204/"
+      }
+    },
+    {
+      "id": "pl03",
+      "category": "plate",
+      "icon": "salad",
+      "tone": "campus",
+      "text": "Add spinach to one of your meals.",
+      "why": "A source of nitrate, folate and magnesium.",
+      "source": {
+        "title": "Inorganic nitrate and cardiovascular risk factors – meta-analysis (2018)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29506204/"
+      }
+    },
+    {
+      "id": "pl04",
+      "category": "plate",
+      "icon": "salad",
+      "tone": "campus",
+      "text": "Eat a portion of broccoli.",
+      "why": "Contains folate and vitamin C.",
+      "source": {
+        "title": "NIH ODS – Folate",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "pl05",
+      "category": "plate",
+      "icon": "apple",
+      "tone": "campus",
+      "text": "Eat tomatoes with one meal.",
+      "why": "Contains lycopene; a staple of Mediterranean-style eating.",
+      "source": {
+        "title": "Esposito et al. (2006) – Mediterranean diet and erectile function",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      }
+    },
+    {
+      "id": "pl06",
+      "category": "plate",
+      "icon": "leaf",
+      "tone": "campus",
+      "text": "Add a spoonful of olive oil to your salad.",
+      "why": "In one study, an olive-oil-based Mediterranean diet improved erectile function.",
+      "source": {
+        "title": "Esposito et al. (2006) – Mediterranean diet and erectile function",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16395320/"
+      }
+    },
+    {
+      "id": "pl07",
+      "category": "plate",
+      "icon": "egg",
+      "tone": "campus",
+      "text": "Eat eggs at breakfast.",
+      "why": "Provide vitamin D, B12 and high-quality protein.",
+      "source": {
+        "title": "NIH ODS – Vitamin D",
+        "url": "https://ods.od.nih.gov/factsheets/VitaminD-Consumer/"
+      }
+    },
+    {
+      "id": "pl08",
+      "category": "plate",
+      "icon": "fish",
+      "tone": "campus",
+      "text": "Eat salmon or mackerel with one meal.",
+      "why": "A source of omega-3 and vitamin D.",
+      "source": {
+        "title": "NIH ODS – Omega-3 fatty acids",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "pl09",
+      "category": "plate",
+      "icon": "fish",
+      "tone": "campus",
+      "text": "Eat anchovies or sardines with one meal.",
+      "why": "Affordable fish rich in omega-3.",
+      "source": {
+        "title": "NIH ODS – Omega-3 fatty acids",
+        "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      }
+    },
+    {
+      "id": "pl10",
+      "category": "plate",
+      "icon": "bean",
+      "tone": "campus",
+      "text": "Eat chickpeas with one meal.",
+      "why": "Contain arginine, zinc and folate.",
+      "source": {
+        "title": "L-arginine and erectile function – meta-analysis (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "pl11",
+      "category": "plate",
+      "icon": "soup",
+      "tone": "campus",
+      "text": "Have a bowl of lentil soup.",
+      "why": "Provides folate, zinc and plant protein.",
+      "source": {
+        "title": "NIH ODS – Folate",
+        "url": "https://ods.od.nih.gov/factsheets/Folate-Consumer/"
+      }
+    },
+    {
+      "id": "pl12",
+      "category": "plate",
+      "icon": "drumstick",
+      "tone": "campus",
+      "text": "Eat turkey or chicken breast with one meal.",
+      "why": "A source of arginine and zinc.",
+      "source": {
+        "title": "L-arginine and erectile function – meta-analysis (2021)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33587304/"
+      }
+    },
+    {
+      "id": "pl13",
+      "category": "plate",
+      "icon": "fish",
+      "tone": "campus",
+      "text": "Eat mussels or prawns with one meal.",
+      "why": "Shellfish are among the richest sources of zinc.",
+      "source": {
+        "title": "NIH ODS – Zinc",
+        "url": "https://ods.od.nih.gov/factsheets/Zinc-Consumer/"
+      }
+    }
+  ],
+  "plan": [
+    [
+      "sn01",
+      "fr01",
+      "pl01"
+    ],
+    [
+      "sn02",
+      "fr02",
+      "pl02"
+    ],
+    [
+      "sn03",
+      "fr03",
+      "pl03"
+    ],
+    [
+      "sn04",
+      "fr04",
+      "pl04"
+    ],
+    [
+      "sn05",
+      "fr05",
+      "pl05"
+    ],
+    [
+      "sn06",
+      "fr06",
+      "pl06"
+    ],
+    [
+      "sn07",
+      "fr07",
+      "pl07"
+    ],
+    [
+      "sn08",
+      "fr08",
+      "pl08"
+    ],
+    [
+      "sn09",
+      "fr09",
+      "pl09"
+    ],
+    [
+      "sn10",
+      "fr10",
+      "pl10"
+    ],
+    [
+      "sn11",
+      "fr11",
+      "pl11"
+    ],
+    [
+      "sn12",
+      "fr12",
+      "pl12"
+    ],
+    [
+      "sn13",
+      "fr13",
+      "pl13"
+    ],
+    [
+      "sn01",
+      "fr14",
+      "pl01"
+    ],
+    [
+      "sn02",
+      "fr01",
+      "pl02"
+    ],
+    [
+      "sn03",
+      "fr02",
+      "pl03"
+    ],
+    [
+      "sn04",
+      "fr03",
+      "pl04"
+    ],
+    [
+      "sn05",
+      "fr04",
+      "pl05"
+    ],
+    [
+      "sn06",
+      "fr05",
+      "pl06"
+    ],
+    [
+      "sn07",
+      "fr06",
+      "pl07"
+    ],
+    [
+      "sn08",
+      "fr07",
+      "pl08"
+    ],
+    [
+      "sn09",
+      "fr08",
+      "pl09"
+    ],
+    [
+      "sn10",
+      "fr09",
+      "pl10"
+    ],
+    [
+      "sn11",
+      "fr10",
+      "pl11"
+    ],
+    [
+      "sn12",
+      "fr11",
+      "pl12"
+    ],
+    [
+      "sn13",
+      "fr12",
+      "pl13"
+    ],
+    [
+      "sn01",
+      "fr13",
+      "pl01"
+    ],
+    [
+      "sn02",
+      "fr14",
+      "pl02"
+    ]
+  ]
+}

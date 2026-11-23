@@ -1,0 +1,777 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "bricker2020",
+    "bricker2021",
+    "nci-withdrawal"
+  ],
+  "lessons": [
+    {
+      "id": "values",
+      "icon": "compass",
+      "tone": "smokefree",
+      "title": "Your values",
+      "summary": "What matters to you in a smoke-free life?",
+      "relapse": [],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "compass",
+          "tone": "smokefree",
+          "title": "What does your compass show?",
+          "text": "Values are your compass for what matters in life: health, family, freedom, curiosity, hard work. Goals end one day; values always guide you."
+        },
+        {
+          "icon": "bulb",
+          "tone": "smokefree",
+          "title": "Why does it matter?",
+          "text": "When an urge comes, asking \"Does this cigarette bring me closer to what I care about, or further away?\" makes your decision easier."
+        },
+        {
+          "icon": "users",
+          "tone": "smokefree",
+          "title": "Make it concrete",
+          "text": "A concrete sentence like \"To be able to run with my daughter\" instead of \"health\" is a stronger reminder in a hard moment."
+        },
+        {
+          "icon": "sprout",
+          "tone": "smokefree",
+          "title": "You don't have to be perfect",
+          "text": "Living by your values isn't being flawless every day; it's turning back towards them each time."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Choose the two values that matter most to you and, for each, write something you want to do in a smoke-free life. You can add these sentences to your reasons."
+      },
+      "quiz": [
+        {
+          "q": "How do values help when an urge comes?",
+          "options": [
+            "They wipe out the urge completely",
+            "They make me ask whether the cigarette brings me closer to what I care about",
+            "They're just motivational words"
+          ],
+          "answer": 1,
+          "explain": "Values don't erase the urge, but by reminding you which way you want to go, they make choosing easier."
+        }
+      ],
+      "order": 1,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "wave",
+      "icon": "waves",
+      "tone": "smokefree",
+      "title": "The urge is a wave",
+      "summary": "The nature of an urge: it rises, peaks and fades.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021",
+        "nci-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "waves",
+          "tone": "smokefree",
+          "title": "How does an urge behave?",
+          "text": "The urge to smoke is like a wave: it rises, reaches a peak and then falls. Most urges peak within a few minutes."
+        },
+        {
+          "icon": "timer",
+          "tone": "smokefree",
+          "title": "Time is on your side",
+          "text": "When you don't respond to the urge right away, the wave fades by itself. Each time, your brain learns that the urge can pass."
+        },
+        {
+          "icon": "trendDown",
+          "tone": "smokefree",
+          "title": "It gets rarer over time",
+          "text": "In the first days, urges are frequent and strong. As the weeks pass, both how often they come and how strong they are decrease.",
+          "didYouKnow": "Withdrawal symptoms are usually most intense in the first week and decrease markedly within the first month."
+        },
+        {
+          "icon": "waves",
+          "tone": "smokefree",
+          "title": "Surf instead of fighting",
+          "text": "Fighting the urge can make it bigger. Noticing it and staying with it lets the wave pass."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Next time an urge comes, check the time and observe how long it lasts. You'll often find it's shorter than you thought."
+      },
+      "quiz": [
+        {
+          "q": "How does the urge to smoke usually progress?",
+          "options": [
+            "It keeps rising until you smoke",
+            "It rises, peaks and fades by itself",
+            "It never changes"
+          ],
+          "answer": 1,
+          "explain": "Urges are like waves; when you don't respond, they fade by themselves after the peak."
+        }
+      ],
+      "order": 2,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "surf",
+      "icon": "waves",
+      "tone": "smokefree",
+      "title": "Urge surfing practice",
+      "summary": "Learn to stay with the urge through guided practice.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "eye",
+          "tone": "smokefree",
+          "title": "1. Notice",
+          "text": "When an urge comes, tell yourself: \"Right now I feel an urge to smoke.\" Naming it lets you see the urge without getting carried away by it."
+        },
+        {
+          "icon": "wind",
+          "tone": "smokefree",
+          "title": "2. Find it in your body",
+          "text": "Where in your body do you feel the urge? Chest, throat, hands, stomach? Explore the shape, temperature and intensity of the feeling with curiosity."
+        },
+        {
+          "icon": "wind",
+          "tone": "smokefree",
+          "title": "3. Accompany it with your breath",
+          "text": "Let your breath flow naturally. With each breath, make a little more room for the urge; don't try to push it away or chase it off."
+        },
+        {
+          "icon": "trendUp",
+          "tone": "smokefree",
+          "title": "4. Watch the wave",
+          "text": "The feeling may grow, change or fade. Just watch. When the peak has passed, you've ridden out a wave without smoking."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "During an urge, watch it like a wave for 3 minutes: notice its rise, peak and fall. If you like, do it together with the breathing in the \"I have a craving\" tool. Even if there's no urge, practise once today."
+      },
+      "quiz": [
+        {
+          "q": "What is the aim of urge surfing?",
+          "options": [
+            "To get rid of the urge",
+            "To stay with the urge and let it pass",
+            "To force yourself to put off smoking"
+          ],
+          "answer": 1,
+          "explain": "The aim isn't to erase the urge but to stay with it; that's also the core skill in the iCanQuit study."
+        }
+      ],
+      "order": 3,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "thoughts",
+      "icon": "thought",
+      "tone": "smokefree",
+      "title": "Thoughts are just thoughts",
+      "summary": "Get some distance from the thought \"Just one won't hurt\".",
+      "relapse": [
+        "just_one"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "thought",
+          "tone": "smokefree",
+          "title": "Your mind talks",
+          "text": "While you're quitting, the mind comes up with persuasive lines: \"Just one won't hurt\", \"You deserve it today\", \"You can't quit with this stress\"."
+        },
+        {
+          "icon": "search",
+          "tone": "smokefree",
+          "title": "Thought ≠ fact",
+          "text": "A thought coming to mind doesn't mean it's true or that you have to follow it."
+        },
+        {
+          "icon": "tag",
+          "tone": "smokefree",
+          "title": "Label it",
+          "text": "Say the thought like this: \"I'm having the thought 'just one won't hurt'.\" This small sentence puts distance between you and the thought."
+        },
+        {
+          "icon": "car",
+          "tone": "smokefree",
+          "title": "The passenger in the back seat",
+          "text": "Think of your thoughts as passengers in the back seat of a car. They can talk, but you're at the wheel.",
+          "didYouKnow": "Starting again after \"just one\" is one of the experiences most often described by people who've tried to quit."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Today, when a thought about smoking comes, repeat it with \"I'm having the thought that:\" in front. Notice the difference you feel."
+      },
+      "quiz": [
+        {
+          "q": "What helps when the thought \"Just one won't hurt\" comes?",
+          "options": [
+            "Arguing with the thought and defeating it",
+            "Noticing it as a thought and letting it pass without following it",
+            "Smoking one until the thought passes"
+          ],
+          "answer": 1,
+          "explain": "Noticing and labelling the thought reminds you that you don't have to follow it."
+        }
+      ],
+      "order": 4,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "body",
+      "icon": "heartPulse",
+      "tone": "smokefree",
+      "title": "Accepting physical sensations",
+      "summary": "Being able to stay with tension, restlessness and a feeling of emptiness.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021",
+        "nci-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "heartPulse",
+          "tone": "smokefree",
+          "title": "Your body talks",
+          "text": "When you quit, you may feel tension, restlessness, empty hands or a knot in your stomach. These are normal parts of withdrawal."
+        },
+        {
+          "icon": "magnet",
+          "tone": "smokefree",
+          "title": "Resistance makes it bigger",
+          "text": "Trying to get rid of an uncomfortable feeling right away often makes it more noticeable."
+        },
+        {
+          "icon": "sofa",
+          "tone": "smokefree",
+          "title": "Make room",
+          "text": "Instead of fixing the feeling, try making room for it: \"This feeling can be here, and I can carry on with my day alongside it.\""
+        },
+        {
+          "icon": "cloudSun",
+          "tone": "smokefree",
+          "title": "It's temporary",
+          "text": "Physical withdrawal sensations usually decrease within a few weeks. Every day your body gets more used to a nicotine-free balance."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Today, when you feel discomfort, just observe it for 60 seconds: where, what is it like, how strong? Then see what has changed."
+      },
+      "quiz": [
+        {
+          "q": "What is the ACT way of dealing with an uncomfortable physical sensation?",
+          "options": [
+            "Trying to get rid of it right away",
+            "Making room for it and carrying on with it",
+            "Ignoring it and suppressing it"
+          ],
+          "answer": 1,
+          "explain": "Acceptance isn't liking the feeling; it's making room for it and continuing to do what matters to you."
+        }
+      ],
+      "order": 5,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "emotions",
+      "icon": "cloudSun",
+      "tone": "smokefree",
+      "title": "Working with emotions",
+      "summary": "Stress, anger and boredom (without cigarettes).",
+      "relapse": [
+        "stress"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021",
+        "nci-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "cloudSun",
+          "tone": "smokefree",
+          "title": "Smoking was a tool for emotions",
+          "text": "Many people use cigarettes to cope with stress, anger or boredom. When you quit, these feelings become more visible."
+        },
+        {
+          "icon": "shield",
+          "tone": "smokefree",
+          "title": "Smoking doesn't solve stress",
+          "text": "The relaxing feeling of a cigarette comes largely from relieving nicotine withdrawal. A while after quitting, many people feel calmer."
+        },
+        {
+          "icon": "speech",
+          "tone": "smokefree",
+          "title": "Name the feeling",
+          "text": "Saying \"I'm angry right now\" or \"I'm bored\" puts a little distance between you and the feeling and makes choosing easier."
+        },
+        {
+          "icon": "wrench",
+          "tone": "smokefree",
+          "title": "New tools",
+          "text": "A short walk, a breathing exercise, talking to someone or writing the feeling down are ways that can take the place of smoking."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Today, when you have a strong feeling, name it and try a tool instead of a cigarette: breathing, a walk or writing to someone."
+      },
+      "quiz": [
+        {
+          "q": "What is the main reason smoking seems to reduce stress?",
+          "options": [
+            "Cigarettes are a calming drug",
+            "Nicotine withdrawal is temporarily relieved",
+            "The smoke relaxes the lungs"
+          ],
+          "answer": 1,
+          "explain": "A smoker goes through mild withdrawal between cigarettes; a cigarette relieves it, so it feels relaxing."
+        }
+      ],
+      "order": 6,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "willingness",
+      "icon": "door",
+      "tone": "smokefree",
+      "title": "Willingness",
+      "summary": "Making room for discomfort for the sake of what matters to you.",
+      "relapse": [],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "door",
+          "tone": "smokefree",
+          "title": "What is willingness?",
+          "text": "Willingness is being prepared to make room for uncomfortable feelings and thoughts for the sake of something that matters to you."
+        },
+        {
+          "icon": "mountain",
+          "tone": "smokefree",
+          "title": "Like climbing a mountain",
+          "text": "Someone who wants to reach the summit doesn't like being tired, but accepts it. A smoke-free life also means accepting some hard moments."
+        },
+        {
+          "icon": "sliders",
+          "tone": "smokefree",
+          "title": "All or nothing",
+          "text": "Willingness is like a switch: on or off. Instead of trying to reduce the urge, you can choose to open the door to it."
+        },
+        {
+          "icon": "compass",
+          "tone": "smokefree",
+          "title": "Connect it to your values",
+          "text": "The answer to \"Why am I willing to accept this difficulty?\" lies in your values."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Today, during an urge, ask yourself: \"Am I willing to make room for this discomfort for what matters to me?\" Note your answer."
+      },
+      "quiz": [
+        {
+          "q": "What does willingness mean?",
+          "options": [
+            "Liking the urge",
+            "Being prepared to make room for discomfort for what matters to you",
+            "Giving in to the urge"
+          ],
+          "answer": 1,
+          "explain": "Willingness isn't liking the discomfort; it's choosing to make room for it for the sake of your values."
+        }
+      ],
+      "order": 7,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "withdrawal",
+      "icon": "calendar",
+      "tone": "smokefree",
+      "title": "What to expect from withdrawal",
+      "summary": "Symptoms, how long they last and ways to cope.",
+      "relapse": [
+        "withdrawal"
+      ],
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "calendar",
+          "tone": "smokefree",
+          "title": "The first days",
+          "text": "Symptoms usually peak in the first few days after quitting. The first week is the hardest period."
+        },
+        {
+          "icon": "angry",
+          "tone": "smokefree",
+          "title": "Common symptoms",
+          "text": "The urge to smoke, irritability, restlessness, trouble concentrating, sleep problems and increased appetite are the most common."
+        },
+        {
+          "icon": "trendDown",
+          "tone": "smokefree",
+          "title": "How long does it last?",
+          "text": "Most symptoms decrease markedly within the first month. Irritability is most intense in the first week and can last 2–4 weeks.",
+          "didYouKnow": "Withdrawal symptoms are a sign that your body is getting used to living without nicotine; they're temporary."
+        },
+        {
+          "icon": "wrench",
+          "tone": "smokefree",
+          "title": "Coping",
+          "text": "The symptom tips in the daily check give short suggestions for each symptom. Getting support also makes withdrawal easier."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "In today's check, mark the symptoms you feel and try one of the suggestions."
+      },
+      "quiz": [
+        {
+          "q": "When are withdrawal symptoms usually most intense?",
+          "options": [
+            "A year after quitting",
+            "In the first days after quitting",
+            "They never decrease"
+          ],
+          "answer": 1,
+          "explain": "Symptoms usually peak in the first days and decrease markedly within the first month."
+        }
+      ],
+      "order": 8,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "weight",
+      "icon": "scale",
+      "tone": "smokefree",
+      "title": "Worry about weight gain",
+      "summary": "Facts and small strategies.",
+      "relapse": [
+        "weight"
+      ],
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "scale",
+          "tone": "smokefree",
+          "title": "A worry, a fact",
+          "text": "Some people may gain a little weight after quitting. The reasons include increased appetite and small changes in metabolism."
+        },
+        {
+          "icon": "heart",
+          "tone": "smokefree",
+          "title": "The gain is bigger",
+          "text": "The health benefits of quitting smoking are far greater than the possible effects of a few kilos."
+        },
+        {
+          "icon": "apple",
+          "tone": "smokefree",
+          "title": "Small strategies",
+          "text": "Not skipping meals, keeping fruit and vegetables handy, drinking water and moving a little every day help."
+        },
+        {
+          "icon": "target",
+          "tone": "smokefree",
+          "title": "Stay smoke-free first",
+          "text": "In the first weeks, your priority is staying smoke-free. You can make bigger changes to your diet when you feel stronger."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Choose and prepare two healthy snacks to have handy tomorrow."
+      },
+      "quiz": [
+        {
+          "q": "What's the best approach to weight worries in the first weeks?",
+          "options": [
+            "Starting a strict diet",
+            "Making staying smoke-free the priority and taking small, sustainable steps",
+            "Going back to smoking so as not to gain weight"
+          ],
+          "answer": 1,
+          "explain": "Small steps are enough; the real gain is staying smoke-free."
+        }
+      ],
+      "order": 9,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "social",
+      "icon": "users",
+      "tone": "smokefree",
+      "title": "Social pressure and saying \"no\"",
+      "summary": "Social settings and offers.",
+      "relapse": [
+        "social",
+        "alcohol"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "users",
+          "tone": "smokefree",
+          "title": "Settings trigger",
+          "text": "Social settings where people smoke, weddings, cafés and gatherings with alcohol are strong triggers."
+        },
+        {
+          "icon": "ban",
+          "tone": "smokefree",
+          "title": "Short and clear",
+          "text": "\"Thanks, I've quit\" is enough. You don't have to explain."
+        },
+        {
+          "icon": "map",
+          "tone": "smokefree",
+          "title": "Plan ahead",
+          "text": "Before you go, think about what you'll drink, where you'll stand and what you'll say if someone offers you a cigarette."
+        },
+        {
+          "icon": "glass",
+          "tone": "smokefree",
+          "title": "Careful with alcohol",
+          "text": "Alcohol can weaken your resolve. In the first weeks, avoiding settings with alcohol or keeping them limited makes things easier."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write an If–Then plan for a social situation you might face this week and say your \"no\" sentence out loud once."
+      },
+      "quiz": [
+        {
+          "q": "What might be the most useful answer when someone offers you a cigarette?",
+          "options": [
+            "Giving a long explanation",
+            "A short, clear sentence like \"Thanks, I've quit\"",
+            "Taking one but not smoking it"
+          ],
+          "answer": 1,
+          "explain": "A short, clear answer leaves no room for debate and strengthens your decision."
+        }
+      ],
+      "order": 10,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "slip",
+      "icon": "sprout",
+      "tone": "smokefree",
+      "title": "A slip isn't a collapse",
+      "summary": "Self-compassion and getting back on track.",
+      "relapse": [
+        "just_one"
+      ],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "sprout",
+          "tone": "smokefree",
+          "title": "Slips can happen",
+          "text": "Smoking one or a few cigarettes is common while quitting. It doesn't mean the journey is over."
+        },
+        {
+          "icon": "blocks",
+          "tone": "smokefree",
+          "title": "The \"I've already blown it\" trap",
+          "text": "The biggest risk is giving up on quitting altogether after one cigarette, thinking \"I've already blown it\"."
+        },
+        {
+          "icon": "painCare",
+          "tone": "smokefree",
+          "title": "Self-compassion",
+          "text": "Treat yourself as you would a friend. Instead of blaming yourself, try to understand what happened."
+        },
+        {
+          "icon": "compass",
+          "tone": "smokefree",
+          "title": "Learn and carry on",
+          "text": "Find the trigger for the slip, make a new plan for it and carry on with the programme. Your total smoke-free days are kept."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Write the answer to \"What will I do if I slip?\" now: log it, look at why, make a new plan, carry on."
+      },
+      "quiz": [
+        {
+          "q": "What is the most useful step after a slip?",
+          "options": [
+            "Blaming yourself and leaving the programme",
+            "Understanding what happened, making a new plan and carrying on",
+            "Acting as if nothing happened"
+          ],
+          "answer": 1,
+          "explain": "Learning from a slip and carrying on is an important part of the quitting journey."
+        }
+      ],
+      "order": 11,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "identity",
+      "icon": "idCard",
+      "tone": "smokefree",
+      "title": "Your new identity",
+      "summary": "\"I'm a non-smoker.\"",
+      "relapse": [],
+      "sourceIds": [
+        "bricker2020",
+        "bricker2021"
+      ],
+      "slides": [
+        {
+          "icon": "idCard",
+          "tone": "smokefree",
+          "title": "Identity changes",
+          "text": "There's a small but powerful difference between \"someone trying to quit smoking\" and \"a non-smoker\"."
+        },
+        {
+          "icon": "speech",
+          "tone": "smokefree",
+          "title": "Change your language",
+          "text": "Saying \"I don't smoke\" instead of \"I can't smoke\" reminds you that the choice is yours."
+        },
+        {
+          "icon": "repeat",
+          "tone": "smokefree",
+          "title": "Every choice is a vote",
+          "text": "Every smoke-free day is like a vote for the person you want to be. As the votes add up, your new identity grows stronger."
+        },
+        {
+          "icon": "sunrise",
+          "tone": "smokefree",
+          "title": "The long term",
+          "text": "Over time, smoking stops being part of your life. Even after this camp ends, it's important to keep up your new habits."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "At least once today, introduce yourself or think of yourself as \"a non-smoker\"."
+      },
+      "quiz": [
+        {
+          "q": "Which sentence supports your new identity more?",
+          "options": [
+            "\"I can't smoke\"",
+            "\"I don't smoke\"",
+            "\"I'm not smoking for now, but...\""
+          ],
+          "answer": 1,
+          "explain": "Saying \"I don't smoke\" emphasises that the choice is yours and strengthens your new identity."
+        }
+      ],
+      "order": 12,
+      "minutes": 3,
+      "bonus": false
+    },
+    {
+      "id": "sexual-health",
+      "icon": "handshake",
+      "tone": "smokefree",
+      "title": "Smoking, blood vessels and sexual health",
+      "summary": "Bonus lesson: how quitting affects your blood vessels and sexual health.",
+      "relapse": [],
+      "bonus": true,
+      "sourceIds": [
+        "who-tobacco",
+        "cdc-health-effects",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "icon": "droplet",
+          "tone": "smokefree",
+          "title": "Smoking affects blood vessels",
+          "text": "Substances in cigarette smoke damage the inner lining of blood vessels and can narrow them. This reduces blood flow."
+        },
+        {
+          "icon": "handshake",
+          "tone": "smokefree",
+          "title": "The link with sexual health",
+          "text": "An erection depends on enough blood flow to the penis. That's why smoking is one of the known risk factors for erection problems."
+        },
+        {
+          "icon": "trendUp",
+          "tone": "smokefree",
+          "title": "When you quit",
+          "text": "Quitting smoking improves circulation. Over time some people also see improvements in sexual health; however, this varies from person to person."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "smokefree",
+          "title": "When to see a doctor?",
+          "text": "Ongoing erection problems may be related to heart and blood vessel health. In that case it's important to see a doctor."
+        }
+      ],
+      "practice": {
+        "title": "Practice",
+        "text": "Today, go for a 10-minute brisk walk. Movement supports circulation too."
+      },
+      "quiz": [
+        {
+          "q": "How can smoking affect sexual health?",
+          "options": [
+            "By narrowing blood vessels and reducing blood flow",
+            "It doesn't affect it at all",
+            "Only through the smell"
+          ],
+          "answer": 0,
+          "explain": "An erection depends on enough blood flow; smoking can make this harder by affecting the blood vessels."
+        }
+      ],
+      "order": 13,
+      "minutes": 3
+    }
+  ]
+}

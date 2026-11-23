@@ -48,7 +48,7 @@ export default function Unload() {
       {released === null ? (
         <>
           <AppText muted>{tr('mind.unload.intro')}</AppText>
-          <TextInput
+          <TextInput maxFontSizeMultiplier={1.3}
             value={text}
             onChangeText={setText}
             multiline

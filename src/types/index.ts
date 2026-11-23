@@ -1,4 +1,6 @@
 /** Shared domain types. All data lives on-device only. */
+import type { Language } from '@/i18n/languages';
+
 
 export type Goal = 'endurance' | 'bladder' | 'erection' | 'confidence' | 'general' | 'postSurgery';
 
@@ -215,7 +217,7 @@ export interface Settings {
   theme: ThemePreference;
   sessionsPerDay: 1 | 2 | 3;
   saveUnloadNotes: boolean;
-  language: 'tr' | 'en';
+  language: Language;
   /** Kegel v2 voice coach (device text-to-speech, offline). */
   voiceCoach?: boolean;
   /** "Skip today" from a reminder: no more reminders that day (date key). */

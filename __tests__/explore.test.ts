@@ -63,9 +63,13 @@ describe('Keşfet layout and the rename (SPEC_KESFET_V2 §3, §7)', () => {
     const src = read('app/(tabs)/discover.tsx');
     expect(src).not.toMatch(/SeeAllCard|seeAll|moreCount|PREVIEW_ROWS|\.slice\(0,/);
     expect(src).toMatch(/AlcoholCampCard/);
-    // Antrenmanlar was emptied: three strips remain, plus its "coming soon" note.
-    expect((src.match(/<HorizontalSection/g) ?? []).length).toBe(3);
-    expect(src).toMatch(/programsSoon/);
+    // Antrenmanlar is back with its first programme, Aletsiz Fitness (2026-11-22), with a bundled cover.
+    expect((src.match(/<HorizontalSection/g) ?? []).length).toBe(4);
+    expect(src).toMatch(/id: 'bodyweight'/);
+    // All programmes are "Yakında" and hidden for the store build (2026-11-23): the strip renders only when one is ready.
+    expect(src).toMatch(/VISIBLE_PROGRAMS\.length > 0 \? \(/);
+    expect(exploreImage('programs', 'bodyweight')).toBeDefined();
+    expect(fs.existsSync(path.join(root, 'app/bodyweight.tsx'))).toBe(true);
     expect(fs.existsSync(path.join(root, 'app/course'))).toBe(false);
     expect(fs.existsSync(path.join(root, 'app/course/index.tsx'))).toBe(false);
     expect(fs.existsSync(path.join(root, 'app/glossary/index.tsx'))).toBe(false);

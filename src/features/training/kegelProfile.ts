@@ -1,4 +1,6 @@
-import screeningJson from '@/content/kegel/screening.tr.json';
+import { pick } from '@/i18n/content';
+import screeningJsonTr from '@/content/kegel/screening.tr.json';
+import screeningJsonEn from '@/content/kegel/screening.en.json';
 import { toDateKey } from '@/lib/date';
 import { useKegelStore, type KegelData } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
@@ -6,6 +8,8 @@ import type { Goal, TrackId } from '@/types';
 
 import { rescreenDue, screeningToTrack, type ScreeningResult } from './schedule';
 import { goalsToTrack, trackAllowed } from './tracks';
+
+const screeningJson = pick({ tr: screeningJsonTr, en: screeningJsonEn });
 
 /** Muscle profile screening, tracks and the surgery clearance (SPEC_KEGEL_V2 §2, §3, §11.3). */
 

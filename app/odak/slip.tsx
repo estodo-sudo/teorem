@@ -169,7 +169,7 @@ export default function OdakSlip() {
               ))}
               <ChoiceCard label={S.plan.own} selected={pick === 'own'} onPress={() => setPick('own')} />
               {pick === 'own' ? (
-                <TextInput
+                <TextInput maxFontSizeMultiplier={1.3}
                   value={own}
                   onChangeText={setOwn}
                   maxLength={120}

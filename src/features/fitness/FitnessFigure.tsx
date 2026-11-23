@@ -1,23 +1,69 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { View } from 'react-native';
 import Svg, { Circle, Ellipse, G, Line, Rect } from 'react-native-svg';
 
 import { useTheme } from '@/components';
 
-import { motionAt, type Joint, type MoveSpec, type Pose } from './motion';
+import { motionAt, type MoveSpec, type Pose } from './motion';
+
+type P = [number, number];
+const mid = (a: P, b: P, f = 0.5): P => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
 
 /**
- * Original body figure for the pelvic fitness moves: near limbs solid, far limbs lighter (side view),
- * a mat under it and the worked area (the pelvis) marked. Side 2 is drawn mirrored. Front views draw
- * both sides alike.
+ * Toes: given in the pose, or drawn automatically — forward (in `facing`) when the shin is upright,
+ * pointing down to the floor when the shin lies flat (plank, all fours).
+ */
+function toe(pose: Pose, k: 'k1' | 'k2', a: 'a1' | 'a2', given: P | undefined, facing: 1 | -1): P {
+  if (given) return given;
+  const [kx, ky] = pose[k];
+  const [ax, ay] = pose[a];
+  const dx = ax - kx;
+  const dy = ay - ky;
+  if (Math.abs(dy) >= Math.abs(dx)) return [ax + 9 * facing, ay];
+  return [ax, ay + 7];
+}
+
+/**
+ * Original body figure (improved for Aletsiz Fitness, 2026-11-22): limbs with a thin outline so
+ * crossing limbs stay apart, a torso that narrows from chest to waist, neck, hands and feet; near
+ * limbs solid, far limbs lighter (side view); the worked area glows in the accent colour. Side 2 is
+ * drawn mirrored. Front views draw both sides alike.
  */
 export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: MoveSpec; pose: Pose; mirrored?: boolean; width?: number }) {
   const t = useTheme();
   const near = t.tokens.foreground;
   const far = move.view === 'front' ? near : t.tokens.mutedForeground;
-  const target = t.tokens.primary;
-  const L = (a: Joint, b: Joint, w: number, c: string, o = 1) => <Line x1={pose[a][0]} y1={pose[a][1]} x2={pose[b][0]} y2={pose[b][1]} stroke={c} strokeWidth={w} strokeLinecap="round" opacity={o} />;
-  const farO = move.view === 'front' ? 1 : 0.55;
+  const edge = t.tokens.card;
+  const glow = t.tokens.primary;
+  const facing: 1 | -1 = move.facing === 'left' ? -1 : 1;
+  const chest = pose.m ?? mid(pose.n, pose.p, 0.42);
+  const t1 = toe(pose, 'k1', 'a1', pose.t1, facing);
+  const t2 = toe(pose, 'k2', 'a2', pose.t2, facing);
+  const head = pose.h;
+  const neckEnd = mid(pose.n, head, 0.55);
+  const focus = move.focus ?? ['hips'];
+  // A segment drawn with an outline: first a slightly wider stroke in the card colour, then the limb.
+  const seg = (a: P, b: P, w: number, c: string, key: string, o = 1) => (
+    <G key={key} opacity={o}>
+      <Line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={edge} strokeWidth={w + 2.5} strokeLinecap="round" />
+      <Line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={c} strokeWidth={w} strokeLinecap="round" />
+    </G>
+  );
+  const halo = (a: P, b: P, w: number, key: string) => <Line key={key} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={glow} strokeWidth={w} strokeLinecap="round" opacity={0.38} />;
+  const dot = (c: P, r: number, key: string) => <Circle key={key} cx={c[0]} cy={c[1]} r={r} fill={glow} opacity={0.38} />;
+  const glows: ReactNode[] = [];
+  for (const f of focus) {
+    if (f === 'core') glows.push(halo(chest, pose.p, 24, 'g-core'));
+    if (f === 'chest') glows.push(halo(pose.n, chest, 24, 'g-chest'));
+    if (f === 'back') glows.push(halo(pose.n, pose.p, 24, 'g-back'));
+    if (f === 'shoulders') glows.push(dot(pose.n, 12, 'g-sh'));
+    if (f === 'arms') glows.push(halo(pose.n, pose.e1, 16, 'g-a1'), halo(pose.e1, pose.w1, 14, 'g-a2'));
+    if (f === 'thighs') glows.push(halo(pose.p, pose.k1, 18, 'g-t1'), halo(pose.p, pose.k2, 18, 'g-t2'));
+    if (f === 'hips') glows.push(dot(pose.p, 13, 'g-hip'));
+    if (f === 'calves') glows.push(halo(pose.k1, pose.a1, 15, 'g-c1'), halo(pose.k2, pose.a2, 15, 'g-c2'));
+    if (f === 'full') glows.push(halo(pose.n, pose.p, 26, 'g-f1'), halo(pose.p, pose.k1, 18, 'g-f2'), halo(pose.n, pose.e1, 15, 'g-f3'));
+  }
+  const farO = move.view === 'front' ? 1 : 0.6;
   const k1 = pose.k1;
   // Framed around the move (all its poses), so lying moves are as large as standing ones.
   const vb = frameOf(move);
@@ -27,18 +73,31 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
       <Svg width={width} height={height} viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}>
         <Rect x={vb.x + 4} y={128} width={vb.w - 8} height={5} rx={2.5} fill={t.tokens.border} />
         <G transform={mirrored ? `translate(${2 * vb.x + vb.w} 0) scale(-1 1)` : undefined}>
-          {L('p', 'k2', 9, far, farO)}
-          {L('k2', 'a2', 8, far, farO)}
-          {L('n', 'e2', 7, far, farO)}
-          {L('e2', 'w2', 6, far, farO)}
+          {(move.props ?? []).map((r, i) => (
+            <Rect key={`prop-${i}`} x={r.x} y={r.y} width={r.w} height={r.h} rx={3} fill={t.tokens.border} />
+          ))}
+          {glows}
+          {/* Far side */}
+          {seg(pose.p, pose.k2, 10, far, 'fl1', farO)}
+          {seg(pose.k2, pose.a2, 8.5, far, 'fl2', farO)}
+          {seg(pose.a2, t2, 5.5, far, 'fl3', farO)}
+          {seg(pose.n, pose.e2, 7.5, far, 'fa1', farO)}
+          {seg(pose.e2, pose.w2, 6.5, far, 'fa2', farO)}
+          <Circle cx={pose.w2[0]} cy={pose.w2[1]} r={3.6} fill={far} opacity={farO} />
           {move.prop === 'pillow' ? <Ellipse cx={k1[0] + 4} cy={k1[1] + 4} rx={9} ry={7} fill={t.tone.mind.fg} opacity={0.75} /> : null}
-          {L('n', 'p', 14, near)}
-          <Circle cx={pose.p[0]} cy={pose.p[1]} r={12} fill={target} opacity={0.4} />
-          {L('p', 'k1', 10, near)}
-          {L('k1', 'a1', 9, near)}
-          {L('n', 'e1', 8, near)}
-          {L('e1', 'w1', 7, near)}
-          <Circle cx={pose.h[0]} cy={pose.h[1]} r={9.5} fill={near} />
+          {/* Torso: wide at the chest, narrower at the waist; neck and head. */}
+          {seg(pose.n, neckEnd, 6.5, near, 'neck')}
+          {seg(pose.n, chest, 17, near, 'chest')}
+          {seg(chest, pose.p, 13.5, near, 'waist')}
+          <Circle cx={head[0]} cy={head[1]} r={10.5} fill={edge} />
+          <Circle cx={head[0]} cy={head[1]} r={9.5} fill={near} />
+          {/* Near side */}
+          {seg(pose.p, pose.k1, 11, near, 'nl1')}
+          {seg(pose.k1, pose.a1, 9, near, 'nl2')}
+          {seg(pose.a1, t1, 6, near, 'nl3')}
+          {seg(pose.n, pose.e1, 8, near, 'na1')}
+          {seg(pose.e1, pose.w1, 7, near, 'na2')}
+          <Circle cx={pose.w1[0]} cy={pose.w1[1]} r={4} fill={near} />
         </G>
       </Svg>
     </View>
@@ -60,6 +119,11 @@ function frameOf(move: MoveSpec) {
       maxX = Math.max(maxX, x);
       minY = Math.min(minY, y);
     }
+  }
+  for (const r of move.props ?? []) {
+    minX = Math.min(minX, r.x);
+    maxX = Math.max(maxX, r.x + r.w);
+    minY = Math.min(minY, r.y);
   }
   const pad = 14;
   let x = minX - pad;

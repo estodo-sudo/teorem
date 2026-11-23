@@ -1,0 +1,169 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "rct",
+  "sourceIds": [
+    "crosby2016",
+    "twohig2010",
+    "bothe2021",
+    "meta2025",
+    "marlatt",
+    "balban2023",
+    "zaccaro2018",
+    "skorkabrown2015"
+  ],
+  "check": {
+    "title": "Where are you right now, and what do you feel?",
+    "hint": "A short HALT check. There are no right or wrong answers.",
+    "items": [
+      {
+        "id": "tired",
+        "letter": "T",
+        "icon": "moon",
+        "tone": "focus",
+        "label": "Tired / unrested",
+        "tip": "Urges get stronger when you're tired. Going to bed a little earlier tonight could help."
+      },
+      {
+        "id": "hungry",
+        "letter": "H",
+        "icon": "utensils",
+        "tone": "focus",
+        "label": "Hungry",
+        "tip": "Hunger increases tension. Eating something or drinking water calms your body."
+      },
+      {
+        "id": "lonely",
+        "letter": "L",
+        "icon": "eyeOff",
+        "tone": "focus",
+        "label": "Lonely",
+        "tip": "Loneliness is one of the most common triggers. Messaging someone or going somewhere with people around can help."
+      },
+      {
+        "id": "loaded",
+        "letter": "A",
+        "icon": "frown",
+        "tone": "focus",
+        "label": "Angry / stressed",
+        "tip": "Tension looks for a way out. Breathing or a short burst of movement can ease that load."
+      }
+    ],
+    "intensity": "How strong is the urge right now?",
+    "intensityLabels": {
+      "low": "Mild",
+      "high": "Very strong"
+    }
+  },
+  "relocate": {
+    "title": "Action first",
+    "lead": "You don't need to fight the urge. Just get up from where you are right now.",
+    "seconds": 60,
+    "steps": [
+      "Put the phone down",
+      "Leave the room",
+      "Turn on the light",
+      "Drink a glass of water"
+    ],
+    "start": "Change place for 60 seconds",
+    "done": "You changed place. This small step puts distance between the urge and the behaviour."
+  },
+  "tools": {
+    "title": "Choose a tool",
+    "hint": "Try as many as you like. When you finish one you can move on to another.",
+    "items": [
+      {
+        "id": "breath",
+        "icon": "wind",
+        "tone": "focus",
+        "title": "Breathing",
+        "desc": "Quick calm, 1 minute"
+      },
+      {
+        "id": "puzzle",
+        "icon": "blocks",
+        "tone": "focus",
+        "title": "Block Puzzle",
+        "desc": "A 3-minute visual puzzle"
+      },
+      {
+        "id": "move",
+        "icon": "footprints",
+        "tone": "focus",
+        "title": "Movement",
+        "desc": "A quick 2-minute set"
+      },
+      {
+        "id": "values",
+        "icon": "compass",
+        "tone": "focus",
+        "title": "My values",
+        "desc": "Your own sentences"
+      },
+      {
+        "id": "futureSelf",
+        "icon": "mail",
+        "tone": "focus",
+        "title": "Future me",
+        "desc": "The letter you wrote to yourself"
+      },
+      {
+        "id": "supporter",
+        "icon": "chat",
+        "tone": "focus",
+        "title": "Write to someone",
+        "desc": "A ready-made, neutral message"
+      }
+    ],
+    "other": "Other tools"
+  },
+  "breath": {
+    "desc": "Quick calm: take two short breaths in and one long breath out. In studies, a few minutes of slow breathing had positive effects on reducing stress."
+  },
+  "puzzle": {
+    "desc": "Place the pieces on the board and full rows disappear. In studies, a visual puzzle that keeps your mind busy reduced the strength of urges.",
+    "srHint": "This puzzle is played by looking at the screen. With a screen reader on, we suggest the breathing tool."
+  },
+  "move": {
+    "desc": "A short burst of movement redirects your energy. Each move is 30 seconds; go at your own pace.",
+    "seconds": 120,
+    "steps": [
+      "Squats (crouch down and stand up)",
+      "Wall push-ups",
+      "Brisk marching on the spot",
+      "Stretch your arms and shoulders"
+    ],
+    "start": "Start the 2-minute set",
+    "done": "You've finished the set. Your body may feel different right now."
+  },
+  "values": {
+    "desc": "You wrote down yourself what kind of person you want to be in this:",
+    "empty": "You haven't chosen a value yet. You can add one from the panel."
+  },
+  "futureSelf": {
+    "desc": "Write yourself a letter to read in a hard moment. Remind yourself what you feel and why you're on this path.",
+    "placeholder": "Dear me, if you're reading this…",
+    "save": "Save the letter",
+    "edit": "Edit the letter",
+    "saved": "Your letter has been saved, encrypted."
+  },
+  "supporter": {
+    "desc": "Write to someone you trust. The message is neutral; it contains no details.",
+    "message": "I'm going through a hard moment right now, can we talk?",
+    "share": "Send the message"
+  },
+  "end": {
+    "question": "How are you now?",
+    "managed": "It passed",
+    "hard": "Still hard",
+    "slipped": "I slipped",
+    "managedTitle": "You managed this moment",
+    "managedBody": "The urge came and you chose to watch it. Every moment you manage makes the next one a little easier.",
+    "hardBody": "That's okay; some waves last longer. Let's try another tool: {tool}.",
+    "slippedTitle": "This is part of the journey",
+    "slippedBody": "Being hard on yourself doesn't make the next time easier. A slip doesn't mean all your effort is erased. If you like, let's log what happened.",
+    "count": "So far you've managed {n} urge moments.",
+    "logSlip": "Add the entry",
+    "back": "Back to the panel"
+  },
+  "emergency": "In an emergency, call 112 (or your local emergency number)."
+}

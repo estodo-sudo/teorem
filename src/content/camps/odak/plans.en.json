@@ -1,0 +1,115 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "review",
+  "sourceIds": [
+    "gollwitzer2006",
+    "bothe2021",
+    "crosby2016"
+  ],
+  "templates": {
+    "night_bed": {
+      "if": "I want to take my phone to bed at night",
+      "then": [
+        "I charge my phone outside the bedroom.",
+        "I read a book for 10 minutes before bed.",
+        "I switch on sleep mode and turn off the light."
+      ]
+    },
+    "alone_home": {
+      "if": "I'm home alone and bored",
+      "then": [
+        "I go for a short walk.",
+        "I call a friend.",
+        "I start a task I chose in advance."
+      ]
+    },
+    "stress": {
+      "if": "I feel tense and stressed",
+      "then": [
+        "I breathe slowly for 2 minutes.",
+        "I take a shower or wash my face.",
+        "I write down what I'm feeling in one sentence."
+      ]
+    },
+    "boredom": {
+      "if": "I'm bored and start scrolling aimlessly",
+      "then": [
+        "I put the phone down, get up and change rooms.",
+        "I do 10 minutes of movement.",
+        "I go back to an unfinished task."
+      ]
+    },
+    "loneliness": {
+      "if": "I feel lonely",
+      "then": [
+        "I message someone I trust.",
+        "I go somewhere with people around.",
+        "I look at my value cards."
+      ]
+    },
+    "anxiety": {
+      "if": "my anxiety rises",
+      "then": [
+        "I open the urge-moment screen and breathe.",
+        "I do the 5-4-3-2-1 awareness exercise.",
+        "I take a short walk."
+      ]
+    },
+    "sadness": {
+      "if": "I feel sad",
+      "then": [
+        "I gently tell myself what I'm feeling.",
+        "I put on music I love.",
+        "I talk to someone close to me."
+      ]
+    },
+    "tired": {
+      "if": "I feel very tired",
+      "then": [
+        "I switch off the screen and go to bed early.",
+        "I drink a glass of water and rest.",
+        "I take a short shower."
+      ]
+    },
+    "sleepless": {
+      "if": "I can't sleep",
+      "then": [
+        "I get out of bed and read a book in dim light.",
+        "I do a breathing exercise.",
+        "I leave my phone outside the room."
+      ]
+    },
+    "after_argument": {
+      "if": "I feel bad after an argument",
+      "then": [
+        "I walk for 10 minutes to calm down.",
+        "I write down what I'm feeling.",
+        "I talk to a friend."
+      ]
+    },
+    "social_media": {
+      "if": "an urge comes while I'm scrolling social media",
+      "then": [
+        "I close the app and put the phone down.",
+        "I move to another room straight away.",
+        "I open the SOS tool."
+      ]
+    },
+    "alcohol": {
+      "if": "an urge comes after drinking alcohol",
+      "then": [
+        "I leave my phone in another room.",
+        "I stay with someone.",
+        "I drink some water and go to sleep."
+      ]
+    },
+    "waking": {
+      "if": "I linger in bed after waking up in the morning",
+      "then": [
+        "I get up straight away and open the curtains.",
+        "I keep my phone away from the bed.",
+        "I start the day with a short stretch."
+      ]
+    }
+  }
+}

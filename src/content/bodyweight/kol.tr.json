@@ -1,0 +1,123 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Kol",
+    "intro": "Arka kol (triceps) ve ön kol (biceps) için alet gerektirmeyen programlar. Arka kolu şınav ve dips çeşitleriyle, ön kolu kendi direncin, kapı kasası ve masa altında çekişle çalıştırırsın.",
+    "science": [
+      "Elmas şınav, arka kolu en çok çalıştıran hareketlerdendir; sandalye dips iyi bir başlangıçtır.",
+      "Kasın uzarken direnç gösterdiği iniş kısmı, kazanımda en önemli bölümdür; bu yüzden ön kol hareketlerinde inişi yavaş yaparsın.",
+      "Bir elinle öbür kolunu zorladığın 'kendi direncinle' çalışma, küçük bir çalışmada güç ve kol çevresini artırdı.",
+      "Aletsiz ön kol çalışmasının kanıtı sınırlıdır; program, uzun pozisyonda tutuşlar ve yavaş inişlerle bunu dengelemeye çalışır."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "arm_circles",
+      "name": "Kol Çevirme",
+      "target": "Omuz ve kollar (ısınma)",
+      "setup": "Ayakta dik dur, kollarını yanlara omuz hizasında aç.",
+      "steps": ["Kollarınla küçük daireler çiz.", "Daireleri yavaşça büyüt.", "Süre yarısında çevirme yönünü değiştir."],
+      "tip": "Omuzlarını kulaklarından uzak tut.",
+      "mistake": "Hızlı ve sarsarak çevirme."
+    },
+    {
+      "id": "wall_triceps_press",
+      "name": "Duvarda Arka Kol İtişi",
+      "target": "Arka kol (kolay)",
+      "setup": "Duvara bir adım uzakta dur, öne eğilerek ön kollarını duvara yasla; ellerin göz hizasında.",
+      "steps": ["Avuçlarınla iterek dirseklerini düzelt; dirsekler duvardan ayrılsın.", "Kollar düzleşince kısa dur.", "Yavaşça ön kollarını duvara geri indir."],
+      "tip": "Ayakların duvardan uzaklaştıkça hareket zorlaşır.",
+      "mistake": "Kalçanı geriye çıkarma; vücudun düz kalsın."
+    },
+    {
+      "id": "knee_diamond_pushup",
+      "name": "Dizden Elmas Şınav",
+      "target": "Arka kol ve göğsün iç kısmı",
+      "setup": "Dizlerin yerde. Ellerini göğsünün altında birleştir; baş parmak ve işaret parmakları bir elmas oluştursun.",
+      "steps": ["Dirseklerini gövdene yakın tutarak göğsünü ellerine indir.", "Göğsün ellerine yaklaşınca dur.", "İterek kollarını düzelt."],
+      "tip": "Elmas şınavın kolay hali; 15 temiz tekrardan sonra dizlerini kaldır.",
+      "mistake": "Dirsekleri yana açma; geriye doğru bükülsünler."
+    },
+    {
+      "id": "diamond_pushup",
+      "name": "Elmas Şınav",
+      "target": "Arka kol ve göğsün iç kısmı",
+      "setup": "Şınav pozisyonu; ellerini göğsünün altında birleştir, parmakların elmas şekli yapsın.",
+      "steps": ["Dirseklerini gövdene yakın tutarak göğsünü ellerine indir.", "Göğsün ellerine yaklaşınca dur.", "İterek yukarı çık."],
+      "tip": "Bilekler zorlanırsa elleri biraz aç.",
+      "mistake": "Kalçayı düşürme."
+    },
+    {
+      "id": "chair_dips",
+      "name": "Sandalye Dips",
+      "target": "Arka kol",
+      "setup": "Duvara dayalı sağlam bir sandalyenin önünde dur. Ellerini arkada sandalyenin kenarına koy, dizlerin bükülü.",
+      "steps": ["Dirseklerini geriye bükerek kalçanı aşağı indir.", "Dirsekler 90 dereceye gelince dur.", "Avuçlarınla iterek yukarı çık."],
+      "tip": "Kalçan sandalyeye yakın kalsın.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma; omzunda ağrı olursa daha az in."
+    },
+    {
+      "id": "chair_dips_straight",
+      "name": "Bacaklar Düz Dips",
+      "target": "Arka kol (zor)",
+      "setup": "Sandalye dips pozisyonu, ama bacakların düz ve topukların yerde.",
+      "steps": ["Dirseklerini geriye bükerek kalçanı indir.", "Dirsekler 90 dereceye gelince dur.", "İterek yukarı çık."],
+      "tip": "Bacaklar ne kadar uzaksa vücudun o kadarını kolların taşır.",
+      "mistake": "İnişi hızlandırma; yavaş in."
+    },
+    {
+      "id": "plank_up_down",
+      "name": "Merdiven Plank",
+      "target": "Arka kol, omuz ve gövde",
+      "setup": "Dirsek plankında başla: ön kolların yerde, vücudun düz.",
+      "steps": ["Bir elini, sonra öbürünü yere koyarak kollarını düzelt; şınav pozisyonuna çık.", "Bir dirseğini, sonra öbürünü yere indirerek dirsek plankına dön.", "Her turda başlayan kolu değiştir."],
+      "tip": "Ayaklarını biraz açarsan kalçan daha az sallanır.",
+      "mistake": "Kalçayı yana sallama ya da yukarı kaldırma."
+    },
+    {
+      "id": "self_resist_curl",
+      "name": "Kendi Direncinle Biceps",
+      "target": "Ön kol (biceps)",
+      "setup": "Ayakta dur. Çalışacak kolunun dirseği beline yakın, avucun yukarı baksın. Diğer elini çalışan kolunun bileğinin üstüne koy.",
+      "steps": ["Diğer elinle aşağı bastırırken çalışan kolunu yukarı bük.", "Tepede kısa dur.", "3 saniyede, diğer elinle zorlayarak yavaşça indir; süre yarısında kol değiştir."],
+      "tip": "Direnci, hareketi yavaş ama durmadan yapabileceğin kadar ver; asıl iş inişte.",
+      "mistake": "Dirseği öne kaldırma; dirsek belinde kalsın."
+    },
+    {
+      "id": "door_curl_hold",
+      "name": "Kapı Kasası Biceps Tutuş",
+      "target": "Ön kol (biceps)",
+      "setup": "Açık bir kapının sağlam kasasını göğüs hizasında iki elinle tut, avuçların yukarı baksın. Ayaklarını kasaya yaklaştırıp geriye yaslan.",
+      "steps": ["Dirseklerini 90 derece bükülü tutarak geriye yaslan.", "Kollarınla kendini kasaya doğru çekiyormuş gibi kas.", "Nefes alarak bekle."],
+      "tip": "Ayakların kasaya yaklaştıkça hareket zorlaşır.",
+      "mistake": "Kasa sağlam değilse yapma; ellerin kayarsa bırak ve dik dur."
+    },
+    {
+      "id": "table_row_underhand",
+      "name": "Masa Altında Ters Kürek (Avuçlar Yukarı)",
+      "target": "Ön kol ve sırt",
+      "setup": "Sağlam bir masanın altına sırtüstü gir. Masanın kenarını avuçların kendine bakacak şekilde, omuz genişliğinde tut.",
+      "steps": ["Dirseklerini bükerek göğsünü masaya doğru çek.", "Yukarıda kısa dur.", "Kolların düzelene kadar yavaşça in."],
+      "tip": "Avuçların yukarı bakınca ön kol daha çok çalışır; dizlerini bükersen kolaylaşır.",
+      "mistake": "Kalçayı düşürme; masanın devrilmeyeceğinden emin ol."
+    },
+    {
+      "id": "pike_pushup",
+      "name": "Pike Şınav",
+      "target": "Arka kol ve omuzlar",
+      "setup": "Şınav pozisyonundan kalçanı yukarı kaldır; vücudun ters V harfi gibi olsun.",
+      "steps": ["Dirseklerini bükerek başını yere yaklaştır.", "Başın yere yaklaşınca dur.", "İterek kollarını düzelt."],
+      "tip": "Dirsekleri geriye doğru bükersen arka kol daha çok çalışır.",
+      "mistake": "Başını yere çarpma; inişi yavaş tut."
+    },
+    {
+      "id": "pushup_hold",
+      "name": "Şınavda Bekleme",
+      "target": "Arka kol ve göğüs (dayanıklılık)",
+      "setup": "Şınav pozisyonuna gel ve yarıya kadar in; dirsekler yaklaşık 90 derece.",
+      "steps": ["Bu yükseklikte kal.", "Gövden düz, karnın sıkı.", "Nefes alarak süre bitene kadar bekle."],
+      "tip": "Zor gelirse dizlerin yerde bekle.",
+      "mistake": "Kalçanın sarkmasına izin verme."
+    }
+  ]
+}

@@ -16,11 +16,12 @@ import { useProfileStore } from '@/stores/profileStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 import { weekCount, weekDays, type WeekDay } from './week';
+import { localeOf } from '@/i18n/languages';
 
 /** Short weekday names, Monday first (tr: Pzt, Sal, Çar, Per, Cum, Cmt, Paz). */
 function dayLabels(lang: string): string[] {
   // 1 January 2024 was a Monday.
-  return Array.from({ length: 7 }, (_, i) => new Date(2024, 0, 1 + i).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { weekday: 'short' }).replace('.', ''));
+  return Array.from({ length: 7 }, (_, i) => new Date(2024, 0, 1 + i).toLocaleDateString(localeOf(lang), { weekday: 'short' }).replace('.', ''));
 }
 
 /**
@@ -136,37 +137,4 @@ export function FitnessCard() {
   );
 }
 
-const RELAX: { key: string; route: '/mind/breathing' | '/mind/unload' | '/mind/body-scan'; icon: IconName }[] = [
-  { key: 'breathing', route: '/mind/breathing', icon: 'wind' },
-  { key: 'unload', route: '/mind/unload', icon: 'leaf' },
-  { key: 'bodyScan', route: '/mind/body-scan', icon: 'body' },
-];
 
-/** Rahatla: one card with three equal boxes — Nefes (the breath module), Zihin boşaltma, Beden taraması. */
-export function RelaxCard() {
-  const t = useTheme();
-  const { t: tr } = useTranslation();
-  return (
-    <View style={{ gap: t.space.md }}>
-      <AppText variant="title2" accessibilityRole="header">
-        {tr('home.relax.title')}
-      </AppText>
-      <Card style={{ padding: t.space.sm, flexDirection: 'row', gap: t.space.sm }}>
-        {RELAX.map((x) => (
-          <Pressable
-            key={x.key}
-            onPress={() => openGated('mind', x.route)}
-            accessibilityRole="button"
-            accessibilityLabel={tr(`home.relax.${x.key}`)}
-            style={({ pressed }) => ({ flex: 1, minHeight: 96, alignItems: 'center', justifyContent: 'center', gap: t.space.sm, padding: t.space.sm, borderRadius: t.radius.md, backgroundColor: pressed ? t.tokens.muted : 'transparent' })}
-          >
-            <IconTile icon={x.icon} tone="mind" />
-            <AppText variant="footnote" weight="600" center>
-              {tr(`home.relax.${x.key}`)}
-            </AppText>
-          </Pressable>
-        ))}
-      </Card>
-    </View>
-  );
-}

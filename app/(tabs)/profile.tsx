@@ -1,18 +1,21 @@
 import { router } from 'expo-router';
+import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Icon, ListRow, RowGroup, Screen, useTheme } from '@/components';
+import { AppText, Button, Dialog, Icon, ListRow, RowGroup, Screen, useTheme } from '@/components';
 import { Card, IconTile, ScalePressable } from '@/components/ui';
 import { APP_NAME } from '@/config/app';
+import { deleteAllData } from '@/features/data/deleteAll';
 import { ACHIEVEMENTS } from '@/features/gamification/achievements';
 import { useStreak } from '@/features/gamification/service';
 import { isEntitlementValid } from '@/features/purchases/entitlement';
-import { ActiveTrackCard, ExerciseGuide, MuscleStructureCard } from '@/features/training/ProfileTraining';
+import { ActiveTrackCard, MuscleStructureCard } from '@/features/training/ProfileTraining';
 import { openManageSubscriptions, restorePurchases } from '@/features/purchases/iap';
 import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useProgressStore } from '@/stores/progressStore';
 import { useTrainingStore } from '@/stores/trainingStore';
+import { localeOf } from '@/i18n/languages';
 
 /**
  * Profil — ui-v3 (SPEC_UI_V3 §7.8): avatar (User icon) with the level / streak / trophies summary,
@@ -27,7 +30,8 @@ export default function Profile() {
   const ent = useEntitlementStore((s) => s.entitlement);
   const streak = useStreak();
   const premium = isEntitlementValid(ent, new Date());
-  const locale = i18n.language === 'tr' ? 'tr-TR' : 'en-US';
+  const locale = localeOf(i18n.language);
+  const [deleteStep, setDeleteStep] = useState<0 | 1 | 2>(0);
 
   return (
     <Screen contentStyle={{ gap: t.space.xl }}>
@@ -67,24 +71,21 @@ export default function Profile() {
         {!premium ? <ListRow label={tr('profile.sub.upgrade')} icon="star" onPress={() => router.push({ pathname: '/paywall', params: { source: 'profile' } })} /> : null}
         <ListRow label={tr('profile.sub.manage')} icon="card" onPress={() => void openManageSubscriptions()} />
         <ListRow label={tr('paywall.restore')} icon="rotate" onPress={() => void restorePurchases()} />
+        {/* Ayarlar (formerly "Antrenman"), right under restore purchases (user request 2026-11-23). */}
+        <ListRow label={tr('settings.training.title')} icon="gear" onPress={() => router.push('/settings/training')} />
       </RowGroup>
 
-      {/* Antrenman (SPEC_V4 §A.3): active track, the muscle questions, the exercise guide, then the rows. */}
+      {/* Antrenman (SPEC_V4 §A.3): active track and the muscle questions, then the rows (the exercise guide moved to İlerleme, 2026-11-22). */}
       <View style={{ gap: t.space.md }}>
         <AppText variant="title3" accessibilityRole="header">
           {tr('profile.groups.training')}
         </AppText>
         <ActiveTrackCard />
         <MuscleStructureCard />
-        <AppText variant="footnote" weight="600" muted>
-          {tr('profile.training.guide')}
-        </AppText>
-        <ExerciseGuide />
       </View>
       <RowGroup>
         <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
         <ListRow label={tr('profile.training.trophies')} icon="trophy" onPress={() => router.push('/achievements')} />
-        <ListRow label={tr('settings.training.title')} icon="pulse" onPress={() => router.push('/settings/training')} />
       </RowGroup>
 
       <RowGroup title={tr('profile.groups.notifications')}>
@@ -99,11 +100,8 @@ export default function Profile() {
         <ListRow label={tr('settings.data.title')} icon="shield" onPress={() => router.push('/settings/data')} />
       </RowGroup>
 
-      <RowGroup title={tr('profile.groups.legal')}>
-        <ListRow label={tr('legal.disclaimer.title')} icon="stethoscope" tone="knowledge" onPress={() => router.push('/legal/disclaimer')} />
-        <ListRow label={tr('legal.privacy.title')} icon="lock" tone="knowledge" onPress={() => router.push('/legal/privacy')} />
-        <ListRow label={tr('legal.terms.title')} icon="file" tone="knowledge" onPress={() => router.push('/legal/terms')} />
-        <ListRow label={tr('settings.about.title', { app: APP_NAME })} icon="info" tone="knowledge" onPress={() => router.push('/settings/about')} />
+      <RowGroup>
+        <ListRow label={tr('profile.groups.policiesAndOther')} icon="file" tone="knowledge" onPress={() => router.push('/legal')} />
       </RowGroup>
 
       {__DEV__ ? (
@@ -111,6 +109,42 @@ export default function Profile() {
           <ListRow label={tr('profile.devGallery')} icon="layers" onPress={() => router.push('/dev/gallery')} />
         </RowGroup>
       ) : null}
+
+      {/* Delete everything (user request 2026-11-22): the very last thing on the page, two confirmations. */}
+      <View style={{ gap: t.space.sm }}>
+        <Button label={tr('profile.deleteAll.button')} variant="danger" icon="trash" onPress={() => setDeleteStep(1)} testID="profile-delete-all" />
+        <AppText variant="footnote" muted center>
+          {tr('profile.deleteAll.hint')}
+        </AppText>
+      </View>
+      <Dialog
+        visible={deleteStep === 1}
+        title={tr('profile.deleteAll.title1')}
+        message={tr('profile.deleteAll.body1')}
+        onDismiss={() => setDeleteStep(0)}
+        actions={[
+          { label: tr('common.continue'), variant: 'danger', onPress: () => setDeleteStep(2) },
+          { label: tr('common.cancel'), onPress: () => setDeleteStep(0) },
+        ]}
+      />
+      <Dialog
+        visible={deleteStep === 2}
+        title={tr('profile.deleteAll.title2')}
+        message={tr('profile.deleteAll.body2')}
+        onDismiss={() => setDeleteStep(0)}
+        actions={[
+          {
+            label: tr('profile.deleteAll.confirm'),
+            variant: 'danger',
+            onPress: () => {
+              setDeleteStep(0);
+              // The first-run gate in the root layout takes the user back to the start.
+              void deleteAllData();
+            },
+          },
+          { label: tr('common.cancel'), onPress: () => setDeleteStep(0) },
+        ]}
+      />
     </Screen>
   );
 }

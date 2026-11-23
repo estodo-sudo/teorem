@@ -1,0 +1,184 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Legs",
+    "intro": "Programmes that strengthen the front and back of the thighs and the glutes. You start with sitting down onto a chair and standing up, and progress through lunges, Bulgarian split squats and jump squats.",
+    "science": [
+      "Sets with light loads done close to failure can build as much muscle as heavy loads (an analysis of 21 studies); for maximum strength, heavy loads work better.",
+      "Without equipment, the best way to add load is single-leg moves; the Bulgarian split squat works the glutes more than a normal squat.",
+      "Static holds such as the wall sit were among the exercises that lowered blood pressure most in an analysis combining 270 studies.",
+      "Keep your knees pointing the same way as your toes; if your knee hurts, reduce the depth of the move."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "chair_squat",
+      "name": "Chair Squat",
+      "target": "Front of the thighs and glutes (easy)",
+      "setup": "Stand in front of a sturdy chair with your back to it. Feet shoulder-width apart.",
+      "steps": [
+        "Push your hips back and sit down slowly onto the chair; reach your arms forward.",
+        "Stop when your hips lightly touch the chair.",
+        "Push through your heels to stand up."
+      ],
+      "tip": "The safest way to learn the squat; over time, just touch the chair without sitting.",
+      "mistake": "Don't drop onto the chair; sit with control."
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "target": "Front of the thighs, glutes and hamstrings",
+      "setup": "Feet shoulder-width apart, toes turned slightly out.",
+      "steps": [
+        "Push your hips back and lower down; reach your arms forward.",
+        "Stop when your thighs are close to parallel with the floor; chest up.",
+        "Push through your heels to stand up."
+      ],
+      "tip": "Breathe in on the way down and out on the way up.",
+      "mistake": "Don't let your knees cave in or your heels lift off the floor."
+    },
+    {
+      "id": "wall_sit",
+      "name": "Wall Sit",
+      "target": "Front of the thighs (endurance)",
+      "setup": "Lean your back against a wall and place your feet two steps in front of it.",
+      "steps": [
+        "Slide your back down the wall until your knees are at 90 degrees.",
+        "Keep your knees above your heels.",
+        "Keep breathing and hold until the time is up."
+      ],
+      "tip": "If it's too hard, hold higher, with your knees open wider than 90 degrees.",
+      "mistake": "Don't press on your knees with your hands; don't hold your breath."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Reverse Lunge",
+      "target": "Front of the thighs and glutes",
+      "setup": "Stand tall, feet hip-width apart.",
+      "steps": [
+        "Take a big step back with one foot and lower by bending both knees.",
+        "Stop when your back knee nears the floor; your front knee is over your ankle.",
+        "Push through your front heel to return to the start; switch legs halfway through."
+      ],
+      "tip": "The reverse lunge is kinder to the knee than the forward lunge.",
+      "mistake": "Don't lean your body forward; stay upright."
+    },
+    {
+      "id": "split_squat",
+      "name": "Split Squat",
+      "target": "Front of the thighs and glutes",
+      "setup": "One foot forward, the other a step behind, back heel lifted.",
+      "steps": [
+        "Without moving your feet, bend both knees and lower straight down.",
+        "Stop when your back knee nears the floor.",
+        "Push through your front heel to stand up; switch legs halfway through."
+      ],
+      "tip": "If your balance is shaky, support yourself with one hand on a wall.",
+      "mistake": "Don't let your front knee cave in."
+    },
+    {
+      "id": "bulgarian_split_squat",
+      "name": "Bulgarian Split Squat",
+      "target": "Front of the thighs and glutes (hard)",
+      "setup": "Stand in front of a sturdy chair; put the top of one foot on the chair behind you. Your front foot is a step ahead.",
+      "steps": [
+        "Bend your front knee and lower straight down.",
+        "Stop when your back knee nears the floor.",
+        "Push through your front heel to stand up; switch legs halfway through."
+      ],
+      "tip": "The further forward your front foot is, the more your glutes work.",
+      "mistake": "Don't push with your back leg; let the front leg do the work."
+    },
+    {
+      "id": "step_up",
+      "name": "Step-Up",
+      "target": "Front of the thighs and glutes",
+      "setup": "Stand in front of a sturdy step or a low chair; put one foot on top.",
+      "steps": [
+        "Press through the top heel to step up onto it.",
+        "Stand tall at the top.",
+        "Step back down slowly with the same leg; switch legs halfway through."
+      ],
+      "tip": "The higher the step, the harder it gets; don't let your knee go above hip height.",
+      "mistake": "Don't jump up off the foot on the floor."
+    },
+    {
+      "id": "side_lunge",
+      "name": "Side Lunge",
+      "target": "Front of the thighs, inner thighs and glutes",
+      "setup": "Stand with your feet wide, toes pointing forward. Bring your hands together at your chest.",
+      "steps": [
+        "Shift your weight onto one leg and sit to the side by bending that knee; keep the other leg straight.",
+        "Hips back, chest up.",
+        "Push back to the middle; switch sides halfway through."
+      ],
+      "tip": "You should feel a light stretch on the inside of the straight leg.",
+      "mistake": "Don't let the bent knee go far past your toes."
+    },
+    {
+      "id": "sumo_squat",
+      "name": "Sumo Squat",
+      "target": "Inner thighs, glutes and front of the thighs",
+      "setup": "Stand with your feet wide, toes pointing out. Bring your hands together at your chest.",
+      "steps": [
+        "Keeping your body upright, open your knees out and lower down.",
+        "Keep your knees over your toes.",
+        "Squeeze your inner thighs and glutes as you stand up."
+      ],
+      "tip": "A wide stance lets you lean forward less than in a normal squat.",
+      "mistake": "Don't let your knees cave in."
+    },
+    {
+      "id": "jump_squat",
+      "name": "Jump Squat",
+      "target": "Legs and glutes (power)",
+      "setup": "Feet shoulder-width apart.",
+      "steps": [
+        "Lower into a squat.",
+        "Jump up explosively, arms up.",
+        "Land softly with your knees slightly bent and go straight into the next squat."
+      ],
+      "tip": "Try to land without noise; the quieter the landing, the more controlled it is.",
+      "mistake": "Don't land with locked knees; if your knee hurts, do a normal squat."
+    },
+    {
+      "id": "single_leg_rdl",
+      "name": "Single-Leg Forward Bend",
+      "target": "Hamstrings, glutes and balance",
+      "setup": "Stand on one leg with your knee slightly bent.",
+      "steps": [
+        "As you lean your body forward, extend the other leg backwards; body and leg form one line.",
+        "Stop when you feel a stretch in your hamstring.",
+        "Squeeze your glutes to return upright; switch legs halfway through."
+      ],
+      "tip": "If your balance is shaky, support yourself with one hand on a wall.",
+      "mistake": "Don't round your back; don't let your hip open to the side."
+    },
+    {
+      "id": "pulse_squat",
+      "name": "Pulse Squat",
+      "target": "Front of the thighs (endurance)",
+      "setup": "Feet shoulder-width apart, lower into a squat position.",
+      "steps": [
+        "Stay down.",
+        "Rise a few centimetres and lower again; do small pulses.",
+        "Keep going for the whole time without standing all the way up."
+      ],
+      "tip": "A burning feeling in your legs is normal.",
+      "mistake": "Don't let your knees cave in."
+    },
+    {
+      "id": "chair_pistol",
+      "name": "Single-Leg Chair Squat",
+      "target": "Front of the thighs and glutes (advanced)",
+      "setup": "Stand in front of a sturdy chair. Stand on one leg and extend the other leg forward.",
+      "steps": [
+        "Sit down slowly onto the chair on one leg; reach your arms forward.",
+        "Stop when your hips touch the chair.",
+        "Stand up on the same leg; switch legs halfway through."
+      ],
+      "tip": "The road to the single-leg squat; if it's too hard, use one leg on the way down and two on the way up.",
+      "mistake": "Don't drop onto the chair; take 3 seconds to lower."
+    }
+  ]
+}

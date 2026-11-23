@@ -1,0 +1,57 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "alo171",
+    "yedam"
+  ],
+  "lastVerified": "2026-11",
+  "alo171": {
+    "title": "ALO 171 Quit Smoking Helpline (Türkiye)",
+    "number": "171",
+    "hours": "24 hours, 7 days a week",
+    "cost": "Free from landlines; calls from mobiles may be charged at your operator's rate.",
+    "offers": [
+      "Quit smoking counselling",
+      "Assessment of your level of dependence",
+      "An appointment at a quit-smoking clinic",
+      "Follow-up while you quit"
+    ]
+  },
+  "clinics": {
+    "title": "Quit-smoking clinics",
+    "text": "In Türkiye, quit-smoking clinics are available in hospitals, healthy living centres and family health centres. If the doctor sees fit, quit-smoking medicines are given free of charge. ALO 171 refers you to the nearest clinic. Outside Türkiye, ask your doctor or national quitline."
+  },
+  "yesilay": {
+    "title": "Yeşilay Counselling Centre (YEDAM)",
+    "number": "115",
+    "text": "Yeşilay's counselling centres in Türkiye offer free psychological and social support for addictions, including tobacco. You can get an appointment by calling the 115 YEDAM Helpline."
+  },
+  "emergency": {
+    "title": "In an emergency, 112",
+    "text": "If you feel that you or someone else is in danger in an emergency, call 112 (or your local emergency number) right away."
+  },
+  "supporter": {
+    "intro": "Send a ready-made message to your supporter. The message goes through your phone's share menu; the app never sends anything itself.",
+    "messages": [
+      {
+        "id": "quit",
+        "label": "Quit day",
+        "text": "Hi {supporter}, I'm quitting smoking on {date}. Can I message you when it gets hard? Your support means a lot to me."
+      },
+      {
+        "id": "progress",
+        "label": "Progress",
+        "text": "I've been smoke-free for {days} days! Thank you for being with me through this, {supporter}."
+      },
+      {
+        "id": "hard",
+        "label": "A hard moment",
+        "text": "{supporter}, I'm having a hard moment with a craving right now. Can we talk for a few minutes?"
+      }
+    ]
+  },
+  "doctor": {
+    "intro": "A short summary you can use at a quit-smoking clinic or with your doctor. The summary is created on your device and only sent if you share it.",
+    "note": "This summary was created from information the user entered into the app themselves; it's not a medical assessment."
+  }
+}

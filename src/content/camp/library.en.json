@@ -1,0 +1,539 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "alo171",
+    "cdc-health-effects",
+    "cdc-secondhand",
+    "cochrane2019",
+    "nci-light",
+    "nci-withdrawal",
+    "nhs-quit",
+    "smokefree-withdrawal",
+    "who-benefits",
+    "who-ecig",
+    "who-tobacco",
+    "who-waterpipe"
+  ],
+  "stories": [
+    {
+      "id": "addiction",
+      "icon": "brain",
+      "tone": "smokefree",
+      "title": "How does nicotine addiction work?",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "icon": "brain",
+          "tone": "smokefree",
+          "title": "A fast route",
+          "text": "Nicotine reaches the brain shortly after it's inhaled and stimulates the reward system. This fast effect is one reason the habit forms so easily."
+        },
+        {
+          "icon": "repeat",
+          "tone": "smokefree",
+          "title": "Getting used to it, and withdrawal",
+          "text": "Over time the brain gets used to nicotine. When the nicotine level drops, restlessness and craving start; the next cigarette relieves that feeling for a while."
+        },
+        {
+          "icon": "link",
+          "tone": "smokefree",
+          "title": "Habit links",
+          "text": "Situations like coffee, after meals or the car get paired with smoking. These links turn into triggers that spark cravings."
+        },
+        {
+          "icon": "sprout",
+          "tone": "smokefree",
+          "title": "It's reversible",
+          "text": "When you stop smoking, the brain finds its balance again. Cravings become rarer and weaker over time."
+        }
+      ]
+    },
+    {
+      "id": "withdrawal-timeline",
+      "icon": "calendar",
+      "tone": "smokefree",
+      "title": "Withdrawal timeline",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "alarm",
+          "tone": "smokefree",
+          "title": "The first hours",
+          "text": "A few hours after the last cigarette, craving and restlessness can begin."
+        },
+        {
+          "icon": "zap",
+          "tone": "smokefree",
+          "title": "The first three days",
+          "text": "Symptoms usually peak in the first days: strong cravings, irritability, trouble concentrating."
+        },
+        {
+          "icon": "trendDown",
+          "tone": "smokefree",
+          "title": "The first weeks",
+          "text": "Irritability and restlessness decrease within 2–4 weeks. Increased appetite can last a little longer."
+        },
+        {
+          "icon": "cloudSun",
+          "tone": "smokefree",
+          "title": "After that",
+          "text": "After a few months cravings become rare, but they can still come at unexpected moments in certain settings. That's normal and it passes."
+        }
+      ]
+    },
+    {
+      "id": "light-myth",
+      "icon": "feather",
+      "tone": "smokefree",
+      "title": "The \"light\" cigarette myth",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-light",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "icon": "feather",
+          "tone": "smokefree",
+          "title": "Lighter?",
+          "text": "There's no evidence that cigarettes marketed as \"light\", \"ultra\" or \"mild\" are less harmful."
+        },
+        {
+          "icon": "wind",
+          "tone": "smokefree",
+          "title": "Why?",
+          "text": "People who smoke them often inhale more deeply or more often without realising, so they take in a similar amount of harmful substances."
+        },
+        {
+          "icon": "scale",
+          "tone": "smokefree",
+          "title": "The result",
+          "text": "Switching to a \"lighter\" cigarette doesn't replace the benefits of quitting."
+        }
+      ]
+    },
+    {
+      "id": "hookah",
+      "icon": "cloud",
+      "tone": "smokefree",
+      "title": "Hookah facts",
+      "minutes": 2,
+      "sourceIds": [
+        "who-waterpipe",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "icon": "cloud",
+          "tone": "smokefree",
+          "title": "Water doesn't filter it",
+          "text": "The water in a hookah cools the smoke but doesn't filter out most of the harmful substances."
+        },
+        {
+          "icon": "hourglass",
+          "tone": "smokefree",
+          "title": "Long sessions",
+          "text": "A hookah session lasts a long time, and a lot of smoke is inhaled during it."
+        },
+        {
+          "icon": "flask",
+          "tone": "smokefree",
+          "title": "Nicotine and carbon monoxide",
+          "text": "Hookah smoke contains nicotine, carbon monoxide and substances linked to cancer. It can be addictive."
+        },
+        {
+          "icon": "users",
+          "tone": "smokefree",
+          "title": "Sharing is a risk",
+          "text": "Sharing a mouthpiece can also increase the risk of spreading infections."
+        }
+      ]
+    },
+    {
+      "id": "ecig",
+      "icon": "battery",
+      "tone": "smokefree",
+      "title": "E-cigarette and heated tobacco facts",
+      "minutes": 2,
+      "sourceIds": [
+        "who-ecig",
+        "alo171"
+      ],
+      "slides": [
+        {
+          "icon": "battery",
+          "tone": "smokefree",
+          "title": "Not harmless",
+          "text": "E-cigarettes and heated tobacco products usually contain nicotine and are addictive. Their long-term effects are still being studied."
+        },
+        {
+          "icon": "scale",
+          "tone": "smokefree",
+          "title": "Legal status in Türkiye",
+          "text": "In Türkiye, the commercial sale of e-cigarettes and heated tobacco products is banned."
+        },
+        {
+          "icon": "ban",
+          "tone": "smokefree",
+          "title": "Not a way to quit",
+          "text": "This camp doesn't recommend e-cigarettes or heated tobacco as a way to quit. If you use them, they're products to quit along with the rest."
+        },
+        {
+          "icon": "phone",
+          "tone": "smokefree",
+          "title": "Proven support",
+          "text": "For quitting, behavioural support and, when needed, a doctor's assessment are recommended. ALO 171 (Türkiye) or your local quitline can point you to the right support."
+        }
+      ]
+    },
+    {
+      "id": "secondhand",
+      "icon": "home",
+      "tone": "smokefree",
+      "title": "Secondhand and thirdhand smoke",
+      "minutes": 2,
+      "sourceIds": [
+        "cdc-secondhand",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "icon": "home",
+          "tone": "smokefree",
+          "title": "Secondhand smoke",
+          "text": "Everyone in a place where people smoke breathes in the harmful substances in the smoke. There's no safe level of secondhand smoke."
+        },
+        {
+          "icon": "baby",
+          "tone": "smokefree",
+          "title": "For children",
+          "text": "Children are affected more by secondhand smoke; respiratory infections and asthma attacks can be more frequent."
+        },
+        {
+          "icon": "shirt",
+          "tone": "smokefree",
+          "title": "Thirdhand smoke",
+          "text": "Smoke residue sticks to clothes, furniture and the inside of cars and can get back into the air over time."
+        },
+        {
+          "icon": "success",
+          "tone": "smokefree",
+          "title": "A smoke-free space",
+          "text": "Keeping your home and car completely smoke-free is the most effective way to protect the people you love."
+        }
+      ]
+    },
+    {
+      "id": "vascular-sexual",
+      "icon": "handshake",
+      "tone": "smokefree",
+      "title": "Smoking and sexual/vascular health",
+      "minutes": 2,
+      "sourceIds": [
+        "cdc-health-effects",
+        "who-tobacco",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "icon": "droplet",
+          "tone": "smokefree",
+          "title": "Blood vessels",
+          "text": "Smoking damages the inner lining of blood vessels, narrows them and makes clots form more easily."
+        },
+        {
+          "icon": "heart",
+          "tone": "smokefree",
+          "title": "Heart and circulation",
+          "text": "These effects increase the risk of heart attack, stroke and circulation problems."
+        },
+        {
+          "icon": "handshake",
+          "tone": "smokefree",
+          "title": "Sexual health",
+          "text": "Good blood flow is important for sexual function; smoking is a known risk factor for erection problems."
+        },
+        {
+          "icon": "trendUp",
+          "tone": "smokefree",
+          "title": "When you quit",
+          "text": "After quitting, circulation improves and the risk decreases over time. With ongoing problems, it's important to see a doctor."
+        }
+      ]
+    },
+    {
+      "id": "skin-teeth",
+      "icon": "laugh",
+      "tone": "smokefree",
+      "title": "Smoking, skin and teeth",
+      "minutes": 2,
+      "sourceIds": [
+        "cdc-health-effects",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "icon": "droplet",
+          "tone": "smokefree",
+          "title": "Skin",
+          "text": "Smoking reduces blood flow to the skin; skin can age early and wounds can heal more slowly."
+        },
+        {
+          "icon": "laugh",
+          "tone": "smokefree",
+          "title": "Teeth and gums",
+          "text": "Smoking can cause stained teeth, bad breath and gum disease."
+        },
+        {
+          "icon": "wind",
+          "tone": "smokefree",
+          "title": "Taste and smell",
+          "text": "In the days after quitting, your sense of taste and smell starts to recover."
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "icon": "footprints",
+      "tone": "smokefree",
+      "title": "Smoking and sports performance",
+      "minutes": 2,
+      "sourceIds": [
+        "who-benefits",
+        "cdc-health-effects"
+      ],
+      "slides": [
+        {
+          "icon": "wind",
+          "tone": "smokefree",
+          "title": "Oxygen transport",
+          "text": "The carbon monoxide in cigarette smoke reduces the blood's ability to carry oxygen."
+        },
+        {
+          "icon": "footprints",
+          "tone": "smokefree",
+          "title": "Endurance",
+          "text": "That's why smokers can tire and get out of breath faster with effort."
+        },
+        {
+          "icon": "trendUp",
+          "tone": "smokefree",
+          "title": "When you quit",
+          "text": "In the weeks after quitting, circulation improves and lung function increases. Many people feel the difference when climbing stairs."
+        }
+      ]
+    },
+    {
+      "id": "medication-info",
+      "icon": "pill",
+      "tone": "smokefree",
+      "title": "General information on quit-smoking medicines",
+      "minutes": 2,
+      "sourceIds": [
+        "cochrane2019",
+        "alo171"
+      ],
+      "slides": [
+        {
+          "icon": "pill",
+          "tone": "smokefree",
+          "title": "Medicines can help",
+          "text": "Quit-smoking medicines can increase your chances of quitting by reducing withdrawal symptoms and cravings."
+        },
+        {
+          "icon": "stethoscope",
+          "tone": "smokefree",
+          "title": "The doctor's decision",
+          "text": "Only a doctor can decide which medicine is right for you. This app doesn't recommend medicine names or doses."
+        },
+        {
+          "icon": "hospital",
+          "tone": "smokefree",
+          "title": "Free in Türkiye",
+          "text": "In Türkiye, quit-smoking clinics give these medicines free of charge if the doctor sees fit. You can call ALO 171 for an appointment."
+        },
+        {
+          "icon": "warning",
+          "tone": "smokefree",
+          "title": "Ask first",
+          "text": "If you're pregnant or have heart disease or a psychiatric diagnosis, talk to your doctor before trying any method."
+        }
+      ]
+    },
+    {
+      "id": "weight",
+      "icon": "scale",
+      "tone": "smokefree",
+      "title": "Weight management",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "scale",
+          "tone": "smokefree",
+          "title": "Why might you gain weight?",
+          "text": "After quitting, appetite can increase and sweet cravings can grow; there are small changes in metabolism too."
+        },
+        {
+          "icon": "apple",
+          "tone": "smokefree",
+          "title": "Small steps",
+          "text": "Regular meals, vegetables and fruit, plenty of water and daily movement help limit sudden weight gain."
+        },
+        {
+          "icon": "target",
+          "tone": "smokefree",
+          "title": "The priority",
+          "text": "The health benefit of quitting smoking is far greater than the risk of a few extra kilos."
+        }
+      ]
+    },
+    {
+      "id": "stress",
+      "icon": "angry",
+      "tone": "smokefree",
+      "title": "Stress and smoking",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "who-tobacco"
+      ],
+      "slides": [
+        {
+          "icon": "angry",
+          "tone": "smokefree",
+          "title": "Does smoking relax you?",
+          "text": "The relaxing feeling of a cigarette comes largely from relieving the withdrawal between two cigarettes."
+        },
+        {
+          "icon": "rotate",
+          "tone": "smokefree",
+          "title": "A vicious circle",
+          "text": "Withdrawal creates tension and a cigarette relieves it for a while; so smoking seems like both the cause of stress and its cure."
+        },
+        {
+          "icon": "leaf",
+          "tone": "smokefree",
+          "title": "After you quit",
+          "text": "After the withdrawal period, many people feel less tense. Breathing, movement and social support are new ways of coping."
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "icon": "moon",
+      "tone": "smokefree",
+      "title": "Sleep and smoking",
+      "minutes": 2,
+      "sourceIds": [
+        "nci-withdrawal",
+        "smokefree-withdrawal"
+      ],
+      "slides": [
+        {
+          "icon": "moon",
+          "tone": "smokefree",
+          "title": "The first days",
+          "text": "After quitting you may have trouble falling or staying asleep. This is usually temporary."
+        },
+        {
+          "icon": "coffee",
+          "tone": "smokefree",
+          "title": "Caffeine",
+          "text": "Smoking speeds up how fast caffeine leaves the body. After quitting, the same amount of coffee can have a stronger effect; cut down on caffeine in the evening."
+        },
+        {
+          "icon": "bed",
+          "tone": "smokefree",
+          "title": "Sleep pattern",
+          "text": "Going to bed at the same time every day, putting the screen away before bed and having a calm routine help."
+        }
+      ]
+    },
+    {
+      "id": "ramadan",
+      "icon": "moon",
+      "tone": "smokefree",
+      "title": "Quitting smoking in Ramadan",
+      "minutes": 2,
+      "sourceIds": [
+        "who-benefits",
+        "alo171"
+      ],
+      "slides": [
+        {
+          "icon": "moon",
+          "tone": "smokefree",
+          "title": "A ready-made opportunity",
+          "text": "In Ramadan, people don't smoke all day. For many, this experience shows that they can actually go hours without smoking."
+        },
+        {
+          "icon": "utensils",
+          "tone": "smokefree",
+          "title": "Risky hour: after iftar",
+          "text": "The craving can be strong right after iftar. Making an If–Then plan for that moment in advance makes it easier."
+        },
+        {
+          "icon": "handshake",
+          "tone": "smokefree",
+          "title": "After suhoor",
+          "text": "By also dropping the cigarette after suhoor, you can spread the smoke-free hours you gain from fasting across the whole day."
+        },
+        {
+          "icon": "calendar",
+          "tone": "smokefree",
+          "title": "Choose a quit day",
+          "text": "The beginning or middle of Ramadan can be a meaningful date for your quit day."
+        }
+      ]
+    },
+    {
+      "id": "any-age",
+      "icon": "clock",
+      "tone": "smokefree",
+      "title": "The benefits of quitting at any age",
+      "minutes": 2,
+      "sourceIds": [
+        "who-benefits",
+        "nhs-quit"
+      ],
+      "slides": [
+        {
+          "icon": "clock",
+          "tone": "smokefree",
+          "title": "It's never too late",
+          "text": "Whatever age you quit smoking, it benefits your health."
+        },
+        {
+          "icon": "heart",
+          "tone": "smokefree",
+          "title": "Quick gains",
+          "text": "Shortly after quitting, your heart rate and the carbon monoxide level in your blood drop."
+        },
+        {
+          "icon": "trendUp",
+          "tone": "smokefree",
+          "title": "Long-term gains",
+          "text": "Over the years, the risk of heart disease, stroke and many types of cancer decreases."
+        },
+        {
+          "icon": "sprout",
+          "tone": "smokefree",
+          "title": "Quality of life",
+          "text": "Easier breathing, better taste and smell, more energy: the gains aren't only long-term."
+        }
+      ]
+    }
+  ]
+}

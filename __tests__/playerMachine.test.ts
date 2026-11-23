@@ -9,6 +9,7 @@ import {
   remainingInPhase,
   resume,
   skipExercise,
+  skipPhase,
   start,
   tick,
   type PlayerEvent,
@@ -149,3 +150,40 @@ describe('player state machine', () => {
     expect(r.state.status).toBe('completed');
   });
 });
+
+describe('fitness skip on a countdown or rest (user report 2026-11-22)', () => {
+  // A fitness routine: countdown, then work and a rest that belongs to the coming move.
+  const fit: P[] = [
+    { kind: 'countdown', durationMs: 5000, exerciseIndex: -1 },
+    { kind: 'work', durationMs: 30000, exerciseIndex: 0 },
+    { kind: 'rest', durationMs: 15000, exerciseIndex: 1 },
+    { kind: 'work', durationMs: 30000, exerciseIndex: 1 },
+    { kind: 'rest', durationMs: 15000, exerciseIndex: 2 },
+    { kind: 'work', durationMs: 30000, exerciseIndex: 2 },
+  ];
+
+  it('skipping the countdown starts the first move right away', () => {
+    const { state } = start(createPlayer(fit), 0);
+    const r = skipPhase(state, 1000);
+    expect(currentPhase(r.state)).toMatchObject({ kind: 'work', exerciseIndex: 0 });
+    expect(types(r.events).at(-1)).toBe('start:work');
+    expect(r.state.skippedExercises).toEqual([]);
+  });
+
+  it('skipping a rest starts the coming move, not the rest after it', () => {
+    let { state } = start(createPlayer(fit), 0);
+    state = tick(state, 5000 + 30000 + 2000).state; // in the first rest
+    expect(currentPhase(state)).toMatchObject({ kind: 'rest', exerciseIndex: 1 });
+    const r = skipPhase(state, 37000);
+    expect(currentPhase(r.state)).toMatchObject({ kind: 'work', exerciseIndex: 1 });
+    // The old behaviour (skipExercise) jumped over that move to the next rest.
+    expect(currentPhase(skipExercise(state, 37000).state)).toMatchObject({ kind: 'rest', exerciseIndex: 2 });
+  });
+
+  it('skipping the last phase completes the routine', () => {
+    const one: P[] = [{ kind: 'rest', durationMs: 5000, exerciseIndex: 0 }];
+    const r = skipPhase(start(createPlayer(one), 0).state, 1000);
+    expect(r.state.status).toBe('completed');
+  });
+});
+

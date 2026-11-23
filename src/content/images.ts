@@ -180,6 +180,9 @@ export const IMAGES: Record<string, AppImage> = {
   "glossary/strength-test": { image: require('../../assets/images/glossary/strength-test.webp'), blurhash: "LBGkRN^i00-U=FV@J7t6M0%2?]NH", alt: "Kronometreli eski bir cep saati", focus: { x: 0.5, y: 0.5 }, bytes: 6322 },
   "glossary/tight-pelvic-floor": { image: require('../../assets/images/glossary/tight-pelvic-floor.webp'), blurhash: "L6OWTf-mR4~p00-:fRxZ00_2xuxu", alt: "Ahşap zeminde gevşekçe kıvrılmış beyaz bir halat", focus: { x: 0.5, y: 0.5 }, bytes: 24442 },
   "glossary/vibration": { image: require('../../assets/images/glossary/vibration.webp'), blurhash: "LHF~aHofM{?a?aNGRkt7~qM{IUWB", alt: "Masada ekranı aşağı bakan bir telefon", focus: { x: 0.5, y: 0.5 }, bytes: 2236 },
+  "program/bodyweight": { image: require('../../assets/images/program/bodyweight.webp'), blurhash: "LhJHHo%LNHIV_Nt7xZV?.8oft6Rj", alt: "Gün doğumunda parkta şınav çeken, eşofmanlı bir adam", focus: { x: 0.5, y: 0.55 }, bytes: 29656 },
+  "program/posture": { image: require('../../assets/images/program/posture.webp'), blurhash: "LRK-d*^+_N_M~qt7IVxut7aeM{j[", alt: "Aydınlık bir odada dik durup kollarını iki yana açan, siyah tişörtlü bir adam", focus: { x: 0.5, y: 0.45 }, bytes: 11140 },
+  "program/mobility": { image: require('../../assets/images/program/mobility.webp'), blurhash: "LPFYcFM{IU%g~qxZM{tRNHkCxtjZ", alt: "Matın üstünde oturup lastik bantla ayaklarına uzanarak esneyen bir adam", focus: { x: 0.5, y: 0.55 }, bytes: 10696 },
 };
 
 export const appImage = (id: string | undefined): AppImage | undefined => (id ? IMAGES[id] : undefined);

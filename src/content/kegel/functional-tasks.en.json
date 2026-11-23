@@ -1,0 +1,257 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs",
+    "miller1996_knack",
+    "dorey2004_uronurs"
+  ],
+  "tasks": [
+    {
+      "id": "stand_up",
+      "icon": "chair",
+      "tone": "kegel",
+      "title": "Squeeze before standing up",
+      "text": "Today, the 3 times you stand up from your seat, squeeze the muscle just before you rise.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "stairs",
+      "icon": "trendUp",
+      "tone": "kegel",
+      "title": "Squeeze on the stairs",
+      "text": "Today, when climbing stairs, gently squeeze the muscle on the first 3 steps.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "after_urine",
+      "icon": "doorClosed",
+      "tone": "kegel",
+      "title": "Squeeze twice after urinating",
+      "text": "When you've finished urinating, squeeze and release twice; it helps reduce dribbling.",
+      "tracks": [
+        "bladder",
+        "surgery",
+        "general"
+      ]
+    },
+    {
+      "id": "cough_knack",
+      "icon": "thermometer",
+      "tone": "kegel",
+      "title": "Squeeze before coughing (Knack)",
+      "text": "Today, squeeze the muscle just before you cough or sneeze.",
+      "tracks": [
+        "bladder",
+        "surgery",
+        "general"
+      ]
+    },
+    {
+      "id": "lift",
+      "icon": "box",
+      "tone": "kegel",
+      "title": "Squeeze before lifting",
+      "text": "Squeeze the muscle just before lifting a bag, a box or anything else, and breathe out as you lift.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "walk",
+      "icon": "footprints",
+      "tone": "kegel",
+      "title": "5 light squeezes while walking",
+      "text": "While walking, squeeze lightly 5 times and let go completely.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "red_light",
+      "icon": "alert",
+      "tone": "kegel",
+      "title": "3 squeezes at a red light",
+      "text": "While waiting in traffic or in a queue, do 3 slow squeezes, letting go completely in between.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "kettle",
+      "icon": "coffee",
+      "tone": "kegel",
+      "title": "5 quick squeezes while the kettle boils",
+      "text": "While the water for tea or coffee heats up, do 5 quick squeezes.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "teeth",
+      "icon": "sparkle",
+      "tone": "kegel",
+      "title": "Hold while brushing your teeth",
+      "text": "While brushing your teeth, hold for 5 seconds twice, then let go.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "phone_call",
+      "icon": "phone",
+      "tone": "kegel",
+      "title": "Stand tall on the phone",
+      "text": "During a phone call, stand tall and squeeze lightly 3 times.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "sit_posture",
+      "icon": "flower",
+      "tone": "kegel",
+      "title": "Check how you sit",
+      "text": "Check your sitting posture 3 times today: sit upright and gently lift the pelvic floor without clenching your glutes.",
+      "tracks": [
+        "all"
+      ]
+    },
+    {
+      "id": "elevator_wait",
+      "icon": "arrowUpDown",
+      "tone": "kegel",
+      "title": "Slow squeeze–release while waiting",
+      "text": "While waiting for a lift or a bus, slowly squeeze 3 times, hold briefly and let go slowly.",
+      "tracks": [
+        "general",
+        "control"
+      ]
+    },
+    {
+      "id": "max_morning",
+      "icon": "zap",
+      "tone": "kegel",
+      "title": "3 full-power squeezes in the morning",
+      "text": "When you get up in the morning, do 3 full-power contractions standing, with long rests in between.",
+      "tracks": [
+        "erection"
+      ]
+    },
+    {
+      "id": "standing_hold",
+      "icon": "body",
+      "tone": "kegel",
+      "title": "Hold for 5 seconds standing",
+      "text": "During the day, while standing, hold for 5 seconds 3 times and let go completely.",
+      "tracks": [
+        "erection",
+        "general"
+      ]
+    },
+    {
+      "id": "breath_sync",
+      "icon": "wind",
+      "tone": "kegel",
+      "title": "Match it to your breath",
+      "text": "Squeeze as you breathe out, let go as you breathe in: 5 reps.",
+      "tracks": [
+        "control"
+      ]
+    },
+    {
+      "id": "release_scan",
+      "icon": "leaf",
+      "tone": "kegel",
+      "title": "Let go during the day",
+      "text": "Stop 3 times today and consciously relax your pelvic floor, glutes and jaw.",
+      "tracks": [
+        "control",
+        "relax"
+      ]
+    },
+    {
+      "id": "quick_control",
+      "icon": "sliders",
+      "tone": "kegel",
+      "title": "10 quick, full release",
+      "text": "Do 10 quick squeezes; after each one, feel the muscle let go completely.",
+      "tracks": [
+        "control"
+      ]
+    },
+    {
+      "id": "evening_breath",
+      "icon": "moon",
+      "tone": "kegel",
+      "title": "Breathing before bed",
+      "text": "6 slow breaths before bed: gently let the pelvic floor go as you breathe out.",
+      "tracks": [
+        "relax",
+        "control"
+      ]
+    },
+    {
+      "id": "desk_release",
+      "icon": "laptop",
+      "tone": "kegel",
+      "title": "Let go at your desk",
+      "text": "If you've been sitting a long time, get up, relax your shoulders and glutes and take 3 deep breaths.",
+      "tracks": [
+        "relax",
+        "all"
+      ]
+    },
+    {
+      "id": "toilet_relax",
+      "icon": "moon",
+      "tone": "kegel",
+      "title": "Don't strain on the toilet",
+      "text": "On the toilet, take care to empty without straining, breathing out and relaxing.",
+      "tracks": [
+        "relax",
+        "bladder"
+      ]
+    },
+    {
+      "id": "stress_check",
+      "icon": "smile",
+      "tone": "kegel",
+      "title": "Check in a stressful moment",
+      "text": "In a tense moment, check whether you're clenching your glutes or belly; if you are, let go.",
+      "tracks": [
+        "relax",
+        "control"
+      ]
+    },
+    {
+      "id": "shoe_tie",
+      "icon": "footprints",
+      "tone": "kegel",
+      "title": "When tying your shoes",
+      "text": "Gently squeeze the muscle before bending down or tying your shoes.",
+      "tracks": [
+        "surgery",
+        "bladder",
+        "general"
+      ]
+    },
+    {
+      "id": "get_out_bed",
+      "icon": "bed",
+      "tone": "kegel",
+      "title": "When getting out of bed",
+      "text": "In the morning, squeeze the muscle first, then get out of bed.",
+      "tracks": [
+        "surgery",
+        "bladder",
+        "all"
+      ]
+    }
+  ]
+}

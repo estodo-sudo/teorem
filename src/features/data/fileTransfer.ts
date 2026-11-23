@@ -5,6 +5,7 @@ import { Platform } from 'react-native';
 
 import { snapshotApp } from './appData';
 import { buildExport, exportFileName, parseImport, serializeExport, type ImportResult } from './exportImport';
+import { MAX_IMPORT_BYTES } from './sanitize';
 
 /** Writes the backup JSON to cache and opens the system share sheet. */
 export async function exportToShareSheet(): Promise<'shared' | 'unavailable'> {
@@ -31,6 +32,8 @@ export async function pickImportFile(): Promise<ImportResult | null> {
   const res = await DocumentPicker.getDocumentAsync({ type: ['application/json', 'text/plain', '*/*'], copyToCacheDirectory: true });
   if (res.canceled || !res.assets[0]) return null;
   const asset = res.assets[0];
+  // Do not even read a file that is far larger than any real backup.
+  if (typeof asset.size === 'number' && asset.size > MAX_IMPORT_BYTES) return { ok: false, error: 'corrupt' };
   const text = Platform.OS === 'web' ? await (await fetch(asset.uri)).text() : await new File(asset.uri).text();
   return parseImport(text);
 }

@@ -1,0 +1,121 @@
+{
+  "title": "Badges",
+  "intro": "Every badge is proof of your effort. Badges you've earned aren't taken back by a slip.",
+  "kicker": "New badge",
+  "cta": "Continue",
+  "items": [
+    {
+      "id": "days-1",
+      "icon": "sprout",
+      "tone": "focus",
+      "title": "First day",
+      "desc": "Your first day in line with your goal."
+    },
+    {
+      "id": "days-3",
+      "icon": "leaf",
+      "tone": "focus",
+      "title": "3 days",
+      "desc": "3 days in line with your goal."
+    },
+    {
+      "id": "days-7",
+      "icon": "clover",
+      "tone": "focus",
+      "title": "One week",
+      "desc": "7 days in line with your goal."
+    },
+    {
+      "id": "days-14",
+      "icon": "tree",
+      "tone": "focus",
+      "title": "Two weeks",
+      "desc": "14 days in line with your goal."
+    },
+    {
+      "id": "days-30",
+      "icon": "mountain",
+      "tone": "focus",
+      "title": "30 days",
+      "desc": "30 days in line with your goal."
+    },
+    {
+      "id": "days-60",
+      "icon": "sunrise",
+      "tone": "focus",
+      "title": "60 days",
+      "desc": "60 days in line with your goal."
+    },
+    {
+      "id": "days-90",
+      "icon": "sunrise",
+      "tone": "focus",
+      "title": "90 days",
+      "desc": "90 days in line with your goal."
+    },
+    {
+      "id": "urges-10",
+      "icon": "waves",
+      "tone": "focus",
+      "title": "10 waves",
+      "desc": "You managed 10 urge moments."
+    },
+    {
+      "id": "urges-50",
+      "icon": "waves",
+      "tone": "focus",
+      "title": "50 waves",
+      "desc": "You managed 50 urge moments."
+    },
+    {
+      "id": "urges-100",
+      "icon": "fish",
+      "tone": "focus",
+      "title": "100 waves",
+      "desc": "You managed 100 urge moments."
+    },
+    {
+      "id": "first-plan",
+      "icon": "notebook",
+      "tone": "focus",
+      "title": "First plan",
+      "desc": "You made your first If–Then plan."
+    },
+    {
+      "id": "boundaries",
+      "icon": "blocks",
+      "tone": "focus",
+      "title": "Boundaries set",
+      "desc": "You set up your digital boundaries."
+    },
+    {
+      "id": "checkin-7",
+      "icon": "calendar",
+      "tone": "focus",
+      "title": "7-day check-in",
+      "desc": "7 days of daily checks without a break."
+    },
+    {
+      "id": "all-skills",
+      "icon": "graduation",
+      "tone": "focus",
+      "title": "All lessons",
+      "desc": "You completed all 16 skill lessons."
+    },
+    {
+      "id": "comeback",
+      "icon": "repeat",
+      "tone": "focus",
+      "title": "Comeback",
+      "desc": "You kept going for 7 days after a slip. Self-compassion works."
+    },
+    {
+      "id": "graduate",
+      "icon": "medal",
+      "tone": "focus",
+      "title": "Graduation",
+      "desc": "You completed the 90-day programme."
+    }
+  ],
+  "locked": "Not earned yet"
+}

@@ -13,6 +13,9 @@ import { useSettingsStore } from '@/stores/settingsStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 import type { DailyTarget, HapticStrength } from '@/types';
 
+/** "Standart" vibration when switched on: Normal (same as a fresh install). */
+const DEFAULT_STRENGTH: HapticStrength = 2;
+
 export default function TrainingSettings() {
   const { t: tr } = useTranslation();
   const settings = useSettingsStore((s) => s.settings);
@@ -55,21 +58,37 @@ export default function TrainingSettings() {
         />
       </Card>
 
-      <Card style={{ gap: 10 }}>
-        <AppText variant="h3">{tr('settings.training.haptics')}</AppText>
-        <Segmented<HapticStrength>
-          accessibilityLabel={tr('settings.training.haptics')}
-          value={settings.hapticStrength}
-          onChange={(v) => {
+      {/* Vibration on/off (user request 2026-11-22; on at Normal by default). Off = strength 0 everywhere. */}
+      <RowGroup>
+        <SwitchRow
+          label={tr('settings.training.vibration')}
+          description={tr('settings.training.vibrationHint')}
+          value={settings.hapticStrength > 0}
+          onChange={(on) => {
+            const v: HapticStrength = on ? DEFAULT_STRENGTH : 0;
             update({ hapticStrength: v });
-            playCue('contractStart', v);
+            if (on) playCue('contractStart', v);
+            else cancelHaptics();
           }}
-          options={[0, 1, 2, 3].map((v) => ({ value: v as HapticStrength, label: tr(`settings.training.strength.${v}`) }))}
         />
-        <AppText variant="small" muted>
-          {tr('settings.training.hapticsHint')}
-        </AppText>
-      </Card>
+      </RowGroup>
+      {settings.hapticStrength > 0 ? (
+        <Card style={{ gap: 10 }}>
+          <AppText variant="h3">{tr('settings.training.haptics')}</AppText>
+          <Segmented<HapticStrength>
+            accessibilityLabel={tr('settings.training.haptics')}
+            value={settings.hapticStrength}
+            onChange={(v) => {
+              update({ hapticStrength: v });
+              playCue('contractStart', v);
+            }}
+            options={[1, 2, 3].map((v) => ({ value: v as HapticStrength, label: tr(`settings.training.strength.${v}`) }))}
+          />
+          <AppText variant="small" muted>
+            {tr('settings.training.hapticsHint')}
+          </AppText>
+        </Card>
+      ) : null}
 
       <RowGroup>
         <SwitchRow label={tr('settings.training.sound')} description={tr('settings.training.soundHint')} value={settings.soundCues} onChange={(v) => update({ soundCues: v })} />

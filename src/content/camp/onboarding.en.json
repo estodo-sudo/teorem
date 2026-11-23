@@ -1,0 +1,366 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "heatherton1989",
+    "alo171",
+    "black2020"
+  ],
+  "products": [
+    {
+      "id": "cigarette",
+      "icon": "box",
+      "tone": "smokefree",
+      "label": "Cigarettes (packs)"
+    },
+    {
+      "id": "rolling",
+      "icon": "leaf",
+      "tone": "smokefree",
+      "label": "Rolling tobacco"
+    },
+    {
+      "id": "hookah",
+      "icon": "cloud",
+      "tone": "smokefree",
+      "label": "Hookah"
+    },
+    {
+      "id": "cigar_pipe",
+      "icon": "tree",
+      "tone": "smokefree",
+      "label": "Cigars / pipe"
+    },
+    {
+      "id": "ecig",
+      "icon": "battery",
+      "tone": "smokefree",
+      "label": "E-cigarettes"
+    },
+    {
+      "id": "heated",
+      "icon": "zap",
+      "tone": "smokefree",
+      "label": "Heated tobacco"
+    },
+    {
+      "id": "pouch",
+      "icon": "box",
+      "tone": "smokefree",
+      "label": "Nicotine pouches / chewing tobacco"
+    }
+  ],
+  "firstCig": [
+    {
+      "value": 5,
+      "label": "Within 5 minutes"
+    },
+    {
+      "value": 30,
+      "label": "6–30 minutes"
+    },
+    {
+      "value": 60,
+      "label": "31–60 minutes"
+    },
+    {
+      "value": 61,
+      "label": "After 1 hour"
+    }
+  ],
+  "hsiBands": {
+    "low": {
+      "title": "Low level of dependence",
+      "text": "Your body's dependence on nicotine looks relatively low. Even so, habits and triggers can be strong; the camp's main job is working with them."
+    },
+    "mid": {
+      "title": "Moderate level of dependence",
+      "text": "Your nicotine dependence is moderate. You may feel withdrawal symptoms in the first days; they're temporary, and in the camp you'll learn ways to cope with them."
+    },
+    "high": {
+      "title": "High level of dependence",
+      "text": "Your nicotine dependence is high. This isn't a judgement, it's information: getting support while you quit makes it easier. Behavioural tools and professional support together give the best results."
+    }
+  },
+  "hsiInfo": "The Heaviness of Smoking Index is based on two questions: how many cigarettes you smoke a day and how soon after waking you light your first. It gives a score from 0 to 6 and is widely used around the world to quickly assess nicotine dependence. It isn't a diagnosis.",
+  "medication": "Quit-smoking medicines can increase your chances of quitting. In Türkiye they're given free of charge at quit-smoking clinics if the doctor sees fit; you can call ALO 171 for an appointment. Elsewhere, ask your doctor or pharmacist. If you're pregnant or have heart disease or a psychiatric diagnosis, talk to your doctor first.",
+  "under18": "If you're under 18, in Türkiye you can call ALO 171 to be referred to quit-smoking clinics that serve under-18s; elsewhere, talk to your doctor. You can use all the behavioural tools in the camp.",
+  "reasons": [
+    {
+      "id": "health",
+      "icon": "heart",
+      "tone": "smokefree",
+      "label": "My health"
+    },
+    {
+      "id": "family",
+      "icon": "users",
+      "tone": "smokefree",
+      "label": "My family / children"
+    },
+    {
+      "id": "money",
+      "icon": "wallet",
+      "tone": "smokefree",
+      "label": "Money"
+    },
+    {
+      "id": "fitness",
+      "icon": "footprints",
+      "tone": "smokefree",
+      "label": "Sport and fitness"
+    },
+    {
+      "id": "sexual_health",
+      "icon": "handshake",
+      "tone": "smokefree",
+      "label": "My sexual health"
+    },
+    {
+      "id": "looks",
+      "icon": "sparkle",
+      "tone": "smokefree",
+      "label": "Appearance and smell"
+    },
+    {
+      "id": "freedom",
+      "icon": "bird",
+      "tone": "smokefree",
+      "label": "Freedom and control"
+    },
+    {
+      "id": "spiritual",
+      "icon": "painCare",
+      "tone": "smokefree",
+      "label": "Religious / spiritual reasons"
+    },
+    {
+      "id": "doctor",
+      "icon": "stethoscope",
+      "tone": "smokefree",
+      "label": "My doctor recommended it"
+    }
+  ],
+  "triggers": [
+    {
+      "id": "waking",
+      "icon": "sunrise",
+      "tone": "smokefree",
+      "label": "When I wake up"
+    },
+    {
+      "id": "coffee_tea",
+      "icon": "coffee",
+      "tone": "smokefree",
+      "label": "With coffee / tea"
+    },
+    {
+      "id": "after_meal",
+      "icon": "utensils",
+      "tone": "smokefree",
+      "label": "After meals"
+    },
+    {
+      "id": "work_break",
+      "icon": "briefcase",
+      "tone": "smokefree",
+      "label": "On a work break"
+    },
+    {
+      "id": "stress",
+      "icon": "angry",
+      "tone": "smokefree",
+      "label": "When I'm stressed or angry"
+    },
+    {
+      "id": "boredom",
+      "icon": "moon",
+      "tone": "smokefree",
+      "label": "When I'm bored"
+    },
+    {
+      "id": "alcohol",
+      "icon": "glass",
+      "tone": "smokefree",
+      "label": "When I'm drinking alcohol"
+    },
+    {
+      "id": "friends",
+      "icon": "users",
+      "tone": "smokefree",
+      "label": "With friends"
+    },
+    {
+      "id": "driving",
+      "icon": "car",
+      "tone": "smokefree",
+      "label": "When driving"
+    },
+    {
+      "id": "phone",
+      "icon": "smartphone",
+      "tone": "smokefree",
+      "label": "When I'm talking on the phone"
+    },
+    {
+      "id": "bedtime",
+      "icon": "moon",
+      "tone": "smokefree",
+      "label": "Before bed"
+    },
+    {
+      "id": "toilet",
+      "icon": "doorClosed",
+      "tone": "smokefree",
+      "label": "In the toilet"
+    }
+  ],
+  "pastAttempts": [
+    {
+      "value": 0,
+      "label": "I've never tried"
+    },
+    {
+      "value": 1,
+      "label": "I've tried 1–2 times"
+    },
+    {
+      "value": 3,
+      "label": "I've tried 3 or more times"
+    }
+  ],
+  "relapseCauses": [
+    {
+      "id": "stress",
+      "icon": "frown",
+      "tone": "smokefree",
+      "label": "A crisis or stress"
+    },
+    {
+      "id": "weight",
+      "icon": "scale",
+      "tone": "smokefree",
+      "label": "Gaining weight"
+    },
+    {
+      "id": "social",
+      "icon": "users",
+      "tone": "smokefree",
+      "label": "Social settings"
+    },
+    {
+      "id": "alcohol",
+      "icon": "glass",
+      "tone": "smokefree",
+      "label": "Alcohol"
+    },
+    {
+      "id": "just_one",
+      "icon": "pointer",
+      "tone": "smokefree",
+      "label": "After \"just one\""
+    },
+    {
+      "id": "withdrawal",
+      "icon": "wind",
+      "tone": "smokefree",
+      "label": "Withdrawal symptoms"
+    }
+  ],
+  "relapseNote": "Having tried before means you've learned what makes it hard, not that you can't do it. Based on these answers, we'll bring the relevant skill lessons to the front.",
+  "methods": [
+    {
+      "id": "quit_day",
+      "icon": "calendar",
+      "tone": "smokefree",
+      "label": "Choose a quit day",
+      "desc": "The recommended way: set a date 3 to 14 days from now and prepare until then.",
+      "recommended": true
+    },
+    {
+      "id": "cut_down",
+      "icon": "trendDown",
+      "tone": "smokefree",
+      "label": "Quit by cutting down",
+      "desc": "Cut down a little every week for 2–4 weeks, then a quit day at the end. Cutting down isn't the goal; it's a bridge."
+    },
+    {
+      "id": "already_quit",
+      "icon": "success",
+      "tone": "smokefree",
+      "label": "I've already quit",
+      "desc": "Enter when your last cigarette was, and the camp will start from the right phase for you."
+    }
+  ],
+  "ageRanges": [
+    {
+      "id": "under18",
+      "label": "Under 18"
+    },
+    {
+      "id": "18to24",
+      "label": "18–24"
+    },
+    {
+      "id": "25to39",
+      "label": "25–39"
+    },
+    {
+      "id": "40to59",
+      "label": "40–59"
+    },
+    {
+      "id": "60plus",
+      "label": "60 and over"
+    }
+  ],
+  "alo171": {
+    "title": "ALO 171 Quit Smoking Helpline (Türkiye)",
+    "text": "Available 24/7 in Türkiye. Free from landlines; calls from mobiles may be charged at your operator's rate. You can call for counselling, a dependence assessment and an appointment at a quit-smoking clinic.",
+    "save": "We suggest saving the number in your phone's contacts as \"ALO 171\"; then it's easy to call in a hard moment.",
+    "lastVerified": "2026-11"
+  },
+  "phases": [
+    {
+      "id": "preparation",
+      "icon": "compass",
+      "tone": "smokefree",
+      "title": "Preparation",
+      "text": "Until your quit day: a mission every day, a smoking diary and a short skill lesson."
+    },
+    {
+      "id": "quit_day",
+      "icon": "flag",
+      "tone": "smokefree",
+      "title": "Quit Day",
+      "text": "A special checklist and the \"not a single puff\" rule."
+    },
+    {
+      "id": "critical_week",
+      "icon": "shield",
+      "tone": "smokefree",
+      "title": "Critical Week",
+      "text": "Days 1–7: the most intensive support; two short checks a day."
+    },
+    {
+      "id": "strengthening",
+      "icon": "dumbbell",
+      "tone": "smokefree",
+      "title": "Strengthening",
+      "text": "Days 8–30: daily missions and a weekly review."
+    },
+    {
+      "id": "maintenance",
+      "icon": "sprout",
+      "tone": "smokefree",
+      "title": "Staying Power",
+      "text": "Days 31–90: a few missions a week and relapse prevention."
+    },
+    {
+      "id": "freedom",
+      "icon": "bird",
+      "tone": "smokefree",
+      "title": "Freedom",
+      "text": "After day 90: graduation and monthly checks."
+    }
+  ]
+}

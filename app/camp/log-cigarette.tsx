@@ -228,7 +228,7 @@ export default function CampLogCigarette() {
       </View>
 
       <AppText weight="800">{tr('camp.log.tag')}</AppText>
-      <TextInput
+      <TextInput maxFontSizeMultiplier={1.3}
         value={tag}
         onChangeText={setTag}
         maxLength={30}

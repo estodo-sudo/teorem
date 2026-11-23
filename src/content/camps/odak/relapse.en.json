@@ -1,0 +1,35 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "review",
+  "sourceIds": [
+    "marlatt",
+    "bothe2021",
+    "roza2024"
+  ],
+  "panelTitle": "The last few days have been hard",
+  "panelBody": "You've been outside your goal for a few days. This is a chance to learn how to start again.",
+  "panelButton": "Let's look at it together",
+  "intro": {
+    "title": "Starting again is a skill",
+    "body": "Most people try a few times before a change sticks. Each attempt teaches you what works."
+  },
+  "learned": {
+    "title": "What you've learned along the way",
+    "triggers": "The situations you struggled with most: {list}",
+    "tools": "Tools that worked for you: {list}",
+    "managed": "Urge moments you managed: {n}",
+    "none": "Not enough entries yet. Your future entries will guide you."
+  },
+  "goal": {
+    "title": "Review your goal",
+    "hint": "Changing your goal isn't a step back. Maybe a cut-down goal is more realistic right now; the decision is yours.",
+    "keep": "I'm keeping my goal",
+    "save": "Save goal"
+  },
+  "restart": {
+    "title": "Continue from the Boundaries phase",
+    "body": "You restart your programme from the Boundaries phase (day 8): we'll reorganise your environment and risky hours together. Your total days, longest streak and the urge moments you managed are kept.",
+    "button": "Continue from the Boundaries phase",
+    "done": "You're ready. Your programme continues from the Boundaries phase."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Baldır",
+    "intro": "Baldır kaslarını, Aşil tendonunu ve kaval kemiğinin önünü güçlendiren programlar. Yerde baldır kaldırmadan başlar; basamakta, tek bacakla ve sekmelerle ilerlersin.",
+    "science": [
+      "Baldır kaldırmayı topuk aşağıdayken, yani kas gergin konumdayken çalışmak, 8 haftalık bir çalışmada kas büyümesini en çok artıran yöntemdi; basamakta topuğu aşağı sarkıtmak bu yüzden değerlidir.",
+      "Dizin bükülü olması baldırdaki büyük kası daha az, alttaki kası nispeten daha çok çalıştırır; fark küçüktür, bu yüzden iki pozisyon birlikte kullanılır.",
+      "Yavaş inişli baldır kaldırma, Aşil tendonu için önerilen programların temelidir.",
+      "Baldır günlük hayatta sürekli çalıştığı için dayanıklıdır; büyümesi için setleri gerçekten yorulana kadar sürdürmek gerekir."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "calf_raise",
+      "name": "Baldır Kaldırma",
+      "target": "Baldır",
+      "setup": "Ayakta dik dur, ayakların kalça genişliğinde. Dengen için bir duvara hafifçe tutunabilirsin.",
+      "steps": ["Topuklarını kaldırarak parmak uçlarına yüksel.", "En üstte kısa dur, baldırlarını sık.", "Topuklarını yavaşça yere indir."],
+      "tip": "Ağırlığın baş parmak ile ikinci parmak arasında olsun.",
+      "mistake": "Ayak bileğinin dışa yatmasına izin verme."
+    },
+    {
+      "id": "single_leg_calf_raise",
+      "name": "Tek Bacak Baldır Kaldırma",
+      "target": "Baldır (zor)",
+      "setup": "Tek ayağının üstünde dur, öbür ayağını arkada hafifçe kaldır. Bir eline duvardan destek al.",
+      "steps": ["Parmak ucuna yüksel.", "En üstte kısa dur.", "Yavaşça in; süre yarısında bacak değiştir."],
+      "tip": "Çift bacakla 25 tekrarı rahat yapınca dene.",
+      "mistake": "Dizini kilitleme; hafif yumuşak kalsın."
+    },
+    {
+      "id": "step_calf_raise",
+      "name": "Basamakta Baldır Kaldırma",
+      "target": "Baldır (gergin pozisyonda)",
+      "setup": "Bir basamağın kenarına parmak uçlarınla bas, topukların boşlukta. Bir eline duvardan ya da korkuluktan destek al.",
+      "steps": ["Topuklarını basamak hizasının altına sarkıt; baldırında gerilme hisset.", "Parmak uçlarına yüksel.", "Yavaşça yeniden aşağı sarkıt."],
+      "tip": "En alttaki gergin kısım en çok işe yarayan kısımdır.",
+      "mistake": "Basamaktan kaymaman için ayağının yarısı basamakta kalsın."
+    },
+    {
+      "id": "slow_eccentric_raise",
+      "name": "Yavaş İnişli Baldır",
+      "target": "Baldır ve Aşil tendonu",
+      "setup": "Basamağın kenarına parmak uçlarınla bas, bir eline destek al.",
+      "steps": ["İki ayakla hızlıca parmak uçlarına yüksel.", "4 saniyede, mümkünse tek ayakla yavaşça topuğunu aşağı indir.", "İki ayakla yeniden yüksel ve tekrarla."],
+      "tip": "İnişte hafif bir rahatsızlık olabilir; keskin ağrı olursa dur.",
+      "mistake": "İnişi hızlandırma; asıl iş yavaş inişte."
+    },
+    {
+      "id": "calf_raise_hold",
+      "name": "Parmak Ucunda Tutuş",
+      "target": "Baldır (dayanıklılık)",
+      "setup": "Ayakta dur, bir eline duvardan destek al.",
+      "steps": ["Parmak uçlarına yüksel.", "En üstte kal; topukların düşmesin.", "Nefes alarak süre bitene kadar bekle."],
+      "tip": "Yanma hissi normaldir.",
+      "mistake": "Dizlerini bükerek kendini aşağı bırakma."
+    },
+    {
+      "id": "bent_knee_calf_raise",
+      "name": "Diz Bükük Baldır Kaldırma",
+      "target": "Alt baldır kası (soleus)",
+      "setup": "Ayakta dur, dizlerini hafifçe bük ve bu açıyı koru. Kollarını denge için öne uzat.",
+      "steps": ["Dizlerin bükülü kalarak topuklarını kaldır.", "En üstte kısa dur.", "Yavaşça in."],
+      "tip": "Diz açısı hareket boyunca değişmesin.",
+      "mistake": "Kalkarken dizlerini düzeltme."
+    },
+    {
+      "id": "seated_calf_raise",
+      "name": "Oturarak Baldır Kaldırma",
+      "target": "Alt baldır kası (kolay)",
+      "setup": "Sandalyede dik otur, ayakların yerde, ellerin dizlerinde.",
+      "steps": ["Topuklarını yerden kaldır.", "En üstte kısa dur; ellerinle dizlerine bastırarak zorlaştırabilirsin.", "Yavaşça indir."],
+      "tip": "Dizlerinin üstüne ağır bir çanta koyarsan hareket zorlaşır.",
+      "mistake": "Hızlı ve sekerek yapma."
+    },
+    {
+      "id": "pogo_hops",
+      "name": "Seke Seke Zıplama",
+      "target": "Baldır ve Aşil tendonu (esneklik ve güç)",
+      "setup": "Ayakların kalça genişliğinde, parmak uçlarında dur.",
+      "steps": ["Dizlerini çok az bükerek bileklerinden yaylan ve küçük zıpla.", "Parmak uçlarına yumuşak in.", "Topukların yere değmeden ritimle devam et."],
+      "tip": "Yerde kısa kal; yay gibi sek.",
+      "mistake": "Aşil tendonunda ağrı varsa yapma."
+    },
+    {
+      "id": "jump_rope",
+      "name": "Hayali İp Atlama",
+      "target": "Baldır ve kondisyon",
+      "setup": "İp tutuyormuş gibi ellerin kalçanın yanında, parmak uçlarında dur.",
+      "steps": ["Bileklerinle küçük daireler çizerken küçük zıplamalar yap.", "Parmak uçlarına yumuşak in.", "Ritmi koruyarak devam et."],
+      "tip": "Gerçek ipin varsa onunla da yapabilirsin.",
+      "mistake": "Yükseğe zıplama; birkaç santim yeterli."
+    },
+    {
+      "id": "tibialis_raise",
+      "name": "Duvarda Parmak Kaldırma",
+      "target": "Kaval kemiğinin önü",
+      "setup": "Sırtını duvara daya, ayaklarını duvardan bir adım öne koy.",
+      "steps": ["Topukların yerde kalarak ayak uçlarını yukarı kaldır.", "En üstte kısa dur.", "Yavaşça indir."],
+      "tip": "Baldırları dengelediği için koşanlarda kaval kemiği ağrısına karşı faydalı olabilir.",
+      "mistake": "Kalçanı duvardan ayırma."
+    },
+    {
+      "id": "calf_stretch_wall",
+      "name": "Duvarda Baldır Esnetme",
+      "target": "Baldır (esneme)",
+      "setup": "Duvara dönük dur, ellerini duvara koy. Bir ayağın önde, öbürü bir adım geride.",
+      "steps": ["Arkadaki bacağın düz, topuğun yerde kalsın.", "Öndeki dizini bükerek gövdeni duvara doğru götür.", "Arka baldırında gerilmeyi hisset ve bekle; süre yarısında bacak değiştir."],
+      "tip": "Arkadaki dizini hafif bükersen alt baldır esner.",
+      "mistake": "Arkadaki topuğu kaldırma."
+    },
+    {
+      "id": "downdog_calf_pedal",
+      "name": "V'de Pedal",
+      "target": "Baldır ve arka bacak (esneme)",
+      "setup": "Eller ve ayaklar yerde, kalçan yukarıda; vücudun ters V harfi gibi.",
+      "steps": ["Bir dizini bük, öbür topuğunu yere doğru bastır.", "Taraf değiştir.", "Pedal çevirir gibi yavaşça devam et."],
+      "tip": "Topukların yere değmese de olur.",
+      "mistake": "Omuzlarını çökertme; elleriyle yeri itmeye devam et."
+    }
+  ]
+}

@@ -7,6 +7,7 @@ import { ACHIEVEMENTS, type AchievementDef } from '@/features/gamification/achie
 import { Medallion } from '@/features/gamification/Medallion';
 import { buildAchievementContext } from '@/features/gamification/service';
 import { useProgressStore } from '@/stores/progressStore';
+import { localeOf } from '@/i18n/languages';
 
 /** Kupalar — ui-v3 medallion grid (SPEC_UI_V3 §4.3, §7.11): earned count and bar on top, three per row. */
 export default function Achievements() {
@@ -45,7 +46,7 @@ function Item({ a, at, progress }: { a: AchievementDef; at?: string; progress: n
   const target = a.target ?? 1;
   const value = Math.min(target, Math.floor(progress * target + 1e-9));
   const progressText = at
-    ? new Date(at).toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'short' })
+    ? new Date(at).toLocaleDateString(localeOf(i18n.language), { day: 'numeric', month: 'short' })
     : a.target
       ? a.unit
         ? tr('achievements.progress', { value, target, unit: tr(`achievements.unit.${a.unit}`) })

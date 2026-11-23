@@ -7,6 +7,7 @@ import { addDays, fromDateKey, toDateKey } from '@/lib/date';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 import { FREEZES_PER_MONTH, isOnVacation, validVacation, VACATION_MAX_DAYS, VACATION_MIN_DAYS } from './schedule';
+import { localeOf } from '@/i18n/languages';
 
 const LENGTHS = [3, 7, 10, 14] as const;
 
@@ -22,7 +23,7 @@ export function VacationCard() {
   const [len, setLen] = useState<(typeof LENGTHS)[number]>(7);
   const v = training.vacation;
   const active = v && v.to >= today ? v : null;
-  const fmt = (d: string) => fromDateKey(d).toLocaleDateString(i18n.language === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long' });
+  const fmt = (d: string) => fromDateKey(d).toLocaleDateString(localeOf(i18n.language), { day: 'numeric', month: 'long' });
 
   const start = () => {
     const from = startTomorrow ? addDays(today, 1) : today;

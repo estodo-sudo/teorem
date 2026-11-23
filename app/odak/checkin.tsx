@@ -77,7 +77,7 @@ export default function OdakCheckin() {
       <ScaleRow label={C.sleep.q} options={scale(C.sleep.scale)} value={sleep} onChange={(v) => setSleep(v as Score5)} />
       <ScaleRow label={C.loneliness.q} options={scale(C.loneliness.scale)} value={lonely} onChange={(v) => setLonely(v as Score5)} />
       <AppText weight="700">{C.value.q}</AppText>
-      <TextInput
+      <TextInput maxFontSizeMultiplier={1.3}
         value={value}
         onChangeText={setValue}
         maxLength={VALUE_ACTION_MAX}

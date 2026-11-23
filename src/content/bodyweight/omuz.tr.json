@@ -1,0 +1,141 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Omuz",
+    "intro": "Omuz kaslarını güçlendiren, kürek kemiğini ve omzu içten saran küçük kasları (rotator manşet) koruyan programlar. Isınma hareketleriyle başlar, pike şınava ve duvarda amuda doğru ilerler.",
+    "science": [
+      "Pike şınav, yükü göğüsten omuza kaydırır; önce normal ve eğimli şınavda güç kazanmak önerilir.",
+      "Kürek şınavı (şınav plus), kürek kemiğini göğüs kafesine bağlayan serratus kasını en çok çalıştıran hareketlerdendir; omuz sağlığı için önemlidir.",
+      "Hafif dış rotasyon ve kürek kemiği çalışmalarını ısınmaya katmak yaygın olarak önerilir; sakatlığı önlediği kesin kanıtlanmamıştır ama zararsız ve faydalı kabul edilir.",
+      "Omuz ağrısı varken baş üstü hareketleri zorlama; ağrısız bir aralıkta çalış."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "arm_circles",
+      "name": "Kol Çevirme",
+      "target": "Omuz (ısınma)",
+      "setup": "Ayakta dik dur, kollarını yanlara omuz hizasında aç.",
+      "steps": ["Kollarınla küçük daireler çiz.", "Daireleri yavaşça büyüt.", "Süre yarısında çevirme yönünü değiştir."],
+      "tip": "Omuzlarını kulaklarından uzak tut.",
+      "mistake": "Hızlı ve sarsarak çevirme; hareket kontrollü olsun."
+    },
+    {
+      "id": "wall_slide",
+      "name": "Duvar Kaydırma",
+      "target": "Omuz ve üst sırt hareketliliği",
+      "setup": "Sırtını duvara daya, kollarını kale direği gibi aç; dirsekler ve el sırtları duvarda.",
+      "steps": ["Kollarını duvara değdirerek yukarı kaydır.", "Rahat olduğun yere kadar uzan.", "Kürek kemiklerini aşağı çekerek başlangıca indir."],
+      "tip": "Belin duvardan kopuyorsa kollarını daha az kaldır.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma."
+    },
+    {
+      "id": "scapular_pushup",
+      "name": "Kürek Şınavı",
+      "target": "Serratus ve kürek kemiği kontrolü",
+      "setup": "Şınav pozisyonuna gel; kolların düz kalacak.",
+      "steps": ["Kollarını bükmeden göğsünü biraz aşağı bırak; kürek kemiklerin birbirine yaklaşsın.", "Yeri iterek sırtının üstünü tavana doğru yuvarla; kürek kemiklerin açılsın.", "Bu küçük hareketi ritimle tekrarla."],
+      "tip": "Zor gelirse dizlerin yerde yap.",
+      "mistake": "Dirsekleri bükme; hareket sadece kürek kemiklerinden."
+    },
+    {
+      "id": "pike_pushup",
+      "name": "Pike Şınav",
+      "target": "Omuzlar ve arka kol",
+      "setup": "Şınav pozisyonundan kalçanı yukarı kaldır; vücudun ters V harfi gibi olsun. Ellerin omuz genişliğinde.",
+      "steps": ["Dirseklerini bükerek başını ellerinin biraz önüne doğru yere yaklaştır.", "Başın yere yaklaşınca dur.", "İterek kollarını düzelt."],
+      "tip": "Ayaklarını ellerine yaklaştırdıkça hareket zorlaşır.",
+      "mistake": "Dirsekleri tam yana açma; hafifçe geriye doğru bükülsünler."
+    },
+    {
+      "id": "elevated_pike_pushup",
+      "name": "Ayaklar Yüksekte Pike Şınav",
+      "target": "Omuzlar ve arka kol (ileri)",
+      "setup": "Ayaklarını sağlam bir sandalyeye ya da basamağa koy, ellerin yerde; kalçan yukarıda, gövden olabildiğince dik.",
+      "steps": ["Dirseklerini bükerek başını yere yaklaştır.", "Kontrollü dur.", "İterek yukarı çık."],
+      "tip": "Amuda kalkma şınavına giden yolun bir sonraki basamağıdır.",
+      "mistake": "Başını yere çarpma; inişi yavaş tut."
+    },
+    {
+      "id": "pike_hold",
+      "name": "Pike Tutuş",
+      "target": "Omuzlar (dayanıklılık)",
+      "setup": "Eller ve ayaklar yerde, kalçan yukarıda; vücudun ters V harfi gibi.",
+      "steps": ["Yeri iterek omuzlarını kulaklarından uzaklaştır.", "Kalçanı yukarıda tut.", "Nefes alarak bekle."],
+      "tip": "Dizlerini hafif bükebilirsin; sırtın düz kalsın.",
+      "mistake": "Omuzları çökertme; kollarınla yeri itmeye devam et."
+    },
+    {
+      "id": "downdog_to_plank",
+      "name": "V'den Plank'a",
+      "target": "Omuzlar ve gövde",
+      "setup": "Ters V pozisyonunda başla: kalçan yukarıda, ellerin ve ayakların yerde.",
+      "steps": ["Kalçanı indirip omuzlarını ellerinin üstüne getirerek plank pozisyonuna geç.", "Plank'ta kısa dur.", "Kalçanı yeniden yukarı iterek V'ye dön."],
+      "tip": "Ellerin ve ayakların yer değiştirmez.",
+      "mistake": "Plank'ta kalçanın sarkmasına izin verme."
+    },
+    {
+      "id": "plank_shoulder_tap",
+      "name": "Plankta Omuz Dokunma",
+      "target": "Omuz dengesi ve gövde",
+      "setup": "Şınav pozisyonuna gel; ayaklarını biraz aç, denge kolaylaşır.",
+      "steps": ["Sağ elinle sol omzuna dokun.", "Elini yere koy, sol elinle sağ omzuna dokun.", "Kalçanı sallamadan sırayla devam et."],
+      "tip": "Zor gelirse dizlerini yere koy.",
+      "mistake": "Her dokunuşta kalçanı yana sallama."
+    },
+    {
+      "id": "bear_hold",
+      "name": "Ayı Tutuş",
+      "target": "Omuzlar ve gövde (dayanıklılık)",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında. Ayak parmaklarına bas.",
+      "steps": ["Dizlerini yerden 2–3 santim kaldır.", "Sırtın düz, omuzların ellerinin üstünde kalsın.", "Nefes alarak bekle."],
+      "tip": "Dizlerin yere yakın kalsın; yükseğe kaldırma.",
+      "mistake": "Kalçanı yukarı kaldırma ya da sırtını çökertme."
+    },
+    {
+      "id": "reverse_tabletop",
+      "name": "Ters Masa",
+      "target": "Omuzların arkası, sırt ve kalça",
+      "setup": "Yere otur, dizlerini bük, ellerini kalçanın arkasında yere koy; parmakların ayaklarına baksın.",
+      "steps": ["Avuçlarınla ve topuklarınla iterek kalçanı kaldır; gövden ve uyluğun masa gibi düz olsun.", "Yukarıda kısa dur, göğsünü aç.", "Kalçanı yavaşça indir."],
+      "tip": "Bileklerin zorlanıyorsa parmaklarını yana çevir.",
+      "mistake": "Omuzlarını kulaklarına doğru çökertme."
+    },
+    {
+      "id": "side_lying_er",
+      "name": "Yan Yatarak Dış Rotasyon",
+      "target": "Rotator manşet (omzu içten saran kaslar)",
+      "setup": "Yan yat, başını alttaki koluna koy. Üstteki dirseğini 90 derece bükerek beline yasla, elin karnının önünde.",
+      "steps": ["Dirseğin belinde kalarak ön kolunu tavana doğru çevir.", "Yukarıda kısa dur.", "Yavaşça geri indir; süre yarısında öbür yanına dön."],
+      "tip": "Koltuk altına küçük bir havlu sıkıştırırsan dirsek yerinde kalır.",
+      "mistake": "Dirseği gövdeden kaldırma; hareket sadece ön koldan."
+    },
+    {
+      "id": "prone_y_raise",
+      "name": "Yüzüstü Y Kaldırma",
+      "target": "Alt trapez ve omuz arkası",
+      "setup": "Yüzüstü uzan. Kollarını başının üstünde Y harfi gibi uzat, baş parmaklar yukarı baksın.",
+      "steps": ["Kollarını yerden kaldır; kürek kemiklerini geriye ve aşağı çek.", "Yukarıda kısa bir an bekle.", "Yavaşça indir."],
+      "tip": "Göğsün hafifçe kalkabilir; asıl hareket kollardan.",
+      "mistake": "Omuzları kulaklara doğru sıkıştırma."
+    },
+    {
+      "id": "prone_t_raise",
+      "name": "Yüzüstü T Kaldırma",
+      "target": "Omuzların arkası ve orta trapez",
+      "setup": "Yüzüstü uzan, kollarını yanlara T harfi gibi aç.",
+      "steps": ["Kollarını düz tutarak yanlardan yukarı kaldır.", "Kürek kemiklerini birbirine yaklaştır ve kısa bekle.", "Yavaşça indir."],
+      "tip": "Başparmakları yukarı çevirirsen omuz daha rahat eder.",
+      "mistake": "Kolları sallayarak kaldırma."
+    },
+    {
+      "id": "wall_handstand_hold",
+      "name": "Duvarda Yarım Amut",
+      "target": "Omuzlar ve arka kol (ileri)",
+      "setup": "Sırtın duvara dönük, ellerin yerde duvardan bir buçuk adım uzakta. Ayaklarını duvara koyup yavaşça yürüterek yukarı çık.",
+      "steps": ["Kalçan omuzlarının üstüne gelene kadar ayaklarını duvarda yukarı yürüt.", "Kolların düz, yeri iterek bekle.", "Ayaklarını yavaşça aşağı yürüterek in."],
+      "tip": "Sadece pike şınavı rahat yapıyorsan dene; yüksekliği yavaş yavaş artır.",
+      "mistake": "Başın dönerse ya da omzunda ağrı olursa hemen in."
+    }
+  ]
+}

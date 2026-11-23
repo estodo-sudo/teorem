@@ -1,0 +1,15 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "briken2024",
+    "meta2025",
+    "phq2",
+    "gad2",
+    "yedam"
+  ],
+  "title": "Professional support can make this process easier",
+  "slips": "You've struggled a few times in the last two weeks. Talking to a professional can help you carry this load together.",
+  "screen": "Your screening and mood answers suggest that talking to a professional could help.",
+  "mood": "You've been feeling very low for the last few days. You don't have to carry this alone."
+}

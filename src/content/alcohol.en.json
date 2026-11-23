@@ -1,0 +1,647 @@
+{
+  "id": "alcohol",
+  "title": "Alcohol-Free Camp",
+  "icon": "glass",
+  "tone": "campus",
+  "description": "See how much you drink, choose a safe goal and rebuild your relationship with alcohol.",
+  "reviewed": false,
+  "drinks": [
+    {
+      "id": "beer33",
+      "icon": "glass",
+      "tone": "campus",
+      "title": "Beer",
+      "detail": "33 cl · 5%",
+      "std": 1.3
+    },
+    {
+      "id": "beer50",
+      "icon": "glass",
+      "tone": "campus",
+      "title": "Large beer",
+      "detail": "50 cl · 5%",
+      "std": 2.0
+    },
+    {
+      "id": "wine",
+      "icon": "glass",
+      "tone": "campus",
+      "title": "Wine",
+      "detail": "1 glass · 15 cl",
+      "std": 1.5
+    },
+    {
+      "id": "raki1",
+      "icon": "milk",
+      "tone": "campus",
+      "title": "Raki (single)",
+      "detail": "4 cl · 45%",
+      "std": 1.4
+    },
+    {
+      "id": "raki2",
+      "icon": "milk",
+      "tone": "campus",
+      "title": "Raki (double)",
+      "detail": "8 cl · 45%",
+      "std": 2.8
+    },
+    {
+      "id": "spirit",
+      "icon": "glass",
+      "tone": "campus",
+      "title": "Whisky, vodka, gin",
+      "detail": "4 cl · 40%",
+      "std": 1.3
+    },
+    {
+      "id": "shot",
+      "icon": "flame",
+      "tone": "campus",
+      "title": "Shot",
+      "detail": "3 cl · 40%",
+      "std": 0.9
+    },
+    {
+      "id": "cocktail",
+      "icon": "glass",
+      "tone": "campus",
+      "title": "Cocktail",
+      "detail": "≈ 6 cl of spirits",
+      "std": 1.9
+    }
+  ],
+  "audit": {
+    "questions": [
+      {
+        "id": "freq",
+        "text": "How often do you have a drink containing alcohol?",
+        "options": [
+          {
+            "text": "Monthly or less",
+            "score": 1
+          },
+          {
+            "text": "2–4 times a month",
+            "score": 2
+          },
+          {
+            "text": "2–3 times a week",
+            "score": 3
+          },
+          {
+            "text": "4 or more times a week",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "amount",
+        "text": "How many standard drinks do you usually have on a day when you drink?",
+        "options": [
+          {
+            "text": "1–2",
+            "score": 0
+          },
+          {
+            "text": "3–4",
+            "score": 1
+          },
+          {
+            "text": "5–6",
+            "score": 2
+          },
+          {
+            "text": "7–9",
+            "score": 3
+          },
+          {
+            "text": "10 or more",
+            "score": 4
+          }
+        ]
+      },
+      {
+        "id": "binge",
+        "text": "How often do you have 6 or more standard drinks on one occasion?",
+        "options": [
+          {
+            "text": "Not at all",
+            "score": 0
+          },
+          {
+            "text": "Less than monthly",
+            "score": 1
+          },
+          {
+            "text": "Monthly",
+            "score": 2
+          },
+          {
+            "text": "Weekly",
+            "score": 3
+          },
+          {
+            "text": "Daily or almost daily",
+            "score": 4
+          }
+        ]
+      }
+    ],
+    "standardNote": "1 standard drink = 10 grams of pure alcohol. Roughly: 1 small beer (33 cl) ≈ 1.3 · 1 glass of wine ≈ 1.5 · 1 single raki ≈ 1.4 standard drinks.",
+    "bands": [
+      {
+        "id": "low",
+        "max": 3,
+        "title": "Low risk",
+        "text": "Your score is below the risk threshold. Still, there's no safe amount of alcohol for health; less is always better."
+      },
+      {
+        "id": "risky",
+        "max": 7,
+        "title": "Risky drinking",
+        "text": "For men, a score of 4 or more shows drinking at a level that can harm your health. Cutting down or taking a break brings clear benefits."
+      },
+      {
+        "id": "high",
+        "max": 12,
+        "title": "High risk",
+        "text": "Your score points to high-risk drinking and a possible alcohol use disorder. Alongside the camp, it's important to talk to a doctor."
+      }
+    ],
+    "disclaimer": "AUDIT-C is a screening test; it doesn't diagnose. It's the short version of the AUDIT test developed by the World Health Organization."
+  },
+  "withdrawal": {
+    "questions": [
+      {
+        "id": "shakes",
+        "text": "Do your hands shake or sweat in the morning, and does it go away when you drink?"
+      },
+      {
+        "id": "morning",
+        "text": "Do you feel the need to start the day with a drink or to drink to 'steady yourself'?"
+      },
+      {
+        "id": "history",
+        "text": "When you've stopped drinking before, have you had seizures, hallucinations or severe confusion?"
+      },
+      {
+        "id": "daily",
+        "text": "Do you drink 8 or more standard drinks a day, almost every day?"
+      }
+    ],
+    "riskTitle": "Don't stop suddenly on your own",
+    "riskText": "Your answers show you could have serious withdrawal symptoms if you stop suddenly. After long-term heavy drinking, stopping abruptly can lead to seizures and delirium tremens. Talk to a doctor or an addiction treatment centre such as AMATEM first; plan quitting and cutting down with medical support.",
+    "okText": "You didn't report serious withdrawal symptoms. Still, if you have shaking, sweating, severe restlessness or can't sleep while quitting, see a doctor.",
+    "emergency": "If you have seizures, hallucinations, confusion or severe shaking, call 112 (or your local emergency number) right away."
+  },
+  "paths": {
+    "cut": {
+      "icon": "trendDown",
+      "tone": "campus",
+      "title": "Cut down",
+      "text": "You set a weekly standard-drink limit and don't drink at all on a few days a week.",
+      "points": [
+        "You choose your weekly limit: 10, 7 or 4 standard drinks.",
+        "No more than 4 standard drinks a day is recommended.",
+        "You aim to spend at least 3 days a week alcohol-free."
+      ]
+    },
+    "quit": {
+      "icon": "ban",
+      "tone": "campus",
+      "title": "Quit",
+      "text": "You don't drink at all for a set period. An alcohol-free month can help you drink less in the months that follow.",
+      "points": [
+        "You choose an alcohol-free goal of 14, 30 or 60 days.",
+        "The counter runs from your last drink.",
+        "If you're a heavy drinker, choose this path only with a doctor's support."
+      ]
+    }
+  },
+  "cutLimits": [
+    10,
+    7,
+    4
+  ],
+  "dailyMax": 4,
+  "freeDaysTarget": 3,
+  "quitGoals": [
+    14,
+    30,
+    60
+  ],
+  "reasons": [
+    {
+      "id": "health",
+      "icon": "heart",
+      "tone": "campus",
+      "label": "For my health"
+    },
+    {
+      "id": "sleep",
+      "icon": "moon",
+      "tone": "campus",
+      "label": "To sleep better"
+    },
+    {
+      "id": "sex",
+      "icon": "flame",
+      "tone": "campus",
+      "label": "For my sexual health"
+    },
+    {
+      "id": "money",
+      "icon": "wallet",
+      "tone": "campus",
+      "label": "To save money"
+    },
+    {
+      "id": "family",
+      "icon": "users",
+      "tone": "campus",
+      "label": "My family and relationships"
+    },
+    {
+      "id": "work",
+      "icon": "briefcase",
+      "tone": "campus",
+      "label": "My work and focus"
+    },
+    {
+      "id": "mood",
+      "icon": "brain",
+      "tone": "campus",
+      "label": "To balance my mood"
+    },
+    {
+      "id": "control",
+      "icon": "compass",
+      "tone": "campus",
+      "label": "To be in control"
+    }
+  ],
+  "triggers": [
+    {
+      "id": "social",
+      "icon": "party",
+      "tone": "campus",
+      "label": "Friends and invitations",
+      "plan": "Before going to an invitation, I decide how many drinks I'll have or whether I'll drink at all; I always have an alcohol-free drink in my hand."
+    },
+    {
+      "id": "raki-table",
+      "icon": "utensils",
+      "tone": "campus",
+      "label": "A raki table",
+      "plan": "At the table I don't go over the limit I set in advance; I go slowly with plenty of water and food alongside the raki, or I choose a soft drink or ayran."
+    },
+    {
+      "id": "stress",
+      "icon": "frown",
+      "tone": "campus",
+      "label": "After-work stress",
+      "plan": "After work, before going home, I go for a short walk or do some sport; I release stress through movement, not drink."
+    },
+    {
+      "id": "alone",
+      "icon": "home",
+      "tone": "campus",
+      "label": "Alone at home in the evening",
+      "plan": "I don't keep alcohol at home; I make a plan for my evenings in advance: cooking, a series, a call or a walk."
+    },
+    {
+      "id": "weekend",
+      "icon": "calendar",
+      "tone": "campus",
+      "label": "The weekend",
+      "plan": "I fill my weekend with activities that don't centre on alcohol: breakfast out, nature, sport."
+    },
+    {
+      "id": "match",
+      "icon": "pulse",
+      "tone": "campus",
+      "label": "Watching a match",
+      "plan": "I watch the match with an alcohol-free beer or another drink, and keep snacks nearby."
+    },
+    {
+      "id": "sleep",
+      "icon": "moon",
+      "tone": "campus",
+      "label": "Drinking to sleep",
+      "plan": "I don't drink to sleep; alcohol breaks up sleep and lowers its quality. I put the screen away before bed and take a warm shower."
+    },
+    {
+      "id": "conflict",
+      "icon": "cloudRain",
+      "tone": "campus",
+      "label": "An argument or sadness",
+      "plan": "When I'm sad or angry, instead of drinking I talk to someone I trust or write my feeling down on paper."
+    }
+  ],
+  "tips": [
+    {
+      "id": "home",
+      "icon": "home",
+      "tone": "campus",
+      "title": "Don't keep alcohol at home",
+      "text": "The harder it is to reach, the less you drink. Not buying alcohol when shopping stops automatic evening drinking."
+    },
+    {
+      "id": "decide",
+      "icon": "notebook",
+      "tone": "campus",
+      "title": "Decide before you drink",
+      "text": "Before you start, decide how many standard drinks you'll have and log each one as you have it. When you reach your limit, switch to an alcohol-free drink."
+    },
+    {
+      "id": "water",
+      "icon": "droplet",
+      "tone": "campus",
+      "title": "Water between every drink",
+      "text": "After each glass, have a glass of water or an alcohol-free drink. It slows your pace and quenches thirst; thirst often leads to drinking more."
+    },
+    {
+      "id": "food",
+      "icon": "utensils",
+      "tone": "campus",
+      "title": "Don't drink on an empty stomach",
+      "text": "Drink slowly and with food. Food in your stomach slows down how quickly alcohol enters your blood."
+    },
+    {
+      "id": "smaller",
+      "icon": "cup",
+      "tone": "campus",
+      "title": "Smaller, lighter",
+      "text": "Choose a small beer instead of a large one, a single instead of a double. Lower-alcohol or alcohol-free options give the same enjoyment with less alcohol."
+    },
+    {
+      "id": "free-days",
+      "icon": "calendar",
+      "tone": "campus",
+      "title": "Plan alcohol-free days in advance",
+      "text": "Decide at the start which days of the week will be alcohol-free; weekdays are a good start. A planned alcohol-free day is easier to keep than one that happens by chance."
+    },
+    {
+      "id": "routine",
+      "icon": "rotate",
+      "tone": "campus",
+      "title": "Fill the gap the habit leaves",
+      "text": "Put a new routine in the hours you used to drink: a walk after work, a favourite alcohol-free drink during the match, a hobby in the evening. Empty time is when people drink most."
+    },
+    {
+      "id": "no",
+      "icon": "hand",
+      "tone": "campus",
+      "title": "A short, clear no",
+      "text": "If someone insists, 'No, thanks' is enough; you don't have to explain. Having an alcohol-free drink in your hand reduces pressure from the start."
+    }
+  ],
+  "info": {
+    "std": {
+      "title": "What is a standard drink?",
+      "text": "It's a common unit for comparing different drinks: 1 standard drink is 10 grams of pure alcohol. Calculation: volume (ml) × alcohol content × 0.789 ÷ 10. Examples: small beer (33 cl) 1.3 · glass of wine 1.5 · single raki 1.4 · double raki 2.8. The camp does this calculation for you."
+    },
+    "audit": {
+      "title": "What is AUDIT-C?",
+      "text": "It's the 3-question short version of the 10-question AUDIT alcohol test developed by the World Health Organization, asking about how often and how much you drink. Each question scores 0–4; the total is 0–12. For men, a score of 4 or more points to drinking at a level that can harm health, and 8 or more to high risk. It's a screening test; it doesn't diagnose."
+    },
+    "statsCut": {
+      "title": "What do these numbers mean?",
+      "text": "The ring: the standard drinks you've had this week (since Monday) and your weekly limit. Today: the total standard drinks you've logged today. Alcohol-free days: the days this week you didn't drink at all; the goal is at least 3. This week: the week's total. The counters reset every Monday."
+    },
+    "statsQuit": {
+      "title": "What do these numbers mean?",
+      "text": "The ring and big number: the alcohol-free days since your last drink, and your goal. Longest break: the longest time between two drinks since you joined the camp. Alcohol-free days and this week: the days since Monday you didn't drink at all and the total standard drinks you had. When you log a drink, the alcohol-free counter starts again."
+    }
+  },
+  "sexual": [
+    {
+      "id": "acute",
+      "title": "When drunk",
+      "text": "Alcohol slows the nervous system; when you drink a lot, getting an erection and ejaculating become harder. Decisions made while drunk also increase the risk of unprotected sex."
+    },
+    {
+      "id": "longterm",
+      "title": "With long-term heavy drinking",
+      "text": "Drinking too much for a long time can lower testosterone and damage the liver and nerves, negatively affecting sexual desire and erections."
+    },
+    {
+      "id": "evidence",
+      "title": "What does research say?",
+      "text": "The link between light to moderate drinking and erection problems isn't clear in research; however, according to the World Health Organization there's no safe amount of alcohol for health."
+    }
+  ],
+  "help": [
+    {
+      "id": "amatem",
+      "title": "AMATEM (Türkiye)",
+      "text": "Alcohol and Substance Addiction Treatment Centres run by Türkiye's Ministry of Health; they offer outpatient and inpatient treatment to over-18s. Appointments can be made through MHRS or by calling ALO 182. Outside Türkiye, ask your doctor about local addiction services.",
+      "phone": "182"
+    },
+    {
+      "id": "doctor",
+      "title": "Your family doctor",
+      "text": "Can be the first place to go when cutting down or quitting. If needed, medicines that reduce craving are used only after a doctor's assessment.",
+      "phone": null
+    },
+    {
+      "id": "aa",
+      "title": "Alcoholics Anonymous",
+      "text": "Free support groups worldwide, including in Türkiye. According to a Cochrane review, 12-step programmes support long-term abstinence from alcohol.",
+      "phone": null
+    },
+    {
+      "id": "emergency",
+      "title": "Emergency",
+      "text": "If you have seizures, hallucinations, confusion or severe shaking while quitting, call 112 (or your local emergency number) without waiting.",
+      "phone": null
+    }
+  ],
+  "steps": [
+    {
+      "id": "what",
+      "icon": "glass",
+      "tone": "campus",
+      "title": "Alcohol and you",
+      "summary": "First, honestly seeing how much you drink is the first step of change.",
+      "sections": [
+        {
+          "title": "Is there a safe amount?",
+          "text": "According to the World Health Organization there's no safe amount of alcohol for health; the risk starts from the first glass. Alcohol is linked to at least seven types of cancer. Drinking less always means less risk."
+        },
+        {
+          "title": "What is a standard drink?",
+          "text": "The way to compare different drinks is the standard drink: 10 grams of pure alcohol. A small beer is about 1.3 standard drinks, a glass of wine 1.5 and a single raki 1.4. The camp does this calculation for you."
+        },
+        {
+          "title": "A short test",
+          "text": "In a moment you'll answer the 3-question short version of the AUDIT test developed by the World Health Organization. For men, a score of 4 or more points to drinking at a level that can harm health."
+        }
+      ],
+      "actions": [
+        "Think about how much you drank in the last week.",
+        "Answer the test honestly; your answers never leave your phone."
+      ]
+    },
+    {
+      "id": "safety",
+      "icon": "shield",
+      "tone": "campus",
+      "title": "Quitting safely",
+      "summary": "With heavy drinking, stopping suddenly can be dangerous; check your safety first.",
+      "sections": [
+        {
+          "title": "Why does withdrawal matter?",
+          "text": "When someone who has drunk heavily for a long time stops suddenly, the brain and nervous system can react sharply to the absence of alcohol: shaking, sweating, restlessness, sleeplessness."
+        },
+        {
+          "title": "Danger signs",
+          "text": "Seizures can start a few hours after the last drink. Delirium tremens usually appears within 24–72 hours; it involves confusion, hallucinations and severe shaking and can be life-threatening if untreated."
+        },
+        {
+          "title": "What to do?",
+          "text": "If you have symptoms such as morning shakes or needing to start the day with a drink, plan quitting and cutting down not alone but with a doctor or an addiction centre such as AMATEM. Call 112 (or your local emergency number) for danger signs."
+        }
+      ],
+      "actions": [
+        "Answer the safety questions that follow honestly."
+      ]
+    },
+    {
+      "id": "track",
+      "icon": "notebook",
+      "tone": "campus",
+      "title": "Keep a diary",
+      "summary": "You can change what you measure.",
+      "sections": [
+        {
+          "title": "Why a diary?",
+          "text": "A drink diary is a core part of brief interventions for alcohol. Most people who start keeping track notice they drink more than they thought."
+        },
+        {
+          "title": "How to log",
+          "text": "Log every drink by tapping its type; the camp calculates the standard drinks and shows your daily and weekly totals. Logging at the moment you drink is much more accurate than guessing at the end of the evening."
+        },
+        {
+          "title": "Alcohol-free days",
+          "text": "Not drinking at all on a few days a week is the simplest way to break the habit and let your body recover. The camp counts your alcohol-free days automatically."
+        }
+      ],
+      "actions": [
+        "From now on, log every drink as you have it."
+      ]
+    },
+    {
+      "id": "situations",
+      "icon": "compass",
+      "tone": "campus",
+      "title": "Risky situations and saying no",
+      "summary": "Drinking often comes in particular situations; be prepared in advance.",
+      "sections": [
+        {
+          "title": "If–then plans",
+          "text": "Concrete plans like 'If I go to an invitation, I'll always have an alcohol-free drink in my hand' markedly increase the chance of reaching your goal."
+        },
+        {
+          "title": "Saying no",
+          "text": "Have a short, clear sentence ready for when someone insists: 'No, thanks.' You don't have to explain; repeating it is enough."
+        },
+        {
+          "title": "Environment",
+          "text": "Not keeping alcohol at home is one of the most effective changes to your environment. The harder it is to reach, the less you drink."
+        }
+      ],
+      "actions": [
+        "Choose the situations that make you drink most.",
+        "Try two of the tips on the home page this week."
+      ]
+    },
+    {
+      "id": "body",
+      "icon": "sprout",
+      "tone": "campus",
+      "title": "Your body and sexual health",
+      "summary": "The benefits of drinking less are felt quickly.",
+      "sections": [
+        {
+          "title": "The first weeks",
+          "text": "Although alcohol makes it easier to fall asleep, it breaks up sleep. People who cut down usually report deeper sleep, more energy and a better mood."
+        },
+        {
+          "title": "Sexual health",
+          "text": "When you drink a lot, getting an erection and ejaculating become harder; long-term heavy drinking can lower testosterone. Cutting down supports your sexual health too."
+        },
+        {
+          "title": "A month's break",
+          "text": "A large share of people who spent an alcohol-free month were reported to be drinking less six months later."
+        }
+      ],
+      "actions": [
+        "Choose the reason that motivates you most."
+      ]
+    },
+    {
+      "id": "support",
+      "icon": "handshake",
+      "tone": "campus",
+      "title": "Support",
+      "summary": "An alcohol problem isn't a lack of willpower; it's a treatable health problem.",
+      "sections": [
+        {
+          "title": "Medical support",
+          "text": "Addiction treatment centres (such as AMATEM in Türkiye) and family doctors give support while quitting and cutting down. Medicines that reduce craving are used only after a doctor's assessment."
+        },
+        {
+          "title": "Support groups",
+          "text": "There's strong evidence that 12-step groups such as Alcoholics Anonymous support long-term abstinence from alcohol."
+        },
+        {
+          "title": "If you slip",
+          "text": "A slip doesn't mean it's all over. Log it, try to understand what happened and go back to your plan."
+        }
+      ],
+      "actions": [
+        "Don't hesitate to get support if you need it."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "WHO Europe (2023) – No level of alcohol consumption is safe for health",
+      "url": "https://www.who.int/azerbaijan/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health"
+    },
+    {
+      "title": "NIDA – AUDIT-C alcohol screening test",
+      "url": "https://cde.nida.nih.gov/instrument/f229c68a-67ce-9a58-e040-bb89ad432be4"
+    },
+    {
+      "title": "NHMRC (Australia) – Alcohol guidelines: at most 10 standard drinks a week and 4 a day",
+      "url": "https://www.nhmrc.gov.au/health-advice/alcohol"
+    },
+    {
+      "title": "NICE CG115 – Treatment of harmful drinking and alcohol dependence",
+      "url": "https://www.nice.org.uk/guidance/cg115"
+    },
+    {
+      "title": "NHS – Tips on cutting down on alcohol",
+      "url": "https://www.nhs.uk/live-well/alcohol-advice/tips-on-cutting-down-alcohol/"
+    },
+    {
+      "title": "Drinkaware – Symptoms of alcohol withdrawal",
+      "url": "https://www.drinkaware.co.uk/facts/health-effects-of-alcohol/general-health-effects/alcohol-withdrawal-symptoms"
+    },
+    {
+      "title": "University of Sussex – Drinking less after an alcohol-free month (de Visser et al.)",
+      "url": "https://www.sussex.ac.uk/broadcast/read/27612"
+    },
+    {
+      "title": "Cochrane (2020) – Alcoholics Anonymous and 12-step programmes",
+      "url": "https://www.cochrane.org/CD012880"
+    },
+    {
+      "title": "Alcohol and erectile dysfunction – dose-response meta-analysis (2018)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30232467/"
+    }
+  ]
+}

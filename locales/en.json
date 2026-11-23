@@ -1,0 +1,5 @@
+{
+  "NSPhotoLibraryUsageDescription": "Access to your photos lets you add your own picture to your reasons for quitting. The photo stays only on this device.",
+  "NSContactsUsageDescription": "Access to your contacts lets you save the ALO 171 quit-smoking helpline number to your contacts.",
+  "NSFaceIDUsageDescription": "Used to open locked sections with Face ID."
+}

@@ -1,0 +1,184 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Glutes",
+    "intro": "Programmes that strengthen the big glute muscle and the side hip muscles. You start with the bridge, progress to the single-leg bridge and hip thrust, and from there to single-leg moves.",
+    "science": [
+      "The side hip muscle works most in side-lying leg raises, and the big glute muscle most in single-leg squats and single-leg forward bends (EMG study).",
+      "In a 9-week study, hip thrusts and squats grew the glutes by a similar amount; squats grew the thighs more.",
+      "A move working a muscle more in the moment doesn't mean it will grow that muscle more; that's why the programme combines different moves.",
+      "Strong glutes help stop your knees caving in and support your lower back."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "glute_bridge",
+      "name": "Glute Bridge",
+      "target": "Big glute muscle",
+      "setup": "Lie on your back, knees bent, soles of your feet on the floor hip-width apart. Arms by your sides.",
+      "steps": [
+        "Squeeze your glutes and lift your hips off the floor; form a straight line from your knees to your shoulders.",
+        "Keep your glutes tight at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Press through your heels; you can lift your toes slightly.",
+      "mistake": "Don't overarch your lower back."
+    },
+    {
+      "id": "glute_bridge_hold",
+      "name": "Bridge Hold",
+      "target": "Big glute muscle (endurance)",
+      "setup": "Come up into the bridge position: hips up, a straight line from your knees to your shoulders.",
+      "steps": [
+        "Keep your glutes tight.",
+        "Don't let your hips drop.",
+        "Keep breathing and hold."
+      ],
+      "tip": "If you feel a cramp in your hamstrings, bring your feet closer to your hips.",
+      "mistake": "Don't hold your breath."
+    },
+    {
+      "id": "glute_bridge_march",
+      "name": "Bridge March",
+      "target": "Hip and core stability",
+      "setup": "Come up into the bridge position and keep your hips up.",
+      "steps": [
+        "Without letting your hips drop, lift one knee towards your chest.",
+        "Put that foot down and lift the other knee.",
+        "Keep alternating as if marching."
+      ],
+      "tip": "Don't let your hips rock side to side; keep them at the same height.",
+      "mistake": "Don't let your hips drop when you lift your knee."
+    },
+    {
+      "id": "single_leg_bridge",
+      "name": "Single-Leg Bridge",
+      "target": "Big glute muscle (hard)",
+      "setup": "Lie on your back, bend one knee with that foot on the floor. Stretch the other leg out straight.",
+      "steps": [
+        "Press through the heel on the floor to lift your hips; keep the extended leg in line with your body.",
+        "Pause briefly at the top.",
+        "Lower slowly; switch legs halfway through."
+      ],
+      "tip": "Try it once you can do 20 normal bridges comfortably.",
+      "mistake": "Don't let your hips drop to one side."
+    },
+    {
+      "id": "hip_thrust",
+      "name": "Hip Thrust",
+      "target": "Big glute muscle",
+      "setup": "Rest your upper back on the edge of a sturdy sofa or a chair placed against a wall. Knees bent, feet on the floor.",
+      "steps": [
+        "Squeeze your glutes and push your hips up; your body and thighs should be flat like a table.",
+        "Squeeze your glutes at the top and pause briefly.",
+        "Lower your hips slowly."
+      ],
+      "tip": "Tuck your chin slightly towards your chest; look towards your knees.",
+      "mistake": "Don't rise by arching your lower back instead of squeezing your glutes."
+    },
+    {
+      "id": "single_leg_hip_thrust",
+      "name": "Single-Leg Hip Thrust",
+      "target": "Big glute muscle (advanced)",
+      "setup": "Hip thrust position; lift one leg into the air.",
+      "steps": [
+        "Press through the heel on the floor and push your hips up.",
+        "Squeeze your glutes at the top.",
+        "Lower slowly; switch legs halfway through."
+      ],
+      "tip": "Keep both sides of your hips at the same height.",
+      "mistake": "Don't swing up using the leg in the air."
+    },
+    {
+      "id": "donkey_kick",
+      "name": "Donkey Kick",
+      "target": "Big glute muscle",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "steps": [
+        "Keeping one knee bent at 90 degrees, push that heel towards the ceiling.",
+        "Squeeze your glutes when your thigh is parallel to the floor.",
+        "Lower slowly; switch legs halfway through."
+      ],
+      "tip": "Imagine pressing the sole of your foot into the ceiling.",
+      "mistake": "Don't arch your lower back; let the movement come from the hip."
+    },
+    {
+      "id": "clamshell",
+      "name": "Clamshell",
+      "target": "Side hip muscles",
+      "setup": "Lie on your side with your head on your lower arm. Bend your knees forward, feet and knees stacked.",
+      "steps": [
+        "Keeping your feet together, open your top knee.",
+        "Pause briefly at the top without rolling your hips back.",
+        "Close slowly; switch sides halfway through."
+      ],
+      "tip": "Keep the movement small; you should feel a burn at the side of your hip.",
+      "mistake": "Don't roll your hips backwards."
+    },
+    {
+      "id": "side_lying_leg_raise",
+      "name": "Side-Lying Leg Raise",
+      "target": "Side hip muscle",
+      "setup": "Lie on your side, legs straight and stacked. Rest your head on your lower arm, top hand on the floor in front.",
+      "steps": [
+        "Keeping your top leg straight, lift it up; toes pointing forward.",
+        "Pause briefly at the top.",
+        "Lower slowly; switch sides halfway through."
+      ],
+      "tip": "Lifting the leg slightly backwards works the side hip muscle more.",
+      "mistake": "Don't turn your toes up to the ceiling; don't roll your hips back."
+    },
+    {
+      "id": "standing_kickback",
+      "name": "Standing Kickback",
+      "target": "Big glute muscle",
+      "setup": "Face a wall and put your hands on it. Lean forward slightly.",
+      "steps": [
+        "Keeping one leg straight, extend it backwards.",
+        "Pause briefly while squeezing your glutes.",
+        "Bring it back slowly; switch legs halfway through."
+      ],
+      "tip": "You don't need to lift the leg high; feel your glutes tighten.",
+      "mistake": "Don't swing the leg up by arching your lower back."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Reverse Lunge",
+      "target": "Glutes and front of the thighs",
+      "setup": "Stand tall, feet hip-width apart.",
+      "steps": [
+        "Take a big step back with one foot and lower by bending both knees.",
+        "Stop when your back knee nears the floor.",
+        "Push through your front heel to return to the start; switch legs halfway through."
+      ],
+      "tip": "Leaning your body slightly forward works the glutes more.",
+      "mistake": "Don't let your front knee cave in."
+    },
+    {
+      "id": "single_leg_rdl",
+      "name": "Single-Leg Forward Bend",
+      "target": "Big glute muscle, hamstrings and balance",
+      "setup": "Stand on one leg with your knee slightly bent.",
+      "steps": [
+        "As you lean your body forward, extend the other leg backwards; body and leg form one line.",
+        "Stop when you feel a stretch in your hamstring.",
+        "Squeeze your glutes to return upright; switch legs halfway through."
+      ],
+      "tip": "If your balance is shaky, support yourself with one hand on a wall.",
+      "mistake": "Don't round your back; don't let your hip open to the side."
+    },
+    {
+      "id": "sumo_squat",
+      "name": "Sumo Squat",
+      "target": "Glutes and inner thighs",
+      "setup": "Stand with your feet wide, toes pointing out. Bring your hands together at your chest.",
+      "steps": [
+        "Keeping your body upright, open your knees out and lower down.",
+        "Keep your knees over your toes.",
+        "Squeeze your glutes as you stand up."
+      ],
+      "tip": "Giving your glutes an extra squeeze at the top shifts the move towards the glutes.",
+      "mistake": "Don't let your knees cave in."
+    }
+  ]
+}

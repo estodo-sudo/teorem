@@ -1,7 +1,11 @@
-import fitness from '@/content/fitness.tr.json';
+import { pick } from '@/i18n/content';
+import fitnessTr from '@/content/fitness.tr.json';
+import fitnessEn from '@/content/fitness.en.json';
 import type { ActivityLevel } from '@/types';
 
 import { MOVES, type MoveSpec } from './motion';
+
+const fitness = pick({ tr: fitnessTr, en: fitnessEn });
 
 /** A pelvic fitness move: what it works, how to start, the steps, a tip and the usual mistake. */
 export interface FitnessExercise {

@@ -80,7 +80,7 @@ export default function CampRewards() {
           })}
           <Card style={{ gap: t.space.sm }}>
             <AppText weight="800">{tr('camp.rewards.add')}</AppText>
-            <TextInput
+            <TextInput maxFontSizeMultiplier={1.3}
               value={title}
               onChangeText={setTitle}
               maxLength={40}
@@ -89,7 +89,7 @@ export default function CampRewards() {
               accessibilityLabel={tr('camp.rewards.titleLabel')}
               style={field}
             />
-            <TextInput
+            <TextInput maxFontSizeMultiplier={1.3}
               value={amountText}
               onChangeText={(v) => setAmountText(v.replace(/[^0-9.,]/g, ''))}
               keyboardType="decimal-pad"

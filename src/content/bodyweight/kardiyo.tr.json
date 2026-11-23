@@ -1,0 +1,184 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Kardiyo",
+    "intro": "Kalp ve akciğer kondisyonunu artıran, alet gerektirmeyen aralıklı programlar. Düşük darbeli hareketlerle başlar; jumping jack, patenci ve burpee ile yoğunluğu artırırsın.",
+    "science": [
+      "Dünya Sağlık Örgütü yetişkinler için haftada 150–300 dakika orta ya da 75–150 dakika yüksek yoğunlukta aerobik egzersiz önerir; kısa seanslar da sayılır.",
+      "Aralıklı antrenman kondisyonu artırır; sürekli tempolu çalışmaya üstünlüğü daha uzun ve en az birkaç hafta süren programlarda belirgindir.",
+      "Yeni başlayanlar için zıplamasız (düşük darbeli) hareketler eklemleri korurken nabzı yeterince yükseltir.",
+      "Göğüs ağrısı, baş dönmesi ya da olağandışı nefes darlığı olursa hemen dur ve bir doktora danış."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "march_in_place",
+      "name": "Yerinde Yürüyüş",
+      "target": "Kondisyon (düşük darbe)",
+      "setup": "Ayakta dik dur.",
+      "steps": [
+        "Bir dizini kalça hizasına doğru kaldır, karşı kolunu öne salla.",
+        "Ayağını indir, öbür dizini kaldır.",
+        "Tempolu ve dik yürümeye devam et."
+      ],
+      "tip": "Kolları aktif sallamak nabzı daha çok yükseltir.",
+      "mistake": "Öne eğilme; gövden dik kalsın."
+    },
+    {
+      "id": "high_knees",
+      "name": "Diz Çekme Koşusu",
+      "target": "Kondisyon ve kalça bükücüler",
+      "setup": "Ayakta dur, kolların dirsekten bükülü.",
+      "steps": [
+        "Yerinde koşarken dizlerini kalça hizasına kadar çek.",
+        "Parmak uçlarına yumuşak bas.",
+        "Kollarını koşar gibi salla; ritmi koru."
+      ],
+      "tip": "Zor gelirse yerinde yürüyüşe dön, nefesin toparlanınca tekrar hızlan.",
+      "mistake": "Geriye yaslanma; gövden hafif öne eğik kalsın."
+    },
+    {
+      "id": "butt_kicks",
+      "name": "Topuk Vurma",
+      "target": "Kondisyon ve arka bacak",
+      "setup": "Ayakta dur, kolların dirsekten bükülü.",
+      "steps": [
+        "Bir topuğunu kalçana doğru çek.",
+        "Ayağını indirirken öbür topuğunu çek.",
+        "Yerinde koşar ya da yürür gibi devam et."
+      ],
+      "tip": "Yeni başlıyorsan zıplamadan, yürür gibi yap.",
+      "mistake": "Belini çukurlaştırma."
+    },
+    {
+      "id": "step_jack",
+      "name": "Adımlı Jumping Jack",
+      "target": "Kondisyon (düşük darbe)",
+      "setup": "Ayakta dur, ayakların bitişik, kolların yanında.",
+      "steps": [
+        "Bir ayağınla yana adım atarken kollarını başının üstüne kaldır.",
+        "Başlangıca dön.",
+        "Öbür tarafa adım atarak tekrarla."
+      ],
+      "tip": "Zıplamadan jumping jack; dizlere ve komşulara dost.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma."
+    },
+    {
+      "id": "jumping_jack",
+      "name": "Jumping Jack",
+      "target": "Kondisyon",
+      "setup": "Ayakta dur, ayakların bitişik, kolların yanında.",
+      "steps": [
+        "Zıplayarak ayaklarını aç ve kollarını başının üstüne kaldır.",
+        "Zıplayarak ayaklarını kapat, kolların yana insin.",
+        "Ritimle devam et."
+      ],
+      "tip": "Parmak uçlarına yumuşak in.",
+      "mistake": "Topukların üstüne sert inme."
+    },
+    {
+      "id": "skater",
+      "name": "Patenci",
+      "target": "Kondisyon, kalça ve denge",
+      "setup": "Ayakta dur, dizlerin hafif bükülü.",
+      "steps": [
+        "Sağ ayağınla yana sek; sol bacağın sağın arkasına çaprazlansın.",
+        "Kolların paten kayar gibi sallansın.",
+        "Sol tarafa sekerek tekrarla."
+      ],
+      "tip": "Zıplama zor gelirse yana adım at.",
+      "mistake": "İnişte dizini içe kapatma."
+    },
+    {
+      "id": "shadow_boxing",
+      "name": "Gölge Boks",
+      "target": "Kondisyon, omuzlar ve gövde",
+      "setup": "Bir ayak önde, öbürü geride dur; dizlerin hafif bükülü, yumrukların çenende.",
+      "steps": [
+        "Öndeki elinle düz bir yumruk at ve hemen geri çek.",
+        "Arkadaki elinle yumruk at; gövden hafifçe dönsün.",
+        "Ayaklarının üstünde hafifçe sekerek devam et."
+      ],
+      "tip": "Yumruğu kolunu kilitlemeden at; asıl güç gövdenin dönüşünden gelir.",
+      "mistake": "Dirseği tam kilitleme; ellerini çenenden uzak bırakma."
+    },
+    {
+      "id": "fast_feet",
+      "name": "Hızlı Ayak",
+      "target": "Kondisyon ve baldır",
+      "setup": "Hafif çömel: dizler bükülü, gövde biraz öne eğik, kollar önde.",
+      "steps": [
+        "Ayaklarını sırayla çok hızlı ve küçük kaldırıp indir.",
+        "Parmak uçlarında kal.",
+        "Pozisyonu bozmadan süre bitene kadar devam et."
+      ],
+      "tip": "Adımlar küçük, ritim hızlı.",
+      "mistake": "Dik durma; hafif çömelik pozisyonu koru."
+    },
+    {
+      "id": "mountain_climber",
+      "name": "Dağcı",
+      "target": "Karın, kalça ve kondisyon",
+      "setup": "Şınav pozisyonuna gel: ellerin omuzlarının altında, kolların düz, vücudun düz bir çizgi.",
+      "steps": [
+        "Sağ dizini göğsüne doğru çek.",
+        "Geri götürürken sol dizini çek.",
+        "Kalçan sabit kalarak ritimle devam et."
+      ],
+      "tip": "Hızlanmadan önce formu oturt; yavaş da olur.",
+      "mistake": "Kalçayı yukarı kaldırma, sırtı çökertme."
+    },
+    {
+      "id": "jump_rope",
+      "name": "Hayali İp Atlama",
+      "target": "Baldır ve kondisyon",
+      "setup": "İp tutuyormuş gibi ellerin kalçanın yanında, parmak uçlarında dur.",
+      "steps": [
+        "Bileklerinle küçük daireler çizerken küçük zıplamalar yap.",
+        "Parmak uçlarına yumuşak in.",
+        "Ritmi koruyarak devam et."
+      ],
+      "tip": "Gerçek ipin varsa onunla da yapabilirsin.",
+      "mistake": "Yükseğe zıplama; birkaç santim yeterli."
+    },
+    {
+      "id": "half_burpee",
+      "name": "Yarım Burpee",
+      "target": "Tüm vücut ve kondisyon",
+      "setup": "Ayakta dur, ayakların omuz genişliğinde.",
+      "steps": [
+        "Çömel ve ellerini önünde yere koy.",
+        "Ayaklarını geriye atarak şınav pozisyonuna geç, sonra ayaklarını ellerine doğru geri getir.",
+        "Ayağa kalk."
+      ],
+      "tip": "Ayaklarını atmak zor gelirse tek tek geri adımla.",
+      "mistake": "Plank pozisyonunda belini çökertme."
+    },
+    {
+      "id": "burpee",
+      "name": "Burpee",
+      "target": "Tüm vücut ve kondisyon (zor)",
+      "setup": "Ayakta dur, ayakların omuz genişliğinde.",
+      "steps": [
+        "Çömel, ellerini yere koy ve ayaklarını geriye atarak şınav pozisyonuna geç.",
+        "Ayaklarını ellerine doğru geri getir.",
+        "Kolların yukarıda zıpla ve yumuşak in."
+      ],
+      "tip": "Hızdan önce düzgün form; yorulunca zıplamayı bırakıp yarım burpee yap.",
+      "mistake": "Sert inme; dizler hafif bükülü, sessiz in."
+    },
+    {
+      "id": "jump_squat",
+      "name": "Sıçramalı Squat",
+      "target": "Bacak ve kalça (güç)",
+      "setup": "Ayakların omuz genişliğinde.",
+      "steps": [
+        "Squat pozisyonuna in.",
+        "Patlayıcı şekilde yukarı sıçra, kolların yukarı.",
+        "Dizlerin hafif bükülü, yumuşak in ve hemen sonraki squat'a geç."
+      ],
+      "tip": "Gürültüsüz inmeye çalış; iniş ne kadar sessizse o kadar kontrollüdür.",
+      "mistake": "Dizler kilitli inme; dizinde ağrı varsa normal squat yap."
+    }
+  ]
+}

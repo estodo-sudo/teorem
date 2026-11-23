@@ -145,6 +145,9 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/worry-time/7` | kabul | Planlayıcıya yazan el. | 9.82:1 (karartma 0.78) | 6588938: Okunur "PLAN FOR 2021"; 4497733: Telefon ve kalabalık |
 | `glossary/after-prostate-surgery` | kabul | Parkta yürüyen yaşlıca erkek, arkadan. | kart dışı | 18805610: Başka maddede reddedildi, kalabalık; 7261633: Genç erkek |
 | `camp/alcohol` | kabul | Güneş ışığında portakal suyu: sabah ve tazelik. | kart dışı | 10277954: Siyah fon, stüdyo çekimi; 36546933: File içinde mandalina, konu dağınık |
+| `program/bodyweight` | kabul | Gün doğumunda parkta şınav çeken, eşofmanlı erkek: aletsiz, açık havada antrenman. | kart dışı | 4803878: Çıplak üst beden (yasak); 4775195: Kadın; hedef kitle değil |
+| `program/posture` | kabul | Dik durup kollarını açan, tişörtlü erkek: göğsü açan, dik duruş. | kart dışı | 8187683, 6798416: Çıplak üst beden (yasak) |
+| `program/mobility` | kabul | Matta lastik bantla esneyen, giyinik erkek: esneklik ve hareket açıklığı. | kart dışı | 6339722: Dikey, dizüstü bilgisayar dikkati dağıtıyor |
 | `glossary/discreet` | kabul | Tül perdeden süzülen yumuşak ışık. | kart dışı | 14740202: Perde arkasında kişi; 33939018: Sırtı açık kadın (yasak) |
 | `glossary/dribble` | kabul | Eski musluktan damlayan su. | kart dışı | 12271457: Siyah-beyaz; 4328899: Şişede etiket okunuyor; 40214245: Siyah fon, musluk yok |
 | `glossary/erectile-dysfunction` | kabul | Masada konuşan iki kişinin elleri: doktor görüşmesi, yüz yok. | kart dışı | 9951403: Yüzler görünüyor; 19814054: Siyah-beyaz, hastane |

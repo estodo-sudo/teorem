@@ -1,0 +1,184 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Chest",
+    "intro": "Push-up-based programmes that work the chest, front shoulders and triceps. You progress step by step from the wall to the full push-up, and from there to harder variations.",
+    "science": [
+      "Push-ups done with challenging enough sets can give muscle and strength gains close to the bench press (a small 8-week study).",
+      "The order: wall → incline → kneeling → full push-up. Move to the next step once you can do 12–15 clean reps comfortably.",
+      "A narrow hand position and diamond push-ups tend to work the chest and triceps more; the effect of hand width isn't fully consistent between studies.",
+      "Fewer correct reps beat many sloppy ones: bend your elbows to at least 90 degrees and keep your body straight."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "wall_pushup",
+      "name": "Wall Push-Up",
+      "target": "Chest and front shoulders (easiest)",
+      "setup": "Stand an arm's length from a wall. Put your hands on the wall at shoulder height and shoulder-width apart.",
+      "steps": [
+        "Bend your elbows to bring your chest towards the wall.",
+        "Keep your body straight from head to heels.",
+        "Push with your palms to return to the start."
+      ],
+      "tip": "The further your feet are from the wall, the harder the move.",
+      "mistake": "Don't stick your hips out; let your body move as one line."
+    },
+    {
+      "id": "incline_pushup",
+      "name": "Incline Push-Up",
+      "target": "Chest and triceps",
+      "setup": "Put your hands shoulder-width apart on the edge of a sturdy chair, sofa or step; feet back.",
+      "steps": [
+        "Lower your chest towards the edge; elbows at a 45-degree angle to your body.",
+        "Stop when your chest nears the edge.",
+        "Push back up to straighten your arms."
+      ],
+      "tip": "The lower the surface, the harder the move.",
+      "mistake": "Don't use a chair that could slide; choose a fixed surface braced against a wall."
+    },
+    {
+      "id": "knee_pushup",
+      "name": "Kneeling Push-Up",
+      "target": "Chest, front shoulders and triceps",
+      "setup": "Hands slightly wider than your shoulders, knees on the floor, feet in the air. Form a straight line from your head to your knees.",
+      "steps": [
+        "Bend your elbows to bring your chest towards the floor.",
+        "Stop when your chest is a fist's height from the floor.",
+        "Push back up to straighten your arms."
+      ],
+      "tip": "Move to the full push-up once you can do 20 clean reps comfortably.",
+      "mistake": "Don't go down by just dipping your head; lower your whole body together."
+    },
+    {
+      "id": "pushup",
+      "name": "Push-Up",
+      "target": "Chest, front shoulders, triceps and core",
+      "setup": "Hands slightly wider than your shoulders, arms straight, on your toes. A straight line from your head to your heels.",
+      "steps": [
+        "Lower your chest to the floor with your elbows at about 45 degrees to your body.",
+        "Stop when your elbows are bent at least 90 degrees.",
+        "Push the floor away to straighten your arms."
+      ],
+      "tip": "Gently squeeze your belly and glutes; keep your body stiff like a plank.",
+      "mistake": "Don't let your hips drop or rise; don't flare your elbows straight out."
+    },
+    {
+      "id": "wide_pushup",
+      "name": "Wide Push-Up",
+      "target": "Outer chest and front shoulders",
+      "setup": "Push-up position, but with your hands about one and a half times shoulder-width apart.",
+      "steps": [
+        "Lower your chest down between your hands.",
+        "Stop where you feel a stretch in your chest.",
+        "Push back up."
+      ],
+      "tip": "Don't place your hands too wide; if you feel pressure in your shoulder, narrow your grip.",
+      "mistake": "Don't strain your shoulders by flaring your elbows straight out."
+    },
+    {
+      "id": "diamond_pushup",
+      "name": "Diamond Push-Up",
+      "target": "Triceps and inner chest",
+      "setup": "Push-up position; bring your hands together under your chest so your thumbs and index fingers form a diamond.",
+      "steps": [
+        "Keeping your elbows close to your body, lower your chest towards your hands.",
+        "Stop when your chest nears your hands.",
+        "Push back up."
+      ],
+      "tip": "If it's too hard, do it with your knees on the floor.",
+      "mistake": "Don't flare your elbows; let them bend backwards, close to your body."
+    },
+    {
+      "id": "decline_pushup",
+      "name": "Decline Push-Up",
+      "target": "Upper chest and front shoulders",
+      "setup": "Put your feet on a sturdy chair or step, hands on the floor shoulder-width apart.",
+      "steps": [
+        "Keeping your body straight, lower your chest to the floor.",
+        "Stop when your elbows pass 90 degrees.",
+        "Push back up."
+      ],
+      "tip": "The higher your feet, the harder it gets; start with a low step.",
+      "mistake": "Don't let your lower back sag; keep your glutes tight."
+    },
+    {
+      "id": "negative_pushup",
+      "name": "Negative Push-Up",
+      "target": "Chest and triceps (strength)",
+      "setup": "Start in a push-up position: arms straight, body in a straight line.",
+      "steps": [
+        "Lower very slowly over 4 seconds.",
+        "When your chest nears the floor, put your knees down.",
+        "Push up with the help of your knees and get back into the full position."
+      ],
+      "tip": "If you can't do a full push-up yet, this is the best bridge: the lowering is the part that works the muscle most.",
+      "mistake": "Don't rush the lowering; the real work is in the slow descent."
+    },
+    {
+      "id": "pushup_hold",
+      "name": "Push-Up Hold",
+      "target": "Chest, triceps and core (endurance)",
+      "setup": "Get into a push-up position and lower halfway; elbows at about 90 degrees.",
+      "steps": [
+        "Stay at this height.",
+        "Body straight, belly tight.",
+        "Keep breathing and hold until the time is up."
+      ],
+      "tip": "If it's too hard, hold with your knees on the floor.",
+      "mistake": "Don't let your hips sag."
+    },
+    {
+      "id": "chair_dips",
+      "name": "Chair Dips",
+      "target": "Triceps and lower chest",
+      "setup": "Stand in front of a sturdy chair placed against a wall. Put your hands behind you on the edge of the chair, knees bent, feet on the floor.",
+      "steps": [
+        "Bend your elbows backwards and lower your hips.",
+        "Stop when your elbows reach 90 degrees.",
+        "Push up with your palms."
+      ],
+      "tip": "The further you extend your legs, the harder the move.",
+      "mistake": "Don't hunch your shoulders towards your ears; if your shoulder hurts, go down less."
+    },
+    {
+      "id": "chest_squeeze",
+      "name": "Palm Press",
+      "target": "Chest (isometric)",
+      "setup": "Stand tall. Press your palms together in front of your chest, elbows out to the sides.",
+      "steps": [
+        "Press your palms together as hard as you can.",
+        "Feel the contraction in your chest and hold.",
+        "Relax and press again."
+      ],
+      "tip": "Don't forget to breathe out while pressing.",
+      "mistake": "Don't lift your shoulders up."
+    },
+    {
+      "id": "plyo_pushup",
+      "name": "Plyo Push-Up",
+      "target": "Chest and triceps (power)",
+      "setup": "Push-up position: arms straight, body in a straight line.",
+      "steps": [
+        "Lower with control.",
+        "Push the floor away fast; let your hands leave the floor for a moment.",
+        "Land softly with your elbows slightly bent and start again."
+      ],
+      "tip": "Only try it if clean push-ups feel easy; if it's too hard, do it with your knees on the floor.",
+      "mistake": "Don't land with locked arms; keep the landing soft to protect your wrists."
+    },
+    {
+      "id": "spiderman_pushup",
+      "name": "Spiderman Push-Up",
+      "target": "Chest, core and hips",
+      "setup": "Push-up position: arms straight, body in a straight line.",
+      "steps": [
+        "As you lower, bring your right knee out to the side towards your right elbow.",
+        "Take your leg back as you push up.",
+        "Use the left knee on the next rep; keep alternating."
+      ],
+      "tip": "It's fine if your knee doesn't touch your elbow; keep your body straight.",
+      "mistake": "Don't lift your hips when bringing your knee in."
+    }
+  ]
+}

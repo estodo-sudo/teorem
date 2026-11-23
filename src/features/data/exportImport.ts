@@ -11,6 +11,7 @@ import type { ProgressSnapshot } from '@/stores/progressStore';
 import type { Settings, TrainingState, UserProfile } from '@/types';
 
 import type { HistoryData } from './repo';
+import { MAX_IMPORT_BYTES, sanitizeHistory, sanitizeProfile, sanitizeSettings } from './sanitize';
 
 /** Bump when the export shape changes; add a migration in `upgrade()`. */
 export const EXPORT_SCHEMA_VERSION = 4;
@@ -81,6 +82,8 @@ function upgrade(raw: Record<string, unknown>): Record<string, unknown> {
 }
 
 export function parseImport(text: string): ImportResult {
+  // A crafted, huge file is refused before parsing (security review 2026-11-23).
+  if (text.length > MAX_IMPORT_BYTES) return { ok: false, error: 'corrupt' };
   let raw: unknown;
   try {
     raw = JSON.parse(text);
@@ -102,8 +105,9 @@ export function parseImport(text: string): ImportResult {
   return {
     ok: true,
     data: {
-      profile: b.profile as unknown as UserProfile,
-      settings: b.settings as unknown as Settings,
+      // Every field is checked: a wrong type falls back to the default (security review 2026-11-23).
+      profile: sanitizeProfile(b.profile),
+      settings: sanitizeSettings(b.settings),
       training: migrateTraining(b.training),
       progress: {
         content: p.content as unknown as ProgressSnapshot['content'],
@@ -122,7 +126,7 @@ export function parseImport(text: string): ImportResult {
         events: sanitizeCampEvents(isObj(b.camp) ? b.camp.events : undefined),
       },
       kegel: sanitizeKegelData(b.kegel),
-      history: h as unknown as HistoryData,
+      history: sanitizeHistory(h),
     },
   };
 }

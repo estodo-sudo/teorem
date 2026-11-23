@@ -157,11 +157,11 @@ function OwnPlanEditor({ onDone }: { onDone: () => void }) {
       <AppText variant="callout" weight="700">
         {tr('camp.plan.if')}
       </AppText>
-      <TextInput value={ifText} onChangeText={setIfText} maxLength={80} placeholder={tr('camp.triggers.ownIfPlaceholder')} placeholderTextColor={t.tokens.subtle} accessibilityLabel={tr('camp.plan.if')} style={field} />
+      <TextInput maxFontSizeMultiplier={1.3} value={ifText} onChangeText={setIfText} maxLength={80} placeholder={tr('camp.triggers.ownIfPlaceholder')} placeholderTextColor={t.tokens.subtle} accessibilityLabel={tr('camp.plan.if')} style={field} />
       <AppText variant="callout" weight="700">
         {tr('camp.plan.then')}
       </AppText>
-      <TextInput value={thenText} onChangeText={setThenText} maxLength={120} placeholder={tr('camp.onb.plans.ownPlaceholder')} placeholderTextColor={t.tokens.subtle} accessibilityLabel={tr('camp.plan.then')} style={field} />
+      <TextInput maxFontSizeMultiplier={1.3} value={thenText} onChangeText={setThenText} maxLength={120} placeholder={tr('camp.onb.plans.ownPlaceholder')} placeholderTextColor={t.tokens.subtle} accessibilityLabel={tr('camp.plan.then')} style={field} />
       <View style={{ flexDirection: 'row', gap: t.space.sm }}>
         <Button
           label={tr('camp.triggers.savePlan')}

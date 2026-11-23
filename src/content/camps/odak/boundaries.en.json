@@ -1,0 +1,80 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "rct",
+  "sourceIds": [
+    "bothe2021",
+    "crosby2016",
+    "apple"
+  ],
+  "title": "Environment and digital boundaries",
+  "intro": "Shaping your environment makes deciding easier in an urge moment. Filters and limits put a brake on hard moments.",
+  "honesty": "No filter is unbeatable. A filter is a brake; the real strength is your skills and your plan.",
+  "checklistTitle": "Physical environment",
+  "checklist": [
+    {
+      "id": "charge",
+      "icon": "plug",
+      "tone": "focus",
+      "label": "Charge your phone outside the bedroom"
+    },
+    {
+      "id": "grayscale",
+      "icon": "cloudFog",
+      "tone": "focus",
+      "label": "Switch your screen to greyscale at night"
+    },
+    {
+      "id": "spaces",
+      "icon": "sofa",
+      "tone": "focus",
+      "label": "Separate your work and sleep areas"
+    },
+    {
+      "id": "activities",
+      "icon": "calendar",
+      "tone": "focus",
+      "label": "Plan an activity for your risky hours"
+    }
+  ],
+  "grayscaleHint": "Greyscale makes the screen less appealing. iPhone: Settings > Accessibility > Display & Text Size > Colour Filters. Android: Settings > Digital Wellbeing > Bedtime mode, or Accessibility > Colour correction.",
+  "ios": {
+    "title": "iPhone: Screen Time",
+    "steps": [
+      "Open Settings > Screen Time and turn Screen Time on.",
+      "Go to Content & Privacy Restrictions > Content Restrictions > Web Content and choose \"Limit Adult Websites\".",
+      "Set Downtime to match your risky hours.",
+      "Use App Limits to set a daily time for trigger apps.",
+      "If you like, set a Screen Time passcode and have someone you trust keep it."
+    ],
+    "note": "All these settings work inside the iPhone itself; the app doesn't access any data.",
+    "done": "I've set up Screen Time"
+  },
+  "android": {
+    "title": "Android: Digital Wellbeing",
+    "steps": [
+      "Open Settings > Digital Wellbeing & parental controls.",
+      "Use app timers to set a daily time for trigger apps.",
+      "Use Focus mode to pause distracting apps during your risky hours.",
+      "Turn on Bedtime mode: the screen goes greyscale at night and notifications go quiet."
+    ],
+    "open": "Open Digital Wellbeing",
+    "note": "These settings work inside the phone itself; the app doesn't access any data.",
+    "done": "I've set up Digital Wellbeing"
+  },
+  "reminder": {
+    "title": "Risky-hour reminder",
+    "body": "If one of the apps you choose is opened during your risky hours, a gentle \"Focus time\" reminder appears. It doesn't block anything; it only reminds you.",
+    "disclosure": "With the \"Usage access\" permission, this feature reads which apps are opened and when, only on this phone. This information is never sent anywhere or stored; it's only used to check whether a reminder is needed.",
+    "enable": "Turn on the reminder",
+    "grant": "Grant usage access",
+    "grantHint": "Find this app in the list that opens, turn the permission on, then come back here.",
+    "appsTitle": "Which apps?",
+    "appsHint": "Choose the ones that usually trigger you (e.g. social media, browser).",
+    "hoursTitle": "Your risky hours",
+    "noHours": "First choose at least one risky time range.",
+    "unavailable": "This feature works in the full version of the app (Android); it isn't available in this version.",
+    "delay": "The phone runs this check about every 15 minutes; the reminder may be a few minutes late.",
+    "notifTitle": "Focus time",
+    "notifBody": "A good moment to remember your plan."
+  }
+}

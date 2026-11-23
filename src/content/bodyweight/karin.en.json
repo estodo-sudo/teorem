@@ -1,0 +1,210 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Abs",
+    "intro": "Equipment-free programmes that strengthen the abdominal muscles and core. You start with basic moves that protect the spine, and the moves get harder as the weeks go on.",
+    "science": [
+      "At the start, doing each move for short periods with correct form matters more than adding reps.",
+      "For holds like the plank, it's recommended to reach 20–30 seconds first and then make the move harder.",
+      "Moves like the bird-dog, side plank and short crunch work the core while keeping the lower back in its natural position.",
+      "Ab exercises alone don't burn belly fat; they improve muscular endurance and posture. Losing fat takes nutrition and overall movement."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "crunch",
+      "name": "Crunch",
+      "target": "Rectus abdominis",
+      "setup": "Lie on your back, knees bent, soles of your feet on the floor. Arms by your sides, hands reaching towards your feet.",
+      "steps": [
+        "Squeeze your belly and lift your head and shoulders off the floor; your hands reach towards your knees.",
+        "Pause for a moment at the top.",
+        "Slowly lower your shoulders to the floor."
+      ],
+      "tip": "Breathe out as you rise. Your lower back stays on the floor; only your shoulders lift.",
+      "mistake": "Don't pull on your neck to rise; keep a fist's width between your chin and chest."
+    },
+    {
+      "id": "reverse_crunch",
+      "name": "Reverse Crunch",
+      "target": "Lower abs",
+      "setup": "Lie on your back, arms by your sides. Lift your knees into the air, bent at 90 degrees.",
+      "steps": [
+        "Squeeze your belly and pull your knees towards your chest; your hips lift slightly off the floor.",
+        "Pause for a moment.",
+        "Lower your hips slowly and bring your knees back to the start."
+      ],
+      "tip": "Do the move with your abs, not by swinging your legs.",
+      "mistake": "Don't throw your legs around; keep the lowering slow and controlled."
+    },
+    {
+      "id": "leg_raise",
+      "name": "Leg Raise",
+      "target": "Lower abs and hip flexors",
+      "setup": "Lie on your back, legs straight, arms by your sides, palms on the floor.",
+      "steps": [
+        "Keeping your legs straight, lift them towards the ceiling.",
+        "Press your lower back into the floor and lower your legs slowly.",
+        "Lift them again before your heels touch the floor."
+      ],
+      "tip": "If it's too hard, bend your knees slightly.",
+      "mistake": "If your lower back lifts, don't lower your legs that far."
+    },
+    {
+      "id": "heel_tap",
+      "name": "Heel Taps",
+      "target": "Obliques",
+      "setup": "Lie on your back, knees bent. Lift your head and shoulders slightly, arms by your sides.",
+      "steps": [
+        "Bend your body to the side and touch your right heel with your right hand.",
+        "Come back to the middle and touch your left heel with your left hand.",
+        "Keep alternating with your shoulders off the floor."
+      ],
+      "tip": "The movement is small; reach by bending your body to the side.",
+      "mistake": "Don't drop your head to the floor and lift it again; keep your shoulders up the whole time."
+    },
+    {
+      "id": "dead_bug",
+      "name": "Dead Bug",
+      "target": "Deep abdominal muscles and core stability",
+      "setup": "Lie on your back. Reach your arms to the ceiling and lift your knees into the air, bent at 90 degrees.",
+      "steps": [
+        "Slowly extend your right arm behind your head and your left leg forward.",
+        "Return to the start.",
+        "Do the same with your left arm and right leg."
+      ],
+      "tip": "Breathe out as you extend; keep your lower back touching the floor the whole time.",
+      "mistake": "If your lower back lifts, extend your leg less."
+    },
+    {
+      "id": "bicycle_crunch",
+      "name": "Bicycle Crunch",
+      "target": "Obliques and rectus abdominis",
+      "setup": "Lie on your back, hands behind your head, shoulders slightly raised. Legs in the air.",
+      "steps": [
+        "Pull your right knee to your chest while turning your left elbow towards it; extend your left leg.",
+        "Switch sides: left knee and right elbow.",
+        "Keep going in rhythm, like pedalling a bicycle."
+      ],
+      "tip": "Touching elbow to knee isn't necessary; turning your body is enough.",
+      "mistake": "Don't pull your head with your hands; let the turn come from your body."
+    },
+    {
+      "id": "plank",
+      "name": "Plank",
+      "target": "Whole core",
+      "setup": "Lie face down. Put your elbows under your shoulders and lift your body onto your toes.",
+      "steps": [
+        "Form a straight line from your head to your heels.",
+        "Draw your belly in and squeeze your glutes.",
+        "Breathe easily and hold until the time is up."
+      ],
+      "tip": "If your form breaks, put your knees down and carry on.",
+      "mistake": "Don't let your hips drop or rise."
+    },
+    {
+      "id": "knee_plank",
+      "name": "Kneeling Plank",
+      "target": "Whole core (easy)",
+      "setup": "Lie face down. Elbows under your shoulders, knees on the floor, feet in the air.",
+      "steps": [
+        "Lift your body; form a straight line from your head to your knees.",
+        "Draw your belly in gently.",
+        "Keep breathing and hold."
+      ],
+      "tip": "The starting version of the plank; move to the normal plank once 30 seconds feel easy.",
+      "mistake": "Don't lift your hips up."
+    },
+    {
+      "id": "side_plank",
+      "name": "Side Plank",
+      "target": "Obliques and hips",
+      "setup": "Lie on your side, elbow under your shoulder, legs straight and stacked.",
+      "steps": [
+        "Lift your hips; form a straight line from your head to your feet.",
+        "Reach your top arm towards the ceiling.",
+        "Switch sides halfway through."
+      ],
+      "tip": "If it's hard, put your bottom knee down.",
+      "mistake": "Don't let your hips sag to the floor."
+    },
+    {
+      "id": "side_plank_knee",
+      "name": "Kneeling Side Plank",
+      "target": "Obliques (easy)",
+      "setup": "Lie on your side, elbow under your shoulder, knees bent and stacked.",
+      "steps": [
+        "Lift your hips; form a straight line from your head to your knees.",
+        "Reach your top arm towards the ceiling.",
+        "Switch sides halfway through."
+      ],
+      "tip": "The easy version of the side plank; once it's comfortable, do it with straight legs.",
+      "mistake": "Don't let your shoulder sink towards your ear."
+    },
+    {
+      "id": "mountain_climber",
+      "name": "Mountain Climber",
+      "target": "Abs, hips and conditioning",
+      "setup": "Get into a push-up position: hands under your shoulders, arms straight, body in a straight line.",
+      "steps": [
+        "Pull your right knee towards your chest.",
+        "As you take it back, pull your left knee in.",
+        "Keep going in rhythm with your hips steady."
+      ],
+      "tip": "Get the form right before you speed up; slow is fine.",
+      "mistake": "Don't lift your hips up or let your back sag."
+    },
+    {
+      "id": "plank_shoulder_tap",
+      "name": "Plank Shoulder Taps",
+      "target": "Core stability and shoulders",
+      "setup": "Get into a push-up position; spread your feet a little to make balancing easier.",
+      "steps": [
+        "Touch your left shoulder with your right hand.",
+        "Put your hand down and touch your right shoulder with your left hand.",
+        "Keep alternating without rocking your hips."
+      ],
+      "tip": "If it's too hard, put your knees down.",
+      "mistake": "Don't rock your hips sideways with each tap."
+    },
+    {
+      "id": "hollow_hold",
+      "name": "Hollow Hold",
+      "target": "Rectus abdominis (advanced)",
+      "setup": "Lie on your back and stretch your arms overhead.",
+      "steps": [
+        "Press your lower back into the floor and lift your shoulders and legs off the floor.",
+        "Your body should curve slightly like a bowl.",
+        "Keep breathing and hold."
+      ],
+      "tip": "If it's too hard, bend your knees or bring your arms to your sides.",
+      "mistake": "If your lower back lifts, raise your legs higher."
+    },
+    {
+      "id": "flutter_kicks",
+      "name": "Flutter Kicks",
+      "target": "Lower abs",
+      "setup": "Lie on your back, hands under your hips, legs straight and lifted slightly off the floor.",
+      "steps": [
+        "Move one leg a little up and the other a little down.",
+        "Alternate like scissors.",
+        "Keep your lower back on the floor and keep going in rhythm."
+      ],
+      "tip": "Keep the movement small and continuous.",
+      "mistake": "If your lower back lifts, keep your legs a little higher."
+    },
+    {
+      "id": "bird_dog",
+      "name": "Bird-Dog",
+      "target": "Core stability, back and glutes",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "steps": [
+        "Reach one arm forward and the opposite leg back.",
+        "Pause briefly when your arm and leg are parallel to the floor.",
+        "Bring them back slowly; switch sides halfway through."
+      ],
+      "tip": "Imagine a glass of water on your back; don't spill it.",
+      "mistake": "Don't let your lower back sag or your hips turn to the side."
+    }
+  ]
+}

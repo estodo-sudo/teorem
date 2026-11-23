@@ -1,0 +1,171 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Warm-up",
+    "intro": "A 10-minute moving warm-up you can do before any workout. First you raise your pulse, then you loosen your joints, and finally you prepare your muscles with light moves.",
+    "science": [
+      "Before training, a moving (dynamic) warm-up is preferred over long static stretching; long static stretches can slightly reduce strength and jumping for a short while.",
+      "Dynamic stretching on its own has only a small effect on performance; the main benefit of a warm-up is raising body temperature and pulse.",
+      "Warm-ups shown to reduce injuries (e.g. FIFA 11+) have several parts: raising the pulse, loosening the joints and light strength moves. This warm-up follows the same order.",
+      "Evidence that stretching alone prevents injury is weak; a warm-up doesn't replace training, but it prepares you for it."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "march_in_place",
+      "name": "Marching on the Spot",
+      "target": "Conditioning (low impact)",
+      "setup": "Stand tall.",
+      "steps": [
+        "Lift one knee towards hip height and swing the opposite arm forward.",
+        "Lower your foot and lift the other knee.",
+        "Keep marching briskly and upright."
+      ],
+      "tip": "Actively swinging your arms raises your pulse more.",
+      "mistake": "Don't lean forward; keep your body upright."
+    },
+    {
+      "id": "arm_circles",
+      "name": "Arm Circles",
+      "target": "Shoulders and arms (warm-up)",
+      "setup": "Stand tall and open your arms out to the sides at shoulder height.",
+      "steps": [
+        "Draw small circles with your arms.",
+        "Slowly make the circles bigger.",
+        "Change direction halfway through."
+      ],
+      "tip": "Keep your shoulders away from your ears.",
+      "mistake": "Don't swing them fast and jerkily."
+    },
+    {
+      "id": "step_jack",
+      "name": "Step Jack",
+      "target": "Conditioning (low impact)",
+      "setup": "Stand up, feet together, arms by your sides.",
+      "steps": [
+        "Step out to the side with one foot while raising your arms above your head.",
+        "Return to the start.",
+        "Repeat stepping out to the other side."
+      ],
+      "tip": "Jumping jacks without the jump; kind to your knees and your neighbours.",
+      "mistake": "Don't hunch your shoulders towards your ears."
+    },
+    {
+      "id": "torso_twist",
+      "name": "Torso Twist",
+      "target": "Lower back and torso (mobility)",
+      "setup": "Stand with your feet a little wider than shoulder-width. Bend your elbows and hold your hands at chest height.",
+      "steps": [
+        "Keeping your hips facing forward, turn your torso and arms to the right.",
+        "Pass through the middle and turn to the left.",
+        "Keep going side to side with a smooth rhythm; make the turn a little bigger each time."
+      ],
+      "tip": "Gently pivoting the heel of your back foot eases your knee.",
+      "mistake": "Don't swing wildly; turn with control."
+    },
+    {
+      "id": "leg_swings",
+      "name": "Leg Swings",
+      "target": "Hips and back of the legs (mobility)",
+      "setup": "Stand tall; support yourself with one hand on a wall or chair for balance.",
+      "steps": [
+        "Swing your outside leg forward, straight and relaxed.",
+        "Let it swing back and behind you.",
+        "Keep going like a pendulum, making each swing a little bigger; switch legs halfway through."
+      ],
+      "tip": "Keep your body upright and let the movement come from the hip.",
+      "mistake": "Don't force your leg up as if kicking; keep the stretch gentle."
+    },
+    {
+      "id": "cat_cow",
+      "name": "Cat-Cow",
+      "target": "Spinal mobility",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "steps": [
+        "As you breathe in, let your belly drop towards the floor and lift your chest and head.",
+        "As you breathe out, round your back towards the ceiling and bring your chin towards your chest.",
+        "Move slowly back and forth between the two."
+      ],
+      "tip": "Ideal for warming up and cooling down.",
+      "mistake": "Don't do it fast; one move per breath."
+    },
+    {
+      "id": "inchworm",
+      "name": "Inchworm",
+      "target": "Shoulders, core and hamstring flexibility",
+      "setup": "Stand up, feet hip-width apart.",
+      "steps": [
+        "Bend forward and put your hands on the floor in front of your feet; bend your knees if needed.",
+        "Walk your hands forward into a push-up position.",
+        "Walk your hands back towards your feet and stand up."
+      ],
+      "tip": "It's also a great move for warming up.",
+      "mistake": "Don't let your hips sag in the plank."
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "target": "Front of the thighs, glutes and hamstrings",
+      "setup": "Feet shoulder-width apart, toes turned slightly out.",
+      "steps": [
+        "Push your hips back and lower down; reach your arms forward.",
+        "Stop when your thighs are close to parallel with the floor; chest up.",
+        "Push through your heels to stand up."
+      ],
+      "tip": "Breathe in on the way down and out on the way up.",
+      "mistake": "Don't let your knees cave in or your heels lift off the floor."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Reverse Lunge",
+      "target": "Front of the thighs and glutes",
+      "setup": "Stand tall, feet hip-width apart.",
+      "steps": [
+        "Take a big step back with one foot and lower by bending both knees.",
+        "Stop when your back knee nears the floor; your front knee is over your ankle.",
+        "Push through your front heel to return to the start; switch legs halfway through."
+      ],
+      "tip": "The reverse lunge is kinder to the knee than the forward lunge.",
+      "mistake": "Don't lean your body forward; stay upright."
+    },
+    {
+      "id": "glute_bridge",
+      "name": "Glute Bridge",
+      "target": "Big glute muscle",
+      "setup": "Lie on your back, knees bent, soles of your feet on the floor hip-width apart. Arms by your sides.",
+      "steps": [
+        "Squeeze your glutes and lift your hips off the floor; form a straight line from your knees to your shoulders.",
+        "Keep your glutes tight at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Press through your heels; you can lift your toes slightly.",
+      "mistake": "Don't overarch your lower back."
+    },
+    {
+      "id": "butt_kicks",
+      "name": "Butt Kicks",
+      "target": "Conditioning and hamstrings",
+      "setup": "Stand up with your arms bent at the elbows.",
+      "steps": [
+        "Pull one heel towards your bottom.",
+        "As you lower that foot, pull the other heel up.",
+        "Keep going as if running or walking on the spot."
+      ],
+      "tip": "If you're just starting out, do it without hopping, as if walking.",
+      "mistake": "Don't arch your lower back."
+    },
+    {
+      "id": "high_knees",
+      "name": "High Knees",
+      "target": "Conditioning and hip flexors",
+      "setup": "Stand up with your arms bent at the elbows.",
+      "steps": [
+        "Running on the spot, pull your knees up to hip height.",
+        "Land softly on the balls of your feet.",
+        "Swing your arms as if running; keep the rhythm."
+      ],
+      "tip": "If it's too hard, switch to marching on the spot and speed up again once you've caught your breath.",
+      "mistake": "Don't lean back; keep your body tilted slightly forward."
+    }
+  ]
+}

@@ -1,20 +1,24 @@
 import * as Speech from 'expo-speech';
 
+import { CONTENT_LANGUAGE } from '@/i18n/content';
+import { localeOf } from '@/i18n/languages';
 import type { ExerciseType } from '@/types';
 
 /**
- * Sesli koç (SPEC_KEGEL_V2 §7.4): short phase commands with the device's own Turkish text-to-speech
- * (expo-speech, offline). When the device has no Turkish voice the option is hidden.
+ * Sesli koç (SPEC_KEGEL_V2 §7.4): short phase commands with the device's own text-to-speech in the app
+ * language (expo-speech, offline). When the device has no voice for that language the option is hidden.
  */
 
 let turkishVoice: string | null | undefined;
 
-/** Finds a Turkish voice once (null = none on this device). */
+const LOCALE = localeOf(CONTENT_LANGUAGE);
+
+/** Finds a voice for the app language once (null = none on this device). */
 export async function findTurkishVoice(): Promise<string | null> {
   if (turkishVoice !== undefined) return turkishVoice;
   try {
     const voices = await Speech.getAvailableVoicesAsync();
-    const tr = voices.find((v) => v.language?.toLowerCase().replace('_', '-').startsWith('tr'));
+    const tr = voices.find((v) => v.language?.toLowerCase().replace('_', '-').startsWith(CONTENT_LANGUAGE));
     turkishVoice = tr ? tr.identifier : null;
   } catch {
     turkishVoice = null;
@@ -26,7 +30,7 @@ export function speak(text: string) {
   if (!turkishVoice) return;
   try {
     void Speech.stop();
-    Speech.speak(text, { language: 'tr-TR', voice: turkishVoice, rate: 1.05 });
+    Speech.speak(text, { language: LOCALE, voice: turkishVoice, rate: 1.05 });
   } catch {
     // voice is optional
   }

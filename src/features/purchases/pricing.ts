@@ -14,6 +14,22 @@ export interface Offer {
   /** Android base plan / offer token needed to purchase a subscription. */
   androidOfferToken?: string;
   type: 'subs' | 'in-app';
+  /** A trial price for previews (no store): shown, never purchasable. */
+  preview?: boolean;
+}
+
+/** The weekly, monthly and yearly plans at the trial prices (yearly with its free trial), for previews only. */
+export function previewOffers(prices: { currency: string; weekly: number; monthly: number; yearly: number }, trialDays: number, locale = 'tr-TR'): Offer[] {
+  return (['yearly', 'monthly', 'weekly'] as const).map((key) => ({
+    key,
+    productId: `preview_${key}`,
+    displayPrice: formatMoney(prices[key], prices.currency, locale),
+    price: prices[key],
+    currency: prices.currency,
+    ...(key === 'yearly' && trialDays > 0 ? { trialDays } : {}),
+    type: 'subs' as const,
+    preview: true,
+  }));
 }
 
 export interface TrialPeriod {

@@ -17,7 +17,7 @@ export function Input({ label, hint, error, onFocus, onBlur, multiline, ...rest 
   return (
     <View style={{ gap: t.space.xs }}>
       {label ? <AppText style={{ ...t.type.small, fontWeight: '600', color: t.tokens.foreground }}>{label}</AppText> : null}
-      <TextInput
+      <TextInput maxFontSizeMultiplier={1.3}
         accessibilityLabel={label ?? rest.placeholder}
         accessibilityHint={error ?? hint}
         placeholderTextColor={t.tokens.mutedForeground}

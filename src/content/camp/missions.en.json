@@ -1,0 +1,1261 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "michie2013",
+    "crane2018",
+    "black2020",
+    "nci-withdrawal"
+  ],
+  "missions": [
+    {
+      "id": "prep-1",
+      "phase": "preparation",
+      "day": 1,
+      "title": "Final check before quit day",
+      "body": "Tomorrow is your quit day. Gather up and throw away any cigarettes, lighters and ashtrays left at home, in the car and in your bag. Check that your emergency kit is ready. Go to bed early tonight; starting tomorrow fresh makes it easier.",
+      "durationMin": 10,
+      "bctCodes": [
+        "1.4",
+        "12.1",
+        "7.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-2",
+      "phase": "preparation",
+      "day": 2,
+      "title": "Prepare your emergency kit",
+      "body": "Prepare a small box for hard moments: sugar-free gum, a water bottle, a stress ball or a pen, a snack you like (fruit, nuts). Put the box where you smoke most.",
+      "durationMin": 10,
+      "bctCodes": [
+        "12.1",
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-3",
+      "phase": "preparation",
+      "day": 3,
+      "title": "Clear away the traces of smoking",
+      "body": "Clean your car, your coat and the corner where you smoke; reduce the smell and the reminders. You can remove the ashtrays already; in these last days, smoke only outside.",
+      "durationMin": 15,
+      "bctCodes": [
+        "12.1",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-4",
+      "phase": "preparation",
+      "day": 4,
+      "title": "Tell someone you're quitting",
+      "body": "Tell someone you trust your quit day and let them know you might message them in hard moments. If you like, use the ready-made message in the app. Saying it out loud strengthens your decision.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1",
+        "1.9"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "prep-5",
+      "phase": "preparation",
+      "day": 5,
+      "title": "Plan for your 3 riskiest moments",
+      "body": "Go to your trigger map and make sure you have an If–Then plan for the three situations you smoke in most. Read the plan out loud once.",
+      "durationMin": 10,
+      "bctCodes": [
+        "1.4",
+        "4.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-6",
+      "phase": "preparation",
+      "day": 6,
+      "title": "Find out about professional support",
+      "body": "In Türkiye, you can call ALO 171 to learn about quit-smoking clinic appointments and free support; elsewhere, look up your national quitline. Even if you don't call, save the number in your contacts.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.2"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "prep-7",
+      "phase": "preparation",
+      "day": 7,
+      "title": "Log every cigarette",
+      "body": "Log every cigarette you smoke today in the diary and pick why you smoked it. These entries will show you your hardest hours and situations.",
+      "durationMin": 2,
+      "bctCodes": [
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-8",
+      "phase": "preparation",
+      "day": 8,
+      "title": "Write your reasons again",
+      "body": "Write your three most important reasons for wanting to quit in your own words. We'll remind you of these sentences in hard moments.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2",
+        "1.1"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-9",
+      "phase": "preparation",
+      "day": 9,
+      "title": "Put off the first cigarette by 15 minutes",
+      "body": "Today, delay your first cigarette of the morning by 15 minutes. Meanwhile, drink water or take a shower. Seeing that you can put it off gives you confidence for quit day.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7",
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-10",
+      "phase": "preparation",
+      "day": 10,
+      "title": "Try the quick calm breath",
+      "body": "Next time you have an urge to smoke, open the \"I have a craving\" tool and try the one-minute quick calm breath. Don't try to wipe out the urge; watch it rise and fall.",
+      "durationMin": 3,
+      "bctCodes": [
+        "4.1",
+        "11.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-11",
+      "phase": "preparation",
+      "day": 11,
+      "title": "Set smoke-free zones",
+      "body": "From today, declare your home and car smoke-free zones. When you want to smoke, you'll have to go outside; this small obstacle cuts down automatic cigarettes.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3",
+        "12.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-12",
+      "phase": "preparation",
+      "day": 12,
+      "title": "Find your autopilot cigarettes",
+      "body": "Look at your diary: which cigarettes did you smoke \"without really needing them\"? Today, try to skip one of them.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.3",
+        "4.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-13",
+      "phase": "preparation",
+      "day": 13,
+      "title": "Set yourself a reward goal",
+      "body": "Choose something you want to buy with the money you'll save. Your savings counter will start saving towards it from your quit day.",
+      "durationMin": 5,
+      "bctCodes": [
+        "10.9",
+        "1.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-14",
+      "phase": "preparation",
+      "day": 14,
+      "title": "Get to know withdrawal",
+      "body": "In the first days you may feel restless, irritable or have trouble sleeping. These are temporary and a sign that your body is healing. Knowing what to expect keeps you prepared.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.6",
+        "4.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-15",
+      "phase": "preparation",
+      "day": 15,
+      "title": "Smoke one less cigarette today",
+      "body": "If you're on the cut-down plan, stay one below your daily target. Choose in the morning which cigarette you'll drop; ideally an autopilot one.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7",
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-16",
+      "phase": "preparation",
+      "day": 16,
+      "title": "Change your coffee routine",
+      "body": "Drink your coffee or tea somewhere different from usual, from a different cup. Even a small change helps loosen the link with smoking.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-17",
+      "phase": "preparation",
+      "day": 17,
+      "title": "Work out what smoking costs you",
+      "body": "Think about your weekly, monthly and yearly spending. Write down what you could do with that money.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-18",
+      "phase": "preparation",
+      "day": 18,
+      "title": "Stretch the gap between cigarettes",
+      "body": "Today, try to stretch the time between two cigarettes by 30 minutes. While you wait, drink a glass of water or go for a short walk.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-19",
+      "phase": "preparation",
+      "day": 19,
+      "title": "Find another supporter",
+      "body": "Do you know someone who has quit smoking? Ask them what helped them most.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "prep-20",
+      "phase": "preparation",
+      "day": 20,
+      "title": "Change how you buy cigarettes",
+      "body": "Stop buying cartons or double packs; buy a single pack each time. The harder cigarettes are to reach, the less you smoke on autopilot.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-21",
+      "phase": "preparation",
+      "day": 21,
+      "title": "What happens after you quit?",
+      "body": "Take a look at the health recovery timeline: even 20 minutes after quitting, positive changes start in your body.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.1"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-22",
+      "phase": "preparation",
+      "day": 22,
+      "title": "Get up from the table after meals",
+      "body": "Today, after every meal, get up from the table right away and brush your teeth or walk for five minutes. Weaken the after-meal cigarette link.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-23",
+      "phase": "preparation",
+      "day": 23,
+      "title": "Remember what you've achieved before",
+      "body": "Think of a time in your life when you changed a hard habit. How did you manage it? You can use the same strength now.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "prep-24",
+      "phase": "preparation",
+      "day": 24,
+      "title": "Check your daily target",
+      "body": "Look at this week's target in your cut-down plan. Did you stay under it today? If you did, tell yourself so.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.7",
+        "2.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-25",
+      "phase": "preparation",
+      "day": 25,
+      "title": "Put up a reminder",
+      "body": "Put a small note reminding you of your reason to quit on your phone's lock screen or in your wallet.",
+      "durationMin": 3,
+      "bctCodes": [
+        "7.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-26",
+      "phase": "preparation",
+      "day": 26,
+      "title": "Recognise the \"just one won't hurt\" thought",
+      "body": "This thought is the sentence that gets most people smoking again. When you hear it, notice it as just a thought; you don't have to follow it.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "prep-27",
+      "phase": "preparation",
+      "day": 27,
+      "title": "Mark your quit day",
+      "body": "Mark your quit day on your calendar and count the days left. If you need to change the date, you can do it in the camp settings.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.1",
+        "1.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "prep-28",
+      "phase": "preparation",
+      "day": 28,
+      "title": "The pros and challenges of quitting",
+      "body": "Draw two columns on a piece of paper: what quitting will give you and what will be hard. Write a small solution for each challenge.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "quit-0",
+      "phase": "quit_day",
+      "day": 0,
+      "title": "Today is your quit day",
+      "body": "The not-a-single-puff rule starts today. Complete the checklist on the Quit Day screen, keep your emergency kit with you and use the \"I have a craving\" button when it gets hard.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.9",
+        "1.4",
+        "12.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-1",
+      "phase": "critical_week",
+      "day": 1,
+      "title": "Change your morning routine",
+      "body": "When you wake up, first drink a glass of water and take a shower. Let a new habit take the place of the morning cigarette.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-2",
+      "phase": "critical_week",
+      "day": 2,
+      "title": "Know the peak days",
+      "body": "Withdrawal symptoms are usually most intense in the first three days. Today may be hard; that's a sign your body is getting used to living without nicotine.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.6",
+        "11.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "crit-3",
+      "phase": "critical_week",
+      "day": 3,
+      "title": "Drink your coffee somewhere different",
+      "body": "Today, drink your coffee or tea away from where you always smoke. A small change of place weakens a strong trigger.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-4",
+      "phase": "critical_week",
+      "day": 4,
+      "title": "Walk for 5 minutes after meals",
+      "body": "As soon as the meal is over, get up from the table and walk for five minutes or brush your teeth.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-5",
+      "phase": "critical_week",
+      "day": 5,
+      "title": "Choose a small reward from your savings",
+      "body": "Buy yourself something small with the money you've saved so far, or plan a reward. It's important to recognise your effort.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "crit-6",
+      "phase": "critical_week",
+      "day": 6,
+      "title": "Let your supporter know",
+      "body": "Write to your supporter how many days you've been smoke-free. Sharing motivates you both.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.3"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "crit-7",
+      "phase": "critical_week",
+      "day": 7,
+      "title": "Review your first week",
+      "body": "You've completed the first week. What was the hardest moment, and what got you through it? Write it in one sentence; it'll help you in the next hard moment.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4",
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-8",
+      "phase": "strengthening",
+      "day": 8,
+      "title": "How do you describe yourself?",
+      "body": "Try saying \"I'm a non-smoker\" instead of \"I'm trying to quit smoking\". As your identity changes, the urge weakens too.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-9",
+      "phase": "strengthening",
+      "day": 9,
+      "title": "Plan for a new risky moment",
+      "body": "Think of a new hard situation you'll face this week (an invitation, a busy workday) and add an If–Then plan for it.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4",
+        "4.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-10",
+      "phase": "strengthening",
+      "day": 10,
+      "title": "Get moving",
+      "body": "Walk briskly for at least 10 minutes today. Movement reduces cravings and tension; you may also notice how much easier your breathing is.",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-11",
+      "phase": "strengthening",
+      "day": 11,
+      "title": "Notice the changes",
+      "body": "Since you quit, has anything changed in your sense of smell, taste or your breathing? Write down what you notice.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-12",
+      "phase": "strengthening",
+      "day": 12,
+      "title": "Do a breathing exercise",
+      "body": "In a stressful moment, try box breathing: in for 4 seconds, hold 4, out 4, wait 4. Practising once a day makes hard moments easier.",
+      "durationMin": 3,
+      "bctCodes": [
+        "11.2",
+        "4.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-13",
+      "phase": "strengthening",
+      "day": 13,
+      "title": "Tell your smoking friends your limit",
+      "body": "Don't hesitate to ask people not to smoke near you. A short, clear sentence is enough: \"I've quit; I'd appreciate it if you didn't smoke around me.\"",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "str-14",
+      "phase": "strengthening",
+      "day": 14,
+      "title": "Celebrate two weeks",
+      "body": "You've been smoke-free for two weeks. Count the cravings you've got through in that time and tell yourself: \"I can do this.\"",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-15",
+      "phase": "strengthening",
+      "day": 15,
+      "title": "Make peace with weight worries",
+      "body": "Appetite can increase after quitting. That's normal. Not skipping meals, drinking water and moving help; for now, your priority is staying smoke-free.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.1"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-16",
+      "phase": "strengthening",
+      "day": 16,
+      "title": "Find something to keep your hands busy",
+      "body": "Instead of the habit of holding a cigarette, choose something to keep your hands busy: a pen, a ring, a stress ball. Carry it with you today.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-17",
+      "phase": "strengthening",
+      "day": 17,
+      "title": "Get some distance from your thoughts",
+      "body": "Today, when a thought about smoking comes, say \"Right now I notice I'm thinking about smoking.\" Noticing the thought reminds you that you don't have to follow it.",
+      "durationMin": 5,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-18",
+      "phase": "strengthening",
+      "day": 18,
+      "title": "Prepare for settings with alcohol",
+      "body": "Alcohol is one of the strongest triggers. If you'll be somewhere with alcohol this week, make your plan in advance, or consider avoiding these settings in the first weeks.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3",
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-19",
+      "phase": "strengthening",
+      "day": 19,
+      "title": "Update your savings goal",
+      "body": "Look at your reward jar; how close are you to your goal? Adding a new goal keeps your motivation fresh.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-20",
+      "phase": "strengthening",
+      "day": 20,
+      "title": "Changes in mood",
+      "body": "On some days you may feel more tense or sad. This is usually temporary. If it lasts long or gets heavier, see a doctor.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.6"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-21",
+      "phase": "strengthening",
+      "day": 21,
+      "title": "Three weeks in review",
+      "body": "Look at your check entries: have your cravings decreased compared with the first week? If so, it's a sign your brain is relearning.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-22",
+      "phase": "strengthening",
+      "day": 22,
+      "title": "Try a new way to handle stress",
+      "body": "Instead of smoking, try a new way to cope with stress: a short walk, music you love, talking to someone.",
+      "durationMin": 5,
+      "bctCodes": [
+        "8.2",
+        "11.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-23",
+      "phase": "strengthening",
+      "day": 23,
+      "title": "Thank someone",
+      "body": "Thank someone who has supported you through this. Both getting and giving support make your path easier.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.3"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "str-24",
+      "phase": "strengthening",
+      "day": 24,
+      "title": "Refresh your reminder",
+      "body": "Refresh the reminder note on your lock screen or in your wallet. You may have new reasons.",
+      "durationMin": 3,
+      "bctCodes": [
+        "7.1"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-25",
+      "phase": "strengthening",
+      "day": 25,
+      "title": "A slip isn't a collapse",
+      "body": "Even if you smoke a cigarette, it doesn't mean it's all over. Know now what you'll do if you slip: log it, look at what happened and carry on.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "str-26",
+      "phase": "strengthening",
+      "day": 26,
+      "title": "Make time for a new hobby",
+      "body": "Fill the time you used to spend smoking with something new: walking, crafts, a book, music. Give it 10 minutes today.",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-27",
+      "phase": "strengthening",
+      "day": 27,
+      "title": "List what you've gained",
+      "body": "Write down what you've gained since quitting: money, time, health, freedom. The longer the list, the stronger your decision.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "str-28",
+      "phase": "strengthening",
+      "day": 28,
+      "title": "Plan for next month",
+      "body": "Think about events next month that might challenge you (a holiday, a festival, exams, a wedding) and write a plan for each.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "str-29",
+      "phase": "strengthening",
+      "day": 29,
+      "title": "Share your progress",
+      "body": "Tell your supporter or family that you're close to one month. You can plan the celebration together.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "str-30",
+      "phase": "strengthening",
+      "day": 30,
+      "title": "Celebrate one month",
+      "body": "You've been smoke-free for a month. Treat yourself with the money you've saved and think about what carried you most this month.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "10.9"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-31",
+      "phase": "maintenance",
+      "day": 31,
+      "title": "Your new identity",
+      "body": "You're a non-smoker now. To strengthen this new identity, think of yourself that way today.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-33",
+      "phase": "maintenance",
+      "day": 33,
+      "title": "Before meeting someone who smokes",
+      "body": "If you're meeting a friend who smokes, go over your plan in advance: what will you drink, where will you sit, what will you say if they offer you one?",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-35",
+      "phase": "maintenance",
+      "day": 35,
+      "title": "Notice your breathing",
+      "body": "Today, climb stairs or walk briskly and listen to your breath. Can you feel the difference since you quit?",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-38",
+      "phase": "maintenance",
+      "day": 38,
+      "title": "Hidden triggers",
+      "body": "As the weeks pass, cravings become rarer but can come at unexpected moments: a smell, a song, an old place. These are normal and they pass.",
+      "durationMin": 3,
+      "bctCodes": [
+        "4.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-40",
+      "phase": "maintenance",
+      "day": 40,
+      "title": "How will you act in a setting with alcohol?",
+      "body": "Plan how you'll act somewhere with alcohol: which hand will you hold your drink in, how will you keep away from where people smoke?",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4",
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-42",
+      "phase": "maintenance",
+      "day": 42,
+      "title": "Six weeks in review",
+      "body": "It's been six weeks. Look at your statistics: which tools helped you most? Keep using them.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-45",
+      "phase": "maintenance",
+      "day": 45,
+      "title": "Check your savings jar",
+      "body": "Have you reached one of your reward goals? If so, celebrate; if not, see how much is left.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-47",
+      "phase": "maintenance",
+      "day": 47,
+      "title": "Support someone else",
+      "body": "Do you know someone thinking about quitting? Share your experience; supporting someone else strengthens your own decision too.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-49",
+      "phase": "maintenance",
+      "day": 49,
+      "title": "Cope with the thought of missing it",
+      "body": "The thought \"I wish I could have just one\" may come. It's a longing, not an instruction. Notice it, remember your reasons and carry on.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-52",
+      "phase": "maintenance",
+      "day": 52,
+      "title": "Review your stress plan",
+      "body": "What has stressed you most in recent weeks? Do you have at least one way of coping ready for these situations?",
+      "durationMin": 5,
+      "bctCodes": [
+        "11.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-54",
+      "phase": "maintenance",
+      "day": 54,
+      "title": "Count the cravings you've got through",
+      "body": "How many cravings have you got through without smoking so far? Each one is an experience that makes the next easier.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-56",
+      "phase": "maintenance",
+      "day": 56,
+      "title": "A plan for holidays and special days",
+      "body": "Is there a holiday, festival or celebration coming up? When your routine changes, old habits can wake up; plan ahead.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-59",
+      "phase": "maintenance",
+      "day": 59,
+      "title": "Long-term gains",
+      "body": "Look at how long until the next gain on your health timeline. Every month your body heals a little more.",
+      "durationMin": 3,
+      "bctCodes": [
+        "5.1"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-61",
+      "phase": "maintenance",
+      "day": 61,
+      "title": "Strengthen your new habit",
+      "body": "Today, give another 10 minutes to the new habit you've put in place of smoking (walking, water, breathing).",
+      "durationMin": 10,
+      "bctCodes": [
+        "8.2"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-63",
+      "phase": "maintenance",
+      "day": 63,
+      "title": "Two months in review",
+      "body": "You've been smoke-free for two months. Think about the money you've saved, the cravings you've got through and the changes in your health.",
+      "durationMin": 5,
+      "bctCodes": [
+        "9.2"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-66",
+      "phase": "maintenance",
+      "day": 66,
+      "title": "Talk to your supporter",
+      "body": "Tell your supporter how this process has been going and mention any moments you still find hard.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.3"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-68",
+      "phase": "maintenance",
+      "day": 68,
+      "title": "Notice old smoking spots",
+      "body": "When you go somewhere you used to smoke, your craving may increase. Plan in advance what you'll do in these places.",
+      "durationMin": 5,
+      "bctCodes": [
+        "12.3"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-70",
+      "phase": "maintenance",
+      "day": 70,
+      "title": "Show yourself compassion",
+      "body": "On hard days, treat yourself as you would a friend. You don't have to be perfect; carrying on is enough.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.2"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-73",
+      "phase": "maintenance",
+      "day": 73,
+      "title": "Relapse prevention plan",
+      "body": "What will you do if one day you smoke a cigarette? Write your plan now: log it, look at why, carry on with the programme.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-75",
+      "phase": "maintenance",
+      "day": 75,
+      "title": "Capture your change",
+      "body": "Today, note or photograph something about yourself: easier breathing, better sleep, more money. Let it be a reminder for your future self.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-77",
+      "phase": "maintenance",
+      "day": 77,
+      "title": "Thank yourself",
+      "body": "Thank yourself today. You're the one walking this path.",
+      "durationMin": 3,
+      "bctCodes": [
+        "10.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-80",
+      "phase": "maintenance",
+      "day": 80,
+      "title": "A smoke-free future",
+      "body": "Where do you see yourself in a year? Imagine something you want to do in a smoke-free future.",
+      "durationMin": 3,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "learning",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-82",
+      "phase": "maintenance",
+      "day": 82,
+      "title": "Share your experience",
+      "body": "Give a short tip to someone who learns you've quit. Tell them what helped you most.",
+      "durationMin": 5,
+      "bctCodes": [
+        "3.1"
+      ],
+      "type": "social",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-84",
+      "phase": "maintenance",
+      "day": 84,
+      "title": "Getting ready to graduate",
+      "body": "There's one week left of the camp. Choose three tools you'll keep using after day 90.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-87",
+      "phase": "maintenance",
+      "day": 87,
+      "title": "Remember your journey",
+      "body": "Think of the first day of the camp. What has changed from then until today?",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "mnt-89",
+      "phase": "maintenance",
+      "day": 89,
+      "title": "Make yourself a new promise",
+      "body": "The camp is ending, but your smoke-free life goes on. Make yourself a small promise for the coming month.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.1",
+        "1.9"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "free-91",
+      "phase": "freedom",
+      "day": 91,
+      "title": "You've graduated",
+      "body": "You've completed 90 days. That's a big achievement. See your journey on the graduation screen and celebrate yourself.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "10.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-120",
+      "phase": "freedom",
+      "day": 120,
+      "title": "Monthly check: four months",
+      "body": "You've been smoke-free for four months. Are there still moments you find hard? Update your plans if needed.",
+      "durationMin": 5,
+      "bctCodes": [
+        "2.4"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-150",
+      "phase": "freedom",
+      "day": 150,
+      "title": "Monthly check: five months",
+      "body": "Review your plans for upcoming special days or changes.",
+      "durationMin": 5,
+      "bctCodes": [
+        "1.4"
+      ],
+      "type": "action",
+      "reviewed": false
+    },
+    {
+      "id": "free-180",
+      "phase": "freedom",
+      "day": 180,
+      "title": "Six months",
+      "body": "You've been smoke-free for six months. Think about the money you've saved and the changes in your health; celebrate this half year.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-270",
+      "phase": "freedom",
+      "day": 270,
+      "title": "Nine months",
+      "body": "It's been nine months. Smoking is no longer part of your life; even noticing that is a gain.",
+      "durationMin": 5,
+      "bctCodes": [
+        "13.5"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    },
+    {
+      "id": "free-365",
+      "phase": "freedom",
+      "day": 365,
+      "title": "One year",
+      "body": "You've been smoke-free for a year. You've reached an important milestone on your health timeline. Celebrate yourself.",
+      "durationMin": 5,
+      "bctCodes": [
+        "15.3",
+        "10.9"
+      ],
+      "type": "reflection",
+      "reviewed": false
+    }
+  ],
+  "quitDay": {
+    "title": "Today is your quit day",
+    "intro": "What makes this day special is your decision. From today, there's just one rule.",
+    "rule": "Not a single puff",
+    "ruleText": "From today, not a single puff. A puff that seems \"harmless\" brings the craving back to life. When it gets hard, use the \"I have a craving\" button.",
+    "checklist": [
+      {
+        "id": "remove",
+        "text": "I've thrown away all the cigarettes, lighters and ashtrays at home, in the car and in my bag"
+      },
+      {
+        "id": "kit",
+        "text": "My emergency kit (gum, water, stress ball) is with me"
+      },
+      {
+        "id": "plans",
+        "text": "I've read my If–Then plans for my three riskiest moments"
+      },
+      {
+        "id": "supporter",
+        "text": "I've told my supporter I'm quitting today"
+      },
+      {
+        "id": "alo",
+        "text": "The ALO 171 number (or my local quitline) is saved in my contacts"
+      },
+      {
+        "id": "day",
+        "text": "I've made a smoke-free plan for today (a walk, an activity I enjoy)"
+      }
+    ],
+    "after": "If today is hard, that's normal. Cravings are like waves; they come, peak and pass."
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "black2020",
+    "michie2013"
+  ],
+  "badges": [
+    {
+      "id": "days-1",
+      "icon": "sunrise",
+      "tone": "smokefree",
+      "title": "First day",
+      "desc": "You've completed your first smoke-free day."
+    },
+    {
+      "id": "days-3",
+      "icon": "mountain",
+      "tone": "smokefree",
+      "title": "Over the peak",
+      "desc": "Three days: you've put the most intense days of withdrawal behind you."
+    },
+    {
+      "id": "days-7",
+      "icon": "shield",
+      "tone": "smokefree",
+      "title": "One week",
+      "desc": "You've completed the critical week."
+    },
+    {
+      "id": "days-14",
+      "icon": "dumbbell",
+      "tone": "smokefree",
+      "title": "Two weeks",
+      "desc": "You've been smoke-free for two weeks."
+    },
+    {
+      "id": "days-30",
+      "icon": "moon",
+      "tone": "smokefree",
+      "title": "One month",
+      "desc": "A month smoke-free: a big milestone."
+    },
+    {
+      "id": "days-60",
+      "icon": "sprout",
+      "tone": "smokefree",
+      "title": "Two months",
+      "desc": "Your new habits are taking root."
+    },
+    {
+      "id": "days-90",
+      "icon": "graduation",
+      "tone": "smokefree",
+      "title": "90 days",
+      "desc": "You've completed the whole camp smoke-free."
+    },
+    {
+      "id": "days-180",
+      "icon": "star",
+      "tone": "smokefree",
+      "title": "Six months",
+      "desc": "Half a year smoke-free."
+    },
+    {
+      "id": "days-365",
+      "icon": "trophy",
+      "tone": "smokefree",
+      "title": "One year",
+      "desc": "A year smoke-free. Amazing."
+    },
+    {
+      "id": "crisis-10",
+      "icon": "waves",
+      "tone": "smokefree",
+      "title": "10 cravings",
+      "desc": "You got through ten urges without smoking."
+    },
+    {
+      "id": "crisis-50",
+      "icon": "waves",
+      "tone": "smokefree",
+      "title": "50 cravings",
+      "desc": "You've surfed over fifty waves."
+    },
+    {
+      "id": "crisis-100",
+      "icon": "fish",
+      "tone": "smokefree",
+      "title": "100 cravings",
+      "desc": "You've got through a hundred cravings; you know the waves now."
+    },
+    {
+      "id": "first-plan",
+      "icon": "puzzle",
+      "tone": "smokefree",
+      "title": "First plan",
+      "desc": "You made your first If–Then plan."
+    },
+    {
+      "id": "all-skills",
+      "icon": "book",
+      "tone": "smokefree",
+      "title": "All lessons",
+      "desc": "You've completed all the skill lessons."
+    },
+    {
+      "id": "checkin-7",
+      "icon": "clipboard",
+      "tone": "smokefree",
+      "title": "7-day check-in",
+      "desc": "You did your daily check seven days in a row."
+    },
+    {
+      "id": "saved-1000",
+      "icon": "wallet",
+      "tone": "smokefree",
+      "title": "First 1,000 saved",
+      "desc": "The money you didn't spend on cigarettes has passed 1,000."
+    },
+    {
+      "id": "graduate",
+      "icon": "graduation",
+      "tone": "smokefree",
+      "title": "Graduate",
+      "desc": "You've graduated from the Smoke-Free Camp."
+    }
+  ],
+  "jar": {
+    "intro": "Add the things you want to buy with the money you didn't spend on cigarettes. The progress bars fill up with your savings.",
+    "examples": [
+      "New headphones",
+      "A weekend getaway",
+      "Running shoes",
+      "A family dinner out"
+    ]
+  },
+  "graduation": {
+    "title": "Congratulations, you're graduating!",
+    "text": "For 90 days you decided again every day to stay smoke-free. This certificate is the sum of those decisions.",
+    "certTitle": "Smoke-Free Camp Graduation Certificate",
+    "certLine": "By completing the 90-day Smoke-Free Camp, you've stepped into a smoke-free life.",
+    "after": "After graduation your counter, crisis tool, ALO 171 and all your tools are still here. Your journey continues with short monthly checks."
+  }
+}

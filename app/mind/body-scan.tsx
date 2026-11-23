@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, ProgressBar, ProgressRing, Screen, useTheme } from '@/components';
 import { IconTile } from '@/components/ui';
-import bodyscan from '@/content/bodyscan.tr.json';
+import { pick } from '@/i18n/content';
+import bodyscanTr from '@/content/bodyscan.tr.json';
+import bodyscanEn from '@/content/bodyscan.en.json';
 import { cancelHaptics, playCue } from '@/features/training/haptics';
 import { currentPhase, progress, remainingInPhase, type PlayerEvent, type TimedPhase } from '@/features/training/player/machine';
 import { usePlayer } from '@/features/training/player/usePlayer';
@@ -12,6 +14,8 @@ import { toDateKey } from '@/lib/date';
 import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useProgressStore } from '@/stores/progressStore';
 import { useSettingsStore } from '@/stores/settingsStore';
+
+const bodyscan = pick({ tr: bodyscanTr, en: bodyscanEn });
 
 interface ScanPhase extends TimedPhase {
   text: string;

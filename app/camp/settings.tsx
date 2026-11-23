@@ -69,7 +69,7 @@ export default function CampSettings() {
       <SectionTitle tone="smokefree" icon="wallet" title={tr('camp.settings.priceTitle')} hint={current ? tr('camp.settings.priceNow', { price: current.packPriceTRY, size: current.packSize }) : undefined} />
       <Card style={{ gap: t.space.md }}>
         <AppText weight="800">{tr('camp.onb.price.priceLabel')}</AppText>
-        <TextInput
+        <TextInput maxFontSizeMultiplier={1.3}
           value={priceText}
           onChangeText={(v) => setPriceText(v.replace(/[^0-9.,]/g, ''))}
           keyboardType="decimal-pad"

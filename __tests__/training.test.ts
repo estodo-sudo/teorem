@@ -33,7 +33,8 @@ describe('levels: three exercises, gently longer with the level', () => {
     expect(clampLevel(0)).toBe(1);
     expect(clampLevel(99)).toBe(30);
     expect(clampLevel(Number.NaN)).toBe(1);
-    expect([startingLevelFor(null), startingLevelFor('some'), startingLevelFor('regular')]).toEqual([1, 3, 5]);
+    // Everyone starts at level 1 (2026-11-23), whatever the experience answer.
+    expect([startingLevelFor(null), startingLevelFor('some'), startingLevelFor('regular')]).toEqual([1, 1, 1]);
   });
 });
 

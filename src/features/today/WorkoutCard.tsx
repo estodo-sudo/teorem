@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Icon, useTheme, type IconName } from '@/components';
 import { Button, Card, IconTile, Ring, ScalePressable, Sheet } from '@/components/ui';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
-import { openGated } from '@/features/purchases/useGate';
 import { generateMicroSet } from '@/features/training/generateSession';
 import { todayPlanDay } from '@/features/training/plan';
 import { blockText } from '@/features/training/player/playerUi';
@@ -106,14 +105,8 @@ export function WorkoutCard() {
         ) : (
           <Button label={tr('common.start')} size="lg" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" fullWidth />
         )}
-        <View style={{ flexDirection: 'row', gap: t.space.sm }}>
-          <View style={{ flex: 1 }}>
-            <Button label={tr('today.workout.microShort')} accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })} icon="pulse" variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
-          </View>
-          <View style={{ flex: 1 }}>
-            <Button label={tr('today.workout.breathShort')} icon="wind" variant="secondary" size="sm" onPress={() => openGated('mind', '/mind/breathing')} fullWidth />
-          </View>
-        </View>
+        {/* The "Nefes · 1 dk" button was removed (user request 2026-11-22); the micro set stays. */}
+        <Button label={tr('today.workout.microShort')} accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })} icon="pulse" variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
       </View>
 
       <Sheet visible={blocksOpen} onClose={() => setBlocksOpen(false)} title={tr('today.workout.contents')} description={tr('today.workout.contentsCount', { count: blocks.length })}>

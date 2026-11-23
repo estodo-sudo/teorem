@@ -1,0 +1,69 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "rct",
+  "sourceIds": [
+    "bothe2021",
+    "crosby2016",
+    "phq2"
+  ],
+  "title": "Daily check",
+  "hint": "30 seconds. There are no right or wrong answers.",
+  "onGoal": {
+    "q": "Were you in line with your goal today?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "urges": {
+    "q": "How many strong urges did you have?",
+    "options": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    "max": "5+"
+  },
+  "mood": {
+    "q": "Your mood",
+    "scale": [
+      "Very bad",
+      "Bad",
+      "Okay",
+      "Good",
+      "Very good"
+    ]
+  },
+  "sleep": {
+    "q": "Sleep quality",
+    "scale": [
+      "Very bad",
+      "Bad",
+      "Okay",
+      "Good",
+      "Very good"
+    ]
+  },
+  "loneliness": {
+    "q": "Feeling lonely",
+    "scale": [
+      "Not at all",
+      "A little",
+      "Somewhat",
+      "Quite a bit",
+      "Very"
+    ]
+  },
+  "value": {
+    "q": "Something you did today in line with your values (optional)",
+    "placeholder": "Example: I went for an evening walk."
+  },
+  "save": "Save",
+  "done": "Thank you. Noticing yourself is the foundation of change.",
+  "doneSlip": "Thank you for your honest answer. If you like, let's look at it together; it's a chance to learn.",
+  "toSlip": "Let's look at it together",
+  "lowMood": "You've been feeling very low for the last few days. You don't have to carry this alone.",
+  "panelDue": "Your daily check is ready",
+  "panelDone": "Today's check is done ✓",
+  "panelNext": "Next check: in {days} days"
+}

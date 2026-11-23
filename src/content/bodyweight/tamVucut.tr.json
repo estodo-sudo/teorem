@@ -1,0 +1,223 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Tam Vücut",
+    "intro": "Tek antrenmanda bacak, kalça, göğüs, sırt ve gövdeyi birlikte çalıştıran devre programları. Her antrenman bir itme, bir çekme, bir bacak ve bir gövde hareketi içerir; burpee ve tırtıl gibi tüm vücut hareketleriyle kondisyonu da artırır.",
+    "science": [
+      "Toplam iş aynı olduğunda bir kası haftada kaç gün çalıştırdığın kas büyümesini anlamlı ölçüde değiştirmez; tam vücut programı, bölgesel programlar kadar etkilidir (25 çalışmalı bir analiz).",
+      "Vücut ağırlığıyla yapılan devre antrenmanı, kısa sürede yoğun egzersiz sağlar; ancak kanıtı küçük çalışmalara dayanır.",
+      "Her antrenmanda itme, çekme, bacak ve gövde hareketi bulundurmak, kas dengesizliğini önlemeye yardımcı olur.",
+      "Burpee gibi hareketler kalp atışını hızla yükseltir; başlangıçta zıplamasız halini seç."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "half_burpee",
+      "name": "Yarım Burpee",
+      "target": "Tüm vücut ve kondisyon",
+      "setup": "Ayakta dur, ayakların omuz genişliğinde.",
+      "steps": [
+        "Çömel ve ellerini önünde yere koy.",
+        "Ayaklarını geriye atarak şınav pozisyonuna geç, sonra ayaklarını ellerine doğru geri getir.",
+        "Ayağa kalk."
+      ],
+      "tip": "Ayaklarını atmak zor gelirse tek tek geri adımla.",
+      "mistake": "Plank pozisyonunda belini çökertme."
+    },
+    {
+      "id": "burpee",
+      "name": "Burpee",
+      "target": "Tüm vücut ve kondisyon (zor)",
+      "setup": "Ayakta dur, ayakların omuz genişliğinde.",
+      "steps": [
+        "Çömel, ellerini yere koy ve ayaklarını geriye atarak şınav pozisyonuna geç.",
+        "Ayaklarını ellerine doğru geri getir.",
+        "Kolların yukarıda zıpla ve yumuşak in."
+      ],
+      "tip": "Hızdan önce düzgün form; yorulunca zıplamayı bırakıp yarım burpee yap.",
+      "mistake": "Sert inme; dizler hafif bükülü, sessiz in."
+    },
+    {
+      "id": "inchworm",
+      "name": "Tırtıl",
+      "target": "Omuzlar, gövde ve arka bacak esnekliği",
+      "setup": "Ayakta dur, ayakların kalça genişliğinde.",
+      "steps": [
+        "Öne eğil ve ellerini ayaklarının önünde yere koy; dizlerini gerekirse bük.",
+        "Ellerini öne yürüterek şınav pozisyonuna geç.",
+        "Ellerini ayaklarına doğru geri yürüt ve dik pozisyona kalk."
+      ],
+      "tip": "Isınma için de çok iyi bir harekettir.",
+      "mistake": "Plank'ta kalçanın sarkmasına izin verme."
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "target": "Ön bacak, kalça ve arka bacak",
+      "setup": "Ayakların omuz genişliğinde, parmak uçları hafif dışa dönük.",
+      "steps": [
+        "Kalçanı geriye vererek aşağı in; kollarını öne uzat.",
+        "Uyluğun yere paralele yaklaşınca dur; göğsün dik.",
+        "Topuklarına basarak kalk."
+      ],
+      "tip": "İnerken nefes al, kalkarken ver.",
+      "mistake": "Dizlerin içe kapanmasın, topukların yerden kalkmasın."
+    },
+    {
+      "id": "jump_squat",
+      "name": "Sıçramalı Squat",
+      "target": "Bacak ve kalça (güç)",
+      "setup": "Ayakların omuz genişliğinde.",
+      "steps": [
+        "Squat pozisyonuna in.",
+        "Patlayıcı şekilde yukarı sıçra, kolların yukarı.",
+        "Dizlerin hafif bükülü, yumuşak in ve hemen sonraki squat'a geç."
+      ],
+      "tip": "Gürültüsüz inmeye çalış; iniş ne kadar sessizse o kadar kontrollüdür.",
+      "mistake": "Dizler kilitli inme; dizinde ağrı varsa normal squat yap."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Geri Hamle",
+      "target": "Ön bacak ve kalça",
+      "setup": "Ayakta dik dur, ayakların kalça genişliğinde.",
+      "steps": [
+        "Bir ayağınla geriye büyük bir adım at ve iki dizini de bükerek in.",
+        "Arkadaki dizin yere yaklaşınca dur; öndeki dizin ayak bileğinin üstünde.",
+        "Öndeki topuğa basarak başlangıca dön; süre yarısında bacak değiştir."
+      ],
+      "tip": "Geri hamle, öne hamleden dize daha dosttur.",
+      "mistake": "Gövdeni öne eğme; dik kal."
+    },
+    {
+      "id": "glute_bridge",
+      "name": "Köprü",
+      "target": "Büyük kalça kası",
+      "setup": "Sırtüstü uzan, dizlerini bük, ayak tabanların yerde ve kalça genişliğinde. Kolların yanında.",
+      "steps": [
+        "Kalçanı sıkarak yerden kaldır; dizlerinden omuzlarına düz bir çizgi oluşsun.",
+        "Tepede kalçanı sıkı tut.",
+        "Yavaşça indir."
+      ],
+      "tip": "Topuklarına bas; parmak uçlarını hafifçe kaldırabilirsin.",
+      "mistake": "Beli fazla kaldırıp kamburlaştırma."
+    },
+    {
+      "id": "knee_pushup",
+      "name": "Dizden Şınav",
+      "target": "Göğüs, ön omuz ve arka kol",
+      "setup": "Ellerin omuzlarının biraz dışında, dizlerin yerde, ayakların havada. Başından dizlerine düz bir çizgi oluştur.",
+      "steps": [
+        "Dirseklerini bükerek göğsünü yere yaklaştır.",
+        "Göğsün yere bir yumruk kalınca dur.",
+        "İterek kollarını düzelt."
+      ],
+      "tip": "20 temiz tekrarı rahat yapınca tam şınava geç.",
+      "mistake": "Sadece başını eğerek inme; tüm gövde birlikte insin."
+    },
+    {
+      "id": "pushup",
+      "name": "Şınav",
+      "target": "Göğüs, ön omuz, arka kol ve gövde",
+      "setup": "Ellerin omuzlarının biraz dışında, kolların düz, ayak parmaklarına bas. Başından topuklarına düz bir çizgi.",
+      "steps": [
+        "Dirsekler gövdeye yaklaşık 45 derece açıyla göğsünü yere indir.",
+        "Dirsekler en az 90 derece bükülünce dur.",
+        "Yeri iterek kollarını düzelt."
+      ],
+      "tip": "Karnını ve kalçanı hafifçe sık; gövde tahta gibi kalsın.",
+      "mistake": "Kalçayı düşürme ya da havaya kaldırma; dirsekleri tam yana açma."
+    },
+    {
+      "id": "chair_dips",
+      "name": "Sandalye Dips",
+      "target": "Arka kol ve göğsün alt kısmı",
+      "setup": "Duvara dayalı sağlam bir sandalyenin önünde dur. Ellerini arkada sandalyenin kenarına koy, dizlerin bükülü, ayakların yerde.",
+      "steps": [
+        "Dirseklerini geriye bükerek kalçanı aşağı indir.",
+        "Dirsekler 90 dereceye gelince dur.",
+        "Avuçlarınla iterek yukarı çık."
+      ],
+      "tip": "Bacaklarını uzattıkça hareket zorlaşır.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma; omzunda ağrı olursa daha az in."
+    },
+    {
+      "id": "table_row",
+      "name": "Masa Altında Ters Kürek",
+      "target": "Sırtın genişliği, arka omuz ve ön kol",
+      "setup": "Sağlam, devrilmeyecek bir masanın altına sırtüstü gir. Masanın kenarını omuz genişliğinde tut; topukların yerde, vücudun düz.",
+      "steps": [
+        "Göğsünü masaya doğru çek; dirseklerin yanlara değil, geriye gitsin.",
+        "Yukarıda kürek kemiklerini sık.",
+        "Kolların düzelene kadar yavaşça in."
+      ],
+      "tip": "Dizlerini bükersen hareket kolaylaşır. Masanın sağlam olduğundan emin ol.",
+      "mistake": "Kalçayı düşürme; topuktan omuza düz bir çizgi kalsın."
+    },
+    {
+      "id": "superman",
+      "name": "Süpermen",
+      "target": "Bel, sırt ve kalça",
+      "setup": "Yüzüstü uzan, kollarını başının önüne uzat, bacakların düz.",
+      "steps": [
+        "Kollarını, göğsünü ve bacaklarını aynı anda yerden hafifçe kaldır.",
+        "Yukarıda kısa bir an bekle.",
+        "Yavaşça yere indir."
+      ],
+      "tip": "Başın yere baksın; boynunu yukarı bükme.",
+      "mistake": "Yükseğe zorlama; birkaç santim kalkmak yeterli."
+    },
+    {
+      "id": "bird_dog",
+      "name": "Kuş-Köpek",
+      "target": "Sırt, kalça ve gövde dengesi",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
+      "steps": [
+        "Bir kolunu öne, karşı bacağını geriye uzat.",
+        "Kol ve bacak yere paralel olunca kısa dur.",
+        "Yavaşça geri getir; süre yarısında taraf değiştir."
+      ],
+      "tip": "Sırtına bir bardak su konmuş gibi düşün; dökülmesin.",
+      "mistake": "Belini çökertme ya da kalçanı yana döndürme."
+    },
+    {
+      "id": "plank",
+      "name": "Plank",
+      "target": "Tüm gövde",
+      "setup": "Yüzüstü uzan. Dirseklerini omuzlarının altına koy, ayak parmaklarına basarak gövdeni kaldır.",
+      "steps": [
+        "Başından topuklarına düz bir çizgi oluştur.",
+        "Karnını içe çek, kalçanı sık.",
+        "Rahat nefes alarak süre bitene kadar bekle."
+      ],
+      "tip": "Form bozulursa dizlerini yere koy ve devam et.",
+      "mistake": "Kalçayı düşürme ya da yukarı kaldırma."
+    },
+    {
+      "id": "mountain_climber",
+      "name": "Dağcı",
+      "target": "Karın, kalça ve kondisyon",
+      "setup": "Şınav pozisyonuna gel: ellerin omuzlarının altında, kolların düz, vücudun düz bir çizgi.",
+      "steps": [
+        "Sağ dizini göğsüne doğru çek.",
+        "Geri götürürken sol dizini çek.",
+        "Kalçan sabit kalarak ritimle devam et."
+      ],
+      "tip": "Hızlanmadan önce formu oturt; yavaş da olur.",
+      "mistake": "Kalçayı yukarı kaldırma, sırtı çökertme."
+    },
+    {
+      "id": "dead_bug",
+      "name": "Ölü Böcek",
+      "target": "Derin karın kasları ve gövde dengesi",
+      "setup": "Sırtüstü uzan. Kollarını tavana uzat, dizlerini 90 derece bükerek havaya kaldır.",
+      "steps": [
+        "Sağ kolunu başının arkasına, sol bacağını ileri doğru yavaşça uzat.",
+        "Başlangıca dön.",
+        "Sol kol ve sağ bacakla aynısını yap."
+      ],
+      "tip": "Uzatırken nefes ver; belin hep yere değsin.",
+      "mistake": "Belin kalkıyorsa bacağı daha az uzat."
+    }
+  ]
+}

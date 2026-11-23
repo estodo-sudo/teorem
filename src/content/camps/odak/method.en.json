@@ -1,0 +1,22 @@
+{
+  "title": "Sources and Method",
+  "intro": "Focus Camp is a self-help programme based on research into problematic pornography use and compulsive sexual behaviour. It doesn't diagnose and doesn't replace treatment.",
+  "methodTitle": "Method",
+  "method": [
+    "Acceptance and Commitment Therapy (ACT): choosing behaviour by your values instead of fighting the urge.",
+    "Cognitive behavioural approach (CBT): noticing the chain of trigger, thought, feeling and behaviour.",
+    "Self-monitoring, shaping your environment and If–Then plans.",
+    "Relapse prevention: meeting a slip with learning rather than shame.",
+    "A 6-week core programme with consolidation up to day 90."
+  ],
+  "evidenceTitle": "Levels of evidence",
+  "levels": {
+    "guideline": "Guideline / official definition (e.g. WHO ICD-11)",
+    "rct": "Randomised controlled trial",
+    "review": "Review or meta-analysis",
+    "expert": "Expert opinion / general recommendation"
+  },
+  "reviewNote": "All content will be reviewed by a clinical psychologist or psychiatrist before publication. Until the review is complete, content is marked “not reviewed”.",
+  "sourcesTitle": "Sources",
+  "usedIn": "Used in {n} items"
+}

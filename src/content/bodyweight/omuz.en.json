@@ -1,0 +1,197 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Shoulders",
+    "intro": "Programmes that strengthen the shoulder muscles and protect the small muscles that wrap the shoulder from the inside (the rotator cuff) and control the shoulder blade. You start with warm-up moves and progress to pike push-ups and the wall handstand.",
+    "science": [
+      "The pike push-up shifts the load from the chest to the shoulders; building strength first with normal and incline push-ups is recommended.",
+      "The scapular push-up (push-up plus) is one of the moves that work the serratus most, the muscle that holds the shoulder blade against the ribcage; it's important for shoulder health.",
+      "Adding light external rotation and shoulder-blade work to the warm-up is widely recommended; it isn't proven to prevent injury, but it's considered harmless and useful.",
+      "Don't force overhead moves when your shoulder hurts; work within a pain-free range."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "arm_circles",
+      "name": "Arm Circles",
+      "target": "Shoulders (warm-up)",
+      "setup": "Stand tall and open your arms out to the sides at shoulder height.",
+      "steps": [
+        "Draw small circles with your arms.",
+        "Slowly make the circles bigger.",
+        "Change direction halfway through."
+      ],
+      "tip": "Keep your shoulders away from your ears.",
+      "mistake": "Don't swing them fast and jerkily; keep the movement controlled."
+    },
+    {
+      "id": "wall_slide",
+      "name": "Wall Slide",
+      "target": "Shoulder and upper-back mobility",
+      "setup": "Lean your back against a wall and raise your arms like goalposts; elbows and backs of your hands on the wall.",
+      "steps": [
+        "Slide your arms up while keeping them on the wall.",
+        "Reach as high as is comfortable.",
+        "Pull your shoulder blades down to return to the start."
+      ],
+      "tip": "If your lower back comes off the wall, raise your arms less.",
+      "mistake": "Don't hunch your shoulders towards your ears."
+    },
+    {
+      "id": "scapular_pushup",
+      "name": "Scapular Push-Up",
+      "target": "Serratus and shoulder-blade control",
+      "setup": "Get into a push-up position; your arms stay straight.",
+      "steps": [
+        "Without bending your arms, let your chest sink a little; your shoulder blades move together.",
+        "Push the floor away and round your upper back towards the ceiling; your shoulder blades spread apart.",
+        "Repeat this small movement in rhythm."
+      ],
+      "tip": "If it's too hard, do it with your knees on the floor.",
+      "mistake": "Don't bend your elbows; the movement comes only from your shoulder blades."
+    },
+    {
+      "id": "pike_pushup",
+      "name": "Pike Push-Up",
+      "target": "Shoulders and triceps",
+      "setup": "From a push-up position, lift your hips up; your body forms an upside-down V. Hands shoulder-width apart.",
+      "steps": [
+        "Bend your elbows to bring your head towards the floor slightly in front of your hands.",
+        "Stop when your head nears the floor.",
+        "Push back up to straighten your arms."
+      ],
+      "tip": "The closer your feet are to your hands, the harder the move.",
+      "mistake": "Don't flare your elbows straight out; let them bend slightly backwards."
+    },
+    {
+      "id": "elevated_pike_pushup",
+      "name": "Elevated Pike Push-Up",
+      "target": "Shoulders and triceps (advanced)",
+      "setup": "Put your feet on a sturdy chair or step and your hands on the floor; hips up, body as upright as possible.",
+      "steps": [
+        "Bend your elbows to bring your head towards the floor.",
+        "Hold steady.",
+        "Push back up."
+      ],
+      "tip": "It's the next step on the road to the handstand push-up.",
+      "mistake": "Don't bump your head on the floor; keep the lowering slow."
+    },
+    {
+      "id": "pike_hold",
+      "name": "Pike Hold",
+      "target": "Shoulders (endurance)",
+      "setup": "Hands and feet on the floor, hips up high; your body like an upside-down V.",
+      "steps": [
+        "Push the floor away to move your shoulders away from your ears.",
+        "Keep your hips up.",
+        "Keep breathing and hold."
+      ],
+      "tip": "You can bend your knees slightly; keep your back straight.",
+      "mistake": "Don't let your shoulders sink; keep pushing the floor away with your arms."
+    },
+    {
+      "id": "downdog_to_plank",
+      "name": "Down Dog to Plank",
+      "target": "Shoulders and core",
+      "setup": "Start in an upside-down V position: hips up, hands and feet on the floor.",
+      "steps": [
+        "Lower your hips and bring your shoulders over your hands to move into a plank.",
+        "Pause briefly in the plank.",
+        "Push your hips back up to return to the V."
+      ],
+      "tip": "Your hands and feet stay where they are.",
+      "mistake": "Don't let your hips sag in the plank."
+    },
+    {
+      "id": "plank_shoulder_tap",
+      "name": "Plank Shoulder Taps",
+      "target": "Shoulder stability and core",
+      "setup": "Get into a push-up position; spread your feet a little to make balancing easier.",
+      "steps": [
+        "Touch your left shoulder with your right hand.",
+        "Put your hand down and touch your right shoulder with your left hand.",
+        "Keep alternating without rocking your hips."
+      ],
+      "tip": "If it's too hard, put your knees down.",
+      "mistake": "Don't rock your hips sideways with each tap."
+    },
+    {
+      "id": "bear_hold",
+      "name": "Bear Hold",
+      "target": "Shoulders and core (endurance)",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips. Tuck your toes.",
+      "steps": [
+        "Lift your knees 2–3 centimetres off the floor.",
+        "Keep your back flat and your shoulders over your hands.",
+        "Keep breathing and hold."
+      ],
+      "tip": "Keep your knees close to the floor; don't lift them high.",
+      "mistake": "Don't lift your hips or let your back sag."
+    },
+    {
+      "id": "reverse_tabletop",
+      "name": "Reverse Tabletop",
+      "target": "Back of the shoulders, back and glutes",
+      "setup": "Sit on the floor, bend your knees and put your hands on the floor behind your hips; fingers pointing towards your feet.",
+      "steps": [
+        "Push through your palms and heels to lift your hips; your body and thighs should be flat like a table.",
+        "Pause briefly at the top and open your chest.",
+        "Lower your hips slowly."
+      ],
+      "tip": "If your wrists strain, turn your fingers to the side.",
+      "mistake": "Don't let your shoulders sink towards your ears."
+    },
+    {
+      "id": "side_lying_er",
+      "name": "Side-Lying External Rotation",
+      "target": "Rotator cuff (the muscles that wrap the shoulder from the inside)",
+      "setup": "Lie on your side with your head on your lower arm. Bend your top elbow to 90 degrees and rest it against your waist, hand in front of your belly.",
+      "steps": [
+        "Keeping your elbow at your waist, rotate your forearm up towards the ceiling.",
+        "Pause briefly at the top.",
+        "Lower slowly; switch sides halfway through."
+      ],
+      "tip": "Tucking a small towel under your armpit keeps your elbow in place.",
+      "mistake": "Don't lift your elbow off your body; the movement comes only from the forearm."
+    },
+    {
+      "id": "prone_y_raise",
+      "name": "Prone Y Raise",
+      "target": "Lower trapezius and back of the shoulders",
+      "setup": "Lie face down. Stretch your arms overhead in a Y shape, thumbs pointing up.",
+      "steps": [
+        "Lift your arms off the floor; pull your shoulder blades back and down.",
+        "Hold for a moment at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Your chest may lift slightly; the main movement comes from the arms.",
+      "mistake": "Don't hunch your shoulders towards your ears."
+    },
+    {
+      "id": "prone_t_raise",
+      "name": "Prone T Raise",
+      "target": "Back of the shoulders and middle trapezius",
+      "setup": "Lie face down and open your arms out to the sides in a T shape.",
+      "steps": [
+        "Keeping your arms straight, lift them up from the sides.",
+        "Squeeze your shoulder blades together and hold briefly.",
+        "Lower slowly."
+      ],
+      "tip": "Turning your thumbs up makes it easier on the shoulder.",
+      "mistake": "Don't swing your arms up."
+    },
+    {
+      "id": "wall_handstand_hold",
+      "name": "Wall Handstand Hold",
+      "target": "Shoulders and triceps (advanced)",
+      "setup": "Back to the wall, hands on the floor one and a half steps from it. Put your feet on the wall and slowly walk them up.",
+      "steps": [
+        "Walk your feet up the wall until your hips are above your shoulders.",
+        "Keep your arms straight and hold, pushing the floor away.",
+        "Come down by slowly walking your feet down."
+      ],
+      "tip": "Only try it if pike push-ups feel easy; increase the height gradually.",
+      "mistake": "If you feel dizzy or your shoulder hurts, come down right away."
+    }
+  ]
+}

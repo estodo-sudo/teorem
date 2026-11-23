@@ -7,6 +7,7 @@ import {
   restartExercise as restartFn,
   resume as resumeFn,
   skipExercise as skipFn,
+  skipPhase as skipPhaseFn,
   start as startFn,
   tick as tickFn,
   type PlayerEvent,
@@ -51,6 +52,8 @@ export function usePlayer<P extends TimedPhase>(phases: readonly P[], onEvents: 
     pause: useCallback(() => apply(pauseFn(ref.current, Date.now())), [apply]),
     resume: useCallback(() => apply(resumeFn(ref.current, Date.now())), [apply]),
     skip: useCallback(() => apply(skipFn(ref.current, Date.now())), [apply]),
+    /** Ends only the current phase (a countdown or rest) and starts the next one. */
+    skipPhase: useCallback(() => apply(skipPhaseFn(ref.current, Date.now())), [apply]),
     finish: useCallback(() => apply(finishFn(ref.current, Date.now())), [apply]),
     restartBlock: useCallback(() => apply(restartFn(ref.current, Date.now())), [apply]),
     getState: () => ref.current,

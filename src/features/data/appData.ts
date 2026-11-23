@@ -1,4 +1,5 @@
 import { campEventsSnapshot, campSnapshot, useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { useBodyweightStore } from '@/stores/bodyweightStore';
 import { useCampusStore } from '@/stores/campusStore';
 import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -46,6 +47,7 @@ export function wipeApp() {
   useHistoryStore.getState().clearAll();
   useProgressStore.getState().reset();
   useCampusStore.getState().reset();
+  useBodyweightStore.getState().reset();
   useCampStore.getState().reset();
   useCampEventsStore.getState().clearAll();
   useTrainingStore.getState().reset();

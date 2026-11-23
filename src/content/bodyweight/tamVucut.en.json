@@ -1,0 +1,223 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Full Body",
+    "intro": "Circuit programmes that work your legs, glutes, chest, back and core together in a single workout. Every workout has a push, a pull, a leg and a core move, and full-body moves like burpees and inchworms also build conditioning.",
+    "science": [
+      "When the total work is the same, how many days a week you train a muscle doesn't meaningfully change muscle growth; a full-body programme is as effective as split programmes (an analysis of 25 studies).",
+      "Bodyweight circuit training gives you intense exercise in a short time; however, the evidence comes from small studies.",
+      "Including a push, pull, leg and core move in every workout helps prevent muscle imbalances.",
+      "Moves like burpees raise your heart rate quickly; at the start, choose the version without the jump."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "half_burpee",
+      "name": "Half Burpee",
+      "target": "Full body and conditioning",
+      "setup": "Stand up, feet shoulder-width apart.",
+      "steps": [
+        "Crouch and put your hands on the floor in front of you.",
+        "Jump your feet back into a push-up position, then bring your feet back towards your hands.",
+        "Stand up."
+      ],
+      "tip": "If jumping your feet back is too hard, step them back one at a time.",
+      "mistake": "Don't let your lower back sag in the plank position."
+    },
+    {
+      "id": "burpee",
+      "name": "Burpee",
+      "target": "Full body and conditioning (hard)",
+      "setup": "Stand up, feet shoulder-width apart.",
+      "steps": [
+        "Crouch, put your hands on the floor and jump your feet back into a push-up position.",
+        "Bring your feet back towards your hands.",
+        "Jump with your arms up and land softly."
+      ],
+      "tip": "Good form before speed; when you get tired, drop the jump and do half burpees.",
+      "mistake": "Don't land hard; land quietly with your knees slightly bent."
+    },
+    {
+      "id": "inchworm",
+      "name": "Inchworm",
+      "target": "Shoulders, core and hamstring flexibility",
+      "setup": "Stand up, feet hip-width apart.",
+      "steps": [
+        "Bend forward and put your hands on the floor in front of your feet; bend your knees if needed.",
+        "Walk your hands forward into a push-up position.",
+        "Walk your hands back towards your feet and stand up."
+      ],
+      "tip": "It's also a great move for warming up.",
+      "mistake": "Don't let your hips sag in the plank."
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "target": "Front of the thighs, glutes and hamstrings",
+      "setup": "Feet shoulder-width apart, toes turned slightly out.",
+      "steps": [
+        "Push your hips back and lower down; reach your arms forward.",
+        "Stop when your thighs are close to parallel with the floor; chest up.",
+        "Push through your heels to stand up."
+      ],
+      "tip": "Breathe in on the way down and out on the way up.",
+      "mistake": "Don't let your knees cave in or your heels lift off the floor."
+    },
+    {
+      "id": "jump_squat",
+      "name": "Jump Squat",
+      "target": "Legs and glutes (power)",
+      "setup": "Feet shoulder-width apart.",
+      "steps": [
+        "Lower into a squat.",
+        "Jump up explosively, arms up.",
+        "Land softly with your knees slightly bent and go straight into the next squat."
+      ],
+      "tip": "Try to land without noise; the quieter the landing, the more controlled it is.",
+      "mistake": "Don't land with locked knees; if your knee hurts, do a normal squat."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Reverse Lunge",
+      "target": "Front of the thighs and glutes",
+      "setup": "Stand tall, feet hip-width apart.",
+      "steps": [
+        "Take a big step back with one foot and lower by bending both knees.",
+        "Stop when your back knee nears the floor; your front knee is over your ankle.",
+        "Push through your front heel to return to the start; switch legs halfway through."
+      ],
+      "tip": "The reverse lunge is kinder to the knee than the forward lunge.",
+      "mistake": "Don't lean your body forward; stay upright."
+    },
+    {
+      "id": "glute_bridge",
+      "name": "Glute Bridge",
+      "target": "Big glute muscle",
+      "setup": "Lie on your back, knees bent, soles of your feet on the floor hip-width apart. Arms by your sides.",
+      "steps": [
+        "Squeeze your glutes and lift your hips off the floor; form a straight line from your knees to your shoulders.",
+        "Keep your glutes tight at the top.",
+        "Lower slowly."
+      ],
+      "tip": "Press through your heels; you can lift your toes slightly.",
+      "mistake": "Don't overarch your lower back."
+    },
+    {
+      "id": "knee_pushup",
+      "name": "Kneeling Push-Up",
+      "target": "Chest, front shoulders and triceps",
+      "setup": "Hands slightly wider than your shoulders, knees on the floor, feet in the air. Form a straight line from your head to your knees.",
+      "steps": [
+        "Bend your elbows to bring your chest towards the floor.",
+        "Stop when your chest is a fist's height from the floor.",
+        "Push back up to straighten your arms."
+      ],
+      "tip": "Move to the full push-up once you can do 20 clean reps comfortably.",
+      "mistake": "Don't go down by just dipping your head; lower your whole body together."
+    },
+    {
+      "id": "pushup",
+      "name": "Push-Up",
+      "target": "Chest, front shoulders, triceps and core",
+      "setup": "Hands slightly wider than your shoulders, arms straight, on your toes. A straight line from your head to your heels.",
+      "steps": [
+        "Lower your chest to the floor with your elbows at about 45 degrees to your body.",
+        "Stop when your elbows are bent at least 90 degrees.",
+        "Push the floor away to straighten your arms."
+      ],
+      "tip": "Gently squeeze your belly and glutes; keep your body stiff like a plank.",
+      "mistake": "Don't let your hips drop or rise; don't flare your elbows straight out."
+    },
+    {
+      "id": "chair_dips",
+      "name": "Chair Dips",
+      "target": "Triceps and lower chest",
+      "setup": "Stand in front of a sturdy chair placed against a wall. Put your hands behind you on the edge of the chair, knees bent, feet on the floor.",
+      "steps": [
+        "Bend your elbows backwards and lower your hips.",
+        "Stop when your elbows reach 90 degrees.",
+        "Push up with your palms."
+      ],
+      "tip": "The further you extend your legs, the harder the move.",
+      "mistake": "Don't hunch your shoulders towards your ears; if your shoulder hurts, go down less."
+    },
+    {
+      "id": "table_row",
+      "name": "Under-Table Row",
+      "target": "Back width, rear shoulders and biceps",
+      "setup": "Lie on your back under a sturdy table that won't tip over. Hold the edge of the table shoulder-width apart; heels on the floor, body straight.",
+      "steps": [
+        "Pull your chest towards the table; your elbows go back, not out to the sides.",
+        "Squeeze your shoulder blades at the top.",
+        "Lower slowly until your arms are straight."
+      ],
+      "tip": "Bending your knees makes the move easier. Make sure the table is sturdy.",
+      "mistake": "Don't let your hips drop; keep a straight line from heels to shoulders."
+    },
+    {
+      "id": "superman",
+      "name": "Superman",
+      "target": "Lower back, back and glutes",
+      "setup": "Lie face down, arms stretched out in front of your head, legs straight.",
+      "steps": [
+        "Lift your arms, chest and legs slightly off the floor at the same time.",
+        "Hold for a moment at the top.",
+        "Lower slowly to the floor."
+      ],
+      "tip": "Keep your eyes on the floor; don't bend your neck upwards.",
+      "mistake": "Don't force it high; lifting a few centimetres is enough."
+    },
+    {
+      "id": "bird_dog",
+      "name": "Bird-Dog",
+      "target": "Back, glutes and core stability",
+      "setup": "Get on all fours: hands under your shoulders, knees under your hips.",
+      "steps": [
+        "Reach one arm forward and the opposite leg back.",
+        "Pause briefly when your arm and leg are parallel to the floor.",
+        "Bring them back slowly; switch sides halfway through."
+      ],
+      "tip": "Imagine a glass of water on your back; don't spill it.",
+      "mistake": "Don't let your lower back sag or your hips turn to the side."
+    },
+    {
+      "id": "plank",
+      "name": "Plank",
+      "target": "Whole core",
+      "setup": "Lie face down. Put your elbows under your shoulders and lift your body onto your toes.",
+      "steps": [
+        "Form a straight line from your head to your heels.",
+        "Draw your belly in and squeeze your glutes.",
+        "Breathe easily and hold until the time is up."
+      ],
+      "tip": "If your form breaks, put your knees down and carry on.",
+      "mistake": "Don't let your hips drop or rise."
+    },
+    {
+      "id": "mountain_climber",
+      "name": "Mountain Climber",
+      "target": "Abs, hips and conditioning",
+      "setup": "Get into a push-up position: hands under your shoulders, arms straight, body in a straight line.",
+      "steps": [
+        "Pull your right knee towards your chest.",
+        "As you take it back, pull your left knee in.",
+        "Keep going in rhythm with your hips steady."
+      ],
+      "tip": "Get the form right before you speed up; slow is fine.",
+      "mistake": "Don't lift your hips up or let your back sag."
+    },
+    {
+      "id": "dead_bug",
+      "name": "Dead Bug",
+      "target": "Deep abdominal muscles and core stability",
+      "setup": "Lie on your back. Reach your arms to the ceiling and lift your knees into the air, bent at 90 degrees.",
+      "steps": [
+        "Slowly extend your right arm behind your head and your left leg forward.",
+        "Return to the start.",
+        "Do the same with your left arm and right leg."
+      ],
+      "tip": "Breathe out as you extend; keep your lower back touching the floor the whole time.",
+      "mistake": "If your lower back lifts, extend your leg less."
+    }
+  ]
+}

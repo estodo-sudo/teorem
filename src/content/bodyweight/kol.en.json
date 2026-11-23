@@ -1,0 +1,171 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Arms",
+    "intro": "Equipment-free programmes for the back of the upper arm (triceps) and the front (biceps). You work the triceps with push-up and dip variations, and the biceps with your own resistance, a door frame and rows under a table.",
+    "science": [
+      "The diamond push-up is one of the moves that works the triceps most; chair dips are a good start.",
+      "The lowering part, where the muscle resists while lengthening, is the most important part for gains; that's why you lower slowly in the biceps moves.",
+      "Working \"against your own resistance\", using one hand to load the other arm, increased strength and arm size in a small study.",
+      "Evidence for equipment-free biceps training is limited; the programme tries to balance this with holds in a lengthened position and slow lowering."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "arm_circles",
+      "name": "Arm Circles",
+      "target": "Shoulders and arms (warm-up)",
+      "setup": "Stand tall and open your arms out to the sides at shoulder height.",
+      "steps": [
+        "Draw small circles with your arms.",
+        "Slowly make the circles bigger.",
+        "Change direction halfway through."
+      ],
+      "tip": "Keep your shoulders away from your ears.",
+      "mistake": "Don't swing them fast and jerkily."
+    },
+    {
+      "id": "wall_triceps_press",
+      "name": "Wall Triceps Press",
+      "target": "Triceps (easy)",
+      "setup": "Stand a step away from a wall, lean forward and rest your forearms on the wall; hands at eye level.",
+      "steps": [
+        "Push with your palms to straighten your elbows; your elbows come off the wall.",
+        "Pause briefly when your arms are straight.",
+        "Slowly lower your forearms back to the wall."
+      ],
+      "tip": "The further your feet are from the wall, the harder the move.",
+      "mistake": "Don't stick your hips out; keep your body straight."
+    },
+    {
+      "id": "knee_diamond_pushup",
+      "name": "Kneeling Diamond Push-Up",
+      "target": "Triceps and inner chest",
+      "setup": "Knees on the floor. Bring your hands together under your chest; thumbs and index fingers form a diamond.",
+      "steps": [
+        "Keeping your elbows close to your body, lower your chest towards your hands.",
+        "Stop when your chest nears your hands.",
+        "Push back up to straighten your arms."
+      ],
+      "tip": "The easier version of the diamond push-up; lift your knees after 15 clean reps.",
+      "mistake": "Don't flare your elbows out; let them bend backwards."
+    },
+    {
+      "id": "diamond_pushup",
+      "name": "Diamond Push-Up",
+      "target": "Triceps and inner chest",
+      "setup": "Push-up position; bring your hands together under your chest with your fingers forming a diamond.",
+      "steps": [
+        "Keeping your elbows close to your body, lower your chest towards your hands.",
+        "Stop when your chest nears your hands.",
+        "Push back up."
+      ],
+      "tip": "If your wrists strain, spread your hands a little.",
+      "mistake": "Don't let your hips drop."
+    },
+    {
+      "id": "chair_dips",
+      "name": "Chair Dips",
+      "target": "Triceps",
+      "setup": "Stand in front of a sturdy chair placed against a wall. Put your hands behind you on the edge of the chair, knees bent.",
+      "steps": [
+        "Bend your elbows backwards and lower your hips.",
+        "Stop when your elbows reach 90 degrees.",
+        "Push up with your palms."
+      ],
+      "tip": "Keep your hips close to the chair.",
+      "mistake": "Don't hunch your shoulders towards your ears; if your shoulder hurts, go down less."
+    },
+    {
+      "id": "chair_dips_straight",
+      "name": "Straight-Leg Dips",
+      "target": "Triceps (hard)",
+      "setup": "Chair dip position, but with your legs straight and heels on the floor.",
+      "steps": [
+        "Bend your elbows backwards and lower your hips.",
+        "Stop when your elbows reach 90 degrees.",
+        "Push back up."
+      ],
+      "tip": "The further away your legs are, the more of your body your arms carry.",
+      "mistake": "Don't rush the lowering; go down slowly."
+    },
+    {
+      "id": "plank_up_down",
+      "name": "Plank Up-Down",
+      "target": "Triceps, shoulders and core",
+      "setup": "Start in a forearm plank: forearms on the floor, body straight.",
+      "steps": [
+        "Place one hand, then the other, on the floor to straighten your arms; come up into a push-up position.",
+        "Lower one elbow, then the other, back to the forearm plank.",
+        "Switch the leading arm every round."
+      ],
+      "tip": "Spreading your feet a little makes your hips sway less.",
+      "mistake": "Don't sway your hips sideways or lift them up."
+    },
+    {
+      "id": "self_resist_curl",
+      "name": "Self-Resistance Biceps Curl",
+      "target": "Biceps",
+      "setup": "Stand up. Keep the elbow of the working arm close to your waist, palm facing up. Put your other hand on the wrist of the working arm.",
+      "steps": [
+        "Curl the working arm up while pressing down with your other hand.",
+        "Pause briefly at the top.",
+        "Lower slowly over 3 seconds, resisting with your other hand; switch arms halfway through."
+      ],
+      "tip": "Give as much resistance as lets you move slowly but without stopping; the real work is on the way down.",
+      "mistake": "Don't lift your elbow forward; keep it at your waist."
+    },
+    {
+      "id": "door_curl_hold",
+      "name": "Door Frame Biceps Hold",
+      "target": "Biceps",
+      "setup": "Hold the sturdy frame of an open door with both hands at chest height, palms facing up. Bring your feet close to the frame and lean back.",
+      "steps": [
+        "Lean back, keeping your elbows bent at 90 degrees.",
+        "Tense as if pulling yourself towards the frame with your arms.",
+        "Keep breathing and hold."
+      ],
+      "tip": "The closer your feet are to the frame, the harder the move.",
+      "mistake": "Don't do it if the frame isn't sturdy; if your hands slip, let go and stand up."
+    },
+    {
+      "id": "table_row_underhand",
+      "name": "Under-Table Row (Palms Up)",
+      "target": "Biceps and back",
+      "setup": "Lie on your back under a sturdy table. Hold the edge of the table shoulder-width apart with your palms facing you.",
+      "steps": [
+        "Bend your elbows and pull your chest towards the table.",
+        "Pause briefly at the top.",
+        "Lower slowly until your arms are straight."
+      ],
+      "tip": "With palms facing up the biceps work more; bending your knees makes it easier.",
+      "mistake": "Don't let your hips drop; make sure the table won't tip over."
+    },
+    {
+      "id": "pike_pushup",
+      "name": "Pike Push-Up",
+      "target": "Triceps and shoulders",
+      "setup": "From a push-up position, lift your hips up; your body forms an upside-down V.",
+      "steps": [
+        "Bend your elbows to bring your head towards the floor.",
+        "Stop when your head nears the floor.",
+        "Push back up to straighten your arms."
+      ],
+      "tip": "Bending your elbows backwards works the triceps more.",
+      "mistake": "Don't bump your head on the floor; keep the lowering slow."
+    },
+    {
+      "id": "pushup_hold",
+      "name": "Push-Up Hold",
+      "target": "Triceps and chest (endurance)",
+      "setup": "Get into a push-up position and lower halfway; elbows at about 90 degrees.",
+      "steps": [
+        "Stay at this height.",
+        "Body straight, belly tight.",
+        "Keep breathing and hold until the time is up."
+      ],
+      "tip": "If it's too hard, hold with your knees on the floor.",
+      "mistake": "Don't let your hips sag."
+    }
+  ]
+}

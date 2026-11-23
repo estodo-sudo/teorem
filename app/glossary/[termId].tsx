@@ -5,14 +5,16 @@ import { useTranslation } from 'react-i18next';
 import { AppText, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { IconTile } from '@/components/ui';
 import { GLOSSARY } from '@/features/content/data';
+import i18n from '@/i18n';
+import { localeOf } from '@/i18n/languages';
 
-/** How a section is presented, from its title (content is Turkish). */
+/** How a section is presented, from its title (Turkish and English content). */
 type Role = 'info' | 'action' | 'caution' | 'app' | 'source';
-const ACTION = ['Ne işe yarar?', 'Hemen işe yarayan ipucu', 'Ne yapılabilir?'];
-const CAUTION = ['Dikkat', 'Ne zaman önemlidir?', 'Hiç olmuyorsa?', 'Sık yapılan hatalar'];
+const ACTION = ['Ne işe yarar?', 'Hemen işe yarayan ipucu', 'Ne yapılabilir?', 'What does it do?', 'A tip that works straight away', 'What can be done?'];
+const CAUTION = ['Dikkat', 'Ne zaman önemlidir?', 'Hiç olmuyorsa?', 'Sık yapılan hatalar', 'Caution', 'When does it matter?', "What if they don't happen at all?", 'Common mistakes'];
 function roleOf(title: string): Role {
-  if (title === 'Kaynaklar') return 'source';
-  if (title === 'Uygulamada') return 'app';
+  if (title === 'Kaynaklar' || title === 'Sources') return 'source';
+  if (title === 'Uygulamada' || title === 'In the app') return 'app';
   if (ACTION.includes(title)) return 'action';
   if (CAUTION.includes(title)) return 'caution';
   return 'info';
@@ -116,7 +118,7 @@ export default function GlossaryTermScreen() {
           <Icon name="book" size="md" color={t.tone.knowledge.fg} />
           <View style={{ flex: 1, gap: 2 }}>
             <AppText variant="tiny" weight="800" muted>
-              {tr('glossary.sourcesTitle').toLocaleUpperCase('tr-TR')}
+              {tr('glossary.sourcesTitle').toLocaleUpperCase(localeOf(i18n.language))}
             </AppText>
             <AppText variant="tiny" muted style={{ lineHeight: 18 }}>
               {sources.text}
@@ -136,7 +138,7 @@ export default function GlossaryTermScreen() {
           </View>
           <View style={{ flex: 1, gap: 2 }}>
             <AppText variant="tiny" weight="800" color={t.colors.primary}>
-              {tr('glossary.next').toLocaleUpperCase('tr-TR')}
+              {tr('glossary.next').toLocaleUpperCase(localeOf(i18n.language))}
             </AppText>
             <AppText weight="800">{next.title}</AppText>
           </View>

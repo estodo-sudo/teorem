@@ -1,6 +1,7 @@
 /**
- * Monetisation configuration. No prices are hard-coded anywhere: they are
- * always fetched from the store (App Store / Google Play).
+ * Monetisation configuration. Real prices are always fetched from the store
+ * (App Store / Google Play); the only numbers here are PREVIEW_PRICES, which
+ * are for previews without a store and can never be bought.
  *
  * PAYWALL_MODE
  *  - 'hard':     tutorial + first workout free, everything after needs a subscription.
@@ -30,8 +31,8 @@ export type PlanKey = keyof typeof PRODUCT_IDS;
 export const SUBSCRIPTION_SKUS: string[] = [PRODUCT_IDS.weekly, PRODUCT_IDS.monthly, PRODUCT_IDS.yearly];
 export const ONE_TIME_SKUS: string[] = [PRODUCT_IDS.lifetime];
 
-/** Whether the optional lifetime product is offered on the paywall. */
-export const OFFER_LIFETIME = true;
+/** Whether the optional lifetime product is offered on the paywall (off: weekly, monthly, yearly only — 2026-11-22). */
+export const OFFER_LIFETIME = false;
 
 /** Free trial length attached to the yearly plan (configured in the stores). */
 export const YEARLY_TRIAL_DAYS = 7;
@@ -49,3 +50,11 @@ export const ENTITLEMENT_OFFLINE_GRACE_DAYS = 7;
  */
 export const DEV_BYPASS_PAYWALL =
   (typeof __DEV__ !== 'undefined' && __DEV__) || process.env.EXPO_PUBLIC_PREVIEW_UNLOCK === '1';
+
+/**
+ * Trial ("denemelik") prices, user request 2026-11-22. Shown ONLY when the store cannot be reached in
+ * development or test previews (Expo Go, web), so the paywall can be seen; they cannot be bought. Store
+ * builds never show them: real prices are set in App Store Connect / Play Console and read from there.
+ */
+export const PREVIEW_PRICES = { currency: 'TRY', weekly: 79.99, monthly: 199.99, yearly: 899.99 } as const;
+export const SHOW_PREVIEW_PRICES = DEV_BYPASS_PAYWALL;

@@ -3,12 +3,13 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, Screen, useTheme } from '@/components';
+import { SHOW_COMING_SOON } from '@/config/app';
 import { exploreImage } from '@/content/images';
 import type { CampDefinition } from '@/features/camps/core/definition';
 import { CAMPS } from '@/features/camps/registry';
 import { GLOSSARY, STORIES, type GlossaryTerm, type Story } from '@/features/content/data';
 import { featuredStory, orderStories, storyProgress, storyState } from '@/features/content/story/discover';
-import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
+import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, ProgramCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
 import { ALC, useAlcSummary } from '@/features/content/explore/summaries';
 import { openGated, useAccess } from '@/features/purchases/useGate';
@@ -17,6 +18,17 @@ import { useProgressStore } from '@/stores/progressStore';
 
 type CampItem = { kind: 'camp'; def: CampDefinition } | { kind: 'alcohol' };
 const CAMP_ITEMS: CampItem[] = [...CAMPS.map((def) => ({ kind: 'camp' as const, def })), { kind: 'alcohol' }];
+/**
+ * Antrenmanlar strip: id = image id (programs/<id>) and title key (`<id>.title` or `programsSoon.<id>`).
+ * All three are locked with a "Yakında" stamp for now (user request 2026-11-22); Aletsiz Fitness is
+ * built and reachable again by removing its `soon`.
+ */
+const PROGRAMS = [
+  { id: 'bodyweight', titleKey: 'bodyweight.title', icon: 'dumbbell' as const, route: '/bodyweight' as const, soon: true },
+  { id: 'posture', titleKey: 'programsSoon.posture', icon: 'body' as const, route: undefined, soon: true },
+  { id: 'mobility', titleKey: 'programsSoon.mobility', icon: 'feather' as const, route: undefined, soon: true },
+];
+const VISIBLE_PROGRAMS = PROGRAMS.filter((p) => SHOW_COMING_SOON || !p.soon);
 
 /**
  * Keşfet v2 (SPEC_KESFET_V2): the story of the day, then four horizontal strips — Bilgi Hikâyeleri
@@ -94,18 +106,31 @@ export default function Discover() {
         render={(c) => (c.kind === 'camp' ? <CampItemCard def={c.def} /> : <AlcoholCampCard />)}
       />
 
-      {/* Antrenmanlar: the programmes were removed; the strip stays as an empty "coming soon" spot. */}
-      <View style={{ gap: t.space.md }}>
-        <AppText variant="title2" accessibilityRole="header">
-          {tr('courses.title')}
-        </AppText>
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg, borderRadius: t.radius.lg, borderWidth: 1, borderStyle: 'dashed', borderColor: t.tokens.border }}>
-          <Icon name="sparkle" size="sm" color={t.tokens.primary} />
-          <AppText variant="footnote" muted style={{ flex: 1 }}>
-            {tr('discover.programsSoon')}
-          </AppText>
-        </View>
-      </View>
+      {/* Antrenmanlar: the new programmes, one by one (Aletsiz Fitness first, user request 2026-11-22).
+          "Yakında" ones are hidden (SHOW_COMING_SOON); with none left the whole strip is hidden. */}
+      {VISIBLE_PROGRAMS.length > 0 ? (
+        <HorizontalSection<(typeof PROGRAMS)[number]>
+          id="programs"
+          title={tr('courses.title')}
+          items={VISIBLE_PROGRAMS}
+          itemWidth={CARD.program.w}
+          listLabel={a11y(tr('courses.title'), VISIBLE_PROGRAMS.length)}
+          keyOf={(p) => p.id}
+          render={(p) => (
+            <ProgramCard
+              title={tr(p.titleKey)}
+              lengthLabel={tr('bodyweight.chip')}
+              soon={p.soon ? tr('bodyweight.soon') : undefined}
+              progress={0}
+              image={exploreImage('programs', p.id)}
+              icon={p.icon}
+              tone="campus"
+              locked={!access('courses')}
+              onPress={() => p.route && openGated('courses', p.route)}
+            />
+          )}
+        />
+      ) : null}
 
       <HorizontalSection<GlossaryTerm>
         id="glossary"

@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Dialog, Header, RowGroup, Screen, SwitchRow, useTheme } from '@/components';
-import { restoreApp, wipeApp } from '@/features/data/appData';
+import { restoreApp } from '@/features/data/appData';
+import { deleteAllData } from '@/features/data/deleteAll';
 import type { AppSnapshot } from '@/features/data/exportImport';
 import { exportToShareSheet, pickImportFile } from '@/features/data/fileTransfer';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -118,7 +119,7 @@ export default function DataSettings() {
             onPress: () => {
               setDialog(null);
               // The first-run gate in the root layout takes the user back to consent.
-              wipeApp();
+              void deleteAllData();
             },
           },
           { label: tr('common.cancel'), onPress: () => setDialog(null) },

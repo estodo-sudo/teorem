@@ -21,13 +21,13 @@ export const CARD = {
  * Bundled photo with its blurhash placeholder and a 200 ms fade (expo-image), or — when an item has no
  * photo — the tone gradient with a big icon (§5.5). In dark mode a 10 % veil keeps photos from glaring.
  */
-export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl' }: { image?: ExploreImage; icon: IconName; tone: ModuleTone; style?: ViewStyle; iconSize?: 'lg' | 'xl' | number }) {
+export function ExplorePhoto({ image, icon, tone, style, iconSize = 'xl', blur }: { image?: ExploreImage; icon: IconName; tone: ModuleTone; style?: ViewStyle; iconSize?: 'lg' | 'xl' | number; blur?: number }) {
   const t = useTheme();
   const c = t.tone[tone];
   return (
     <View style={[{ overflow: 'hidden', backgroundColor: c.soft }, style]} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
       {image ? (
-        <Image source={image.image} placeholder={{ blurhash: image.blurhash }} contentFit="cover" contentPosition={focusPosition(image)} transition={200} style={StyleSheet.absoluteFill} />
+        <Image source={image.image} placeholder={{ blurhash: image.blurhash }} contentFit="cover" contentPosition={focusPosition(image)} transition={200} blurRadius={blur} style={StyleSheet.absoluteFill} />
       ) : (
         <>
           <Svg width="100%" height="100%" style={StyleSheet.absoluteFill}>
@@ -127,14 +127,14 @@ export function FeaturedStoryCard({ title, kicker, meta, resume, image, icon, to
  * Story poster (SPEC_V4 §B.2): read → a check top right; half read → a thin progress line at the bottom;
  * saved → a small bookmark top left. Unread ones keep the primary ring.
  */
-export function StoryPosterCard({ title, read, progress = 0, saved, image, icon, tone, stateLabel, onPress }: { title: string; read: boolean; progress?: number; saved?: boolean; image?: ExploreImage; icon: IconName; tone: ModuleTone; stateLabel?: string; onPress: () => void }) {
+export function StoryPosterCard({ title, read, progress = 0, saved, image, icon, tone, stateLabel, plain, onPress }: { title: string; read: boolean; progress?: number; saved?: boolean; image?: ExploreImage; icon: IconName; tone: ModuleTone; stateLabel?: string; /** No unread ring or read check (glossary posters on Günüm). */ plain?: boolean; onPress: () => void }) {
   const t = useTheme();
-  const ringed = !read && progress === 0;
+  const ringed = !plain && !read && progress === 0;
   return (
     <Shell onPress={onPress} label={stateLabel ? `${title}, ${stateLabel}` : title} style={{ width: CARD.poster.w, minHeight: CARD.poster.h, flex: 1, borderWidth: ringed ? t.border.thick : t.border.thin, borderColor: ringed ? t.tokens.primary : t.tokens.border }}>
       <ExplorePhoto image={image} icon={icon} tone={tone} style={StyleSheet.absoluteFill} />
       <Scrim />
-      {read && progress === 0 ? (
+      {!plain && read && progress === 0 ? (
         <View style={{ position: 'absolute', top: t.space.sm, right: t.space.sm, width: 24, height: 24, borderRadius: 12, backgroundColor: t.focus.text, alignItems: 'center', justifyContent: 'center' }}>
           <Icon name="check" size="sm" color={t.tokens.primary} />
         </View>
@@ -220,22 +220,45 @@ function Pill({ label, filled, icon }: { label: string; filled?: boolean; icon?:
 
 // ---------------------------------------------------------------- 4.4 programme
 
-export function ProgramCard({ title, lengthLabel, progressLabel, progress, image, icon, tone, locked, onPress }: { title: string; lengthLabel: string; progressLabel?: string; progress: number; image?: ExploreImage; icon: IconName; tone: ModuleTone; locked: boolean; onPress: () => void }) {
+/** Blur of a "Yakında" card's photo: medium-light, the scene still reads. */
+const SOON_BLUR = 3;
+
+/**
+ * A training programme card. With `soon` (user request 2026-11-22) the card is locked: the photo is
+ * softly blurred, a "Yakında" tag sits on its corner and tapping does nothing.
+ */
+export function ProgramCard({ title, lengthLabel, progressLabel, progress, image, icon, tone, locked, soon, onPress }: { title: string; lengthLabel: string; progressLabel?: string; progress: number; image?: ExploreImage; icon: IconName; tone: ModuleTone; locked: boolean; soon?: string; onPress: () => void }) {
   const t = useTheme();
   return (
-    <Shell onPress={onPress} label={`${title}. ${lengthLabel}${progressLabel ? `. ${progressLabel}` : ''}`} style={{ width: CARD.program.w, minHeight: CARD.program.h, flex: 1 }}>
-      <ExplorePhoto image={image} icon={icon} tone={tone} style={{ height: CARD.program.image }} />
+    <Shell onPress={soon ? () => undefined : onPress} label={`${title}. ${soon ?? lengthLabel}${progressLabel ? `. ${progressLabel}` : ''}`} style={{ width: CARD.program.w, minHeight: CARD.program.h, flex: 1 }}>
+      <View style={{ height: CARD.program.image }}>
+        <ExplorePhoto image={image} icon={icon} tone={tone} blur={soon ? SOON_BLUR : undefined} style={{ height: CARD.program.image }} />
+        {soon ? (
+          <View
+            style={{ position: 'absolute', top: t.space.sm, left: t.space.sm, flexDirection: 'row', alignItems: 'center', gap: 4, paddingHorizontal: t.space.sm, paddingVertical: 3, borderRadius: t.radius.pill, backgroundColor: t.tokens.card }}
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+          >
+            <Icon name="clock" size={12} color={t.tokens.primary} />
+            <AppText variant="caption" weight="700" color={t.tokens.primary}>
+              {soon}
+            </AppText>
+          </View>
+        ) : null}
+      </View>
       <View style={{ flex: 1, padding: t.space.lg, gap: t.space.sm }}>
         <AppText variant="title3" numberOfLines={3}>
           {title}
         </AppText>
         <View style={{ flex: 1 }} />
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
-          <View style={{ minHeight: 28, flexDirection: 'row', alignItems: 'center', gap: t.space.xs, paddingHorizontal: t.space.sm, borderRadius: t.radius.pill, backgroundColor: t.tokens.muted }}>
-            <Icon name={locked ? 'lock' : 'calendar'} size="sm" color={t.tokens.mutedForeground} />
-            <AppText variant="caption">{lengthLabel}</AppText>
+        {soon ? null : (
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
+            <View style={{ minHeight: 28, flexDirection: 'row', alignItems: 'center', gap: t.space.xs, paddingHorizontal: t.space.sm, borderRadius: t.radius.pill, backgroundColor: t.tokens.muted }}>
+              <Icon name={locked ? 'lock' : 'calendar'} size="sm" color={t.tokens.mutedForeground} />
+              <AppText variant="caption">{lengthLabel}</AppText>
+            </View>
           </View>
-        </View>
+        )}
         {progressLabel ? (
           <View style={{ gap: t.space.xs }}>
             <View style={{ height: 4, borderRadius: 2, backgroundColor: t.tokens.muted, overflow: 'hidden' }}>

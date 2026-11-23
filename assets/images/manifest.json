@@ -3340,6 +3340,69 @@
       },
       "alt": "Masada ekranı aşağı bakan bir telefon",
       "status": "accepted"
+    },
+    {
+      "id": "program/bodyweight",
+      "source": {
+        "site": "pexels",
+        "photoId": 3775164,
+        "page": "https://www.pexels.com/photo/man-in-gray-jacket-doing-push-ups-during-sunrise-3775164/",
+        "photographer": "Andrea Piacquadio",
+        "photographerUrl": "https://www.pexels.com/@olly",
+        "license": "Pexels License",
+        "width": 5760,
+        "height": 3840
+      },
+      "download": "https://images.pexels.com/photos/3775164/pexels-photo-3775164.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-22",
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "alt": "Gün doğumunda parkta şınav çeken, eşofmanlı bir adam",
+      "status": "accepted"
+    },
+    {
+      "id": "program/posture",
+      "source": {
+        "site": "pexels",
+        "photoId": 8846485,
+        "page": "https://www.pexels.com/photo/a-man-in-black-shirt-stretching-his-arms-8846485/",
+        "photographer": "MART PRODUCTION",
+        "photographerUrl": "https://www.pexels.com/@mart-production",
+        "license": "Pexels License",
+        "width": 3693,
+        "height": 5539
+      },
+      "download": "https://images.pexels.com/photos/8846485/pexels-photo-8846485.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-22",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "alt": "Aydınlık bir odada dik durup kollarını iki yana açan, siyah tişörtlü bir adam",
+      "status": "accepted"
+    },
+    {
+      "id": "program/mobility",
+      "source": {
+        "site": "pexels",
+        "photoId": 6932262,
+        "page": "https://www.pexels.com/photo/a-man-stretching-on-a-yoga-mat-6932262/",
+        "photographer": "Mikhail Nilov",
+        "photographerUrl": "https://www.pexels.com/@mikhail-nilov",
+        "license": "Pexels License",
+        "width": 7354,
+        "height": 4905
+      },
+      "download": "https://images.pexels.com/photos/6932262/pexels-photo-6932262.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-22",
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "alt": "Matın üstünde oturup lastik bantla ayaklarına uzanarak esneyen bir adam",
+      "status": "accepted"
     }
   ]
 }

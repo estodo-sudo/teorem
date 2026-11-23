@@ -1,11 +1,15 @@
 import type { IconName } from '@/components/Icon';
-import positionsJson from '@/content/kegel/positions.tr.json';
+import { pick } from '@/i18n/content';
+import positionsJsonTr from '@/content/kegel/positions.tr.json';
+import positionsJsonEn from '@/content/kegel/positions.en.json';
 import type { Position } from '@/types';
 
 import { KEGEL_CUES } from '../tracks';
 import type { TFunction } from 'i18next';
 
 import type { GeneratedSession, Phase, SessionBlock } from '../types';
+
+const positionsJson = pick({ tr: positionsJsonTr, en: positionsJsonEn });
 
 /** Pure helpers for the Kegel player screen v2 (SPEC_KEGEL_V2 §7.1, §7.3). */
 

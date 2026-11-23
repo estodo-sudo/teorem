@@ -38,6 +38,8 @@ import { ExpertCard, PillGroup, ScaleRow } from '@/features/camps/odak/ui';
 import { CommitmentView, useCommitGate } from '@/features/campus/shared/commit';
 import { goBack } from '@/lib/nav';
 import { IconTile } from '@/components/ui';
+import i18n from '@/i18n';
+import { localeOf } from '@/i18n/languages';
 
 const toggle = <T,>(arr: T[], v: T) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
 const setAt = <T,>(arr: T[], i: number, v: T) => arr.map((x, j) => (j === i ? v : x));
@@ -185,7 +187,7 @@ export default function OdakOnboarding() {
     </View>
   );
   const input = (value: string, onChange: (v: string) => void, placeholder: string, maxLength: number) => (
-    <TextInput
+    <TextInput maxFontSizeMultiplier={1.3}
       value={value}
       onChangeText={onChange}
       accessibilityLabel={placeholder}
@@ -495,7 +497,7 @@ export default function OdakOnboarding() {
             {drafts.length ? (
               drafts.map((d) => (
                 <AppText key={d.trigger} variant="small">
-                  • {ONB.plans.if} {d.ifText}, {d.thenText.charAt(0).toLocaleLowerCase('tr') + d.thenText.slice(1)}
+                  • {ONB.plans.if} {d.ifText}, {d.thenText.charAt(0).toLocaleLowerCase(localeOf(i18n.language)) + d.thenText.slice(1)}
                 </AppText>
               ))
             ) : (

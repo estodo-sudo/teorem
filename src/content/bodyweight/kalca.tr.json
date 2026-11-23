@@ -1,0 +1,132 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Kalça",
+    "intro": "Büyük kalça kasını ve kalçanın yan kaslarını güçlendiren programlar. Köprüden başlar, tek bacak köprü ve hip thrust'a, oradan tek bacak hareketlerine ilerlersin.",
+    "science": [
+      "Kalçanın yan kası en çok yan yatarak bacak kaldırmada, büyük kalça kası en çok tek bacak squat ve tek bacak öne eğilmede çalışır (EMG çalışması).",
+      "Hip thrust ve squat, 9 haftalık bir çalışmada kalçayı benzer oranda büyüttü; squat uyluğu daha çok büyüttü.",
+      "Bir hareketin kası anlık olarak daha çok çalıştırması, o kası daha çok büyüteceği anlamına gelmez; program bu yüzden farklı hareketleri birlikte kullanır.",
+      "Güçlü kalça kasları dizin içe kaymasını önlemeye ve beli desteklemeye yardımcı olur."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "glute_bridge",
+      "name": "Köprü",
+      "target": "Büyük kalça kası",
+      "setup": "Sırtüstü uzan, dizlerini bük, ayak tabanların yerde ve kalça genişliğinde. Kolların yanında.",
+      "steps": ["Kalçanı sıkarak yerden kaldır; dizlerinden omuzlarına düz bir çizgi oluşsun.", "Tepede kalçanı sıkı tut.", "Yavaşça indir."],
+      "tip": "Topuklarına bas; parmak uçlarını hafifçe kaldırabilirsin.",
+      "mistake": "Beli fazla kaldırıp kamburlaştırma."
+    },
+    {
+      "id": "glute_bridge_hold",
+      "name": "Köprüde Tutuş",
+      "target": "Büyük kalça kası (dayanıklılık)",
+      "setup": "Köprü pozisyonuna çık: kalçan yukarıda, dizlerinden omuzlarına düz bir çizgi.",
+      "steps": ["Kalçanı sıkı tut.", "Kalçanın düşmesine izin verme.", "Nefes alarak bekle."],
+      "tip": "Arka bacağında kramp hissedersen ayaklarını kalçana yaklaştır.",
+      "mistake": "Nefesini tutma."
+    },
+    {
+      "id": "glute_bridge_march",
+      "name": "Köprüde Yürüyüş",
+      "target": "Kalça ve gövde dengesi",
+      "setup": "Köprü pozisyonuna çık ve kalçanı yukarıda tut.",
+      "steps": ["Kalçan düşmeden bir dizini göğsüne doğru kaldır.", "Ayağını yere koy, öbür dizini kaldır.", "Sırayla yürür gibi devam et."],
+      "tip": "Kalçan iki yana sallanmasın; aynı yükseklikte kalsın.",
+      "mistake": "Dizini kaldırırken kalçayı düşürme."
+    },
+    {
+      "id": "single_leg_bridge",
+      "name": "Tek Bacak Köprü",
+      "target": "Büyük kalça kası (zor)",
+      "setup": "Sırtüstü uzan, bir dizini bük, ayağın yerde. Öbür bacağını düz uzat.",
+      "steps": ["Yerdeki topuğa basarak kalçanı kaldır; uzattığın bacak gövdenle bir çizgide olsun.", "Tepede kısa dur.", "Yavaşça indir; süre yarısında bacak değiştir."],
+      "tip": "Normal köprüyü 20 kez rahat yapınca dene.",
+      "mistake": "Kalçanın yana düşmesine izin verme."
+    },
+    {
+      "id": "hip_thrust",
+      "name": "Hip Thrust",
+      "target": "Büyük kalça kası",
+      "setup": "Sırtının üst kısmını, duvara dayalı sağlam bir koltuğun ya da sandalyenin kenarına yasla. Dizlerin bükülü, ayakların yerde.",
+      "steps": ["Kalçanı sıkarak yukarı it; gövden ve uyluğun masa gibi düz olsun.", "Tepede kalçanı sık ve kısa dur.", "Kalçanı yavaşça indir."],
+      "tip": "Çeneni hafifçe göğsüne yaklaştır; bakışın dizlerine doğru olsun.",
+      "mistake": "Kalçayı sıkmak yerine belini bükerek kalkma."
+    },
+    {
+      "id": "single_leg_hip_thrust",
+      "name": "Tek Bacak Hip Thrust",
+      "target": "Büyük kalça kası (ileri)",
+      "setup": "Hip thrust pozisyonu; bir bacağını havaya kaldır.",
+      "steps": ["Yerdeki topuğa basarak kalçanı yukarı it.", "Tepede kalçanı sık.", "Yavaşça indir; süre yarısında bacak değiştir."],
+      "tip": "Kalçan iki yanda aynı yükseklikte kalsın.",
+      "mistake": "Havadaki bacakla sallanarak kalkma."
+    },
+    {
+      "id": "donkey_kick",
+      "name": "Eşek Tekmesi",
+      "target": "Büyük kalça kası",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
+      "steps": ["Bir dizin 90 derece bükülü kalarak topuğunu tavana doğru it.", "Uyluğun yere paralel olunca kalçanı sık.", "Yavaşça indir; süre yarısında bacak değiştir."],
+      "tip": "Ayak tabanının tavana bastığını hayal et.",
+      "mistake": "Belini çukurlaştırma; hareket kalçadan gelsin."
+    },
+    {
+      "id": "clamshell",
+      "name": "İstiridye",
+      "target": "Kalçanın yan kasları",
+      "setup": "Yan yat, başını alttaki koluna koy. Dizlerini öne bük, ayakların ve dizlerin üst üste.",
+      "steps": ["Ayaklarını birleşik tutarak üstteki dizini aç.", "Kalçanı geriye devirmeden en üstte kısa dur.", "Yavaşça kapat; süre yarısında öbür yanına dön."],
+      "tip": "Hareket küçük olsun; kalçanın yanında yanma hissetmelisin.",
+      "mistake": "Kalçanı arkaya yatırma."
+    },
+    {
+      "id": "side_lying_leg_raise",
+      "name": "Yan Yatarak Bacak Kaldırma",
+      "target": "Kalçanın yan kası",
+      "setup": "Yan yat, bacakların düz ve üst üste. Başını alttaki koluna koy, üstteki elin önde yerde.",
+      "steps": ["Üstteki bacağını düz tutarak yukarı kaldır; ayak ucun öne baksın.", "Yukarıda kısa dur.", "Yavaşça indir; süre yarısında öbür yanına dön."],
+      "tip": "Bacağı biraz geriye doğru kaldırırsan kalçanın yan kası daha çok çalışır.",
+      "mistake": "Ayak ucunu tavana çevirme; kalçanı geriye devirme."
+    },
+    {
+      "id": "standing_kickback",
+      "name": "Ayakta Geri Tekme",
+      "target": "Büyük kalça kası",
+      "setup": "Duvara dönük dur, ellerini duvara koy. Hafifçe öne eğil.",
+      "steps": ["Bir bacağını düz tutarak geriye uzat.", "Kalçanı sıkarak kısa dur.", "Yavaşça geri getir; süre yarısında bacak değiştir."],
+      "tip": "Bacağı yüksek kaldırmak gerekmez; kalçanın sıkıştığını hisset.",
+      "mistake": "Belini çukurlaştırarak bacağı yukarı savurma."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Geri Hamle",
+      "target": "Kalça ve ön bacak",
+      "setup": "Ayakta dik dur, ayakların kalça genişliğinde.",
+      "steps": ["Bir ayağınla geriye büyük bir adım at ve iki dizini de bükerek in.", "Arkadaki dizin yere yaklaşınca dur.", "Öndeki topuğa basarak başlangıca dön; süre yarısında bacak değiştir."],
+      "tip": "Gövdeni hafifçe öne eğersen kalça daha çok çalışır.",
+      "mistake": "Öndeki dizin içe kaymasın."
+    },
+    {
+      "id": "single_leg_rdl",
+      "name": "Tek Bacak Öne Eğilme",
+      "target": "Büyük kalça kası, arka bacak ve denge",
+      "setup": "Tek bacağının üstünde dur, dizin hafif bükülü.",
+      "steps": ["Gövdeni öne eğerken öbür bacağını geriye uzat; gövde ve bacak bir çizgi olsun.", "Arka bacağında gerilme hissedince dur.", "Kalçanı sıkarak dik pozisyona dön; süre yarısında bacak değiştir."],
+      "tip": "Dengen zayıfsa bir eline duvardan destek al.",
+      "mistake": "Sırtını kamburlaştırma; kalçanı yana açma."
+    },
+    {
+      "id": "sumo_squat",
+      "name": "Sumo Squat",
+      "target": "Kalça ve iç bacak",
+      "setup": "Ayaklarını geniş aç, parmak uçların dışa baksın. Ellerini göğsünde birleştir.",
+      "steps": ["Gövden dik kalarak dizlerini yanlara açıp aşağı in.", "Dizlerin ayak uçlarının üstünde kalsın.", "Kalkarken kalçanı sık."],
+      "tip": "Tepede kalçanı ekstra sıkmak hareketi kalçaya yönlendirir.",
+      "mistake": "Dizlerini içe kapatma."
+    }
+  ]
+}

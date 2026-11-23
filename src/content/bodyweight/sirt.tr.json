@@ -1,0 +1,150 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Sırt",
+    "intro": "Sırtı, kürek kemiklerini ve beli güçlendiren, duruşu destekleyen programlar. Yüzüstü kaldırmalar ve masa altında ters kürekle aletsiz çalışırsın.",
+    "science": [
+      "Aletsiz sırt antrenmanındaki en güçlü çekme hareketi masa altında ters kürektir; kasları güç kazandıracak düzeyde çalıştırdığı gösterilmiş.",
+      "Yüzüstü Y ve T kaldırmaları, kürek kemiklerini tutan alt trapez kasını en iyi çalıştıran hareketler arasındadır.",
+      "Sırt kaslarının dayanıklılığı bel sağlığıyla ilişkili bulunmuştur; belin doğal duruşunu koruyan hareketler daha güvenli kabul edilir.",
+      "Aletsiz çekme hareketlerinin kas büyütmesine dair kanıt, ağırlıklı çalışmaya göre sınırlıdır; program bu yüzden süre ve zorluk artırarak ilerler."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "scapular_squeeze",
+      "name": "Kürek Sıkıştırma",
+      "target": "Kürek kemikleri arası (orta sırt)",
+      "setup": "Ayakta dik dur. Dirseklerini 90 derece bük, kolların önde.",
+      "steps": ["Dirseklerini geriye çekerek kürek kemiklerini birbirine yaklaştır.", "Arkada kısa bir an sık.", "Yavaşça bırak."],
+      "tip": "Kürek kemiklerinin arasında bir kalem sıkıştırıyormuş gibi düşün.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma."
+    },
+    {
+      "id": "superman",
+      "name": "Süpermen",
+      "target": "Bel, sırt ve kalça",
+      "setup": "Yüzüstü uzan, kollarını başının önüne uzat, bacakların düz.",
+      "steps": ["Kollarını, göğsünü ve bacaklarını aynı anda yerden hafifçe kaldır.", "Yukarıda kısa bir an bekle.", "Yavaşça yere indir."],
+      "tip": "Başın yere baksın; boynunu yukarı bükme.",
+      "mistake": "Yükseğe zorlama; birkaç santim kalkmak yeterli."
+    },
+    {
+      "id": "superman_hold",
+      "name": "Süpermen Tutuş",
+      "target": "Bel ve sırt (dayanıklılık)",
+      "setup": "Yüzüstü uzan, kollarını önde uzat.",
+      "steps": ["Kollarını, göğsünü ve bacaklarını yerden hafifçe kaldır.", "Bu pozisyonda kal.", "Nefes alarak süre bitene kadar bekle."],
+      "tip": "Zor gelirse sadece kolları ya da sadece bacakları kaldır.",
+      "mistake": "Nefesini tutma; belinde ağrı olursa yüksekliği azalt."
+    },
+    {
+      "id": "prone_y_raise",
+      "name": "Yüzüstü Y Kaldırma",
+      "target": "Alt trapez ve omuz arkası",
+      "setup": "Yüzüstü uzan. Kollarını başının üstünde Y harfi gibi uzat, baş parmaklar yukarı baksın.",
+      "steps": ["Kollarını yerden kaldır; kürek kemiklerini geriye ve aşağı çek.", "Yukarıda kısa bir an bekle.", "Yavaşça indir."],
+      "tip": "Göğsün hafifçe kalkabilir; asıl hareket kollardan.",
+      "mistake": "Omuzları kulaklara doğru sıkıştırma."
+    },
+    {
+      "id": "prone_t_raise",
+      "name": "Yüzüstü T Kaldırma",
+      "target": "Orta trapez ve omuz arkası",
+      "setup": "Yüzüstü uzan, kollarını yanlara T harfi gibi aç, avuçlar yere baksın.",
+      "steps": ["Kollarını düz tutarak yanlardan yukarı kaldır.", "Kürek kemiklerini birbirine yaklaştır ve kısa bekle.", "Yavaşça indir."],
+      "tip": "Başparmakları yukarı çevirirsen omuz daha rahat eder.",
+      "mistake": "Kolları sallayarak kaldırma; hareket yavaş olsun."
+    },
+    {
+      "id": "prone_w_raise",
+      "name": "Yüzüstü W Kaldırma",
+      "target": "Kürek kemikleri ve omuz arkası",
+      "setup": "Yüzüstü uzan, dirseklerini bük ve ellerini omuz hizasında yere koy; kolların W harfi gibi dursun.",
+      "steps": ["Dirseklerini ve ellerini yerden kaldır.", "Dirseklerini kalçana doğru çekerek kürek kemiklerini sık.", "Yavaşça indir."],
+      "tip": "Y ve T'den daha kolaydır; başlangıç için iyi bir harekettir.",
+      "mistake": "Belinden kalkma; hareket kürek kemiklerinden gelsin."
+    },
+    {
+      "id": "reverse_snow_angel",
+      "name": "Ters Kar Meleği",
+      "target": "Üst sırt ve omuzlar",
+      "setup": "Yüzüstü uzan, göğsünü ve kollarını yerden hafifçe kaldır; ellerin kalçanın yanında.",
+      "steps": ["Kollarını yerden kalkık tutarak yanlardan başının önüne doğru süpür.", "Önde birleşince kısa dur.", "Aynı yoldan kalçana geri getir."],
+      "tip": "Kar meleği yapar gibi geniş bir yay çiz.",
+      "mistake": "Kolları yere bırakma; hareket boyunca havada kalsın."
+    },
+    {
+      "id": "swimmers",
+      "name": "Yüzücü",
+      "target": "Bel, sırt ve kalça",
+      "setup": "Yüzüstü uzan, kolların önde. Göğsünü ve bacaklarını yerden hafifçe kaldır.",
+      "steps": ["Sağ kolunu ve sol bacağını biraz daha kaldır.", "Taraf değiştir: sol kol ve sağ bacak.", "Yüzer gibi sırayla devam et."],
+      "tip": "Hareket küçük ve ritmik olsun.",
+      "mistake": "Boynunu yukarı bükme; bakışın yerde kalsın."
+    },
+    {
+      "id": "bird_dog",
+      "name": "Kuş-Köpek",
+      "target": "Sırt, kalça ve gövde dengesi",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
+      "steps": ["Bir kolunu öne, karşı bacağını geriye uzat.", "Kol ve bacak yere paralel olunca kısa dur.", "Yavaşça geri getir; süre yarısında taraf değiştir."],
+      "tip": "Sırtına bir bardak su konmuş gibi düşün; dökülmesin.",
+      "mistake": "Belini çökertme ya da kalçanı yana döndürme."
+    },
+    {
+      "id": "table_row",
+      "name": "Masa Altında Ters Kürek",
+      "target": "Sırtın genişliği, arka omuz ve ön kol",
+      "setup": "Sağlam, devrilmeyecek bir masanın altına sırtüstü gir. Masanın kenarını omuz genişliğinde tut; topukların yerde, vücudun düz.",
+      "steps": ["Göğsünü masaya doğru çek; dirseklerin yanlara değil, geriye gitsin.", "Yukarıda kürek kemiklerini sık.", "Kolların düzelene kadar yavaşça in."],
+      "tip": "Dizlerini bükersen hareket kolaylaşır. Masanın sağlam olduğundan emin ol.",
+      "mistake": "Kalçayı düşürme; topuktan omuza düz bir çizgi kalsın."
+    },
+    {
+      "id": "good_morning",
+      "name": "Gövde Öne Eğilme",
+      "target": "Bel, arka bacak ve kalça",
+      "setup": "Ayakta, ayaklar kalça genişliğinde, ellerin başının arkasında, dizlerin hafif bükülü.",
+      "steps": ["Kalçanı geriye iterek gövdeni öne eğ; sırtın düz kalsın.", "Arka bacağında gerilme hissedince dur.", "Kalçanı öne iterek dik pozisyona dön."],
+      "tip": "Hareket belden değil kalçadan gelsin.",
+      "mistake": "Sırtını kamburlaştırma."
+    },
+    {
+      "id": "wall_angel",
+      "name": "Duvar Meleği",
+      "target": "Üst sırt ve omuz hareketliliği",
+      "setup": "Sırtını, başını ve kalçanı duvara daya. Kollarını kale direği gibi aç; dirsekler ve el sırtları duvarda.",
+      "steps": ["Kollarını duvara değdirmeye çalışarak yukarı kaydır.", "Rahat olduğun yere kadar uzan.", "Yavaşça başlangıca indir."],
+      "tip": "Belin duvardan kopuyorsa kollarını daha az kaldır.",
+      "mistake": "Dirsekleri ya da elleri duvardan ayırıp hareketi kolaylaştırma."
+    },
+    {
+      "id": "cobra",
+      "name": "Kobra Esneme",
+      "target": "Bel ve karın (esneme)",
+      "setup": "Yüzüstü uzan, ellerini omuzlarının altına koy.",
+      "steps": ["Nefes alırken kollarınla iterek göğsünü kaldır; kalçan yerde kalsın.", "Rahat olduğun yükseklikte kısa bekle.", "Nefes verirken yavaşça in."],
+      "tip": "Dirsekleri hafif bükülü bırakabilirsin.",
+      "mistake": "Belinde sıkışma hissedersen daha az kalk."
+    },
+    {
+      "id": "cat_cow",
+      "name": "Kedi-Deve",
+      "target": "Omurga hareketliliği",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
+      "steps": ["Nefes alırken karnını yere bırak, göğsünü ve başını kaldır.", "Nefes verirken sırtını tavana doğru yuvarla, çeneni göğsüne yaklaştır.", "Yavaşça ikisi arasında git gel."],
+      "tip": "Isınma ve soğuma için idealdir.",
+      "mistake": "Hızlı yapma; her nefese bir hareket."
+    },
+    {
+      "id": "child_pose",
+      "name": "Çocuk Pozu",
+      "target": "Bel ve sırt (gevşeme)",
+      "setup": "Diz çök, kalçanı topuklarına oturt.",
+      "steps": ["Gövdeni öne doğru uzat, alnını yere yaklaştır.", "Kollarını önde yere uzat.", "Derin nefes al; her nefes verişte biraz daha gevşe."],
+      "tip": "Antrenmanın sonunda sırtı gevşetir.",
+      "mistake": "Dizlerinde ağrı varsa altına bir havlu koy."
+    }
+  ]
+}

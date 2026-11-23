@@ -1,7 +1,8 @@
-import { DarkTheme, DefaultTheme, router, Stack, ThemeProvider, useSegments, type ErrorBoundaryProps } from 'expo-router';
+import { DarkTheme, DefaultTheme, router, Stack, ThemeProvider, usePathname, useSegments, type ErrorBoundaryProps } from 'expo-router';
+import * as ScreenOrientation from 'expo-screen-orientation';
 import { StatusBar } from 'expo-status-bar';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -9,6 +10,8 @@ import { useTheme } from '@/components';
 import { AppEffects } from '@/features/app/AppEffects';
 import { ErrorScreen } from '@/features/app/ErrorScreen';
 import { isAllowedDuringFirstRun, requiredFirstRunRoute } from '@/features/app/gate';
+import { premiumRuleFor, needsRouteCheck } from '@/features/purchases/routeGate';
+import { canAccess } from '@/features/purchases/useGate';
 import { setLanguage } from '@/i18n';
 import '@/features/camps/odak/boundaries/reminderTask';
 import { useCampEventsStore } from '@/stores/campStore';
@@ -27,6 +30,10 @@ export default function RootLayout() {
     return true;
   });
   useEffect(() => setLanguage(language), [language]);
+  // Portrait only, also in Expo Go where app config orientation is not applied (user request 2026-11-22).
+  useEffect(() => {
+    if (Platform.OS !== 'web') ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP).catch(() => undefined);
+  }, []);
 
   // First-run gate: consent → onboarding → tutorial. Any other route (including
   // deep links and notification taps) is redirected until setup is complete.
@@ -38,6 +45,21 @@ export default function RootLayout() {
   useEffect(() => {
     if (gate && blocked) router.replace(gate);
   }, [gate, blocked]);
+
+  // Paywall for direct links (pelvikapp://…, notification taps): entering a premium area is checked
+  // here too, not only by the buttons (security review 2026-11-23). Runs on route changes only.
+  const pathname = usePathname();
+  const lastTop = useRef<string | undefined>(undefined);
+  useEffect(() => {
+    const top = segments[0];
+    const from = lastTop.current;
+    lastTop.current = top;
+    if (gate !== null || !needsRouteCheck(from, top)) return;
+    const rule = premiumRuleFor(segments);
+    if (rule === 'soon') router.replace('/');
+    else if (rule && !canAccess(rule)) router.replace({ pathname: '/paywall', params: { source: rule } });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only a navigation should trigger the check
+  }, [pathname]);
 
   // Inter ships inside the app bundle (assets), nothing is fetched from the network.
   const [fontsReady, fontError] = useFonts({ Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold });

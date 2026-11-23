@@ -1,0 +1,171 @@
+{
+  "reviewed": false,
+  "category": {
+    "title": "Isınma",
+    "intro": "Her antrenmandan önce yapabileceğin 10 dakikalık hareketli ısınma. Önce nabzını yükseltirsin, sonra eklemlerini açarsın, en sonda kaslarını hafif hareketlerle hazırlarsın.",
+    "science": [
+      "Antrenmandan önce hareketli (dinamik) ısınma, uzun süre sabit beklenen esnemeye göre daha çok tercih edilir; uzun sabit esneme güç ve sıçramayı kısa süreliğine biraz düşürebilir.",
+      "Yalnızca hareketli esnemenin performansa etkisi küçüktür; ısınmanın asıl faydası vücut ısısını ve nabzı yükseltmesidir.",
+      "Sakatlıkları azalttığı gösterilen ısınmalar (ör. FIFA 11+) birkaç parçalıdır: nabız yükseltme, eklem açma ve hafif güç hareketleri. Bu ısınma da bu sırayı izler.",
+      "Esnemenin tek başına sakatlığı önlediğine dair kanıt zayıftır; ısınma, antrenmanın yerini tutmaz ama ona hazırlar."
+    ]
+  },
+  "exercises": [
+    {
+      "id": "march_in_place",
+      "name": "Yerinde Yürüyüş",
+      "target": "Kondisyon (düşük darbe)",
+      "setup": "Ayakta dik dur.",
+      "steps": [
+        "Bir dizini kalça hizasına doğru kaldır, karşı kolunu öne salla.",
+        "Ayağını indir, öbür dizini kaldır.",
+        "Tempolu ve dik yürümeye devam et."
+      ],
+      "tip": "Kolları aktif sallamak nabzı daha çok yükseltir.",
+      "mistake": "Öne eğilme; gövden dik kalsın."
+    },
+    {
+      "id": "arm_circles",
+      "name": "Kol Çevirme",
+      "target": "Omuz ve kollar (ısınma)",
+      "setup": "Ayakta dik dur, kollarını yanlara omuz hizasında aç.",
+      "steps": [
+        "Kollarınla küçük daireler çiz.",
+        "Daireleri yavaşça büyüt.",
+        "Süre yarısında çevirme yönünü değiştir."
+      ],
+      "tip": "Omuzlarını kulaklarından uzak tut.",
+      "mistake": "Hızlı ve sarsarak çevirme."
+    },
+    {
+      "id": "step_jack",
+      "name": "Adımlı Jumping Jack",
+      "target": "Kondisyon (düşük darbe)",
+      "setup": "Ayakta dur, ayakların bitişik, kolların yanında.",
+      "steps": [
+        "Bir ayağınla yana adım atarken kollarını başının üstüne kaldır.",
+        "Başlangıca dön.",
+        "Öbür tarafa adım atarak tekrarla."
+      ],
+      "tip": "Zıplamadan jumping jack; dizlere ve komşulara dost.",
+      "mistake": "Omuzlarını kulaklarına doğru kaldırma."
+    },
+    {
+      "id": "torso_twist",
+      "name": "Gövde Döndürme",
+      "target": "Bel ve gövde (hareketlilik)",
+      "setup": "Ayakların omuz genişliğinden biraz açık dur. Dirseklerini bük, ellerini göğüs hizasında tut.",
+      "steps": [
+        "Kalçan önde kalarak gövdeni ve kollarını sağa çevir.",
+        "Ortadan geçip sola çevir.",
+        "Akıcı bir ritimle iki yana devam et; dönüşü her seferinde biraz büyüt."
+      ],
+      "tip": "Arkadaki ayağının topuğunu hafifçe döndürmek dizini rahatlatır.",
+      "mistake": "Hızla savrulma; kontrollü dön."
+    },
+    {
+      "id": "leg_swings",
+      "name": "Bacak Sallama",
+      "target": "Kalça ve arka bacak (hareketlilik)",
+      "setup": "Dik dur; dengen için bir eline duvardan ya da sandalyeden destek al.",
+      "steps": [
+        "Dış bacağını düz ve rahat şekilde öne salla.",
+        "Geri sal ve arkaya salla.",
+        "Sarkaç gibi devam et, her salınımı biraz büyüt; süre yarısında bacak değiştir."
+      ],
+      "tip": "Gövden dik kalsın, hareket kalçadan gelsin.",
+      "mistake": "Bacağını tekmeler gibi zorla kaldırma; gerilme hafif kalsın."
+    },
+    {
+      "id": "cat_cow",
+      "name": "Kedi-Deve",
+      "target": "Omurga hareketliliği",
+      "setup": "Dört ayak üstüne gel: ellerin omuzlarının, dizlerin kalçanın altında.",
+      "steps": [
+        "Nefes alırken karnını yere bırak, göğsünü ve başını kaldır.",
+        "Nefes verirken sırtını tavana doğru yuvarla, çeneni göğsüne yaklaştır.",
+        "Yavaşça ikisi arasında git gel."
+      ],
+      "tip": "Isınma ve soğuma için idealdir.",
+      "mistake": "Hızlı yapma; her nefese bir hareket."
+    },
+    {
+      "id": "inchworm",
+      "name": "Tırtıl",
+      "target": "Omuzlar, gövde ve arka bacak esnekliği",
+      "setup": "Ayakta dur, ayakların kalça genişliğinde.",
+      "steps": [
+        "Öne eğil ve ellerini ayaklarının önünde yere koy; dizlerini gerekirse bük.",
+        "Ellerini öne yürüterek şınav pozisyonuna geç.",
+        "Ellerini ayaklarına doğru geri yürüt ve dik pozisyona kalk."
+      ],
+      "tip": "Isınma için de çok iyi bir harekettir.",
+      "mistake": "Plank'ta kalçanın sarkmasına izin verme."
+    },
+    {
+      "id": "squat",
+      "name": "Squat",
+      "target": "Ön bacak, kalça ve arka bacak",
+      "setup": "Ayakların omuz genişliğinde, parmak uçları hafif dışa dönük.",
+      "steps": [
+        "Kalçanı geriye vererek aşağı in; kollarını öne uzat.",
+        "Uyluğun yere paralele yaklaşınca dur; göğsün dik.",
+        "Topuklarına basarak kalk."
+      ],
+      "tip": "İnerken nefes al, kalkarken ver.",
+      "mistake": "Dizlerin içe kapanmasın, topukların yerden kalkmasın."
+    },
+    {
+      "id": "reverse_lunge",
+      "name": "Geri Hamle",
+      "target": "Ön bacak ve kalça",
+      "setup": "Ayakta dik dur, ayakların kalça genişliğinde.",
+      "steps": [
+        "Bir ayağınla geriye büyük bir adım at ve iki dizini de bükerek in.",
+        "Arkadaki dizin yere yaklaşınca dur; öndeki dizin ayak bileğinin üstünde.",
+        "Öndeki topuğa basarak başlangıca dön; süre yarısında bacak değiştir."
+      ],
+      "tip": "Geri hamle, öne hamleden dize daha dosttur.",
+      "mistake": "Gövdeni öne eğme; dik kal."
+    },
+    {
+      "id": "glute_bridge",
+      "name": "Köprü",
+      "target": "Büyük kalça kası",
+      "setup": "Sırtüstü uzan, dizlerini bük, ayak tabanların yerde ve kalça genişliğinde. Kolların yanında.",
+      "steps": [
+        "Kalçanı sıkarak yerden kaldır; dizlerinden omuzlarına düz bir çizgi oluşsun.",
+        "Tepede kalçanı sıkı tut.",
+        "Yavaşça indir."
+      ],
+      "tip": "Topuklarına bas; parmak uçlarını hafifçe kaldırabilirsin.",
+      "mistake": "Beli fazla kaldırıp kamburlaştırma."
+    },
+    {
+      "id": "butt_kicks",
+      "name": "Topuk Vurma",
+      "target": "Kondisyon ve arka bacak",
+      "setup": "Ayakta dur, kolların dirsekten bükülü.",
+      "steps": [
+        "Bir topuğunu kalçana doğru çek.",
+        "Ayağını indirirken öbür topuğunu çek.",
+        "Yerinde koşar ya da yürür gibi devam et."
+      ],
+      "tip": "Yeni başlıyorsan zıplamadan, yürür gibi yap.",
+      "mistake": "Belini çukurlaştırma."
+    },
+    {
+      "id": "high_knees",
+      "name": "Diz Çekme Koşusu",
+      "target": "Kondisyon ve kalça bükücüler",
+      "setup": "Ayakta dur, kolların dirsekten bükülü.",
+      "steps": [
+        "Yerinde koşarken dizlerini kalça hizasına kadar çek.",
+        "Parmak uçlarına yumuşak bas.",
+        "Kollarını koşar gibi salla; ritmi koru."
+      ],
+      "tip": "Zor gelirse yerinde yürüyüşe dön, nefesin toparlanınca tekrar hızlan.",
+      "mistake": "Geriye yaslanma; gövden hafif öne eğik kalsın."
+    }
+  ]
+}

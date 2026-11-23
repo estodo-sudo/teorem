@@ -23,7 +23,7 @@ export function PlanEditor({ trigger, onDone, saveLabel }: { trigger: TriggerId;
       <AppText variant="small" weight="800" color={t.colors.accent}>
         {tr('camp.plan.if')}
       </AppText>
-      <TextInput value={ifText} onChangeText={setIfText} maxLength={80} accessibilityLabel={tr('camp.plan.if')} style={field} />
+      <TextInput maxFontSizeMultiplier={1.3} value={ifText} onChangeText={setIfText} maxLength={80} accessibilityLabel={tr('camp.plan.if')} style={field} />
       <AppText variant="small" weight="800" color={t.colors.accent}>
         {tr('camp.plan.then')}
       </AppText>
@@ -32,7 +32,7 @@ export function PlanEditor({ trigger, onDone, saveLabel }: { trigger: TriggerId;
       ))}
       <ChoiceCard label={tr('camp.onb.plans.own')} selected={pick === 'custom'} onPress={() => setPick('custom')} />
       {pick === 'custom' ? (
-        <TextInput value={own} onChangeText={setOwn} maxLength={120} placeholder={tr('camp.onb.plans.ownPlaceholder')} placeholderTextColor={t.colors.textMuted} accessibilityLabel={tr('camp.onb.plans.ownPlaceholder')} style={field} />
+        <TextInput maxFontSizeMultiplier={1.3} value={own} onChangeText={setOwn} maxLength={120} placeholder={tr('camp.onb.plans.ownPlaceholder')} placeholderTextColor={t.colors.textMuted} accessibilityLabel={tr('camp.onb.plans.ownPlaceholder')} style={field} />
       ) : null}
       <AppText variant="tiny" muted>
         {tr('camp.triggers.acceptNote')}

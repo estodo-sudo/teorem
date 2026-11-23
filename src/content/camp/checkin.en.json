@@ -1,0 +1,130 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "nci-withdrawal",
+    "smokefree-withdrawal",
+    "alo171"
+  ],
+  "symptoms": [
+    {
+      "id": "restless",
+      "icon": "wind",
+      "tone": "smokefree",
+      "label": "Restlessness",
+      "tip": "Move your body: a short walk, going up and down stairs or a few stretches ease restlessness. Cutting down a little on caffeinated drinks can help too.",
+      "eases": "Usually eases within the first 2–4 weeks."
+    },
+    {
+      "id": "irritable",
+      "icon": "angry",
+      "tone": "smokefree",
+      "label": "Irritability, anger",
+      "tip": "This feeling is temporary and a normal part of withdrawal. Take a few slow breaths before reacting; telling the people around you that you're going through this also earns you their understanding.",
+      "eases": "Most intense in the first week; usually eases within 2–4 weeks."
+    },
+    {
+      "id": "insomnia",
+      "icon": "moon",
+      "tone": "smokefree",
+      "label": "Trouble sleeping",
+      "tip": "Avoid caffeine in the evening, put the screen away before bed and try to go to bed at the same time every day. If you can't sleep, getting up and doing something calm helps.",
+      "eases": "Your sleep pattern usually settles within a few weeks."
+    },
+    {
+      "id": "appetite",
+      "icon": "utensils",
+      "tone": "smokefree",
+      "label": "Increased appetite",
+      "tip": "Keep fruit, vegetables or water handy for when you're hungry. Eating slowly and not skipping meals reduces sudden hunger. It's also important to notice if you're replacing cigarettes with snacks.",
+      "eases": "Increased appetite can last a few weeks; it balances out over time."
+    },
+    {
+      "id": "headache",
+      "icon": "bandage",
+      "tone": "smokefree",
+      "label": "Headache",
+      "tip": "Drink plenty of water, eat regular meals and take short breaks. If your headache is severe or doesn't go away, see a doctor.",
+      "eases": "Usually appears in the first days and passes quickly."
+    },
+    {
+      "id": "focus",
+      "icon": "brain",
+      "tone": "smokefree",
+      "label": "Trouble concentrating",
+      "tip": "Break your tasks into small pieces and take frequent breaks. Put important tasks at the times of day when you feel freshest. A short walk helps you gather your thoughts.",
+      "eases": "Usually improves within a few weeks."
+    },
+    {
+      "id": "cough",
+      "icon": "wind",
+      "tone": "smokefree",
+      "label": "Cough",
+      "tip": "Coughing may increase for a while as your lungs clear. Drinking plenty of water loosens mucus. If your cough lasts long, you cough up blood or you're short of breath, see a doctor.",
+      "eases": "Usually decreases within a few weeks."
+    },
+    {
+      "id": "constipation",
+      "icon": "salad",
+      "tone": "smokefree",
+      "label": "Constipation",
+      "tip": "Eat high-fibre foods (vegetables, fruit, whole grains) and drink plenty of water; moving a little every day gets your bowels going.",
+      "eases": "Usually improves within a few weeks."
+    }
+  ],
+  "moods": [
+    {
+      "v": 1,
+      "icon": "frown",
+      "tone": "smokefree",
+      "label": "Very bad"
+    },
+    {
+      "v": 2,
+      "icon": "frown",
+      "tone": "smokefree",
+      "label": "Bad"
+    },
+    {
+      "v": 3,
+      "icon": "meh",
+      "tone": "smokefree",
+      "label": "So-so"
+    },
+    {
+      "v": 4,
+      "icon": "smile",
+      "tone": "smokefree",
+      "label": "Good"
+    },
+    {
+      "v": 5,
+      "icon": "laugh",
+      "tone": "smokefree",
+      "label": "Very good"
+    }
+  ],
+  "safety": {
+    "title": "You've been feeling very bad lately",
+    "text": "For three days you've marked your mood as \"very bad\". There can be hard days while quitting, but if it's this hard you don't have to carry it alone. We suggest seeing a doctor, or calling ALO 171 (Türkiye) or your local quitline to talk. In an emergency, call 112 (or your local emergency number)."
+  },
+  "slip": {
+    "welcomeTitle": "This is a learning moment",
+    "welcome": "A slip is a common part of the quitting journey and doesn't erase your effort. Your total smoke-free days are kept. Let's understand together what happened; it helps you be ready next time.",
+    "howMany": "How many cigarettes did you smoke?",
+    "what": "What happened?",
+    "feeling": "How were you feeling?",
+    "next": "What will you do next time?",
+    "nextHint": "Make a new If–Then plan for this situation. You'll be ready next time.",
+    "doneTitle": "Back to the programme",
+    "done": "Your phase is kept. A slip isn't going back; now focus on the next step.",
+    "relapseLink": "I've started smoking regularly again"
+  },
+  "relapse": {
+    "title": "Get ready to start again",
+    "intro": "Having started smoking regularly again doesn't mean what you learned was wasted. Most people try a few times before quitting for good. What you learned from this attempt will strengthen the next.",
+    "learned": "What you learned from this attempt",
+    "plan": "New quit day",
+    "planHint": "Start again after a short preparation (3 days recommended). Your plans, reasons and entries are kept.",
+    "confirm": "Start a new attempt"
+  }
+}

@@ -1,19 +1,41 @@
 import type { IconName } from '@/components/Icon';
-import checkinJson from '@/content/camp/checkin.tr.json';
-import healthJson from '@/content/camp/health-timeline.tr.json';
-import libraryJson from '@/content/camp/library.tr.json';
-import skillsJson from '@/content/camp/skills.tr.json';
+import { pick } from '@/i18n/content';
+import checkinJsonTr from '@/content/camp/checkin.tr.json';
+import checkinJsonEn from '@/content/camp/checkin.en.json';
+import healthJsonTr from '@/content/camp/health-timeline.tr.json';
+import healthJsonEn from '@/content/camp/health-timeline.en.json';
+import libraryJsonTr from '@/content/camp/library.tr.json';
+import libraryJsonEn from '@/content/camp/library.en.json';
+import skillsJsonTr from '@/content/camp/skills.tr.json';
+import skillsJsonEn from '@/content/camp/skills.en.json';
 import type { StorySlide } from '@/features/content/data';
-import missionsJson from '@/content/camp/missions.tr.json';
-import onboardingJson from '@/content/camp/onboarding.tr.json';
-import plansJson from '@/content/camp/plans.tr.json';
-import rewardsJson from '@/content/camp/rewards.tr.json';
-import sosJson from '@/content/camp/sos.tr.json';
-import supportJson from '@/content/camp/support.tr.json';
+import missionsJsonTr from '@/content/camp/missions.tr.json';
+import missionsJsonEn from '@/content/camp/missions.en.json';
+import onboardingJsonTr from '@/content/camp/onboarding.tr.json';
+import onboardingJsonEn from '@/content/camp/onboarding.en.json';
+import plansJsonTr from '@/content/camp/plans.tr.json';
+import plansJsonEn from '@/content/camp/plans.en.json';
+import rewardsJsonTr from '@/content/camp/rewards.tr.json';
+import rewardsJsonEn from '@/content/camp/rewards.en.json';
+import sosJsonTr from '@/content/camp/sos.tr.json';
+import sosJsonEn from '@/content/camp/sos.en.json';
+import supportJsonTr from '@/content/camp/support.tr.json';
+import supportJsonEn from '@/content/camp/support.en.json';
 import sourcesJson from '@/content/camp/sources.json';
 
 import type { MilestoneId } from './engine/milestones';
 import type { AgeRange, CampPhase, FirstCigMinutes, HsiLevel, Mission, ProductType, QuitMethod, ReasonId, RelapseCause, Score5, SymptomId, TriggerId } from './types';
+
+const checkinJson = pick({ tr: checkinJsonTr, en: checkinJsonEn });
+const healthJson = pick({ tr: healthJsonTr, en: healthJsonEn });
+const libraryJson = pick({ tr: libraryJsonTr, en: libraryJsonEn });
+const skillsJson = pick({ tr: skillsJsonTr, en: skillsJsonEn });
+const missionsJson = pick({ tr: missionsJsonTr, en: missionsJsonEn });
+const onboardingJson = pick({ tr: onboardingJsonTr, en: onboardingJsonEn });
+const plansJson = pick({ tr: plansJsonTr, en: plansJsonEn });
+const rewardsJson = pick({ tr: rewardsJsonTr, en: rewardsJsonEn });
+const sosJson = pick({ tr: sosJsonTr, en: sosJsonEn });
+const supportJson = pick({ tr: supportJsonTr, en: supportJsonEn });
 
 export interface CampSource {
   id: string;

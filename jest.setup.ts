@@ -15,3 +15,10 @@ jest.mock('react-native-mmkv', () => {
   };
   return { createMMKV };
 });
+
+// The app's source language is Turkish and most tests check Turkish texts: pretend the phone is Turkish.
+// (English parity is checked file by file in __tests__/i18nParity.test.ts.)
+jest.mock('expo-localization', () => ({
+  getLocales: () => [{ languageCode: 'tr', languageTag: 'tr-TR', regionCode: 'TR' }],
+  getCalendars: () => [{ timeZone: 'Europe/Istanbul' }],
+}));

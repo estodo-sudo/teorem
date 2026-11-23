@@ -2,7 +2,9 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Screen, useTheme } from '@/components';
-import { APP_NAME } from '@/config/app';
+import { APP_NAME, LEGAL_ENTITY } from '@/config/app';
+
+import type { LegalSection } from './docs';
 
 interface Section {
   heading: string;
@@ -16,10 +18,10 @@ const READING_WIDTH = 560;
  * Legal reading layout (SPEC_UI_V3 §7.15): body 16/24, headings title3, 12 px between paragraphs and a
  * capped line length on wide screens.
  */
-export function LegalPage({ section }: { section: 'disclaimer' | 'privacy' | 'terms' }) {
+export function LegalPage({ section }: { section: LegalSection }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const sections = tr(`legal.${section}.sections`, { returnObjects: true, app: APP_NAME }) as Section[];
+  const sections = tr(`legal.${section}.sections`, { returnObjects: true, app: APP_NAME, company: LEGAL_ENTITY.name, address: LEGAL_ENTITY.address, email: LEGAL_ENTITY.email }) as Section[];
   return (
     <Screen>
       <Header title={tr(`legal.${section}.title`)} />

@@ -1,0 +1,36 @@
+{
+  "title": "Statistics",
+  "calendarTitle": "Days in line with your goal",
+  "calendarLegend": "Coloured: in line with your goal · Grey: slip or entry",
+  "urgesTitle": "Urge moments (last 6 weeks)",
+  "intensityTitle": "Average urge intensity",
+  "heatTitle": "Risky hours (day × hour)",
+  "heatEmpty": "The heat map needs a few entries.",
+  "triggersTitle": "Most frequent situations",
+  "toolsTitle": "Tools that helped most",
+  "emotionsTitle": "Before and after",
+  "bpsTitle": "Short screening progress",
+  "bpsNote": "Only for seeing your own progress; it's not a scientific assessment.",
+  "managedTitle": "Urge moments you managed",
+  "none": "Not enough entries yet.",
+  "weekShort": "wk {n}",
+  "days": [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
+  ],
+  "hours": [
+    "00",
+    "03",
+    "06",
+    "09",
+    "12",
+    "15",
+    "18",
+    "21"
+  ]
+}

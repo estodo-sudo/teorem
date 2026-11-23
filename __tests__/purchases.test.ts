@@ -1,7 +1,7 @@
-import { HARD_MODE_FREE_WORKOUTS } from '@/config/monetization';
+import { HARD_MODE_FREE_WORKOUTS, OFFER_LIFETIME, PREVIEW_PRICES, PRODUCT_IDS, SUBSCRIPTION_SKUS } from '@/config/monetization';
 import { isEntitlementValid, resolveEntitlement } from '@/features/purchases/entitlement';
 import { hasAccess, type GateContext } from '@/features/purchases/gate';
-import { monthlyEquivalent, trialDaysFromPeriod, trialEndDate, yearlySavingPercent, type Offer } from '@/features/purchases/pricing';
+import { monthlyEquivalent, previewOffers, trialDaysFromPeriod, trialEndDate, yearlySavingPercent, type Offer } from '@/features/purchases/pricing';
 
 const now = new Date('2026-11-15T12:00:00Z');
 const DAY = 86_400_000;
@@ -10,8 +10,13 @@ describe('entitlement cache', () => {
   it('inactive is never valid', () => {
     expect(isEntitlementValid({ active: false }, now)).toBe(false);
   });
-  it('lifetime (no expiry) is valid', () => {
-    expect(isEntitlementValid({ active: true, productId: 'life' }, now)).toBe(true);
+  it('lifetime (no expiry) is valid only for the one-time product', () => {
+    expect(isEntitlementValid({ active: true, productId: 'premium_lifetime' }, now)).toBe(true);
+    // An edited / damaged cache never unlocks forever (security review 2026-11-23).
+    expect(isEntitlementValid({ active: true, productId: 'premium_yearly' }, now)).toBe(false);
+    expect(isEntitlementValid({ active: true }, now)).toBe(false);
+    expect(isEntitlementValid({ active: true, productId: 'premium_yearly', expiresAt: 'not-a-date' }, now)).toBe(false);
+    expect(isEntitlementValid({ active: 'true' } as never, now)).toBe(false);
   });
   it('subscription stays valid during offline grace after expiry', () => {
     const exp = new Date(now.getTime() - 3 * DAY).toISOString();
@@ -134,5 +139,27 @@ describe('weeklyEquivalent (paywall plan cards)', () => {
     expect(weeklyEquivalent({ ...yearly, key: 'weekly' })).toBeNull();
     expect(weeklyEquivalent({ ...yearly, key: 'lifetime', type: 'in-app' })).toBeNull();
     expect(weeklyEquivalent({ ...yearly, price: undefined })).toBeNull();
+  });
+});
+
+describe('plans and trial (preview) prices', () => {
+  it('offers weekly, monthly and yearly subscriptions only', () => {
+    expect(OFFER_LIFETIME).toBe(false);
+    expect(SUBSCRIPTION_SKUS).toEqual([PRODUCT_IDS.weekly, PRODUCT_IDS.monthly, PRODUCT_IDS.yearly]);
+  });
+
+  it('preview offers: three subscriptions, yearly first with the trial, never real products', () => {
+    const o = previewOffers(PREVIEW_PRICES, 7);
+    expect(o.map((x) => x.key)).toEqual(['yearly', 'monthly', 'weekly']);
+    expect(o.every((x) => x.preview && x.type === 'subs' && !Object.values(PRODUCT_IDS).includes(x.productId as never))).toBe(true);
+    expect(o.map((x) => x.trialDays)).toEqual([7, undefined, undefined]);
+    expect(o[0]!.displayPrice).toContain('899,99');
+  });
+
+  it('yearly is the honest best value at the trial prices', () => {
+    const o = previewOffers(PREVIEW_PRICES, 7);
+    const saving = yearlySavingPercent(o[0], o[1]);
+    expect(saving).toBeGreaterThan(0);
+    expect(PREVIEW_PRICES.weekly * 52).toBeGreaterThan(PREVIEW_PRICES.monthly * 12);
   });
 });

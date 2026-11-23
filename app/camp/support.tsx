@@ -15,6 +15,8 @@ import { useAccess } from '@/features/purchases/useGate';
 import { SectionTitle, tint } from '@/features/campus/shared/ui';
 import { goBack } from '@/lib/nav';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
+import i18n from '@/i18n';
+import { localeOf } from '@/i18n/languages';
 
 /**
  * Destek ve profesyonel yardım: 112, ALO 171, smoking cessation clinics, Yeşilay (YEDAM 115),
@@ -111,7 +113,7 @@ export default function CampSupport() {
         return (
           <Card key={m.id} style={{ gap: t.space.sm }}>
             <AppText variant="tiny" weight="800" color={t.colors.primary}>
-              {m.label.toLocaleUpperCase('tr')}
+              {m.label.toLocaleUpperCase(localeOf(i18n.language))}
             </AppText>
             <AppText variant="small">{text}</AppText>
             <Button label={tr('camp.support.share')} icon="sparkle" variant="secondary" onPress={() => void Share.share({ message: text }).catch(() => undefined)} />

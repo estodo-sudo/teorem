@@ -1,0 +1,112 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "mkuh_nhs",
+    "papworth_nhs",
+    "dorey2004_bjgp",
+    "dorey2005_bju",
+    "dorey2004_uronurs",
+    "miller1996_knack",
+    "aua_eau_pfmt",
+    "nebraska_hypertonic"
+  ],
+  "weekThemes": [
+    {
+      "week": 1,
+      "title": "Week 1: Get to know the muscle",
+      "text": "You're learning to find the muscle, squeeze it and let it go completely."
+    },
+    {
+      "week": 2,
+      "title": "Week 2: Control",
+      "text": "Being able to contract and release whenever you want."
+    },
+    {
+      "week": 3,
+      "title": "Week 3: Strength",
+      "text": "Hold times and contraction strength increase."
+    },
+    {
+      "week": 4,
+      "title": "Week 4: Recovery",
+      "text": "A light week (days 22–30): slightly fewer contractions, same length. The muscle gets stronger by resting."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "general",
+      "icon": "dumbbell",
+      "tone": "kegel",
+      "title": "General Strength",
+      "text": "Balanced work on holds, quick squeezes and slow squeeze–release.",
+      "sourceIds": [
+        "mkuh_nhs",
+        "papworth_nhs"
+      ]
+    },
+    {
+      "id": "erection",
+      "icon": "zap",
+      "tone": "kegel",
+      "title": "Erection Support",
+      "text": "Full-strength contractions; lying, sitting and standing in every session.",
+      "note": "The home programme approach is inspired by the work of Dorey and colleagues (2004–2005). It is not a medical treatment.",
+      "sourceIds": [
+        "dorey2004_bjgp",
+        "dorey2005_bju"
+      ]
+    },
+    {
+      "id": "control",
+      "icon": "sliders",
+      "tone": "kegel",
+      "title": "Control and Timing",
+      "text": "Coordination of quick contractions and full release, matching with the breath, awareness of relaxation.",
+      "note": "The aim is to gain control and awareness; no particular result is promised.",
+      "sourceIds": [
+        "mkuh_nhs",
+        "papworth_nhs"
+      ]
+    },
+    {
+      "id": "bladder",
+      "icon": "droplet",
+      "tone": "kegel",
+      "title": "Bladder Control and Dribbling",
+      "text": "Slow holds, quick contractions, Knack practice and the habit of squeezing after urinating.",
+      "sourceIds": [
+        "dorey2004_uronurs",
+        "miller1996_knack",
+        "mkuh_nhs",
+        "papworth_nhs"
+      ]
+    },
+    {
+      "id": "surgery",
+      "icon": "bandage",
+      "tone": "kegel",
+      "title": "Before/After Prostate Surgery",
+      "text": "A gentle start, beginning lying down and progressing to standing, plus Knack practice.",
+      "note": "Unlocks only if your doctor has approved it. Don't exercise while a catheter is in place.",
+      "requiresClearance": true,
+      "sourceIds": [
+        "aua_eau_pfmt",
+        "ics2022_knack",
+        "miller1996_knack"
+      ]
+    },
+    {
+      "id": "relax",
+      "icon": "leaf",
+      "tone": "kegel",
+      "title": "Relaxation-Focused",
+      "text": "Releasing, gentle reverse Kegels and body awareness.",
+      "note": "Recommended if you think your pelvic floor may be holding tension. It's a good idea to see a urologist or a pelvic floor physiotherapist.",
+      "sourceIds": [
+        "smsna_hypertonic",
+        "nebraska_hypertonic"
+      ]
+    }
+  ]
+}

@@ -113,7 +113,7 @@ export default function CampOnboarding() {
     </View>
   );
   const input = (value: string, onChange: (v: string) => void, label: string, extra: object = {}) => (
-    <TextInput
+    <TextInput maxFontSizeMultiplier={1.3}
       value={value}
       onChangeText={onChange}
       accessibilityLabel={label}

@@ -1,0 +1,155 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "bothe2021",
+    "crosby2016"
+  ],
+  "title": "Rebuild",
+  "intro": "Cutting down a behaviour opens up a gap. Filling that gap with routines that are good for you makes the change last.",
+  "planner": {
+    "title": "Alternatives for your risky hours",
+    "hint": "Choose 1–2 alternative activities for each of your risky time ranges.",
+    "empty": "First choose your risky hours on the Environment and digital boundaries screen or during sign-up.",
+    "max": 2,
+    "options": [
+      {
+        "id": "walk",
+        "icon": "footprints",
+        "tone": "focus",
+        "label": "A walk"
+      },
+      {
+        "id": "shower",
+        "icon": "shower",
+        "tone": "focus",
+        "label": "A shower"
+      },
+      {
+        "id": "book",
+        "icon": "book",
+        "tone": "focus",
+        "label": "A book"
+      },
+      {
+        "id": "call",
+        "icon": "phone",
+        "tone": "focus",
+        "label": "Calling someone"
+      },
+      {
+        "id": "kegel",
+        "icon": "dumbbell",
+        "tone": "focus",
+        "label": "A Kegel session"
+      },
+      {
+        "id": "breath",
+        "icon": "wind",
+        "tone": "focus",
+        "label": "Breathing exercise"
+      },
+      {
+        "id": "fitness",
+        "icon": "footprints",
+        "tone": "focus",
+        "label": "Fitness"
+      },
+      {
+        "id": "hobby",
+        "icon": "palette",
+        "tone": "focus",
+        "label": "A hobby"
+      },
+      {
+        "id": "music",
+        "icon": "headphones",
+        "tone": "focus",
+        "label": "Music"
+      },
+      {
+        "id": "sleep",
+        "icon": "moon",
+        "tone": "focus",
+        "label": "Going to bed early"
+      }
+    ]
+  },
+  "sleep": {
+    "title": "Sleep hygiene",
+    "note": "General information; not medical treatment. If your sleep problem lasts a long time, see a doctor.",
+    "items": [
+      {
+        "id": "same-time",
+        "label": "I go to bed and get up at similar times every day"
+      },
+      {
+        "id": "no-phone-bed",
+        "label": "I leave my phone outside the bedroom"
+      },
+      {
+        "id": "screens-off",
+        "label": "I turn off screens 30 minutes before bed"
+      },
+      {
+        "id": "dark-cool",
+        "label": "My room is dark, quiet and cool"
+      },
+      {
+        "id": "caffeine",
+        "label": "I cut down on caffeine in the afternoon"
+      },
+      {
+        "id": "get-up",
+        "label": "If I can't sleep, I get up and do something calm in dim light"
+      }
+    ]
+  },
+  "connection": {
+    "title": "Weekly connection task",
+    "done": "I did it this week",
+    "doneNote": "Great. Connection meets the need underneath the urge.",
+    "tasks": [
+      "Meet up with a friend.",
+      "Call someone in your family and ask how they are.",
+      "Join a community activity (sport, a course, volunteering).",
+      "Message someone you haven't talked to in a long time.",
+      "Have a meal with someone.",
+      "Do someone a small favour."
+    ]
+  },
+  "bridge": {
+    "title": "Tools in the app",
+    "hint": "Taking good care of your body is part of rebuilding too.",
+    "items": [
+      {
+        "id": "kegel",
+        "icon": "dumbbell",
+        "tone": "focus",
+        "label": "Kegel training",
+        "route": "/"
+      },
+      {
+        "id": "breathing",
+        "icon": "wind",
+        "tone": "focus",
+        "label": "Breathing exercise",
+        "route": "/mind/breathing"
+      },
+      {
+        "id": "bodyScan",
+        "icon": "flower",
+        "tone": "focus",
+        "label": "Body scan",
+        "route": "/mind/body-scan"
+      },
+      {
+        "id": "fitness",
+        "icon": "footprints",
+        "tone": "focus",
+        "label": "Pelvic Fitness",
+        "route": "/"
+      }
+    ]
+  }
+}

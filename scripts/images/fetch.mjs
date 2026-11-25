@@ -45,9 +45,9 @@ export const KINDS = {
   glossaryHero: { w: 900, h: 720, q: 72, max: 110 * 1024, bottomBlur: { from: 0.45, to: 0.8, sigma: 14 } },
   // Günüm card background (2026-11-23): sharp at the top, softly blurred from 48 % down to the bottom,
   // baked into the file so the phone draws a single image.
-  hero: { w: 720, h: 840, q: 72, max: 110 * 1024, bottomBlur: { from: 0.48, to: 0.74, sigma: 14, top: 0.16 } },
+  hero: { w: 720, h: 840, q: 72, max: 110 * 1024, bottomBlur: { from: 0.56, to: 0.86, sigma: 22, top: 0.14 } },
   // Wider card background for a whole-body move (a person lying on the floor): the blur starts lower.
-  heroWide: { w: 900, h: 760, q: 72, max: 110 * 1024, bottomBlur: { from: 0.62, to: 0.86, sigma: 12, top: 0.16 } },
+  heroWide: { w: 900, h: 760, q: 72, max: 110 * 1024, bottomBlur: { from: 0.6, to: 0.88, sigma: 20, top: 0.14 } },
 };
 export const TOTAL_MAX = 18 * 1024 * 1024;
 
@@ -189,19 +189,27 @@ async function render(src, kind, focus, quality, soften = 0) {
 }
 
 /**
- * Blurred copy laid over the sharp image through a vertical alpha ramp (0 at `from`, 1 at `to`). With
- * `top` the top edge is blurred too (fully at 0, sharp again by `top`; 2026-11-23 "üstlerine de blur").
+ * Progressive blur (2026-11-23 "sansür gibi değil, düzgün"): three blurred copies of growing strength,
+ * each laid over the image through its own smooth vertical ramp, so the blur builds up gradually from
+ * sharp at `from` to full `sigma` at `to` (and towards the top edge when `top` is set) without a visible
+ * line or band. The ramps ease in and out (several stops) instead of a straight linear fade.
  */
 async function withBottomBlur(png, w, h, { from, to, sigma, top }) {
-  const topStops = top ? `<stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="${top}" stop-color="#fff" stop-opacity="0"/>` : '';
-  const ramp = Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">` +
-      topStops +
-      `<stop offset="${from}" stop-color="#fff" stop-opacity="0"/><stop offset="${to}" stop-color="#fff" stop-opacity="1"/></linearGradient></defs>` +
-      `<rect width="100%" height="100%" fill="url(#g)"/></svg>`,
-  );
-  const blurred = await sharp(png).blur(sigma).ensureAlpha().composite([{ input: ramp, blend: 'dest-in' }]).png().toBuffer();
-  return sharp(png).composite([{ input: blurred }]).png().toBuffer();
+  const ease = (a, b) => [0, 0.25, 0.5, 0.75, 1].map((x) => [a + (b - a) * x, x * x * (3 - 2 * x)]);
+  const stops = (pts) => pts.map(([o, v]) => `<stop offset="${Math.min(1, Math.max(0, o)).toFixed(4)}" stop-color="#fff" stop-opacity="${v.toFixed(4)}"/>`).join('');
+  const ramp = (pts) =>
+    Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">${stops(pts)}</linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`);
+  let out = png;
+  const levels = [0.35, 0.65, 1];
+  for (let i = 0; i < levels.length; i++) {
+    const a = from + ((to - from) * i) / levels.length;
+    const b = from + ((to - from) * (i + 1)) / levels.length;
+    // Bottom: off above `a`, on below `b`. Top (half strength): on at the very top, off by `top`.
+    const pts = [...(top ? ease(top * (1 - (i + 1) / levels.length), top * (1 - i / levels.length)).map(([o, v]) => [o, 1 - v]) : [[0, 0]]), ...ease(a, b)];
+    const blurred = await sharp(png).blur(Math.max(0.3, sigma * levels[i])).ensureAlpha().composite([{ input: ramp(pts), blend: 'dest-in' }]).png().toBuffer();
+    out = await sharp(out).composite([{ input: blurred }]).png().toBuffer();
+  }
+  return out;
 }
 
 async function blurhashOf(buf) {

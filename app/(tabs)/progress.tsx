@@ -28,13 +28,14 @@ export default function ProgressTab() {
   const workouts = useHistoryStore((s) => s.workouts);
   const tests = useHistoryStore((s) => s.strengthTests);
   const level = useTrainingStore((s) => s.training.level);
+  const target = useTrainingStore((s) => s.training.dailyTarget);
   const streak = useStreak();
   const today = toDateKey();
   const locale = localeOf(i18n.language);
   const short = (d: string) => fromDateKey(d).toLocaleDateString(locale, { day: 'numeric', month: 'short' });
 
   const summary = summarize(workouts, streak.longest, level);
-  const heat = useMemo(() => heatMap(workouts, today, 12), [workouts, today]);
+  const heat = useMemo(() => heatMap(workouts, today, 12, target), [workouts, today, target]);
   const hold = holdTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const quick = quickTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const score = scoreTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));

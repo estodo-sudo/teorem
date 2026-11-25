@@ -9,9 +9,11 @@ import { findTurkishVoice, speak } from '@/features/training/voice';
 import { getLevel, MAX_LEVEL, MIN_LEVEL } from '@/features/training/levels';
 import { setManualLevel } from '@/features/training/plan';
 import { VacationCard } from '@/features/training/VacationCard';
+import { useSex } from '@/i18n/sex';
+import { useProfileStore } from '@/stores/profileStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 import { useTrainingStore } from '@/stores/trainingStore';
-import type { DailyTarget, HapticStrength } from '@/types';
+import type { DailyTarget, HapticStrength, Sex } from '@/types';
 
 /** "Standart" vibration when switched on: Normal (same as a fresh install). */
 const DEFAULT_STRENGTH: HapticStrength = 2;
@@ -22,6 +24,7 @@ export default function TrainingSettings() {
   const update = useSettingsStore((s) => s.update);
   const training = useTrainingStore((s) => s.training);
   const [pending, setPending] = useState<number | null>(null);
+  const sex = useSex();
 
   const step = (d: number) => {
     const next = Math.min(MAX_LEVEL, Math.max(MIN_LEVEL, (pending ?? training.level) + d));
@@ -31,6 +34,19 @@ export default function TrainingSettings() {
   return (
     <Screen>
       <Header title={tr('settings.training.title')} />
+      {/* Who the programme is for: only the texts change (goals, tracks, screening); history stays. */}
+      <Card style={{ gap: 10 }}>
+        <AppText variant="h3">{tr('onboarding.sex.setting')}</AppText>
+        <Segmented<Sex>
+          accessibilityLabel={tr('onboarding.sex.setting')}
+          value={sex}
+          onChange={(v) => useProfileStore.getState().update({ sex: v })}
+          options={(['female', 'male'] as const).map((v) => ({ value: v, label: tr(`onboarding.sex.${v}`) }))}
+        />
+        <AppText variant="small" muted>
+          {tr('onboarding.sex.settingHint')}
+        </AppText>
+      </Card>
       <Card style={{ gap: 10 }}>
         <AppText variant="h3">{tr('settings.training.level')}</AppText>
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 24 }}>

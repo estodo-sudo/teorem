@@ -2,7 +2,7 @@
  * "Bu hafta" strip on Günüm (SPEC_V4 §A.2): the calendar week Monday → Sunday with each day's state.
  * Pure; date keys are local YYYY-MM-DD.
  */
-export type WeekDayState = 'done' | 'today' | 'todayDone' | 'missed' | 'future' | 'rest';
+export type WeekDayState = 'done' | 'partial' | 'today' | 'todayDone' | 'todayPartial' | 'missed' | 'future' | 'rest';
 
 export interface WeekDay {
   key: string;
@@ -30,14 +30,15 @@ export function weekStartKey(todayKey: string): string {
  * streak freeze) without a workout. Today is ringed (or done). Past days without a workout are "missed"
  * (shown like future days, never in a warning colour).
  */
-export function weekDays(todayKey: string, completed: Iterable<string>, rest: Iterable<string> = []): WeekDay[] {
+export function weekDays(todayKey: string, completed: Iterable<string>, rest: Iterable<string> = [], partialDays: Iterable<string> = []): WeekDay[] {
   const done = new Set(completed);
   const off = new Set(rest);
+  // Started but below the daily target (2026-11-23): shown half filled, not as done.
+  const half = new Set(partialDays);
   const start = fromKey(weekStartKey(todayKey));
   return Array.from({ length: 7 }, (_, i) => {
     const key = keyOf(new Date(start.getFullYear(), start.getMonth(), start.getDate() + i));
-    const state: WeekDayState =
-      key === todayKey ? (done.has(key) ? 'todayDone' : 'today') : done.has(key) ? 'done' : off.has(key) ? 'rest' : key < todayKey ? 'missed' : 'future';
+    const state: WeekDayState = key === todayKey ? (done.has(key) ? 'todayDone' : half.has(key) ? 'todayPartial' : 'today') : done.has(key) ? 'done' : half.has(key) ? 'partial' : off.has(key) ? 'rest' : key < todayKey ? 'missed' : 'future';
     return { key, index: i, state };
   });
 }

@@ -1,0 +1,103 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "dumoulin2018_cochrane",
+    "woodley2020_cochrane",
+    "nice_ng210",
+    "miller1996_knack",
+    "nebraska_hypertonic"
+  ],
+  "note": "Texts for women. The programme engine and ids are the same as the men's version; only the words change.",
+  "tracks": [
+    {
+      "id": "general",
+      "sourceIds": [
+        "dumoulin2018_cochrane",
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "erection",
+      "title": "Sexual Health and Sensation",
+      "text": "Full-strength contractions; lying, sitting and standing in every session. Knowing the muscle better can support sensation and control during sex.",
+      "note": "It is not a medical treatment; no particular result is promised.",
+      "sourceIds": [
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "control",
+      "title": "Control and Coordination",
+      "text": "Coordination of quick contractions and full release, matching with the breath, awareness of relaxation.",
+      "sourceIds": [
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "bladder",
+      "title": "Leaks and Bladder Control",
+      "text": "Slow holds, quick contractions and squeezing before a cough, sneeze or lift (the Knack).",
+      "sourceIds": [
+        "dumoulin2018_cochrane",
+        "miller1996_knack",
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "surgery",
+      "title": "Recovery After Giving Birth",
+      "text": "A gentle start, beginning lying down and progressing to standing, plus Knack practice.",
+      "note": "Unlocks only if your doctor or midwife has approved it. Don't exercise if you have pain, bleeding or a problem with stitches.",
+      "sourceIds": [
+        "woodley2020_cochrane",
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "relax",
+      "note": "Recommended if you think your pelvic floor may be holding tension. It's a good idea to see a gynaecologist or a pelvic floor physiotherapist."
+    }
+  ],
+  "screening": {
+    "questions": [
+      {
+        "id": "pelvic_pain",
+        "text": "Do you have ongoing pain or a feeling of pressure in your pelvis, perineum (between the anus and vagina), groin or anus?"
+      },
+      {
+        "id": "ejaculation_pain",
+        "text": "Do you have pain during or after sex?"
+      },
+      {
+        "id": "dribble",
+        "text": "Do you leak urine when you cough, sneeze or jump?"
+      }
+    ],
+    "result": {
+      "relaxText": "Your answers suggest your pelvic floor may be holding tension. In that case, squeezing exercises can make discomfort worse. We suggest seeing a gynaecologist or a pelvic floor physiotherapist before you start training.",
+      "dribbleText": "A short squeeze before a cough, sneeze or lift (the Knack) can help reduce leaks."
+    }
+  },
+  "selfRating": {
+    "tracks": {
+      "erection": [
+        {
+          "id": "hardness",
+          "text": "My satisfaction with sensation during sex"
+        },
+        {
+          "id": "maintain",
+          "text": "My satisfaction with controlling the muscle during sex"
+        }
+      ],
+      "bladder": [
+        {
+          "id": "dribble",
+          "text": "How often I leak",
+          "maxLabel": "Very often"
+        }
+      ]
+    }
+  }
+}

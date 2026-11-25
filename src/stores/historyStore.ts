@@ -45,6 +45,18 @@ interface HistoryStore extends HistoryData {
   replaceAll: (d: HistoryData) => void;
 }
 
+/**
+ * Writes to the database without ever blocking the screen (2026-11-23 fix): the store is updated first,
+ * so the Today ring, the week and the calendar always show a finished session; a failed write is logged.
+ */
+function persist(what: string, write: () => void) {
+  try {
+    write();
+  } catch (e) {
+    console.warn(`[history] could not save ${what}`, e);
+  }
+}
+
 export const useHistoryStore = create<HistoryStore>()((set, get) => ({
   ...emptyHistory(),
   loaded: false,
@@ -53,29 +65,27 @@ export const useHistoryStore = create<HistoryStore>()((set, get) => ({
     set({ ...getRepo().loadAll(), loaded: true });
   },
   saveWorkout: (w) => {
-    getRepo().upsertWorkout(w);
     set((s) => {
       const exists = s.workouts.some((x) => x.id === w.id);
-      return {
-        workouts: exists ? s.workouts.map((x) => (x.id === w.id ? w : x)) : [...s.workouts, w],
-      };
+      return { workouts: exists ? s.workouts.map((x) => (x.id === w.id ? w : x)) : [...s.workouts, w] };
     });
+    persist('workout', () => getRepo().upsertWorkout(w));
   },
   addStrengthTest: (t) => {
-    getRepo().insertStrengthTest(t);
     set((s) => ({ strengthTests: [...s.strengthTests, t] }));
+    persist('strength test', () => getRepo().insertStrengthTest(t));
   },
   addFitnessLog: (l) => {
-    getRepo().insertFitnessLog(l);
     set((s) => ({ fitnessLogs: [...s.fitnessLogs, l] }));
+    persist('fitness log', () => getRepo().insertFitnessLog(l));
   },
   addNote: (n) => {
-    getRepo().insertNote(n);
     set((s) => ({ notes: [...s.notes, n] }));
+    persist('note', () => getRepo().insertNote(n));
   },
   deleteNote: (id) => {
-    getRepo().deleteNote(id);
     set((s) => ({ notes: s.notes.filter((n) => n.id !== id) }));
+    persist('note delete', () => getRepo().deleteNote(id));
   },
   clearAll: () => {
     getRepo().clearAll();

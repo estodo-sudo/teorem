@@ -1,7 +1,7 @@
 import { createRng, shuffle } from '@/lib/random';
 import type { KegelExerciseType } from '@/types';
 
-import { clampLevel, getLevel, REST_SEC, ROUND2_CYCLES, SLOW_PAUSE_SEC, SLOW_TOP_SEC, SLOW_UP_SEC, slowReps, type LevelParams } from './levels';
+import { clampLevel, getLevel, REST_SEC, ROUND2_ORDER, SLOW_PAUSE_SEC, SLOW_TOP_SEC, SLOW_UP_SEC, slowReps, type LevelParams } from './levels';
 import { CONTRACTION_TYPES, KEGEL_CUES } from './tracks';
 import type { GeneratedSession, Phase, SessionBlock, SessionExercise } from './types';
 
@@ -9,7 +9,7 @@ import type { GeneratedSession, Phase, SessionBlock, SessionExercise } from './t
  * Kegel session (user decision 2026-11-22), modelled on three exercises:
  *
  *  Tur 1  (uzun sıkma → dinlen → hızlı sık-bırak → dinlen) × cycles → uzun sıkma
- *  Tur 2  (yavaş sıkma → dinlen → hızlı sık-bırak → dinlen → uzun sıkma → dinlen) × 2, optional after Tur 1
+ *  Tur 2  yavaş sıkma → dinlen → hızlı sık-bırak → dinlen → yavaş sıkma → dinlen → uzun sıkma, optional after Tur 1
  *
  * Uzun sıkma is one continuous squeeze; hızlı sık-bırak is 1 s squeeze / 1 s let go; yavaş sıkma is
  * slowly up (3 s), 0.5 s at the top, let go and wait 1 s. "Dinlen" (5 s) is the pause between exercises
@@ -34,7 +34,7 @@ export interface SessionInput {
   /** 0-based day in the plan and programme week (stored with the session only). */
   dayIndex?: number;
   weekIndex?: number;
-  /** Plan week 4 ("Toparlanma") or an early deload: Tur 1 has one cycle less (at least 2). */
+  /** Plan week 4 ("Toparlanma") or an early deload: Tur 1 has one cycle less (at least 1). */
   deload?: boolean;
 }
 
@@ -69,11 +69,11 @@ const slowBlock = (p: LevelParams, rng: () => number): SessionBlock => ({
 export function roundBlocks(round: Round, p: LevelParams, rng: () => number, deload = false): SessionBlock[] {
   const blocks: SessionBlock[] = [];
   if (round === 1) {
-    const cycles = deload ? Math.max(2, p.cycles - 1) : p.cycles;
+    const cycles = deload ? Math.max(1, p.cycles - 1) : p.cycles;
     for (let c = 0; c < cycles; c++) blocks.push(longBlock(p, rng), quickBlock(p, rng));
     blocks.push(longBlock(p, rng));
   } else {
-    for (let c = 0; c < ROUND2_CYCLES; c++) blocks.push(slowBlock(p, rng), quickBlock(p, rng), longBlock(p, rng));
+    for (const b of ROUND2_ORDER) blocks.push(b === 'slow' ? slowBlock(p, rng) : b === 'quick' ? quickBlock(p, rng) : longBlock(p, rng));
   }
   return blocks;
 }

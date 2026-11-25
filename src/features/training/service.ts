@@ -6,7 +6,7 @@ import { useTrainingStore } from '@/stores/trainingStore';
 import type { Feedback, TrainingState, WorkoutSession } from '@/types';
 
 import { generateSession } from './generateSession';
-import { applySessionResult, todayPlanDay, todayPlanPosition, todayWeekIndex } from './plan';
+import { advancedToday, advancePlan, applySessionResult, todayPlanDay, todayPlanPosition, todayWeekIndex } from './plan';
 import { adjustLevel } from './adjustLevel';
 import { deloadDue, levelLocked, painPolicy, strengthFallingTwoWeeks } from './schedule';
 import { sessionSummary } from './summary';
@@ -31,6 +31,16 @@ export function onWorkoutFinalized(hook: Hook) {
   afterFeedbackHooks.push(hook);
 }
 
+function runHooks(w: WorkoutSession) {
+  afterFeedbackHooks.forEach((h) => {
+    try {
+      h(w);
+    } catch {
+      // never block the flow on a side effect
+    }
+  });
+}
+
 /** Persists a finished (or ended-early) session without feedback yet. */
 export function recordWorkout(session: GeneratedSession, result: PlayerResult, now = new Date()): WorkoutSession {
   const w: WorkoutSession = {
@@ -40,13 +50,10 @@ export function recordWorkout(session: GeneratedSession, result: PlayerResult, n
     level: session.level,
     plannedSec: session.plannedSec,
     actualSec: result.actualSec,
-    exercises: session.exercises.map((e, i) => ({
-      type: e.type,
-      completed: result.outcomes[i]?.completed ?? false,
-      skipped: result.outcomes[i]?.skipped ?? false,
-    })),
-    // Counts toward streak only if it ran to the end and wasn't skipped entirely.
-    completed: !result.endedEarly && result.outcomes.some((o) => o.completed),
+    exercises: session.exercises.map((e, i) => ({ type: e.type, completed: result.outcomes[i]?.completed ?? false, skipped: result.outcomes[i]?.skipped ?? false })),
+    // Done when it ran to the end (2026-11-23: also with skipped exercises — those only keep the level
+    // from rising). Ended early with "Bitir" = not done.
+    completed: !result.endedEarly,
     track: session.track,
     durationPreset: session.durationPreset,
     pauses: result.pauses ?? 0,
@@ -56,8 +63,16 @@ export function recordWorkout(session: GeneratedSession, result: PlayerResult, n
     // Done, not planned: only finished blocks count (daily cap and the summary).
     ...doneSummary(session, result),
     deload: session.deload,
+    ...(session.round === 2 ? { round: 2 as const } : {}),
   };
+  // A finished main session moves the plan on right away (once a day), without waiting for "Nasıldı?".
+  const training = useTrainingStore.getState();
+  const moves = w.completed && !session.isMicro && session.round !== 2 && !advancedToday(training.training, w.date);
+  if (moves) w.advancedPlan = true;
   useHistoryStore.getState().saveWorkout(w);
+  if (moves) training.replace(advancePlan(training.training, w.date));
+  // Trophies and the like follow the finished session too (they used to wait for the answers).
+  runHooks(w);
   return w;
 }
 
@@ -113,15 +128,9 @@ export function submitFeedback(workoutId: string, feedback: Feedback, techniqueC
   const training = useTrainingStore.getState();
   // Micro sets don't move the plan or the level.
   if (!w.isMicro) {
-    training.replace(applySessionResult(training.training, { date: w.date, feedback, completionRate: w.completionRate, pauses: w.pauses, skippedBlocks: w.skippedBlocks, deload: w.deload }));
+    training.replace(applySessionResult(training.training, { date: w.date, feedback, completionRate: w.completionRate, pauses: w.pauses, skippedBlocks: w.skippedBlocks, deload: w.deload, advancedPlan: w.advancedPlan }));
   }
-  afterFeedbackHooks.forEach((h) => {
-    try {
-      h(updated);
-    } catch {
-      // never block the flow on a side effect
-    }
-  });
+  runHooks(updated);
   const t1 = useTrainingStore.getState().training;
   return { before: t0.level, after: t1.level, suggestShorter: false, locked, wouldRise: wouldRise && !w.isMicro, struggled: feedback === 'hard' || feedback === 'failed' };
 }

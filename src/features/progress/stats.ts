@@ -1,4 +1,5 @@
 import { addDays, daysBetween, startOfWeek } from '@/lib/date';
+import { countsAsSession, dayStatus } from '@/features/training/summary';
 import type { StrengthTest, WorkoutSession } from '@/types';
 
 export interface Summary {
@@ -9,13 +10,9 @@ export interface Summary {
 }
 
 export function summarize(workouts: WorkoutSession[], longestStreak: number, level: number): Summary {
-  const done = workouts.filter((w) => w.completed);
-  return {
-    totalWorkouts: done.length,
-    totalMinutes: Math.round(workouts.reduce((a, w) => a + w.actualSec, 0) / 60),
-    longestStreak,
-    level,
-  };
+  // Workouts counted like everywhere else: Tur 2 is part of Tur 1, a release session is not a workout.
+  const done = workouts.filter(countsAsSession);
+  return { totalWorkouts: done.length, totalMinutes: Math.round(workouts.reduce((a, w) => a + w.actualSec, 0) / 60), longestStreak, level };
 }
 
 /** Training minutes per week (Mon-based) for the last `weeks` weeks, oldest first. */
@@ -37,23 +34,22 @@ export interface HeatCell {
 }
 
 /** Calendar heat map: `weeks` columns × 7 rows (Mon..Sun), ending this week. */
-export function heatMap(workouts: WorkoutSession[], today: string, weeks = 12): HeatCell[][] {
-  const byDay = new Map<string, { completed: number; any: number }>();
-  for (const w of workouts) {
-    const d = byDay.get(w.date) ?? { completed: 0, any: 0 };
-    d.any++;
-    if (w.completed) d.completed++;
-    byDay.set(w.date, d);
-  }
+/**
+ * Calendar cells (2026-11-23: measured against the daily target, like the week strip): 1 = started but
+ * below the target ("Yarım"), 2 = target reached ("Tamam"), 3 = more than the target. Tur 2 continues
+ * Tur 1 and does not count again.
+ */
+export function heatMap(workouts: WorkoutSession[], today: string, weeks = 12, target = 1): HeatCell[][] {
+  const goal = Math.max(1, target);
+  const any = new Set(workouts.map((w) => w.date));
   const start = addDays(startOfWeek(today), -7 * (weeks - 1));
   const cols: HeatCell[][] = [];
   for (let c = 0; c < weeks; c++) {
     const col: HeatCell[] = [];
     for (let r = 0; r < 7; r++) {
       const date = addDays(start, c * 7 + r);
-      const d = byDay.get(date);
-      const intensity: HeatCell['intensity'] =
-        daysBetween(date, today) < 0 || !d ? 0 : d.completed >= 2 ? 3 : d.completed === 1 ? 2 : 1;
+      const s = any.has(date) ? dayStatus(workouts, date, goal) : null;
+      const intensity: HeatCell['intensity'] = daysBetween(date, today) < 0 || !s ? 0 : s.full ? (s.sessions > goal ? 3 : 2) : 1;
       col.push({ date, intensity });
     }
     cols.push(col);
@@ -67,9 +63,7 @@ export interface TrendPoint {
 }
 
 export function holdTrend(tests: StrengthTest[]): TrendPoint[] {
-  return [...tests]
-    .sort((a, b) => (a.date < b.date ? -1 : 1))
-    .map((t) => ({ date: t.date, value: Math.round(t.holdBestMs / 100) / 10 }));
+  return [...tests].sort((a, b) => (a.date < b.date ? -1 : 1)).map((t) => ({ date: t.date, value: Math.round(t.holdBestMs / 100) / 10 }));
 }
 
 export function quickTrend(tests: StrengthTest[]): TrendPoint[] {

@@ -2,6 +2,9 @@ import type { IconName } from '@/components/Icon';
 import { pick } from '@/i18n/content';
 import jsonTr from '@/content/alcohol.tr.json';
 import jsonEn from '@/content/alcohol.en.json';
+import femaleTr from '@/content/alcohol.female.tr.json';
+import femaleEn from '@/content/alcohol.female.en.json';
+import { bySex } from '@/i18n/sex';
 
 const json = pick({ tr: jsonTr, en: jsonEn });
 
@@ -54,4 +57,5 @@ export interface AlcContent {
   sources: { title: string; url: string }[];
 }
 
-export const ALC = json as AlcContent;
+/** Women: AUDIT-C cut-off 3 (men 4) and female texts on sexual health (src/i18n/sex.ts). */
+export const ALC = bySex(json as AlcContent, pick({ tr: femaleTr, en: femaleEn }));

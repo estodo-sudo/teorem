@@ -1,0 +1,28 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "bricker2020",
+    "bricker2021",
+    "nci-withdrawal"
+  ],
+  "lessons": [
+    {
+      "id": "sexual-health",
+      "slides": [
+        null,
+        {
+          "text": "Cinsel uyarılma da genital bölgeye yeterli kan akışına bağlıdır. Sigara damarları etkileyerek bunu zorlaştırabilir; doğurganlığı da olumsuz etkileyebilir."
+        },
+        null,
+        {
+          "text": "Süregelen cinsel isteksizlik, ağrı ya da uyarılma sorunları başka sağlık durumlarıyla ilgili olabilir. Bu durumda bir hekime danışmak önemlidir."
+        }
+      ],
+      "quiz": [
+        {
+          "explain": "Cinsel uyarılma yeterli kan akışına bağlıdır; sigara damarları etkileyerek bunu zorlaştırabilir."
+        }
+      ]
+    }
+  ]
+}

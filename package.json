@@ -63,6 +63,7 @@
     "expo-system-ui": "~58.0.7",
     "expo-task-manager": "~58.0.14",
     "expo-updates": "~58.0.22",
+    "expo-video": "~58.0.14",
     "i18next": "^27.1.2",
     "lucide-react-native": "^1.76.0",
     "react": "19.3.0",

@@ -14,9 +14,9 @@ const types = (s: GeneratedSession) => s.blocks.map((b) => b.type);
 const ofBlock = (s: GeneratedSession, i: number) => s.phases.filter((p) => p.exerciseIndex === i && p.kind !== 'transition');
 
 describe('levels: three exercises, gently longer with the level', () => {
-  it('level 1 = 12 s uzun sıkma, 30 s hızlı sık-bırak, 33 s yavaş sıkma, 3 cycles; level 30 = 20 / 60 / 60, 4 cycles', () => {
-    expect(getLevel(1)).toMatchObject({ holdSec: 12, quickSec: 30, slowBlockSec: 33, cycles: 3 });
-    expect(getLevel(30)).toMatchObject({ holdSec: 20, quickSec: 60, slowBlockSec: 60, cycles: 4 });
+  it('level 1 = 12 s uzun sıkma, 30 s hızlı sık-bırak, 33 s yavaş sıkma, 2 cycles; level 30 = 20 / 60 / 60, 3 cycles (2026-11-23: 3 → 2 min by one cycle less, squeeze times unchanged)', () => {
+    expect(getLevel(1)).toMatchObject({ holdSec: 12, quickSec: 30, slowBlockSec: 33, cycles: 2 });
+    expect(getLevel(30)).toMatchObject({ holdSec: 20, quickSec: 60, slowBlockSec: 60, cycles: 3 });
   });
   it('has 30 levels and never gets easier from one level to the next', () => {
     expect(LEVELS).toHaveLength(MAX_LEVEL);
@@ -39,21 +39,21 @@ describe('levels: three exercises, gently longer with the level', () => {
 });
 
 describe('Tur 1: (uzun, dinlen, hızlı, dinlen) × cycles, then uzun', () => {
-  it('level 1: uzun and hızlı three times, then a last uzun; about 3 minutes', () => {
+  it('level 1: uzun and hızlı twice, then a last uzun (5 exercises); about 2 minutes', () => {
     const s = generateSession(input());
-    expect(types(s)).toEqual(['slow_hold', 'quick_flick', 'slow_hold', 'quick_flick', 'slow_hold', 'quick_flick', 'slow_hold']);
+    expect(types(s)).toEqual(['slow_hold', 'quick_flick', 'slow_hold', 'quick_flick', 'slow_hold']);
     expect(s.round).toBe(1);
-    expect(sec(s)).toBeGreaterThanOrEqual(160);
-    expect(sec(s)).toBeLessThanOrEqual(190);
+    expect(sec(s)).toBeGreaterThanOrEqual(110);
+    expect(sec(s)).toBeLessThanOrEqual(130);
   });
-  it('gets longer with the level but stays short (at most 7 min at level 30)', () => {
+  it('gets longer with the level but stays short (at most 5 min at level 30)', () => {
     let prev = 0;
     for (const l of LEVELS) {
       const t = sec(generateSession(input({ level: l.level })));
       expect(t).toBeGreaterThanOrEqual(prev);
       prev = t;
     }
-    expect(prev).toBeLessThanOrEqual(7 * 60);
+    expect(prev).toBeLessThanOrEqual(5 * 60);
   });
   it('uzun sıkma is one unbroken squeeze; hızlı sık-bırak is 1 s squeeze / 1 s let go for the whole block', () => {
     const s = generateSession(input());
@@ -81,11 +81,11 @@ describe('Tur 1: (uzun, dinlen, hızlı, dinlen) × cycles, then uzun', () => {
   });
 });
 
-describe('Tur 2: (yavaş, dinlen, hızlı, dinlen, uzun) × 2', () => {
+describe('Tur 2: yavaş, hızlı, yavaş, uzun (with a 5 s rest between)', () => {
   it('yavaş sıkma: slowly up 3 s, 0.5 s at the top, let go and wait 1 s; about 33 s at level 1', () => {
     const s = generateSession(input({ round: 2 }));
     expect(s.round).toBe(2);
-    expect(types(s)).toEqual(['elevator', 'quick_flick', 'slow_hold', 'elevator', 'quick_flick', 'slow_hold']);
+    expect(types(s)).toEqual(['elevator', 'quick_flick', 'elevator', 'slow_hold']);
     const slow = ofBlock(s, 0);
     expect(slow.slice(0, 3).map((p: Phase) => [p.kind, p.variant ?? null, p.durationMs])).toEqual([
       ['contract', 'slowUp', 3000],
@@ -95,9 +95,15 @@ describe('Tur 2: (yavaş, dinlen, hızlı, dinlen, uzun) × 2', () => {
     const total = slow.reduce((a, p) => a + p.durationMs, 0) / 1000;
     expect(Math.abs(total - 33)).toBeLessThanOrEqual(SLOW_REP_SEC);
   });
-  it('about 3 minutes at level 1, at most 6 minutes at level 30', () => {
-    expect(sec(generateSession(input({ round: 2 })))).toBeLessThanOrEqual(200);
-    expect(sec(generateSession(input({ round: 2, level: 30 })))).toBeLessThanOrEqual(6 * 60);
+  it('about 2 minutes at level 1 (was about 3), shortened in the same proportion at every level (2026-11-23)', () => {
+    const l1 = sec(generateSession(input({ round: 2 })));
+    expect(l1).toBeGreaterThanOrEqual(110);
+    expect(l1).toBeLessThanOrEqual(130);
+    // The old 2 × (yavaş, hızlı, uzun) took 175 s at level 1 and 305 s at level 30: both drop to ~70 %.
+    expect(l1 / 175).toBeCloseTo(0.7, 1);
+    expect(sec(generateSession(input({ round: 2, level: 30 }))) / 305).toBeCloseTo(0.7, 1);
+    // Squeeze times unchanged: a uzun sıkma at level 30 is still 20 s.
+    expect(generateSession(input({ round: 2, level: 30 })).blocks.at(-1)).toMatchObject({ type: 'slow_hold', holdSec: 20 });
   });
   it('the slow demo is three yavaş sıkma reps', () => {
     expect(generateSlowDemo().blocks).toEqual([expect.objectContaining({ type: 'elevator', reps: 3 })]);

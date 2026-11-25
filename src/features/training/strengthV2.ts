@@ -1,12 +1,16 @@
 import { pick } from '@/i18n/content';
+import femaleJsonTr from '@/content/kegel/female.tr.json';
+import femaleJsonEn from '@/content/kegel/female.en.json';
+import { bySex } from '@/i18n/sex';
 import selfRatingJsonTr from '@/content/kegel/self-rating.tr.json';
 import selfRatingJsonEn from '@/content/kegel/self-rating.en.json';
-import { daysBetween } from '@/lib/date';
+import { dayOf, daysBetween } from '@/lib/date';
 import type { SelfRating, StrengthTest, TrackId } from '@/types';
 
 import { muscleScore } from './schedule';
 
 const selfRatingJson = pick({ tr: selfRatingJsonTr, en: selfRatingJsonEn });
+const femaleJson = pick({ tr: femaleJsonTr, en: femaleJsonEn });
 
 /** Güç Testi v2, Kas Skoru and the monthly self rating (SPEC_KEGEL_V2 §9, §10). Pure. */
 
@@ -54,7 +58,7 @@ export interface SelfRatingQuestion {
   /** Which end is the good one. */
   better: 'high' | 'low';
 }
-export const SELF_RATING = selfRatingJson as unknown as { title: string; intro: string; tracks: Record<TrackId, SelfRatingQuestion[]> };
+export const SELF_RATING = bySex(selfRatingJson as unknown as { title: string; intro: string; tracks: Record<TrackId, SelfRatingQuestion[]> }, femaleJson.selfRating);
 
 export const selfRatingQuestions = (track: TrackId) => SELF_RATING.tracks[track] ?? SELF_RATING.tracks.general;
 
@@ -66,7 +70,7 @@ export function selfRatingDue(ratings: SelfRating[], track: TrackId, today: stri
     .filter((r) => r.track === track)
     .sort((a, b) => a.at.localeCompare(b.at))
     .at(-1);
-  return !last || daysBetween(last.at.slice(0, 10), today) >= SELF_RATING_EVERY_DAYS;
+  return !last || daysBetween(dayOf(last.at), today) >= SELF_RATING_EVERY_DAYS;
 }
 
 /** One line per question for the progress chart. */
@@ -74,7 +78,7 @@ export function selfRatingTrend(ratings: SelfRating[], track: TrackId, questionI
   return ratings
     .filter((r) => r.track === track && typeof r.answers[questionId] === 'number')
     .sort((a, b) => a.at.localeCompare(b.at))
-    .map((r) => ({ date: r.at.slice(0, 10), value: r.answers[questionId]! }));
+    .map((r) => ({ date: dayOf(r.at), value: r.answers[questionId]! }));
 }
 
 /** Valid answers only (0–10 for this track's questions). */

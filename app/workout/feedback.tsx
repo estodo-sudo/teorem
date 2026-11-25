@@ -10,7 +10,7 @@ import { Button, Card, IconTile, Progress, ScalePressable, StatRow, uiHaptic } f
 import { useStreak } from '@/features/gamification/service';
 import { playCue } from '@/features/training/haptics';
 import { submitFeedback, type FeedbackOutcome } from '@/features/training/service';
-import { dailyProgress, levelOutlook } from '@/features/training/summary';
+import { countsAsSession, dailyProgress, levelOutlook } from '@/features/training/summary';
 import { formatDuration, toDateKey } from '@/lib/date';
 import { goHome } from '@/lib/nav';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -37,8 +37,10 @@ const ACircle = Animated.createAnimatedComponent(Circle);
 export default function FeedbackScreen() {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, second } = useLocalSearchParams<{ id: string; second?: string }>();
   const workout = useHistoryStore((s) => s.workouts.find((w) => w.id === id));
+  // After Tur 2: its time and contractions are added to Tur 1's (2026-11-23 fix: only Tur 1 was shown).
+  const round2 = useHistoryStore((s) => (second ? s.workouts.find((w) => w.id === second) : undefined));
   const [choice, setChoice] = useState<Feedback | null>(null);
   const [technique, setTechnique] = useState<'sure' | 'unsure' | null>(null);
   const [outcome, setOutcome] = useState<FeedbackOutcome | null>(null);
@@ -77,9 +79,9 @@ export default function FeedbackScreen() {
       <Card style={{ padding: t.space.lg }}>
         <StatRow
           stats={[
-            { label: tr('feedback.duration'), value: formatDuration(workout.actualSec) },
-            { label: tr('feedback.summary.contractions'), value: String(workout.contractions ?? 0) },
-            { label: tr('feedback.summary.longest'), value: tr('feedback.summary.sec', { count: workout.longestHoldSec ?? 0 }) },
+            { label: tr('feedback.duration'), value: formatDuration(workout.actualSec + (round2?.actualSec ?? 0)) },
+            { label: tr('feedback.summary.contractions'), value: String((workout.contractions ?? 0) + (round2?.contractions ?? 0)) },
+            { label: tr('feedback.summary.longest'), value: tr('feedback.summary.sec', { count: Math.max(workout.longestHoldSec ?? 0, round2?.longestHoldSec ?? 0) }) },
           ]}
         />
       </Card>
@@ -126,7 +128,7 @@ function Completion({ completed, micro }: { completed: boolean; micro: boolean }
   const streak = useStreak();
   const strength = useSettingsStore((s) => s.settings.hapticStrength);
   const today = toDateKey();
-  const firstToday = useHistoryStore((s) => s.workouts.filter((w) => w.date === today && w.completed).length === 1);
+  const firstToday = useHistoryStore((s) => s.workouts.filter((w) => w.date === today && countsAsSession(w)).length === 1);
   const size = 112;
   const stroke = 6;
   const r = (size - stroke) / 2;
@@ -143,13 +145,25 @@ function Completion({ completed, micro }: { completed: boolean; micro: boolean }
   }, [p, pop, reduce, completed, strength]);
   const arc = useAnimatedProps(() => ({ strokeDashoffset: circ * (1 - p.value) }));
   const check = useAnimatedStyle(() => ({ transform: [{ scale: pop.value }] }));
-  const title = micro ? tr('feedback.summary.microTitle') : completed ? tr('feedback.completeTitle') : tr('feedback.partialShort');
+  // An unfinished micro set is not "tamam" (2026-11-23 fix).
+  const title = !completed ? tr('feedback.partialShort') : micro ? tr('feedback.summary.microTitle') : tr('feedback.completeTitle');
   return (
     <View style={{ alignItems: 'center', gap: t.space.md, marginTop: t.space.lg }}>
       <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }} accessible accessibilityLabel={title}>
         <Svg width={size} height={size} style={{ position: 'absolute', left: 0, top: 0 }}>
           <Circle cx={size / 2} cy={size / 2} r={r} stroke={t.tokens.muted} strokeWidth={stroke} fill="none" />
-          <ACircle cx={size / 2} cy={size / 2} r={r} stroke={t.tokens.primary} strokeWidth={stroke} fill="none" strokeLinecap="round" strokeDasharray={`${circ} ${circ}`} animatedProps={arc} transform={`rotate(-90 ${size / 2} ${size / 2})`} />
+          <ACircle
+            cx={size / 2}
+            cy={size / 2}
+            r={r}
+            stroke={t.tokens.primary}
+            strokeWidth={stroke}
+            fill="none"
+            strokeLinecap="round"
+            strokeDasharray={`${circ} ${circ}`}
+            animatedProps={arc}
+            transform={`rotate(-90 ${size / 2} ${size / 2})`}
+          />
         </Svg>
         <Animated.View style={[{ position: 'absolute', width: size, height: size, alignItems: 'center', justifyContent: 'center' }, check]}>
           <Icon name={completed ? 'check' : 'pause'} size={44} color={t.tokens.primary} strokeWidth={2.25} />
@@ -158,7 +172,11 @@ function Completion({ completed, micro }: { completed: boolean; micro: boolean }
       <AppText variant="title1" center accessibilityRole="header">
         {title}
       </AppText>
-      <View accessible accessibilityLabel={tr('today.streakA11y', { count: streak.current })} style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs, height: 32, paddingHorizontal: t.space.md, borderRadius: t.radius.pill, backgroundColor: t.tokens.highlightSoft }}>
+      <View
+        accessible
+        accessibilityLabel={tr('today.streakA11y', { count: streak.current })}
+        style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs, height: 32, paddingHorizontal: t.space.md, borderRadius: t.radius.pill, backgroundColor: t.tokens.highlightSoft }}
+      >
         <Icon name="flame" size="sm" color={t.tokens.highlight} />
         <AppText variant="footnote" tabular style={{ fontWeight: '600' }}>
           {tr('today.streakDays', { count: streak.current })}
@@ -183,19 +201,13 @@ function StepHeader({ n, title, done }: { n: number; title: string; done: boolea
   const { t: tr } = useTranslation();
   const k = t.tokens;
   return (
-    <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }} accessible accessibilityRole="header" accessibilityLabel={`${tr('feedback.stepOf', { n })}. ${title}. ${done ? tr('feedback.picked') : tr('feedback.pickOne')}`}>
-      <View
-        style={{
-          width: 32,
-          height: 32,
-          borderRadius: 16,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: done ? k.success : k.primarySoft,
-          borderWidth: done ? 0 : t.border.medium,
-          borderColor: k.primary,
-        }}
-      >
+    <View
+      style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}
+      accessible
+      accessibilityRole="header"
+      accessibilityLabel={`${tr('feedback.stepOf', { n })}. ${title}. ${done ? tr('feedback.picked') : tr('feedback.pickOne')}`}
+    >
+      <View style={{ width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center', backgroundColor: done ? k.success : k.primarySoft, borderWidth: done ? 0 : t.border.medium, borderColor: k.primary }}>
         {done ? (
           <Icon name="check" size={18} color={k.card} strokeWidth={2.5} />
         ) : (
@@ -227,7 +239,19 @@ function BigChoice({ icon, label, hint, selected, onPress, compact }: { icon: Ic
       accessibilityRole="radio"
       accessibilityState={{ selected }}
       accessibilityLabel={hint ? `${label}. ${hint}` : label}
-      style={{ flexBasis: '47%', flexGrow: 1, minHeight: compact ? 64 : 128, padding: t.space.lg, gap: t.space.sm, borderRadius: t.radius.lg, borderWidth: selected ? t.border.medium : t.border.thin, borderColor: selected ? k.primary : k.border, backgroundColor: selected ? k.primarySoft : k.card, flexDirection: compact ? 'row' : 'column', alignItems: compact ? 'center' : 'flex-start' }}
+      style={{
+        flexBasis: '47%',
+        flexGrow: 1,
+        minHeight: compact ? 64 : 128,
+        padding: t.space.lg,
+        gap: t.space.sm,
+        borderRadius: t.radius.lg,
+        borderWidth: selected ? t.border.medium : t.border.thin,
+        borderColor: selected ? k.primary : k.border,
+        backgroundColor: selected ? k.primarySoft : k.card,
+        flexDirection: compact ? 'row' : 'column',
+        alignItems: compact ? 'center' : 'flex-start',
+      }}
     >
       <IconTile icon={icon} background={selected ? k.card : undefined} />
       <View style={{ flex: compact ? 1 : undefined, gap: 2 }}>

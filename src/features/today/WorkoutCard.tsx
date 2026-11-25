@@ -11,8 +11,10 @@ import { generateMicroSet } from '@/features/training/generateSession';
 import { todayPlanDay } from '@/features/training/plan';
 import { blockText } from '@/features/training/player/playerUi';
 import { capStatus, isOnVacation } from '@/features/training/schedule';
+import { dayStatus } from '@/features/training/summary';
 import { buildTodaySession, contractionsToday } from '@/features/training/service';
 import type { SessionBlock } from '@/features/training/types';
+import { useKegelLock } from '@/features/training/useKegelLock';
 import { useSessionStarter } from '@/features/training/useSessionStarter';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -40,9 +42,11 @@ export function WorkoutCard() {
   const workouts = useHistoryStore((s) => s.workouts);
   const painFlag = useKegelStore((s) => s.profile?.painFlag ?? false);
   const [blocksOpen, setBlocksOpen] = useState(false);
-  const todays = workouts.filter((w) => w.date === today);
-  const doneCount = todays.filter((w) => w.completed).length;
-  const mainDone = todays.some((w) => w.completed && !w.isMicro);
+  // One rule with the tasks, the week and the calendar (summary.dayStatus): done = target reached with the
+  // day's main session among them (2026-11-23: one session of two already said "tamam").
+  const status = dayStatus(workouts, today, training.dailyTarget);
+  const doneCount = status.counted;
+  const dayDone = status.full;
   const session = buildTodaySession(training, today);
   const micro = generateMicroSet({ level: training.level, seed: `${today}-micro` });
   const used = contractionsToday(workouts, today);
@@ -54,6 +58,8 @@ export function WorkoutCard() {
   const target = training.dailyTarget;
 
   const { go, dialog } = useSessionStarter();
+  // 10-hour rest after two full sessions (user request 2026-11-23): "Başla" shows the countdown.
+  const lock = useKegelLock();
   // Cover photo (user request 2026-11-23): a couple on a bed, sharp at the top and blurred towards the
   // bottom (baked into the file), with a dark veil so the white text stays readable in both themes.
   // A different photo every weekday: Monday 1 … Sunday 7, then Monday 1 again.
@@ -65,8 +71,9 @@ export function WorkoutCard() {
   if (training.returnNotice && training.returnNotice.date === today) notices.push({ key: 'return', text: tr(`kegel.return.${training.returnNotice.kind}`, { count: training.returnNotice.days }), tone: 'info' });
   if (onVacation) notices.push({ key: 'vacation', text: tr('kegel.vacation.cardNote'), tone: 'info' });
   if (painFlag) notices.push({ key: 'pain', text: tr('kegel.painNotice'), tone: 'alert' });
-  if (training.repeatNextDay && !mainDone) notices.push({ key: 'repeat', text: tr('today.workout.repeat'), tone: 'info' });
-  if (cap.locked) notices.push({ key: 'cap', text: tr('today.workout.capReached'), tone: 'info' });
+  // The "Tamamlayamadığın günü…" note was removed (user request 2026-11-23); the repeat still happens.
+  // No note during the rest lock (2026-11-23: "üstte açıklama yazma"); the button shows the countdown only.
+  if (cap.locked && !lock.locked) notices.push({ key: 'cap', text: tr('today.workout.capReached'), tone: 'info' });
 
   return (
     <Card style={{ padding: 0, overflow: 'hidden' }}>
@@ -74,12 +81,26 @@ export function WorkoutCard() {
       <View style={{ padding: t.space.gutter, gap: t.space.lg }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
           <View style={{ flex: 1, gap: t.space.xs }}>
-            <AppText variant="caption" muted={!cover} color={cover ? soft : undefined}>
-              {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
-              {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
-            </AppText>
+            {/* Day and the session summary on one line, same style (user request 2026-11-23); the summary opens the exercises. */}
+            <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap' }}>
+              <AppText variant="caption" muted={!cover} color={cover ? soft : undefined}>
+                {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
+                {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
+                {' · '}
+              </AppText>
+              <ScalePressable
+                onPress={() => setBlocksOpen(true)}
+                accessibilityRole="button"
+                accessibilityLabel={`${tr('today.workout.summaryInline', { count: blocks.length, min: minutes })}. ${tr('today.workout.summaryA11y')}`}
+                hitSlop={12}
+              >
+                <AppText variant="caption" muted={!cover} color={cover ? soft : undefined}>
+                  {tr('today.workout.summaryInline', { count: blocks.length, min: minutes })}
+                </AppText>
+              </ScalePressable>
+            </View>
             <AppText variant="title2" accessibilityRole="header" color={fg}>
-              {mainDone ? tr('today.workout.doneTitle') : tr('today.workout.title')}
+              {dayDone ? tr('today.workout.doneTitle') : tr('today.workout.title')}
             </AppText>
           </View>
           <Ring size={56} label="" center={`${Math.min(doneCount, target)}/${target}`} value={doneCount / Math.max(1, target)} trackColor={cover ? t.veil.bold : undefined} textColor={fg} />
@@ -87,19 +108,6 @@ export function WorkoutCard() {
 
         {/* Room for the photo between the title and the actions. */}
         {cover ? <View style={{ height: PHOTO_SPACE }} /> : null}
-
-        <ScalePressable
-          onPress={() => setBlocksOpen(true)}
-          accessibilityRole="button"
-          accessibilityLabel={`${tr('today.workout.summary', { count: blocks.length, min: minutes })}. ${tr('today.workout.summaryA11y')}`}
-          style={{ minHeight: t.touch, flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}
-        >
-          <Icon name="layers" size="md" color={soft} />
-          <AppText variant="callout" muted={!cover} color={fg} style={{ flex: 1 }}>
-            {tr('today.workout.summary', { count: blocks.length, min: minutes })}
-          </AppText>
-          <Icon name="chevron" size="md" color={cover ? soft : t.tokens.subtle} />
-        </ScalePressable>
 
         {notices.length ? (
           <View style={{ gap: t.space.sm }}>
@@ -114,20 +122,36 @@ export function WorkoutCard() {
           </View>
         ) : null}
 
+        {/* "Başla" with the micro set under it, both on the cover (user request 2026-11-23). */}
         <View style={{ gap: t.space.sm }}>
-          {mainDone ? (
+          {lock.locked ? (
+            <Button label={lock.left} size="lg" disabled onPress={() => undefined} fullWidth accessibilityHint={tr('kegel.lock.hint')} testID="start-workout-locked" />
+          ) : dayDone ? (
             <Button label={tr('today.workout.again')} variant="secondary" icon="play" size="lg" onPress={() => go(today, session.contractions)} fullWidth />
           ) : (
             <Button label={tr('common.start')} size="lg" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" fullWidth />
           )}
-          {/* The "Nefes · 1 dk" button was removed (user request 2026-11-22); the micro set stays. */}
-          <Button label={tr('today.workout.microShort')} accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })} icon="pulse" variant="secondary" size="sm" onPress={() => go('micro', micro.contractions)} fullWidth />
+          <Button
+            label={tr('today.workout.microShort')}
+            accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })}
+            icon="pulse"
+            variant="secondary"
+            size="sm"
+            disabled={lock.locked}
+            onPress={() => go('micro', micro.contractions)}
+            fullWidth
+          />
         </View>
 
         <Sheet visible={blocksOpen} onClose={() => setBlocksOpen(false)} title={tr('today.workout.contents')} description={tr('today.workout.contentsCount', { count: blocks.length })}>
           <View accessibilityRole="list">
             {blocks.map((b, i) => (
-              <Animated.View key={`${session.id}-${i}`} entering={FadeInDown.delay(Math.min(i, t.motion.staggerMax) * t.motion.stagger).duration(t.motion.normal).reduceMotion(ReduceMotion.System)}>
+              <Animated.View
+                key={`${session.id}-${i}`}
+                entering={FadeInDown.delay(Math.min(i, t.motion.staggerMax) * t.motion.stagger)
+                  .duration(t.motion.normal)
+                  .reduceMotion(ReduceMotion.System)}
+              >
                 <BlockRow block={b} divider={i > 0} />
               </Animated.View>
             ))}

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { View } from 'react-native';
+import { AppState, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, ProgressBar, ProgressRing, Screen, useTheme } from '@/components';
@@ -65,6 +65,13 @@ function ScanSession({ onExit }: { onExit: () => void }) {
     return () => cancelHaptics();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  // Leaving the app pauses the scan, like the other players (2026-11-24).
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (next) => {
+      if (next !== 'active' && player.getState().status === 'running') player.pause();
+    });
+    return () => sub.remove();
+  }, [player]);
   const phase = currentPhase(state);
   const done = state.status === 'completed';
   return (

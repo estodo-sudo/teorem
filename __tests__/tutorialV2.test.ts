@@ -42,7 +42,7 @@ describe('tutorial v2 (spec 12)', () => {
   it('safety texts: no exercise while urinating; common mistakes cover breath, glutes, bearing down, overdoing', () => {
     expect(T.find.warn).toMatch(/İdrar yaparken egzersiz yapma/);
     expect(T.mistakes.items.map((m) => m.title)).toEqual(['Nefes tutmak', 'Kalçayı sıkmak', 'Ikınmak', 'Aşırı tekrar']);
-    expect(T.ready.body.join(' ')).toMatch(/Hızlı \(3 dakika\)/);
+    expect(T.ready.body.join(' ')).toMatch(/Hızlı \(2 dakika\)/);
   });
 
   it('one session length: a stored one-off preset no longer changes the session (about 3 min at level 1)', () => {

@@ -115,7 +115,7 @@
     "pause": "Pause",
     "resume": "Resume",
     "restart": "Start over",
-    "skip": "Skip block",
+    "skip": "Skip exercise",
     "finish": "Finish",
     "keepGoing": "Keep going",
     "progress": "Workout progress",
@@ -126,7 +126,7 @@
       "Don't hold your breath. Breathe easily while squeezing and while letting go.",
       "The phone vibrates while you squeeze and stops when you let go. You don't need to look at the screen.",
       "The release phase matters at least as much as the squeeze; let the muscle go completely.",
-      "Tap the screen: pause. Hold for a second: finish. Swipe left: skip the block. Double tap: black screen."
+      "Tap the screen: pause. Hold for a second: finish. Swipe left: skip ahead. Double tap: black screen."
     ],
     "painWarning": "If you feel pain, burning or discomfort, stop right away and see a health professional.",
     "interruptedTitle": "Workout paused",
@@ -147,8 +147,8 @@
       "slowRelease": "Release slowly",
       "hold": "Hold"
     },
-    "restartBlock": "Restart the block",
-    "gestureHint": "Tap the screen: pause or resume. Hold for a second: finish. Swipe left: skip the block. Double tap: black screen.",
+    "restartBlock": "Restart the exercise",
+    "gestureHint": "Tap the screen: pause or resume. Hold for a second: finish. Swipe left: skip ahead. Double tap: black screen.",
     "positionNow": "Position: {{position}}",
     "painButton": "Pain",
     "painTitle": "We stopped the session",
@@ -156,8 +156,8 @@
     "painRefer": "This is the second time this week you've reported discomfort. We suggest seeing a urologist or a pelvic floor physiotherapist. If you like, you can switch to the Relaxation-Focused programme.",
     "painRelease": "Continue with release and breathing",
     "painEnd": "Stop for today",
-    "skipTitle": "Skip this block?",
-    "skipBody": "A skipped block doesn't count towards levelling up. We won't ask again this session.",
+    "skipTitle": "Skip this exercise?",
+    "skipBody": "A skipped exercise doesn't count towards levelling up. We won't ask again this session.",
     "startIn": "Start in this position",
     "nextTitle": "Next: {{name}} ×{{reps}}",
     "nextDetail": "Squeeze {{hold}} s · release {{rest}} s",
@@ -282,7 +282,10 @@
     "erection": "Erection quality",
     "confidence": "Confidence",
     "general": "General health",
-    "postSurgery": "Recovery after surgery"
+    "postSurgery": "Recovery after surgery",
+    "bladder_female": "Fewer leaks",
+    "erection_female": "Sensation and pleasure",
+    "postSurgery_female": "Recovery after giving birth"
   },
   "onboarding": {
     "progress": "Step {{step}} / {{total}}",
@@ -355,7 +358,17 @@
       "goals": "Your goals",
       "reminderOff": "Off"
     },
-    "back": "Back"
+    "back": "Back",
+    "sex": {
+      "title": "Who is the programme for?",
+      "hint": "Goals, programmes and questions are set up for this. You can change it later in Training settings.",
+      "female": "Woman",
+      "male": "Man",
+      "femaleHint": "After birth, leaks, sexual health",
+      "maleHint": "Stamina, erections, bladder control",
+      "setting": "Who the programme is for",
+      "settingHint": "The texts of your goals, tracks and questions change with this. Your training history stays as it is."
+    }
   },
   "tutorial": {
     "header": "Lesson",
@@ -367,7 +380,8 @@
         "The pelvic floor is a group of muscles stretched like a hammock across the bottom of your pelvis.",
         "It supports the bladder and bowel and contributes to urinary control and sexual function.",
         "Like other muscles, it can get stronger when trained regularly and correctly."
-      ]
+      ],
+      "artAlt": "The pelvis with the pelvic floor muscle slung underneath like a hammock"
     },
     "find": {
       "title": "How do you find the muscle?",
@@ -483,7 +497,7 @@
       "title": "You're ready!",
       "body": [
         "You've found the muscle, learned the vibration language and practised squeezing and letting go.",
-        "Your first session is Quick (3 minutes). After that you choose the length; it adapts to your level feedback."
+        "Your first session is Quick (2 minutes). After that you choose the length; it adapts to your level feedback."
       ],
       "cta": "I'm ready"
     }
@@ -1022,12 +1036,14 @@
       "contentsHide": "Tap to hide the exercises",
       "dayKicker": "Day {{day}} / {{total}}",
       "summaryA11y": "Show the exercises",
+      "summaryPill": "{{count}} exercises · {{min}} min",
       "microShort": "Micro set",
       "breathShort": "Breathing · 1 min",
       "targetShort": "Daily goal",
       "microHint": "A short {{sec}}-second set",
       "summary_one": "{{count}} part · about {{min}} min",
-      "summary_other": "{{count}} parts · about {{min}} min"
+      "summary_other": "{{count}} parts · about {{min}} min",
+      "summaryInline": "{{count}} exercises · {{min}} min"
     },
     "challenges": "Nutrition tip",
     "strengthDue": "Time for your weekly strength test",
@@ -1064,9 +1080,10 @@
       "count": "{{done}}/{{total}}",
       "progressA11y": "{{done}}/{{total}} tasks done today",
       "training": "Training",
-      "foods": "Today's 3 foods",
+      "foods": "Food ideas for today",
       "foodsDay": "Day {{day}}/{{total}}",
-      "foodsMeta": "{{done}}/{{total}} eaten · Day {{day}}/{{days}}"
+      "foodsMeta": "{{done}}/{{total}} eaten · Day {{day}}/{{days}}",
+      "foodsNote": "Just ideas; tap one to see why."
     },
     "forYou": "For you",
     "forYouStory": "Story of the day",
@@ -1089,7 +1106,7 @@
     "exercisesTitle": "Exercise types",
     "topicsTitle": "Common questions",
     "preset": {
-      "quick": "Quick (3 min)",
+      "quick": "Quick (2 min)",
       "standard": "Standard (5 min)",
       "full": "Full (8 min)"
     },
@@ -1268,7 +1285,7 @@
       "none": "None",
       "partial": "Partial",
       "done": "Done",
-      "multi": "2+ sessions"
+      "multi": "Above target"
     },
     "notes": {
       "title": "My notes",
@@ -1367,71 +1384,71 @@
       "testBody": "Take the weekly pelvic floor strength test and see your progress"
     },
     "actions": {
-      "start": "Start (3 min)",
+      "start": "Start (2 min)",
       "micro": "Micro set (1 min)",
       "snooze15": "Snooze 15 min",
       "skipToday": "Skip today",
       "snooze60": "Snooze 1 hour"
     }
   },
-    "fitnessProgram": {
-      "title": "Pelvic Fitness",
-      "kicker": "7-week programme",
-      "weekOf": "Week {{n}} / {{total}}",
-      "sessions": "{{done}}/{{total}} sessions",
-      "progressA11y": "Programme progress: {{done}}/{{total}} sessions",
-      "thisWeek": "This week",
-      "thisWeekCount": "This week {{done}}/{{target}} sessions",
-      "todayDone": "Today's session is done. You can rest tomorrow.",
-      "todayTodo": "Aim for 3 sessions a week, with a day off between them.",
-      "today": "Today's session",
-      "start": "Start session",
-      "again": "Do it again",
-      "chart": "7-week progress",
-      "chartHint": "Each bar is a week; the goal is 3 sessions a week.",
-      "chartA11y": "Week {{n}}: {{done}}/{{target}} sessions",
-      "target": "Goal",
-      "weeksTitle": "Weeks",
-      "status": {
-        "done": "Done",
-        "current": "This week",
-        "missed": "Incomplete",
-        "upcoming": "Up next"
-      },
-      "notStarted": "The programme starts on the day of your first session.",
-      "finished": "You finished the programme! Keep 2-3 sessions a week to hold on to your gains.",
-      "over": "The 7 weeks are over. Keep going with the routine as long as you like.",
-      "weeks": {
-        "1": {
-          "title": "Learn the moves",
-          "text": "Do every move slowly and watch the figure; good form matters more than speed."
-        },
-        "2": {
-          "title": "Find the rhythm",
-          "text": "Turn 3 sessions a week into a habit; match your breath to the movement."
-        },
-        "3": {
-          "title": "Wake up the hips",
-          "text": "Squeeze your glutes on purpose in the bridge and clamshell; pause at the top."
-        },
-        "4": {
-          "title": "Strengthen the core",
-          "text": "Keep your back still in dead bug and bird dog; draw your belly in gently."
-        },
-        "5": {
-          "title": "More control",
-          "text": "Slow down the lowering; muscle control grows most on the way down."
-        },
-        "6": {
-          "title": "Endurance",
-          "text": "Keep your form for the whole session; settle your breath in the rests."
-        },
-        "7": {
-          "title": "A lasting habit",
-          "text": "Keep the strength you built; after the programme 2-3 sessions a week are enough."
-        }
-      }
+  "fitnessProgram": {
+    "title": "Pelvic Fitness",
+    "kicker": "7-week programme",
+    "weekOf": "Week {{n}} / {{total}}",
+    "sessions": "{{done}}/{{total}} sessions",
+    "progressA11y": "Programme progress: {{done}}/{{total}} sessions",
+    "thisWeek": "This week",
+    "thisWeekCount": "This week {{done}}/{{target}} sessions",
+    "todayDone": "Today's session is done. You can rest tomorrow.",
+    "todayTodo": "Aim for 3 sessions a week, with a day off between them.",
+    "today": "Today's session",
+    "start": "Start session",
+    "again": "Do it again",
+    "chart": "7-week progress",
+    "chartHint": "Each bar is a week; the goal is 3 sessions a week.",
+    "chartA11y": "Week {{n}}: {{done}}/{{target}} sessions",
+    "target": "Goal",
+    "weeksTitle": "Weeks",
+    "status": {
+      "done": "Done",
+      "current": "This week",
+      "missed": "Incomplete",
+      "upcoming": "Up next"
     },
+    "notStarted": "The programme starts on the day of your first session.",
+    "finished": "You finished the programme! Keep 2-3 sessions a week to hold on to your gains.",
+    "over": "The 7 weeks are over. Keep going with the routine as long as you like.",
+    "weeks": {
+      "1": {
+        "title": "Learn the moves",
+        "text": "Do every move slowly and watch the figure; good form matters more than speed."
+      },
+      "2": {
+        "title": "Find the rhythm",
+        "text": "Turn 3 sessions a week into a habit; match your breath to the movement."
+      },
+      "3": {
+        "title": "Wake up the hips",
+        "text": "Squeeze your glutes on purpose in the bridge and clamshell; pause at the top."
+      },
+      "4": {
+        "title": "Strengthen the core",
+        "text": "Keep your back still in dead bug and bird dog; draw your belly in gently."
+      },
+      "5": {
+        "title": "More control",
+        "text": "Slow down the lowering; muscle control grows most on the way down."
+      },
+      "6": {
+        "title": "Endurance",
+        "text": "Keep your form for the whole session; settle your breath in the rests."
+      },
+      "7": {
+        "title": "A lasting habit",
+        "text": "Keep the strength you built; after the programme 2-3 sessions a week are enough."
+      }
+    }
+  },
   "fitness": {
     "title": "Pelvic Fitness",
     "subtitle": "Bodyweight exercises that support your hip, core and inner-thigh muscles.",
@@ -1468,7 +1485,7 @@
       },
       "2": {
         "name": "Strength",
-        "hint": "Moves that strengthen the hips, inner thighs and pelvic floor."
+        "hint": "Moves that strengthen your hips, belly and inner thighs."
       },
       "3": {
         "name": "Stretch",
@@ -1510,7 +1527,8 @@
       "pull": "PULL",
       "left": "LEFT",
       "right": "RIGHT"
-    }
+    },
+    "cardDesc": "A 7-week plan for hips, belly and inner thighs."
   },
   "mind": {
     "title": "Mind Relaxation",
@@ -1750,7 +1768,8 @@
       "developer": "Developer",
       "policies": "Policies",
       "other": "Other",
-      "policiesAndOther": "Policies and Other"
+      "policiesAndOther": "Policies and Other",
+      "options": "Options"
     },
     "subscription": "Subscription",
     "avatarA11y": "Profile",
@@ -3007,7 +3026,9 @@
       "sources": "Sources",
       "sourcesSub": "Method and scientific basis"
     },
-    "bpsRow": "Day {{d}} · {{s}}/10"
+    "bpsRow": "Day {{d}} · {{s}}/10",
+    "slipTitle": "Slip",
+    "relapseTitle": "Start again"
   },
   "kegel": {
     "painNotice": "Stop if it hurts. Kegels should not cause pain.",
@@ -3031,7 +3052,12 @@
       "positionsHint": "As the weeks go on, positions get harder: lying → sitting → standing.",
       "functionalOn": "Everyday tasks are unlocked too: squeeze first when standing up or on the stairs.",
       "screen": "Take the muscle profile screening",
-      "rescreen": "Redo your muscle profile"
+      "rescreen": "Redo your muscle profile",
+      "surgeryTitle_female": "Doctor or midwife approval",
+      "surgeryText_female": "Your doctor or midwife decides when to start pelvic floor exercises after giving birth. This track only unlocks once they have approved it.",
+      "catheter_female": "Don't exercise if you have pain, bleeding or a problem with stitches.",
+      "doctorOk_female": "My doctor or midwife has approved me starting these exercises.",
+      "needsClearance_female": "Needs doctor or midwife approval"
     },
     "card": {
       "track": "PROGRAMME TRACK",
@@ -3076,6 +3102,11 @@
       "gentle_other": "Welcome back! You took {{count}} days off; we're picking up where you left off, a little more gently (level −1).",
       "rewarm_one": "After a long break we're starting gently by lowering your level by 2.",
       "rewarm_other": "After a {{count}}-day break we're starting gently by lowering your level by 2."
+    },
+    "lock": {
+      "hint": "Opens when the Kegel rest is over",
+      "title": "Muscles resting",
+      "body": "You finished two full sessions. Kegel opens again in {{time}}; rest is part of training."
     }
   },
   "sources": {
@@ -3174,7 +3205,9 @@
         "todayDone": "today, done",
         "missed": "missed",
         "future": "upcoming",
-        "rest": "rest day"
+        "rest": "rest day",
+        "partial": "partly done",
+        "todayPartial": "today, partly done"
       }
     },
     "relax": {
@@ -3217,7 +3250,7 @@
     "finish": "Finish",
     "contents": "In Round 2, in order",
     "new": "New move",
-    "restNote": "The moves repeat twice; you rest 5 seconds in between.",
+    "restNote": "You rest 5 seconds in between.",
     "intro": {
       "kicker": "ROUND 2 · SHORT LESSON",
       "title": "New move: Slow squeeze",

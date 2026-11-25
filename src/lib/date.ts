@@ -6,6 +6,12 @@ export function toDateKey(d: Date = new Date()): string {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 }
 
+/**
+ * Local day of a stored time: an ISO timestamp becomes the local date key (its UTC date is one day early
+ * between 00:00 and 03:00 in Turkey); a value that already is a date key stays as it is.
+ */
+export const dayOf = (isoOrKey: string): string => (/^\d{4}-\d{2}-\d{2}$/.test(isoOrKey) ? isoOrKey : toDateKey(new Date(isoOrKey)));
+
 export function fromDateKey(key: string): Date {
   const [y, m, d] = key.split('-').map(Number);
   return new Date(y ?? 1970, (m ?? 1) - 1, d ?? 1);

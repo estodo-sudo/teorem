@@ -8,6 +8,8 @@ import { useTheme } from '../useTheme';
 import { capsLetterSpacing } from '@/config/theme';
 import { uiHaptic } from './haptic';
 import { ScalePressable } from './pressable';
+import { useTranslation } from 'react-i18next';
+import { localeOf } from '@/i18n/languages';
 
 // ---------------------------------------------------------------- Tabs
 
@@ -33,7 +35,17 @@ export function Tabs<T extends string>({ value, onChange, items, label }: { valu
             accessibilityRole="tab"
             accessibilityState={{ selected: on }}
             accessibilityLabel={it.label}
-            style={{ flex: 1, minHeight: t.touch - 2 * t.space.xs, paddingHorizontal: t.space.xs, alignItems: 'center', justifyContent: 'center', borderRadius: t.radius.sm, backgroundColor: on ? t.tokens.card : 'transparent', borderWidth: t.border.thin, borderColor: on ? t.tokens.border : 'transparent' }}
+            style={{
+              flex: 1,
+              minHeight: t.touch - 2 * t.space.xs,
+              paddingHorizontal: t.space.xs,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: t.radius.sm,
+              backgroundColor: on ? t.tokens.card : 'transparent',
+              borderWidth: t.border.thin,
+              borderColor: on ? t.tokens.border : 'transparent',
+            }}
             hitSlop={t.space.xs}
           >
             <AppText style={{ ...t.type.callout, fontWeight: on ? '600' : '500', color: on ? t.tokens.foreground : t.tokens.mutedForeground }} center>
@@ -129,5 +141,8 @@ export function Skeleton({ width = '100%', height = 16, radius }: { width?: numb
 /** Section label used across screens (caption, muted, upper case). */
 export function Label({ children }: { children: ReactNode }) {
   const t = useTheme();
-  return <AppText style={{ ...t.type.caption, color: t.tokens.mutedForeground, letterSpacing: capsLetterSpacing, textTransform: 'uppercase' }}>{children}</AppText>;
+  const { i18n } = useTranslation();
+  // Locale-aware capitals (Turkish dotted İ), not textTransform.
+  const text = typeof children === 'string' ? children.toLocaleUpperCase(localeOf(i18n.language)) : children;
+  return <AppText style={{ ...t.type.caption, color: t.tokens.mutedForeground, letterSpacing: capsLetterSpacing }}>{text}</AppText>;
 }

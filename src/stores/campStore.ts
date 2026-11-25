@@ -167,6 +167,15 @@ interface CampEventsStore extends CampEvents {
 
 const byAt = <T extends { at: string }>(a: T, b: T) => Date.parse(a.at) - Date.parse(b.at);
 
+/** The screen is updated first; a failed database write is logged and never blocks it (2026-11-23). */
+function saveEvent(what: string, write: () => void) {
+  try {
+    write();
+  } catch (e) {
+    console.warn(`[camp] could not save ${what}`, e);
+  }
+}
+
 export const useCampEventsStore = create<CampEventsStore>()((set, get) => ({
   ...emptyCampEvents(),
   loaded: false,
@@ -176,24 +185,24 @@ export const useCampEventsStore = create<CampEventsStore>()((set, get) => ({
   },
   logCigarette: ({ at, ...rest }) => {
     const l: CigaretteLog = { ...rest, id: makeId('cig'), at: at ?? new Date().toISOString() };
-    getRepo().insertCigarette(l);
     set((s) => ({ cigarettes: [...s.cigarettes, l].sort(byAt) }));
+    saveEvent('cigarette', () => getRepo().insertCigarette(l));
     return l;
   },
   removeCigarette: (id) => {
-    getRepo().deleteCigarette(id);
     set((s) => ({ cigarettes: s.cigarettes.filter((l) => l.id !== id) }));
+    saveEvent('cigarette delete', () => getRepo().deleteCigarette(id));
   },
   logCraving: ({ at, ...rest }) => {
     const c: CravingEvent = { ...rest, id: makeId('crv'), at: at ?? new Date().toISOString() };
-    getRepo().insertCraving(c);
     set((s) => ({ cravings: [...s.cravings, c].sort(byAt) }));
+    saveEvent('craving', () => getRepo().insertCraving(c));
     return c;
   },
   logCheckin: ({ at, ...rest }) => {
     const c: CheckIn = { ...rest, id: makeId('chk'), at: at ?? new Date().toISOString() };
-    getRepo().insertCheckin(c);
     set((s) => ({ checkins: [...s.checkins, c].sort(byAt) }));
+    saveEvent('check-in', () => getRepo().insertCheckin(c));
     return c;
   },
   clearAll: () => {

@@ -1,3 +1,6 @@
+import { Image } from 'expo-image';
+import { View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Svg, { Circle, Ellipse, G, Path, Rect } from 'react-native-svg';
 
 import { useTheme } from './useTheme';
@@ -7,6 +10,31 @@ import { useTheme } from './useTheme';
  * Anatomically respectful: the pelvic floor is shown as a simple "hammock"
  * inside a stylised bowl.
  */
+
+/** Dark "viewer" panel: the translucent 3D bones need a dark ground in the light theme too. */
+const VIEWER = { from: '#1B2230', to: '#0B0E14' } as const;
+
+/**
+ * 3D pelvis with the pelvic floor muscle (Blender render, transparent webp): translucent bone, the red
+ * muscle slung underneath. Used on the tutorial's "Pelvik taban kası nedir?" page.
+ */
+export function PelvicFloor3D({ size = 300 }: { size?: number }) {
+  const t = useTheme();
+  const { t: tr } = useTranslation();
+  return (
+    <View
+      accessible
+      accessibilityRole="image"
+      accessibilityLabel={tr('tutorial.what.artAlt')}
+      style={{ width: size, height: size * 0.82, borderRadius: t.radius.lg, overflow: 'hidden', backgroundColor: VIEWER.to, alignItems: 'center', justifyContent: 'center' }}
+    >
+      <Svg width="100%" height="100%" style={{ position: 'absolute' }} viewBox="0 0 100 82" preserveAspectRatio="none">
+        <Ellipse cx={50} cy={40} rx={60} ry={50} fill={VIEWER.from} />
+      </Svg>
+      <Image source={require('../../assets/art/pelvic-floor.webp')} style={{ width: size * 0.92, height: size * 0.92 * 0.814 }} contentFit="contain" />
+    </View>
+  );
+}
 
 export function PelvicFloorArt({ size = 220, highlight = true }: { size?: number; highlight?: boolean }) {
   const t = useTheme();

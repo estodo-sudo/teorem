@@ -52,7 +52,7 @@ export function usePlayer<P extends TimedPhase>(phases: readonly P[], onEvents: 
     pause: useCallback(() => apply(pauseFn(ref.current, Date.now())), [apply]),
     resume: useCallback(() => apply(resumeFn(ref.current, Date.now())), [apply]),
     skip: useCallback(() => apply(skipFn(ref.current, Date.now())), [apply]),
-    /** Ends only the current phase (a countdown or rest) and starts the next one. */
+    /** Ends only the current phase (a countdown or rest) and starts the next one; nothing is marked skipped. */
     skipPhase: useCallback(() => apply(skipPhaseFn(ref.current, Date.now())), [apply]),
     finish: useCallback(() => apply(finishFn(ref.current, Date.now())), [apply]),
     restartBlock: useCallback(() => apply(restartFn(ref.current, Date.now())), [apply]),

@@ -11,15 +11,18 @@ import { protectedDays } from '@/features/training/returns';
 
 import { evaluateAchievements, type AchievementContext } from './achievements';
 import { computeStreak } from './streak';
+import { countsAsSession } from '@/features/training/summary';
 
-export const completedDates = (workouts: WorkoutSession[]) => workouts.filter((w) => w.completed).map((w) => w.date);
+/** Days with a counted session (streak, returns). Same rule as the daily target: no release session (2026-11-24). */
+export const completedDates = (workouts: WorkoutSession[]) => workouts.filter(countsAsSession).map((w) => w.date);
 
 export function buildAchievementContext(today = toDateKey()): AchievementContext {
   const h = useHistoryStore.getState();
   const p = useProgressStore.getState();
   const streak = computeStreak(completedDates(h.workouts), today, protectedDays(useTrainingStore.getState().training));
   return {
-    totalWorkouts: h.workouts.filter((w) => w.completed).length,
+    // Tur 2 continues Tur 1 and a release session is not a workout (2026-11-24).
+    totalWorkouts: h.workouts.filter(countsAsSession).length,
     currentStreak: streak.current,
     longestStreak: streak.longest,
     level: useTrainingStore.getState().training.level,

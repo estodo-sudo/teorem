@@ -6,6 +6,7 @@ import type { UserProfile } from '@/types';
 import { persistStorage } from './storage';
 
 export const defaultProfile = (): UserProfile => ({
+  sex: null,
   goals: [],
   ageRange: null,
   experience: null,

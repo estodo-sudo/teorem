@@ -1,0 +1,55 @@
+{
+  "reviewed": false,
+  "audit": {
+    "bands": [
+      {
+        "id": "low",
+        "max": 2
+      },
+      {
+        "id": "risky",
+        "text": "Kadınlarda 3 ve üzeri puan sağlığına zarar verebilecek düzeyde içtiğini gösteriyor. İçkiyi azaltmak ya da ara vermek belirgin fayda sağlar."
+      }
+    ]
+  },
+  "info": {
+    "audit": {
+      "text": "Dünya Sağlık Örgütü'nün geliştirdiği 10 soruluk AUDIT alkol testinin, içme sıklığını ve miktarını soran 3 soruluk kısa sürümüdür. Her soru 0–4 puan alır; toplam 0–12'dir. Kadınlarda 3 ve üzeri puan sağlığa zarar verebilecek düzeyde içmeye, 8 ve üzeri yüksek riske işaret eder. Bir tarama testidir, tanı koymaz."
+    }
+  },
+  "sexual": [
+    {
+      "id": "acute",
+      "text": "Alkol sinir sistemini yavaşlatır; çok içildiğinde uyarılma ve orgazm zorlaşabilir. Sarhoşken alınan kararlar korunmasız ilişki riskini de artırır."
+    },
+    {
+      "id": "longterm",
+      "text": "Uzun süre ve fazla içmek hormon dengesini bozabilir, adet düzenini ve doğurganlığı etkileyebilir, karaciğere ve sinirlere zarar vererek cinsel isteği azaltabilir."
+    },
+    {
+      "id": "evidence",
+      "text": "Hafif ve orta düzey içmenin cinsel sağlıkla ilişkisi araştırmalarda net değildir; ancak Dünya Sağlık Örgütü'ne göre sağlık açısından güvenli bir alkol miktarı yoktur."
+    }
+  ],
+  "steps": [
+    {
+      "id": "what",
+      "sections": [
+        null,
+        null,
+        {
+          "text": "Birazdan Dünya Sağlık Örgütü'nün geliştirdiği AUDIT testinin 3 soruluk kısa sürümünü yanıtlayacaksın. Kadınlarda 3 ve üzeri puan, sağlığa zarar verebilecek düzeyde içmeye işaret eder."
+        }
+      ]
+    },
+    {
+      "id": "body",
+      "sections": [
+        null,
+        {
+          "text": "Çok içildiğinde uyarılma ve orgazm zorlaşabilir; uzun süreli ağır içicilik hormon dengesini bozabilir. İçkiyi azaltmak cinsel sağlığını da destekler."
+        }
+      ]
+    }
+  ]
+}

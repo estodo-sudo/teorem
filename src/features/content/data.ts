@@ -3,6 +3,9 @@ import type { IconName } from '@/components/Icon';
 import { pick } from '@/i18n/content';
 import challengesJsonTr from '@/content/challenges.tr.json';
 import challengesJsonEn from '@/content/challenges.en.json';
+import challengesFemaleTr from '@/content/challenges.female.tr.json';
+import challengesFemaleEn from '@/content/challenges.female.en.json';
+import { bySex } from '@/i18n/sex';
 import glossaryJsonTr from '@/content/glossary.tr.json';
 import glossaryJsonEn from '@/content/glossary.en.json';
 import storiesJsonTr from '@/content/stories.tr.json';
@@ -109,7 +112,7 @@ export interface Challenge {
 }
 
 export const STORIES = storiesJson as Story[];
-export const CHALLENGES = challengesJson.items as Challenge[];
+export const CHALLENGES = bySex(challengesJson.items as Challenge[], pick({ tr: challengesFemaleTr, en: challengesFemaleEn }).items);
 /** Nutrition plan: for each day of the cycle, the ids of its 3 tasks. */
 export const NUTRITION_PLAN = challengesJson.plan as string[][];
 export const NUTRITION_DAYS = challengesJson.days;

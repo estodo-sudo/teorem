@@ -1,0 +1,55 @@
+{
+  "reviewed": false,
+  "audit": {
+    "bands": [
+      {
+        "id": "low",
+        "max": 2
+      },
+      {
+        "id": "risky",
+        "text": "For women, a score of 3 or more shows drinking at a level that can harm your health. Cutting down or taking a break brings clear benefits."
+      }
+    ]
+  },
+  "info": {
+    "audit": {
+      "text": "It's the 3-question short version of the 10-question AUDIT alcohol test developed by the World Health Organization, asking about how often and how much you drink. Each question scores 0–4; the total is 0–12. For women, a score of 3 or more points to drinking at a level that can harm health, and 8 or more to high risk. It's a screening test; it doesn't diagnose."
+    }
+  },
+  "sexual": [
+    {
+      "id": "acute",
+      "text": "Alcohol slows the nervous system; when you drink a lot, arousal and orgasm can become harder. Decisions made while drunk also increase the risk of unprotected sex."
+    },
+    {
+      "id": "longterm",
+      "text": "Drinking too much for a long time can upset your hormone balance, affect your periods and fertility, and damage the liver and nerves, lowering sexual desire."
+    },
+    {
+      "id": "evidence",
+      "text": "The link between light to moderate drinking and sexual health isn't clear in research; however, according to the World Health Organization there's no safe amount of alcohol for health."
+    }
+  ],
+  "steps": [
+    {
+      "id": "what",
+      "sections": [
+        null,
+        null,
+        {
+          "text": "In a moment you'll answer the 3-question short version of the AUDIT test developed by the World Health Organization. For women, a score of 3 or more points to drinking at a level that can harm health."
+        }
+      ]
+    },
+    {
+      "id": "body",
+      "sections": [
+        null,
+        {
+          "text": "When you drink a lot, arousal and orgasm can become harder; long-term heavy drinking can upset your hormone balance. Cutting down supports your sexual health too."
+        }
+      ]
+    }
+  ]
+}

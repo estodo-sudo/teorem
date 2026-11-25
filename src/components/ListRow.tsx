@@ -1,5 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { localeOf } from '@/i18n/languages';
 import { Pressable, StyleSheet, Switch, View } from 'react-native';
 
 import type { ModuleTone } from '@/config/theme';
@@ -75,11 +77,13 @@ export function ListRow({ label, value, description, icon, tone = 'kegel', onPre
 /** A card of rows: the hairline under the last row is tucked away. */
 export function RowGroup({ title, children }: { title?: string; children: ReactNode }) {
   const t = useTheme();
+  const { i18n } = useTranslation();
   return (
     <View style={{ gap: t.space.sm }}>
       {title ? (
-        <AppText variant="caption" muted style={{ letterSpacing: 0.4, textTransform: 'uppercase', marginLeft: t.space.xs }} accessibilityRole="header">
-          {title}
+        <AppText variant="caption" muted style={{ letterSpacing: 0.4, marginLeft: t.space.xs }} accessibilityRole="header">
+          {/* Locale-aware capitals (2026-11-24: "ABONELIK" → "ABONELİK"). */}
+          {title.toLocaleUpperCase(localeOf(i18n.language))}
         </AppText>
       ) : null}
       <View style={{ borderRadius: t.radius.lg, borderWidth: t.border.thin, borderColor: t.tokens.border, backgroundColor: t.tokens.card, paddingHorizontal: t.space.lg, overflow: 'hidden' }}>
@@ -109,10 +113,4 @@ export function SwitchRow({ label, description, value, onChange, icon }: SwitchR
   );
 }
 
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-});
+const styles = StyleSheet.create({ row: { flexDirection: 'row', alignItems: 'center', borderBottomWidth: StyleSheet.hairlineWidth } });

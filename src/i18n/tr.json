@@ -115,7 +115,7 @@
     "pause": "Duraklat",
     "resume": "Devam et",
     "restart": "Baştan başla",
-    "skip": "Bloğu atla",
+    "skip": "Egzersizi atla",
     "finish": "Bitir",
     "keepGoing": "Devam ediyorum",
     "progress": "Antrenman ilerlemesi",
@@ -126,7 +126,7 @@
       "Nefesini tutma. Sıkarken de bırakırken de rahatça nefes al.",
       "Telefon sen sıktığın sürece titrer, bıraktığında durur. Ekrana bakmana gerek yok.",
       "Bırakma fazı en az sıkma kadar önemlidir; kası tamamen bırak.",
-      "Ekrana dokun: duraklat. Bir saniye basılı tut: bitir. Sola kaydır: bloğu atla. İki kez dokun: siyah ekran."
+      "Ekrana dokun: duraklat. Bir saniye basılı tut: bitir. Sola kaydır: ileri al. İki kez dokun: siyah ekran."
     ],
     "painWarning": "Ağrı, yanma veya rahatsızlık hissedersen hemen dur ve bir sağlık profesyoneline danış.",
     "interruptedTitle": "Antrenman duraklatıldı",
@@ -147,8 +147,8 @@
       "slowRelease": "Yavaşça bırak",
       "hold": "Tut"
     },
-    "restartBlock": "Bloğu baştan al",
-    "gestureHint": "Ekrana dokun: duraklat veya devam et. Bir saniye basılı tut: bitir. Sola kaydır: bloğu atla. İki kez dokun: siyah ekran.",
+    "restartBlock": "Egzersizi baştan al",
+    "gestureHint": "Ekrana dokun: duraklat veya devam et. Bir saniye basılı tut: bitir. Sola kaydır: ileri al. İki kez dokun: siyah ekran.",
     "positionNow": "Pozisyon: {{position}}",
     "painButton": "Ağrı var",
     "painTitle": "Seansı durdurduk",
@@ -156,8 +156,8 @@
     "painRefer": "Bu hafta ikinci kez rahatsızlık bildirdin. Bir üroloji uzmanına veya pelvik taban fizyoterapistine danışmanı öneriyoruz. İstersen Gevşeme Odaklı programa geçebilirsin.",
     "painRelease": "Bırakma ve nefesle devam et",
     "painEnd": "Bugünlük bitir",
-    "skipTitle": "Bu bloğu atla?",
-    "skipBody": "Blok atlanırsa seviye artışında sayılmaz. Bu seansta bir daha sormayacağız.",
+    "skipTitle": "Bu egzersizi atla?",
+    "skipBody": "Atladığın egzersiz seviye artışında sayılmaz. Bu seansta bir daha sormayacağız.",
     "startIn": "Bu pozisyonda başla",
     "nextTitle": "Sıradaki: {{name}} ×{{reps}}",
     "nextDetail": "{{hold}} sn sık · {{rest}} sn bırak",
@@ -282,7 +282,10 @@
     "erection": "Sertleşme kalitesi",
     "confidence": "Özgüven",
     "general": "Genel sağlık",
-    "postSurgery": "Ameliyat sonrası toparlanma"
+    "postSurgery": "Ameliyat sonrası toparlanma",
+    "bladder_female": "İdrar kaçırmayı azaltma",
+    "erection_female": "Cinsel his ve haz",
+    "postSurgery_female": "Doğum sonrası toparlanma"
   },
   "onboarding": {
     "progress": "Adım {{step}} / {{total}}",
@@ -355,7 +358,17 @@
       "goals": "Hedeflerin",
       "reminderOff": "Kapalı"
     },
-    "back": "Geri"
+    "back": "Geri",
+    "sex": {
+      "title": "Program kimin için?",
+      "hint": "Hedefler, programlar ve sorular buna göre hazırlanır. Sonra Antrenman ayarlarından değiştirebilirsin.",
+      "female": "Kadın",
+      "male": "Erkek",
+      "femaleHint": "Doğum sonrası, idrar kaçırma, cinsel sağlık",
+      "maleHint": "Dayanıklılık, sertleşme, idrar kontrolü",
+      "setting": "Program kimin için",
+      "settingHint": "Hedeflerin, program izlerinin ve soruların metinleri buna göre değişir. Antrenman geçmişin aynen kalır."
+    }
   },
   "tutorial": {
     "header": "Eğitim",
@@ -367,7 +380,8 @@
         "Pelvik taban, leğen kemiğinin altında bir hamak gibi uzanan kas grubudur.",
         "Mesaneyi ve bağırsakları destekler, idrar kontrolüne ve cinsel fonksiyona katkı sağlar.",
         "Diğer kaslar gibi düzenli ve doğru çalıştırıldığında güçlenebilir."
-      ]
+      ],
+      "artAlt": "Leğen kemiği ve altında hamak gibi uzanan pelvik taban kası"
     },
     "find": {
       "title": "Kası nasıl bulursun?",
@@ -483,7 +497,7 @@
       "title": "Hazırsın!",
       "body": [
         "Kası buldun, titreşim dilini öğrendin, sıkmayı ve bırakmayı denedin.",
-        "İlk seansın Hızlı (3 dakika). Sonra süreyi sen seçersin; seviye geri bildirimine göre ayarlanır."
+        "İlk seansın Hızlı (2 dakika). Sonra süreyi sen seçersin; seviye geri bildirimine göre ayarlanır."
       ],
       "cta": "Hazırım"
     }
@@ -1022,12 +1036,14 @@
       "contentsHide": "Egzersizleri gizlemek için dokun",
       "dayKicker": "Gün {{day}} / {{total}}",
       "summaryA11y": "Egzersizleri göster",
+      "summaryPill": "{{count}} egzersiz · {{min}} dakika",
       "microShort": "Mikro set",
       "breathShort": "Nefes · 1 dk",
       "targetShort": "Günlük hedef",
       "microHint": "{{sec}} saniyelik kısa set",
       "summary_one": "{{count}} bölüm · yaklaşık {{min}} dk",
-      "summary_other": "{{count}} bölüm · yaklaşık {{min}} dk"
+      "summary_other": "{{count}} bölüm · yaklaşık {{min}} dk",
+      "summaryInline": "{{count}} egzersiz · {{min}} dk"
     },
     "challenges": "Beslenme ipucu",
     "strengthDue": "Haftalık güç testi zamanı",
@@ -1064,9 +1080,10 @@
       "count": "{{done}}/{{total}}",
       "progressA11y": "Bugün {{done}}/{{total}} görev tamamlandı",
       "training": "Antrenman",
-      "foods": "Bugünün 3 besini",
+      "foods": "Bugün için besin önerileri",
       "foodsDay": "Gün {{day}}/{{total}}",
-      "foodsMeta": "{{done}}/{{total}} yenildi · Gün {{day}}/{{days}}"
+      "foodsMeta": "{{done}}/{{total}} yenildi · Gün {{day}}/{{days}}",
+      "foodsNote": "Sadece öneri; dokunarak nedenini görebilirsin."
     },
     "forYou": "Senin için",
     "forYouStory": "Günün hikâyesi",
@@ -1089,7 +1106,7 @@
     "exercisesTitle": "Egzersiz türleri",
     "topicsTitle": "Merak edilenler",
     "preset": {
-      "quick": "Hızlı (3 dk)",
+      "quick": "Hızlı (2 dk)",
       "standard": "Standart (5 dk)",
       "full": "Tam (8 dk)"
     },
@@ -1268,7 +1285,7 @@
       "none": "Yok",
       "partial": "Yarım",
       "done": "Tamam",
-      "multi": "2+ seans"
+      "multi": "Hedeften fazla"
     },
     "notes": {
       "title": "Notlarım",
@@ -1367,71 +1384,71 @@
       "testBody": "Haftalık pelvik taban güç testini yap ve gelişimini gör"
     },
     "actions": {
-      "start": "Başla (3 dk)",
+      "start": "Başla (2 dk)",
       "micro": "Mikro set (1 dk)",
       "snooze15": "15 dk ertele",
       "skipToday": "Bugün atla",
       "snooze60": "1 saat ertele"
     }
   },
-    "fitnessProgram": {
-      "title": "Kasık Fitness",
-      "kicker": "7 haftalık program",
-      "weekOf": "Hafta {{n}} / {{total}}",
-      "sessions": "{{done}}/{{total}} seans",
-      "progressA11y": "Program ilerlemesi: {{done}}/{{total}} seans",
-      "thisWeek": "Bu hafta",
-      "thisWeekCount": "Bu hafta {{done}}/{{target}} seans",
-      "todayDone": "Bugünkü seans tamam. Yarın dinlenebilirsin.",
-      "todayTodo": "Haftada 3 seans hedefle; seanslar arasında bir gün ara ver.",
-      "today": "Bugünün seansı",
-      "start": "Seansı başlat",
-      "again": "Tekrar yap",
-      "chart": "7 haftalık ilerleme",
-      "chartHint": "Her sütun bir hafta; hedef haftada 3 seans.",
-      "chartA11y": "Hafta {{n}}: {{done}}/{{target}} seans",
-      "target": "Hedef",
-      "weeksTitle": "Haftalar",
-      "status": {
-        "done": "Tamamlandı",
-        "current": "Bu hafta",
-        "missed": "Eksik kaldı",
-        "upcoming": "Sırada"
-      },
-      "notStarted": "İlk seansını yaptığın gün program başlar.",
-      "finished": "Programı tamamladın! Kazanımlarını korumak için haftada 2-3 seansa devam et.",
-      "over": "7 hafta doldu. Rutine istediğin kadar devam edebilirsin.",
-      "weeks": {
-        "1": {
-          "title": "Hareketleri öğren",
-          "text": "Her hareketi yavaş yap ve figürü izle; doğru pozisyon hızdan önemli."
-        },
-        "2": {
-          "title": "Ritmi oturt",
-          "text": "Haftada 3 seansı alışkanlığa çevir; nefesini hareketle eşle."
-        },
-        "3": {
-          "title": "Kalçayı uyandır",
-          "text": "Köprü ve istiridyede kalçanı bilinçli sık, tepede bir an bekle."
-        },
-        "4": {
-          "title": "Merkezi güçlendir",
-          "text": "Ölü böcek ve kuş-köpekte belini sabit tut, karnını hafifçe içeri çek."
-        },
-        "5": {
-          "title": "Kontrolü artır",
-          "text": "İndirme anlarını yavaşlat; kas kontrolü en çok inerken gelişir."
-        },
-        "6": {
-          "title": "Dayanıklılık",
-          "text": "Seans boyunca formunu koru; dinlenmelerde nefesini düzene sok."
-        },
-        "7": {
-          "title": "Kalıcı alışkanlık",
-          "text": "Kazandığın gücü koru; program bitince de haftada 2-3 seans yeterli."
-        }
-      }
+  "fitnessProgram": {
+    "title": "Kasık Fitness",
+    "kicker": "7 haftalık program",
+    "weekOf": "Hafta {{n}} / {{total}}",
+    "sessions": "{{done}}/{{total}} seans",
+    "progressA11y": "Program ilerlemesi: {{done}}/{{total}} seans",
+    "thisWeek": "Bu hafta",
+    "thisWeekCount": "Bu hafta {{done}}/{{target}} seans",
+    "todayDone": "Bugünkü seans tamam. Yarın dinlenebilirsin.",
+    "todayTodo": "Haftada 3 seans hedefle; seanslar arasında bir gün ara ver.",
+    "today": "Bugünün seansı",
+    "start": "Seansı başlat",
+    "again": "Tekrar yap",
+    "chart": "7 haftalık ilerleme",
+    "chartHint": "Her sütun bir hafta; hedef haftada 3 seans.",
+    "chartA11y": "Hafta {{n}}: {{done}}/{{target}} seans",
+    "target": "Hedef",
+    "weeksTitle": "Haftalar",
+    "status": {
+      "done": "Tamamlandı",
+      "current": "Bu hafta",
+      "missed": "Eksik kaldı",
+      "upcoming": "Sırada"
     },
+    "notStarted": "İlk seansını yaptığın gün program başlar.",
+    "finished": "Programı tamamladın! Kazanımlarını korumak için haftada 2-3 seansa devam et.",
+    "over": "7 hafta doldu. Rutine istediğin kadar devam edebilirsin.",
+    "weeks": {
+      "1": {
+        "title": "Hareketleri öğren",
+        "text": "Her hareketi yavaş yap ve figürü izle; doğru pozisyon hızdan önemli."
+      },
+      "2": {
+        "title": "Ritmi oturt",
+        "text": "Haftada 3 seansı alışkanlığa çevir; nefesini hareketle eşle."
+      },
+      "3": {
+        "title": "Kalçayı uyandır",
+        "text": "Köprü ve istiridyede kalçanı bilinçli sık, tepede bir an bekle."
+      },
+      "4": {
+        "title": "Merkezi güçlendir",
+        "text": "Ölü böcek ve kuş-köpekte belini sabit tut, karnını hafifçe içeri çek."
+      },
+      "5": {
+        "title": "Kontrolü artır",
+        "text": "İndirme anlarını yavaşlat; kas kontrolü en çok inerken gelişir."
+      },
+      "6": {
+        "title": "Dayanıklılık",
+        "text": "Seans boyunca formunu koru; dinlenmelerde nefesini düzene sok."
+      },
+      "7": {
+        "title": "Kalıcı alışkanlık",
+        "text": "Kazandığın gücü koru; program bitince de haftada 2-3 seans yeterli."
+      }
+    }
+  },
   "fitness": {
     "title": "Kasık Fitness",
     "subtitle": "Kalça, karın ve iç bacak kaslarını destekleyen vücut ağırlığı egzersizleri.",
@@ -1442,7 +1459,7 @@
     "startHint": "Kasık Fitness rutinini açar",
     "openProgram": "Programa git",
     "chipWeek": "Hafta {{n}}/{{total}}",
-    "routineTitle": "{{name}} rutini",
+    "routineTitle": "{{name}} rutin",
     "overview": "{{count}} hareket · {{rounds}} tur · yaklaşık {{min}} dakika",
     "cardMeta": "{{count}} egzersiz · {{min}} dk",
     "recommended": "Senin için önerilen",
@@ -1468,7 +1485,7 @@
       },
       "2": {
         "name": "Güç",
-        "hint": "Kalça, iç bacak ve pelvik tabanı güçlendiren hareketler."
+        "hint": "Kalça, karın ve iç bacağı güçlendiren hareketler."
       },
       "3": {
         "name": "Esneme",
@@ -1510,7 +1527,8 @@
       "pull": "ÇEK",
       "left": "SOL",
       "right": "SAĞ"
-    }
+    },
+    "cardDesc": "Kalça, karın ve iç bacak için 7 haftalık program."
   },
   "mind": {
     "title": "Zihin Rahatlatma",
@@ -1750,7 +1768,8 @@
       "developer": "Geliştirici",
       "policies": "Politikalar",
       "other": "Diğer",
-      "policiesAndOther": "Politikalar ve Diğer"
+      "policiesAndOther": "Politikalar ve Diğer",
+      "options": "Seçenekler"
     },
     "subscription": "Abonelik",
     "avatarA11y": "Profil",
@@ -3007,7 +3026,9 @@
       "sources": "Kaynaklar",
       "sourcesSub": "Yöntem ve bilimsel dayanak"
     },
-    "bpsRow": "{{d}}. gün · {{s}}/10"
+    "bpsRow": "{{d}}. gün · {{s}}/10",
+    "slipTitle": "Kayma",
+    "relapseTitle": "Yeniden başla"
   },
   "kegel": {
     "painNotice": "Ağrı olursa dur. Kegel ağrı yapmamalıdır.",
@@ -3031,7 +3052,12 @@
       "positionsHint": "Pozisyonlar haftalar ilerledikçe yatarak → oturarak → ayakta olarak zorlaşır.",
       "functionalOn": "Günlük hayat görevleri de açıldı: ayağa kalkarken, merdivende önce sık.",
       "screen": "Kas profili taramasını yap",
-      "rescreen": "Kas profilini yenile"
+      "rescreen": "Kas profilini yenile",
+      "surgeryTitle_female": "Doktor veya ebe onayı",
+      "surgeryText_female": "Doğumdan sonra pelvik taban egzersizine ne zaman başlayacağına doktorun ya da eben karar verir. Bu iz yalnızca onay verdiyse açılır.",
+      "catheter_female": "Ağrı, kanama ya da dikiş sorunu varsa egzersiz yapma.",
+      "doctorOk_female": "Doktorum ya da ebem bu egzersizlere başlamam için onay verdi.",
+      "needsClearance_female": "Doktor veya ebe onayı gerekir"
     },
     "card": {
       "track": "PROGRAM İZİ",
@@ -3076,6 +3102,11 @@
       "gentle_other": "Hoş geldin! {{count}} gün ara verdin; kaldığın yerden biraz yumuşak başlıyoruz (seviye −1).",
       "rewarm_one": "Uzun bir aradan sonra seviyeni 2 basamak düşürerek yumuşak başlıyoruz.",
       "rewarm_other": "{{count}} günlük aradan sonra seviyeni 2 basamak düşürerek yumuşak başlıyoruz."
+    },
+    "lock": {
+      "hint": "Kegel dinlenme süresi bitince açılır",
+      "title": "Kaslar dinleniyor",
+      "body": "İki tam seansı bitirdin. Kegel {{time}} sonra yeniden açılacak; dinlenmek de antrenmanın parçası."
     }
   },
   "sources": {
@@ -3174,7 +3205,9 @@
         "todayDone": "bugün, yapıldı",
         "missed": "yapılmadı",
         "future": "sırada",
-        "rest": "dinlenme günü"
+        "rest": "dinlenme günü",
+        "partial": "yarım kaldı",
+        "todayPartial": "bugün, yarım"
       }
     },
     "relax": {
@@ -3217,7 +3250,7 @@
     "finish": "Bitir",
     "contents": "Tur 2'de sırayla",
     "new": "Yeni hareket",
-    "restNote": "Hareketler iki kez tekrarlanır; aralarda 5 saniye dinlenirsin.",
+    "restNote": "Aralarda 5 saniye dinlenirsin.",
     "intro": {
       "kicker": "TUR 2 · KISA EĞİTİM",
       "title": "Yeni hareket: Yavaş sıkma",

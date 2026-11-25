@@ -66,6 +66,8 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const [confirmFinish, setConfirmFinish] = useState(false);
   const [confirmSkip, setConfirmSkip] = useState(false);
   const skipConfirmed = useRef(false);
+  /** A dialog (skip, finish, help) paused a running player: closing it resumes; a pause the user made stays. */
+  const pausedForDialog = useRef(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [black, setBlack] = useState(false);
   const [pain, setPain] = useState<{ refer: boolean } | null>(null);
@@ -139,10 +141,7 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const pausesRef = useRef(0);
   const prevStatus = useRef(state.status);
   useEffect(() => {
-    if (prevStatus.current === 'running' && state.status === 'paused') {
-      pausesRef.current += 1;
-      cancelHaptics();
-    }
+    if (prevStatus.current === 'running' && state.status === 'paused') cancelHaptics();
     // Resumed mid-squeeze: vibrate for the rest of it.
     if (prevStatus.current === 'paused' && state.status === 'running') {
       const ph = currentPhase(state);
@@ -229,23 +228,73 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const toggle = useCallback(() => {
     const s = player.getState();
     if (s.status === 'running') {
+      // Only the user's own pauses are a difficulty signal (not the skip dialog or leaving the app).
+      pausesRef.current += 1;
       player.pause();
       cancelHaptics();
       stopSpeech();
     } else if (s.status === 'paused') player.resume();
   }, [player]);
+  const holdForDialog = useCallback(() => {
+    pausedForDialog.current = player.getState().status === 'running';
+    if (pausedForDialog.current) {
+      player.pause();
+      cancelHaptics();
+      stopSpeech();
+    }
+  }, [player]);
+  const releaseDialog = useCallback(() => {
+    if (pausedForDialog.current) player.resume();
+    pausedForDialog.current = false;
+  }, [player]);
+  // Skip forward (2026-11-23 fix): during "Dinlen" or the start countdown it only ends the wait and the
+  // coming exercise starts at once (it used to jump over that whole exercise and mark it skipped).
+  // During an exercise it skips the rest of it; that asks once per session.
   const askSkip = useCallback(() => {
     if (minimal) return;
-    if (skipConfirmed.current) player.skip();
-    else {
-      if (player.getState().status === 'running') player.pause();
-      setConfirmSkip(true);
-    }
-  }, [minimal, player]);
+    const s = player.getState();
+    const ph = currentPhase(s);
+    if (ph && (ph.kind === 'transition' || ph.kind === 'countdown')) return player.skipPhase();
+    if (skipConfirmed.current) return player.skip();
+    holdForDialog();
+    setConfirmSkip(true);
+  }, [minimal, player, holdForDialog]);
+  const closeSkip = useCallback(
+    (skip: boolean) => {
+      setConfirmSkip(false);
+      if (skip) {
+        skipConfirmed.current = true;
+        player.skip();
+      }
+      releaseDialog();
+    },
+    [player, releaseDialog],
+  );
+  // "Antrenmanı bitir?" and the help used to leave the session running behind them (2026-11-23 fix).
   const askFinish = useCallback(() => {
     if (minimal) return;
+    holdForDialog();
     setConfirmFinish(true);
-  }, [minimal]);
+  }, [minimal, holdForDialog]);
+  const closeFinish = useCallback(
+    (end: boolean) => {
+      setConfirmFinish(false);
+      if (end) {
+        pausedForDialog.current = false;
+        return player.finish();
+      }
+      releaseDialog();
+    },
+    [player, releaseDialog],
+  );
+  const openHelp = useCallback(() => {
+    holdForDialog();
+    setHelpOpen(true);
+  }, [holdForDialog]);
+  const closeHelp = useCallback(() => {
+    setHelpOpen(false);
+    releaseDialog();
+  }, [releaseDialog]);
   const endWithPain = (choice: 'release' | 'end') => {
     painChoice.current = choice;
     setPain(null);
@@ -280,7 +329,7 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
           <View accessible accessibilityRole="image" accessibilityLabel={tr('player.positionNow', { position: positionCard(position).title })} style={styles.iconBtn}>
             <Icon name={POSITION_ICON[position]} color={f.icon} size="lg" />
           </View>
-          <IconButton icon="help" label={tr('player.help')} onPress={() => setHelpOpen(true)} color={f.icon} />
+          <IconButton icon="help" label={tr('player.help')} onPress={openHelp} color={f.icon} />
         </View>
       </View>
 
@@ -350,20 +399,20 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
         visible={confirmFinish}
         title={tr('player.finishTitle')}
         message={tr('player.finishBody')}
-        onDismiss={() => setConfirmFinish(false)}
+        onDismiss={() => closeFinish(false)}
         actions={[
-          { label: tr('player.finish'), variant: 'danger', onPress: () => (setConfirmFinish(false), player.finish()) },
-          { label: tr('player.keepGoing'), onPress: () => setConfirmFinish(false) },
+          { label: tr('player.finish'), variant: 'danger', onPress: () => closeFinish(true) },
+          { label: tr('player.keepGoing'), onPress: () => closeFinish(false) },
         ]}
       />
       <Dialog
         visible={confirmSkip}
         title={tr('player.skipTitle')}
         message={tr('player.skipBody')}
-        onDismiss={() => (setConfirmSkip(false), player.resume())}
+        onDismiss={() => closeSkip(false)}
         actions={[
-          { label: tr('player.skip'), variant: 'accent', onPress: () => ((skipConfirmed.current = true), setConfirmSkip(false), player.resume(), player.skip()) },
-          { label: tr('player.keepGoing'), onPress: () => (setConfirmSkip(false), player.resume()) },
+          { label: tr('player.skip'), variant: 'accent', onPress: () => closeSkip(true) },
+          { label: tr('player.keepGoing'), onPress: () => closeSkip(false) },
         ]}
       />
       <Dialog
@@ -375,7 +424,7 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
           { label: tr('player.painEnd'), onPress: () => endWithPain('end') },
         ]}
       />
-      <Dialog visible={helpOpen} title={tr('player.helpTitle')} onDismiss={() => setHelpOpen(false)} actions={[{ label: tr('common.done'), variant: 'primary', onPress: () => setHelpOpen(false) }]}>
+      <Dialog visible={helpOpen} title={tr('player.helpTitle')} onDismiss={closeHelp} actions={[{ label: tr('common.done'), variant: 'primary', onPress: closeHelp }]}>
         <View style={{ gap: 8 }}>
           {(tr('player.helpTips', { returnObjects: true }) as string[]).map((tip) => (
             <AppText key={tip}>• {tip}</AppText>

@@ -6,8 +6,11 @@
  *  Yavaş sıkma      (Tur 2 only) slowly up 3 s, hold 0.5 s at the top, let go, wait 1 s; as a block 33 → 60 s
  *
  * with a 5 s "Dinlen" between the exercises. Tur 1 repeats (uzun, hızlı) `cycles` times and ends with
- * one more uzun sıkma: ≈ 3 min at level 1, ≈ 6.5 min at level 30. Tur 2 (optional) is
- * 2 × (yavaş, hızlı, uzun). Pure data derived from the level.
+ * one more uzun sıkma. 2026-11-23 ("3 dk → 2 dk, sıkma süreleri değil egzersiz sayısı azalsın"): the
+ * squeeze times stay, every level has one (uzun, hızlı) cycle less — 2 cycles (5 exercises, ≈ 2 min)
+ * up to level 14, 3 cycles (7 exercises, ≈ 5 min at level 30) from level 15. Tur 2 (optional) is
+ * yavaş, hızlı, yavaş, uzun — 4 exercises instead of 2 × (yavaş, hızlı, uzun), same squeeze times:
+ * ≈ 2 min at level 1 (was ≈ 3), ≈ 3.5 min at level 30 (was ≈ 5). Pure data derived from the level.
  */
 export interface LevelParams {
   level: number;
@@ -33,10 +36,11 @@ export const SLOW_UP_SEC = 3;
 export const SLOW_TOP_SEC = 0.5;
 export const SLOW_PAUSE_SEC = 1;
 export const SLOW_REP_SEC = SLOW_UP_SEC + SLOW_TOP_SEC + SLOW_PAUSE_SEC;
-/** Tur 1 gets a fourth cycle from this level on. */
-export const FOURTH_CYCLE_FROM_LEVEL = 15;
-/** Tur 2 cycles of (yavaş, hızlı, uzun). */
-export const ROUND2_CYCLES = 2;
+/** Tur 1 (uzun, hızlı) cycles: 2 below this level, 3 from it on. */
+export const BASE_CYCLES = 2;
+export const EXTRA_CYCLE_FROM_LEVEL = 15;
+/** Tur 2 in order (2026-11-23: "Tur 2 de 2 dk"; was 2 × (yavaş, hızlı, uzun)). */
+export const ROUND2_ORDER = ['slow', 'quick', 'slow', 'long'] as const;
 
 export function clampLevel(level: number): number {
   if (!Number.isFinite(level)) return MIN_LEVEL;
@@ -52,10 +56,10 @@ function build(level: number): LevelParams {
   const holdSec = Math.round(lerp(12, 20, level));
   const quickSec = 2 * Math.round(lerp(15, 30, level));
   const slowBlockSec = Math.round(lerp(33, 60, level));
-  const cycles = level < FOURTH_CYCLE_FROM_LEVEL ? 3 : 4;
+  const cycles = level < EXTRA_CYCLE_FROM_LEVEL ? BASE_CYCLES : BASE_CYCLES + 1;
   const flicks = quickSec / 2;
   const round1 = cycles + 1 + cycles * flicks;
-  const round2 = ROUND2_CYCLES * (slowReps(slowBlockSec) + flicks + 1);
+  const round2 = ROUND2_ORDER.reduce((n, b) => n + (b === 'slow' ? slowReps(slowBlockSec) : b === 'quick' ? flicks : 1), 0);
   return { level, holdSec, quickSec, slowBlockSec, cycles, sessionCap: round1 + round2 };
 }
 

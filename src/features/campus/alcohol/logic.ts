@@ -19,8 +19,9 @@ export const FREE_DAYS_TARGET = 3;
 export const QUIT_GOALS = [14, 30, 60] as const;
 export const AUDIT_QUESTIONS = 3;
 export const WITHDRAWAL_QUESTIONS = 4;
-/** AUDIT-C cut-off for men: 4 or more = hazardous drinking. */
+/** AUDIT-C cut-off: 4 or more for men, 3 or more for women = hazardous drinking (bands in the content). */
 export const AUDIT_POSITIVE_MEN = 4;
+export const AUDIT_POSITIVE_WOMEN = 3;
 
 export type AlcMode = 'cut' | 'quit';
 

@@ -108,6 +108,38 @@ export interface SessionOutcome {
   skippedBlocks?: number;
   /** The session ran in a deload week (remembered so the schedule moves on). */
   deload?: boolean;
+  /** This session already moved the plan on when it finished (recordWorkout). */
+  advancedPlan?: boolean;
+}
+
+/**
+ * Moves the 30-day plan and the programme week one day on, once per date. Called when a main session
+ * finishes (2026-11-23 fix: it used to wait for the "Nasıldı?" answers, so leaving that screen kept the
+ * plan on the same day).
+ */
+export function advancePlan(t: TrainingState, date: string): TrainingState {
+  if (t.lastAdvancedDate === date) return t;
+  let day = t.planDayIndex + 1;
+  let plan = t.planNumber;
+  if (day >= PLAN_LENGTH_DAYS) {
+    day = 0;
+    plan += 1;
+  }
+  return { ...t, planDayIndex: day, planNumber: plan, lastAdvancedDate: date, repeatNextDay: false, dayIndex: (t.dayIndex + 1) % 7, weekIndex: t.weekIndex + (t.dayIndex + 1 >= 7 ? 1 : 0) };
+}
+
+/** Takes today's advance back ("Tamamlayamadım" after the plan already moved on), so the day repeats. */
+export function undoAdvance(t: TrainingState, date: string): TrainingState {
+  if (t.lastAdvancedDate !== date) return t;
+  const rolled = t.planDayIndex === 0;
+  return {
+    ...t,
+    planDayIndex: rolled ? PLAN_LENGTH_DAYS - 1 : t.planDayIndex - 1,
+    planNumber: rolled ? Math.max(1, t.planNumber - 1) : t.planNumber,
+    lastAdvancedDate: null,
+    dayIndex: (t.dayIndex + 6) % 7,
+    weekIndex: t.dayIndex === 0 ? Math.max(0, t.weekIndex - 1) : t.weekIndex,
+  };
 }
 
 /**
@@ -128,24 +160,10 @@ export function applySessionResult(t: TrainingState, result: SessionOutcome): Tr
   }
   delete next.nextPresetOnce;
   if (adj.repeatDay) {
-    next.repeatNextDay = true;
-    return next;
+    // Only this session's own advance is taken back (not one made by an earlier session today).
+    return { ...(result.advancedPlan ? undoAdvance(next, result.date) : next), repeatNextDay: true };
   }
-  if (t.lastAdvancedDate !== result.date) {
-    let day = t.planDayIndex + 1;
-    let plan = t.planNumber;
-    if (day >= PLAN_LENGTH_DAYS) {
-      day = 0;
-      plan += 1;
-    }
-    next.planDayIndex = day;
-    next.planNumber = plan;
-    next.lastAdvancedDate = result.date;
-    next.repeatNextDay = false;
-    next.dayIndex = (t.dayIndex + 1) % 7;
-    next.weekIndex = t.weekIndex + (t.dayIndex + 1 >= 7 ? 1 : 0);
-  }
-  return next;
+  return advancePlan(next, result.date);
 }
 
 /** Non-punishing return after missed days (§6.6): the level goes down by the policy's delta. */

@@ -1,4 +1,4 @@
-import { addDays, daysBetween } from '@/lib/date';
+import { addDays, dayOf, daysBetween } from '@/lib/date';
 import type { DurationPreset, PainReport, StrengthTest, TrackId } from '@/types';
 
 import { dailyContractionCap } from './levels';
@@ -112,7 +112,8 @@ export interface PainPolicy {
 }
 
 export function painPolicy(reports: PainReport[], today: string): PainPolicy {
-  const days = reports.map((r) => r.at.slice(0, 10)).filter((d) => d <= today && daysBetween(d, today) < PAIN_LOCK_DAYS);
+  // Local day of the report (2026-11-24: the UTC date was one day early between 00:00 and 03:00 in Turkey).
+  const days = reports.map((r) => dayOf(r.at)).filter((d) => d <= today && daysBetween(d, today) < PAIN_LOCK_DAYS);
   if (!days.length) return { lockUntil: null, refer: false };
   const latest = days.sort().at(-1)!;
   return { lockUntil: addDays(latest, PAIN_LOCK_DAYS), refer: days.length >= PAIN_REFER_COUNT };
@@ -142,7 +143,7 @@ export function screeningToTrack(answers: boolean[]): ScreeningResult {
 
 /** Re-screening every 2 weeks on the relaxation track. */
 export const RESCREEN_EVERY_DAYS = 14;
-export const rescreenDue = (screenedAt: string, today: string) => daysBetween(screenedAt.slice(0, 10), today) >= RESCREEN_EVERY_DAYS;
+export const rescreenDue = (screenedAt: string, today: string) => daysBetween(dayOf(screenedAt), today) >= RESCREEN_EVERY_DAYS;
 
 // ---------------------------------------------------------------- muscle score (§9)
 

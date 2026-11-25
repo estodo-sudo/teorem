@@ -29,6 +29,7 @@ import {
   type BreathMode,
 } from "./patterns";
 import { useBreathStore } from "./store";
+import { localeOf } from '@/i18n/languages';
 
 export type BreathFeeling = "calmer" | "same" | "tenser";
 
@@ -78,7 +79,7 @@ function PlayerBody({
 }) {
   useSafeKeepAwake();
   const t = useTheme();
-  const { t: tr } = useTranslation();
+  const { t: tr, i18n } = useTranslation();
   const reduce = useReducedMotion();
   const fg = color ?? t.tone.mind.fg;
   const total = sessionMs(mode, minutes);
@@ -176,7 +177,7 @@ function PlayerBody({
     );
   }
 
-  const label = tr(`breath.step.${st.kind}`).toLocaleUpperCase("tr");
+  const label = tr(`breath.step.${st.kind}`).toLocaleUpperCase(localeOf(i18n.language));
   const stepLeft = Math.max(1, Math.ceil((st.stepMs - st.stepElapsed) / 1000));
   const r = (RING - STROKE) / 2;
   const circ = 2 * Math.PI * r;

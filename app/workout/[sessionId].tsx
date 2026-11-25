@@ -1,17 +1,19 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { useTheme } from '@/components';
+import { kegelLock } from '@/features/training/cooldown';
 import { generateMicroSet, generateReleaseSession } from '@/features/training/generateSession';
 import { WorkoutPlayer, type PlayerResult } from '@/features/training/player/WorkoutPlayer';
 import { buildTodaySession, recordWorkout, reportPain } from '@/features/training/service';
 import { goHome } from '@/lib/nav';
 import { toDateKey } from '@/lib/date';
+import { useHistoryStore } from '@/stores/historyStore';
 import { useKegelStore } from '@/stores/kegelStore';
 import { useTrainingStore } from '@/stores/trainingStore';
 
@@ -25,6 +27,12 @@ export default function WorkoutScreen() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const { sessionId, first } = useLocalSearchParams<{ sessionId: string; first?: string }>();
+  // 10-hour Kegel rest (2026-11-23): checked once at mount, so finishing the 4th round does not cut the
+  // player off; any other way in (task row, notification, deep link) goes back home.
+  const [blocked] = useState(() => sessionId !== 'release' && !!kegelLock(useHistoryStore.getState().workouts).until);
+  useEffect(() => {
+    if (blocked) goHome();
+  }, [blocked]);
   // Snapshot the training state at mount: the session must not change mid-play.
   const session = useMemo(() => {
     const training = useTrainingStore.getState().training;
@@ -42,7 +50,8 @@ export default function WorkoutScreen() {
       if (result.pain === 'release') return router.replace({ pathname: '/workout/[sessionId]', params: { sessionId: 'release' } });
       if (result.pain === 'end' || session.id.endsWith('-release')) return goHome();
       // Tur 2 done: the feedback belongs to Tur 1 (one level decision per day's session).
-      if (session.round === 2) return router.replace({ pathname: '/workout/feedback', params: { id: first || w.id } });
+      // The summary adds Tur 2 to Tur 1 (`second`), so it shows the whole session.
+      if (session.round === 2) return router.replace({ pathname: '/workout/feedback', params: first ? { id: first, second: w.id } : { id: w.id } });
       // Tur 1 finished: offer Tur 2 before the feedback.
       if (!session.isMicro && !result.endedEarly) return router.replace({ pathname: '/workout/next', params: { id: w.id } });
       router.replace({ pathname: '/workout/feedback', params: { id: w.id } });
@@ -50,6 +59,7 @@ export default function WorkoutScreen() {
     [session, first],
   );
 
+  if (blocked) return null;
   return (
     <View style={{ flex: 1, backgroundColor: t.player.bg }}>
       <StatusBar style={t.dark ? 'light' : 'dark'} />

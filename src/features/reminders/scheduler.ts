@@ -13,6 +13,7 @@ import { campNotifRequests, handleCampNotifResponse, setupCampNotifiers } from '
 import { campNotifiers } from '@/features/camps/registry';
 
 import { planReminders, snoozeDate } from './plan';
+import { dayStatus } from '@/features/training/summary';
 
 const CATEGORY = 'daily-workout';
 const CHANNEL = 'reminders';
@@ -60,11 +61,12 @@ export async function initNotifications() {
   }
 }
 
-/** Today's target (main session + micro sets) reached → the rest of today's reminders stay quiet. */
+/**
+ * Today is done → the rest of today's reminders stay quiet. Same rule as the Today card, the tasks and
+ * the week (2026-11-24: Tur 2 and the release session used to count as extra sessions here).
+ */
 function completedToday(): boolean {
-  const today = toDateKey();
-  const done = useHistoryStore.getState().workouts.filter((w) => w.date === today && w.completed).length;
-  return done >= useTrainingStore.getState().training.dailyTarget;
+  return dayStatus(useHistoryStore.getState().workouts, toDateKey(), useTrainingStore.getState().training.dailyTarget).full;
 }
 
 function lastStrengthTest(): string | null {

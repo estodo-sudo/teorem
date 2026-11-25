@@ -53,7 +53,7 @@ interface NoteRow {
 }
 
 /** Kegel v2 fields stored in the `extra` JSON column (migration 3). */
-const WORKOUT_EXTRA = ['track', 'durationPreset', 'pauses', 'skippedBlocks', 'completionRate', 'techniqueConfidence', 'isMicro', 'contractions', 'holdSec', 'longestHoldSec', 'deload'] as const;
+const WORKOUT_EXTRA = ['track', 'durationPreset', 'pauses', 'skippedBlocks', 'completionRate', 'techniqueConfidence', 'isMicro', 'contractions', 'holdSec', 'longestHoldSec', 'deload', 'round', 'advancedPlan'] as const;
 const STRENGTH_EXTRA = ['position', 'releaseSelfRating', 'muscleScore'] as const;
 const pick = (o: object, keys: readonly string[]) => {
   const out = Object.fromEntries(keys.filter((k) => (o as Record<string, unknown>)[k] !== undefined).map((k) => [k, (o as Record<string, unknown>)[k]]));

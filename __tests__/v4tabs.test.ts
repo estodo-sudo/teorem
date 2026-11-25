@@ -38,11 +38,11 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
 
   it('has this week, the checklist, Kasık Fitness, Rahatla and "Senin için"; no quick start, no mind list', () => {
     const order = ['<WorkoutCard', '<ThisWeek', '<DailyGoalCard', '<FitnessCard', '<GlossaryStrip'].map((x) => home.indexOf(x));
-    // "Senin için" was removed; today's 3 foods are tasks in "Bugün" now (2026-11-23).
+    // "Senin için" was removed; today's foods are shown under "Bugün" as suggestions only (2026-11-23).
     expect(home).not.toMatch(/TodayExtras/);
     const daily = read('src/features/today/DailyGoalCard.tsx');
     expect(daily).toMatch(/nutritionTasksForDay/);
-    expect(daily).toMatch(/setChallengeLog/);
+    expect(daily).not.toMatch(/setChallengeLog|challengeCategory/);
     expect(order.every((x) => x > 0)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
     expect(home).not.toMatch(/QuickStart|MindSection/);
@@ -77,7 +77,7 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
 
   it('the micro set button carries an icon; the 1-minute breath button is gone (2026-11-22)', () => {
     const card = read('src/features/today/WorkoutCard.tsx');
-    expect(card).toMatch(/microShort[^\n]*icon="pulse"/);
+    expect(card).toMatch(/microShort[\s\S]{0,200}icon="pulse"/);
     expect(card).not.toMatch(/breathShort/);
   });
 });
@@ -86,7 +86,9 @@ describe('Profil (SPEC_V4 §A.3)', () => {
   const profile = read('app/(tabs)/profile.tsx');
 
   it('Antrenman: active track, "Kas yapını öğrenelim", then tutorial · trophies; Ayarlar under restore', () => {
-    const order = ['<ActiveTrackCard', '<MuscleStructureCard', "profile.replayTutorial", "profile.training.trophies"].map((x) => profile.indexOf(x));
+    // "Kas yapını öğrenelim" was removed from Profil (2026-11-23).
+    expect(profile).not.toMatch(/<MuscleStructureCard/);
+    const order = ['<ActiveTrackCard', "profile.replayTutorial", "profile.training.trophies", "profile.groups.options"].map((x) => profile.indexOf(x));
     // "Ayarlar" sits right under "Satın alımları geri yükle" (2026-11-23).
     expect(profile.indexOf("settings.training.title")).toBeGreaterThan(profile.indexOf("paywall.restore"));
     expect(profile.indexOf("settings.training.title")).toBeLessThan(profile.indexOf('<ActiveTrackCard'));
@@ -124,7 +126,7 @@ describe('Günün antrenmanı cover (2026-11-23)', () => {
     expect(ids).toEqual(['today/workout-1', 'today/workout-2', 'today/workout-3', 'today/workout-4', 'today/workout-5', 'today/workout-6', 'today/workout-7', 'today/workout-1']);
   });
 
-  it('the card draws the couple photo as its background with a dark veil; the blur is baked into the file', () => {
+  it('the card draws the couple photo as its background with a light shade; a smooth progressive blur is baked into the file', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { appImage } = require('@/content/images') as typeof import('@/content/images');
     // Seven photos, one per weekday (2026-11-23).
@@ -132,7 +134,11 @@ describe('Günün antrenmanı cover (2026-11-23)', () => {
     const card = read('src/features/today/WorkoutCard.tsx');
     expect(card).toMatch(/appImage\(workoutCoverId\(new Date\(\)\)\)/);
     expect(card).toMatch(/<PhotoBackground image=\{cover\} id="workoutVeil" \/>/);
-    expect(read('scripts/images/fetch.mjs')).toMatch(/bottomBlur: \{ from: 0\.48, to: 0\.74/);
+    const fetchSrc = read('scripts/images/fetch.mjs');
+    expect(fetchSrc).toMatch(/hero: \{[^}]*bottomBlur: \{ from: 0\.56, to: 0\.86/);
+    expect(fetchSrc).toMatch(/const levels = \[0\.35, 0\.65, 1\]/);
+    // No stacked BlurView bands on the card (2026-11-23: "sansür gibi").
+    expect(read('src/features/today/PhotoCard.tsx')).not.toMatch(/BlurView/);
   });
 });
 
@@ -150,11 +156,23 @@ describe('"Neden, Nedir ve Ne Demek?" pages (2026-11-23)', () => {
 });
 
 describe('second polish round (2026-11-23)', () => {
-  it('Bugün: no micro set task; the foods are one drawer task; photo cards share one short height', () => {
+  it('Bugün: the plain task list with the micro set again; the foods are their own section below; photo cards share one short height', () => {
     const daily = read('src/features/today/DailyGoalCard.tsx');
-    expect(daily).not.toMatch(/today\.goals\.micro/);
-    expect(daily).toMatch(/foodsOpen/);
-    expect(read('src/features/today/PhotoCard.tsx')).toMatch(/export const PHOTO_SPACE = 64;/);
+    expect(daily).toMatch(/today\.goals\.micro/);
+    expect(daily).toMatch(/function TodayFoods/);
+    const card = read('src/features/today/WorkoutCard.tsx');
+    expect(card).not.toMatch(/today\.workout\.repeat/);
+  });
+  it('third round: summary next to the day, micro set back in the card, chips on the Kasık photo, plain move texts', () => {
+    const card = read('src/features/today/WorkoutCard.tsx');
+    expect(card).toMatch(/today\.workout\.summaryInline/);
+    expect(card).not.toMatch(/BlurView/);
+    expect(card.indexOf('today.workout.microShort')).toBeLessThan(card.indexOf('</Card>'));
+    const fit = read('src/features/today/WeekSections.tsx');
+    expect(fit.indexOf('chips.map')).toBeLessThan(fit.indexOf("tr('fitness.title')"));
+    expect(fit).toMatch(/fitness\.cardDesc/);
+    expect(read('src/features/today/PhotoCard.tsx')).toMatch(/export const PHOTO_SPACE = 170;/);
+    expect(read('src/content/fitness.tr.json')).not.toMatch(/[Ll]eğen|[Pp]elvik/);
   });
   it('every story cover has a wide banner crop and the story of the day uses it', () => {
     // eslint-disable-next-line @typescript-eslint/no-require-imports

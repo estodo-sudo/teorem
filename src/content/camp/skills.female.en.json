@@ -1,0 +1,28 @@
+{
+  "reviewed": false,
+  "sourceIds": [
+    "bricker2020",
+    "bricker2021",
+    "nci-withdrawal"
+  ],
+  "lessons": [
+    {
+      "id": "sexual-health",
+      "slides": [
+        null,
+        {
+          "text": "Arousal also depends on enough blood flow to the genital area. Smoking can make this harder by affecting the blood vessels, and it can harm fertility too."
+        },
+        null,
+        {
+          "text": "Ongoing low desire, pain or arousal problems may be related to other health conditions. In that case it's important to see a doctor."
+        }
+      ],
+      "quiz": [
+        {
+          "explain": "Arousal depends on enough blood flow; smoking can make this harder by affecting the blood vessels."
+        }
+      ]
+    }
+  ]
+}

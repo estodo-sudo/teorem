@@ -12,6 +12,7 @@ import type { Settings, TrainingState, UserProfile } from '@/types';
 
 import type { HistoryData } from './repo';
 import { MAX_IMPORT_BYTES, sanitizeHistory, sanitizeProfile, sanitizeSettings } from './sanitize';
+import { toDateKey } from '@/lib/date';
 
 /** Bump when the export shape changes; add a migration in `upgrade()`. */
 export const EXPORT_SCHEMA_VERSION = 4;
@@ -132,7 +133,7 @@ export function parseImport(text: string): ImportResult {
 }
 
 export function exportFileName(now = new Date()): string {
-  const d = now.toISOString().slice(0, 10);
+  const d = toDateKey(now);
   return `${
     APP_NAME.replace(/[^\p{L}\p{N}]+/gu, '-')
       .replace(/^-|-$/g, '')

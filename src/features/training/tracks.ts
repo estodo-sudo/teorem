@@ -2,12 +2,16 @@ import type { IconName } from '@/components/Icon';
 import { pick } from '@/i18n/content';
 import cuesJsonTr from '@/content/kegel/cues.tr.json';
 import cuesJsonEn from '@/content/kegel/cues.en.json';
+import femaleJsonTr from '@/content/kegel/female.tr.json';
+import femaleJsonEn from '@/content/kegel/female.en.json';
+import { bySex } from '@/i18n/sex';
 import tracksJsonTr from '@/content/kegel/tracks.tr.json';
 import tracksJsonEn from '@/content/kegel/tracks.en.json';
 import type { DurationPreset, Goal, KegelExerciseType, Position, TrackId } from '@/types';
 
 const cuesJson = pick({ tr: cuesJsonTr, en: cuesJsonEn });
 const tracksJson = pick({ tr: tracksJsonTr, en: tracksJsonEn });
+const femaleJson = pick({ tr: femaleJsonTr, en: femaleJsonEn });
 
 /** Programme tracks (SPEC_KEGEL_V2 §3) and position progression (§5). Pure. */
 
@@ -28,7 +32,8 @@ export interface TrackInfo {
 }
 
 export const KEGEL_CUES = cuesJson.cues as KegelCue[];
-export const KEGEL_TRACKS = tracksJson.tracks as TrackInfo[];
+/** Track texts follow the profile's sex (same ids and engine; see src/i18n/sex.ts). */
+export const KEGEL_TRACKS = bySex(tracksJson.tracks as TrackInfo[], femaleJson.tracks);
 export const KEGEL_WEEK_THEMES = tracksJson.weekThemes;
 
 export const DURATION_SEC: Record<DurationPreset, number> = { quick: 180, standard: 300, full: 480 };

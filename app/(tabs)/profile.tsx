@@ -10,7 +10,7 @@ import { deleteAllData } from '@/features/data/deleteAll';
 import { ACHIEVEMENTS } from '@/features/gamification/achievements';
 import { useStreak } from '@/features/gamification/service';
 import { isEntitlementValid } from '@/features/purchases/entitlement';
-import { ActiveTrackCard, MuscleStructureCard } from '@/features/training/ProfileTraining';
+import { ActiveTrackCard } from '@/features/training/ProfileTraining';
 import { openManageSubscriptions, restorePurchases } from '@/features/purchases/iap';
 import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useProgressStore } from '@/stores/progressStore';
@@ -75,28 +75,23 @@ export default function Profile() {
         <ListRow label={tr('settings.training.title')} icon="gear" onPress={() => router.push('/settings/training')} />
       </RowGroup>
 
-      {/* Antrenman (SPEC_V4 §A.3): active track and the muscle questions, then the rows (the exercise guide moved to İlerleme, 2026-11-22). */}
+      {/* Antrenman (2026-11-23): the active track, then the tutorial and trophies stacked under it; the
+          "Kas yapını öğrenelim" card was removed. */}
       <View style={{ gap: t.space.md }}>
         <AppText variant="title3" accessibilityRole="header">
           {tr('profile.groups.training')}
         </AppText>
         <ActiveTrackCard />
-        <MuscleStructureCard />
+        <RowGroup>
+          <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
+          <ListRow label={tr('profile.training.trophies')} icon="trophy" onPress={() => router.push('/achievements')} />
+        </RowGroup>
       </View>
-      <RowGroup>
-        <ListRow label={tr('profile.replayTutorial')} icon="play" onPress={() => router.push({ pathname: '/tutorial', params: { replay: '1' } })} />
-        <ListRow label={tr('profile.training.trophies')} icon="trophy" onPress={() => router.push('/achievements')} />
-      </RowGroup>
 
-      <RowGroup title={tr('profile.groups.notifications')}>
+      {/* Seçenekler (2026-11-23): reminders, appearance and language, data — stacked in one group. */}
+      <RowGroup title={tr('profile.groups.options')}>
         <ListRow label={tr('settings.reminders.title')} icon="bell" onPress={() => router.push('/settings/reminders')} />
-      </RowGroup>
-
-      <RowGroup title={tr('profile.groups.appearance')}>
         <ListRow label={tr('settings.appearance.title')} icon="sun" onPress={() => router.push('/settings/appearance')} />
-      </RowGroup>
-
-      <RowGroup title={tr('profile.groups.data')}>
         <ListRow label={tr('settings.data.title')} icon="shield" onPress={() => router.push('/settings/data')} />
       </RowGroup>
 

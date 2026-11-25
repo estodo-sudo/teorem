@@ -8,6 +8,9 @@ import libraryJsonTr from '@/content/camp/library.tr.json';
 import libraryJsonEn from '@/content/camp/library.en.json';
 import skillsJsonTr from '@/content/camp/skills.tr.json';
 import skillsJsonEn from '@/content/camp/skills.en.json';
+import skillsFemaleTr from '@/content/camp/skills.female.tr.json';
+import skillsFemaleEn from '@/content/camp/skills.female.en.json';
+import { bySex } from '@/i18n/sex';
 import type { StorySlide } from '@/features/content/data';
 import missionsJsonTr from '@/content/camp/missions.tr.json';
 import missionsJsonEn from '@/content/camp/missions.en.json';
@@ -165,7 +168,7 @@ export interface CampRewardsContent {
 export const CAMP_SOURCES = sourcesJson as CampSource[];
 export const CAMP_REWARDS = rewardsJson as CampRewardsContent;
 export const CAMP_SUPPORT = supportJson as CampSupportContent;
-export const CAMP_SKILLS = skillsJson as { reviewed: boolean; sourceIds: string[]; lessons: CampLesson[] };
+export const CAMP_SKILLS = bySex(skillsJson as { reviewed: boolean; sourceIds: string[]; lessons: CampLesson[] }, pick({ tr: skillsFemaleTr, en: skillsFemaleEn }));
 export const CAMP_LIBRARY = libraryJson as { reviewed: boolean; sourceIds: string[]; stories: CampStory[] };
 export const campSources = (ids: string[]) => CAMP_SOURCES.filter((s) => ids.includes(s.id));
 export const CAMP_MISSIONS = missionsJson as CampMissionsContent;

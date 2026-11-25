@@ -1,6 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
+import { AppState, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Dialog, Header, Icon, ProgressBar, ProgressRing, Screen, useTheme } from '@/components';
@@ -210,11 +210,36 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Leaving the app pauses the routine (2026-11-24: the clock ran on and moves were missed on return).
+  useEffect(() => {
+    const sub = AppState.addEventListener('change', (next) => {
+      if (next !== 'active' && player.getState().status === 'running') {
+        player.pause();
+        cancelHaptics();
+      }
+    });
+    return () => sub.remove();
+  }, [player]);
+
+  // "Bitir?" pauses the routine while it is open; "Devam" resumes it (2026-11-24: it kept running behind).
+  const pausedForDialog = useRef(false);
+  const askFinish = () => {
+    pausedForDialog.current = player.getState().status === 'running';
+    if (pausedForDialog.current) player.pause();
+    setConfirm(true);
+  };
+  const keepGoing = () => {
+    setConfirm(false);
+    if (pausedForDialog.current) player.resume();
+    pausedForDialog.current = false;
+  };
+
   useEffect(() => {
     if (state.status === 'completed' && !saved.current) {
       saved.current = true;
       const sec = Math.round(activeTime(state, Date.now()) / 1000);
-      if (sec >= 30) {
+      // Logged when it ran to the end, or after at least 30 s when ended early (2026-11-23 fix).
+      if (!state.endedEarly || sec >= 30) {
         useHistoryStore.getState().addFitnessLog({ id: makeId('f_'), date: toDateKey(), routineId, durationSec: sec });
       }
     }
@@ -291,17 +316,17 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
         <Pressable accessibilityRole="button" accessibilityLabel={paused ? tr('player.resume') : tr('player.pause')} onPress={paused ? player.resume : player.pause} style={[styles.main, { backgroundColor: t.colors.accent }]}>
           <Icon name={paused ? 'play' : 'pause'} color={t.colors.accentText} size={30} />
         </Pressable>
-        <Pressable accessibilityRole="button" accessibilityLabel={tr('player.finish')} onPress={() => setConfirm(true)} style={styles.icon}>
+        <Pressable accessibilityRole="button" accessibilityLabel={tr('player.finish')} onPress={askFinish} style={styles.icon}>
           <Icon name="stop" color={t.colors.text} size={28} />
         </Pressable>
       </View>
       <Dialog
         visible={confirm}
         title={tr('fitness.finishTitle')}
-        onDismiss={() => setConfirm(false)}
+        onDismiss={keepGoing}
         actions={[
-          { label: tr('player.finish'), variant: 'danger', onPress: () => (setConfirm(false), player.finish()) },
-          { label: tr('player.keepGoing'), onPress: () => setConfirm(false) },
+          { label: tr('player.finish'), variant: 'danger', onPress: () => ((pausedForDialog.current = false), setConfirm(false), player.finish()) },
+          { label: tr('player.keepGoing'), onPress: keepGoing },
         ]}
       />
     </Screen>

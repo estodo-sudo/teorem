@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { IconTile, SegmentedSteps } from '@/components/ui';
-import { FindMuscleArt, PelvicFloorArt, TechniqueArt } from '@/components/Illustrations';
+import { FindMuscleArt, PelvicFloor3D, TechniqueArt } from '@/components/Illustrations';
 import { IntroAnatomyScreen } from '@/features/intro-anatomy/IntroAnatomyScreen';
 import { generateTrialSession } from '@/features/training/generateSession';
 import { positionCard } from '@/features/training/player/playerUi';
@@ -78,7 +78,7 @@ export default function Tutorial() {
 
   const paras = (key: string) => tr(key, { returnObjects: true }) as string[];
   const info: Partial<Record<TutorialStep, { art?: ReactNode; title: string; body: string[]; warn?: string; cta: string; onCta?: () => void; alt?: { label: string; onPress: () => void } }>> = {
-    what: { art: <PelvicFloorArt />, title: tr('tutorial.what.title'), body: paras('tutorial.what.body'), cta: tr('tutorial.understood') },
+    what: { art: <PelvicFloor3D />, title: tr('tutorial.what.title'), body: paras('tutorial.what.body'), cta: tr('tutorial.understood') },
     find: { art: <FindMuscleArt />, title: tr('tutorial.find.title'), body: paras('tutorial.find.body'), warn: tr('tutorial.find.warn'), cta: tr('tutorial.understood') },
     position: { art: <PositionArt />, title: tr('tutorial.position.title'), body: [positionCard('lying').text, ...paras('tutorial.position.body')], cta: tr('tutorial.understood') },
     technique: { art: <TechniqueArt />, title: tr('tutorial.technique.title'), body: paras('tutorial.technique.body'), warn: tr('tutorial.technique.warn'), cta: tr('tutorial.understood') },

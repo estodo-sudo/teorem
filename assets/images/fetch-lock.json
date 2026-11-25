@@ -3015,12 +3015,12 @@
       "files": {
         "hero": {
           "file": "today/workout-1.webp",
-          "bytes": 18624,
+          "bytes": 18304,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LmJkZQ%MkW%g~poJjZt6yDkWaeV?",
+      "blurhash": "LnJkWJ%MkW%g~poJjZt6yDkWaeV@",
       "readability": null
     },
     "today/workout-2": {
@@ -3028,12 +3028,12 @@
       "files": {
         "hero": {
           "file": "today/workout-2.webp",
-          "bytes": 20342,
+          "bytes": 20552,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LeLD_RRj-;%M~qozxtt7_3t7M{ay",
+      "blurhash": "LfL4ZzRj-;%L~pozxtt7?vt7M{ay",
       "readability": null
     },
     "today/workout-3": {
@@ -3041,12 +3041,12 @@
       "files": {
         "hero": {
           "file": "today/workout-3.webp",
-          "bytes": 14406,
+          "bytes": 14196,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LABz2t~q%#tRXTRjIVM{X8M|xFxu",
+      "blurhash": "LABpd}~q%#tRbxRjIVM{SgM|xExt",
       "readability": null
     },
     "today/workout-4": {
@@ -3054,12 +3054,12 @@
       "files": {
         "hero": {
           "file": "today/workout-4.webp",
-          "bytes": 15010,
+          "bytes": 15216,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LDBzL9-.?bRi~o%MM{agNHbHMyof",
+      "blurhash": "LDBzL9-.?bRi~o%MM{agM|bHMyof",
       "readability": null
     },
     "today/workout-5": {
@@ -3067,12 +3067,12 @@
       "files": {
         "hero": {
           "file": "today/workout-5.webp",
-          "bytes": 14798,
+          "bytes": 15198,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LREe=C%2S4xa~pWVt6kC-;j?jFRj",
+      "blurhash": "LREVTj%2S4xt~pWWt6kC-;jsjFRj",
       "readability": null
     },
     "today/workout-6": {
@@ -3080,12 +3080,12 @@
       "files": {
         "hero": {
           "file": "today/workout-6.webp",
-          "bytes": 15332,
+          "bytes": 14846,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LJC$o;_3t7M{~p?bozs.T0xuxat7",
+      "blurhash": "LJC$o;_3t7M{~p?bozs.Osxuxat7",
       "readability": null
     },
     "today/workout-7": {
@@ -3093,7 +3093,7 @@
       "files": {
         "hero": {
           "file": "today/workout-7.webp",
-          "bytes": 23786,
+          "bytes": 23182,
           "quality": 72,
           "overLimit": false
         }
@@ -3106,12 +3106,12 @@
       "files": {
         "heroWide": {
           "file": "today/fitness.webp",
-          "bytes": 20308,
+          "bytes": 17156,
           "quality": 72,
           "overLimit": false
         }
       },
-      "blurhash": "LBF62x00nL~Upb$jIox^~o?HI]Ny",
+      "blurhash": "LBF62w00nL~Upb$jIox^~o?HI]Ny",
       "readability": null
     },
     "hero/commit": {

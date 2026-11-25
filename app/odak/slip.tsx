@@ -84,7 +84,7 @@ export default function OdakSlip() {
 
   return (
     <Screen footer={footer}>
-      <Header title={S.welcome.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
+      <Header title={tr('odak.slipTitle')} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
       <ProgressBar value={(idx + 1) / STEPS.length} height={6} />
 
       {step === 'welcome' ? (

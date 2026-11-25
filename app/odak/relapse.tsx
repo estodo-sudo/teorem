@@ -76,7 +76,7 @@ export default function OdakRelapse() {
 
   return (
     <Screen footer={footer}>
-      <Header title={R.intro.title} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
+      <Header title={tr('odak.relapseTitle')} onBack={() => goBack('/odak')} right={<QuickExitButton />} />
       <ProgressBar value={(idx + 1) / STEPS.length} height={6} />
 
       {step === 'intro' ? (

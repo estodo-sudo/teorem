@@ -1,0 +1,103 @@
+{
+  "reviewed": false,
+  "evidenceLevel": "expert",
+  "sourceIds": [
+    "dumoulin2018_cochrane",
+    "woodley2020_cochrane",
+    "nice_ng210",
+    "miller1996_knack",
+    "nebraska_hypertonic"
+  ],
+  "note": "Kadın kullanıcılar için metinler. Program motoru ve kimlikler erkek sürümüyle aynıdır; yalnızca sözcükler değişir.",
+  "tracks": [
+    {
+      "id": "general",
+      "sourceIds": [
+        "dumoulin2018_cochrane",
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "erection",
+      "title": "Cinsel Sağlık ve His",
+      "text": "Tam güçte kasılmalar; her seansta yatarak, oturarak ve ayakta. Kası daha iyi tanımak cinsel his ve kontrolü destekleyebilir.",
+      "note": "Tıbbi bir tedavi değildir; belirli bir sonuç vaat edilmez.",
+      "sourceIds": [
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "control",
+      "title": "Kontrol ve Koordinasyon",
+      "text": "Hızlı kasılma ve tam bırakma koordinasyonu, nefesle eşleme, gevşeme farkındalığı.",
+      "sourceIds": [
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "bladder",
+      "title": "İdrar Kaçırma ve Mesane Kontrolü",
+      "text": "Yavaş tutma, hızlı kasılma ve öksürük, hapşırık ya da ağır kaldırma öncesi sıkma (Knack) pratiği.",
+      "sourceIds": [
+        "dumoulin2018_cochrane",
+        "miller1996_knack",
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "surgery",
+      "title": "Doğum Sonrası Toparlanma",
+      "text": "Hafif başlangıç, yatarak başlayıp ayakta ilerleme, Knack pratiği.",
+      "note": "Yalnızca doktorun ya da ebenin onay verdiyse açılır. Ağrı, kanama ya da dikiş sorunu varsa egzersiz yapma.",
+      "sourceIds": [
+        "woodley2020_cochrane",
+        "nice_ng210"
+      ]
+    },
+    {
+      "id": "relax",
+      "note": "Pelvik tabanında gerginlik olabileceğini düşünüyorsan önerilir. Bir jinekoloğa veya pelvik taban fizyoterapistine danışman iyi olur."
+    }
+  ],
+  "screening": {
+    "questions": [
+      {
+        "id": "pelvic_pain",
+        "text": "Pelviste, perinede (makat ile vajina arası), kasıkta veya makatta süregelen ağrı ya da baskı hissin var mı?"
+      },
+      {
+        "id": "ejaculation_pain",
+        "text": "Cinsel ilişki sırasında veya sonrasında ağrı oluyor mu?"
+      },
+      {
+        "id": "dribble",
+        "text": "Öksürürken, hapşırırken ya da zıplarken idrar kaçırdığın oluyor mu?"
+      }
+    ],
+    "result": {
+      "relaxText": "Yanıtların, pelvik tabanının gerginlik taşıyor olabileceğini gösteriyor. Bu durumda sıkma egzersizleri rahatsızlığı artırabilir. Antrenmana başlamadan önce bir jinekoloğa veya pelvik taban fizyoterapistine danışmanı öneriyoruz.",
+      "dribbleText": "Öksürük, hapşırık ya da ağır kaldırma öncesi kısa bir sıkma (Knack) idrar kaçırmayı azaltmaya yardımcı olabilir."
+    }
+  },
+  "selfRating": {
+    "tracks": {
+      "erection": [
+        {
+          "id": "hardness",
+          "text": "Cinsel ilişkide hissettiğim histen memnuniyetim"
+        },
+        {
+          "id": "maintain",
+          "text": "İlişki sırasında kası kontrol edebilmekten memnuniyetim"
+        }
+      ],
+      "bladder": [
+        {
+          "id": "dribble",
+          "text": "İdrar kaçırma sıklığı",
+          "maxLabel": "Çok sık"
+        }
+      ]
+    }
+  }
+}

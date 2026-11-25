@@ -36,6 +36,7 @@ export function sanitizeProfile(raw: unknown): UserProfile {
   const d = defaultProfile();
   if (!isObj(raw)) return d;
   return {
+    sex: oneOf(raw.sex, ['male', 'female'] as const) ? raw.sex : null,
     goals: Array.isArray(raw.goals) ? [...new Set(raw.goals.filter((g): g is UserProfile['goals'][number] => oneOf(g, GOALS)))] : d.goals,
     ageRange: oneOf(raw.ageRange, AGES) ? raw.ageRange : null,
     experience: oneOf(raw.experience, EXPERIENCE) ? raw.experience : null,

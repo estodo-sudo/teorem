@@ -4,11 +4,16 @@ import type { Language } from '@/i18n/languages';
 
 export type Goal = 'endurance' | 'bladder' | 'erection' | 'confidence' | 'general' | 'postSurgery';
 
+/** Who the programme is for. `null` (older installs, before the question existed) reads as male. */
+export type Sex = 'male' | 'female';
+
 export type AgeRange = '16-24' | '25-34' | '35-44' | '45-54' | '55+';
 export type Experience = 'none' | 'some' | 'regular';
 export type ActivityLevel = 'low' | 'mid' | 'high';
 
 export interface UserProfile {
+  /** Programme texts (goals, tracks, screening, self-rating…) follow this; the engine is the same. */
+  sex: Sex | null;
   goals: Goal[];
   ageRange: AgeRange | null;
   experience: Experience | null;
@@ -144,6 +149,10 @@ export interface WorkoutSession {
   holdSec?: number;
   longestHoldSec?: number;
   deload?: boolean;
+  /** 2 = Tur 2, the continuation of that day's Tur 1 (not a session of its own for the daily target). */
+  round?: 1 | 2;
+  /** This session moved the 30-day plan on when it finished. */
+  advancedPlan?: boolean;
 }
 
 export interface StrengthTest {

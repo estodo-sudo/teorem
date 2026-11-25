@@ -1,4 +1,7 @@
 import { pick } from '@/i18n/content';
+import femaleJsonTr from '@/content/kegel/female.tr.json';
+import femaleJsonEn from '@/content/kegel/female.en.json';
+import { bySex } from '@/i18n/sex';
 import screeningJsonTr from '@/content/kegel/screening.tr.json';
 import screeningJsonEn from '@/content/kegel/screening.en.json';
 import { toDateKey } from '@/lib/date';
@@ -10,6 +13,7 @@ import { rescreenDue, screeningToTrack, type ScreeningResult } from './schedule'
 import { goalsToTrack, trackAllowed } from './tracks';
 
 const screeningJson = pick({ tr: screeningJsonTr, en: screeningJsonEn });
+const femaleJson = pick({ tr: femaleJsonTr, en: femaleJsonEn });
 
 /** Muscle profile screening, tracks and the surgery clearance (SPEC_KEGEL_V2 §2, §3, §11.3). */
 
@@ -19,7 +23,7 @@ export interface ScreeningQuestion {
   pain?: boolean;
   note?: string;
 }
-export const SCREENING = screeningJson as unknown as { title: string; intro: string; questions: ScreeningQuestion[]; result: Record<string, string> };
+export const SCREENING = bySex(screeningJson as unknown as { title: string; intro: string; questions: ScreeningQuestion[]; result: Record<string, string> }, femaleJson.screening);
 
 /** Saves the answers as the muscle profile. The track itself stays the user's choice. */
 export function saveScreening(answers: boolean[], now = new Date()): ScreeningResult {

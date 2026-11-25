@@ -86,5 +86,29 @@
     "year": null,
     "citation": "Platform dokümantasyonu (teknik kaynak).",
     "url": null
+  },
+  {
+    "id": "dumoulin2018_cochrane",
+    "title": "Pelvic floor muscle training versus no treatment, or inactive control treatments, for urinary incontinence in women",
+    "org": "Cochrane Database of Systematic Reviews",
+    "year": 2018,
+    "citation": "Dumoulin C, Cacciari LP, Hay-Smith EJC. Cochrane Database Syst Rev 2018;10:CD005654.",
+    "url": "https://doi.org/10.1002/14651858.CD005654.pub4"
+  },
+  {
+    "id": "woodley2020_cochrane",
+    "title": "Pelvic floor muscle training for preventing and treating urinary and faecal incontinence in antenatal and postnatal women",
+    "org": "Cochrane Database of Systematic Reviews",
+    "year": 2020,
+    "citation": "Woodley SJ ve ark. Cochrane Database Syst Rev 2020;5:CD007471.",
+    "url": "https://doi.org/10.1002/14651858.CD007471.pub4"
+  },
+  {
+    "id": "nice_ng210",
+    "title": "Pelvic floor dysfunction: prevention and non-surgical management (NG210)",
+    "org": "NICE",
+    "year": 2021,
+    "citation": "NICE guideline NG210, 2021.",
+    "url": "https://www.nice.org.uk/guidance/ng210"
   }
 ]

@@ -11,7 +11,8 @@ import { ThemeOverride } from '@/components/useTheme';
 import { darkTheme } from '@/config/theme';
 import { useSettingsStore } from '@/stores/settingsStore';
 
-import { AnatomyBackground, AnatomyScene, SCENE_COLORS } from './AnatomyScene';
+import { Anatomy3DStage } from './Anatomy3DStage';
+import { AnatomyBackground, SCENE_COLORS } from './AnatomyScene';
 import { BUTTONS_RISE, CAPTION, SCENES, TOTAL_MS, TRACKS } from './timeline';
 import { useTimeline } from './useTimeline';
 
@@ -22,7 +23,7 @@ const BUTTONS_IN_MS = TRACKS.buttons[1][0] - TRACKS.buttons[0][0];
  * "Pelvik taban kasın nerede?" (SPEC_ANIMASYON_PELVIK §5–§7). Always dark, light status bar.
  * - Thin progress bar on top. It cannot be skipped (no "Geç"); it can be paused with a tap.
  * - Shown inside the "Kası bul" tutorial, right after "Kası nasıl bulursun?"; "Devam et" goes on.
- * - A tap on the drawing pauses or plays; while paused a round play icon sits in the middle.
+ * - The pictures are a 3D video (Anatomy3DStage) kept at the clock. A tap on it pauses or plays; while paused a round play icon sits in the middle.
  * - The caption of each scene under the drawing; the closing buttons rise in at 46 s.
  * - Pauses by itself when the app goes to the background.
  */
@@ -46,7 +47,7 @@ export function IntroAnatomyScreen({
   const tl = useTimeline(stillAt === undefined ? { sound: !reader } : { autoPlay: false, haptics: false, sound: false, startAt: stillAt });
   const soundOn = useSettingsStore((s) => s.settings.introSound !== false);
   const toggleSound = () => useSettingsStore.getState().update({ introSound: !soundOn });
-  const { time, pulse, playing, scene, buttonsOn, finished, pause, toggle, restart, seek } = tl;
+  const { time, playing, scene, buttonsOn, finished, pause, toggle, restart, seek } = tl;
 
   // Screen reader (§8): no auto play; each scene is shown in its last state, stepped with Önceki / Sonraki.
   const [step, setStep] = useState(0);
@@ -91,7 +92,8 @@ export function IntroAnatomyScreen({
           accessibilityLabel={t('introAnatomy.sceneLabel')}
           accessibilityHint={reader ? undefined : t('introAnatomy.stageHint')}
         >
-          <AnatomyScene time={time} pulse={pulse} reduce={reduce} background={false} />
+          {/* 3D pictures (Blender video, 2026-11-25); the 2D drawing stays in AnatomyScene for the dev frames */}
+          <Anatomy3DStage time={time} playing={playing} />
           {!playing && !finished && !reader && stillAt === undefined ? (
             <View style={styles.center} pointerEvents="none">
               <View style={[styles.playIcon, { backgroundColor: c.pauseBg }]}>

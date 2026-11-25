@@ -17,6 +17,7 @@ import { makeId } from '@/lib/random';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 import { useTrainingStore } from '@/stores/trainingStore';
+import { localeOf } from '@/i18n/languages';
 
 type Phase = 'conditions' | 'introA' | 'hold' | 'rest' | 'introB' | 'quick' | 'introC' | 'release' | 'done';
 
@@ -31,7 +32,7 @@ type Phase = 'conditions' | 'introA' | 'hold' | 'rest' | 'introB' | 'quick' | 'i
  */
 export default function StrengthTest() {
   const t = useTheme();
-  const { t: tr } = useTranslation();
+  const { t: tr, i18n } = useTranslation();
   const strength = useSettingsStore((s) => s.settings.hapticStrength);
   const relaxTrack = useTrainingStore((s) => s.training.track === 'relax');
   const previous = useHistoryStore((s) => s.strengthTests);
@@ -116,8 +117,8 @@ export default function StrengthTest() {
 
   const intro = (kicker: string, title: string, body: string, onReady: () => void) => (
     <View style={{ gap: t.space.lg }}>
-      <AppText variant="caption" muted style={{ letterSpacing: 0.4, textTransform: 'uppercase' }}>
-        {kicker}
+      <AppText variant="caption" muted style={{ letterSpacing: 0.4 }}>
+        {kicker.toLocaleUpperCase(localeOf(i18n.language))}
       </AppText>
       <AppText variant="title1">{title}</AppText>
       <AppText variant="body">{body}</AppText>

@@ -10,6 +10,7 @@ import { todayWeekIndex } from '@/features/training/plan';
 import { positionCard } from '@/features/training/player/playerUi';
 import { TRACK_ICON } from '@/features/training/trackIcons';
 import { functionalUnlocked, KEGEL_TRACKS, positionsFor } from '@/features/training/tracks';
+import { sexCtx, useSex } from '@/i18n/sex';
 import { toDateKey } from '@/lib/date';
 import { goBack } from '@/lib/nav';
 import { useKegelStore } from '@/stores/kegelStore';
@@ -18,8 +19,8 @@ import type { TrackId } from '@/types';
 
 /**
  * Program izleri (SPEC_KEGEL_V2 §3) — ui-v2: the user picks the track on icon radio cards. The
- * relaxation track is suggested after the screening; the prostate surgery track opens only with
- * "my doctor approved" (§11.3).
+ * relaxation track is suggested after the screening; the gentle track (prostate surgery for men, after
+ * giving birth for women) opens only with "my doctor approved" (§11.3).
  */
 export default function TracksScreen() {
   const t = useTheme();
@@ -30,6 +31,8 @@ export default function TracksScreen() {
   const [surgeryOpen, setSurgeryOpen] = useState(false);
   const [doctorOk, setDoctorOk] = useState(false);
   const week = todayWeekIndex(training, toDateKey());
+  // The gentle, cleared track: prostate surgery for men, after giving birth for women.
+  const ctx = sexCtx(useSex());
 
   const pick = (id: TrackId) => {
     if (id === 'surgery' && !cleared) return setSurgeryOpen(true);
@@ -52,7 +55,7 @@ export default function TracksScreen() {
               {suggested || locked ? (
                 <View style={{ flexDirection: 'row', gap: t.space.xs, paddingLeft: t.space.lg }}>
                   {suggested ? <Badge variant="success" label={tr('kegel.tracks.suggested')} /> : null}
-                  {locked ? <Badge variant="outline" icon="lock" label={tr('kegel.tracks.needsClearance')} /> : null}
+                  {locked ? <Badge variant="outline" icon="lock" label={tr('kegel.tracks.needsClearance', ctx)} /> : null}
                 </View>
               ) : null}
             </View>
@@ -64,15 +67,15 @@ export default function TracksScreen() {
         <Card style={{ padding: t.space.xl, gap: t.space.md, borderColor: t.tokens.warning, borderWidth: t.border.thick }}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.sm }}>
             <Icon name="alert" size="md" color={t.tokens.warning} />
-            <AppText style={{ ...t.type.subheading, flex: 1, color: t.tokens.cardForeground }}>{tr('kegel.tracks.surgeryTitle')}</AppText>
+            <AppText style={{ ...t.type.subheading, flex: 1, color: t.tokens.cardForeground }}>{tr('kegel.tracks.surgeryTitle', ctx)}</AppText>
           </View>
-          <AppText style={{ ...t.type.small, color: t.tokens.cardForeground }}>{tr('kegel.tracks.surgeryText')}</AppText>
-          <AppText style={{ ...t.type.small, fontWeight: '700', color: t.tokens.destructive }}>{tr('kegel.tracks.catheter')}</AppText>
+          <AppText style={{ ...t.type.small, color: t.tokens.cardForeground }}>{tr('kegel.tracks.surgeryText', ctx)}</AppText>
+          <AppText style={{ ...t.type.small, fontWeight: '700', color: t.tokens.destructive }}>{tr('kegel.tracks.catheter', ctx)}</AppText>
           <ScalePressable
             onPress={() => setDoctorOk(!doctorOk)}
             accessibilityRole="checkbox"
             accessibilityState={{ checked: doctorOk }}
-            accessibilityLabel={tr('kegel.tracks.doctorOk')}
+            accessibilityLabel={tr('kegel.tracks.doctorOk', ctx)}
             style={{ minHeight: t.touch, flexDirection: 'row', alignItems: 'center', gap: t.space.md }}
           >
             <View
@@ -89,7 +92,7 @@ export default function TracksScreen() {
             >
               {doctorOk ? <Icon name="check" color={t.tokens.accentForeground} size={16} strokeWidth={3} /> : null}
             </View>
-            <AppText style={{ ...t.type.body, fontWeight: '700', flex: 1, color: t.tokens.cardForeground }}>{tr('kegel.tracks.doctorOk')}</AppText>
+            <AppText style={{ ...t.type.body, fontWeight: '700', flex: 1, color: t.tokens.cardForeground }}>{tr('kegel.tracks.doctorOk', ctx)}</AppText>
           </ScalePressable>
           <Button
             label={tr('kegel.tracks.openSurgery')}

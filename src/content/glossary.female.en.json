@@ -1,0 +1,311 @@
+{
+  "hide": [
+    "premature-ejaculation",
+    "erectile-dysfunction",
+    "morning-erection",
+    "after-prostate-surgery",
+    "lasting-longer"
+  ],
+  "patch": [
+    {
+      "id": "kegel",
+      "sections": [
+        null,
+        {
+          "text": "These muscles help you hold urine and wind and support the bladder, womb and bowel from below. They add to blood flow and sensation during arousal, and orgasm happens through their rhythmic contractions."
+        },
+        {
+          "text": "Imagine squeezing your back passage so as not to pass wind, or trying to hold in urine. When you squeeze the right muscle, the anus and vagina feel drawn in and up. In a comfortable position, put a hand on your belly to check it stays relaxed."
+        },
+        null,
+        {
+          "text": "The exercise is named after Arnold Kegel, an American gynaecologist who described this training in the 1940s for women leaking urine after childbirth. Today pelvic floor exercises are recommended for women for leaking, recovery after birth and sexual health."
+        },
+        null,
+        null,
+        {
+          "text": "NHS, Pelvic floor exercises. NICE NG210 (2021). Dumoulin et al., Cochrane (2018)."
+        }
+      ]
+    },
+    {
+      "id": "masturbation",
+      "sections": [
+        {
+          "text": "No. Masturbation is a common and healthy sexual behaviour at any age; there is no scientific evidence that it causes infertility, hormone problems or any other health problem. For women, getting to know your own body is also often advised for difficulty reaching orgasm."
+        },
+        null,
+        {
+          "text": "Frequency isn't what matters. It may be a problem if someone can't stop for months although they want to, if it gets in the way of work, sleep, relationships and responsibilities, and if it carries on although it no longer brings pleasure. In a US survey of more than 2,300 adults, about 7% of women said they found it hard to control their sexual urges and were clearly distressed by it."
+        },
+        null,
+        null,
+        {
+          "text": "WHO ICD-11, Compulsive sexual behaviour disorder (6C72). Dickenson et al., JAMA Network Open (2018)."
+        }
+      ]
+    },
+    {
+      "id": "partner-satisfaction",
+      "sections": [
+        {
+          "text": "Many women see a partner's satisfaction as a grade on their own attractiveness or on “being good”. This pressure can lead to performance anxiety, and anxiety to difficulty with arousal, pain and trouble reaching orgasm."
+        },
+        null,
+        null,
+        {
+          "title": "Body worries",
+          "text": "Women can worry about their body, their weight or how their vulva looks. Vulvas vary a lot in shape and colour; most differences are completely normal."
+        },
+        null,
+        {
+          "text": "Pelvic floor training can support sensation and muscle control. The breathing tools in the Training tab can also help ease tension before sex."
+        }
+      ]
+    },
+    {
+      "id": "low-desire",
+      "sections": [
+        {
+          "text": "Desire changes over time; a busy, tiring or anxious period naturally affects it. It's called a problem when sexual thoughts and desire are clearly lower for months and this bothers you or your relationship. In women it's more common after birth and around menopause."
+        },
+        {
+          "text": "Stress and a busy schedule, depression and anxiety, relationship problems and poor communication, avoiding sex after it has been painful, tiredness and breastfeeding after birth, menopause, too much alcohol and some medicines (for example some antidepressants and some hormonal contraceptives)."
+        },
+        {
+          "title": "Sleep and desire",
+          "text": "In a study of women, longer sleep was linked to a higher chance of reporting desire the next day. Regular, sufficient sleep is an important base for desire."
+        },
+        {
+          "title": "Hormones aren't everything",
+          "text": "Hormone changes can affect desire, but desire doesn't match blood hormone levels one to one. Desire is shaped by body, mind and relationship together."
+        },
+        null,
+        {
+          "text": "NHS, Loss of libido. Kalmbach et al., Journal of Sexual Medicine (2015)."
+        }
+      ]
+    },
+    {
+      "id": "dribble",
+      "title": "Why do leaks happen?",
+      "sections": [
+        {
+          "title": "The most common type in women",
+          "text": "The most common type in women is stress incontinence: leaking when you cough, sneeze, laugh or jump. After pregnancy, birth and menopause, weaker pelvic floor muscles can't support the urethra enough."
+        },
+        {
+          "text": "Leaking when you cough, sneeze or lift is called stress incontinence. A sudden urge where you struggle to reach the toilet in time is urge incontinence. The two can happen together."
+        },
+        {
+          "text": "A Cochrane review found that women who do pelvic floor muscle training are far more likely to be cured of, or clearly improve, stress incontinence than those who don't. NICE recommends a supervised programme of at least 3 months as the first step."
+        },
+        {
+          "text": "Make it a habit to squeeze the pelvic floor just before you cough, sneeze or lift something heavy (the Knack). It supports the urethra at the moment of sudden pressure."
+        },
+        null,
+        null,
+        {
+          "text": "Dumoulin et al., Cochrane (2018). NICE NG210 (2021). Miller et al., J Am Geriatr Soc (1998)."
+        }
+      ],
+      "summary": "Leaking when you cough or laugh, or with a sudden urge, is very common in women. The pelvic floor muscles play a direct part.",
+      "shortSummary": "Common in women; the pelvic floor helps"
+    },
+    {
+      "id": "tight-pelvic-floor",
+      "sections": [
+        {
+          "text": "In some women the pelvic floor muscle stays slightly tight all the time because of stress, past pain or habit. A muscle that can't relax doesn't do its job well, just like a weak one."
+        },
+        {
+          "text": "Ongoing pain or pressure in the groin, the perineum (between the vagina and anus), the vulva or the lower belly; pain during sex or involuntary tightening when something enters the vagina (vaginismus); straining or burning when urinating; constipation."
+        },
+        {
+          "text": "Chronic pelvic pain is common in women and often overlooked; studies report a wide range of rates. Usually there's no single cause, and muscle tension is an important part."
+        },
+        null,
+        null,
+        null,
+        {
+          "text": "FitzGerald et al., Journal of Urology (2009). NICE NG210 (2021)."
+        }
+      ]
+    }
+  ],
+  "add": [
+    {
+      "after": "premature-ejaculation",
+      "id": "postpartum-pelvic-floor",
+      "icon": "sprout",
+      "tone": "knowledge",
+      "image": "story/sleep-routine/6",
+      "title": "The pelvic floor after birth",
+      "summary": "Birth stretches the pelvic floor; with the right, regular exercise most women recover.",
+      "shortSummary": "The muscles can recover after birth",
+      "sections": [
+        {
+          "title": "What happens?",
+          "text": "Pregnancy and birth stretch the pelvic floor muscles and tissues. In the first months, leaking urine or wind, a heavy feeling and weakness are common."
+        },
+        {
+          "title": "When to start?",
+          "text": "Unless your doctor or midwife says otherwise, and if there's no pain, you can start gentle squeeze-and-release work soon after the birth. Start lying down, without holding your breath, for short spells."
+        },
+        {
+          "title": "What helps?",
+          "text": "A Cochrane review found postnatal pelvic floor muscle training can help reduce leaking. Regularity matters more than intensity."
+        },
+        {
+          "title": "When does it matter?",
+          "text": "See your doctor or a pelvic floor physiotherapist if you have pain, fever, problems with stitches, a bulge or heaviness in the vagina, or leaking that goes on after a few months."
+        },
+        {
+          "title": "In the app",
+          "text": "You can open the “Recovery After Giving Birth” track in Programme tracks with your doctor's or midwife's approval; it starts lying down and gently."
+        },
+        {
+          "title": "Sources",
+          "text": "Woodley et al., Cochrane (2020). NHS, Your post-pregnancy body. NICE NG210 (2021)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "erectile-dysfunction",
+      "id": "pregnancy-pelvic-floor",
+      "icon": "heart",
+      "tone": "knowledge",
+      "image": "story/water/3",
+      "title": "Pelvic floor exercise in pregnancy",
+      "summary": "Pelvic floor exercise in pregnancy can help prevent leaking and is usually safe.",
+      "shortSummary": "You can train during pregnancy too",
+      "sections": [
+        {
+          "title": "Why it matters",
+          "text": "The growing womb and baby press more and more on the pelvic floor. Leaking is common in this time and after the birth."
+        },
+        {
+          "title": "What helps?",
+          "text": "NICE advises offering pelvic floor muscle training in a first pregnancy to help prevent leaking. A Cochrane review also reports that training in pregnancy can lower the risk of leaking late in pregnancy and after birth."
+        },
+        {
+          "title": "How",
+          "text": "Sitting or lying on your side, squeeze the muscle without holding your breath and let it go fully. Later in pregnancy, prefer lying on your side to lying flat on your back for long."
+        },
+        {
+          "title": "Take care",
+          "text": "Stop and ask your doctor or midwife if you have pain, bleeding, leaking fluid or contractions. If your pregnancy is high-risk, get their approval first."
+        },
+        {
+          "title": "Sources",
+          "text": "NICE NG210 (2021). Woodley et al., Cochrane (2020)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "morning-erection",
+      "id": "menopause-pelvic-floor",
+      "icon": "leaf",
+      "tone": "knowledge",
+      "image": "story/sleep-hormones/5",
+      "title": "Menopause and the pelvic floor",
+      "summary": "As oestrogen falls in menopause, pelvic tissues change; leaking, urgency and dryness can increase.",
+      "shortSummary": "The muscles need support in menopause",
+      "sections": [
+        {
+          "title": "What changes?",
+          "text": "With menopause oestrogen falls; the tissues of the vagina, urethra and pelvic floor can become thinner and less elastic. Dryness, needing to pass urine often, urgency, leaking and pain during sex become more common."
+        },
+        {
+          "title": "What helps?",
+          "text": "Pelvic floor exercise can strengthen the muscle and reduce leaking at any age. Lubricants and moisturisers can help with dryness and pain, and a doctor may suggest treatments such as vaginal oestrogen."
+        },
+        {
+          "title": "When does it matter?",
+          "text": "See your doctor if you have bleeding after menopause, a bulge or heaviness in the vagina, leaking that goes on, or pain."
+        },
+        {
+          "title": "In the app",
+          "text": "The “Leaks and Bladder Control” track includes slow holds, quick squeezes and squeezing before a cough."
+        },
+        {
+          "title": "Sources",
+          "text": "NHS, Menopause symptoms. NICE NG210 (2021). Dumoulin et al., Cochrane (2018)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "after-prostate-surgery",
+      "id": "prolapse",
+      "icon": "layers",
+      "tone": "knowledge",
+      "image": "story/pf-basics/2",
+      "title": "What is pelvic organ prolapse?",
+      "summary": "The bladder, womb or bowel drops down towards the vagina; in mild prolapse exercise can ease symptoms.",
+      "shortSummary": "A dragging feeling can be a sign",
+      "sections": [
+        {
+          "title": "What it means",
+          "text": "When the muscles and ligaments that hold the pelvic organs weaken, the bladder, womb or bowel can drop down towards the vagina. Mild prolapse is common and doesn't always cause symptoms."
+        },
+        {
+          "title": "Signs",
+          "text": "A bulge, heaviness or something coming down in the vagina; discomfort that gets worse by the end of the day; not fully emptying the bladder or bowel; discomfort during sex."
+        },
+        {
+          "title": "Causes",
+          "text": "Birth, menopause, a long-term cough, constipation and straining, extra weight and frequent heavy lifting raise the risk."
+        },
+        {
+          "title": "What helps?",
+          "text": "In mild to moderate prolapse, individual pelvic floor muscle training can ease symptoms (the POPPY trial). Avoiding constipation and squeezing the muscle before you lift also help."
+        },
+        {
+          "title": "When does it matter?",
+          "text": "See your doctor if you see or feel a bulge coming out of the vagina, can't pass urine, or have pain."
+        },
+        {
+          "title": "Sources",
+          "text": "NHS, Pelvic organ prolapse. Hagen et al., Lancet (2014). NICE NG210 (2021)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "lasting-longer",
+      "id": "orgasm-difficulty",
+      "icon": "sparkle",
+      "tone": "knowledge",
+      "image": "story/intimacy-beyond/6",
+      "title": "Finding it hard to reach orgasm",
+      "summary": "Orgasm difficulty is common in women and is often about arousal, anxiety or communication.",
+      "shortSummary": "Common and often solvable",
+      "sections": [
+        {
+          "title": "How common is it?",
+          "text": "Finding it hard to reach orgasm is common in women. Many women reach orgasm more easily with clitoral stimulation than with intercourse alone; that's completely normal."
+        },
+        {
+          "title": "Common causes",
+          "text": "Not enough arousal or foreplay, anxiety and distraction, communication problems in the relationship, pain, some medicines (for example some antidepressants), tiredness and alcohol."
+        },
+        {
+          "title": "What helps?",
+          "text": "Getting to know your own body, talking with your partner about what feels good, easing the pressure and focusing on sensations. Knowing how to find and relax the pelvic floor muscle can support sensation too."
+        },
+        {
+          "title": "When does it matter?",
+          "text": "See a doctor or a sex therapist if it has bothered you or your relationship for a long time, if sex is painful, or if it started with a medicine."
+        },
+        {
+          "title": "Sources",
+          "text": "NHS, Sexual problems. Herbenick et al., Journal of Sex & Marital Therapy (2018)."
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

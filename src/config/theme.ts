@@ -245,6 +245,7 @@ const palette = {
   blue50: '#E4EDF7',
   relaxBlue: '#7FA7C9',
   // dark
+  night950: '#050607',
   night900: '#0F1214',
   night850: '#13191B',
   night800: '#171B1E',
@@ -310,7 +311,8 @@ const lightTokens: ThemeTokens = {
 };
 
 const darkTokens: ThemeTokens = {
-  background: palette.night900,
+  // near-black page (2026-11-26): a soft light rises from the bottom (Screen → BottomGlow)
+  background: palette.night950,
   foreground: palette.mist100,
   card: palette.night800,
   cardForeground: palette.mist100,

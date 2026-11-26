@@ -1,0 +1,311 @@
+{
+  "hide": [
+    "premature-ejaculation",
+    "erectile-dysfunction",
+    "morning-erection",
+    "after-prostate-surgery",
+    "lasting-longer"
+  ],
+  "patch": [
+    {
+      "id": "kegel",
+      "sections": [
+        null,
+        {
+          "text": "Bu kaslar idrarı ve gazı tutmanı sağlar; mesaneyi, rahmi ve bağırsağı aşağıdan destekler. Cinsel uyarılmada kan akışına ve hisse katkı verir; orgazm da bu kasların ritmik kasılmasıyla gerçekleşir."
+        },
+        {
+          "text": "Gaz çıkarmamak için makatını sıktığını ya da idrarını tutmaya çalıştığını hayal et. Doğru kası sıktığında makat ve vajina içeri ve yukarı çekiliyormuş gibi hissedersin. Rahat bir pozisyonda elini karnına koyup karnın kasılmadan kontrol edebilirsin."
+        },
+        null,
+        {
+          "text": "Egzersiz, adını 1940'larda doğum sonrası idrar kaçırma yaşayan kadınlar için bu çalışmaları tanımlayan Amerikalı kadın doğum uzmanı Arnold Kegel'den alır. Bugün pelvik taban egzersizleri kadınlarda idrar kaçırma, doğum sonrası toparlanma ve cinsel sağlık için önerilmektedir."
+        },
+        null,
+        null,
+        {
+          "text": "NHS, Pelvik taban egzersizleri. NICE NG210 (2021). Dumoulin ve ark., Cochrane (2018)."
+        }
+      ]
+    },
+    {
+      "id": "masturbation",
+      "sections": [
+        {
+          "text": "Hayır. Mastürbasyon her yaşta yaygın ve sağlıklı bir cinsel davranıştır; kısırlığa, hormon bozukluğuna ya da başka bir sağlık sorununa yol açtığına dair bilimsel bir kanıt yoktur. Kadınlarda kendi bedenini tanımak, orgazm güçlüğünde de sık önerilen bir yoldur."
+        },
+        null,
+        {
+          "text": "Belirleyici olan sıklık değildir. Kişi aylarca bırakmak istediği hâlde kontrol edemiyorsa, davranış iş, uyku, ilişki ve sorumlulukların önüne geçiyorsa ve artık keyif vermediği hâlde sürüyorsa sorun olabilir. ABD'de 2.300'den fazla yetişkinle yapılan bir araştırmada kadınların yaklaşık %7'si cinsel dürtülerini kontrol etmekte zorlandığını ve bundan belirgin sıkıntı duyduğunu bildirdi."
+        },
+        null,
+        null,
+        {
+          "text": "WHO ICD-11, Kompulsif cinsel davranış bozukluğu (6C72). Dickenson ve ark., JAMA Network Open (2018)."
+        }
+      ]
+    },
+    {
+      "id": "partner-satisfaction",
+      "sections": [
+        {
+          "text": "Birçok kadın partnerinin memnuniyetini kendi çekiciliğinin ya da “iyi olmanın” notu gibi görür. Bu baskı performans kaygısına, kaygı da uyarılma güçlüğüne, ağrıya ve orgazm olmakta zorlanmaya yol açabilir."
+        },
+        null,
+        null,
+        {
+          "title": "Beden kaygısı",
+          "text": "Kadınlar da bedenleri, kiloları ya da vulvalarının görünüşü hakkında kaygı duyabilir. Vulvanın şekli ve rengi kişiden kişiye çok değişir; çoğu farklılık tamamen normaldir."
+        },
+        null,
+        {
+          "text": "Pelvik taban antrenmanı hissi ve kas kontrolünü destekleyebilir. Antrenman sekmesindeki nefes araçları da ilişki öncesindeki gerginliği azaltmana yardımcı olabilir."
+        }
+      ]
+    },
+    {
+      "id": "low-desire",
+      "sections": [
+        {
+          "text": "İstek dönem dönem değişir; yoğun iş, yorgunluk ya da kaygılı bir dönem bunu doğal olarak etkiler. Cinsel düşünce ve isteğin aylarca belirgin şekilde azalması ve bunun seni ya da ilişkini rahatsız etmesi durumunda sorundan söz edilir. Kadınlarda özellikle doğum sonrası ve menopoz döneminde daha sık görülür."
+        },
+        {
+          "text": "Stres ve yoğun iş temposu, depresyon ve kaygı, ilişkideki sorunlar ve iletişimsizlik, ilişkide ağrı yaşadıktan sonra cinsellikten kaçınma, doğum sonrası yorgunluk ve emzirme, menopoz, aşırı alkol ve bazı ilaçlar (örneğin bazı antidepresanlar ve bazı hormonal doğum kontrol yöntemleri)."
+        },
+        {
+          "title": "Uyku ve istek",
+          "text": "Kadınlarla yapılan bir çalışmada daha uzun uyku, ertesi gün cinsel istek bildirme olasılığının artmasıyla ilişkili bulundu. Düzenli ve yeterli uyku istek için önemli bir temeldir."
+        },
+        {
+          "title": "Hormonlar her şey değil",
+          "text": "Hormon değişiklikleri isteği etkileyebilir; ancak istek ile kandaki hormon düzeyleri arasında birebir bir ilişki yoktur. İstek; beden, zihin ve ilişkinin birlikte etkilediği bir durumdur."
+        },
+        null,
+        {
+          "text": "NHS, Cinsel isteğin azalması. Kalmbach ve ark., Journal of Sexual Medicine (2015)."
+        }
+      ]
+    },
+    {
+      "id": "dribble",
+      "title": "İdrar kaçırma neden olur?",
+      "sections": [
+        {
+          "title": "Kadınlarda en sık tür",
+          "text": "Kadınlarda en sık görülen tür, öksürürken, hapşırırken, gülerken ya da zıplarken olan stres tipi kaçırmadır. Hamilelik, doğum ve menopozdan sonra pelvik taban kasları zayıflayınca idrar yolunu yeterince destekleyemez."
+        },
+        {
+          "text": "Öksürürken, hapşırırken ya da ağır kaldırırken olan kaçırmaya stres tipi denir. Aniden gelen ve tuvalete yetiştirmekte zorlandığın sıkışmaya ise sıkışma tipi denir. İkisi birlikte de görülebilir."
+        },
+        {
+          "text": "Cochrane incelemesine göre pelvik taban kas eğitimi yapan kadınlarda stres tipi kaçırmanın geçme ya da belirgin azalma olasılığı, egzersiz yapmayanlara göre çok daha yüksek. NICE ilk basamak olarak en az 3 aylık denetimli bir program önerir."
+        },
+        {
+          "text": "Öksürmeden, hapşırmadan ya da ağır bir şey kaldırmadan hemen önce pelvik taban kasını sıkmayı alışkanlık hâline getir (Knack). Bu, ani basınç anında idrar yolunu destekler."
+        },
+        null,
+        null,
+        {
+          "text": "Dumoulin ve ark., Cochrane (2018). NICE NG210 (2021). Miller ve ark., J Am Geriatr Soc (1998)."
+        }
+      ],
+      "summary": "Öksürürken, gülerken ya da ani bir sıkışmayla idrar kaçırmak kadınlarda çok yaygındır. Pelvik taban kasları burada doğrudan rol oynar.",
+      "shortSummary": "Kadınlarda yaygındır; pelvik taban yardım eder"
+    },
+    {
+      "id": "tight-pelvic-floor",
+      "sections": [
+        {
+          "text": "Bazı kadınlarda pelvik taban kası stres, ağrı deneyimi ya da alışkanlık nedeniyle sürekli hafif kasılı kalır. Gevşeyemeyen bir kas da tıpkı zayıf bir kas gibi işini iyi yapamaz."
+        },
+        {
+          "text": "Kasıkta, perinede (vajina ile makat arası), vulvada ya da alt karında süren ağrı veya baskı; cinsel ilişkide ağrı ya da vajinaya giriş sırasında istemsiz kasılma (vajinismus); idrar yaparken zorlanma veya yanma; kabızlık."
+        },
+        {
+          "text": "Kronik pelvik ağrı kadınlarda yaygındır ve sık gözden kaçar; çalışmalara göre görülme oranı geniş bir aralıkta değişir. Çoğunda tek bir neden bulunmaz; kas gerginliği önemli bir parçadır."
+        },
+        null,
+        null,
+        null,
+        {
+          "text": "FitzGerald ve ark., Journal of Urology (2009). NICE NG210 (2021)."
+        }
+      ]
+    }
+  ],
+  "add": [
+    {
+      "after": "premature-ejaculation",
+      "id": "postpartum-pelvic-floor",
+      "icon": "sprout",
+      "tone": "knowledge",
+      "image": "story/sleep-routine/6",
+      "title": "Doğum sonrası pelvik taban",
+      "summary": "Doğum pelvik taban kaslarını gerer; doğru ve düzenli egzersizle çoğu kadında toparlanır.",
+      "shortSummary": "Doğumdan sonra kaslar toparlanabilir",
+      "sections": [
+        {
+          "title": "Ne olur?",
+          "text": "Hamilelik ve doğum pelvik taban kaslarını ve bağ dokusunu gerer. İlk aylarda idrar ya da gaz kaçırma, ağırlık hissi ve zayıflık yaygındır."
+        },
+        {
+          "title": "Ne zaman başlanır?",
+          "text": "Doktorun ya da eben aksini söylemedikçe, ağrı yoksa nazik sıkma ve bırakma çalışmalarına doğumdan kısa süre sonra başlanabilir. Yatarak, nefesini tutmadan ve kısa sürelerle başla."
+        },
+        {
+          "title": "Ne işe yarar?",
+          "text": "Cochrane incelemesine göre doğum sonrası pelvik taban kas eğitimi idrar kaçırmayı azaltmaya yardım edebilir. Düzenlilik yoğunluktan daha önemlidir."
+        },
+        {
+          "title": "Ne zaman önemlidir?",
+          "text": "Ağrı, ateş, dikişlerde sorun, vajinada şişlik ya da sarkma hissi veya birkaç ay sonra da süren kaçırma varsa doktoruna ya da bir pelvik taban fizyoterapistine danış."
+        },
+        {
+          "title": "Uygulamada",
+          "text": "Program izlerinden “Doğum Sonrası Toparlanma”yı doktorunun ya da ebenin onayıyla açabilirsin; yatarak, hafif başlar."
+        },
+        {
+          "title": "Kaynaklar",
+          "text": "Woodley ve ark., Cochrane (2020). NHS, Doğum sonrası beden. NICE NG210 (2021)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "erectile-dysfunction",
+      "id": "pregnancy-pelvic-floor",
+      "icon": "heart",
+      "tone": "knowledge",
+      "image": "story/water/3",
+      "title": "Hamilelikte pelvik taban egzersizi",
+      "summary": "Hamilelikte pelvik taban egzersizi idrar kaçırmayı önlemeye yardım edebilir ve genellikle güvenlidir.",
+      "shortSummary": "Hamilelikte de çalışılabilir",
+      "sections": [
+        {
+          "title": "Neden önemli?",
+          "text": "Büyüyen rahim ve bebek pelvik tabana giderek daha çok baskı yapar. Bu dönemde ve doğumdan sonra idrar kaçırma sık görülür."
+        },
+        {
+          "title": "Ne işe yarar?",
+          "text": "NICE, ilk hamilelikte idrar kaçırmayı önlemek için pelvik taban kas eğitiminin önerilmesini tavsiye eder. Cochrane incelemesi de hamilelikte yapılan egzersizin geç hamilelikte ve doğumdan sonra kaçırma riskini azaltabildiğini bildirir."
+        },
+        {
+          "title": "Nasıl?",
+          "text": "Oturarak ya da yan yatarak, nefesini tutmadan kası sık ve tamamen bırak. Hamileliğin ilerleyen döneminde uzun süre sırtüstü yatmak yerine yan yatmayı tercih et."
+        },
+        {
+          "title": "Dikkat",
+          "text": "Ağrı, kanama, sıvı gelmesi ya da kasılmalar olursa egzersizi bırak ve doktoruna ya da ebene danış. Riskli bir hamileliğin varsa önce onların onayını al."
+        },
+        {
+          "title": "Kaynaklar",
+          "text": "NICE NG210 (2021). Woodley ve ark., Cochrane (2020)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "morning-erection",
+      "id": "menopause-pelvic-floor",
+      "icon": "leaf",
+      "tone": "knowledge",
+      "image": "story/sleep-hormones/5",
+      "title": "Menopoz ve pelvik taban",
+      "summary": "Menopozda östrojen azalınca pelvik dokular değişir; kaçırma, sıkışma ve kuruluk artabilir.",
+      "shortSummary": "Menopozda kaslar desteğe ihtiyaç duyar",
+      "sections": [
+        {
+          "title": "Ne değişir?",
+          "text": "Menopozla östrojen azalır; vajina, idrar yolu ve pelvik taban dokuları incelir ve esnekliğini kaybedebilir. Bu dönemde kuruluk, sık idrara çıkma, sıkışma, kaçırma ve ilişkide ağrı daha sık görülür."
+        },
+        {
+          "title": "Ne işe yarar?",
+          "text": "Pelvik taban egzersizi her yaşta kası güçlendirebilir ve kaçırmayı azaltabilir. Kuruluk ve ağrı için kayganlaştırıcılar ve nemlendiriciler yardımcı olabilir; doktor gerekirse vajinal östrojen gibi tedaviler önerebilir."
+        },
+        {
+          "title": "Ne zaman önemlidir?",
+          "text": "Menopozdan sonra kanama, vajinada şişlik ya da sarkma hissi, süren kaçırma veya ağrı varsa doktoruna danış."
+        },
+        {
+          "title": "Uygulamada",
+          "text": "“İdrar Kaçırma ve Mesane Kontrolü” izi yavaş tutma, hızlı kasılma ve öksürük öncesi sıkma pratiği içerir."
+        },
+        {
+          "title": "Kaynaklar",
+          "text": "NHS, Menopoz belirtileri. NICE NG210 (2021). Dumoulin ve ark., Cochrane (2018)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "after-prostate-surgery",
+      "id": "prolapse",
+      "icon": "layers",
+      "tone": "knowledge",
+      "image": "story/pf-basics/2",
+      "title": "Pelvik organ sarkması nedir?",
+      "summary": "Mesane, rahim ya da bağırsağın vajinaya doğru aşağı inmesidir; hafif sarkmada egzersiz belirtileri azaltabilir.",
+      "shortSummary": "Aşağı doğru ağırlık hissi bir işaret olabilir",
+      "sections": [
+        {
+          "title": "Ne demek?",
+          "text": "Pelvik organları taşıyan kaslar ve bağlar zayıflayınca mesane, rahim ya da bağırsak vajinaya doğru aşağı inebilir. Hafif sarkmalar sık görülür ve her zaman belirti vermez."
+        },
+        {
+          "title": "Belirtiler",
+          "text": "Vajinada şişlik, ağırlık ya da bir şeyin aşağı indiği hissi; gün sonunda artan rahatsızlık; idrarı ya da dışkıyı tam boşaltamama; ilişkide rahatsızlık."
+        },
+        {
+          "title": "Nedenler",
+          "text": "Doğum, menopoz, kronik öksürük, kabızlık ve ıkınma, fazla kilo ve sık ağır kaldırma riski artırır."
+        },
+        {
+          "title": "Ne işe yarar?",
+          "text": "Hafif ve orta sarkmada bireysel pelvik taban kas eğitimi belirtileri azaltabilir (POPPY çalışması). Kabızlığı önlemek ve ağır kaldırırken önce kası sıkmak da yardımcı olur."
+        },
+        {
+          "title": "Ne zaman önemlidir?",
+          "text": "Vajinadan dışarı çıkan bir şişlik görürsen ya da hissedersen, idrar yapamıyorsan veya ağrı varsa doktoruna danış."
+        },
+        {
+          "title": "Kaynaklar",
+          "text": "NHS, Pelvik organ sarkması. Hagen ve ark., Lancet (2014). NICE NG210 (2021)."
+        }
+      ],
+      "reviewed": false
+    },
+    {
+      "after": "lasting-longer",
+      "id": "orgasm-difficulty",
+      "icon": "sparkle",
+      "tone": "knowledge",
+      "image": "story/intimacy-beyond/6",
+      "title": "Orgazm olmakta zorlanmak",
+      "summary": "Kadınlarda orgazm güçlüğü yaygındır ve çoğu zaman uyarılma, kaygı ya da iletişimle ilgilidir.",
+      "shortSummary": "Yaygın ve çoğu zaman çözülebilir",
+      "sections": [
+        {
+          "title": "Ne kadar yaygın?",
+          "text": "Orgazm olmakta zorlanmak kadınlarda sık görülür. Birçok kadın yalnızca birleşmeyle değil, klitoral uyarılmayla daha kolay orgazm olur; bu tamamen normaldir."
+        },
+        {
+          "title": "Sık nedenler",
+          "text": "Yetersiz uyarılma ya da ön sevişme, kaygı ve dikkat dağınıklığı, ilişkide iletişim sorunları, ağrı, bazı ilaçlar (örneğin bazı antidepresanlar), yorgunluk ve alkol."
+        },
+        {
+          "title": "Ne işe yarar?",
+          "text": "Kendi bedenini tanımak, partnerinle neyin iyi geldiğini konuşmak, baskıyı azaltıp dikkati duyulara vermek. Pelvik taban kasını tanımak ve gevşetebilmek de hissi destekleyebilir."
+        },
+        {
+          "title": "Ne zaman önemlidir?",
+          "text": "Durum seni ya da ilişkini uzun süredir rahatsız ediyorsa, ilişkide ağrı varsa ya da bir ilaçla başladıysa bir doktora ya da cinsel terapiste danış."
+        },
+        {
+          "title": "Kaynaklar",
+          "text": "NHS, Cinsel sorunlar. Herbenick ve ark., Journal of Sex & Marital Therapy (2018)."
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

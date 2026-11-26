@@ -1,5 +1,126 @@
 [
   {
+    "id": "journey-180",
+    "title": "180 Günlük Yolculuk",
+    "category": "menHealth",
+    "icon": "map",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "calendar",
+        "support": [
+          "trendUp",
+          "clock"
+        ],
+        "title": "Neden 180 gün?",
+        "text": "Kas birkaç günde güçlenmez. İlk haftalarda beyin kası bulmayı ve ayrı çalıştırmayı öğrenir; kas asıl 8–12 haftada güçlenir. Kılavuzlar en az 3 aylık program önerir. 6 ay ise kazandığın gücün oturmasına ve alışkanlığa dönüşmesine zaman tanır.",
+        "tone": "knowledge",
+        "image": "story/journey-180/2",
+        "imageAlt": "Aydınlık basamaklarda yukarı çıkan bir ayak"
+      },
+      {
+        "type": "info",
+        "icon": "layers",
+        "support": [
+          "target",
+          "star"
+        ],
+        "title": "Neler değişecek, neler gelecek?",
+        "text": "Plan 30 günlük altı aya bölünür; her ayın son haftası hafiftir. Yol boyunca 7 hareket öğrenirsin: Yavaş Sıkma, Basamaklı Sıkma, Basamaklı Bırakma, Çift Zirve, Hızlı Yarım Sıkma, Yarım Uzun Tutma ve Dalga. Kontrolün incelir, dayanıklılığın artar.",
+        "tone": "knowledge",
+        "image": "story/journey-180/3",
+        "imageAlt": "Yukarıdan çekilmiş dönen bir merdiven"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "Güçlü ve kontrollü bir pelvik taban; idrar sonrası damlamayı ve öksürürken kaçırmayı azaltmaya, sertleşmenin korunmasına ve boşalmayı kontrol etmeye yardım edebilir. Prostat ameliyatı sonrasında da sık önerilir.",
+        "tone": "knowledge",
+        "image": "story/journey-180/4",
+        "imageAlt": "Gün doğumunda kırda uzanan bir yol ve koşan biri"
+      },
+      {
+        "type": "info",
+        "icon": "users",
+        "support": [
+          "check",
+          "trendUp"
+        ],
+        "title": "Deneyenler ne yaşadı?",
+        "text": "Sertleşme sorunu olan erkeklerde 6 aylık egzersizden sonra %40'ının sertleşmesi normale döndü, %35,5'i belirgin iyileşti. Erken boşalması olan 40 erkeğin 33'ü (%82,5) 12 haftada kontrol kazandı. İşeme sonrası damlaması olanların yaklaşık dörtte üçünde 6 ayda damlama kalmadı.",
+        "tone": "knowledge",
+        "image": "story/journey-180/5",
+        "imageAlt": "Çakıllar üzerinde dengede duran taşlar"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "Pelvik taban kasının güçlenmesi genellikle ne kadar sürer?",
+          "options": [
+            "Birkaç günde olur",
+            "İlk haftalarda başlar, asıl fark aylar içinde gelir",
+            "Bir yıldan önce hiçbir fark olmaz"
+          ],
+          "correct": 1,
+          "explain": "Kası doğru kullanmayı ilk haftalarda öğrenirsin; gücün belirgin artması 2–3 ay sürer. Araştırmalardaki iyi sonuçlar da 3–6 aylık düzenli programlardan geldi. Bu yüzden plan 180 gün."
+        },
+        "tone": "knowledge",
+        "image": "story/journey-180/6",
+        "imageAlt": "Ahşap zeminde duran bir çalar saat"
+      },
+      {
+        "type": "action",
+        "icon": "map",
+        "title": "Yol haritan hazır",
+        "text": "Planında hangi gündesin, bu hafta ne var, sıradaki hareket ne zaman geliyor: hepsi yol haritasında.",
+        "action": {
+          "route": "/kegel/plan",
+          "label": "Yol haritamı aç"
+        },
+        "tone": "knowledge",
+        "image": "story/journey-180/7",
+        "imageAlt": "Çakıllı bir yolda duran iki ayak"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Kas birkaç günde değil, aylar içinde güçlenir; plan bu yüzden 180 gün.",
+          "Altı ay boyunca 7 hareket öğrenir, kontrolünü ve dayanıklılığını adım adım artırırsın.",
+          "Araştırmalarda düzenli egzersiz yapan erkeklerin çoğunda sertleşme, boşalma kontrolü ve damlama düzeldi."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NICE (2021) – Pelvic floor dysfunction: prevention and non-surgical management (NG210); QS77 statement 4: supervised pelvic floor muscle training of at least 3 months",
+        "url": "https://www.nice.org.uk/guidance/qs77/chapter/Quality-statement-4-Supervised-pelvic-floor-muscle-training"
+      },
+      {
+        "title": "Dorey G ve ark. (2005) – Pelvic floor exercises for erectile dysfunction. BJU International 96(4)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16104916/"
+      },
+      {
+        "title": "Pastore AL ve ark. (2014) – Pelvic floor muscle rehabilitation for patients with lifelong premature ejaculation: a novel therapeutic approach. Therapeutic Advances in Urology 6(3)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24883105/"
+      },
+      {
+        "title": "Dorey G ve ark. (2004) – Pelvic floor exercises for treating post-micturition dribble in men with erectile dysfunction: a randomized controlled trial. Urologic Nursing 24(6)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15658735/"
+      },
+      {
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
     "id": "pf-basics",
     "title": "Erkeklerde pelvik taban",
     "category": "menHealth",

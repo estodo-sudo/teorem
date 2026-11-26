@@ -9,6 +9,7 @@ import { HeatMap } from '@/features/progress/charts/HeatMap';
 import { LineChart } from '@/features/progress/charts/LineChart';
 import { heatMap, holdTrend, quickTrend, strengthTestDue, summarize } from '@/features/progress/stats';
 import { openGated } from '@/features/purchases/useGate';
+import { MovesCard } from '@/features/training/MovesCard';
 import { ExerciseGuide } from '@/features/training/ProfileTraining';
 import { scoreTrend } from '@/features/training/strengthV2';
 import { fromDateKey, toDateKey } from '@/lib/date';
@@ -100,6 +101,11 @@ export default function ProgressTab() {
             accessibilityLabel={tr('progress.charts.calendar')}
           />
         </ChartCard>
+      </Section>
+
+      {/* the moves of the 180-day plan by name: learned, next (with its day) and locked (2026-11-26) */}
+      <Section title={tr('moves.section')}>
+        <MovesCard />
       </Section>
 
       <Section title={tr('progress.exercisesSection')}>

@@ -5,14 +5,16 @@ import { ambientVolume, soundPlan } from './soundPlan';
 import { SOUND, TOTAL_MS, type IntroSoundId } from './timeline';
 
 /**
- * Sound of the anatomy animation: the ambient loop plus the cues of `timeline.ts` (SOUND), played in
+ * Sound of the anatomy animation: the calm background music plus the cues of `timeline.ts` (SOUND), played in
  * step with the clock. `play(from)` starts everything from a time (a cue already under way is joined
  * part way through), `pause()` stops it at once, `dispose()` frees the players.
  * Sound is optional: any player error is swallowed and the animation goes on silently.
  */
 
 const SOURCES: Record<IntroSoundId | 'ambient', number> = {
-  ambient: require('../../../assets/sounds/intro/ambient.wav'),
+  // calm background music (2026-11-25): an original piece synthesised for the app, so no licence
+  // (reels project, scripts/calm_music.py); 52 s, longer than the animation
+  ambient: require('../../../assets/sounds/intro/music.m4a'),
   tick: require('../../../assets/sounds/intro/tick.wav'),
   chime: require('../../../assets/sounds/intro/chime.wav'),
 };

@@ -9,7 +9,7 @@ import { useTrainingStore } from '@/stores/trainingStore';
 
 import { formatLockLeft, kegelLock } from './cooldown';
 import { sessionAllowed } from './schedule';
-import { contractionsToday } from './service';
+import { contractionsToday, lessonRoute } from './service';
 
 /**
  * Starts a Kegel session with the daily contraction cap check (SPEC_KEGEL_V2 §11.5): over the cap, the
@@ -28,6 +28,9 @@ export function useSessionStarter() {
     if (lock.until && sessionId !== 'release') return setLockLeft(formatLockLeft(lock.until));
     const used = contractionsToday(workouts, toDateKey());
     if (!sessionAllowed(used, contractions, level)) return setCapOpen(true);
+    // Tur 2 (the day's second half) can be started later from Günüm; a lesson due today comes first.
+    const lesson = sessionId === 'round2' ? lessonRoute(useTrainingStore.getState().training) : null;
+    if (lesson) return openGated('workout', lesson);
     openGated('workout', { pathname: '/workout/[sessionId]', params: { sessionId } });
   };
   const dialog = (

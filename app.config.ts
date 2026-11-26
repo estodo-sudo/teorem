@@ -54,7 +54,7 @@ const config: ExpoConfig = {
     // Data stays on the phone (privacy policy): no Android Auto Backup to Google Drive.
     allowBackup: false,
     adaptiveIcon: {
-      backgroundColor: '#0B1D2E',
+      backgroundColor: '#000000',
       foregroundImage: './assets/android-icon-foreground.png',
       backgroundImage: './assets/android-icon-background.png',
       monochromeImage: './assets/android-icon-monochrome.png',

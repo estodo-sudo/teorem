@@ -68,8 +68,8 @@ describe('slide icons are drawn as icons (SPEC_V4 §0.1)', () => {
 });
 
 describe('Bilgi Hikâyeleri v2 content (SPEC_V4 §B.3)', () => {
-  it('all 20 stories are in the v2 format (V4-1)', () => {
-    expect(STORIES).toHaveLength(20);
+  it('all 21 stories are in the v2 format (V4-1; the 180-day story added 2026-11-26)', () => {
+    expect(STORIES).toHaveLength(21);
     expect(STORIES.filter((s) => !isV2Story(s)).map((s) => s.id)).toEqual([]);
   });
 

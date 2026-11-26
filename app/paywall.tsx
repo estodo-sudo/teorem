@@ -4,7 +4,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Icon, Screen, useTheme, type IconName } from '@/components';
+import { AppLogo, AppText, Branded, Icon, Screen, useTheme, type IconName } from '@/components';
 import { Badge, Button, Card, EmptyState, IconTile, ScalePressable, uiHaptic } from '@/components/ui';
 import { APP_NAME } from '@/config/app';
 import { PREVIEW_PRICES, SHOW_PREVIEW_PRICES, YEARLY_TRIAL_DAYS, type PlanKey } from '@/config/monetization';
@@ -196,9 +196,9 @@ export default function Paywall() {
       >
         {/* Hero: calm mark + two-line title */}
         <View style={{ alignItems: 'center', gap: t.space.lg }}>
-          <BrandMark size={88} />
+          <AppLogo size={88} />
           <AppText variant="title1" center accessibilityRole="header">
-            {source && source !== 'onboarding' ? tr('paywall.titleLocked') : tr('paywall.title', { app: APP_NAME })}
+            <Branded>{source && source !== 'onboarding' ? tr('paywall.titleLocked') : tr('paywall.title', { app: APP_NAME })}</Branded>
           </AppText>
         </View>
 
@@ -247,19 +247,6 @@ export default function Paywall() {
         {errorText}
       </Screen>
     </SafeAreaView>
-  );
-}
-
-/** Calm geometric placeholder mark (no orange star): a soft disc, a thin ring and a leaf. */
-function BrandMark({ size }: { size: number }) {
-  const t = useTheme();
-  const ring = size - 2 * t.space.md;
-  return (
-    <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: t.tokens.primarySoft, alignItems: 'center', justifyContent: 'center' }}>
-      <View style={{ width: ring, height: ring, borderRadius: ring / 2, borderWidth: t.border.thick, borderColor: t.tokens.border, alignItems: 'center', justifyContent: 'center' }}>
-        <Icon name="leaf" size="xl" color={t.tokens.primary} />
-      </View>
-    </View>
   );
 }
 

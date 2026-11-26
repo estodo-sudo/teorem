@@ -50,13 +50,14 @@ describe('streak freeze, vacation and the return after a break (spec 6.6)', () =
 });
 
 describe('reminders v2 (spec 13)', () => {
-  it('notification actions: start (2 min), micro set (1 min), snooze 15 min, skip today; neutral texts', () => {
+  it('notification actions: start (2 min), snooze 15 min, skip today — no micro set (2026-11-25); neutral texts', () => {
     const src = fs.readFileSync(path.join(root, 'src', 'features', 'reminders', 'scheduler.ts'), 'utf8');
-    for (const id of ['ACTION_START', 'ACTION_MICRO', 'ACTION_SNOOZE_15', 'ACTION_SKIP_TODAY']) expect(src).toMatch(new RegExp(`identifier: ${id}`));
+    for (const id of ['ACTION_START', 'ACTION_SNOOZE_15', 'ACTION_SKIP_TODAY']) expect(src).toMatch(new RegExp(`identifier: ${id}`));
+    expect(src).not.toMatch(/ACTION_MICRO|sessionId: 'micro'/);
     expect(src).toMatch(/sessionId: 'quick'/);
-    expect(src).toMatch(/sessionId: 'micro'/);
     const a = (tr as unknown as { reminders: { actions: Record<string, string>; discreet: Record<string, string> } }).reminders;
-    expect(a.actions).toMatchObject({ start: 'Başla (2 dk)', micro: 'Mikro set (1 dk)', snooze15: '15 dk ertele', skipToday: 'Bugün atla' });
+    expect(a.actions).toMatchObject({ start: 'Başla (2 dk)', snooze15: '15 dk ertele', skipToday: 'Bugün atla' });
+    expect(a.actions.micro).toBeUndefined();
     for (const s of Object.values(a.discreet)) expect(s).not.toMatch(/kegel|pelvik|cinsel|sertleş|boşalma|idrar/i);
   });
 });

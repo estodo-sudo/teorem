@@ -3,12 +3,15 @@ import type { ReactNode } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import Animated, { Easing, FadeInRight, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
+
+import { sexCtx, useSex } from '@/i18n/sex';
 
 import { AppText, Button, Card, Header, Icon, Screen, useTheme } from '@/components';
 import { IconTile, SegmentedSteps } from '@/components/ui';
-import { FindMuscleArt, PelvicFloor3D, TechniqueArt } from '@/components/Illustrations';
+import { AnimatedArt } from '@/components/AnimatedArt';
+import { PelvicFloor3D } from '@/components/Illustrations';
 import { IntroAnatomyScreen } from '@/features/intro-anatomy/IntroAnatomyScreen';
 import { generateTrialSession } from '@/features/training/generateSession';
 import { positionCard } from '@/features/training/player/playerUi';
@@ -26,6 +29,8 @@ import { useProfileStore } from '@/stores/profileStore';
 export default function Tutorial() {
   const t = useTheme();
   const { t: tr } = useTranslation();
+  // "What is it for": the penis-control line is for men only (2026-11-25)
+  const ctx = sexCtx(useSex());
   const { replay } = useLocalSearchParams<{ replay?: string }>();
   const [step, setStep] = useState<TutorialStep>('what');
   const [runKey, setRunKey] = useState(0);
@@ -52,7 +57,7 @@ export default function Tutorial() {
   // "Pelvik taban kasın nerede?": full screen, cannot be skipped (also when watched again).
   if (step === 'anatomy') return <IntroAnatomyScreen onFinish={next} />;
 
-  // Guided runs (trial set, release practice) use the real player.
+  // Guided runs (practice sets 1 and 2) use the real player.
   if (step === 'trial' || step === 'release') {
     const isTrial = step === 'trial';
     return (
@@ -76,12 +81,12 @@ export default function Tutorial() {
     );
   }
 
-  const paras = (key: string) => tr(key, { returnObjects: true }) as string[];
+  const paras = (key: string) => tr(key, { returnObjects: true, ...ctx }) as string[];
   const info: Partial<Record<TutorialStep, { art?: ReactNode; title: string; body: string[]; warn?: string; cta: string; onCta?: () => void; alt?: { label: string; onPress: () => void } }>> = {
     what: { art: <PelvicFloor3D />, title: tr('tutorial.what.title'), body: paras('tutorial.what.body'), cta: tr('tutorial.understood') },
-    find: { art: <FindMuscleArt />, title: tr('tutorial.find.title'), body: paras('tutorial.find.body'), warn: tr('tutorial.find.warn'), cta: tr('tutorial.understood') },
+    find: { art: <AnimatedArt name="find" size={190} />, title: tr('tutorial.find.title'), body: paras('tutorial.find.body'), warn: tr('tutorial.find.warn'), cta: tr('tutorial.understood') },
     position: { art: <PositionArt />, title: tr('tutorial.position.title'), body: [positionCard('lying').text, ...paras('tutorial.position.body')], cta: tr('tutorial.understood') },
-    technique: { art: <TechniqueArt />, title: tr('tutorial.technique.title'), body: paras('tutorial.technique.body'), warn: tr('tutorial.technique.warn'), cta: tr('tutorial.understood') },
+    technique: { art: <AnimatedArt name="technique" size={190} />, title: tr('tutorial.technique.title'), body: paras('tutorial.technique.body'), warn: tr('tutorial.technique.warn'), cta: tr('tutorial.understood') },
     check: {
       title: tr('tutorial.check.title'),
       body: [tr('tutorial.check.body')],
@@ -105,7 +110,8 @@ export default function Tutorial() {
   let alt: { label: string; onPress: () => void } | undefined;
   if (c) {
     body = (
-      <>
+      // each page slides in (motion polish 2026-11-25)
+      <Animated.View key={step} entering={FadeInRight.duration(320)} style={{ gap: t.space.xl }}>
         {c.art ? (
           <View style={{ alignItems: 'center', marginVertical: t.space.sm }}>{c.art}</View>
         ) : (
@@ -129,7 +135,7 @@ export default function Tutorial() {
             </AppText>
           </View>
         ) : null}
-      </>
+      </Animated.View>
     );
     cta = { label: c.cta, onPress: c.onCta ?? next };
     alt = c.alt;

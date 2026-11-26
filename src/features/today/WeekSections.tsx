@@ -7,9 +7,8 @@ import { Button, Card } from '@/components/ui';
 import { appImage } from '@/content/images';
 import { PROGRAM_WEEKS, programState } from '@/features/fitness/program';
 import { routineDurationSec, standardRoutine } from '@/features/fitness/routines';
-import { todayPlanDay } from '@/features/training/plan';
 import { protectedDays } from '@/features/training/returns';
-import { weekTheme } from '@/features/training/roadmap';
+import { currentPlanWeek, weekTheme } from '@/features/training/roadmap';
 import { targetDays } from '@/features/training/summary';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -27,7 +26,7 @@ export function dayLabels(lang: string): string[] {
 
 /**
  * "Bu hafta" (SPEC_V4 §A.2, moved from the Antrenman tab): the calendar week with each day's state —
- * done (filled primary circle with a check), today (primary ring), later days (muted), a rest day (moon)
+ * each day a soft capsule (round 3, 2026-11-25: weekday, date and a mark — check, half, moon, dot, dash)
  * — and one line "Bu hafta 2/5 antrenman · 1. hafta: Kası tanı". "Tüm planı gör" opens the plan.
  */
 export function ThisWeek() {
@@ -40,8 +39,9 @@ export function ThisWeek() {
   const split = targetDays(workouts, training.dailyTarget);
   const days = weekDays(today, split.full, protectedDays(training), split.partial);
   const count = weekCount(days);
-  const planWeek = Math.min(3, Math.floor(todayPlanDay(training, today) / 7));
+  const { stage: planStage, week: planWeek } = currentPlanWeek(training, today);
   const labels = dayLabels(i18n.language);
+  const frameStyle = useWeekCardStyle();
 
   return (
     <View style={{ gap: t.space.md }}>
@@ -55,49 +55,83 @@ export function ThisWeek() {
           </AppText>
         </Pressable>
       </View>
-      <Card style={{ padding: t.space.lg, gap: t.space.md }}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} accessibilityRole="list">
+      <Card style={[{ paddingVertical: t.space.lg, paddingHorizontal: t.space.sm, gap: t.space.md }, frameStyle]}>
+        <View style={{ flexDirection: 'row' }} accessibilityRole="list">
           {days.map((d) => (
             <DayDot key={d.key} day={d} label={labels[d.index]!} />
           ))}
         </View>
         <AppText variant="footnote" muted center>
-          {tr('home.week.summary', { done: count.done, total: count.total, theme: weekTheme(planWeek).title })}
+          {tr('home.week.summary', { done: count.done, total: count.total, theme: weekTheme(planWeek, planStage).title })}
         </AppText>
       </Card>
     </View>
   );
 }
 
+/** A #rrggbb colour at an opacity (other formats are returned as they are). */
+const withAlpha = (hex: string, a: number) =>
+  /^#[0-9a-f]{6}$/i.test(hex) ? `${hex}${Math.round(Math.max(0, Math.min(1, a)) * 255).toString(16).padStart(2, '0')}` : hex;
+
+/** The card around the week: the app's own card, with no extra frame (round 3 revision, 2026-11-25). */
+export function useWeekCardStyle() {
+  return {};
+}
+
+/**
+ * One day of the week (round 3 revised, 2026-11-25): a soft capsule like the app's chips — no frames.
+ * Weekday on top, the date, then a small mark. Done: the capsule fills with the primary colour and a
+ * check. Today: a primary tint, a thin primary outline and a dot. Below the target: the lower half fills.
+ * Rest: a moon on a dashed outline. Missed: a short dash. To come: a muted capsule and a ring.
+ */
 export function DayDot({ day, label }: { day: WeekDay; label: string }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const k = t.tokens;
   const filled = day.state === 'done' || day.state === 'todayDone';
   const half = day.state === 'partial' || day.state === 'todayPartial';
-  const ring = day.state === 'today' || day.state === 'todayDone' || day.state === 'todayPartial';
-  const a11y = `${label}, ${tr(`home.week.state.${day.state}`)}`;
+  const today = day.state === 'today' || day.state === 'todayDone' || day.state === 'todayPartial';
+  const rest = day.state === 'rest';
+  const missed = day.state === 'missed';
+  const date = Number(day.key.slice(8, 10));
+  const a11y = `${label} ${date}, ${tr(`home.week.state.${day.state}`)}`;
+  const bg = filled ? k.primary : today || half ? withAlpha(k.primary, 0.18) : rest ? 'transparent' : k.muted;
+  const ink = filled ? k.primaryForeground : today ? k.primary : missed ? k.mutedForeground : k.foreground;
+  const sub = filled ? k.primaryForeground : today ? k.primary : k.mutedForeground;
   return (
-    <View style={{ alignItems: 'center', gap: t.space.xs, minWidth: 36 }} accessible accessibilityLabel={a11y}>
-      <AppText variant="caption" muted={!ring} weight={ring ? '700' : '500'} color={ring ? k.primary : undefined}>
-        {label}
-      </AppText>
+    <View style={{ flex: 1, alignItems: 'center' }} accessible accessibilityLabel={a11y}>
       <View
         style={{
-          width: 36,
-          height: 36,
-          borderRadius: 18,
+          width: '86%',
+          maxWidth: 44,
           alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: filled ? k.primary : day.state === 'rest' ? 'transparent' : k.muted,
-          borderWidth: ring || half ? 2 : day.state === 'rest' ? 1 : 0,
-          borderColor: ring ? (filled ? k.primaryForeground : k.primary) : half ? k.primary : k.border,
+          gap: 3,
+          paddingTop: 10,
+          paddingBottom: 10,
+          borderRadius: 999,
           overflow: 'hidden',
+          backgroundColor: bg,
+          borderWidth: today && !filled ? 1.5 : rest ? 1 : 0,
+          borderStyle: rest ? 'dashed' : 'solid',
+          borderColor: today ? k.primary : k.border,
+          opacity: missed ? 0.75 : 1,
         }}
       >
-        {/* Below the daily target: the lower half is filled. */}
-        {half ? <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '50%', backgroundColor: k.primary }} /> : null}
-        {filled ? <Icon name="check" size={18} color={k.primaryForeground} strokeWidth={3} /> : day.state === 'rest' ? <Icon name="moon" size={16} color={k.mutedForeground} /> : null}
+        {/* Below the daily target: the lower half fills. */}
+        {half ? <View style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '45%', backgroundColor: withAlpha(k.primary, 0.55) }} /> : null}
+        <AppText variant="caption" weight="600" color={sub}>
+          {label}
+        </AppText>
+        <AppText variant="callout" weight="700" color={ink} tabular>
+          {date}
+        </AppText>
+        <View style={{ height: 16, alignItems: 'center', justifyContent: 'center' }}>
+          {filled ? <Icon name="check" size={14} color={k.primaryForeground} strokeWidth={3} /> : null}
+          {rest ? <Icon name="moon" size={13} color={k.mutedForeground} /> : null}
+          {missed ? <View style={{ width: 8, height: 2, borderRadius: 1, backgroundColor: k.mutedForeground }} /> : null}
+          {today && !filled && !half ? <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: k.primary }} /> : null}
+          {day.state === 'future' ? <View style={{ width: 7, height: 7, borderRadius: 4, borderWidth: 1.5, borderColor: k.mutedForeground }} /> : null}
+        </View>
       </View>
     </View>
   );

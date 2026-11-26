@@ -1,14 +1,15 @@
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
-import { exploreImage } from '@/content/images';
-import { GLOSSARY, type GlossaryTerm } from '@/features/content/data';
+import { appImage } from '@/content/images';
+import { GLOSSARY, glossaryImageId, type GlossaryTerm } from '@/features/content/data';
 import { CARD, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
 
 /** App concepts ("Seviye ne demek?" …): Keşfet only. Günüm shows the sexual-health terms. */
 export const APP_TERMS = new Set(['level', 'plan', 'exercises', 'vibration', 'streak', 'strength-test', 'discreet', 'privacy']);
-const HEALTH_TERMS = GLOSSARY.filter((g) => !APP_TERMS.has(g.id));
+/** Read on every render: the list follows the profile's sex (women's terms, 2026-11-25). */
+const healthTerms = () => GLOSSARY.filter((g) => !APP_TERMS.has(g.id));
 
 /**
  * "Neden, Nedir ve Ne Demek?" on Günüm (user request 2026-11-22): the same terms and pages as in
@@ -17,6 +18,7 @@ const HEALTH_TERMS = GLOSSARY.filter((g) => !APP_TERMS.has(g.id));
  */
 export function GlossaryStrip() {
   const { t: tr } = useTranslation();
+  const HEALTH_TERMS = healthTerms();
   return (
     <HorizontalSection<GlossaryTerm>
       id="home-glossary"
@@ -32,7 +34,7 @@ export function GlossaryStrip() {
           plain
           read={false}
           title={g.title}
-          image={exploreImage('glossary', g.id)}
+          image={appImage(glossaryImageId(g))}
           icon={g.icon}
           tone="knowledge"
           onPress={() => router.push({ pathname: '/glossary/[termId]', params: { termId: g.id } })}

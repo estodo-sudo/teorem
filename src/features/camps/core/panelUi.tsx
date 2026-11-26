@@ -2,10 +2,12 @@ import type { IconName } from '@/components/Icon';
 import { router, type Href } from 'expo-router';
 import { useState, type ReactNode } from 'react';
 import { Pressable, View } from 'react-native';
+import Animated, { FadeIn, FadeInDown, ZoomIn } from 'react-native-reanimated';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, useTheme } from '@/components';
+import { HeroAmbient } from '@/components/HeroAmbient';
 import { Card, IconTile } from '@/components/ui';
 import { mixHex } from '@/components/ui/urgeGaugeLogic';
 import type { ModuleTone } from '@/config/theme';
@@ -48,6 +50,8 @@ export function PanelHero({ tone, children }: { tone: ModuleTone; children: Reac
           <Rect width={size.w} height={size.h} fill={`url(#${id})`} />
         </Svg>
       ) : null}
+      {/* drifting glows and rising motes in the camp tone (round 6, 2026-11-25) */}
+      <HeroAmbient glow={mixHex(fg, '#FFFFFF', 0.35)} />
       {children}
     </View>
   );
@@ -161,7 +165,9 @@ export function TodayCard({ title, rows }: { title: string; rows: TaskRow[] }) {
       </View>
       <Card style={{ padding: 0, overflow: 'hidden' }}>
         {rows.map((x, i) => (
-          <TaskLine key={x.key} row={x} first={i === 0} />
+          <Animated.View key={x.key} entering={FadeInDown.delay(80 + i * 70).duration(320)}>
+            <TaskLine row={x} first={i === 0} />
+          </Animated.View>
         ))}
       </Card>
     </View>
@@ -179,7 +185,13 @@ function TaskLine({ row, first }: { row: TaskRow; first: boolean }) {
       style={({ pressed }) => ({ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 64, paddingHorizontal: t.space.lg, paddingVertical: t.space.md, borderTopWidth: first ? 0 : 1, borderTopColor: t.tokens.border, backgroundColor: pressed ? t.tokens.muted : 'transparent' })}
     >
       <View style={{ width: 28, height: 28, borderRadius: 14, borderWidth: row.extra ? 0 : 2, borderColor: row.done ? t.tokens.primary : t.tokens.border, backgroundColor: row.done ? t.tokens.primary : row.extra ? t.tokens.muted : 'transparent', alignItems: 'center', justifyContent: 'center' }}>
-        {row.done ? <Icon name="check" size={16} color={t.tokens.primaryForeground} strokeWidth={3} /> : <Icon name={row.icon} size={14} color={t.tokens.mutedForeground} />}
+        {row.done ? (
+          <Animated.View entering={ZoomIn.springify().damping(12)}>
+            <Icon name="check" size={16} color={t.tokens.primaryForeground} strokeWidth={3} />
+          </Animated.View>
+        ) : (
+          <Icon name={row.icon} size={14} color={t.tokens.mutedForeground} />
+        )}
       </View>
       <View style={{ flex: 1, gap: 1, opacity: row.done ? 0.6 : 1 }}>
         <AppText variant="callout" weight="600">
@@ -221,14 +233,18 @@ export function PastelCard({ tone, icon, title, text, onPress, extra }: { tone: 
       {extra}
     </View>
   );
-  return onPress ? (
-    <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel={text ? `${title}. ${text}` : title}>
-      {body}
-    </Pressable>
-  ) : (
-    <View accessible accessibilityLabel={text ? `${title}. ${text}` : title}>
-      {body}
-    </View>
+  return (
+    <Animated.View entering={FadeIn.delay(150).duration(400)}>
+      {onPress ? (
+        <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel={text ? `${title}. ${text}` : title}>
+          {body}
+        </Pressable>
+      ) : (
+        <View accessible accessibilityLabel={text ? `${title}. ${text}` : title}>
+          {body}
+        </View>
+      )}
+    </Animated.View>
   );
 }
 
@@ -248,13 +264,13 @@ export function ToolGrid({ tone, title, tools }: { tone: ModuleTone; title: stri
         {title}
       </AppText>
       <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.sm }}>
-        {tools.map((x) => (
+        {tools.map((x, i) => (
+          <Animated.View key={x.title} entering={FadeInDown.delay(120 + i * 45).duration(300)} style={{ flexGrow: 1, flexBasis: '45%' }}>
           <Pressable
-            key={x.title}
             onPress={() => router.push(x.route)}
             accessibilityRole="button"
             accessibilityLabel={x.sub ? `${x.title}, ${x.sub}` : x.title}
-            style={({ pressed }) => ({ minHeight: 88, flexGrow: 1, flexBasis: '45%', flexDirection: 'row', alignItems: 'center', backgroundColor: t.tokens.card, borderColor: t.tokens.border, borderWidth: 1, borderRadius: t.radius.lg, padding: t.space.md, gap: t.space.sm, transform: [{ scale: pressed ? 0.98 : 1 }] })}
+            style={({ pressed }) => ({ minHeight: 88, flexDirection: 'row', alignItems: 'center', backgroundColor: t.tokens.card, borderColor: t.tokens.border, borderWidth: 1, borderRadius: t.radius.lg, padding: t.space.md, gap: t.space.sm, transform: [{ scale: pressed ? 0.98 : 1 }] })}
           >
             <IconTile icon={x.icon} tone={tone} size="sm" />
             <View style={{ gap: 1, flex: 1 }}>
@@ -268,6 +284,7 @@ export function ToolGrid({ tone, title, tools }: { tone: ModuleTone; title: stri
               ) : null}
             </View>
           </Pressable>
+          </Animated.View>
         ))}
       </View>
     </View>

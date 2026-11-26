@@ -1,4 +1,5 @@
 export { AppText } from './AppText';
+export { AppLogo, Branded, BrandName } from './Brand';
 export { Button } from './Button';
 export { Card } from './Card';
 export { ChoiceCard } from './ChoiceCard';

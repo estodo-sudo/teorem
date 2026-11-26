@@ -3,6 +3,7 @@ import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
+import { useAppActive } from '@/lib/useLive';
 import { AppText, Card, Icon, useTheme } from '@/components';
 import { playCue } from '@/features/training/haptics';
 import { remainingInPhase, type PlayerState } from '@/features/training/player/machine';
@@ -118,11 +119,13 @@ export function WorkView({ move, state, paused, durationMs, strength, remain }: 
   const t = useTheme();
   const { t: tr } = useTranslation();
   const [clock, setClock] = useState(() => Date.now());
+  // Battery (round 8): no 25 fps redraws while the app is in the background (the player keeps its own time).
+  const active = useAppActive();
   useEffect(() => {
-    if (paused) return;
+    if (paused || !active) return;
     const id = setInterval(() => setClock(Date.now()), 40);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, active]);
   // A paused player freezes its own time, so the clock value does not matter then.
   const elapsed = Math.max(0, durationMs - remainingInPhase(state, clock));
   const m = motionAt(move, elapsed, durationMs);

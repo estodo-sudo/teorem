@@ -86,6 +86,30 @@
     "breath": {
       "name": "Breathing",
       "desc": "Breathe in for 4 seconds, out for 6. For warming up and cooling down."
+    },
+    "step_up": {
+      "name": "Step Squeeze",
+      "desc": "Squeeze in three steps: a third, then two thirds, and the third step is the full squeeze. Then let go fully."
+    },
+    "step_down": {
+      "name": "Step Release",
+      "desc": "Squeeze slowly to full, then let go in three steps: down to two thirds, to a third, and fully."
+    },
+    "double_peak": {
+      "name": "Double Peak",
+      "desc": "Squeeze fully, let go half way, squeeze fully again, then let go fully."
+    },
+    "half_quick": {
+      "name": "Quick Half Squeeze",
+      "desc": "Quick squeezes that only go half way: half squeeze 1 s, let go 1 s."
+    },
+    "half_hold": {
+      "name": "Half Long Hold",
+      "desc": "Squeeze half way and hold it there for a long time; then let go fully."
+    },
+    "wave": {
+      "name": "Wave",
+      "desc": "Squeeze fully, let go half way, squeeze fully again, then drop to half and hold it long. Let go fully at the end."
     }
   },
   "player": {
@@ -103,7 +127,15 @@
       "letGo": "LET GO",
       "slowSqueeze": "SQUEEZE SLOWLY",
       "slowRelease": "RELEASE SLOWLY",
-      "settle": "RELAX"
+      "settle": "RELAX",
+      "third": "SQUEEZE ⅓",
+      "twoThirds": "SQUEEZE ⅔",
+      "half": "HALF SQUEEZE",
+      "full": "FULL SQUEEZE",
+      "downTwoThirds": "DOWN TO ⅔",
+      "downThird": "DOWN TO ⅓",
+      "downHalf": "DOWN TO HALF",
+      "holdHalf": "HOLD AT HALF"
     },
     "stage": "FLOOR {{stage}}",
     "getReady": "Get ready",
@@ -126,7 +158,7 @@
       "Don't hold your breath. Breathe easily while squeezing and while letting go.",
       "The phone vibrates while you squeeze and stops when you let go. You don't need to look at the screen.",
       "The release phase matters at least as much as the squeeze; let the muscle go completely.",
-      "Tap the screen: pause. Hold for a second: finish. Swipe left: skip ahead. Double tap: black screen."
+      "Tap the screen: pause. Hold for a second: finish. Swipe left: skip ahead. With Discreet mode on, double tap: black screen."
     ],
     "painWarning": "If you feel pain, burning or discomfort, stop right away and see a health professional.",
     "interruptedTitle": "Workout paused",
@@ -145,10 +177,18 @@
       "floor3": "Third floor",
       "slowSqueeze": "Squeeze slowly",
       "slowRelease": "Release slowly",
-      "hold": "Hold"
+      "hold": "Hold",
+      "third": "Squeeze a third",
+      "twoThirds": "Squeeze two thirds",
+      "half": "Half squeeze",
+      "full": "Full squeeze",
+      "downTwoThirds": "Down to two thirds",
+      "downThird": "Down to a third",
+      "downHalf": "Down to half",
+      "holdHalf": "Hold at half"
     },
     "restartBlock": "Restart the exercise",
-    "gestureHint": "Tap the screen: pause or resume. Hold for a second: finish. Swipe left: skip ahead. Double tap: black screen.",
+    "gestureHint": "Tap the screen: pause or resume. Hold for a second: finish. Swipe left: skip ahead. With Discreet mode on, double tap: black screen.",
     "positionNow": "Position: {{position}}",
     "painButton": "Pain",
     "painTitle": "We stopped the session",
@@ -162,12 +202,15 @@
     "nextTitle": "Next: {{name}} ×{{reps}}",
     "nextDetail": "Squeeze {{hold}} s · release {{rest}} s",
     "positionChange": "Position changes: {{position}}",
-    "blackMode": "Black screen mode",
+    "blackMode": "Black screen",
     "blackHint": "Double tap to exit. Tap to pause.",
     "nextSlow": "Squeeze slowly {{slow}} s · hold {{top}} s · release slowly {{slow}} s",
     "nextRelease": "Relax 3 s · let go completely 6 s",
     "round": "Round {{n}}",
-    "nextName": "Next: {{name}}"
+    "nextName": "Next: {{name}}",
+    "gestureHintTrial": "Tap the screen: pause or resume.",
+    "blackExit": "Double tap the screen to leave.",
+    "blackGoesOn": "Your session goes on; follow the vibration. One tap pauses."
   },
   "feedback": {
     "doneTitle": "Great, today's workout is done!",
@@ -230,7 +273,7 @@
       "daily": "Daily goal",
       "dailyCount": "{{done}}/{{target}}",
       "dailyDone": "Today's goal is done",
-      "dailyLeft": "{{count}} session(s) left to reach your goal; a short micro set counts too."
+      "dailyLeft": "Round 2 is left to complete the day."
     },
     "outlook": {
       "up": {
@@ -377,60 +420,65 @@
     "what": {
       "title": "What is the pelvic floor muscle?",
       "body": [
-        "The pelvic floor is a group of muscles stretched like a hammock across the bottom of your pelvis.",
-        "It supports the bladder and bowel and contributes to urinary control and sexual function.",
-        "Like other muscles, it can get stronger when trained regularly and correctly."
+        "A group of muscles stretched like a hammock across the bottom of your pelvis.",
+        "It holds up the bladder and bowel, supports urinary control and sexual function, and strengthens penis control.",
+        "Like any muscle, it gets stronger when trained regularly and correctly."
+      ],
+      "body_female": [
+        "A group of muscles stretched like a hammock across the bottom of your pelvis.",
+        "It holds up the bladder and bowel and supports urinary control and sexual function.",
+        "Like any muscle, it gets stronger when trained regularly and correctly."
       ],
       "artAlt": "The pelvis with the pelvic floor muscle slung underneath like a hammock"
     },
     "find": {
       "title": "How do you find the muscle?",
       "body": [
-        "Imagine trying to stop your urine flow midstream, or holding back wind.",
-        "The area that tightens inwards and upwards at that moment is your pelvic floor muscle.",
-        "Once you've found it, repeat that feeling while not urinating, sitting or lying down."
+        "Imagine stopping your urine midstream or holding in wind.",
+        "The muscle that lifts in and up at that moment is your pelvic floor.",
+        "Repeat that feeling when you're not urinating, lying down or sitting."
       ],
-      "warn": "Don't exercise while urinating. Imagine stopping the flow only once to find the muscle; repeating it as an exercise can stop the bladder from emptying fully."
+      "warn": "Don't exercise while urinating. Imagine stopping the flow only once, to find the muscle; doing it repeatedly can stop the bladder from emptying fully."
     },
     "technique": {
       "title": "Correct technique",
       "body": [
-        "Squeeze only the pelvic floor muscle: keep your belly, glutes and legs relaxed.",
-        "Don't hold your breath; keep breathing calmly and steadily.",
-        "Let the muscle go completely after every squeeze. Releasing is part of the exercise."
+        "Squeeze only the pelvic floor; keep your belly, buttocks and legs relaxed.",
+        "Don't hold your breath; keep breathing calmly.",
+        "Let the muscle relax fully after every squeeze; relaxing is part of the exercise."
       ],
-      "warn": "Kegels should not hurt. If you feel pain or discomfort, stop and end the workout."
+      "warn": "Kegels shouldn't hurt. If you feel pain or discomfort, stop."
     },
     "trial": {
-      "title": "Practice set",
+      "title": "Practice set 1",
       "body": "3 reps: squeeze for 3 seconds, relax for 3 seconds. Follow the vibration."
     },
     "check": {
-      "title": "Could you do it?",
-      "body": "Could you feel the muscle squeeze and let go?",
-      "yes": "Yes, I could",
+      "title": "How did set 1 go?",
+      "body": "Could you feel the muscle squeeze and relax?",
+      "yes": "Yes, I felt it",
       "unsure": "I'm not sure"
     },
     "tips": {
       "title": "A few tips",
       "body": [
-        "Try lying down: knees bent, back on the floor. The muscle is easier to feel in this position.",
-        "Put a hand on your belly: it shouldn't move while you squeeze.",
-        "Don't try to squeeze too hard; a light but clear in-and-up lift is enough.",
-        "It can be hard to feel in the first days; that's completely normal and gets easier with practice."
+        "Try lying down: knees bent, back on the floor. The muscle is easier to feel this way.",
+        "Put a hand on your belly; it shouldn't move while you squeeze.",
+        "Don't squeeze too hard; a light but clear lift in and up is enough.",
+        "It can be hard to feel at first; it gets easier with practice."
       ],
       "retry": "Try again"
     },
     "position": {
       "title": "Starting position",
       "body": [
-        "In the first week you always train lying down: the muscle is easiest to feel in this position.",
-        "As the weeks go on you'll move to sitting and standing. When the position changes, a card appears on the screen."
+        "In the first week you always train in this position.",
+        "In later weeks you also train sitting and standing. A card appears when the position changes."
       ]
     },
     "checklist": {
       "title": "Am I doing it right?",
-      "body": "Squeeze once and hold. While holding, check the points below; tick each one you can answer “yes” to.",
+      "body": "Squeeze once and hold. While holding, go through the list and tick each one you can say “yes” to.",
       "items": {
         "glutes": {
           "title": "My glutes are relaxed",
@@ -451,21 +499,21 @@
       }
     },
     "release": {
-      "title": "Release practice",
-      "body": "2 reps: squeeze for 3 seconds, then let go completely for 6 seconds. Let the muscle relax as if sinking down."
+      "title": "Practice set 2",
+      "body": "2 reps: squeeze for 3 seconds, then relax fully for 6 seconds. Let the muscle settle back slowly."
     },
     "releaseCheck": {
-      "title": "Did you feel it let go?",
-      "body": "After the squeeze, did you feel the muscle relax completely and drop back down?",
+      "title": "How did set 2 go?",
+      "body": "After the squeeze, did you feel the muscle relax fully?",
       "yes": "Yes, I felt it",
       "unsure": "I'm not sure"
     },
     "releaseTips": {
-      "title": "Tips for letting go",
+      "title": "Tips for relaxing",
       "body": [
-        "Don't rush: let the muscle go little by little, as if sinking down.",
-        "Relax your shoulders and jaw too; tension usually travels together.",
-        "Don't bear down as you let go; simply stop holding."
+        "Don't rush; let the muscle go little by little.",
+        "Relax your shoulders and jaw too; tension usually comes together.",
+        "Don't bear down as you relax; simply stop holding."
       ]
     },
     "mistakes": {
@@ -496,8 +544,8 @@
     "ready": {
       "title": "You're ready!",
       "body": [
-        "You've found the muscle, learned the vibration language and practised squeezing and letting go.",
-        "Your first session is Quick (2 minutes). After that you choose the length; it adapts to your level feedback."
+        "You've found the muscle, learned the vibrations and finished both practice sets.",
+        "Your first session is Quick (2 minutes). After that you choose the length; your level adapts to your feedback."
       ],
       "cta": "I'm ready"
     }
@@ -1022,7 +1070,6 @@
       "deload": "light week",
       "targetA11y": "Daily goal: {{done}} of {{total}} sessions done",
       "shorterHint": "Yesterday was hard; pick a shorter session today if you like.",
-      "micro": "Micro set ({{sec}} s)",
       "capReached": "You've reached today's contraction limit. See you tomorrow; you can still do release and breathing only if you like.",
       "capTitle": "Enough for today",
       "capBody": "You've worked your muscles enough today; rest is part of training too. See you tomorrow. If you like, you can do a release and breathing session without contractions.",
@@ -1037,13 +1084,13 @@
       "dayKicker": "Day {{day}} / {{total}}",
       "summaryA11y": "Show the exercises",
       "summaryPill": "{{count}} exercises · {{min}} min",
-      "microShort": "Micro set",
       "breathShort": "Breathing · 1 min",
       "targetShort": "Daily goal",
-      "microHint": "A short {{sec}}-second set",
       "summary_one": "{{count}} part · about {{min}} min",
       "summary_other": "{{count}} parts · about {{min}} min",
-      "summaryInline": "{{count}} exercises · {{min}} min"
+      "summaryInline": "{{count}} exercises · {{min}} min",
+      "startRound2": "Start Round 2",
+      "cycleKicker": "Weekly cycle · Day {{day}} / 7"
     },
     "challenges": "Nutrition tip",
     "strengthDue": "Time for your weekly strength test",
@@ -1067,10 +1114,11 @@
       "days": "days",
       "listTitle": "Today's goals",
       "main": "Today's workout",
-      "micro": "One micro set",
       "test": "Weekly strength test",
       "doneA11y": "done",
-      "details": "See progress"
+      "details": "See progress",
+      "round1": "Round 1 · first half of the day",
+      "round2": "Round 2 · second half of the day"
     },
     "levelChip": "Level {{level}}",
     "streakDays_one": "{{count}} day",
@@ -1097,9 +1145,6 @@
   "training": {
     "title": "Training",
     "planTitle": "Plan {{plan}}",
-    "planProgress": "{{done}}/30 days",
-    "planHint": "You move forward one step each day. Tap a day to see that day's session. When the 30 days are over, the next plan starts at the level you reached.",
-    "planA11y": "30-day plan, {{done}} days completed",
     "dayDone": "Day {{day}}, completed",
     "dayToday": "Day {{day}}, today",
     "dayTodo": "Day {{day}}",
@@ -1111,9 +1156,11 @@
       "full": "Full (8 min)"
     },
     "roadmap": {
-      "title": "Plan {{plan}} · Roadmap",
+      "title": "Roadmap",
       "level": "Level {{level}}",
-      "open": "The full roadmap"
+      "open": "The full roadmap",
+      "stage": "Month {{stage}} of {{total}} · days {{from}}–{{to}}",
+      "cycle": "After the 180 days · a 7-day cycle that repeats every week"
     },
     "preview": {
       "title": "Day {{day}}",
@@ -1153,7 +1200,8 @@
     "weekCount": "{{done}}/{{total}}",
     "weekA11y": "{{title}}, {{done}} / {{total}} days completed",
     "deloadDay": "Light day",
-    "programmeKicker": "YOUR PROGRAMME"
+    "programmeKicker": "YOUR PROGRAMME",
+    "cycleDayLabel": "Cycle · day {{day}}"
   },
   "achievements": {
     "title": "Trophies",
@@ -1364,28 +1412,57 @@
   },
   "reminders": {
     "discreet": {
-      "title": "Your daily 5 minutes",
-      "body0": "Your daily 5 minutes are waiting",
-      "body1": "Time for a short break. We're here when you're ready.",
-      "body2": "Today's small goal is waiting for you",
-      "body3": "A good moment for your 5-minute routine",
-      "body4": "Just one short step to keep your streak going",
-      "body5": "It's time for the 5 minutes you set aside for yourself.",
+      "title": "Your 5 minutes are ready",
+      "title0": "Your 5 minutes are ready",
+      "body0": "Today's short routine is waiting. Your phone will guide you with vibration.",
+      "title1": "A small break",
+      "body1": "Sit comfortably and take 5 minutes. Start when you're ready.",
+      "title2": "Today's step",
+      "body2": "A few minutes a day makes a difference within weeks.",
+      "title3": "Your streak goes on",
+      "body3": "Add today too and let your streak grow by a day.",
+      "title4": "5 minutes for you",
+      "body4": "A short moment that's yours in a busy day.",
+      "title5": "No need to look at the screen",
+      "body5": "Just follow the vibration. Your routine is ready.",
+      "title6": "Short and quiet",
+      "body6": "You can do it where you are, without anyone noticing.",
+      "title7": "Before the day ends",
+      "body7": "Finish your short routine before you close the day.",
+      "title8": "Not long, just regular",
+      "body8": "Today's 5 minutes are waiting for you.",
+      "title9": "Now is a good moment",
+      "body9": "If you're comfortable now, it's a good time to start.",
       "testTitle": "Weekly check",
-      "testBody": "It's time for your weekly measurement. It takes a minute"
+      "testBody": "A short measurement to see this week's progress: about 1 minute."
     },
     "explicit": {
-      "title": "Time for Kegel training",
-      "body0": "Your daily pelvic floor workout is waiting",
-      "body1": "Ready for your 5-minute Kegel session?",
-      "body2": "Time to work your pelvic floor muscles",
-      "body3": "Complete today's Kegel workout and keep your streak.",
-      "testTitle": "Strength test time",
-      "testBody": "Take the weekly pelvic floor strength test and see your progress"
+      "title": "Kegel time",
+      "title0": "Kegel time",
+      "body0": "Your daily pelvic floor session is ready: about 5 minutes, guided by vibration.",
+      "title1": "Your pelvic floor is waiting",
+      "body1": "Squeeze, hold, let go. Finish today's set and grow your streak by a day.",
+      "title2": "A 5-minute Kegel",
+      "body2": "A good moment for a short set. Letting go matters as much as squeezing.",
+      "title3": "Today's session",
+      "body3": "Regular Kegels support muscle control within weeks. Add today too.",
+      "title4": "Keep your streak",
+      "body4": "No session yet today. A short Kegel set keeps your streak.",
+      "title5": "Ready?",
+      "body5": "Get comfortable, don't hold your breath and follow the vibration.",
+      "title6": "Round 2 before the day ends",
+      "body6": "If you've done Round 1, finish the day with Round 2.",
+      "title7": "Squeeze and fully let go",
+      "body7": "Relaxing the muscle fully is part of the training. Today's set is ready.",
+      "title8": "Today's Kegel set",
+      "body8": "You can do it where you're sitting, without anyone noticing.",
+      "title9": "A small investment in you",
+      "body9": "A few minutes every day: a regular step towards better control.",
+      "testTitle": "Weekly strength test",
+      "testBody": "Measure your pelvic floor strength in 1 minute and see your weekly progress."
     },
     "actions": {
       "start": "Start (2 min)",
-      "micro": "Micro set (1 min)",
       "snooze15": "Snooze 15 min",
       "skipToday": "Skip today",
       "snooze60": "Snooze 1 hour"
@@ -1528,7 +1605,8 @@
       "left": "LEFT",
       "right": "RIGHT"
     },
-    "cardDesc": "A 7-week plan for hips, belly and inner thighs."
+    "cardDesc": "A 7-week plan for hips, belly and inner thighs.",
+    "animDev": "The animations are still in development."
   },
   "mind": {
     "title": "Mind Relaxation",
@@ -1623,7 +1701,8 @@
       "nutrition": "Nutrition",
       "sleep": "Sleep",
       "stress": "Stress",
-      "exercise": "Exercise"
+      "exercise": "Exercise",
+      "menHealth_female": "Women's Health"
     },
     "allRow": "Stories",
     "meta": "{{min}} min · {{count}} slides",
@@ -1818,9 +1897,7 @@
       "sound": "Sound cues",
       "soundHint": "Rising tone = squeeze, falling tone = let go, short click = second. Best heard with headphones; doesn't play in silent mode.",
       "discreet": "Discreet mode",
-      "discreetHint": "The player shows only the circle and colours instead of text.",
-      "perDay": "Daily session goal",
-      "perDayHint": "1 main session plus short micro sets during the day. 1 session a day is enough for your streak.",
+      "discreetHint": "The player shows only the circle and colours instead of text. In a session, a double tap turns the screen fully black.",
       "voice": "Voice coach",
       "voiceHint": "Short cues in your phone's own voice: “Squeeze”, “Let go”. No internet needed.",
       "voiceTry": "Try the voice",
@@ -3236,7 +3313,8 @@
       "s1": "Let's see together where your pelvic floor muscle is.",
       "s2": "Your pelvis is shaped like a bowl.",
       "s3": "Beneath it is a muscle stretched like a hammock: the pelvic floor.",
-      "s4": "It carries your bladder and bowel and lets you hold in urine and wind.",
+      "s4": "It carries your bladder and bowel, lets you hold in urine and wind, and strengthens penis control.",
+      "s4_female": "It carries your bladder and bowel and lets you hold in urine and wind.",
       "s5": "Act as if you're holding in urine and wind. The muscle you feel is the one.",
       "s6": "Now let go. Relaxing is part of the exercise too.",
       "s7": "Don't tense your belly, glutes or legs. Only this muscle should work.",
@@ -3245,14 +3323,13 @@
   },
   "round": {
     "doneTitle": "Round 1 complete",
-    "offer": "If you like, move on to Round 2: slow squeezes are added. It takes about {{min}} minutes.",
+    "offer": "Round 2 is the second half of the day: slow squeezes and the moves you've learned, about {{min}} minutes. Do it now or any time today; when both are done, the day is complete.",
     "start": "Go to Round 2 · {{min}} min",
-    "finish": "Finish",
+    "finish": "Round 2 later",
     "contents": "In Round 2, in order",
-    "new": "New move",
     "restNote": "You rest 5 seconds in between.",
     "intro": {
-      "kicker": "ROUND 2 · SHORT LESSON",
+      "kicker": "BEFORE ROUND 2 · MINI LESSON",
       "title": "New move: Slow squeeze",
       "steps": [
         "Squeeze the muscle slowly; reach the top in about 3 seconds.",
@@ -3260,14 +3337,35 @@
         "Let go and wait 1 second, then squeeze slowly again."
       ],
       "note": "In Round 2, slow squeezes, quick squeeze-releases and long squeezes come in turn. The phone vibrates while you squeeze and stops when you let go.",
-      "go": "Got it, start Round 2",
-      "demoA11y": "Example: the circle grows slowly, pauses briefly at the top and shrinks."
-    }
+      "demoA11y": "Example: the circle grows slowly, pauses briefly at the top and shrinks.",
+      "progress": "Step {{step}} / {{total}}",
+      "tryIt": "Try it together",
+      "later": "Do Round 2 later",
+      "practiceTitle": "Try it together: 3 slow squeezes",
+      "practiceHint": "As the circle grows slowly, squeeze slowly too; hold for a moment at the top, then let go fully. The phone vibrates while you squeeze.",
+      "checkTitle": "How did it go?",
+      "checkItems": [
+        "I squeezed slowly, over about 3 seconds.",
+        "I held for a moment at the top, then let go fully.",
+        "I didn't hold my breath; my belly and buttocks stayed relaxed."
+      ],
+      "checkNote": "If you can say “yes” to all of them, you're ready. If you're not sure, try once more; there's no rush.",
+      "ready": "I'm ready, start Round 2",
+      "again": "Try once more"
+    },
+    "latest": "The move you learned last · every round",
+    "review": "Review · learned earlier"
   },
   "block": {
     "long": "Squeeze for {{sec}} s without letting go",
     "quick": "{{sec}} s · squeeze 1 s, let go 1 s",
-    "slow": "{{count}} times · squeeze slowly, hold at the top, let go"
+    "slow": "{{count}} times · squeeze slowly, hold at the top, let go",
+    "step_up": "{{count}} times · ⅓ → ⅔ → full, let go",
+    "step_down": "{{count}} times · slowly to full, let go in 3 steps",
+    "double_peak": "{{count}} times · full → half → full, let go",
+    "half_quick": "{{sec}} s · half squeeze 1 s, let go 1 s",
+    "half_hold": "{{count}} times · hold at half for {{sec}} s",
+    "wave": "{{count}} times · full → half → full → long hold at half"
   },
   "bodyweight": {
     "title": "Bodyweight Fitness",
@@ -3351,5 +3449,114 @@
   "exerciseSoon": {
     "title": "Exercise {{n}}",
     "locked": "Unlocks at higher levels"
+  },
+  "app": {
+    "tagline": "Kegel & Pelvic Floor"
+  },
+  "moveIntro": {
+    "kicker": "BEFORE ROUND 2 · NEW MOVE",
+    "title": "New move: {{name}}",
+    "progress": "Step {{step}} / {{total}}",
+    "tryIt": "Try it together",
+    "later": "Do Round 2 later",
+    "practiceTitle": "Try it together: {{name}}",
+    "practiceHint": "Follow the circle: the bigger it is, the harder you squeeze. The word on screen tells you which step you are on; the vibration gets stronger and softer with the squeeze.",
+    "checkTitle": "How did it go?",
+    "checkNote": "If you can say “yes” to all of them, you're ready. If you're not sure, try once more; there's no rush.",
+    "ready": "I'm ready, start Round 2",
+    "again": "Try once more",
+    "note": "{{name}} will be in every round until you learn the next new move. The moves you learned before keep coming back in turns.",
+    "demoA11y": "Example: the circle grows and shrinks with the steps of the move.",
+    "moves": {
+      "step_up": {
+        "steps": [
+          "Squeeze a third: a light lift, 2 seconds.",
+          "Squeeze a little more: two thirds, 2 seconds.",
+          "On the third step squeeze fully and hold for 2 seconds.",
+          "Then let go fully and rest."
+        ],
+        "checkItems": [
+          "I felt three separate steps, each a little stronger than the one before.",
+          "On the third step I squeezed fully.",
+          "I didn't hold my breath; my belly and buttocks stayed relaxed."
+        ]
+      },
+      "step_down": {
+        "steps": [
+          "Squeeze slowly to full (about 3 seconds) and hold for a moment.",
+          "Go down to two thirds: let go a little, but not all the way.",
+          "Go down to a third: let go a little more.",
+          "Then let go fully."
+        ],
+        "checkItems": [
+          "I let go step by step, not all at once.",
+          "At each step I could hold that strength for a moment.",
+          "At the end I relaxed the muscle fully."
+        ]
+      },
+      "double_peak": {
+        "steps": [
+          "Squeeze fully, 2 seconds.",
+          "Let go half way; keep the muscle half squeezed.",
+          "Squeeze fully again, 2 seconds.",
+          "Then let go fully."
+        ],
+        "checkItems": [
+          "Going down to half, I didn't let go fully.",
+          "I could squeeze fully a second time.",
+          "I didn't hold my breath; my belly and buttocks stayed relaxed."
+        ]
+      },
+      "half_quick": {
+        "steps": [
+          "Squeeze quickly, but only half way.",
+          "Let go fully right away.",
+          "Half squeeze 1 second, let go 1 second; keep the rhythm."
+        ],
+        "checkItems": [
+          "Each squeeze went half way, not fully.",
+          "Each time I let go fully.",
+          "I kept the rhythm; my belly and buttocks stayed relaxed."
+        ]
+      },
+      "half_hold": {
+        "steps": [
+          "Squeeze half way, not fully.",
+          "Hold it there for a long time: don't squeeze harder, don't let go.",
+          "When the time is up, let go fully and rest."
+        ],
+        "checkItems": [
+          "I held at half strength and didn't squeeze fully.",
+          "The strength neither dropped nor rose while I held.",
+          "I kept breathing."
+        ]
+      },
+      "wave": {
+        "steps": [
+          "Squeeze fully, then let go half way.",
+          "Squeeze fully again.",
+          "Drop to half and hold it there for a long time.",
+          "At the end, let go fully."
+        ],
+        "checkItems": [
+          "I could switch between full and half.",
+          "I didn't let go during the last half hold.",
+          "I didn't hold my breath; my belly and buttocks stayed relaxed."
+        ]
+      }
+    }
+  },
+  "moves": {
+    "section": "Your moves",
+    "learnedTitle": "Moves you have learned",
+    "count": "{{done}} / {{total}}",
+    "current": "Learned · now in every round",
+    "currentBadge": "Every round",
+    "learned": "Learned · comes in Round 2 in turns",
+    "next_one": "Next · opens on day {{day}} (1 day left)",
+    "next_other": "Next · opens on day {{day}} ({{count}} days left)",
+    "nextToday": "Next · you learn it today after Round 1",
+    "locked": "Opens on day {{day}}",
+    "learnedSlow": "Learned · in every Round 2"
   }
 }

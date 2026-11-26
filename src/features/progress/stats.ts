@@ -35,9 +35,9 @@ export interface HeatCell {
 
 /** Calendar heat map: `weeks` columns × 7 rows (Mon..Sun), ending this week. */
 /**
- * Calendar cells (2026-11-23: measured against the daily target, like the week strip): 1 = started but
- * below the target ("Yarım"), 2 = target reached ("Tamam"), 3 = more than the target. Tur 2 continues
- * Tur 1 and does not count again.
+ * Calendar cells, by the one day rule (2026-11-25: a day is Tur 1 + Tur 2): 1 = one half done ("Yarım"),
+ * 2 = both halves ("Tamam"), 3 = both and something extra (a micro set or another session). A micro set
+ * alone doesn't mark a day.
  */
 export function heatMap(workouts: WorkoutSession[], today: string, weeks = 12, target = 1): HeatCell[][] {
   const goal = Math.max(1, target);
@@ -49,7 +49,7 @@ export function heatMap(workouts: WorkoutSession[], today: string, weeks = 12, t
     for (let r = 0; r < 7; r++) {
       const date = addDays(start, c * 7 + r);
       const s = any.has(date) ? dayStatus(workouts, date, goal) : null;
-      const intensity: HeatCell['intensity'] = daysBetween(date, today) < 0 || !s ? 0 : s.full ? (s.sessions > goal ? 3 : 2) : 1;
+      const intensity: HeatCell['intensity'] = daysBetween(date, today) < 0 || !s ? 0 : s.full ? (s.microDone || s.sessions > 1 ? 3 : 2) : s.counted > 0 ? 1 : 0;
       col.push({ date, intensity });
     }
     cols.push(col);

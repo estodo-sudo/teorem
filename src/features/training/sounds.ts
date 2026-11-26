@@ -55,8 +55,10 @@ export function releaseSounds() {
   players = {};
 }
 
-export function soundForPhaseStart(kind: string, stage?: number, variant?: string): SoundCue | null {
+export function soundForPhaseStart(kind: string, stage?: number, variant?: string, level?: number, fromLevel?: number): SoundCue | null {
   if (variant === 'top' || variant === 'settle') return null;
+  // a step of a 180-day-plan move: up = rising tone, down = falling tone, staying = nothing
+  if (kind === 'contract' && level !== undefined && fromLevel) return Math.abs(level - fromLevel) < 0.02 ? null : level > fromLevel ? 'rise' : 'fall';
   if (variant === 'slowDown') return 'fall';
   if ((kind === 'contract' || kind === 'cough') && (!stage || stage === 1)) return 'rise';
   if (kind === 'relax' || kind === 'rest') return 'fall';

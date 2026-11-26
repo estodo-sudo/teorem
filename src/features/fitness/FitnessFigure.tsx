@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { View } from 'react-native';
-import Svg, { Circle, Ellipse, G, Line, Rect } from 'react-native-svg';
+import Svg, { Circle, Defs, Ellipse, G, Line, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 
+import { useLive } from '@/lib/useLive';
 import { useTheme } from '@/components';
 
-import { motionAt, pillowRx, type MoveSpec, type Pose } from './motion';
+import { motionAt, pillowRx, type MoveSpec, type Pose, type TempoWord } from './motion';
 
 type P = [number, number];
 const mid = (a: P, b: P, f = 0.5): P => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
@@ -24,17 +25,24 @@ function toe(pose: Pose, k: 'k1' | 'k2', a: 'a1' | 'a2', given: P | undefined, f
 }
 
 /**
- * Original body figure (improved for Aletsiz Fitness, 2026-11-22): limbs with a thin outline so
+ * Original body figure (improved for Aletsiz Fitness, 2026-11-22; aesthetic pass 2026-11-25: spotlight,
+ * mat and shadow, limb sheen, a breathing glow and a direction arrow): limbs with a thin outline so
  * crossing limbs stay apart, a torso that narrows from chest to waist, neck, hands and feet; near
  * limbs solid, far limbs lighter (side view); the worked area glows in the accent colour. Side 2 is
  * drawn mirrored. Front views draw both sides alike.
  */
-export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: MoveSpec; pose: Pose; mirrored?: boolean; width?: number }) {
+/** Which way the worked area moves for a tempo word (aesthetic pass 2026-11-25): a small arrow shows it. */
+const ARROW: Partial<Record<TempoWord, 'up' | 'down' | 'in' | 'out'>> = {
+  lift: 'up', up: 'up', reach: 'out', lower: 'down', down: 'down', press: 'down', squeeze: 'in', close: 'in', open: 'out', pull: 'in', forward: 'out',
+};
+
+export function FitnessFigure({ move, pose, mirrored, width = 280, word, pulse = 0.5 }: { move: MoveSpec; pose: Pose; mirrored?: boolean; width?: number; word?: TempoWord; pulse?: number }) {
   const t = useTheme();
   const near = t.tokens.foreground;
   const far = move.view === 'front' ? near : t.tokens.mutedForeground;
   const edge = t.tokens.card;
   const glow = t.tokens.primary;
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const facing: 1 | -1 = move.facing === 'left' ? -1 : 1;
   const chest = pose.m ?? mid(pose.n, pose.p, 0.42);
   const t1 = toe(pose, 'k1', 'a1', pose.t1, facing);
@@ -47,6 +55,8 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
     <G key={key} opacity={o}>
       <Line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={edge} strokeWidth={w + 2.5} strokeLinecap="round" />
       <Line x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={c} strokeWidth={w} strokeLinecap="round" />
+      {/* sheen: a thin lighter line along the top gives the limb some volume */}
+      {o === 1 ? <Line x1={a[0]} y1={a[1] - w * 0.22} x2={b[0]} y2={b[1] - w * 0.22} stroke="#fff" strokeOpacity={0.16} strokeWidth={w * 0.28} strokeLinecap="round" /> : null}
     </G>
   );
   const halo = (a: P, b: P, w: number, key: string) => <Line key={key} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={glow} strokeWidth={w} strokeLinecap="round" opacity={0.38} />;
@@ -64,6 +74,10 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
     if (f === 'full') glows.push(halo(pose.n, pose.p, 26, 'g-f1'), halo(pose.p, pose.k1, 18, 'g-f2'), halo(pose.n, pose.e1, 15, 'g-f3'));
   }
   const farO = move.view === 'front' ? 1 : 0.6;
+  // The worked area moves this way now (arrow), and its glow breathes with the tempo.
+  const dir = word ? ARROW[word] : undefined;
+  const anchor = focus.includes('thighs') ? mid(pose.p, pose.k1) : focus.includes('core') ? chest : pose.p;
+  const bob = (pulse - 0.5) * 4;
   const k1 = pose.k1;
   // Framed around the move (all its poses), so lying moves are as large as standing ones.
   const vb = frameOf(move);
@@ -71,12 +85,26 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
   return (
     <View accessibilityRole="image" style={{ width, height }}>
       <Svg width={width} height={height} viewBox={`${vb.x} ${vb.y} ${vb.w} ${vb.h}`}>
-        <Rect x={vb.x + 4} y={128} width={vb.w - 8} height={5} rx={2.5} fill={t.tokens.border} />
+        <Defs>
+          <RadialGradient id={`spot${uid}`} cx="50%" cy="62%" r="60%">
+            <Stop offset="0" stopColor={glow} stopOpacity={0.14} />
+            <Stop offset="1" stopColor={glow} stopOpacity={0} />
+          </RadialGradient>
+          <RadialGradient id={`shadow${uid}`} cx="50%" cy="50%" r="50%">
+            <Stop offset="0" stopColor="#000" stopOpacity={0.28} />
+            <Stop offset="1" stopColor="#000" stopOpacity={0} />
+          </RadialGradient>
+        </Defs>
+        {/* soft spotlight behind the figure, a mat with a lighter edge, and a shadow under the body */}
+        <Rect x={vb.x} y={vb.y} width={vb.w} height={vb.h} fill={`url(#spot${uid})`} />
+        <Rect x={vb.x + 4} y={127} width={vb.w - 8} height={7} rx={3.5} fill={t.tokens.muted} stroke={t.tokens.border} strokeWidth={1} />
+        <Line x1={vb.x + 8} y1={128.2} x2={vb.x + vb.w - 8} y2={128.2} stroke="#fff" strokeOpacity={0.18} strokeWidth={1} />
+        <Ellipse cx={(Math.min(pose.h[0], pose.a1[0], pose.w1[0]) + Math.max(pose.h[0], pose.a1[0], pose.k1[0])) / 2} cy={127.5} rx={Math.abs(pose.a1[0] - pose.h[0]) / 2 + 12} ry={4} fill={`url(#shadow${uid})`} />
         <G transform={mirrored ? `translate(${2 * vb.x + vb.w} 0) scale(-1 1)` : undefined}>
           {(move.props ?? []).map((r, i) => (
             <Rect key={`prop-${i}`} x={r.x} y={r.y} width={r.w} height={r.h} rx={3} fill={t.tokens.border} />
           ))}
-          {glows}
+          <G opacity={0.7 + 0.6 * pulse}>{glows}</G>
           {/* Far side */}
           {seg(pose.p, pose.k2, 10, far, 'fl1', farO)}
           {seg(pose.k2, pose.a2, 8.5, far, 'fl2', farO)}
@@ -90,6 +118,7 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
           {seg(chest, pose.p, 13.5, near, 'waist')}
           <Circle cx={head[0]} cy={head[1]} r={10.5} fill={edge} />
           <Circle cx={head[0]} cy={head[1]} r={9.5} fill={near} />
+          <Circle cx={head[0] - 3} cy={head[1] - 3.5} r={3.6} fill="#fff" opacity={0.16} />
           {/* Near side */}
           {seg(pose.p, pose.k1, 11, near, 'nl1')}
           {seg(pose.k1, pose.a1, 9, near, 'nl2')}
@@ -104,6 +133,16 @@ export function FitnessFigure({ move, pose, mirrored, width = 280 }: { move: Mov
               <Ellipse cx={k1[0] - 2} cy={k1[1] + 5} rx={pillowRx(pose) + 2.5} ry={10.5} fill={edge} />
               <Ellipse cx={k1[0] - 2} cy={k1[1] + 5} rx={pillowRx(pose)} ry={9} fill={glow} />
               <Ellipse cx={k1[0] - 2} cy={k1[1] + 5} rx={Math.max(2, pillowRx(pose) - 4)} ry={5.5} fill={edge} opacity={0.35} />
+            </G>
+          ) : null}
+          {/* direction of the move now: a small chevron pair by the worked area */}
+          {dir ? (
+            <G transform={`translate(${anchor[0]} ${Math.max(vb.y + 12, anchor[1] - 22) + (dir === 'up' ? -bob : dir === 'down' ? bob : 0)})`} opacity={0.95}>
+              {dir === 'up' || dir === 'down' ? (
+                <Path d={dir === 'up' ? 'M-6 3 L0 -3 L6 3 M-6 9 L0 3 L6 9' : 'M-6 -3 L0 3 L6 -3 M-6 -9 L0 -3 L6 -9'} stroke={glow} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              ) : (
+                <Path d={dir === 'in' ? `M${-14 + bob} -5 L${-8 + bob} 0 L${-14 + bob} 5 M${14 - bob} -5 L${8 - bob} 0 L${14 - bob} 5` : `M${-8 - bob} -5 L${-14 - bob} 0 L${-8 - bob} 5 M${8 + bob} -5 L${14 + bob} 0 L${8 + bob} 5`} stroke={glow} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              )}
             </G>
           ) : null}
         </G>
@@ -152,12 +191,15 @@ function frameOf(move: MoveSpec) {
 export function FitnessDemo({ move, width, paused }: { move: MoveSpec; width?: number; paused?: boolean }) {
   const [ms, setMs] = useState(0);
   const start = useRef(0);
+  // Battery (round 8): only while the screen is seen.
+  const live = useLive();
   useEffect(() => {
-    if (paused) return;
+    if (paused || !live) return;
     start.current = Date.now() - ms;
     const id = setInterval(() => setMs(Date.now() - start.current), 40);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused, move]);
-  return <FitnessFigure move={move} pose={motionAt(move, ms).pose} width={width} />;
+  }, [paused, move, live]);
+  const m = motionAt(move, ms);
+  return <FitnessFigure move={move} pose={m.pose} width={width} word={m.word} pulse={(Math.sin(ms / 320) + 1) / 2} />;
 }

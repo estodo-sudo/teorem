@@ -12,12 +12,14 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/alcohol/4` | kabul | Kadeh biçimi olmayan alkolsüz içecek. | 15.11:1 (karartma 0.78) | 35262911: Kırmızı, kokteyle benziyor; 31600990: Kokteyle benziyor |
 | `story/alcohol/5` | kabul | Sabah dinlenmiş uyanış. | 15.6:1 (karartma 0.78) | 10608085: Kadın; 4153170: Kadın |
 | `story/alcohol/6` | kabul | Gün doğumunda koşu yolu. | 10.77:1 (karartma 0.78) | 16961403: Güneş patlaması, konu okunmuyor; 30307543: Pist, soğuk ton |
+| `story/journey-180/4` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/alcohol/6`): Gün doğumunda koşu yolu. | 10.77:1 (karartma 0.78) | 16961403: Güneş patlaması, konu okunmuyor; 30307543: Pist, soğuk ton |
 | `story/bladder-control` | kabul | Sabah şehirde rahat yürüyen erkek, arkadan: kontrol ve özgüven. | 12.76:1 (karartma 0.78) | 12099173: Çok karanlık, alt yarı siyah; 15829312: Tabelalar ve yazılar okunuyor |
 | `story/bladder-control/2` | kabul | Kutu kaldırırken zorlanma anı; yüz kutunun arkasında. | 13.73:1 (karartma 0.78) | 4720777: Kolsuz, ağırlık salonu; 32834088: Çıplak üst beden |
 | `story/bladder-control/3` | kabul | Durup sakinleşme anı; yüz seçilmiyor. | 10.28:1 (karartma 0.78) | 9923597: Yüz tanınabilir (idrar kaçırma konusu); 40134498: Siyah-beyaz |
 | `story/bladder-control/4` | kabul | Bardağa su: "az su içersem" inanışı. | 16.42:1 (karartma 0.78) | 31208492: Kokteyl kadehi (yasak); 16141830: Sofrada alkol çağrışımı |
 | `story/bladder-control/5` | kabul | Bankta oturan erkek, arkadan. | 16.98:1 (karartma 0.78) | 17965603: Siyah-beyaz; 18399917: Çok kırmızı |
 | `story/bladder-control/6` | kabul | Durup bekleyen ayaklar. | 15.16:1 (karartma 0.78) | 8676835: Etek; hedef kitleye uymuyor; 40719720: Konu belirsiz |
+| `story/journey-180/7` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/bladder-control/6`): Durup bekleyen ayaklar. | 15.16:1 (karartma 0.78) | 8676835: Etek; hedef kitleye uymuyor; 40719720: Konu belirsiz |
 | `story/bladder-control/7` | kabul | Boş bekleme alanı, insan yok. | 17.41:1 (karartma 0.78) | 34110996: Siyah-beyaz; 4277608: Konu okunmuyor |
 | `story/core-hips` | kabul | Matta kalça esnetmesi. | 13.21:1 (karartma 0.78) | — |
 | `story/core-hips/2` | kabul | Birlikte kürek çeken takım. | 11.16:1 (karartma 0.78) | 40734413: Yakın, yüzler görünüyor; 35671730: Renkler çok doygun |
@@ -25,6 +27,7 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/core-hips/4` | kabul | Dik duruşla kutu taşıma. | 13.27:1 (karartma 0.78) | 6868183: Tişörtte yazı; 6169044: Kolide okunur yazı |
 | `story/core-hips/5` | kabul | Plank: derin karın kasları. | 17.52:1 (karartma 0.78) | 4047103: Çıplak üst beden (yasak); 34660004: Çıplak üst beden (yasak) |
 | `story/core-hips/6` | kabul | Dengede taşlar: birlikte çalışan kaslar. | 17.36:1 (karartma 0.78) | 9125889: Ateş ışığı; 25880859: Taşlar çok küçük |
+| `story/journey-180/5` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/core-hips/6`): Dengede taşlar: birlikte çalışan kaslar. | 17.36:1 (karartma 0.78) | 9125889: Ateş ışığı; 25880859: Taşlar çok küçük |
 | `story/core-hips/7` | kabul | Köprü hareketine en yakın uygun fotoğraf: evde matta yerde egzersiz. | 10.44:1 (karartma 0.78) | 8544678: Çıplak üst beden (yasak); 8520203: Çıplak üst beden (yasak); 6295752: Spor salonu, karanlık |
 | `story/cycling` | kabul | Dağ yolunda bisiklet süren biri, arkadan; yüz yok. | 13.04:1 (karartma 0.78) | 907: İndirilemedi (Pexels 404); 2807963: Formada okunur marka yazısı; 5312249: Formada sponsor yazıları |
 | `story/cycling/2` | kabul | Sele yakın çekim. | 18.58:1 (karartma 0.78) | 13996200: Selede marka yazısı; 33380657: Kalabalık |
@@ -66,6 +69,7 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/move-more/3` | kabul | Oturmayı bölen esneme. | 10.35:1 (karartma 0.78) | 8468502: Kadın, ofis kalabalık; 7971555: Kadın |
 | `story/move-more/4` | kabul | Bisikletle şehir içi ulaşım. | 13.32:1 (karartma 0.78) | 27238450: Siyah-beyaz; 20185394: Siyah-beyaz |
 | `story/move-more/5` | kabul | Merdiven çıkan ayak. | 16.36:1 (karartma 0.78) | 5356997: Kırpımda neredeyse siyah; 9045509: Siyah-beyaz; 5853298: Sarı-siyah yazılı basamak |
+| `story/journey-180/2` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/move-more/5`): Merdiven çıkan ayak. | 16.36:1 (karartma 0.78) | 5356997: Kırpımda neredeyse siyah; 9045509: Siyah-beyaz; 5853298: Sarı-siyah yazılı basamak |
 | `story/move-more/6` | kabul | Yürüyüş yolunda ayakkabılar. | 18.06:1 (karartma 0.78) | 1753084: Kadın bacakları; 14918193: Karanlık |
 | `story/move-more/7` | kabul | Evde squat. | 11.88:1 (karartma 0.78) | 8032754: Kadın; 7241644: Sanal gerçeklik gözlüğü |
 | `story/night-bathroom` | kabul | Gece yatakta uyanık erkek, loş ışık; yüz seçilmiyor. | 16.9:1 (karartma 0.78) | — |
@@ -78,6 +82,7 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/performance-anxiety` | kabul | Pencereden dışarı bakan erkek, yan/arka; yüz seçilmiyor. | 10.73:1 (karartma 0.78) | — |
 | `story/performance-anxiety/2` | kabul | Bulanık kalabalık: yalnız değilsin. | 15.01:1 (karartma 0.78) | 19705886: Siyah-beyaz; 23506513: Siyah-beyaz |
 | `story/performance-anxiety/3` | kabul | Spiral merdiven: kaygı döngüsü. | 12.26:1 (karartma 0.78) | 38101767: Çok karanlık; 28118036: Renkli zemin kalabalık |
+| `story/journey-180/3` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/performance-anxiety/3`): Spiral merdiven: kaygı döngüsü. | 12.26:1 (karartma 0.78) | 38101767: Çok karanlık; 28118036: Renkli zemin kalabalık |
 | `story/performance-anxiety/4` | kabul | Yağmur sonrası ışık: geçici bir durum. | 16.94:1 (karartma 0.78) | 17373506: Çok karanlık; 27987263: Konu okunmuyor |
 | `story/performance-anxiety/5` | kabul | Siluet: yüz yok, sakin nefes. | 16.79:1 (karartma 0.78) | 6698512: Yüz tanınabilir (performans kaygısı); 9923597: Yüz tanınabilir |
 | `story/performance-anxiety/6` | kabul | Sakin ufuk: yavaş nefes. | 11.32:1 (karartma 0.78) | 36648984: Güneş çok parlak; 5928229: Kayalık, kalabalık |
@@ -98,6 +103,7 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/sleep-hormones` | kabul | Sabah güneşi vuran yatak: uyku ve sabah ritmi; kişi yok. | 9.96:1 (karartma 0.78) | 9615241: Kapak tablosunda çıplak omuz görünüyor (yarı çıplak sayılır); 7445277: Yatakta yüz görünüyor, poz gergin |
 | `story/sleep-hormones/2` | kabul | Gece ve ay. | 19.04:1 (karartma 0.78) | 5226087: Ay çok küçük; 39037947: Siyah fon |
 | `story/sleep-hormones/3` | kabul | Sakin çalar saat. | 9.47:1 (karartma 0.78) | 11162426: Kırmızı, aşırı doygun; 8345986: Yatakta çıplak kol |
+| `story/journey-180/6` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/sleep-hormones/3`): Sakin çalar saat. | 9.47:1 (karartma 0.78) | 11162426: Kırmızı, aşırı doygun; 8345986: Yatakta çıplak kol |
 | `story/sleep-hormones/4` | kabul | Düzenli yatak, sabah ışığı. | 15.85:1 (karartma 0.78) | 27671434: Konu okunmuyor; 16497538: Dağınık |
 | `story/sleep-hormones/5` | kabul | Sabah kahvesi ve pencere. | 16.4:1 (karartma 0.78) | 30315254: Çok karanlık; 34077028: Kafe, kalabalık |
 | `story/sleep-hormones/6` | kabul | Komodinde lamba ve kitap. | 10.49:1 (karartma 0.78) | 12814945: Kalabalık; 11427613: Fotoğraf makinesi ve el |
@@ -109,6 +115,7 @@ Okunabilirlik: alt %45, beyaz yazı, karartma (0,78 → en fazla 0,88) altında 
 | `story/sleep-routine/6` | kabul | Koltuk, battaniye ve kitap. | 18.51:1 (karartma 0.78) | 6968204: Kişi var, çorap; 18483548: Kitap yazısı okunur |
 | `story/sleep-routine/7` | kabul | Akşam ışığında defter. | 11.44:1 (karartma 0.78) | 30669072: Çok karanlık; 35930119: Tablet ekranı ve yazılar |
 | `story/smoking` | kabul | Gün doğumunda vadiye bakan yürüyüşçü: sigarasız, temiz hava (olumlu karşılık). | 7.89:1 (karartma 0.78) | — |
+| `story/journey-180` | kabul | 180 Günlük Yolculuk için yeniden kullanıldı (`story/smoking`): Gün doğumunda vadiye bakan yürüyüşçü: sigarasız, temiz hava (olumlu karşılık). | 7.89:1 (karartma 0.78) | — |
 | `story/smoking/2` | kabul | Dallar: kılcal damar benzetmesi. | 11.66:1 (karartma 0.78) | 30670559: Siyah-beyaz görünümlü; 14563724: Gri, soğuk |
 | `story/smoking/3` | kabul | Açık pencere, temiz hava. | 9.59:1 (karartma 0.78) | 33040526: Çok karanlık; 9547674: Desenli perde baskın |
 | `story/smoking/4` | kabul | Yaşça büyük erkek parkta. | 17.2:1 (karartma 0.78) | 19071495: Yüz görünüyor, fotoğraf makinesi; 10683978: Çok soluk |

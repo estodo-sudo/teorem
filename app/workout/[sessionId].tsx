@@ -8,9 +8,9 @@ import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { useTheme } from '@/components';
 import { kegelLock } from '@/features/training/cooldown';
-import { generateMicroSet, generateReleaseSession } from '@/features/training/generateSession';
+import { generateReleaseSession } from '@/features/training/generateSession';
 import { WorkoutPlayer, type PlayerResult } from '@/features/training/player/WorkoutPlayer';
-import { buildTodaySession, recordWorkout, reportPain } from '@/features/training/service';
+import { buildTodaySession, lessonRoute, recordWorkout, reportPain } from '@/features/training/service';
 import { goHome } from '@/lib/nav';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -19,7 +19,7 @@ import { useTrainingStore } from '@/stores/trainingStore';
 
 /**
  * Kegel player screen. `sessionId`: "release" = release-only session (after pain or over the daily
- * cap), "micro" = micro set, "round2" = Tur 2 (`first` = the Tur 1 workout id), anything else =
+ * cap), "round2" = Tur 2 (`first` = the Tur 1 workout id), anything else =
  * today's Tur 1. After Tur 1 the "Tur 2?" screen follows; feedback is asked once, for Tur 1.
  * Follows the app theme (dark: the focus look of SPEC_UI_V3 §7.4; light: a light player).
  */
@@ -38,7 +38,6 @@ export default function WorkoutScreen() {
     const training = useTrainingStore.getState().training;
     const today = toDateKey();
     if (sessionId === 'release') return generateReleaseSession(today);
-    if (sessionId === 'micro') return generateMicroSet({ level: training.level, seed: `${today}-micro` });
     if (sessionId === 'round2') return buildTodaySession(training, today, { round: 2 });
     return buildTodaySession(training);
   }, [sessionId]);
@@ -52,8 +51,14 @@ export default function WorkoutScreen() {
       // Tur 2 done: the feedback belongs to Tur 1 (one level decision per day's session).
       // The summary adds Tur 2 to Tur 1 (`second`), so it shows the whole session.
       if (session.round === 2) return router.replace({ pathname: '/workout/feedback', params: first ? { id: first, second: w.id } : { id: w.id } });
-      // Tur 1 finished: offer Tur 2 before the feedback.
-      if (!session.isMicro && !result.endedEarly) return router.replace({ pathname: '/workout/next', params: { id: w.id } });
+      // Tur 1 finished: offer Tur 2 before the feedback — unless this was the extra session after a
+      // full day, which starts the 10-hour rest (2026-11-25): then straight to the summary.
+      const restNow = !!kegelLock(useHistoryStore.getState().workouts).until;
+      // A lesson due today opens by itself, then Tur 2: the yavaş sıkma lesson the first time ever
+      // (2026-11-25), a new move's lesson on its day of the 180-day plan (2026-11-26).
+      const lesson = !session.isMicro && !result.endedEarly && !restNow ? lessonRoute(useTrainingStore.getState().training, w.id) : null;
+      if (lesson) return router.replace(lesson);
+      if (!session.isMicro && !result.endedEarly && !restNow) return router.replace({ pathname: '/workout/next', params: { id: w.id } });
       router.replace({ pathname: '/workout/feedback', params: { id: w.id } });
     },
     [session, first],

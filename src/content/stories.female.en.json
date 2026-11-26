@@ -1,0 +1,418 @@
+{
+  "hide": [
+    "erection-blood"
+  ],
+  "patch": [
+    {
+      "id": "journey-180",
+      "title": "The 180-Day Journey",
+      "slides": [
+        null,
+        null,
+        null,
+        {
+          "text": "A strong, well-controlled pelvic floor can help reduce leaking when you cough, laugh or jump and sudden urgency, and help support the bladder, uterus and bowel. It is also often recommended after giving birth and around menopause."
+        },
+        {
+          "text": "In a Cochrane review of 31 studies and 1,817 women with incontinence, 56% of those with stress leaking who trained said it stopped, against 6% of those who didn't. That is why guidelines recommend a regular programme of at least 3 months as the first step."
+        },
+        null,
+        null,
+        {
+          "items": [
+            "Muscles get stronger over months, not days; that is why the plan is 180 days.",
+            "Over six months you learn 7 moves and build control and endurance step by step.",
+            "In studies, most women who trained regularly leaked less or stopped leaking."
+          ]
+        }
+      ],
+      "sources": {
+        "$replace": [
+          {
+            "title": "NICE (2021) – Pelvic floor dysfunction: prevention and non-surgical management (NG210); QS77 statement 4: supervised pelvic floor muscle training of at least 3 months",
+            "url": "https://www.nice.org.uk/guidance/qs77/chapter/Quality-statement-4-Supervised-pelvic-floor-muscle-training"
+          },
+          {
+            "title": "Dumoulin C, Cacciari LP, Hay-Smith EJC (2018) – Pelvic floor muscle training versus no treatment, or inactive control treatments, for urinary incontinence in women. Cochrane Database of Systematic Reviews",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30288727/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pf-basics",
+      "title": "The pelvic floor in women",
+      "slides": [
+        null,
+        {
+          "text": "The pelvic floor is a group of muscles stretched like a hammock under the pelvis. It carries the bladder, womb and bowel and helps you hold urine and wind. Its rhythmic contractions also play a part in arousal and orgasm."
+        },
+        {
+          "text": "Common signs: leaking a little when you cough, sneeze, laugh or jump, and a sudden urge to go. Pregnancy and birth, menopause, a long-term cough, constipation and extra weight can all affect these muscles."
+        },
+        {
+          "myth": "Leaking after giving birth is normal and nothing can be done.",
+          "fact": "It's common, but it isn't fate. A Cochrane review found pelvic floor muscle training can reduce stress urinary incontinence in women, and NICE recommends a supervised programme of at least 3 months as the first step."
+        },
+        {
+          "quiz": {
+            "question": "What can help you leak less when you cough?",
+            "options": [
+              "Squeezing the pelvic floor just before you cough",
+              "Drinking less water all day",
+              "Stopping and starting while urinating"
+            ],
+            "correct": 0,
+            "explain": "Squeezing just before a cough or sneeze (the Knack) supports the urethra against the rise in pressure; studies in women found it can reduce leaks. Drinking less concentrates urine and can irritate the bladder."
+          }
+        },
+        null,
+        {
+          "items": [
+            null,
+            null,
+            "If leaking started suddenly, or you feel a bulge or heaviness in the vagina",
+            null
+          ]
+        }
+      ],
+      "sources": {
+        "$replace": [
+          {
+            "title": "NHS – Pelvic floor exercises",
+            "url": "https://www.nhs.uk/common-health-questions/womens-health/what-are-pelvic-floor-exercises/"
+          },
+          {
+            "title": "NICE NG210 (2021) – Pelvic floor dysfunction: prevention and non-surgical management",
+            "url": "https://www.nice.org.uk/guidance/ng210"
+          },
+          {
+            "title": "Dumoulin C ve ark. (2018) – Pelvic floor muscle training versus no treatment for urinary incontinence in women. Cochrane",
+            "url": "https://doi.org/10.1002/14651858.CD005654.pub4"
+          },
+          {
+            "title": "Miller JM ve ark. (1998) – A pelvic muscle precontraction can reduce cough-related urine loss in selected women with mild SUI. J Am Geriatr Soc 46(7)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9670854/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kegel-mistakes",
+      "slides": [
+        null,
+        {
+          "text": "Don't hold your breath while squeezing; keep breathing. Keep your belly, buttocks and legs relaxed. When you use the right muscle, almost nothing shows on the outside; the feeling is inside, as if the vagina and anus were drawn gently in and up."
+        }
+      ]
+    },
+    {
+      "id": "performance-anxiety",
+      "slides": [
+        null,
+        {
+          "text": "Now and then finding it hard to get aroused, get wet or reach orgasm is very common and usually nothing to worry about. Stress, tiredness and anxiety are among the most common causes. It is not a measure of your worth or your womanhood."
+        },
+        {
+          "text": "When you worry, the body releases stress hormones; they can reduce blood flow and make arousal and wetness harder. After a difficult time, worry about the next one grows and the cycle feeds itself. To break it, move your attention from the outcome to the sensations and ease the pressure."
+        },
+        {
+          "fact": "One-off or occasional difficulties are very common and don't predict the future. Anxiety-related arousal and orgasm difficulties can be managed: talking, easing the pressure and, if needed, working with a specialist help."
+        },
+        null,
+        {
+          "text": "Now, or before being intimate, breathe slowly for a few minutes, with the out-breath a little longer than the in-breath. The aim is not to force a result but to calm the body."
+        },
+        {
+          "items": [
+            null,
+            "If sex is painful, or arousal doesn't happen even on your own"
+          ]
+        },
+        {
+          "items": [
+            "Occasional arousal or orgasm difficulties are common and usually pass."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intimacy-beyond",
+      "slides": [
+        null,
+        null,
+        null,
+        {
+          "text": "Knowing that intimacy doesn't have to end a certain way is a relief. When expectations drop, the body relaxes more easily, which is good for arousal and pleasure too."
+        },
+        {
+          "fact": "Intimacy also includes touch, talking and spending time together. Couples can stay close by cuddling, kissing and touching even without intercourse."
+        }
+      ]
+    },
+    {
+      "id": "plate",
+      "slides": [
+        null,
+        {
+          "text": "A Mediterranean-style diet rich in vegetables, fruit, whole grains, pulses, fish and olive oil supports the heart and blood vessels. Healthy vessels also support the blood flow arousal needs."
+        },
+        null,
+        {
+          "text": "Heart and vessel health is linked to sexual function in women too. In a study of women with metabolic syndrome, those who followed a Mediterranean-style diet more closely had better sexual function scores."
+        }
+      ]
+    },
+    {
+      "id": "alcohol",
+      "slides": [
+        null,
+        {
+          "text": "Alcohol slows the nervous system; it can make arousal, wetness and orgasm harder. It disrupts sleep too: even if it helps you fall asleep, it can break up sleep in the second half of the night."
+        },
+        null,
+        {
+          "fact": "A little alcohol may lower inhibitions for some, but in the body it does the opposite: it can dull arousal and sensation. The more you drink, the stronger this gets."
+        },
+        null,
+        null,
+        {
+          "items": [
+            "In the short term alcohol can disturb arousal and sleep."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sleep-hormones",
+      "slides": [
+        null,
+        {
+          "title": "Sleep and hormones",
+          "text": "In women, hormones that change through the menstrual cycle, pregnancy and menopause affect sleep, and poor sleep can upset hormone balance and desire. Regular, sufficient sleep is a natural part of that balance."
+        },
+        {
+          "text": "In a small study of women, sleeping longer one night was linked to a higher chance of reporting desire the next day. It's one small study, but it shows how much sleep matters."
+        },
+        null,
+        {
+          "quiz": {
+            "question": "In the study of women, what was longer sleep linked to the next day?",
+            "options": [
+              "More sexual desire",
+              "Less energy",
+              "No change at all"
+            ],
+            "correct": 0,
+            "explain": "The study is small, but it shows how sleep matters for desire and hormone balance. Adults are advised to sleep at least 7 hours."
+          }
+        },
+        null,
+        {
+          "items": [
+            "Hormones and sleep affect each other.",
+            "Longer, regular sleep can support desire."
+          ]
+        }
+      ],
+      "sources": {
+        "$replace": [
+          {
+            "title": "Kalmbach DA ve ark. (2015) – The impact of sleep on female sexual response and behavior: a pilot study. J Sex Med 12(5)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/25712058/"
+          },
+          {
+            "title": "AASM & Sleep Research Society (2015) – Recommended amount of sleep for a healthy adult",
+            "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
+          },
+          {
+            "title": "NHS – How to get to sleep",
+            "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "move-more",
+      "slides": [
+        null,
+        null,
+        null,
+        {
+          "title": "Good for vessels and sexual health",
+          "text": "Regular movement steadies blood pressure and blood sugar and keeps blood vessels flexible. Studies in women report that regular exercise can support sexual arousal."
+        }
+      ]
+    },
+    {
+      "id": "cycling",
+      "slides": [
+        null,
+        {
+          "text": "On a bike part of your weight rests on the perineum (between the anus and the vagina) and the vulva, where nerves and blood vessels run. On long rides this pressure can cause numbness, tingling or chafing."
+        },
+        null,
+        {
+          "fact": "Research shows women who cycle regularly generally don't have worse sexual function than those who don't, but some notice genital numbness. The right saddle, a good fit and short breaks matter."
+        },
+        null,
+        null,
+        {
+          "items": [
+            null,
+            "If you notice lasting genital numbness or pain"
+          ]
+        },
+        {
+          "items": [
+            null,
+            null,
+            "Cycling alone doesn't cause sexual problems; precautions are enough."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smoking",
+      "slides": [
+        null,
+        {
+          "text": "Substances in cigarettes damage the lining of blood vessels and narrow them. Arousal in women also depends on blood flow to the genital area; smoking can harm this flow and pregnancy health, and it has been linked to an earlier menopause."
+        },
+        {
+          "text": "After stopping, vessel function starts to recover: carbon monoxide in the blood falls within hours, and circulation and breathing improve within weeks."
+        },
+        {
+          "fact": "Stopping helps at any age. According to the World Health Organization the gains start within hours and grow over the years. Stopping young makes more difference for both the heart and fertility."
+        },
+        {
+          "quiz": {
+            "explain": "Blood vessels start to repair themselves after stopping. That's why the benefits can show in both the heart and sexual health."
+          }
+        },
+        null,
+        {
+          "items": [
+            "If you have an ongoing problem with desire or arousal"
+          ]
+        },
+        {
+          "items": [
+            "Smoking narrows blood vessels and can harm sexual health."
+          ]
+        }
+      ]
+    }
+  ],
+  "add": [
+    {
+      "after": "erection-blood",
+      "id": "postpartum-floor",
+      "title": "Your pelvic floor after birth",
+      "category": "menHealth",
+      "icon": "sprout",
+      "tone": "knowledge",
+      "minutes": 3,
+      "cover": "story/sleep-routine/6",
+      "slides": [
+        {
+          "type": "cover",
+          "tone": "knowledge"
+        },
+        {
+          "type": "info",
+          "icon": "layers",
+          "support": [
+            "droplet",
+            "shield"
+          ],
+          "title": "Why is it affected?",
+          "text": "The growing womb in pregnancy and the birth itself stretch the pelvic floor muscles and tissues. In the months after birth, leaking urine or wind, a heavy feeling and weakness are common, and they usually ease with regular exercise.",
+          "tone": "knowledge",
+          "image": "story/mindfulness/2"
+        },
+        {
+          "type": "info",
+          "icon": "clock",
+          "support": [
+            "calendar",
+            "leaf"
+          ],
+          "title": "When can you start?",
+          "text": "Unless your doctor or midwife says otherwise, and if there's no pain, you can start gentle squeeze-and-release work soon after the birth. After a caesarean these muscles work too: start lying down, without straining, and progress slowly.",
+          "tone": "knowledge",
+          "image": "story/sleep-routine/3"
+        },
+        {
+          "type": "myth",
+          "myth": "Leaking after birth is normal and all you can do is wait.",
+          "fact": "It's common, but it isn't fate. A Cochrane review found postnatal pelvic floor muscle training can help reduce leaking. If it doesn't settle, seeing a pelvic floor physiotherapist helps.",
+          "tone": "knowledge",
+          "image": "story/water/3"
+        },
+        {
+          "type": "quiz",
+          "quiz": {
+            "question": "What is right for pelvic floor work after birth?",
+            "options": [
+              "Start gently and progress slowly and regularly",
+              "Go straight to the hardest exercises",
+              "Keep going even if it hurts"
+            ],
+            "correct": 0,
+            "explain": "The muscle gets stronger over time; regularity matters more than intensity. If it hurts, stop and ask your doctor or midwife."
+          },
+          "tone": "knowledge",
+          "image": "story/night-bathroom/5"
+        },
+        {
+          "type": "action",
+          "icon": "target",
+          "title": "The after-birth track",
+          "text": "You can open the “Recovery After Giving Birth” track in Programme tracks with your doctor's or midwife's approval; it starts lying down and gently.",
+          "action": {
+            "route": "/kegel/tracks",
+            "label": "Open programme tracks"
+          },
+          "tone": "knowledge",
+          "image": "story/talk-partner/6"
+        },
+        {
+          "type": "doctor",
+          "items": [
+            "If you have pain, fever or bad-smelling discharge",
+            "If stitches open or pain gets worse",
+            "If you feel a bulge, heaviness or something coming down in the vagina",
+            "If leaking urine or wind continues after a few months"
+          ],
+          "tone": "knowledge",
+          "image": "story/bladder-control/7"
+        },
+        {
+          "type": "summary",
+          "items": [
+            "Birth stretches the pelvic floor; leaking and weakness are common.",
+            "Gentle, regular exercise supports recovery.",
+            "See a specialist if you have pain, a bulge or leaking that goes on."
+          ],
+          "tone": "knowledge"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NHS – Your post-pregnancy body",
+          "url": "https://www.nhs.uk/conditions/baby/support-and-services/your-post-pregnancy-body/"
+        },
+        {
+          "title": "Woodley SJ ve ark. (2020) – Pelvic floor muscle training for preventing and treating incontinence in antenatal and postnatal women. Cochrane",
+          "url": "https://doi.org/10.1002/14651858.CD007471.pub4"
+        },
+        {
+          "title": "NICE NG210 (2021) – Pelvic floor dysfunction: prevention and non-surgical management",
+          "url": "https://www.nice.org.uk/guidance/ng210"
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

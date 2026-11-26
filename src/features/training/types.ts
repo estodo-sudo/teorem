@@ -1,5 +1,7 @@
 import type { DurationPreset, ExerciseType, KegelExerciseType, Position, TrackId } from '@/types';
 
+import type { MoveStep } from './moves';
+
 export type PhaseKind =
   | 'countdown'
   | 'contract'
@@ -31,6 +33,13 @@ export interface Phase {
    * slowly. Release block: settle = loosen, letGo = let go fully.
    */
   variant?: 'slowUp' | 'top' | 'slowDown' | 'settle' | 'letGo';
+  /**
+   * The moves of the 180-day plan (2026-11-26): how strong the squeeze is in this phase (⅓, ⅔, ½ or
+   * 1 = full) and how strong it was just before (0 = let go). The circle size, the vibration strength
+   * and the word ("⅓ SIK", "YARIYA İN" …) follow them.
+   */
+  level?: number;
+  fromLevel?: number;
   /** For transitions: the exercise that comes next. */
   nextType?: ExerciseType;
 }
@@ -54,6 +63,8 @@ export interface SessionBlock {
   floors?: number;
   /** Slow squeeze / slow release: seconds for each slow phase. */
   slowSec?: number;
+  /** A move of the 180-day plan: the steps of one rep (see moves.ts). */
+  steps?: MoveStep[];
   /** Ids of technique cues shown in turn during the block (src/content/kegel/cues.tr.json). */
   cueSet: string[];
   /** Warm-up / cool-down / main. */

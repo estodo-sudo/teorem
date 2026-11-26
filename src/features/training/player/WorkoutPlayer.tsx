@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AccessibilityInfo, AppState, Pressable, StyleSheet, useWindowDimensions, View } from 'react-native';
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import Animated, { Easing, FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 
@@ -9,9 +9,10 @@ import { lightTheme } from '@/config/theme';
 import { IconTile } from '@/components/ui';
 import { useSafeKeepAwake } from '@/lib/useSafeKeepAwake';
 import { useSettingsStore } from '@/stores/settingsStore';
-import type { ExerciseType, Position } from '@/types';
+import type { ExerciseType, KegelExerciseType, Position } from '@/types';
 
 import { cancelHaptics, playCue, vibrateForPhase } from '../haptics';
+import { NEW_MOVE_TYPES } from '../moves';
 import { playSound, prepareSounds, releaseSounds, soundForPhaseStart } from '../sounds';
 import type { GeneratedSession, Phase, SessionBlock } from '../types';
 import { findTurkishVoice, speak, stopSpeech, voiceKeyForPhase } from '../voice';
@@ -108,7 +109,7 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
             else if (e.phase.kind === 'transition' && e.phase.nextType) speak(tr('player.next', { name: tr(`exercise.${e.phase.nextType}.name`) }));
           }
           if (settings.soundCues && e.phase.durationMs >= 1000) {
-            const snd = soundForPhaseStart(e.phase.kind, e.phase.stage, e.phase.variant);
+            const snd = soundForPhaseStart(e.phase.kind, e.phase.stage, e.phase.variant, e.phase.level, e.phase.fromLevel);
             if (snd) playSound(snd);
           }
           // Screen readers announce each phase (§17: usable without the animation).
@@ -196,7 +197,9 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   const label = afterLetGo ? tr('player.phase.rest') : phaseLabel(phase, tr, elapsedMs, exercise?.type);
   // v1 colouring: squeeze colour while squeezing (also the slow release), plain text colour when relaxing.
   // Hızlı sık-bırak and yavaş sıkma count down the whole exercise; a hold or "Dinlen" its own seconds.
-  const wholeBlock = phase.kind !== 'transition' && (exercise?.type === 'quick_flick' || exercise?.type === 'elevator');
+  // The step-by-step moves of the 180-day plan count down the whole exercise too (their steps are short);
+  // Yarım Uzun Tutma is one long hold, so it counts its own seconds like uzun sıkma.
+  const wholeBlock = phase.kind !== 'transition' && (exercise?.type === 'quick_flick' || exercise?.type === 'elevator' || (!!exercise && NEW_MOVE_TYPES.has(exercise.type as KegelExerciseType) && exercise.type !== 'half_hold'));
   const secondsLeft = displaySeconds(session.phases, state.index, remainingMs, wholeBlock);
   const fastRun = wholeBlock || isFast(phase);
   // The ring runs over the whole exercise for hızlı sık-bırak and yavaş sıkma (no spin on each short step).
@@ -302,14 +305,33 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
   };
 
   // Gesture layer: tap / double tap / hold 1 s / swipe left on the whole screen.
-  const pan = usePlayerGestures({ onTap: toggle, onDoubleTap: () => setBlack((b) => !b), onLongPress: askFinish, onSwipeLeft: askSkip });
+  // Black screen (2026-11-25): only with "Gizli mod" on in Training settings, never in the tutorial's
+  // trial sets. Otherwise someone who does not know it sees a sudden black screen and thinks the app
+  // broke; there a double tap is simply a tap. On the black screen a clear notice says how to leave.
+  const blackAllowed = !minimal && settings.discreetPlayer;
+  const [notice, setNotice] = useState(0);
+  const showNotice = () => setNotice((n) => n + 1);
+  const pan = usePlayerGestures({
+    onTap: () => {
+      toggle();
+      if (black) showNotice();
+    },
+    onDoubleTap: blackAllowed
+      ? () => {
+          setBlack((b) => !b);
+          showNotice();
+        }
+      : toggle,
+    onLongPress: askFinish,
+    onSwipeLeft: askSkip,
+  });
 
   const f = t.player;
   const colors = { neutral: f.idle, accent: f.orbEdge, cool: f.relax, breath: t.tokens.breathe, ring: f.text, track: f.track, paused: f.paused, glow: f.glow, highlight: f.orbCenter, halo: f.halo, gap: f.bg };
   const overall = state.totalMs > 0 ? Math.min(1, (state.status === 'completed' ? state.totalMs : posMs) / state.totalMs) : 0;
 
   return (
-    <View style={styles.flex} {...pan.panHandlers} accessibilityHint={tr('player.gestureHint')}>
+    <View style={styles.flex} {...pan.panHandlers} accessibilityHint={tr(minimal ? 'player.gestureHintTrial' : 'player.gestureHint')}>
       {/* Top: thin segmented bar; block name + rep counter; position and help icons (44 px each). The pain button was removed (user request 2026-11-22). */}
       <View style={{ gap: t.space.md }}>
         <SegmentBar fills={fills} active={segments.findIndex((s) => s.exerciseIndex === phase.exerciseIndex)} color={f.text} track={f.track} label={tr('player.progress')} />
@@ -376,12 +398,13 @@ export function WorkoutPlayer({ session, onDone, minimal, forceLabels, onPainRep
       {preview && running ? <NextCard key={state.index} block={preview.block} positionChanged={preview.positionChanged} /> : null}
 
       {/* Black (discreet) mode: everything hidden, gestures still work */}
-      {black ? (
+      {black && blackAllowed ? (
         <View style={[StyleSheet.absoluteFill, { backgroundColor: f.black, margin: -40 }]} {...pan.panHandlers} accessible accessibilityLabel={tr('player.blackMode')} accessibilityHint={tr('player.blackHint')}>
           {/* Only a 2 px progress line stays visible. */}
           <View pointerEvents="none" style={{ position: 'absolute', top: 40, left: 40, right: 40, height: 2, backgroundColor: f.control }}>
             <View style={{ width: `${overall * 100}%`, height: '100%', backgroundColor: f.dim }} />
           </View>
+          <BlackNotice key={notice} />
         </View>
       ) : null}
 
@@ -542,4 +565,42 @@ const styles = StyleSheet.create({
   iconBtn: { width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   warn: { padding: 12, marginTop: 4 },
   sheet: { position: 'absolute', left: 0, right: 0, bottom: 120, flexDirection: 'row', alignItems: 'center', borderWidth: 1 },
+});
+
+/** How long the black screen's notice stays before it fades (it comes back on every tap). */
+const BLACK_NOTICE_MS = 3000;
+
+/**
+ * The black screen's notice: large and clear for a few seconds ("Siyah ekran · Çıkmak için iki kez
+ * dokun"), then it fades so the screen is dark again. Remounted (new key) on every tap.
+ */
+function BlackNotice() {
+  const { t: tr } = useTranslation();
+  const [on, setOn] = useState(true);
+  useEffect(() => {
+    const id = setTimeout(() => setOn(false), BLACK_NOTICE_MS);
+    return () => clearTimeout(id);
+  }, []);
+  if (!on) return null;
+  return (
+    <Animated.View entering={FadeIn.duration(250)} exiting={FadeOut.duration(600)} pointerEvents="none" style={blackStyles.wrap} accessibilityLiveRegion="polite">
+      <View style={blackStyles.card}>
+        <Icon name="eyeOff" size={36} color="#FFFFFF" />
+        <AppText variant="title2" center color="#FFFFFF">
+          {tr('player.blackMode')}
+        </AppText>
+        <AppText variant="bodyStrong" center color="#E6E9EC">
+          {tr('player.blackExit')}
+        </AppText>
+        <AppText variant="footnote" center color="#AEB6BD">
+          {tr('player.blackGoesOn')}
+        </AppText>
+      </View>
+    </Animated.View>
+  );
+}
+
+const blackStyles = StyleSheet.create({
+  wrap: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center', padding: 40 },
+  card: { alignItems: 'center', gap: 10, paddingVertical: 28, paddingHorizontal: 28, borderRadius: 24, borderWidth: 1.5, borderColor: 'rgba(255,255,255,0.35)', backgroundColor: 'rgba(255,255,255,0.08)', maxWidth: 320 },
 });

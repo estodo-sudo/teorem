@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, Screen, useTheme } from '@/components';
 import { SHOW_COMING_SOON } from '@/config/app';
-import { exploreImage } from '@/content/images';
+import { appImage, exploreImage } from '@/content/images';
 import type { CampDefinition } from '@/features/camps/core/definition';
 import { CAMPS } from '@/features/camps/registry';
-import { GLOSSARY, STORIES, type GlossaryTerm, type Story } from '@/features/content/data';
+import { GLOSSARY, glossaryImageId, STORIES, storyCoverId, type GlossaryTerm, type Story } from '@/features/content/data';
 import { featuredStory, orderStories, storyProgress, storyState } from '@/features/content/story/discover';
 import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, ProgramCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
@@ -76,7 +76,7 @@ export default function Discover() {
           kicker={tr('stories.ofTheDay')}
           meta={tr('stories.meta', { min: daily.minutes, count: storyProgress(daily, positions).slides })}
           resume={featured?.resume ? tr('stories.resume', { n: storyProgress(daily, positions).at, total: storyProgress(daily, positions).slides }) : undefined}
-          image={exploreImage('stories', daily.id)}
+          image={appImage(storyCoverId(daily))}
           icon={daily.icon}
           tone={daily.tone ?? 'knowledge'}
           locked={!access('stories')}
@@ -92,7 +92,7 @@ export default function Discover() {
         itemWidth={CARD.poster.w}
         listLabel={a11y(tr('stories.title'), STORIES.length)}
         keyOf={(s) => s.id}
-        render={(s) => <StoryPosterCard title={s.title} read={read.includes(s.id)} progress={storyProgress(s, positions).share} saved={saved.includes(s.id)} stateLabel={stateLabel(s.id)} image={exploreImage('stories', s.id)} icon={s.icon} tone={s.tone ?? 'knowledge'} onPress={() => openStory(s.id)} />}
+        render={(s) => <StoryPosterCard title={s.title} read={read.includes(s.id)} progress={storyProgress(s, positions).share} saved={saved.includes(s.id)} stateLabel={stateLabel(s.id)} image={appImage(storyCoverId(s))} icon={s.icon} tone={s.tone ?? 'knowledge'} onPress={() => openStory(s.id)} />}
       />
 
       <HorizontalSection<CampItem>
@@ -146,7 +146,7 @@ export default function Discover() {
           <GlossaryCompactCard
             title={g.title}
             summary={g.shortSummary ?? g.summary}
-            image={exploreImage('glossary', g.id)}
+            image={appImage(glossaryImageId(g))}
             icon={g.icon}
             tone="knowledge"
             onPress={() => router.push({ pathname: '/glossary/[termId]', params: { termId: g.id } })}

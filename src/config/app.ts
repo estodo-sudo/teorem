@@ -1,10 +1,12 @@
 /**
- * Central app identity. The product name is intentionally a placeholder until
- * branding is final — read it from here everywhere (UI, notifications, export
- * files, app.config.ts).
+ * Central app identity — read the name from here everywhere (UI, notifications,
+ * export files, app.config.ts).
  */
-// Temporary name until branding is final (SPEC_V4 §0.6): never show a placeholder like "[UYGULAMA_ADI]".
-export const APP_NAME = 'Uygulama';
+// Brand (user decision 2026-11-25): "Phelvik". Under the home-screen icon only the short name fits;
+// the full store name adds the tagline from i18n (app.tagline): "Phelvik: Kegel & Pelvik Taban".
+export const APP_NAME = 'Phelvik';
+/** Full name for the stores and the About screen, per language. */
+export const APP_FULL_NAME = { tr: 'Phelvik: Kegel & Pelvik Taban', en: 'Phelvik: Kegel & Pelvic Floor' } as const;
 
 /** Bundle / package identifiers (placeholders until store setup). */
 export const APP_SLUG = 'pelvik-app';
@@ -38,8 +40,20 @@ export const SHOW_COMING_SOON = false;
 /** Minimum age for using the app (age gate). */
 export const MIN_AGE = 16;
 
-/** Length of one training plan in days. */
-export const PLAN_LENGTH_DAYS = 30;
+/**
+ * Length of one training plan in days (user decision 2026-11-26: 180, was 30). The plan runs in six
+ * 30-day stages ("Ay 1 … Ay 6"); each stage keeps the four-week rhythm (week 4 = the light week).
+ */
+export const PLAN_LENGTH_DAYS = 180;
+/** Days in one stage of the plan, and the length plans had before 2026-11-26 (for migrating old data). */
+export const PLAN_STAGE_DAYS = 30;
+export const PLAN_STAGES = PLAN_LENGTH_DAYS / PLAN_STAGE_DAYS;
+export const LEGACY_PLAN_LENGTH_DAYS = 30;
+/**
+ * After the 180-day plan (user decision 2026-11-26): a 7-day cycle that repeats for ever. Plan number 1
+ * is the 180-day plan; plan number 2, 3, … are the cycles (each 7 days).
+ */
+export const CYCLE_DAYS = 7;
 
 /**
  * The "Pelvik taban kasın nerede?" animation (SPEC_ANIMASYON_PELVIK §3) must be checked by a

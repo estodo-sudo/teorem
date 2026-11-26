@@ -451,21 +451,21 @@
     "id": "plan",
     "icon": "calendar",
     "tone": "knowledge",
-    "title": "What is the 30-day plan?",
-    "summary": "A plan of one workout a day that tracks your progress.",
-    "shortSummary": "A plan of one workout a day",
+    "title": "What is the 180-day plan?",
+    "summary": "A 180-day plan of two rounds a day that moves on with new moves.",
+    "shortSummary": "A 180-day plan that moves on with new moves",
     "sections": [
       {
         "title": "In short",
-        "text": "The plan has 30 days. Each day gets a workout prepared for that day's level, and the days you complete are ticked off."
+        "text": "The plan has 180 days, split into six 30-day months. Each day is Round 1 and Round 2; when both are done, the day is complete. The 4th week of every month is a light week."
       },
       {
-        "title": "How is a workout built?",
-        "text": "Every workout starts with a light warm-up, continues with the main part and ends with relaxation and breathing. From Level 5, an endurance part is added too."
+        "title": "New moves",
+        "text": "You learn Slow Squeeze on day 1, then a new move on days 11, 16, 24, 32, 45 and 55. Each new move comes with a short lesson after that day's Round 1. The move you learned last is in every round; the earlier ones come back in turns in Round 2."
       },
       {
         "title": "When the plan ends",
-        "text": "When the 30 days are complete, a new plan starts automatically and your level carries on from where it was."
+        "text": "When the 180 days are complete, a 7-day cycle starts that never ends: each day one move takes the lead and day 7 is a light day. Your level and the moves you learned stay."
       }
     ],
     "reviewed": false

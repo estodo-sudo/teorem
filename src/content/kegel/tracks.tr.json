@@ -36,7 +36,8 @@
   "tracks": [
     {
       "id": "general",
-      "icon": "dumbbell", "tone": "kegel",
+      "icon": "dumbbell",
+      "tone": "kegel",
       "title": "Genel Güç",
       "text": "Dengeli tutma, hızlı sıkma ve yavaş sık–bırak çalışması.",
       "sourceIds": [
@@ -46,7 +47,8 @@
     },
     {
       "id": "erection",
-      "icon": "zap", "tone": "kegel",
+      "icon": "zap",
+      "tone": "kegel",
       "title": "Sertleşme Desteği",
       "text": "Tam güçte kasılmalar; her seansta yatarak, oturarak ve ayakta.",
       "note": "Ev programı mantığı Dorey ve arkadaşlarının (2004–2005) çalışmalarından esinlenir. Tıbbi bir tedavi değildir.",
@@ -57,7 +59,8 @@
     },
     {
       "id": "control",
-      "icon": "sliders", "tone": "kegel",
+      "icon": "sliders",
+      "tone": "kegel",
       "title": "Kontrol ve Zamanlama",
       "text": "Hızlı kasılma ve tam bırakma koordinasyonu, nefesle eşleme, gevşeme farkındalığı.",
       "note": "Amaç kontrol ve farkındalık kazanmaktır; belirli bir sonuç vaat edilmez.",
@@ -68,7 +71,8 @@
     },
     {
       "id": "bladder",
-      "icon": "droplet", "tone": "kegel",
+      "icon": "droplet",
+      "tone": "kegel",
       "title": "İdrar Kontrolü ve Damlama",
       "text": "Yavaş tutma, hızlı kasılma, Knack pratiği ve idrar sonrası sıkma alışkanlığı.",
       "sourceIds": [
@@ -80,7 +84,8 @@
     },
     {
       "id": "surgery",
-      "icon": "bandage", "tone": "kegel",
+      "icon": "bandage",
+      "tone": "kegel",
       "title": "Prostat Ameliyatı Öncesi/Sonrası",
       "text": "Hafif başlangıç, yatarak başlayıp ayakta ilerleme, Knack pratiği.",
       "note": "Yalnızca doktorun onay verdiyse açılır. Sonda takılıyken egzersiz yapma.",
@@ -93,7 +98,8 @@
     },
     {
       "id": "relax",
-      "icon": "leaf", "tone": "kegel",
+      "icon": "leaf",
+      "tone": "kegel",
       "title": "Gevşeme Odaklı",
       "text": "Bırakma, nazik ters Kegel ve beden farkındalığı.",
       "note": "Pelvik tabanında gerginlik olabileceğini düşünüyorsan önerilir. Bir üroloji uzmanına veya pelvik taban fizyoterapistine danışman iyi olur.",
@@ -102,5 +108,13 @@
         "nebraska_hypertonic"
       ]
     }
-  ]
+  ],
+  "weekThemeRestart": {
+    "title": "1. Hafta: Tazele",
+    "text": "Yeni ayın ilk haftası: temeli tazeler, öğrendiğin hareketleri tekrar edersin."
+  },
+  "weekThemeCycle": {
+    "title": "Haftalık döngü: Koru ve güçlen",
+    "text": "180 günden sonra her hafta aynı 7 günlük döngü tekrarlanır: her gün bir hareket öne çıkar, 7. gün hafif gündür. Döngü hiç bitmez; kazandığın gücü korur ve geliştirirsin."
+  }
 }

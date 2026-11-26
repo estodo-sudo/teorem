@@ -34,6 +34,16 @@ export function blockText(b: SessionBlock, tr: TFunction): { title: string; deta
       return { title: name, detail: tr('block.quick', { sec: b.reps * ((b.holdSec ?? 1) + b.restSec) }) };
     case 'elevator':
       return { title: name, detail: tr('block.slow', { count: b.reps }) };
+    // the moves of the 180-day plan: how many times, and how each one goes
+    case 'step_up':
+    case 'step_down':
+    case 'double_peak':
+    case 'wave':
+      return { title: name, detail: tr(`block.${b.type}`, { count: b.reps }) };
+    case 'half_quick':
+      return { title: name, detail: tr('block.half_quick', { sec: b.reps * ((b.holdSec ?? 1) + b.restSec) }) };
+    case 'half_hold':
+      return { title: name, detail: tr('block.half_hold', { count: b.reps, sec: b.holdSec }) };
     default:
       return { title: `${name} × ${b.reps}`, detail: tr('player.nextRelease') };
   }

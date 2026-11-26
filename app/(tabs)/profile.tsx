@@ -3,9 +3,8 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Button, Dialog, Icon, ListRow, RowGroup, Screen, useTheme } from '@/components';
+import { AppLogo, AppText, BrandName, Button, Dialog, Icon, ListRow, RowGroup, Screen, useTheme } from '@/components';
 import { Card, IconTile, ScalePressable } from '@/components/ui';
-import { APP_NAME } from '@/config/app';
 import { deleteAllData } from '@/features/data/deleteAll';
 import { ACHIEVEMENTS } from '@/features/gamification/achievements';
 import { useStreak } from '@/features/gamification/service';
@@ -41,9 +40,9 @@ export default function Profile() {
 
       <Card style={{ padding: t.space.lg, gap: t.space.lg }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
-          <IconTile icon="user" size="lg" round />
+          <AppLogo size={56} />
           <View style={{ flex: 1, gap: 2 }}>
-            <AppText variant="title3">{APP_NAME}</AppText>
+            <BrandName variant="title3" />
             <AppText variant="footnote" muted>
               {premium ? tr('profile.sub.active') : tr('profile.sub.free')}
             </AppText>

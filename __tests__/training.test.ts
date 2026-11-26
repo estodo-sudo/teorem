@@ -1,8 +1,9 @@
 import { adjustLevel, OK_STREAK_FOR_LEVEL_UP } from '@/features/training/adjustLevel';
-import { contractionCount, generateMicroSet, generateReleaseSession, generateSession, generateSlowDemo, generateTrialSession, REST_SEC, type SessionInput } from '@/features/training/generateSession';
+import { contractionCount, generateReleaseSession, generateSession, generateSlowDemo, generateTrialSession, REST_SEC, type SessionInput } from '@/features/training/generateSession';
 import { clampLevel, dailyContractionCap, getLevel, LEVELS, MAX_LEVEL, sessionContractionCap, SLOW_REP_SEC, startingLevelFor } from '@/features/training/levels';
 import { applyReturn, applySessionResult, defaultTraining, migrateTraining, setManualLevel, todayPlanDay, todayWeekIndex } from '@/features/training/plan';
-import { capStatus, deloadDue, isPlanDeloadDay, missedDaysPolicy, muscleScore, painPolicy, refreshFreezes, screeningToTrack, sessionAllowed, strengthFallingTwoWeeks, validVacation } from '@/features/training/schedule';
+import { MAX_MOVE_BLOCK_REPS } from '@/features/training/moves';
+import { capStatus, deloadDue, isPlanDeloadDay, missedDaysPolicy, muscleScore, painPolicy, planWeekNumber, refreshFreezes, screeningToTrack, sessionAllowed, strengthFallingTwoWeeks, validVacation } from '@/features/training/schedule';
 import { goalsToTrack, KEGEL_CUES, KEGEL_TRACKS, trackAllowed } from '@/features/training/tracks';
 import type { GeneratedSession, Phase } from '@/features/training/types';
 import type { StrengthTest, TrainingState } from '@/types';
@@ -111,12 +112,16 @@ describe('Tur 2: yavaş, hızlı, yavaş, uzun (with a 5 s rest between)', () =>
 });
 
 describe('contractions, caps and the small sessions', () => {
-  it('counts one contraction per squeeze; the level cap covers Tur 1 + Tur 2', () => {
+  it('counts one contraction per squeeze; the level cap covers Tur 1 + Tur 2 with up to three move blocks (180-day plan)', () => {
     for (const l of [1, 15, 30]) {
       const r1 = generateSession(input({ level: l }));
       const r2 = generateSession(input({ level: l, round: 2 }));
       expect(r1.contractions).toBe(r1.phases.filter((p) => p.kind === 'contract' && p.variant !== 'top').length);
-      expect(r1.contractions + r2.contractions).toBe(sessionContractionCap(l));
+      expect(r1.contractions + r2.contractions + 3 * MAX_MOVE_BLOCK_REPS).toBe(sessionContractionCap(l));
+      // the longest move blocks (Hızlı Yarım Sıkma as latest and review) still fit under the cap
+      const m1 = generateSession(input({ level: l, moves: { latest: 'half_quick' } }));
+      const m2 = generateSession(input({ level: l, round: 2, moves: { latest: 'half_quick', review: 'wave' } }));
+      expect(m1.contractions + m2.contractions).toBeLessThanOrEqual(sessionContractionCap(l));
     }
     expect(contractionCount(generateReleaseSession(SEED).blocks)).toBe(0);
   });
@@ -124,11 +129,7 @@ describe('contractions, caps and the small sessions', () => {
     const ids = new Set(KEGEL_CUES.map((c) => c.id));
     for (const b of generateSession(input({ round: 2 })).blocks) for (const c of b.cueSet) expect(ids.has(c)).toBe(true);
   });
-  it('micro set is one uzun + one hızlı (under a minute at level 1); release session has no contractions; trial is 3 × 3 s / 3 s', () => {
-    const micro = generateMicroSet({ level: 1, seed: SEED });
-    expect(types(micro)).toEqual(['slow_hold', 'quick_flick']);
-    expect(micro.isMicro).toBe(true);
-    expect(sec(micro)).toBeLessThanOrEqual(60);
+  it('release session has no contractions; trial is 3 × 3 s / 3 s (the micro set was removed 2026-11-25)', () => {
     expect(generateReleaseSession(SEED).contractions).toBe(0);
     const trial = generateTrialSession();
     expect(trial.phases.filter((p) => p.kind === 'contract').map((p) => p.durationMs)).toEqual([3000, 3000, 3000]);
@@ -182,17 +183,22 @@ describe('adjustLevel v2 (spec 6.5)', () => {
 describe('schedule rules', () => {
   const test = (date: string, holdBestMs: number): StrengthTest => ({ id: date, date, holdBestMs, holdAttemptsMs: [holdBestMs], quickCount: 10 });
 
-  it('deload = plan week 4 (days 22–30); early (≥ 2 plan weeks after the last) when strength falls two weeks in a row', () => {
+  it('deload = week 4 of every 30-day stage (days 22–30, 52–60 …); early (≥ 2 weeks after the last) when strength falls two weeks in a row', () => {
     expect([0, 6, 7, 14, 20, 21, 25, 29].map(isPlanDeloadDay)).toEqual([false, false, false, false, false, true, true, true]);
+    // the 180-day plan repeats the four-week rhythm in each of its six stages
+    expect([30, 50, 51, 59, 60, 171, 179].map(isPlanDeloadDay)).toEqual([false, false, true, true, false, true, true]);
     expect([0, 7, 14, 21].map((planDay) => deloadDue({ planNumber: 1, planDay, lastDeloadWeek: -1 }))).toEqual([false, false, false, true]);
-    // Plan 2 starts normal again, even right after the plan-1 deload.
-    expect(deloadDue({ planNumber: 2, planDay: 0, lastDeloadWeek: 3 })).toBe(false);
-    // Early: plan 2 week 2 (number 5) is 2 weeks after the last deload (3).
-    expect(deloadDue({ planNumber: 2, planDay: 7, lastDeloadWeek: 3, strengthFalling: true })).toBe(true);
-    expect(deloadDue({ planNumber: 2, planDay: 0, lastDeloadWeek: 3, strengthFalling: true })).toBe(false);
-    // An early deload lasts the rest of that plan week.
-    expect(deloadDue({ planNumber: 2, planDay: 10, lastDeloadWeek: 5 })).toBe(true);
-    expect(deloadDue({ planNumber: 2, planDay: 14, lastDeloadWeek: 5 })).toBe(false);
+    // Stage 2 starts normal again, even right after the stage-1 deload.
+    expect(deloadDue({ planNumber: 1, planDay: 30, lastDeloadWeek: 3 })).toBe(false);
+    // Early: stage 2 week 2 (number 5) is 2 weeks after the last deload (3).
+    expect(deloadDue({ planNumber: 1, planDay: 37, lastDeloadWeek: 3, strengthFalling: true })).toBe(true);
+    expect(deloadDue({ planNumber: 1, planDay: 30, lastDeloadWeek: 3, strengthFalling: true })).toBe(false);
+    // An early deload lasts the rest of that week.
+    expect(deloadDue({ planNumber: 1, planDay: 40, lastDeloadWeek: 5 })).toBe(true);
+    expect(deloadDue({ planNumber: 1, planDay: 44, lastDeloadWeek: 5 })).toBe(false);
+    // plan 2 week 1 follows stage 6 week 4 (number 23)
+    expect(planWeekNumber(1, 179)).toBe(23);
+    expect(planWeekNumber(2, 0)).toBe(24);
     expect(strengthFallingTwoWeeks([test('2026-11-01', 9000), test('2026-11-08', 8000), test('2026-11-15', 7000)])).toBe(true);
     expect(strengthFallingTwoWeeks([test('2026-11-01', 9000), test('2026-11-08', 9500), test('2026-11-15', 7000)])).toBe(false);
   });
@@ -221,10 +227,10 @@ describe('schedule rules', () => {
     expect(capStatus(cap, 10).locked).toBe(true);
     expect(sessionAllowed(cap - 10, 20, 10)).toBe(false);
     expect(sessionAllowed(cap, generateReleaseSession(SEED).contractions, 10)).toBe(true);
-    // Tur 1 + Tur 2, again, plus a micro set fit under the cap.
+    // Tur 1 + Tur 2 and the one extra session before the rest fit under the cap.
     const both = sessionContractionCap(30);
-    const micro = generateMicroSet({ level: 30, seed: SEED }).contractions;
-    expect(2 * both + micro).toBeLessThanOrEqual(dailyContractionCap(30));
+    const extra = generateSession({ level: 30, seed: SEED }).contractions;
+    expect(both + extra).toBeLessThanOrEqual(dailyContractionCap(30));
   });
 
   it('pain: level lock for 7 days; 2 reports in 7 days → referral', () => {
@@ -292,8 +298,8 @@ describe('plan progression and migration', () => {
   });
 
   it('remembers a deload week and the pain lock; "hard" no longer suggests a shorter preset (one session length)', () => {
-    // Plan 2, day 23 → plan-week number 4 + 3 = 7.
-    expect(applySessionResult({ ...base, planNumber: 2, planDayIndex: 22 }, { date: '2026-11-15', feedback: 'ok', deload: true }).lastDeloadWeek).toBe(7);
+    // Day 53 (stage 2, week 4) → week number 4 + 3 = 7.
+    expect(applySessionResult({ ...base, planNumber: 1, planDayIndex: 52 }, { date: '2026-11-15', feedback: 'ok', deload: true }).lastDeloadWeek).toBe(7);
     const hard = applySessionResult(base, { date: '2026-11-15', feedback: 'hard' });
     expect(hard.suggestShorter).toBeUndefined();
     expect(hard.level).toBe(base.level);
@@ -302,19 +308,26 @@ describe('plan progression and migration', () => {
     expect(applySessionResult({ ...base, levelLockUntil: '2026-11-20' }, { date: '2026-11-20', feedback: 'easy' }).level).toBe(4);
   });
 
-  it('failed does not advance the plan; rolls to Plan 2 after 30 days keeping the level', () => {
+  it('failed does not advance the plan; rolls to Plan 2 after 180 days keeping the level', () => {
     const a = applySessionResult({ ...base, planDayIndex: 4 }, { date: '2026-11-15', feedback: 'failed' });
     expect(a).toMatchObject({ planDayIndex: 4, level: 2, repeatNextDay: true });
     expect(todayPlanDay(a, '2026-11-16')).toBe(4);
-    const b = applySessionResult({ ...base, planDayIndex: 29, level: 12 }, { date: '2026-11-15', feedback: 'easy' });
+    const b = applySessionResult({ ...base, planDayIndex: 179, level: 12 }, { date: '2026-11-15', feedback: 'easy' });
     expect(b).toMatchObject({ planDayIndex: 0, planNumber: 2, level: 13 });
+    expect(applySessionResult({ ...base, planDayIndex: 29 }, { date: '2026-11-15', feedback: 'ok' })).toMatchObject({ planDayIndex: 30, planNumber: 1 });
     expect(setManualLevel({ ...base, consecutiveOk: 2 }, 40)).toMatchObject({ level: 30, consecutiveOk: 0 });
   });
 
-  it('migrates v1 state: level and plan kept, general / standard, week from the plans done', () => {
+  it('migrates v1 state: level and progress kept (old 30-day plans carry over onto the 180-day plan), general / standard', () => {
     const v1 = { level: 12, consecutiveOk: 1, planDayIndex: 20, planNumber: 2, lastAdvancedDate: '2026-11-14', repeatNextDay: false };
     const m = migrateTraining(v1);
-    expect(m).toMatchObject({ ...v1, track: 'general', durationPreset: 'standard', dailyTarget: 2, weekIndex: 7, dayIndex: 1, consecutiveHard: 0, freezeTokens: 2, lastDeloadWeek: -1 });
+    // old plan 2 day 21 = day 51 of the 180-day plan
+    expect(m).toMatchObject({ ...v1, planDayIndex: 50, planNumber: 1, planLength: 180, track: 'general', durationPreset: 'standard', dailyTarget: 2, weekIndex: 7, dayIndex: 1, consecutiveHard: 0, freezeTokens: 2, lastDeloadWeek: -1 });
+    // old plan 7 day 1 (180 days done) = plan 2 day 1
+    expect(migrateTraining({ ...v1, planNumber: 7, planDayIndex: 0 })).toMatchObject({ planNumber: 2, planDayIndex: 0 });
+    // once saved with planLength the position is kept as it is
+    expect(migrateTraining({ ...v1, planDayIndex: 120, planNumber: 1, planLength: 180 })).toMatchObject({ planDayIndex: 120, planNumber: 1 });
+    expect(migrateTraining({ ...m, movesLearned: ['step_up', 'nope', 'step_up', 4] })).toMatchObject({ movesLearned: ['step_up'] });
     expect(migrateTraining(m)).toEqual(m);
     expect(migrateTraining(null)).toEqual(defaultTraining());
     expect(migrateTraining({ level: 'x', track: 'nope', durationPreset: 'huge', dailyTarget: 9, vacation: { from: 1 } })).toEqual(defaultTraining());

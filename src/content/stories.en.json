@@ -1,5 +1,126 @@
 [
   {
+    "id": "journey-180",
+    "title": "The 180-Day Journey",
+    "category": "menHealth",
+    "icon": "map",
+    "tone": "knowledge",
+    "minutes": 3,
+    "slides": [
+      {
+        "type": "cover",
+        "tone": "knowledge"
+      },
+      {
+        "type": "info",
+        "icon": "calendar",
+        "support": [
+          "trendUp",
+          "clock"
+        ],
+        "title": "Why 180 days?",
+        "text": "A muscle doesn't get stronger in a few days. In the first weeks your brain learns to find the muscle and use it alone; the muscle really strengthens at 8–12 weeks. Guidelines recommend at least 3 months. Six months lets the strength settle and the habit stick.",
+        "tone": "knowledge",
+        "image": "story/journey-180/2",
+        "imageAlt": "A foot climbing bright steps"
+      },
+      {
+        "type": "info",
+        "icon": "layers",
+        "support": [
+          "target",
+          "star"
+        ],
+        "title": "What changes, what's coming?",
+        "text": "The plan is split into six 30-day months; the last week of each is light. Along the way you learn 7 moves: Slow Squeeze, Step Squeeze, Step Release, Double Peak, Quick Half Squeeze, Half Long Hold and Wave. Your control gets finer and your endurance grows.",
+        "tone": "knowledge",
+        "image": "story/journey-180/3",
+        "imageAlt": "A spiral staircase seen from above"
+      },
+      {
+        "type": "didYouKnow",
+        "text": "A strong, well-controlled pelvic floor can help reduce dribbling after urinating and leaking when you cough, help keep an erection and help you control ejaculation. It is also often recommended after prostate surgery.",
+        "tone": "knowledge",
+        "image": "story/journey-180/4",
+        "imageAlt": "A country road at sunrise with someone running"
+      },
+      {
+        "type": "info",
+        "icon": "users",
+        "support": [
+          "check",
+          "trendUp"
+        ],
+        "title": "What did people experience?",
+        "text": "In men with erection problems, after 6 months of exercise 40% regained normal erections and 35.5% improved clearly. Of 40 men with premature ejaculation, 33 (82.5%) gained control within 12 weeks. About three in four men with dribbling after urinating no longer had it after 6 months.",
+        "tone": "knowledge",
+        "image": "story/journey-180/5",
+        "imageAlt": "Stones balanced on pebbles"
+      },
+      {
+        "type": "quiz",
+        "quiz": {
+          "question": "How long does it usually take the pelvic floor muscle to get stronger?",
+          "options": [
+            "A few days",
+            "It starts in the first weeks; the real difference comes over months",
+            "Nothing changes before a year"
+          ],
+          "correct": 1,
+          "explain": "You learn to use the muscle correctly in the first weeks; a clear gain in strength takes 2–3 months. The good results in studies also came from regular 3–6 month programmes. That is why the plan is 180 days."
+        },
+        "tone": "knowledge",
+        "image": "story/journey-180/6",
+        "imageAlt": "An alarm clock on a wooden floor"
+      },
+      {
+        "type": "action",
+        "icon": "map",
+        "title": "Your roadmap is ready",
+        "text": "Which day of the plan you're on, what this week holds, when the next move comes: it's all on the roadmap.",
+        "action": {
+          "route": "/kegel/plan",
+          "label": "Open my roadmap"
+        },
+        "tone": "knowledge",
+        "image": "story/journey-180/7",
+        "imageAlt": "Two feet standing on a gravel path"
+      },
+      {
+        "type": "summary",
+        "items": [
+          "Muscles get stronger over months, not days; that is why the plan is 180 days.",
+          "Over six months you learn 7 moves and build control and endurance step by step.",
+          "In studies, most men who trained regularly saw better erections, ejaculation control and less dribbling."
+        ],
+        "tone": "knowledge"
+      }
+    ],
+    "sources": [
+      {
+        "title": "NICE (2021) – Pelvic floor dysfunction: prevention and non-surgical management (NG210); QS77 statement 4: supervised pelvic floor muscle training of at least 3 months",
+        "url": "https://www.nice.org.uk/guidance/qs77/chapter/Quality-statement-4-Supervised-pelvic-floor-muscle-training"
+      },
+      {
+        "title": "Dorey G ve ark. (2005) – Pelvic floor exercises for erectile dysfunction. BJU International 96(4)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16104916/"
+      },
+      {
+        "title": "Pastore AL ve ark. (2014) – Pelvic floor muscle rehabilitation for patients with lifelong premature ejaculation: a novel therapeutic approach. Therapeutic Advances in Urology 6(3)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24883105/"
+      },
+      {
+        "title": "Dorey G ve ark. (2004) – Pelvic floor exercises for treating post-micturition dribble in men with erectile dysfunction: a randomized controlled trial. Urologic Nursing 24(6)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15658735/"
+      },
+      {
+        "title": "Cambridge University Hospitals (NHS) – Pelvic floor exercises in men: frequently asked questions",
+        "url": "https://www.cuh.nhs.uk/patient-information/pelvic-floor-exercises-in-men-frequently-asked-questions/"
+      }
+    ],
+    "reviewed": false
+  },
+  {
     "id": "pf-basics",
     "title": "The pelvic floor in men",
     "category": "menHealth",

@@ -67,7 +67,7 @@ export function playCue(cue: Cue, strength: HapticStrength) {
  * Kegel phase vibration: vibrates for as long as the phase squeezes (see `phaseVibration`), silent
  * otherwise. Stops whatever was playing first, so let-go and rest phases cut it off cleanly.
  */
-export function vibrateForPhase(phase: { kind: string; durationMs: number; variant?: string }, strength: HapticStrength, fromMs = 0) {
+export function vibrateForPhase(phase: { kind: string; durationMs: number; variant?: string; level?: number }, strength: HapticStrength, fromMs = 0) {
   cancelHaptics();
   playEvents(scaleEvents(phaseVibration(phase, fromMs), strength));
 }

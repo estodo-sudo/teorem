@@ -15,8 +15,7 @@ import type { KegelExerciseType } from '@/types';
 import { ExerciseDemo } from './ExerciseDemo';
 import { EXERCISE_GUIDE, LOCKED_EXERCISES } from './exerciseGuide';
 import { needsScreening, rescreenReminder } from './kegelProfile';
-import { todayPlanDay } from './plan';
-import { weekTheme } from './roadmap';
+import { currentPlanWeek, weekTheme } from './roadmap';
 import { KEGEL_TRACKS } from './tracks';
 
 /** "Kegel antrenmanı" and "Seviye 1 · 1. hafta: Kası tanı" (one programme for everyone; no track to pick). */
@@ -24,14 +23,14 @@ export function ActiveTrackCard() {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const training = useTrainingStore((s) => s.training);
-  const planWeek = Math.min(3, Math.floor(todayPlanDay(training, toDateKey()) / 7));
+  const { stage: planStage, week: planWeek } = currentPlanWeek(training, toDateKey());
   return (
     <Card style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.lg }}>
       <IconTile icon="pulse" />
       <View style={{ flex: 1, gap: 2 }}>
         <AppText variant="bodyStrong">{tr('profile.training.programme')}</AppText>
         <AppText variant="footnote" muted>
-          {tr('profile.training.levelWeek', { level: training.level, theme: weekTheme(planWeek).title })}
+          {tr('profile.training.levelWeek', { level: training.level, theme: weekTheme(planWeek, planStage).title })}
         </AppText>
       </View>
     </Card>

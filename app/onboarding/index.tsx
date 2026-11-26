@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react';
 import { router } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { Children, useEffect, useState } from 'react';
 import { BackHandler, View } from 'react-native';
+import Animated, { FadeInDown, FadeInRight } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Icon, Screen, TimeStepper, useTheme, type IconName } from '@/components';
-import { Badge, Button, Card, Illustration, IconTile, OptionCard, ScalePressable, SegmentedSteps, type IllustrationName } from '@/components/ui';
+import { AppText, Branded, Icon, Screen, TimeStepper, useTheme, type IconName } from '@/components';
+import { AnimatedArt, type AnimatedArtName } from '@/components/AnimatedArt';
+import { Badge, Button, Card, IconTile, OptionCard, ScalePressable, SegmentedSteps } from '@/components/ui';
 import { APP_NAME, PLAN_LENGTH_DAYS } from '@/config/app';
 import { requestNotificationPermission } from '@/features/reminders/permissions';
 import { generateSession } from '@/features/training/generateSession';
@@ -142,9 +144,11 @@ export default function Onboarding() {
         </View>
       </View>
 
+      {/* Each step slides in from the right; its cards follow one by one (motion polish 2026-11-25). */}
+      <Animated.View key={step} entering={FadeInRight.duration(320)} style={{ gap: t.space.xl }}>
       {step === 0 ? (
         <View style={{ gap: t.space.xl }}>
-          <HeaderZone illustration="onboarding-welcome" kicker={tr('onboarding.welcome.kicker')} title={tr('onboarding.welcome.title', { app: APP_NAME })} body={tr('onboarding.welcome.body')} />
+          <HeaderZone art="welcome" kicker={tr('onboarding.welcome.kicker')} title={tr('onboarding.welcome.title', { app: APP_NAME })} body={tr('onboarding.welcome.body')} />
           <Card style={{ paddingHorizontal: t.space.lg }}>
             <CheckRow icon="clock" text={tr('onboarding.welcome.point1')} />
             <CheckRow icon="vibrate" text={tr('onboarding.welcome.point2')} divider />
@@ -155,14 +159,17 @@ export default function Onboarding() {
 
       {step === 1 ? (
         <Question title={tr('onboarding.sex.title')} hint={tr('onboarding.sex.hint')}>
-          {SEXES.map((v) => (
-            <OptionCard key={v} icon="user" label={tr(`onboarding.sex.${v}`)} description={tr(`onboarding.sex.${v}Hint`)} selected={sex === v} onPress={() => chooseSex(v)} />
-          ))}
+          {/* side by side, the word and its sign only (2026-11-26) */}
+          <View style={{ flexDirection: 'row', gap: 12 }} accessibilityRole="radiogroup">
+            {SEXES.map((v) => (
+              <SexTile key={v} sex={v} label={tr(`onboarding.sex.${v}`)} selected={sex === v} onPress={() => chooseSex(v)} />
+            ))}
+          </View>
         </Question>
       ) : null}
 
       {step === 2 ? (
-        <Question multi illustration="onboarding-goals" title={tr('onboarding.goals.title')} hint={tr('onboarding.goals.hint')}>
+        <Question multi art="goals" title={tr('onboarding.goals.title')} hint={tr('onboarding.goals.hint')}>
           {goalsFor(sex ?? 'male').map((g) => (
             <OptionCard key={g.value} multi icon={g.icon} label={tr(`goal.${g.value}`, ctx)} selected={goals.includes(g.value)} onPress={() => toggleGoal(g.value)} />
           ))}
@@ -222,7 +229,7 @@ export default function Onboarding() {
 
       {step === 7 ? (
         <View style={{ gap: t.space.xl }}>
-          <HeaderZone illustration="onboarding-plan" title={tr('onboarding.plan.title')} body={tr('onboarding.plan.body', { level, days: PLAN_LENGTH_DAYS })} />
+          <HeaderZone art="plan" title={tr('onboarding.plan.title')} body={tr('onboarding.plan.body', { level, days: PLAN_LENGTH_DAYS })} />
           <Card style={{ paddingHorizontal: t.space.lg }}>
             <SummaryRow label={tr('onboarding.plan.goals')} value={goals.map((g) => tr(`goal.${g}`, ctx)).join(', ')} />
             <SummaryRow label={tr('onboarding.plan.start')} value={tr('common.level', { level })} divider />
@@ -237,19 +244,20 @@ export default function Onboarding() {
           </View>
         </View>
       ) : null}
+      </Animated.View>
     </Screen>
   );
 }
 
-/** Header zone (§7.9): illustration (160 px) + title1 + body. */
-function HeaderZone({ illustration, kicker, title, body }: { illustration?: IllustrationName; kicker?: string; title: string; body?: string }) {
+/** Header zone (§7.9): looping animated art (Remotion) + title1 + body. */
+function HeaderZone({ art, kicker, title, body }: { art?: AnimatedArtName; kicker?: string; title: string; body?: string }) {
   const t = useTheme();
   return (
     <View style={{ gap: t.space.md }}>
-      {illustration ? (
-        <View style={{ alignItems: 'center' }}>
-          <Illustration name={illustration} size={160} />
-        </View>
+      {art ? (
+        <Animated.View entering={FadeInDown.duration(420)} style={{ alignItems: 'center' }}>
+          <AnimatedArt name={art} size={176} />
+        </Animated.View>
       ) : null}
       {kicker ? (
         <AppText variant="caption" muted>
@@ -257,7 +265,7 @@ function HeaderZone({ illustration, kicker, title, body }: { illustration?: Illu
         </AppText>
       ) : null}
       <AppText variant="title1" accessibilityRole="header">
-        {title}
+        <Branded>{title}</Branded>
       </AppText>
       {body ? (
         <AppText variant="body" muted>
@@ -268,13 +276,15 @@ function HeaderZone({ illustration, kicker, title, body }: { illustration?: Illu
   );
 }
 
-function Question({ title, hint, multi, illustration, children }: { title: string; hint?: string; multi?: boolean; illustration?: IllustrationName; children: ReactNode }) {
+function Question({ title, hint, multi, art, children }: { title: string; hint?: string; multi?: boolean; art?: AnimatedArtName; children: ReactNode }) {
   const t = useTheme();
   return (
     <View style={{ gap: t.space.lg }}>
-      <HeaderZone illustration={illustration} title={title} body={hint} />
+      <HeaderZone art={art} title={title} body={hint} />
       <View style={{ gap: t.space.sm }} accessibilityRole={multi ? undefined : 'radiogroup'}>
-        {children}
+        {Children.map(children, (child, i) => (
+          <Animated.View entering={FadeInDown.delay(90 + i * 60).duration(300)}>{child}</Animated.View>
+        ))}
       </View>
     </View>
   );
@@ -305,5 +315,43 @@ function SummaryRow({ label, value, off, divider }: { label: string; value: stri
         {value}
       </AppText>
     </View>
+  );
+}
+
+/** One of the two sex choices: a tall tile with the sign in a soft circle and the word under it. */
+function SexTile({ sex, label, selected, onPress }: { sex: Sex; label: string; selected: boolean; onPress: () => void }) {
+  const t = useTheme();
+  const k = t.tokens;
+  return (
+    <ScalePressable
+      onPress={onPress}
+      accessibilityRole="radio"
+      accessibilityState={{ selected }}
+      accessibilityLabel={label}
+      testID={`sex-${sex}`}
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: t.space.md,
+        paddingVertical: t.space.xl,
+        borderRadius: t.radius.lg,
+        borderWidth: selected ? t.border.medium : t.border.thin,
+        borderColor: selected ? k.primary : k.border,
+        backgroundColor: selected ? k.primarySoft : k.card,
+      }}
+    >
+      <View style={{ width: 72, height: 72, borderRadius: 36, alignItems: 'center', justifyContent: 'center', backgroundColor: selected ? k.primary : k.muted }}>
+        <Icon name={sex} size={34} color={selected ? k.primaryForeground : k.primary} strokeWidth={2.2} />
+      </View>
+      <AppText variant="title3" weight="700">
+        {label}
+      </AppText>
+      {selected ? (
+        <View style={{ position: 'absolute', top: 10, right: 10, width: 22, height: 22, borderRadius: 11, backgroundColor: k.primary, alignItems: 'center', justifyContent: 'center' }}>
+          <Icon name="check" size={14} color={k.primaryForeground} strokeWidth={2.6} />
+        </View>
+      ) : null}
+    </ScalePressable>
   );
 }

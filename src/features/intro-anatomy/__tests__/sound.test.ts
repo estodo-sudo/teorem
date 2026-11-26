@@ -39,8 +39,8 @@ describe('intro sound', () => {
   });
 
   it('every sound file is in the app (no network)', () => {
-    for (const id of ['ambient', 'tick', 'chime']) {
-      expect(fs.existsSync(path.join(__dirname, '../../../../assets/sounds/intro', `${id}.wav`))).toBe(true);
+    for (const f of ['music.m4a', 'tick.wav', 'chime.wav']) {
+      expect(fs.existsSync(path.join(__dirname, '../../../../assets/sounds/intro', f))).toBe(true);
     }
   });
 });

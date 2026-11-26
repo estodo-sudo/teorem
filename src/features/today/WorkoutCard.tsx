@@ -7,8 +7,8 @@ import { AppText, Icon, useTheme, type IconName } from '@/components';
 import { Button, Card, IconTile, Ring, ScalePressable, Sheet } from '@/components/ui';
 import { PLAN_LENGTH_DAYS } from '@/config/app';
 import { appImage } from '@/content/images';
-import { generateMicroSet } from '@/features/training/generateSession';
-import { todayPlanDay } from '@/features/training/plan';
+import {  } from '@/features/training/generateSession';
+import { isCycle, todayPlanDay, todayPlanPosition } from '@/features/training/plan';
 import { blockText } from '@/features/training/player/playerUi';
 import { capStatus, isOnVacation } from '@/features/training/schedule';
 import { dayStatus } from '@/features/training/summary';
@@ -26,13 +26,13 @@ import { PHOTO_SPACE, PhotoBackground } from './PhotoCard';
 import { workoutCoverId } from './weekdayCover';
 
 /** Neutral icon per exercise (Lucide). */
-const BLOCK_ICON: Record<KegelExerciseType, IconName> = { slow_hold: 'clock', quick_flick: 'pulse', max_contraction: 'target', elevator: 'layers', endurance: 'clock', knack: 'wind', release: 'leaf', breath: 'wind' };
+const BLOCK_ICON: Record<KegelExerciseType, IconName> = { slow_hold: 'clock', quick_flick: 'pulse', max_contraction: 'target', elevator: 'layers', endurance: 'clock', knack: 'wind', release: 'leaf', breath: 'wind', step_up: 'trendUp', step_down: 'trendDown', double_peak: 'mountain', half_quick: 'zap', half_hold: 'hourglass', wave: 'waves' };
 
 /**
  * Today's Kegel card — ui-v3 (SPEC_UI_V3 §7.1): one layer. Day / track kicker, title, the daily target
  * ring, the duration control, a one-line summary (the exercises open in a sheet), the primary "Başla"
- * and two small secondary actions (micro set, breathing). Behaviour unchanged (SPEC_KEGEL_V2 §6.2, §6.3,
- * §11.5): micro set, daily target, the contraction cap ("enough for today" → release session), notices.
+ * and the start button (the micro set was removed 2026-11-25). Behaviour unchanged (SPEC_KEGEL_V2 §6.2, §6.3,
+ * §11.5): daily target, the contraction cap ("enough for today" → release session), notices.
  */
 export function WorkoutCard() {
   const t = useTheme();
@@ -48,14 +48,18 @@ export function WorkoutCard() {
   const doneCount = status.counted;
   const dayDone = status.full;
   const session = buildTodaySession(training, today);
-  const micro = generateMicroSet({ level: training.level, seed: `${today}-micro` });
   const used = contractionsToday(workouts, today);
   const cap = capStatus(used, training.level);
   const day = todayPlanDay(training, today) + 1;
+  // after the 180 days: "Haftalık döngü · Gün 3 / 7"
+  const cycleDay = isCycle(todayPlanPosition(training, today).planNumber);
   const onVacation = isOnVacation(today, training.vacation);
   const blocks = session.blocks;
   const minutes = Math.max(1, Math.round(session.plannedSec / 60));
-  const target = training.dailyTarget;
+  // Two halves: Tur 1 and Tur 2 (2026-11-25).
+  const target = status.target;
+  const round2 = buildTodaySession(training, today, { round: 2 });
+  const nextIsRound2 = status.mainDone && !status.round2Done;
 
   const { go, dialog } = useSessionStarter();
   // 10-hour rest after two full sessions (user request 2026-11-23): "Başla" shows the countdown.
@@ -84,7 +88,7 @@ export function WorkoutCard() {
             {/* Day and the session summary on one line, same style (user request 2026-11-23); the summary opens the exercises. */}
             <View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap' }}>
               <AppText variant="caption" muted={!cover} color={cover ? soft : undefined}>
-                {tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
+                {cycleDay ? tr('today.workout.cycleKicker', { day }) : tr('today.workout.dayKicker', { day, total: PLAN_LENGTH_DAYS })}
                 {session.deload ? ` · ${tr('today.workout.deload')}` : ''}
                 {' · '}
               </AppText>
@@ -122,25 +126,17 @@ export function WorkoutCard() {
           </View>
         ) : null}
 
-        {/* "Başla" with the micro set under it, both on the cover (user request 2026-11-23). */}
+        {/* "Başla" on the cover; during the 10-hour rest it shows only the countdown numbers (2026-11-25). */}
         <View style={{ gap: t.space.sm }}>
           {lock.locked ? (
             <Button label={lock.left} size="lg" disabled onPress={() => undefined} fullWidth accessibilityHint={tr('kegel.lock.hint')} testID="start-workout-locked" />
           ) : dayDone ? (
             <Button label={tr('today.workout.again')} variant="secondary" icon="play" size="lg" onPress={() => go(today, session.contractions)} fullWidth />
+          ) : nextIsRound2 ? (
+            <Button label={tr('today.workout.startRound2')} size="lg" icon="play" onPress={() => go('round2', round2.contractions)} testID="start-round2" fullWidth />
           ) : (
             <Button label={tr('common.start')} size="lg" icon="play" onPress={() => go(today, session.contractions)} testID="start-workout" fullWidth />
           )}
-          <Button
-            label={tr('today.workout.microShort')}
-            accessibilityHint={tr('today.workout.microHint', { sec: micro.plannedSec })}
-            icon="pulse"
-            variant="secondary"
-            size="sm"
-            disabled={lock.locked}
-            onPress={() => go('micro', micro.contractions)}
-            fullWidth
-          />
         </View>
 
         <Sheet visible={blocksOpen} onClose={() => setBlocksOpen(false)} title={tr('today.workout.contents')} description={tr('today.workout.contentsCount', { count: blocks.length })}>

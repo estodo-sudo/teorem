@@ -64,6 +64,13 @@ export interface TrainingState {
   nextPresetOnce?: DurationPreset;
   /** The short Tur 2 (yavaş sıkma) introduction was shown once. */
   round2IntroDone?: boolean;
+  /**
+   * Plan length the plan position was saved with (180 since 2026-11-26). Missing = an older 30-day
+   * plan: migrateTraining moves the position onto the 180-day plan once.
+   */
+  planLength?: number;
+  /** Kegel moves learned in their mini lesson, in the order learned (ids of MOVE_PROGRAM). */
+  movesLearned?: string[];
   /** Days kept by a streak freeze (date keys). */
   frozenDays?: string[];
   /** Last day the missed-days check ran (date key). */
@@ -111,7 +118,22 @@ export interface FunctionalTask {
 export type Feedback = 'easy' | 'ok' | 'hard' | 'failed';
 
 /** Kegel v2 exercise types (SPEC_KEGEL_V2 §4). */
-export type KegelExerciseType = 'slow_hold' | 'quick_flick' | 'max_contraction' | 'elevator' | 'endurance' | 'knack' | 'release' | 'breath';
+export type KegelExerciseType =
+  | 'slow_hold'
+  | 'quick_flick'
+  | 'max_contraction'
+  | 'elevator'
+  | 'endurance'
+  | 'knack'
+  | 'release'
+  | 'breath'
+  /** The moves of the 180-day plan (2026-11-26), see features/training/moves.ts. */
+  | 'step_up'
+  | 'step_down'
+  | 'double_peak'
+  | 'half_quick'
+  | 'half_hold'
+  | 'wave';
 /** v1 ids, still found in sessions saved before v2. */
 export type LegacyExerciseType = 'hold' | 'quick' | 'pulse' | 'relax';
 export type ExerciseType = KegelExerciseType | LegacyExerciseType;

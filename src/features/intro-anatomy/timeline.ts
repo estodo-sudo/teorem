@@ -145,7 +145,8 @@ export const CAPTION = { outMs: 200, inMs: 300, rise: 6 } as const;
  */
 export type IntroSoundId = 'tick' | 'chime';
 export const SOUND = {
-  ambient: { loopMs: 10000, volume: 0.55, fadeFrom: 47000 },
+  /** Background music (music.m4a, 52 s: one pass covers the whole animation). */
+  ambient: { loopMs: 52000, volume: 0.45, fadeFrom: 47000 },
   cues: [
     { at: 39300, id: 'tick', ms: 90 },
     { at: 40800, id: 'tick', ms: 90 },

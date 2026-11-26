@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Header, Screen, useTheme } from '@/components';
+import { AppText, Branded, Header, Screen, useTheme } from '@/components';
 import { APP_NAME, LEGAL_ENTITY } from '@/config/app';
 
 import type { LegalSection } from './docs';
@@ -36,7 +36,7 @@ export function LegalPage({ section }: { section: LegalSection }) {
             </AppText>
             {s.paragraphs.map((p) => (
               <AppText key={p} variant="body">
-                {p}
+                <Branded>{p}</Branded>
               </AppText>
             ))}
           </View>

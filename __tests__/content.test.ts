@@ -2,9 +2,10 @@ import { CHALLENGES, GLOSSARY, NUTRITION_DAYS, NUTRITION_PLAN, STORIES } from '@
 import { nutritionDayIndex, nutritionTasksForDay, quizScore, storyOfTheDay } from '@/features/content/daily';
 
 describe('content files', () => {
-  it('has 20 stories with 4–8 slides, sources and reviewed=false', () => {
-    expect(STORIES).toHaveLength(20);
-    expect(new Set(STORIES.map((s) => s.id)).size).toBe(20);
+  it('has 21 stories with 4–8 slides, sources and reviewed=false (the 180-day story first, 2026-11-26)', () => {
+    expect(STORIES).toHaveLength(21);
+    expect(STORIES[0]!.id).toBe('journey-180');
+    expect(new Set(STORIES.map((s) => s.id)).size).toBe(21);
     for (const s of STORIES) {
       expect(s.slides.length).toBeGreaterThanOrEqual(4);
       expect(s.slides.length).toBeLessThanOrEqual(8);

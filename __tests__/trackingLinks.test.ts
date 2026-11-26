@@ -30,8 +30,9 @@ describe('a finished session reaches every tracker (2026-11-23 fixes)', () => {
     const workouts = useHistoryStore.getState().workouts;
     expect(workouts.filter((x) => x.date === today && countsAsSession(x))).toHaveLength(1);
     expect(dailyProgress(workouts, today, 2).done).toBe(1);
-    expect(completedDates(workouts)).toContain(today);
-    expect(heatMap(workouts, today, 1).flat().find((c) => c.date === today)?.intensity).toBe(2);
+    // Tur 1 is the first half of the day (2026-11-25): the streak waits for Tur 2, the calendar shows "Yarım".
+    expect(completedDates(workouts)).not.toContain(today);
+    expect(heatMap(workouts, today, 1).flat().find((c) => c.date === today)?.intensity).toBe(1);
     // Plan: today is done ("Gün 1" stays the day shown today), tomorrow is day 2.
     const t = useTrainingStore.getState().training;
     expect([t.planDayIndex, t.lastAdvancedDate, w.advancedPlan]).toEqual([1, today, true]);
@@ -84,73 +85,67 @@ describe('a finished session reaches every tracker (2026-11-23 fixes)', () => {
   });
 });
 
-describe('the daily target decides when a day is done (2026-11-23)', () => {
+describe('a day is Tur 1 + Tur 2 (2026-11-25; micro sets removed, old ones count for nothing)', () => {
   const day = '2026-11-19';
-  const one = [{ date: day, completed: true }];
-  const tur1and2 = [...one, { date: day, completed: true, round: 2 as const }];
-  const two = [...one, { date: day, completed: true, isMicro: true }];
-
-  it('one session of a target of two: the day is half done, not done (Tur 2 does not make it two)', () => {
-    expect(targetDays(one, 2)).toEqual({ full: [], partial: [day] });
-    expect(targetDays(tur1and2, 2)).toEqual({ full: [], partial: [day] });
-    expect(targetDays(two, 2)).toEqual({ full: [day], partial: [] });
-    expect(targetDays(one, 1)).toEqual({ full: [day], partial: [] });
-  });
-
-  it('the week strip shows such a day half filled and does not count it', () => {
-    const split = targetDays(one, 2);
-    const days = weekDays(day, split.full, [], split.partial);
-    expect(days.find((d) => d.key === day)?.state).toBe('todayPartial');
-    expect(weekCount(days).done).toBe(0);
-    const full = targetDays(two, 2);
-    expect(weekDays(day, full.full, [], full.partial).find((d) => d.key === day)?.state).toBe('todayDone');
-  });
-
-  it('the calendar uses the same rule: half, done, above the target', () => {
-    const cell = (list: { date: string; completed: boolean; round?: 1 | 2; isMicro?: boolean }[]) => heatMap(list.map((w, i) => ({ id: String(i), finishedAt: `${w.date}T10:00:00Z`, level: 1, plannedSec: 120, actualSec: 120, exercises: [], ...w })), day, 1, 2).flat().find((c) => c.date === day)?.intensity;
-    expect(cell(one)).toBe(1);
-    expect(cell(tur1and2)).toBe(1);
-    expect(cell(two)).toBe(2);
-    expect(cell([...two, { date: day, completed: true }])).toBe(3);
-  });
-
-  it('the card keeps "Başla" until the target is reached; only then "tamam" and "Bir seans daha"', () => {
-    const card = read('src/features/today/WorkoutCard.tsx');
-    expect(card).toMatch(/const status = dayStatus\(workouts, today, training\.dailyTarget\);/);
-    expect(card).toMatch(/const dayDone = status\.full;/);
-    expect(card).toMatch(/\{dayDone \? tr\('today\.workout\.doneTitle'\) : tr\('today\.workout\.title'\)\}/);
-    expect(card).not.toMatch(/mainDone/);
-  });
-});
-
-describe('"Bugün" tasks, the card, the week and the calendar follow one rule (2026-11-23)', () => {
-  const day = '2026-11-19';
-  const main = { date: day, completed: true };
+  const tur1 = { date: day, completed: true };
+  const tur2 = { date: day, completed: true, round: 2 as const };
   const micro = { date: day, completed: true, isMicro: true };
   const release = { date: day, completed: true, isMicro: true, track: 'relax' };
 
-  it('main + micro set: done; two main sessions: done; two micro sets: not done (the main one is missing)', () => {
-    expect(dayStatus([main, micro], day, 2)).toMatchObject({ full: true, counted: 2, mainDone: true, microDone: true });
-    expect(dayStatus([main, main], day, 2)).toMatchObject({ full: true, counted: 2, microDone: false });
-    expect(dayStatus([micro, micro], day, 2)).toMatchObject({ full: false, counted: 1, mainDone: false });
-    expect(targetDays([micro, micro], 2)).toEqual({ full: [], partial: [day] });
+  it('Tur 1 is the first half, Tur 2 the second; a micro set is never half a day', () => {
+    expect(dayStatus([tur1], day)).toMatchObject({ full: false, counted: 1, mainDone: true, round2Done: false, target: 2 });
+    expect(dayStatus([tur1, tur2], day)).toMatchObject({ full: true, counted: 2 });
+    expect(dayStatus([tur1, micro], day)).toMatchObject({ full: false, counted: 1, microDone: true });
+    expect(dayStatus([micro, micro], day)).toMatchObject({ full: false, counted: 0, mainDone: false });
+    expect(targetDays([tur1])).toEqual({ full: [], partial: [day] });
+    expect(targetDays([tur1, tur2])).toEqual({ full: [day], partial: [] });
+    expect(targetDays([micro])).toEqual({ full: [], partial: [] });
   });
 
   it('a release session does not count anywhere', () => {
     expect(countsAsSession(release)).toBe(false);
-    expect(dayStatus([main, release], day, 2)).toMatchObject({ full: false, counted: 1, microDone: false });
+    expect(dayStatus([tur1, release], day)).toMatchObject({ full: false, counted: 1, microDone: false });
   });
 
-  it('the task list: the second task is ticked when the target is reached either way; the test task stays ticked after the test; tasks start through the same checks as "Başla"', () => {
-    const src = read('src/features/today/DailyGoalCard.tsx');
-    expect(src).toMatch(/done: status\.microDone \|\| status\.full/);
-    expect(src).toMatch(/if \(testDoneToday \|\| strengthTestDue\(tests, today\)\)/);
-    expect(src).toMatch(/const \{ go, dialog \} = useSessionStarter\(\);/);
-    expect(src).not.toMatch(/pathname: '\/workout\/\[sessionId\]'/);
+  it('the week: half after Tur 1, done after Tur 2; the streak counts full days only', () => {
+    const half = targetDays([tur1]);
+    expect(weekDays(day, half.full, [], half.partial).find((d) => d.key === day)?.state).toBe('todayPartial');
+    expect(weekCount(weekDays(day, half.full, [], half.partial)).done).toBe(0);
+    const full = targetDays([tur1, tur2]);
+    expect(weekDays(day, full.full, [], full.partial).find((d) => d.key === day)?.state).toBe('todayDone');
+    const w = (x: { date: string; completed: boolean; round?: 1 | 2; isMicro?: boolean }, i: number) => ({ id: String(i), finishedAt: `${x.date}T10:00:00Z`, level: 1, plannedSec: 120, actualSec: 120, exercises: [], ...x });
+    expect(completedDates([tur1].map(w))).toEqual([]);
+    expect(completedDates([tur1, tur2].map(w))).toEqual([day]);
+  });
+
+  it('the calendar: half, done, done with an extra; a micro set alone marks nothing', () => {
+    const cell = (list: { date: string; completed: boolean; round?: 1 | 2; isMicro?: boolean }[]) => heatMap(list.map((w, i) => ({ id: String(i), finishedAt: `${w.date}T10:00:00Z`, level: 1, plannedSec: 120, actualSec: 120, exercises: [], ...w })), day, 1).flat().find((c) => c.date === day)?.intensity;
+    expect(cell([tur1])).toBe(1);
+    expect(cell([tur1, tur2])).toBe(2);
+    expect(cell([tur1, tur2, micro])).toBe(3);
+    expect(cell([micro])).toBe(0);
+  });
+
+  it('the card counts halves and, after Tur 1, starts Tur 2; the tasks are Tur 1, Tur 2 and the test', () => {
+    const card = read('src/features/today/WorkoutCard.tsx');
+    expect(card).toMatch(/const dayDone = status\.full;/);
+    expect(card).toMatch(/const target = status\.target;/);
+    expect(card).toMatch(/const nextIsRound2 = status\.mainDone && !status\.round2Done;/);
+    expect(card).toMatch(/go\('round2', round2\.contractions\)/);
+    const tasks = read('src/features/today/DailyGoalCard.tsx');
+    expect(tasks).toMatch(/title: tr\('today\.goals\.round1'\), done: status\.mainDone/);
+    expect(tasks).toMatch(/title: tr\('today\.goals\.round2'\), done: status\.round2Done/);
+    expect(tasks).not.toMatch(/microExtra|go\('micro'/);
+    expect(tasks).toMatch(/if \(testDoneToday \|\| strengthTestDue\(tests, today\)\)/);
+    expect(tasks).toMatch(/const \{ go, dialog \} = useSessionStarter\(\);/);
+    expect(tasks).not.toMatch(/pathname: '\/workout\/\[sessionId\]'/);
+    expect(read('src/features/training/useSessionStarter.tsx')).toMatch(/sessionId === 'round2' \? lessonRoute\(useTrainingStore\.getState\(\)\.training\) : null/);
+    expect(read('app/settings/training.tsx')).not.toMatch(/settings\.training\.perDay'/);
   });
 
   it('the feedback summary uses the same count', () => {
-    expect(dailyProgress([micro, micro], day, 2)).toEqual({ done: 1, target: 2, reached: false });
-    expect(dailyProgress([main, micro], day, 2)).toEqual({ done: 2, target: 2, reached: true });
+    expect(dailyProgress([micro, micro], day)).toEqual({ done: 0, target: 2, reached: false });
+    expect(dailyProgress([tur1], day)).toEqual({ done: 1, target: 2, reached: false });
+    expect(dailyProgress([tur1, tur2], day)).toEqual({ done: 2, target: 2, reached: true });
   });
 });

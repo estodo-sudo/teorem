@@ -42,9 +42,15 @@ describe('image manifest and records (§1)', () => {
     expect(credits).not.toMatch(/Unsplash\+/);
   });
 
-  it('no source photo is used twice', () => {
-    const ids = accepted.map((e) => `${e.source.site}/${e.source.photoId}`);
+  it('no source photo is used twice, except a deliberate reuse that names the entry it reuses', () => {
+    // 2026-11-26: the "180 Günlük Yolculuk" story shows photos of other stories (reusedFrom)
+    const own = accepted.filter((e) => !(e as { reusedFrom?: string }).reusedFrom);
+    const ids = own.map((e) => `${e.source.site}/${e.source.photoId}`);
     expect(ids.filter((x, i) => ids.indexOf(x) !== i)).toEqual([]);
+    for (const e of accepted.filter((x) => (x as { reusedFrom?: string }).reusedFrom)) {
+      const from = own.find((x) => x.id === (e as { reusedFrom?: string }).reusedFrom);
+      expect([e.id, from?.source.photoId]).toEqual([e.id, e.source.photoId]);
+    }
   });
 
   it('files stay inside the §5 size limits and the total under 18 MB', () => {
@@ -90,8 +96,9 @@ describe('clean-up and completeness (§8 G3)', () => {
 
   it('no Keşfet card falls back to the gradient any more', () => {
     for (const id of Object.keys(IMAGES)) expect([id, IMAGES[id]!.bytes > 0]).toEqual([id, true]);
-    // 45 Keşfet cards + the Günüm backgrounds (7 weekday photos, today/fitness) + the camp commitment header (2026-11-23).
-    expect(Object.keys(IMAGES).filter((k) => k.split('/').length === 2)).toHaveLength(54);
+    // 45 Keşfet cards + the Günüm backgrounds (7 weekday photos, today/fitness) + the camp commitment header (2026-11-23)
+    // + the "180 Günlük Yolculuk" story cover (2026-11-26).
+    expect(Object.keys(IMAGES).filter((k) => k.split('/').length === 2)).toHaveLength(55);
   });
 
   it('REVIEW.md has a decision for every photo and no slide left to pick by hand', () => {

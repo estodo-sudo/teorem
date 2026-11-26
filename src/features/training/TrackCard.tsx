@@ -6,8 +6,7 @@ import { Card, IconTile, Progress } from '@/components/ui';
 import { toDateKey } from '@/lib/date';
 import { useTrainingStore } from '@/stores/trainingStore';
 
-import { todayPlanDay } from './plan';
-import { roadmapNodes, weekTheme } from './roadmap';
+import { currentPlanWeek, roadmapNodes, weekTheme } from './roadmap';
 
 /**
  * Program header (SPEC_UI_V3 §7.2.1): the programme, level, this week's theme and the week's progress
@@ -18,8 +17,8 @@ export function TrackCard() {
   const { t: tr } = useTranslation();
   const training = useTrainingStore((s) => s.training);
   const today = toDateKey();
-  const planWeek = Math.min(3, Math.floor(todayPlanDay(training, today) / 7));
-  const strip = roadmapNodes(training, today).filter((n) => n.week === planWeek);
+  const { stage: planStage, week: planWeek } = currentPlanWeek(training, today);
+  const strip = roadmapNodes(training, today).filter((n) => n.stage === planStage && n.week === planWeek);
   const done = strip.filter((n) => n.state === 'done').length;
   const weekLabel = tr('training.weekProgress', { done, total: strip.length });
 
@@ -36,7 +35,7 @@ export function TrackCard() {
       </View>
       <View style={{ gap: t.space.sm }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: t.space.sm, flexWrap: 'wrap' }}>
-          <AppText variant="callout">{tr('training.levelTheme', { level: training.level, theme: weekTheme(planWeek).title })}</AppText>
+          <AppText variant="callout">{tr('training.levelTheme', { level: training.level, theme: weekTheme(planWeek, planStage).title })}</AppText>
           <AppText variant="footnote" muted tabular>
             {weekLabel}
           </AppText>

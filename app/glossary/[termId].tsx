@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 import { AppText, Card, Header, Icon, Screen, useTheme, type IconName } from '@/components';
 import { IconTile } from '@/components/ui';
-import { appImage, IMAGES, type AppImage } from '@/content/images';
-import { GLOSSARY } from '@/features/content/data';
+import { appImage, type AppImage } from '@/content/images';
+import { GLOSSARY, glossaryImageId } from '@/features/content/data';
 import { APP_TERMS } from '@/features/today/GlossaryStrip';
 import i18n from '@/i18n';
 import { localeOf } from '@/i18n/languages';
@@ -59,7 +59,7 @@ export default function GlossaryTermScreen() {
   // Numbers for the plain explanation sections, in order.
   const infoIdx = body.map((s) => roleOf(s.title) === 'info');
   const stepOf = (i: number) => infoIdx.slice(0, i + 1).filter(Boolean).length;
-  const image = IMAGES[`glossary/${term.id}`];
+  const image = appImage(glossaryImageId(term));
   const kicker = APP_TERMS.has(term.id) ? tr('glossary.kindApp') : tr('glossary.kindHealth');
   const k = t.tone.knowledge;
 
@@ -122,7 +122,7 @@ export default function GlossaryTermScreen() {
         </View>
       ) : null}
 
-      {next && next.id !== term.id ? <NextCard id={next.id} icon={next.icon} title={next.title} /> : null}
+      {next && next.id !== term.id ? <NextCard id={next.id} image={next.image} icon={next.icon} title={next.title} /> : null}
     </Screen>
   );
 }
@@ -176,10 +176,10 @@ function Hero({ image, icon, kicker, title, summary, meta }: { image?: AppImage;
 }
 
 /** Next term with its own photo. */
-function NextCard({ id, icon, title }: { id: string; icon: IconName; title: string }) {
+function NextCard({ id, image, icon, title }: { id: string; image?: string; icon: IconName; title: string }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
-  const img = appImage(`glossary/${id}`);
+  const img = appImage(glossaryImageId({ id, image }));
   return (
     <Card onPress={() => router.replace({ pathname: '/glossary/[termId]', params: { termId: id } })} accessibilityLabel={`${tr('glossary.next')}: ${title}`} style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, padding: t.space.md, marginTop: t.space.xs }}>
       {img ? (

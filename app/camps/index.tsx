@@ -3,14 +3,16 @@ import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Screen, useTheme } from '@/components';
-import { Button, Card, IconTile, Illustration, type IllustrationName } from '@/components/ui';
+import { AnimatedArt, type AnimatedArtName } from '@/components/AnimatedArt';
+import { Button, Card, IconTile } from '@/components/ui';
 import type { ModuleTone } from '@/config/theme';
 import { CAMPS } from '@/features/camps/registry';
 
 /** Camp → illustration and module tone (§3.3, §4.2). Unknown camps fall back to the neutral set. */
-const LOOK: Record<string, { art: IllustrationName; tone: ModuleTone }> = {
-  smoking: { art: 'camp-smokefree-welcome', tone: 'smokefree' },
-  odak: { art: 'camp-focus-welcome', tone: 'focus' },
+/** Each camp's looping drawing (round 6, 2026-11-25) and its tone. */
+const LOOK: Record<string, { art: AnimatedArtName; tone: ModuleTone }> = {
+  smoking: { art: 'smokefree', tone: 'smokefree' },
+  odak: { art: 'focus', tone: 'focus' },
 };
 
 /**
@@ -27,12 +29,12 @@ export default function CampsScreen() {
         {tr('camps.subtitle')}
       </AppText>
       {CAMPS.map((c) => {
-        const look = LOOK[c.id] ?? { art: 'campus-welcome' as const, tone: 'campus' as const };
+        const look = LOOK[c.id] ?? { art: 'alcoholfree' as const, tone: 'campus' as const };
         const title = tr(c.titleKey);
         return (
           <Card key={c.id}>
-            <View style={{ height: 120, alignItems: 'center', justifyContent: 'center', backgroundColor: t.tone[look.tone].soft }}>
-              <Illustration name={look.art} size={112} tone={look.tone} />
+            <View style={{ height: 140, alignItems: 'center', justifyContent: 'center', backgroundColor: t.tone[look.tone].soft }}>
+              <AnimatedArt name={look.art} size={132} />
             </View>
             <View style={{ padding: t.space.gutter, gap: t.space.md }}>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>

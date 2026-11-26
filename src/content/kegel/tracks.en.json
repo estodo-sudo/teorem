@@ -108,5 +108,13 @@
         "nebraska_hypertonic"
       ]
     }
-  ]
+  ],
+  "weekThemeRestart": {
+    "title": "Week 1: Refresh",
+    "text": "A new month's first week: you refresh the basics and repeat the moves you've learned."
+  },
+  "weekThemeCycle": {
+    "title": "Weekly cycle: keep and build",
+    "text": "After the 180 days the same 7-day cycle repeats every week: each day one move takes the lead, and day 7 is a light day. The cycle never ends; you keep and build the strength you've gained."
+  }
 }

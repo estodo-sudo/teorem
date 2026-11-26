@@ -12,8 +12,8 @@ export const REMINDER_PRESETS = [
   { id: 'dinner', time: '20:00' },
   { id: 'bed', time: '22:30' },
 ] as const;
-export const DISCREET_MESSAGE_COUNT = 6;
-export const EXPLICIT_MESSAGE_COUNT = 4;
+export const DISCREET_MESSAGE_COUNT = 10;
+export const EXPLICIT_MESSAGE_COUNT = 10;
 
 export type ReminderKind = 'daily' | 'weeklyTest';
 
@@ -32,7 +32,7 @@ export interface ReminderInput {
   /** "HH:MM" entries (1..4, any order). */
   times: string[];
   enabled: boolean;
-  /** Today's target (main session + micro sets) reached → skip today's remaining reminders. */
+  /** Today is done (Tur 1 + Tur 2) → skip today's remaining reminders. */
   completedToday: boolean;
   /** "Skip today" from a notification (date key). */
   skipDate?: string | null;
@@ -82,7 +82,8 @@ export function planReminders(input: ReminderInput): PlannedReminder[] {
         id: `daily-${day}-${time}`,
         kind: 'daily',
         fireAt,
-        titleKey: `reminders.${style}.title`,
+        // Each message has its own title (round 4, 2026-11-25), so the same words don't repeat every day.
+        titleKey: `reminders.${style}.title${variant}`,
         bodyKey: `reminders.${style}.body${variant}`,
       });
     });

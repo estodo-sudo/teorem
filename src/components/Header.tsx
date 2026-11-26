@@ -4,6 +4,7 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { AppText } from './AppText';
+import { Branded } from './Brand';
 import { Icon } from './Icon';
 import { useTheme } from './useTheme';
 
@@ -33,7 +34,7 @@ export function Header({ title, onBack, close, right }: Props) {
       <View style={styles.title}>
         {title ? (
           <AppText variant="h3" numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7} center accessibilityRole="header">
-            {title}
+            <Branded>{title}</Branded>
           </AppText>
         ) : null}
       </View>

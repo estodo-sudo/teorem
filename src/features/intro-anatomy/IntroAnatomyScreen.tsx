@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { AccessibilityInfo, AppState, Platform, Pressable, StyleSheet, View } from 'react-native';
-import Animated, { Easing, FadeInDown, useAnimatedStyle, useReducedMotion, useSharedValue, withTiming } from 'react-native-reanimated';
+import Animated, { Easing, FadeInDown, useAnimatedStyle, useReducedMotion, useSharedValue, withTiming, type SharedValue } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+
+import { sexCtx, useSex } from '@/i18n/sex';
 
 import { AppText, Icon } from '@/components';
 import { Button } from '@/components/ui';
@@ -21,7 +23,7 @@ const BUTTONS_IN_MS = TRACKS.buttons[1][0] - TRACKS.buttons[0][0];
 
 /**
  * "Pelvik taban kasın nerede?" (SPEC_ANIMASYON_PELVIK §5–§7). Always dark, light status bar.
- * - Thin progress bar on top. It cannot be skipped (no "Geç"); it can be paused with a tap.
+ * - Segmented progress bar on top (one part per scene). It cannot be skipped (no "Geç"); it can be paused with a tap.
  * - Shown inside the "Kası bul" tutorial, right after "Kası nasıl bulursun?"; "Devam et" goes on.
  * - The pictures are a 3D video (Anatomy3DStage) kept at the clock. A tap on it pauses or plays; while paused a round play icon sits in the middle.
  * - The caption of each scene under the drawing; the closing buttons rise in at 46 s.
@@ -40,6 +42,8 @@ export function IntroAnatomyScreen({
   forceReader?: boolean;
 }) {
   const { t } = useTranslation();
+  // scene 4 says what the muscle does; the penis-control line is for men only (2026-11-25)
+  const ctx = sexCtx(useSex());
   const insets = useSafeAreaInsets();
   const reduce = useReducedMotion();
   const reader = useScreenReader() || forceReader;
@@ -63,17 +67,20 @@ export function IntroAnatomyScreen({
     return () => sub.remove();
   }, [pause]);
 
-  const progress = useAnimatedStyle(() => ({ width: `${(Math.min(TOTAL_MS, time.value) / TOTAL_MS) * 100}%` }));
-
   return (
     <ThemeOverride dark>
       <View style={[styles.root, { backgroundColor: c.bgBottom, paddingTop: insets.top, paddingBottom: insets.bottom + darkTheme.space.lg }]}>
         <StatusBar style="light" />
         <AnatomyBackground />
+        {/* 3D pictures, full screen behind the bar, caption and buttons (Blender video, 2026-11-25) */}
+        <Anatomy3DStage time={time} playing={playing} />
 
         {/* progress bar and the sound switch (there is no "Geç": the animation is watched to the end) */}
+        {/* one segment per scene, like a story: the video feels like parts (2026-11-25) */}
         <View style={styles.track}>
-          <Animated.View style={[styles.bar, { backgroundColor: c.muscle }, progress]} />
+          {SCENES.map((s, i) => (
+            <Segment key={i} time={time} start={s.start} end={s.end} color={c.muscle} />
+          ))}
         </View>
         <View style={styles.topRow}>
           {!reader ? (
@@ -92,8 +99,7 @@ export function IntroAnatomyScreen({
           accessibilityLabel={t('introAnatomy.sceneLabel')}
           accessibilityHint={reader ? undefined : t('introAnatomy.stageHint')}
         >
-          {/* 3D pictures (Blender video, 2026-11-25); the 2D drawing stays in AnatomyScene for the dev frames */}
-          <Anatomy3DStage time={time} playing={playing} />
+          {/* the 2D drawing stays in AnatomyScene for the dev frames; this area is only the tap target */}
           {!playing && !finished && !reader && stillAt === undefined ? (
             <View style={styles.center} pointerEvents="none">
               <View style={[styles.playIcon, { backgroundColor: c.pauseBg }]}>
@@ -105,7 +111,7 @@ export function IntroAnatomyScreen({
 
         {/* caption, then the closing buttons (they rise in at 46 s) */}
         <View style={styles.bottom}>
-          <Caption text={t(SCENES[scene]!.caption)} reduce={reduce} />
+          <Caption text={t(SCENES[scene]!.caption, ctx)} reduce={reduce} />
           {reader ? (
             <View style={styles.steps}>
               <Button label={t('introAnatomy.prev')} variant="ghost" size="md" disabled={step === 0} onPress={() => setStep((n) => Math.max(0, n - 1))} />
@@ -125,6 +131,16 @@ export function IntroAnatomyScreen({
         </View>
       </View>
     </ThemeOverride>
+  );
+}
+
+/** One scene's part of the top bar: empty before, filling while it plays, full after. */
+function Segment({ time, start, end, color }: { time: SharedValue<number>; start: number; end: number; color: string }) {
+  const fill = useAnimatedStyle(() => ({ width: `${Math.min(1, Math.max(0, (time.value - start) / (end - start))) * 100}%` }));
+  return (
+    <View style={styles.segment}>
+      <Animated.View style={[styles.segmentFill, { backgroundColor: color }, fill]} />
+    </View>
   );
 }
 
@@ -184,12 +200,14 @@ const styles = StyleSheet.create({
   root: { flex: 1 },
   center: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' },
   playIcon: { width: 56, height: 56, borderRadius: 28, alignItems: 'center', justifyContent: 'center', paddingLeft: 3 },
-  track: { height: 2, width: '100%' },
+  track: { flexDirection: 'row', gap: 4, paddingHorizontal: 12, paddingTop: 6 },
+  segment: { flex: 1, height: 4, borderRadius: 2, overflow: 'hidden', backgroundColor: 'rgba(255,255,255,0.22)' },
+  segmentFill: { height: 4, borderRadius: 2 },
   topRow: { minHeight: 44, flexDirection: 'row', alignItems: 'center' },
   iconButton: { minHeight: 44, minWidth: 44, alignItems: 'center', justifyContent: 'center' },
   stage: { flex: 1 },
-  bar: { height: 2 },
-  bottom: { paddingHorizontal: 24, paddingTop: 12 },
+  // the caption sits higher, clear of the bottom edge (2026-11-25)
+  bottom: { paddingHorizontal: 24, paddingTop: 12, paddingBottom: 48 },
   caption: { minHeight: 44, justifyContent: 'center', marginBottom: 12 },
   actions: { gap: 4, alignItems: 'center' },
   steps: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 8 },

@@ -27,6 +27,7 @@ import {
   Leaf,
   LoaderCircle,
   Lock,
+  Mars,
   Minus,
   Moon,
   Pause,
@@ -196,6 +197,7 @@ import {
   Undo2,
   Users,
   Utensils,
+  Venus,
   Waves,
   Wheat,
   Wrench,
@@ -215,6 +217,9 @@ const ICONS = {
   chart: ChartColumn,
   compass: Compass,
   user: User,
+  /** Sex symbols (Venus, Mars): only on the onboarding "Program kimin için?" step (2026-11-25). */
+  female: Venus,
+  male: Mars,
   /** Streak flame (gamification only — never used for the smoking camp). */
   flame: Flame,
   trophy: Trophy,

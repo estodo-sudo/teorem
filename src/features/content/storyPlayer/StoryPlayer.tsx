@@ -3,6 +3,7 @@ import { PanResponder, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 
+import { useAppActive } from '@/lib/useLive';
 import { AppText, Icon, SegmentedBar, useTheme } from '@/components';
 
 import type { StorySlide } from '../data';
@@ -29,7 +30,10 @@ export function StoryPlayer({ title, slides, onFinish, onClose, headerRight, end
   const { t: tr } = useTranslation();
   const [index, setIndex] = useState(0);
   const [elapsed, setElapsed] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [heldPaused, setPaused] = useState(false);
+  // Battery (round 8): the slide timer also stops while the app is in the background.
+  const appActive = useAppActive();
+  const paused = heldPaused || !appActive;
   const startRef = useRef(0);
   const baseRef = useRef(0);
   const finished = useRef(false);

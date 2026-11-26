@@ -1,0 +1,418 @@
+{
+  "hide": [
+    "erection-blood"
+  ],
+  "patch": [
+    {
+      "id": "journey-180",
+      "title": "180 Günlük Yolculuk",
+      "slides": [
+        null,
+        null,
+        null,
+        {
+          "text": "Güçlü ve kontrollü bir pelvik taban; öksürürken, gülerken ya da zıplarken idrar kaçırmayı ve ani sıkışmayı azaltmaya, mesaneyi, rahmi ve bağırsağı desteklemeye yardım edebilir. Doğum sonrası toparlanmada ve menopozda da sık önerilir."
+        },
+        {
+          "text": "31 çalışmayı ve 1.817 kadını kapsayan Cochrane incelemesinde, stres tipi idrar kaçırması olup egzersiz yapanların %56'sı kaçırmanın geçtiğini bildirdi; yapmayanlarda bu oran %6'ydı. Kılavuzlar bu yüzden ilk adım olarak en az 3 aylık düzenli bir program önerir."
+        },
+        null,
+        null,
+        {
+          "items": [
+            "Kas birkaç günde değil, aylar içinde güçlenir; plan bu yüzden 180 gün.",
+            "Altı ay boyunca 7 hareket öğrenir, kontrolünü ve dayanıklılığını adım adım artırırsın.",
+            "Araştırmalarda düzenli egzersiz yapan kadınların çoğunda idrar kaçırma azaldı ya da geçti."
+          ]
+        }
+      ],
+      "sources": {
+        "$replace": [
+          {
+            "title": "NICE (2021) – Pelvic floor dysfunction: prevention and non-surgical management (NG210); QS77 statement 4: supervised pelvic floor muscle training of at least 3 months",
+            "url": "https://www.nice.org.uk/guidance/qs77/chapter/Quality-statement-4-Supervised-pelvic-floor-muscle-training"
+          },
+          {
+            "title": "Dumoulin C, Cacciari LP, Hay-Smith EJC (2018) – Pelvic floor muscle training versus no treatment, or inactive control treatments, for urinary incontinence in women. Cochrane Database of Systematic Reviews",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30288727/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "pf-basics",
+      "title": "Kadınlarda pelvik taban",
+      "slides": [
+        null,
+        {
+          "text": "Pelvik taban, leğen kemiğinin altında hamak gibi gerilen kaslardır. Mesaneyi, rahmi ve bağırsağı taşır; idrarı ve gazı tutmana yardım eder. Cinsel uyarılma ve orgazmda da ritmik kasılmalarıyla rol oynar."
+        },
+        {
+          "text": "Sık görülen işaretler: öksürürken, hapşırırken, gülerken ya da zıplarken az idrar kaçırmak ve aniden gelen sıkışma. Hamilelik ve doğum, menopoz, kronik öksürük, kabızlık ve fazla kilo bu kasları etkileyebilir."
+        },
+        {
+          "myth": "Doğumdan sonra idrar kaçırmak normaldir, yapacak bir şey yok.",
+          "fact": "Yaygındır ama kader değildir. Cochrane incelemesine göre pelvik taban kas eğitimi kadınlarda stres tipi idrar kaçırmayı azaltabilir; NICE de ilk basamak olarak en az 3 aylık denetimli bir program önerir."
+        },
+        {
+          "quiz": {
+            "question": "Öksürürken idrar kaçırmayı azaltmaya hangisi yardım edebilir?",
+            "options": [
+              "Öksürmeden hemen önce pelvik taban kasını sıkmak",
+              "Gün boyu daha az su içmek",
+              "İşerken idrarı ara ara durdurmak"
+            ],
+            "correct": 0,
+            "explain": "Öksürük ya da hapşırıktan hemen önce kası sıkmak (Knack), artan basınca karşı idrar yolunu destekler; kadınlarla yapılan çalışmalarda kaçırmayı azaltabildiği görüldü. Az su içmek ise idrarı yoğunlaştırıp mesaneyi tahriş edebilir."
+          }
+        },
+        null,
+        {
+          "items": [
+            null,
+            null,
+            "İdrar kaçırma birden başladıysa ya da vajinada şişlik veya ağırlık hissi varsa",
+            null
+          ]
+        }
+      ],
+      "sources": {
+        "$replace": [
+          {
+            "title": "NHS – Pelvic floor exercises",
+            "url": "https://www.nhs.uk/common-health-questions/womens-health/what-are-pelvic-floor-exercises/"
+          },
+          {
+            "title": "NICE NG210 (2021) – Pelvic floor dysfunction: prevention and non-surgical management",
+            "url": "https://www.nice.org.uk/guidance/ng210"
+          },
+          {
+            "title": "Dumoulin C ve ark. (2018) – Pelvic floor muscle training versus no treatment for urinary incontinence in women. Cochrane",
+            "url": "https://doi.org/10.1002/14651858.CD005654.pub4"
+          },
+          {
+            "title": "Miller JM ve ark. (1998) – A pelvic muscle precontraction can reduce cough-related urine loss in selected women with mild SUI. J Am Geriatr Soc 46(7)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9670854/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kegel-mistakes",
+      "slides": [
+        null,
+        {
+          "text": "Sıkarken nefesini tutma, nefes almaya devam et. Karnını, kalçanı ve bacaklarını gevşek bırak. Doğru kası kullandığında dışarıdan neredeyse hiçbir şey görünmez; his içeridedir, vajina ve makat hafifçe içeri ve yukarı çekiliyormuş gibi."
+        }
+      ]
+    },
+    {
+      "id": "performance-anxiety",
+      "slides": [
+        null,
+        {
+          "text": "Arada bir uyarılmakta, ıslanmakta ya da orgazm olmakta zorlanmak çok yaygındır ve çoğu zaman endişelenecek bir şey değildir. Stres, yorgunluk ve kaygı en sık nedenler arasındadır. Bu bir değer ya da kadınlık ölçüsü değil."
+        },
+        {
+          "text": "Endişelenince beden stres hormonları salgılar; bunlar kan akışını azaltıp uyarılmayı ve ıslanmayı zorlaştırabilir. Zorluk yaşanınca bir sonraki sefer için endişe artar ve döngü kendini besler. Döngüyü kırmak için dikkatini sonuçtan duyulara ver ve baskıyı azalt."
+        },
+        {
+          "fact": "Tek seferlik ya da ara sıra yaşanan zorluklar çok yaygındır ve geleceği göstermez. Kaygıya bağlı uyarılma ve orgazm güçlüğü yönetilebilir: konuşmak, baskıyı azaltmak ve gerekirse bir uzmanla çalışmak işe yarar."
+        },
+        null,
+        {
+          "text": "Şimdi ya da yakınlaşmadan önce birkaç dakika yavaş nefes al; nefes verişin alışından biraz uzun olsun. Amaç bir sonucu zorlamak değil, bedeni sakinleştirmek."
+        },
+        {
+          "items": [
+            null,
+            "Cinsel ilişkide ağrı oluyorsa ya da tek başınayken de uyarılma hiç olmuyorsa"
+          ]
+        },
+        {
+          "items": [
+            "Ara sıra yaşanan uyarılma ya da orgazm güçlüğü yaygındır ve çoğu zaman geçicidir."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intimacy-beyond",
+      "slides": [
+        null,
+        null,
+        null,
+        {
+          "text": "Her yakınlaşmanın belli bir şekilde bitmesi gerekmediğini bilmek rahatlatır. Beklenti azaldığında beden de daha kolay gevşer; bu, uyarılma ve zevk için de iyidir."
+        },
+        {
+          "fact": "Yakınlık; dokunmayı, konuşmayı ve birlikte zaman geçirmeyi de kapsar. Çiftler cinsel birleşme olmasa bile sarılarak, öpüşerek ve dokunarak yakın kalabilir."
+        }
+      ]
+    },
+    {
+      "id": "plate",
+      "slides": [
+        null,
+        {
+          "text": "Sebze, meyve, tam tahıl, baklagil, balık ve zeytinyağı ağırlıklı Akdeniz tipi beslenme kalp ve damar sağlığını destekler. Damarlar sağlıklı olunca cinsel uyarılma için gereken kan akışı da desteklenir."
+        },
+        null,
+        {
+          "text": "Kalp ve damar sağlığı kadınlarda da cinsel işlevle ilişkilidir. Metabolik sendromu olan kadınlarla yapılan bir çalışmada Akdeniz tipi beslenmeye daha çok uyanların cinsel işlev puanları daha iyi bulundu."
+        }
+      ]
+    },
+    {
+      "id": "alcohol",
+      "slides": [
+        null,
+        {
+          "text": "Alkol sinir sistemini yavaşlatır; uyarılmayı, ıslanmayı ve orgazmı zorlaştırabilir. Uykuyu da bozar: uykuya dalmayı kolaylaştırsa bile gecenin ikinci yarısında uykuyu bölebilir."
+        },
+        null,
+        {
+          "fact": "Az miktarda alkol bazı kişilerde çekingenliği azaltabilir, ama bedende tersini yapar: uyarılmayı ve hissi zayıflatabilir. Miktar arttıkça bu etki belirginleşir."
+        },
+        null,
+        null,
+        {
+          "items": [
+            "Alkol kısa vadede uyarılmayı ve uykuyu bozabilir."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sleep-hormones",
+      "slides": [
+        null,
+        {
+          "title": "Uyku ve hormonlar",
+          "text": "Kadınlarda adet döngüsü, hamilelik ve menopoz boyunca değişen hormonlar uykuyu etkiler; uykusuzluk da hormon dengesini ve cinsel isteği olumsuz etkileyebilir. Düzenli ve yeterli uyku bu dengenin doğal bir parçasıdır."
+        },
+        {
+          "text": "Kadınlarla yapılan küçük bir çalışmada, bir gece daha uzun uyumak ertesi gün cinsel istek bildirme olasılığının artmasıyla ilişkili bulundu. Tek ve küçük bir çalışma, ama uykunun önemini gösteriyor."
+        },
+        null,
+        {
+          "quiz": {
+            "question": "Kadınlarla yapılan çalışmada daha uzun uyku ertesi gün neyle ilişkili bulundu?",
+            "options": [
+              "Daha fazla cinsel istekle",
+              "Daha az enerjiyle",
+              "Hiçbir değişiklikle"
+            ],
+            "correct": 0,
+            "explain": "Çalışma küçük olsa da sonuç, uykunun istek ve hormon dengesi için önemini gösteriyor. Yetişkinler için en az 7 saat uyku önerilir."
+          }
+        },
+        null,
+        {
+          "items": [
+            "Hormonlar ve uyku birbirini etkiler.",
+            "Daha uzun ve düzenli uyku cinsel isteği destekleyebilir."
+          ]
+        }
+      ],
+      "sources": {
+        "$replace": [
+          {
+            "title": "Kalmbach DA ve ark. (2015) – The impact of sleep on female sexual response and behavior: a pilot study. J Sex Med 12(5)",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/25712058/"
+          },
+          {
+            "title": "AASM & Sleep Research Society (2015) – Recommended amount of sleep for a healthy adult",
+            "url": "https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf"
+          },
+          {
+            "title": "NHS – How to get to sleep",
+            "url": "https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "move-more",
+      "slides": [
+        null,
+        null,
+        null,
+        {
+          "title": "Damarlara ve cinsel sağlığa faydası",
+          "text": "Düzenli hareket tansiyonu ve kan şekerini düzenler, damarların esnekliğini destekler. Kadınlarla yapılan çalışmalarda düzenli egzersizin cinsel uyarılmayı destekleyebildiği bildirildi."
+        }
+      ]
+    },
+    {
+      "id": "cycling",
+      "slides": [
+        null,
+        {
+          "text": "Bisiklette ağırlığının bir kısmı, sinirlerin ve damarların geçtiği perine bölgesine (makat ile vajina arası) ve vulvaya biner. Uzun sürüşlerde bu baskı uyuşmaya, karıncalanmaya ya da sürtünmeye bağlı rahatsızlığa yol açabilir."
+        },
+        null,
+        {
+          "fact": "Araştırmalar, düzenli bisiklet süren kadınların cinsel işlevinin genel olarak sürmeyenlerden daha kötü olmadığını gösteriyor; ama bazılarında genital uyuşma görülebiliyor. Doğru sele, doğru ayar ve kısa molalar önemli."
+        },
+        null,
+        null,
+        {
+          "items": [
+            null,
+            "Genital bölgede süren uyuşma ya da ağrı fark ettiysen"
+          ]
+        },
+        {
+          "items": [
+            null,
+            null,
+            "Bisiklet tek başına cinsel sorun yapmaz; önlem yeterli."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smoking",
+      "slides": [
+        null,
+        {
+          "text": "Sigaradaki maddeler damarların iç yüzeyine zarar verir ve onları daraltır. Kadınlarda uyarılma da genital bölgeye kan akışına bağlıdır; sigara bu akışı ve hamilelik sağlığını olumsuz etkileyebilir, menopozun daha erken gelmesiyle de ilişkilendirilmiştir."
+        },
+        {
+          "text": "Bırakınca damar işlevi zamanla düzelmeye başlar: ilk saatlerde kandaki karbonmonoksit azalır, haftalar içinde dolaşım ve nefes iyileşir."
+        },
+        {
+          "fact": "Her yaşta bırakmak fayda sağlar. Dünya Sağlık Örgütü'ne göre kazanımlar ilk saatlerde başlar ve yıllar içinde artar. Gençken bırakmak hem kalp hem doğurganlık için daha çok fark yaratır."
+        },
+        {
+          "quiz": {
+            "explain": "Damarlar bırakıldıktan sonra kendini onarmaya başlar. Bu yüzden bırakmanın faydası hem kalpte hem cinsel sağlıkta görülebilir."
+          }
+        },
+        null,
+        {
+          "items": [
+            "Cinsel istekte ya da uyarılmada süren bir sorun varsa"
+          ]
+        },
+        {
+          "items": [
+            "Sigara damarları daraltır ve cinsel sağlığı olumsuz etkileyebilir."
+          ]
+        }
+      ]
+    }
+  ],
+  "add": [
+    {
+      "after": "erection-blood",
+      "id": "postpartum-floor",
+      "title": "Doğumdan sonra pelvik taban",
+      "category": "menHealth",
+      "icon": "sprout",
+      "tone": "knowledge",
+      "minutes": 3,
+      "cover": "story/sleep-routine/6",
+      "slides": [
+        {
+          "type": "cover",
+          "tone": "knowledge"
+        },
+        {
+          "type": "info",
+          "icon": "layers",
+          "support": [
+            "droplet",
+            "shield"
+          ],
+          "title": "Neden etkilenir?",
+          "text": "Hamilelikte büyüyen rahim ve doğum, pelvik taban kaslarını ve bağ dokusunu gerer. Doğumdan sonraki aylarda idrar ya da gaz kaçırma, ağırlık hissi ve zayıflık sık görülür; çoğu zaman düzenli egzersizle azalır.",
+          "tone": "knowledge",
+          "image": "story/mindfulness/2"
+        },
+        {
+          "type": "info",
+          "icon": "clock",
+          "support": [
+            "calendar",
+            "leaf"
+          ],
+          "title": "Ne zaman başlanır?",
+          "text": "Doktorun ya da eben aksini söylemedikçe, ağrı yoksa nazik sıkma ve bırakma çalışmalarına doğumdan kısa süre sonra başlanabilir. Sezaryen sonrasında da bu kaslar çalışır: yatarak, zorlanmadan başla ve yavaş ilerle.",
+          "tone": "knowledge",
+          "image": "story/sleep-routine/3"
+        },
+        {
+          "type": "myth",
+          "myth": "Doğumdan sonra idrar kaçırmak normaldir, geçmesini beklemekten başka yapacak bir şey yok.",
+          "fact": "Yaygındır ama kader değildir. Cochrane incelemesine göre doğum sonrası pelvik taban kas eğitimi idrar kaçırmayı azaltmaya yardım edebilir. Geçmiyorsa bir pelvik taban fizyoterapistine danışmak işe yarar.",
+          "tone": "knowledge",
+          "image": "story/water/3"
+        },
+        {
+          "type": "quiz",
+          "quiz": {
+            "question": "Doğum sonrası pelvik taban çalışmasında hangisi doğrudur?",
+            "options": [
+              "Nazik başlayıp düzenli ve yavaş ilerlemek",
+              "İlk günden en zor egzersizlere geçmek",
+              "Ağrı olsa da devam etmek"
+            ],
+            "correct": 0,
+            "explain": "Kas zamanla güçlenir; düzenlilik yoğunluktan daha önemlidir. Ağrı olursa dur ve doktoruna ya da ebene danış."
+          },
+          "tone": "knowledge",
+          "image": "story/night-bathroom/5"
+        },
+        {
+          "type": "action",
+          "icon": "target",
+          "title": "Doğum sonrası izi",
+          "text": "Program izlerinden “Doğum Sonrası Toparlanma”yı doktorunun ya da ebenin onayıyla açabilirsin; yatarak ve hafif başlar.",
+          "action": {
+            "route": "/kegel/tracks",
+            "label": "Program izlerini aç"
+          },
+          "tone": "knowledge",
+          "image": "story/talk-partner/6"
+        },
+        {
+          "type": "doctor",
+          "items": [
+            "Ağrı, ateş ya da kötü kokulu akıntı varsa",
+            "Dikiş yerinde açılma ya da artan ağrı varsa",
+            "Vajinada şişlik, ağırlık ya da dışarı doğru sarkma hissi varsa",
+            "Birkaç ay sonra da idrar ya da gaz kaçırma sürüyorsa"
+          ],
+          "tone": "knowledge",
+          "image": "story/bladder-control/7"
+        },
+        {
+          "type": "summary",
+          "items": [
+            "Doğum pelvik taban kaslarını gerer; kaçırma ve zayıflık yaygındır.",
+            "Nazik ve düzenli egzersiz toparlanmayı destekler.",
+            "Ağrı, sarkma hissi ya da süren kaçırma varsa bir uzmana danış."
+          ],
+          "tone": "knowledge"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NHS – Your post-pregnancy body",
+          "url": "https://www.nhs.uk/conditions/baby/support-and-services/your-post-pregnancy-body/"
+        },
+        {
+          "title": "Woodley SJ ve ark. (2020) – Pelvic floor muscle training for preventing and treating incontinence in antenatal and postnatal women. Cochrane",
+          "url": "https://doi.org/10.1002/14651858.CD007471.pub4"
+        },
+        {
+          "title": "NICE NG210 (2021) – Pelvic floor dysfunction: prevention and non-surgical management",
+          "url": "https://www.nice.org.uk/guidance/ng210"
+        }
+      ],
+      "reviewed": false
+    }
+  ]
+}

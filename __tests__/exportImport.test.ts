@@ -172,7 +172,8 @@ describe('export / import', () => {
     const r = parseImport(JSON.stringify({ ...v3, training: oldTraining, schemaVersion: 3 }));
     if (!r.ok) throw new Error(r.error);
     expect(r.data.kegel).toEqual(defaultKegelData());
-    expect(r.data.training).toMatchObject({ level: 7, planDayIndex: 12, planNumber: 2, track: 'general', durationPreset: 'standard', weekIndex: 6, dayIndex: 0 });
+    // old 30-day plan 2 day 13 = day 43 of the 180-day plan
+    expect(r.data.training).toMatchObject({ level: 7, planDayIndex: 42, planNumber: 1, track: 'general', durationPreset: 'standard', weekIndex: 6, dayIndex: 0 });
     expect(r.data.history.workouts).toHaveLength(2);
   });
 

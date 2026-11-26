@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-import { generateMicroSet } from '@/features/training/generateSession';
 import { applySessionResult, defaultTraining, migrateTraining } from '@/features/training/plan';
 import { deloadOnPlanDay, FUNCTIONAL_TASKS, roadmapNodes, tasksForDay, tasksForTrack, weekIndexForPlanDay, weekTheme } from '@/features/training/roadmap';
 import { sessionAllowed } from '@/features/training/schedule';
@@ -14,9 +13,12 @@ const root = path.join(__dirname, '..');
 const TRACKS: TrackId[] = ['general', 'erection', 'control', 'bladder', 'surgery', 'relax'];
 
 describe('plan roadmap (spec 8)', () => {
-  it('30 nodes: done filled, today ringed, future faded; under 4 week headers', () => {
+  it('30 nodes a stage: done filled, today ringed, future faded; under 4 week headers (all 180 days + the 7-day cycle, 2026-11-26)', () => {
     const t = { ...defaultTraining(), planDayIndex: 9, dayIndex: 2, weekIndex: 1 };
-    const n = roadmapNodes(t, '2026-11-19');
+    const all = roadmapNodes(t, '2026-11-19');
+    expect(all).toHaveLength(180 + 7);
+    expect(all.filter((x) => x.cycle).map((x) => x.state)).toEqual(Array(7).fill('future'));
+    const n = all.filter((x) => x.stage === 0);
     expect(n).toHaveLength(30);
     expect(n.filter((x) => x.state === 'done')).toHaveLength(9);
     expect(n[9]!.state).toBe('today');
@@ -25,6 +27,10 @@ describe('plan roadmap (spec 8)', () => {
     // After today's session the day counts as done and "today" points at it for extra sessions.
     const after = applySessionResult(t, { date: '2026-11-19', feedback: 'ok' });
     expect(roadmapNodes(after, '2026-11-19').filter((x) => x.state === 'done')).toHaveLength(10);
+    // in the cycle after the 180 days: all 180 done, the cycle's days show today
+    const cyc = roadmapNodes({ ...defaultTraining(), planNumber: 3, planDayIndex: 2 }, '2026-11-19');
+    expect(cyc.filter((x) => !x.cycle).every((x) => x.state === 'done')).toBe(true);
+    expect(cyc.filter((x) => x.cycle).map((x) => x.state)).toEqual(['done', 'done', 'today', 'future', 'future', 'future', 'future']);
   });
 
   it('week headers follow the spec themes; the 4th is the deload week', () => {
@@ -47,10 +53,11 @@ describe('plan roadmap (spec 8)', () => {
   });
 
   it('an early deload (falling strength) shows on this week’s days and in today’s session', () => {
-    const t = { ...defaultTraining(), planNumber: 2, planDayIndex: 9, lastDeloadWeek: 3 };
-    expect(deloadOnPlanDay(t, '2026-11-19', 10, true)).toBe(true);
-    expect(deloadOnPlanDay(t, '2026-11-19', 3, true)).toBe(false);
-    expect(deloadOnPlanDay(t, '2026-11-19', 16, true)).toBe(false);
+    // stage 2, week 2 (week number 5) is two weeks after the last deload (3)
+    const t = { ...defaultTraining(), planNumber: 1, planDayIndex: 39, lastDeloadWeek: 3 };
+    expect(deloadOnPlanDay(t, '2026-11-19', 40, true)).toBe(true);
+    expect(deloadOnPlanDay(t, '2026-11-19', 33, true)).toBe(false);
+    expect(deloadOnPlanDay(t, '2026-11-19', 46, true)).toBe(false);
     expect(buildTodaySession(t, '2026-11-19', { strengthFalling: true }).deload).toBe(true);
     expect(buildTodaySession(t, '2026-11-19', { strengthFalling: false }).deload).toBe(false);
   });
@@ -82,9 +89,10 @@ describe('duration chips, daily target and micro sets (spec 6.2, 6.3)', () => {
     const level = 15;
     const t = { ...defaultTraining(), level };
     const main = buildTodaySession(t, '2026-11-19', { strengthFalling: false }).contractions + buildTodaySession(t, '2026-11-19', { round: 2, strengthFalling: false }).contractions;
-    const micro = generateMicroSet({ level, seed: 'x' }).contractions;
-    expect(main + micro).toBeLessThanOrEqual(dailyContractionCap(level));
-    expect(sessionAllowed(dailyContractionCap(level), micro, level)).toBe(false);
+    // Tur 1 + Tur 2 + the one extra session allowed before the 10-hour rest (2026-11-25).
+    const extra = buildTodaySession(t, '2026-11-19', { strengthFalling: false }).contractions;
+    expect(main + extra).toBeLessThanOrEqual(dailyContractionCap(level));
+    expect(sessionAllowed(dailyContractionCap(level), extra, level)).toBe(false);
     expect(sessionAllowed(dailyContractionCap(level), 0, level)).toBe(true);
   });
 });

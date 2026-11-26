@@ -4,6 +4,8 @@ import { CONTENT_LANGUAGE } from '@/i18n/content';
 import { localeOf } from '@/i18n/languages';
 import type { ExerciseType } from '@/types';
 
+import { levelWord } from './player/sphereMotion';
+
 /**
  * Sesli koç (SPEC_KEGEL_V2 §7.4): short phase commands with the device's own text-to-speech in the app
  * language (expo-speech, offline). When the device has no voice for that language the option is hidden.
@@ -45,7 +47,10 @@ export function stopSpeech() {
 }
 
 /** Voice line key for a phase start (i18n `player.voice.*`); none for very short phases. */
-export function voiceKeyForPhase(phase: { kind: string; stage?: number; durationMs: number; variant?: string }, exerciseType?: ExerciseType): string | null {
+export function voiceKeyForPhase(phase: { kind: string; stage?: number; durationMs: number; variant?: string; level?: number; fromLevel?: number }, exerciseType?: ExerciseType): string | null {
+  // 180-day-plan moves: say the step ("üçte bir sık", "yarıya in" …); a 1 s half squeeze is too short.
+  const step = levelWord(phase);
+  if (step) return phase.durationMs >= 2000 ? step : null;
   switch (phase.variant) {
     case 'slowUp':
       return 'slowSqueeze';

@@ -6,6 +6,7 @@ import { Pressable, StyleSheet, Switch, View } from 'react-native';
 
 import type { ModuleTone } from '@/config/theme';
 import { AppText } from './AppText';
+import { Branded } from './Brand';
 import { Dialog } from './Dialog';
 import { Icon, type IconName } from './Icon';
 import { IconTile } from './ui/IconTile';
@@ -47,7 +48,7 @@ export function ListRow({ label, value, description, icon, tone = 'kegel', onPre
       {icon ? <IconTile icon={icon} tone={tone} background={danger ? t.tokens.destructiveSoft : undefined} color={danger ? t.tokens.destructive : undefined} /> : null}
       <View style={{ flex: 1, gap: 2 }}>
         <AppText variant="bodyStrong" color={danger ? t.tokens.destructive : undefined}>
-          {label}
+          <Branded>{label}</Branded>
         </AppText>
         {description && !long ? (
           <AppText variant="footnote" muted>

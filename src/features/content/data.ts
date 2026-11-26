@@ -5,7 +5,12 @@ import challengesJsonTr from '@/content/challenges.tr.json';
 import challengesJsonEn from '@/content/challenges.en.json';
 import challengesFemaleTr from '@/content/challenges.female.tr.json';
 import challengesFemaleEn from '@/content/challenges.female.en.json';
-import { bySex } from '@/i18n/sex';
+import { appImage } from '@/content/images';
+import { bySex, femaleList, sexVariants } from '@/i18n/sex';
+import storiesFemaleTr from '@/content/stories.female.tr.json';
+import storiesFemaleEn from '@/content/stories.female.en.json';
+import glossaryFemaleTr from '@/content/glossary.female.tr.json';
+import glossaryFemaleEn from '@/content/glossary.female.en.json';
 import glossaryJsonTr from '@/content/glossary.tr.json';
 import glossaryJsonEn from '@/content/glossary.en.json';
 import storiesJsonTr from '@/content/stories.tr.json';
@@ -62,6 +67,8 @@ export interface Story {
   slides: StoryPage[];
   sources: { title: string; url: string }[];
   reviewed: boolean;
+  /** Cover photo id when it isn't `story/<id>` (women-only stories, covers that show a man for women). */
+  cover?: string;
 }
 
 export interface QuizQuestion {
@@ -99,6 +106,8 @@ export interface GlossaryTerm {
   shortSummary?: string;
   sections: { title: string; text: string }[];
   reviewed: boolean;
+  /** Photo id when it isn't `glossary/<id>` (women-only terms, photos that show a man for women). */
+  image?: string;
 }
 
 export interface Challenge {
@@ -111,9 +120,43 @@ export interface Challenge {
   source: { title: string; url: string };
 }
 
-export const STORIES = storiesJson as Story[];
+/**
+ * Women's profile (2026-11-25): photos of a man are swapped for a neutral one (first from the same
+ * story, otherwise from a fixed pool), so a woman doesn't see male figures in her stories.
+ */
+const MAN = /\badam\b/i;
+const showsMan = (id: string | undefined) => !!id && MAN.test(appImage(id)?.alt ?? '');
+const NEUTRAL_POOL = ['story/pf-basics/2', 'story/mindfulness/2', 'story/water/3', 'story/sleep-routine/6', 'story/intimacy-beyond/3', 'story/smoking/6', 'story/sleep-hormones/5', 'story/plate/2'];
+function womenPhotos(stories: Story[]): Story[] {
+  // The language's own description of each photo, from wherever a slide uses it.
+  const altOf = new Map<string, string>();
+  for (const st of stories) for (const pg of st.slides) if (pg.image && pg.imageAlt) altOf.set(pg.image, pg.imageAlt);
+  return stories.map((st, n) => {
+    const own = st.slides.map((pg) => pg.image).filter((id): id is string => !!id && !showsMan(id));
+    let k = n;
+    const pickNeutral = () => own[k++ % Math.max(1, own.length)] ?? NEUTRAL_POOL[k++ % NEUTRAL_POOL.length]!;
+    const slides = st.slides.map((pg) => {
+      if (!showsMan(pg.image)) return pg;
+      const image = pickNeutral();
+      return { ...pg, image, imageAlt: altOf.get(image) ?? pg.imageAlt };
+    });
+    const coverId = st.cover ?? `story/${st.id}`;
+    const cover = showsMan(coverId) || !appImage(coverId) ? (own[0] ?? NEUTRAL_POOL[n % NEUTRAL_POOL.length]) : st.cover;
+    return { ...st, slides, ...(cover ? { cover } : {}) };
+  });
+}
+
+const STORIES_FEMALE = womenPhotos(femaleList(storiesJson as Story[], pick({ tr: storiesFemaleTr, en: storiesFemaleEn }) as never));
+export const STORIES = sexVariants(storiesJson as Story[], STORIES_FEMALE);
+/** The story's cover photo id. */
+export const storyCoverId = (s: Story) => s.cover ?? `story/${s.id}`;
 export const CHALLENGES = bySex(challengesJson.items as Challenge[], pick({ tr: challengesFemaleTr, en: challengesFemaleEn }).items);
 /** Nutrition plan: for each day of the cycle, the ids of its 3 tasks. */
 export const NUTRITION_PLAN = challengesJson.plan as string[][];
 export const NUTRITION_DAYS = challengesJson.days;
-export const GLOSSARY = glossaryJson as GlossaryTerm[];
+const GLOSSARY_FEMALE = femaleList(glossaryJson as GlossaryTerm[], pick({ tr: glossaryFemaleTr, en: glossaryFemaleEn }) as never).map((g, n) =>
+  showsMan(g.image ?? `glossary/${g.id}`) ? { ...g, image: NEUTRAL_POOL[n % NEUTRAL_POOL.length] } : g,
+);
+export const GLOSSARY = sexVariants(glossaryJson as GlossaryTerm[], GLOSSARY_FEMALE);
+/** The glossary term's photo id. */
+export const glossaryImageId = (g: Pick<GlossaryTerm, 'id' | 'image'>) => g.image ?? `glossary/${g.id}`;

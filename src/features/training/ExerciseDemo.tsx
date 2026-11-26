@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { View } from 'react-native';
 import Animated, { cancelAnimation, Easing, useAnimatedStyle, useReducedMotion, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 
+import { useLive } from '@/lib/useLive';
 import { useTheme } from '@/components';
 import type { KegelExerciseType } from '@/types';
 
@@ -15,6 +16,13 @@ const RHYTHM: Record<KegelExerciseType, { up: number; hold: number; down: number
   knack: { up: 200, hold: 700, down: 500, rest: 900, peak: 1 },
   release: { up: 900, hold: 300, down: 1800, rest: 600, peak: 0.75 },
   breath: { up: 1600, hold: 200, down: 2400, rest: 300, peak: 0.85 },
+  // the moves of the 180-day plan (a single grow/shrink loop; the lesson shows their steps)
+  step_up: { up: 2400, hold: 600, down: 500, rest: 900, peak: 1 },
+  step_down: { up: 1500, hold: 400, down: 2400, rest: 600, peak: 1 },
+  double_peak: { up: 500, hold: 900, down: 600, rest: 900, peak: 1 },
+  half_quick: { up: 150, hold: 100, down: 250, rest: 350, peak: 0.78 },
+  half_hold: { up: 600, hold: 2600, down: 800, rest: 800, peak: 0.78 },
+  wave: { up: 600, hold: 1400, down: 900, rest: 700, peak: 0.9 },
 };
 
 /**
@@ -24,12 +32,13 @@ const RHYTHM: Record<KegelExerciseType, { up: number; hold: number; down: number
 export function ExerciseDemo({ type, size = 120 }: { type: KegelExerciseType; size?: number }) {
   const t = useTheme();
   const reduce = useReducedMotion();
+  const live = useLive();
   const scale = useSharedValue(0.6);
   const r = RHYTHM[type];
   const calm = type === 'release' || type === 'breath';
   useEffect(() => {
     cancelAnimation(scale);
-    if (reduce) {
+    if (reduce || !live) {
       scale.value = 0.8;
       return;
     }
@@ -39,7 +48,7 @@ export function ExerciseDemo({ type, size = 120 }: { type: KegelExerciseType; si
       -1,
     );
     return () => cancelAnimation(scale);
-  }, [type, reduce, r, scale]);
+  }, [type, reduce, r, scale, live]);
   const style = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
   const tone = calm ? t.tone.mind : t.tone.kegel;
   return (

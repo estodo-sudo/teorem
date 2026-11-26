@@ -1,5 +1,5 @@
 import { createMemoryRepo } from '@/features/data/repo';
-import { generateMicroSet, generateSession } from '@/features/training/generateSession';
+import { generateSession } from '@/features/training/generateSession';
 import { defaultTraining } from '@/features/training/plan';
 import { recordWorkout, submitFeedback } from '@/features/training/service';
 import { dailyProgress, levelOutlook, sessionSummary } from '@/features/training/summary';
@@ -36,14 +36,15 @@ describe('session summary (spec 7.5)', () => {
     expect(levelOutlook({ before: 1, after: 1, struggled: true })).toBe('steady');
   });
 
-  it('daily target progress counts finished sessions and micro sets of today', () => {
+  it('the day counts its two halves: a finished Tur 1, then Tur 2 (2026-11-25)', () => {
     const w = [
       { date: '2026-11-19', completed: true },
       { date: '2026-11-19', completed: false },
       { date: '2026-11-18', completed: true },
     ];
-    expect(dailyProgress(w, '2026-11-19', 2)).toEqual({ done: 1, target: 2, reached: false });
-    expect(dailyProgress([...w, { date: '2026-11-19', completed: true }], '2026-11-19', 2).reached).toBe(true);
+    expect(dailyProgress(w, '2026-11-19')).toEqual({ done: 1, target: 2, reached: false });
+    expect(dailyProgress([...w, { date: '2026-11-19', completed: true }], '2026-11-19').reached).toBe(false);
+    expect(dailyProgress([...w, { date: '2026-11-19', completed: true, round: 2 as const }], '2026-11-19').reached).toBe(true);
   });
 
   it('the workout stores what was done; feedback returns the level change and the technique answer', () => {
@@ -61,14 +62,6 @@ describe('session summary (spec 7.5)', () => {
     useTrainingStore.getState().update({ levelLockUntil: '2026-11-25' });
     const w2 = recordWorkout(session, { actualSec: 300, endedEarly: false, outcomes: all(true) }, new Date(2026, 10, 20, 20));
     expect(submitFeedback(w2.id, 'easy')).toMatchObject({ after: 7, locked: true, wouldRise: true });
-  });
-
-  it('micro sets never change the level or the plan', () => {
-    const micro = generateMicroSet({ level: 7, seed: 'x' });
-    const w = recordWorkout(micro, { actualSec: 50, endedEarly: false, outcomes: micro.blocks.map(() => ({ completed: true, skipped: false })) }, new Date(2026, 10, 19, 12));
-    const before = useTrainingStore.getState().training;
-    expect(submitFeedback(w.id, 'easy')).toMatchObject({ before: 7, after: 7 });
-    expect(useTrainingStore.getState().training.planDayIndex).toBe(before.planDayIndex);
   });
 
   it('texts for every outlook, the technique tips and the shorter-preset button exist', () => {

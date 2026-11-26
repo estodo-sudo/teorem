@@ -75,9 +75,9 @@ describe('Günüm (SPEC_V4 §A.2)', () => {
     expect(read('app/mind/breathing.tsx')).toMatch(/BreathPlayer/);
   });
 
-  it('the micro set button carries an icon; the 1-minute breath button is gone (2026-11-22)', () => {
+  it('no micro set and no 1-minute breath button on the card (micro set removed 2026-11-25)', () => {
     const card = read('src/features/today/WorkoutCard.tsx');
-    expect(card).toMatch(/microShort[\s\S]{0,200}icon="pulse"/);
+    expect(card).not.toMatch(/microShort|go\('micro'/);
     expect(card).not.toMatch(/breathShort/);
   });
 });
@@ -112,8 +112,10 @@ describe('Profil (SPEC_V4 §A.3)', () => {
   });
 
   it('shows the app name from app.ts, never the placeholder', () => {
-    expect(APP_NAME).toBe('Uygulama');
-    expect(profile).toMatch(/\{APP_NAME\}/);
+    expect(APP_NAME).toBe('Phelvik');
+    // the name is drawn by BrandName (bold, primary colour; 2026-11-25), which reads APP_NAME
+    expect(profile).toMatch(/<BrandName variant="title3" \/>/);
+    expect(read('src/components/Brand.tsx')).toMatch(/\{APP_NAME\}/);
   });
 });
 
@@ -156,9 +158,10 @@ describe('"Neden, Nedir ve Ne Demek?" pages (2026-11-23)', () => {
 });
 
 describe('second polish round (2026-11-23)', () => {
-  it('Bugün: the plain task list with the micro set again; the foods are their own section below; photo cards share one short height', () => {
+  it('Bugün: the plain task list (Tur 1, Tur 2, test — no micro set); the foods are their own section below; photo cards share one short height', () => {
     const daily = read('src/features/today/DailyGoalCard.tsx');
-    expect(daily).toMatch(/today\.goals\.micro/);
+    expect(daily).not.toMatch(/today\.goals\.micro/);
+    expect(daily).toMatch(/today\.goals\.round2/);
     expect(daily).toMatch(/function TodayFoods/);
     const card = read('src/features/today/WorkoutCard.tsx');
     expect(card).not.toMatch(/today\.workout\.repeat/);

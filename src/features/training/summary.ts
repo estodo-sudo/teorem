@@ -57,44 +57,54 @@ const isRelease = (w: Omit<DayWorkout, 'date'>) => w.isMicro === true && w.track
  */
 export const countsAsSession = (w: Omit<DayWorkout, 'date'>) => w.completed && w.round !== 2 && !isRelease(w);
 
+/**
+ * A day has two halves (user decision 2026-11-25): Tur 1 is the first half, Tur 2 the second. The day
+ * is done when both are done. (Micro sets were removed 2026-11-25; old ones in the history count for nothing.)
+ */
+export const DAY_HALVES = 2;
+
+/** A finished round of the main session (not a micro set, not a release session). */
+const isMainRound = (w: Omit<DayWorkout, 'date'>) => w.completed && !w.isMicro && !isRelease(w);
+
 export interface DayStatus {
-  /** Sessions counted that day (main sessions and micro sets). */
+  /** Sessions counted that day (main sessions and micro sets), for totals. */
   sessions: number;
-  /** The day's training (a main session) is done. */
+  /** Tur 1 (the first half of the day) is done. */
   mainDone: boolean;
+  /** Tur 2 (the second half) is done. */
+  round2Done: boolean;
+  /** An extra micro set was done. */
   microDone: boolean;
-  /** The day is done: the target is reached and one of the sessions is the main one. */
+  /** The day is done: Tur 1 and Tur 2. */
   full: boolean;
-  /** What the ring shows (e.g. 1 of 2): never the full target before the main session is done. */
+  /** Halves done (0, 1 or 2), for the ring and the "1/2" counters. */
   counted: number;
   target: number;
 }
 
 /**
- * One rule for the whole app (2026-11-23: the Today card, the "Bugün" tasks, the week strip and the
- * calendar disagreed): a day is done when the daily target is reached AND one of the sessions is the
- * day's training — a micro set is the extra session, it cannot replace the main one.
+ * One rule for the whole app — the Today card and tasks, the week, the calendar, the feedback screen,
+ * the reminders and the streak. `_target` (the old "sessions per day" setting) is no longer used.
  */
-export function dayStatus(workouts: DayWorkout[], date: string, target: number): DayStatus {
-  const list = workouts.filter((w) => w.date === date && countsAsSession(w));
-  const goal = Math.max(1, target);
-  const sessions = list.length;
-  const mainDone = list.some((w) => !w.isMicro);
-  const microDone = list.some((w) => w.isMicro);
-  const full = mainDone && sessions >= goal;
-  return { sessions, mainDone, microDone, full, counted: full ? Math.min(sessions, goal) : Math.min(sessions, goal - 1), target: goal };
+export function dayStatus(workouts: DayWorkout[], date: string, _target?: number): DayStatus {
+  const day = workouts.filter((w) => w.date === date);
+  const mainDone = day.some((w) => isMainRound(w) && w.round !== 2);
+  const round2Done = day.some((w) => isMainRound(w) && w.round === 2);
+  const microDone = day.some((w) => w.completed && w.isMicro === true && !isRelease(w));
+  const counted = (mainDone ? 1 : 0) + (round2Done ? 1 : 0);
+  return { sessions: day.filter(countsAsSession).length, mainDone, round2Done, microDone, full: mainDone && round2Done, counted, target: DAY_HALVES };
 }
 
-/** Days split by that rule: `full` = done, `partial` = some session but not done (shown half filled). */
-export function targetDays(workouts: DayWorkout[], target: number): { full: string[]; partial: string[] } {
-  const dates = new Set(workouts.filter(countsAsSession).map((w) => w.date));
+/** Days split by that rule: `full` = both halves, `partial` = one half (shown half filled). Micro sets alone don't mark a day. */
+export function targetDays(workouts: DayWorkout[], _target?: number): { full: string[]; partial: string[] } {
+  const dates = new Set(workouts.filter(isMainRound).map((w) => w.date));
   const full: string[] = [];
   const partial: string[] = [];
-  dates.forEach((d) => (dayStatus(workouts, d, target).full ? full : partial).push(d));
+  dates.forEach((d) => (dayStatus(workouts, d).full ? full : partial).push(d));
   return { full, partial };
 }
 
-export function dailyProgress(workouts: DayWorkout[], today: string, target: number): { done: number; target: number; reached: boolean } {
-  const s = dayStatus(workouts, today, target);
-  return { done: s.counted, target, reached: s.full };
+export function dailyProgress(workouts: DayWorkout[], today: string, _target?: number): { done: number; target: number; reached: boolean } {
+  const s = dayStatus(workouts, today);
+  return { done: s.counted, target: s.target, reached: s.full };
 }

@@ -6,7 +6,8 @@ import { useTrainingStore } from '@/stores/trainingStore';
 import type { Feedback, TrainingState, WorkoutSession } from '@/types';
 
 import { generateSession } from './generateSession';
-import { advancedToday, advancePlan, applySessionResult, todayPlanDay, todayPlanPosition, todayWeekIndex } from './plan';
+import { absoluteDay, cycleMoves, learnedMoves, lessonDue, roundMoves, type MoveId } from './moves';
+import { advancedToday, advancePlan, applySessionResult, isCycle, todayPlanDay, todayPlanPosition, todayWeekIndex } from './plan';
 import { adjustLevel } from './adjustLevel';
 import { deloadDue, levelLocked, painPolicy, strengthFallingTwoWeeks } from './schedule';
 import { sessionSummary } from './summary';
@@ -16,11 +17,35 @@ import type { GeneratedSession } from './types';
 /**
  * Today's deterministic session (Tur 1, or Tur 2 with `round: 2`) for the current training state. In
  * plan week 4 ("Toparlanma", or an early deload after falling strength tests) Tur 1 is one cycle shorter.
+ * The moves learned so far are added (moves.ts).
  */
 export function buildTodaySession(training: TrainingState, today = toDateKey(), opts: { round?: 1 | 2; strengthFalling?: boolean } = {}): GeneratedSession {
   const strengthFalling = opts.strengthFalling ?? strengthFallingTwoWeeks(useHistoryStore.getState().strengthTests);
-  const deload = deloadDue({ ...todayPlanPosition(training, today), lastDeloadWeek: training.lastDeloadWeek, strengthFalling });
-  return generateSession({ level: training.level, seed: today, round: opts.round ?? 1, dayIndex: todayPlanDay(training, today), weekIndex: todayWeekIndex(training, today), deload });
+  const pos = todayPlanPosition(training, today);
+  const deload = deloadDue({ ...pos, lastDeloadWeek: training.lastDeloadWeek, strengthFalling });
+  const round = opts.round ?? 1;
+  // The learned moves of the 180-day plan: the latest in both rounds, earlier ones in turns in Tur 2.
+  // After the 180 days, the moves of the 7-day cycle's day.
+  const learned = learnedMoves(training);
+  const moves = isCycle(pos.planNumber) ? cycleMoves(learned, pos.planDay, round) : roundMoves(learned, absoluteDay(pos.planNumber, pos.planDay), round);
+  return generateSession({ level: training.level, seed: today, round, dayIndex: todayPlanDay(training, today), weekIndex: todayWeekIndex(training, today), deload, moves });
+}
+
+/** The move lesson due after today's Tur 1 (180-day plan), or null. */
+export function todayLesson(training: TrainingState, today = toDateKey()): MoveId | null {
+  const pos = todayPlanPosition(training, today);
+  return lessonDue(training, absoluteDay(pos.planNumber, pos.planDay));
+}
+
+/**
+ * Where "Tur 2" goes today: its lesson first when one is due (Yavaş Sıkma's own lesson the first time,
+ * a new move's lesson on its day), else null = straight to Tur 2. `first` = today's Tur 1 workout.
+ */
+export function lessonRoute(training: TrainingState, first?: string, today = toDateKey()): { pathname: '/workout/round2-intro' | '/workout/move-intro'; params: Record<string, string> } | null {
+  const due = todayLesson(training, today);
+  if (!due) return null;
+  const params: Record<string, string> = first ? { first } : {};
+  return due === 'elevator' ? { pathname: '/workout/round2-intro', params } : { pathname: '/workout/move-intro', params: { ...params, move: due } };
 }
 
 type Hook = (w: WorkoutSession) => void;

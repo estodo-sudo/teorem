@@ -1,3 +1,4 @@
+import { HeroAmbient } from '@/components/HeroAmbient';
 import type { IconName } from '@/components/Icon';
 import { useState, type ReactNode } from 'react';
 import { Pressable, View, type ViewStyle } from 'react-native';
@@ -14,8 +15,8 @@ export function CampusHero({ color, children, style }: { color: string; children
   const t = useTheme();
   return (
     <View style={[{ borderRadius: t.radius.xl, backgroundColor: color, padding: t.space.gutter, gap: t.space.lg, overflow: 'hidden' }, style]}>
-      <View pointerEvents="none" style={{ position: 'absolute', width: 220, height: 220, borderRadius: 110, right: -70, top: -90, backgroundColor: t.veil.faint }} />
-      <View pointerEvents="none" style={{ position: 'absolute', width: 140, height: 140, borderRadius: 70, left: -50, bottom: -70, backgroundColor: t.veil.faint }} />
+      {/* drifting glows and rising motes (round 6, 2026-11-25) */}
+      <HeroAmbient glow="#FFFFFF" />
       {children}
     </View>
   );

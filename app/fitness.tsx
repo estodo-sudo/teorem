@@ -8,7 +8,7 @@ import { PROGRAM_WEEKS, programState, SESSIONS_PER_WEEK, PROGRAM_SESSIONS, weekS
 import { routineDurationSec, routineRounds, standardRoutine } from '@/features/fitness/routines';
 import { openGated, useAccess } from '@/features/purchases/useGate';
 import { PhotoBackground } from '@/features/today/PhotoCard';
-import { DayDot, dayLabels } from '@/features/today/WeekSections';
+import { DayDot, dayLabels, useWeekCardStyle } from '@/features/today/WeekSections';
 import { toDateKey } from '@/lib/date';
 import { goBack } from '@/lib/nav';
 import { useHistoryStore } from '@/stores/historyStore';
@@ -32,6 +32,7 @@ export default function FitnessProgram() {
   const routine = standardRoutine();
   const cover = appImage('today/fitness');
   const labels = dayLabels(i18n.language);
+  const weekFrame = useWeekCardStyle();
   const min = Math.round(routineDurationSec(routine) / 60);
   const start = () => openGated('fitness', { pathname: '/fitness/[routineId]', params: { routineId: routine.id } });
   const note = s.finished ? tr('fitnessProgram.finished') : s.over ? tr('fitnessProgram.over') : !s.started ? tr('fitnessProgram.notStarted') : null;
@@ -80,8 +81,8 @@ export default function FitnessProgram() {
         <AppText variant="title2" accessibilityRole="header">
           {tr('fitnessProgram.thisWeek')}
         </AppText>
-        <Card style={{ padding: t.space.lg, gap: t.space.md }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} accessibilityRole="list">
+        <Card style={[{ paddingVertical: t.space.lg, paddingHorizontal: t.space.sm, gap: t.space.md }, weekFrame]}>
+          <View style={{ flexDirection: 'row' }} accessibilityRole="list">
             {s.thisWeek.map((d) => (
               <DayDot key={d.key} day={d} label={labels[d.index]!} />
             ))}

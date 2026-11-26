@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import { AnimatedArt } from '@/components/AnimatedArt';
 import { AppText, Button, Card, ChoiceCard, Header, ProgressBar, Screen, useTheme } from '@/components';
 import { ALC } from '@/features/campus/alcohol/content';
 import { AUDIT_QUESTIONS, auditBand, auditScore, CUT_LIMITS, QUIT_GOALS, WITHDRAWAL_QUESTIONS, withdrawalRisk, type AlcMode } from '@/features/campus/alcohol/logic';
@@ -109,6 +110,12 @@ export default function AlcSetup() {
 
       {guide >= 0 ? (
         <>
+          {/* the camp's looping drawing on its first page (round 6, 2026-11-25) */}
+          {stepIdx === 0 ? (
+            <View style={{ alignItems: 'center' }}>
+              <AnimatedArt name="alcoholfree" size={150} />
+            </View>
+          ) : null}
           <GuideStepView step={ALC.steps[guide]!} n={guide + 1} total={ALC.steps.length} />
           {stepIdx === 0 ? (
             <AppText variant="small" muted center>

@@ -26,7 +26,7 @@
     "profile": "Profil"
   },
   "consent": {
-    "title": "{{app}}'a hoş geldin",
+    "title": "{{app}}'e hoş geldin",
     "subtitle": "Başlamadan önce iki kısa onay gerekiyor.",
     "medicalTitle": "Önemli sağlık uyarısı",
     "medicalBody": "Bu uygulama tıbbi tavsiye değildir ve bir tıbbi cihaz değildir. Ağrı, idrar yolu sorunu, ameliyat sonrası dönem vb. durumlarda önce doktoruna danış.",
@@ -86,6 +86,30 @@
     "breath": {
       "name": "Nefes",
       "desc": "4 saniye al, 6 saniye ver. Isınma ve soğuma için."
+    },
+    "step_up": {
+      "name": "Basamaklı Sıkma",
+      "desc": "Kası üç basamakta sık: önce üçte bir, sonra üçte iki, üçüncü basamakta tam sıkma. Sonra tamamen bırak."
+    },
+    "step_down": {
+      "name": "Basamaklı Bırakma",
+      "desc": "Kası yavaşça tam sık, sonra üç basamakta bırak: üçte ikiye, üçte bire ve tamamen."
+    },
+    "double_peak": {
+      "name": "Çift Zirve",
+      "desc": "Tam sık, yarıya kadar bırak, yeniden tam sık, sonra tamamen bırak."
+    },
+    "half_quick": {
+      "name": "Hızlı Yarım Sıkma",
+      "desc": "Kası hızlıca ama sadece yarıya kadar sık ve bırak: 1 sn yarım sık, 1 sn bırak."
+    },
+    "half_hold": {
+      "name": "Yarım Uzun Tutma",
+      "desc": "Kası yarıya kadar sık ve o güçte uzun süre tut; sonra tamamen bırak."
+    },
+    "wave": {
+      "name": "Dalga",
+      "desc": "Tam sık, yarıya bırak, yeniden tam sık, sonra yarıya düşür ve orada uzun tut. En sonda tamamen bırak."
     }
   },
   "player": {
@@ -103,7 +127,15 @@
       "letGo": "BIRAK",
       "slowSqueeze": "YAVAŞÇA SIK",
       "slowRelease": "YAVAŞÇA BIRAK",
-      "settle": "GEVŞE"
+      "settle": "GEVŞE",
+      "third": "⅓ SIK",
+      "twoThirds": "⅔ SIK",
+      "half": "YARIM SIK",
+      "full": "TAM SIK",
+      "downTwoThirds": "⅔'E İN",
+      "downThird": "⅓'E İN",
+      "downHalf": "YARIYA İN",
+      "holdHalf": "YARIMDA TUT"
     },
     "stage": "{{stage}}. KAT",
     "getReady": "Hazırlan",
@@ -126,7 +158,7 @@
       "Nefesini tutma. Sıkarken de bırakırken de rahatça nefes al.",
       "Telefon sen sıktığın sürece titrer, bıraktığında durur. Ekrana bakmana gerek yok.",
       "Bırakma fazı en az sıkma kadar önemlidir; kası tamamen bırak.",
-      "Ekrana dokun: duraklat. Bir saniye basılı tut: bitir. Sola kaydır: ileri al. İki kez dokun: siyah ekran."
+      "Ekrana dokun: duraklat. Bir saniye basılı tut: bitir. Sola kaydır: ileri al. Gizli mod açıksa iki kez dokun: siyah ekran."
     ],
     "painWarning": "Ağrı, yanma veya rahatsızlık hissedersen hemen dur ve bir sağlık profesyoneline danış.",
     "interruptedTitle": "Antrenman duraklatıldı",
@@ -145,10 +177,18 @@
       "floor3": "Üçüncü kat",
       "slowSqueeze": "Yavaşça sık",
       "slowRelease": "Yavaşça bırak",
-      "hold": "Tut"
+      "hold": "Tut",
+      "third": "Üçte bir sık",
+      "twoThirds": "Üçte iki sık",
+      "half": "Yarım sık",
+      "full": "Tam sık",
+      "downTwoThirds": "Üçte ikiye in",
+      "downThird": "Üçte bire in",
+      "downHalf": "Yarıya in",
+      "holdHalf": "Yarımda tut"
     },
     "restartBlock": "Egzersizi baştan al",
-    "gestureHint": "Ekrana dokun: duraklat veya devam et. Bir saniye basılı tut: bitir. Sola kaydır: ileri al. İki kez dokun: siyah ekran.",
+    "gestureHint": "Ekrana dokun: duraklat veya devam et. Bir saniye basılı tut: bitir. Sola kaydır: ileri al. Gizli mod açıksa iki kez dokun: siyah ekran.",
     "positionNow": "Pozisyon: {{position}}",
     "painButton": "Ağrı var",
     "painTitle": "Seansı durdurduk",
@@ -162,12 +202,15 @@
     "nextTitle": "Sıradaki: {{name}} ×{{reps}}",
     "nextDetail": "{{hold}} sn sık · {{rest}} sn bırak",
     "positionChange": "Pozisyon değişiyor: {{position}}",
-    "blackMode": "Siyah ekran modu",
+    "blackMode": "Siyah ekran",
     "blackHint": "Çıkmak için iki kez dokun. Dokunarak duraklatabilirsin.",
     "nextSlow": "{{slow}} sn yavaşça sık · {{top}} sn tut · {{slow}} sn yavaşça bırak",
     "nextRelease": "3 sn gevşe · 6 sn tamamen bırak",
     "round": "Tur {{n}}",
-    "nextName": "Sıradaki: {{name}}"
+    "nextName": "Sıradaki: {{name}}",
+    "gestureHintTrial": "Ekrana dokun: duraklat veya devam et.",
+    "blackExit": "Çıkmak için ekrana iki kez dokun.",
+    "blackGoesOn": "Antrenman sürüyor; titreşimi takip et. Tek dokunuş duraklatır."
   },
   "feedback": {
     "doneTitle": "Harika, bugünkü antrenman tamam!",
@@ -230,7 +273,7 @@
       "daily": "Günlük hedef",
       "dailyCount": "{{done}}/{{target}}",
       "dailyDone": "Bugünkü hedef tamam",
-      "dailyLeft": "Hedefe {{count}} seans kaldı; kısa bir mikro set de sayılır."
+      "dailyLeft": "Günü tamamlamak için Tur 2 kaldı."
     },
     "outlook": {
       "up": {
@@ -377,60 +420,65 @@
     "what": {
       "title": "Pelvik taban kası nedir?",
       "body": [
-        "Pelvik taban, leğen kemiğinin altında bir hamak gibi uzanan kas grubudur.",
-        "Mesaneyi ve bağırsakları destekler, idrar kontrolüne ve cinsel fonksiyona katkı sağlar.",
-        "Diğer kaslar gibi düzenli ve doğru çalıştırıldığında güçlenebilir."
+        "Leğen kemiğinin altında hamak gibi uzanan bir kas grubudur.",
+        "Mesaneyi ve bağırsağı taşır, idrar kontrolünü ve cinsel işlevi destekler, penis kontrolünü güçlendirir.",
+        "Her kas gibi düzenli ve doğru çalıştırılırsa güçlenir."
+      ],
+      "body_female": [
+        "Leğen kemiğinin altında hamak gibi uzanan bir kas grubudur.",
+        "Mesaneyi ve bağırsağı taşır, idrar kontrolünü ve cinsel işlevi destekler.",
+        "Her kas gibi düzenli ve doğru çalıştırılırsa güçlenir."
       ],
       "artAlt": "Leğen kemiği ve altında hamak gibi uzanan pelvik taban kası"
     },
     "find": {
       "title": "Kası nasıl bulursun?",
       "body": [
-        "İdrarını yarıda kesmeye çalıştığını ya da gaz çıkarmamak için kendini tuttuğunu hayal et.",
-        "O an içeri ve yukarı doğru kasılan bölge pelvik taban kasındır.",
-        "Kası bulduktan sonra bu hissi idrar yapmadan, oturur ya da uzanmış hâlde tekrarla."
+        "İdrarını yarıda kestiğini ya da gazını tuttuğunu hayal et.",
+        "O an içeri ve yukarı çekilen kas, pelvik taban kasındır.",
+        "Bu hissi idrar yapmadan, uzanırken ya da otururken tekrarla."
       ],
-      "warn": "İdrar yaparken egzersiz yapma. Kası bulmak için idrarı kesmeyi yalnızca bir kez hayal et; bunu egzersiz olarak tekrarlamak mesanenin tam boşalmasını engelleyebilir."
+      "warn": "İdrar yaparken egzersiz yapma. İdrarı kesmeyi yalnızca kası bulmak için bir kez hayal et; bunu tekrarlamak mesanenin tam boşalmasını engelleyebilir."
     },
     "technique": {
       "title": "Doğru teknik",
       "body": [
-        "Sadece pelvik taban kasını sık: karın, kalça ve bacaklar gevşek kalsın.",
-        "Nefesini tutma; sakin ve düzenli nefes almaya devam et.",
-        "Her sıkmadan sonra kası tamamen bırak. Bırakma da egzersizin parçası."
+        "Sadece pelvik taban kasını sık; karın, kalça ve bacaklar gevşek kalsın.",
+        "Nefesini tutma, sakin nefes almaya devam et.",
+        "Her sıkmadan sonra kası tamamen gevşet; gevşemek de egzersizin parçası."
       ],
-      "warn": "Kegel ağrı yapmamalıdır. Ağrı veya rahatsızlık hissedersen dur ve antrenmanı bitir."
+      "warn": "Kegel ağrı yapmamalı. Ağrı ya da rahatsızlık hissedersen dur."
     },
     "trial": {
-      "title": "Deneme seti",
+      "title": "1. deneme seti",
       "body": "3 tekrar: 3 saniye sık, 3 saniye gevşe. Titreşimi takip et."
     },
     "check": {
-      "title": "Yapabildin mi?",
-      "body": "Kası sıkıp bırakmayı hissedebildin mi?",
-      "yes": "Evet, yapabildim",
+      "title": "1. set nasıl geçti?",
+      "body": "Kası sıkıp gevşetmeyi hissedebildin mi?",
+      "yes": "Evet, hissettim",
       "unsure": "Emin değilim"
     },
     "tips": {
       "title": "Birkaç ipucu",
       "body": [
-        "Uzanarak dene: dizlerin bükülü, sırtın yerde. Bu pozisyonda kası hissetmek daha kolaydır.",
-        "Elini karnına koy: sıkarken karın hareket etmemeli.",
-        "Kasılmayı çok güçlü yapmaya çalışma; hafif ama net bir içeri-yukarı çekiş yeterli.",
-        "İlk günlerde hissetmek zor olabilir; bu çok normal ve pratikle kolaylaşır."
+        "Uzanarak dene: dizler bükülü, sırt yerde. Kas bu pozisyonda daha kolay hissedilir.",
+        "Elini karnına koy; sıkarken karın kıpırdamamalı.",
+        "Çok güçlü sıkmaya çalışma; hafif ama net bir içeri-yukarı çekiş yeter.",
+        "İlk günlerde hissetmek zor olabilir; pratikle kolaylaşır."
       ],
       "retry": "Tekrar dene"
     },
     "position": {
       "title": "Başlangıç pozisyonu",
       "body": [
-        "İlk hafta hep yatarak çalışırsın: kas bu pozisyonda en kolay hissedilir.",
-        "Haftalar ilerledikçe oturarak ve ayakta çalışmaya geçeceksin. Pozisyon değişince ekranda bir kart çıkar."
+        "İlk hafta hep bu pozisyonda çalışırsın.",
+        "Sonraki haftalarda oturarak ve ayakta da çalışırsın. Pozisyon değişince ekranda bir kart çıkar."
       ]
     },
     "checklist": {
       "title": "Doğru mu yapıyorum?",
-      "body": "Bir kez sık ve tut. Tutarken aşağıdakileri kontrol et; her biri için “evet” diyebiliyorsan işaretle.",
+      "body": "Bir kez sık ve tut. Tutarken maddelere bak; “evet” diyebildiklerini işaretle.",
       "items": {
         "glutes": {
           "title": "Kalçam gevşek",
@@ -451,21 +499,21 @@
       }
     },
     "release": {
-      "title": "Bırakma pratiği",
-      "body": "2 tekrar: 3 saniye sık, sonra 6 saniye boyunca tamamen bırak. Kas yere iner gibi gevşesin."
+      "title": "2. deneme seti",
+      "body": "2 tekrar: 3 saniye sık, sonra 6 saniye tamamen gevşe. Kas yavaşça yerine insin."
     },
     "releaseCheck": {
-      "title": "Bıraktığını hissettin mi?",
-      "body": "Sıkmanın ardından kasın tamamen gevşediğini, aşağı indiğini hissettin mi?",
+      "title": "2. set nasıl geçti?",
+      "body": "Sıktıktan sonra kasın tamamen gevşediğini hissettin mi?",
       "yes": "Evet, hissettim",
       "unsure": "Emin değilim"
     },
     "releaseTips": {
-      "title": "Bırakmak için ipuçları",
+      "title": "Gevşemek için ipuçları",
       "body": [
-        "Acele etme: kası yavaş yavaş, yere iner gibi bırak.",
-        "Omuzlarını ve çeneni de gevşet; gerginlik genelde birlikte gider.",
-        "Bırakırken ıkınma; sadece tutmayı bırak."
+        "Acele etme; kası yavaş yavaş gevşet.",
+        "Omuzlarını ve çeneni de gevşet; gerginlik genelde birlikte gelir.",
+        "Gevşerken ıkınma; sadece tutmayı bırak."
       ]
     },
     "mistakes": {
@@ -496,8 +544,8 @@
     "ready": {
       "title": "Hazırsın!",
       "body": [
-        "Kası buldun, titreşim dilini öğrendin, sıkmayı ve bırakmayı denedin.",
-        "İlk seansın Hızlı (2 dakika). Sonra süreyi sen seçersin; seviye geri bildirimine göre ayarlanır."
+        "Kası buldun, titreşimleri öğrendin ve iki deneme setini tamamladın.",
+        "İlk seansın Hızlı (2 dakika). Sonra süreyi sen seçersin; seviye, geri bildirimine göre ayarlanır."
       ],
       "cta": "Hazırım"
     }
@@ -1022,7 +1070,6 @@
       "deload": "hafif hafta",
       "targetA11y": "Günlük hedef: {{total}} seanstan {{done}} tamam",
       "shorterHint": "Dün zorlandın; istersen bugün daha kısa süre seç.",
-      "micro": "Mikro set ({{sec}} sn)",
       "capReached": "Bugünkü kasılma sınırına ulaştın. Yarın görüşürüz; istersen yalnızca bırakma ve nefes yapabilirsin.",
       "capTitle": "Bugün yeterli",
       "capBody": "Bugün kaslarını yeterince çalıştırdın; dinlenmek de antrenmanın parçası. Yarın görüşürüz. İstersen kasılma içermeyen bir bırakma ve nefes seansı yapabilirsin.",
@@ -1037,13 +1084,13 @@
       "dayKicker": "Gün {{day}} / {{total}}",
       "summaryA11y": "Egzersizleri göster",
       "summaryPill": "{{count}} egzersiz · {{min}} dakika",
-      "microShort": "Mikro set",
       "breathShort": "Nefes · 1 dk",
       "targetShort": "Günlük hedef",
-      "microHint": "{{sec}} saniyelik kısa set",
       "summary_one": "{{count}} bölüm · yaklaşık {{min}} dk",
       "summary_other": "{{count}} bölüm · yaklaşık {{min}} dk",
-      "summaryInline": "{{count}} egzersiz · {{min}} dk"
+      "summaryInline": "{{count}} egzersiz · {{min}} dk",
+      "startRound2": "Tur 2'yi başlat",
+      "cycleKicker": "Haftalık döngü · Gün {{day}} / 7"
     },
     "challenges": "Beslenme ipucu",
     "strengthDue": "Haftalık güç testi zamanı",
@@ -1067,10 +1114,11 @@
       "days": "gün",
       "listTitle": "Bugünün hedefleri",
       "main": "Günün antrenmanı",
-      "micro": "Bir mikro set",
       "test": "Haftalık güç testi",
       "doneA11y": "tamamlandı",
-      "details": "İlerlemeyi gör"
+      "details": "İlerlemeyi gör",
+      "round1": "Tur 1 · günün ilk yarısı",
+      "round2": "Tur 2 · günün ikinci yarısı"
     },
     "levelChip": "Seviye {{level}}",
     "streakDays_one": "{{count}} gün",
@@ -1097,9 +1145,6 @@
   "training": {
     "title": "Antrenman",
     "planTitle": "Plan {{plan}}",
-    "planProgress": "{{done}}/30 gün",
-    "planHint": "Her gün bir adım ilerlersin. Bir güne dokun, o günün seansını gör. 30 gün bitince sonraki plan kaldığın seviyeden başlar.",
-    "planA11y": "30 günlük plan, {{done}} gün tamamlandı",
     "dayDone": "Gün {{day}}, tamamlandı",
     "dayToday": "Gün {{day}}, bugün",
     "dayTodo": "Gün {{day}}",
@@ -1111,9 +1156,11 @@
       "full": "Tam (8 dk)"
     },
     "roadmap": {
-      "title": "Plan {{plan}} · Yol haritası",
+      "title": "Yol haritası",
       "level": "Seviye {{level}}",
-      "open": "Yol haritasının tamamı"
+      "open": "Yol haritasının tamamı",
+      "stage": "Ay {{stage}} / {{total}} · {{from}}.–{{to}}. günler",
+      "cycle": "180 günden sonra · her hafta tekrarlanan 7 günlük döngü"
     },
     "preview": {
       "title": "{{day}}. gün",
@@ -1153,7 +1200,8 @@
     "weekCount": "{{done}}/{{total}}",
     "weekA11y": "{{title}}, {{done}} / {{total}} gün tamamlandı",
     "deloadDay": "Hafif gün",
-    "programmeKicker": "PROGRAMIN"
+    "programmeKicker": "PROGRAMIN",
+    "cycleDayLabel": "Döngü · {{day}}. gün"
   },
   "achievements": {
     "title": "Kupalar",
@@ -1364,28 +1412,57 @@
   },
   "reminders": {
     "discreet": {
-      "title": "Günlük 5 dakikan",
-      "body0": "Günlük 5 dakikan seni bekliyor",
-      "body1": "Kısa bir mola zamanı. Hazır olduğunda buradayız.",
-      "body2": "Bugünkü küçük hedefin seni bekliyor",
-      "body3": "5 dakikalık rutinin için iyi bir an",
-      "body4": "Serini sürdürmek için kısa bir adım kaldı",
-      "body5": "Kendine ayırdığın 5 dakika zamanı geldi.",
+      "title": "5 dakikan hazır",
+      "title0": "5 dakikan hazır",
+      "body0": "Bugünkü kısa rutinin seni bekliyor. Telefonun titreşimle yönlendirecek.",
+      "title1": "Küçük bir mola",
+      "body1": "Rahat bir oturuş ve 5 dakika. Hazır olduğunda başla.",
+      "title2": "Bugünün adımı",
+      "body2": "Her gün birkaç dakika, haftalar içinde fark yaratır.",
+      "title3": "Serin devam ediyor",
+      "body3": "Bugünü de ekle, serin bir gün daha büyüsün.",
+      "title4": "Kendine 5 dakika",
+      "body4": "Günün koşturmasında sadece sana ait kısa bir an.",
+      "title5": "Ekrana bakmana gerek yok",
+      "body5": "Titreşimi takip etmen yeterli. Rutinin hazır.",
+      "title6": "Kısa ve sessiz",
+      "body6": "Olduğun yerde, kimse fark etmeden yapabilirsin.",
+      "title7": "Gün bitmeden",
+      "body7": "Günü kapatmadan önce kısa rutinini tamamla.",
+      "title8": "Uzun değil, düzenli",
+      "body8": "Bugünkü 5 dakikan seni bekliyor.",
+      "title9": "Şimdi iyi bir an",
+      "body9": "Şu an rahatsan, başlamak için güzel bir zaman.",
       "testTitle": "Haftalık kontrol",
-      "testBody": "Haftalık ölçüm zamanı geldi. Bir dakikanı alır"
+      "testBody": "Bu haftaki gelişimini görmek için kısa bir ölçüm: yaklaşık 1 dakika."
     },
     "explicit": {
-      "title": "Kegel antrenmanı zamanı",
-      "body0": "Günlük pelvik taban antrenmanın seni bekliyor",
-      "body1": "5 dakikalık Kegel seansın için hazır mısın?",
-      "body2": "Pelvik taban kaslarını çalıştırma zamanı",
-      "body3": "Bugünkü Kegel antrenmanını tamamla, serini koru.",
-      "testTitle": "Güç testi zamanı",
-      "testBody": "Haftalık pelvik taban güç testini yap ve gelişimini gör"
+      "title": "Kegel zamanı",
+      "title0": "Kegel zamanı",
+      "body0": "Günlük pelvik taban antrenmanın hazır: yaklaşık 5 dakika, titreşimle yönlendirmeli.",
+      "title1": "Pelvik taban seni bekliyor",
+      "body1": "Sık, tut, bırak. Bugünkü seti tamamla, serin bir gün daha büyüsün.",
+      "title2": "5 dakikalık Kegel",
+      "body2": "Kısa bir set için iyi bir an. Bırakmayı da sıkmak kadar önemse.",
+      "title3": "Bugünkü antrenmanın",
+      "body3": "Düzenli Kegel, kas kontrolünü haftalar içinde destekler. Bugünü de ekle.",
+      "title4": "Serini koru",
+      "body4": "Bugün henüz antrenman yok. Kısa bir Kegel seti serini korur.",
+      "title5": "Hazır mısın?",
+      "body5": "Rahat bir pozisyon al, nefesini tutma ve titreşimi takip et.",
+      "title6": "Gün bitmeden Tur 2",
+      "body6": "Tur 1'i yaptıysan Tur 2 ile günü tamamla.",
+      "title7": "Sık ve tamamen bırak",
+      "body7": "Kası tamamen gevşetmek de antrenmanın parçası. Bugünkü setin hazır.",
+      "title8": "Günün Kegel seti",
+      "body8": "Oturduğun yerde, kimse fark etmeden yapabilirsin.",
+      "title9": "Kendine küçük bir yatırım",
+      "body9": "Her gün birkaç dakika: daha iyi kontrol için düzenli bir adım.",
+      "testTitle": "Haftalık güç testi",
+      "testBody": "Pelvik taban gücünü 1 dakikada ölç ve haftalık gelişimini gör."
     },
     "actions": {
       "start": "Başla (2 dk)",
-      "micro": "Mikro set (1 dk)",
       "snooze15": "15 dk ertele",
       "skipToday": "Bugün atla",
       "snooze60": "1 saat ertele"
@@ -1528,7 +1605,8 @@
       "left": "SOL",
       "right": "SAĞ"
     },
-    "cardDesc": "Kalça, karın ve iç bacak için 7 haftalık program."
+    "cardDesc": "Kalça, karın ve iç bacak için 7 haftalık program.",
+    "animDev": "Animasyonlar geliştirme aşamasındadır."
   },
   "mind": {
     "title": "Zihin Rahatlatma",
@@ -1623,7 +1701,8 @@
       "nutrition": "Beslenme",
       "sleep": "Uyku",
       "stress": "Stres",
-      "exercise": "Egzersiz"
+      "exercise": "Egzersiz",
+      "menHealth_female": "Kadın Sağlığı"
     },
     "allRow": "Hikâyeler",
     "meta": "{{min}} dk · {{count}} slayt",
@@ -1818,9 +1897,7 @@
       "sound": "Ses ipuçları",
       "soundHint": "Yükselen ton = sık, alçalan ton = bırak, kısa tık = saniye. Kulaklıkla daha iyi duyulur; sessiz modda çalmaz.",
       "discreet": "Gizli mod",
-      "discreetHint": "Oynatıcıda yazı yerine yalnızca daire ve renkler gösterilir.",
-      "perDay": "Günlük seans hedefi",
-      "perDayHint": "1 ana seans ve gün içinde kısa mikro setler. Seri için günde 1 seans yeterli.",
+      "discreetHint": "Oynatıcıda yazı yerine yalnızca daire ve renkler gösterilir. Antrenmanda ekrana iki kez dokununca ekran tamamen kararır.",
       "voice": "Sesli koç",
       "voiceHint": "Telefonunun kendi Türkçe sesiyle kısa komutlar: “Sık”, “Bırak”. İnternet gerekmez.",
       "voiceTry": "Sesi dene",
@@ -3236,7 +3313,8 @@
       "s1": "Pelvik taban kasın nerede, birlikte bakalım.",
       "s2": "Leğen kemiğin bir çanak gibidir.",
       "s3": "Altında, hamak gibi gerilen bir kas var: pelvik taban.",
-      "s4": "Mesaneni ve bağırsağını taşır, idrarı ve gazı tutmanı sağlar.",
+      "s4": "Mesaneni ve bağırsağını taşır, idrarı ve gazı tutmanı sağlar, penis kontrolünü güçlendirir.",
+      "s4_female": "Mesaneni ve bağırsağını taşır, idrarı ve gazı tutmanı sağlar.",
       "s5": "İdrarını ve gazını tutar gibi yap. Hissettiğin kas bu.",
       "s6": "Şimdi bırak. Gevşemek de egzersizin parçası.",
       "s7": "Karnını, kalçanı ve bacaklarını sıkma. Sadece bu kas çalışsın.",
@@ -3245,14 +3323,13 @@
   },
   "round": {
     "doneTitle": "Tur 1 tamamlandı",
-    "offer": "İstersen Tur 2'ye geç: yavaş sıkma eklenir. Yaklaşık {{min}} dakika sürer.",
+    "offer": "Tur 2 günün ikinci yarısı: yavaş sıkma ve öğrendiğin hareketler gelir, yaklaşık {{min}} dakika sürer. Şimdi ya da gün içinde istediğin zaman yapabilirsin; ikisi bitince gün tamamlanır.",
     "start": "Tur 2'ye geç · {{min}} dk",
-    "finish": "Bitir",
+    "finish": "Tur 2 sonra",
     "contents": "Tur 2'de sırayla",
-    "new": "Yeni hareket",
     "restNote": "Aralarda 5 saniye dinlenirsin.",
     "intro": {
-      "kicker": "TUR 2 · KISA EĞİTİM",
+      "kicker": "TUR 2'DEN ÖNCE · MİNİ EĞİTİM",
       "title": "Yeni hareket: Yavaş sıkma",
       "steps": [
         "Kası yavaşça sık; yaklaşık 3 saniyede en tepeye çık.",
@@ -3260,14 +3337,35 @@
         "Bırak ve 1 saniye bekle, sonra yeniden yavaşça sık."
       ],
       "note": "Tur 2'de yavaş sıkma, hızlı sık-bırak ve uzun sıkma sırayla gelir. Telefon sen sıktığın sürece titrer, bıraktığında durur.",
-      "go": "Anladım, Tur 2'yi başlat",
-      "demoA11y": "Örnek: daire yavaşça büyür, tepede kısa bir an durur ve küçülür."
-    }
+      "demoA11y": "Örnek: daire yavaşça büyür, tepede kısa bir an durur ve küçülür.",
+      "progress": "Adım {{step}} / {{total}}",
+      "tryIt": "Birlikte dene",
+      "later": "Tur 2'yi sonra yap",
+      "practiceTitle": "Birlikte dene: 3 yavaş sıkma",
+      "practiceHint": "Daire yavaşça büyürken sen de kası yavaşça sık; tepede kısa bir an tut, sonra tamamen bırak. Telefon sıktığın sürece titrer.",
+      "checkTitle": "Nasıl geçti?",
+      "checkItems": [
+        "Kası yaklaşık 3 saniyede, yavaş yavaş sıktım.",
+        "Tepede kısa bir an tuttum, sonra tamamen bıraktım.",
+        "Nefesimi tutmadım; karnım ve kalçam gevşekti."
+      ],
+      "checkNote": "Hepsine “evet” diyebiliyorsan hazırsın. Emin değilsen bir kez daha dene; acele etme.",
+      "ready": "Hazırım, Tur 2'yi başlat",
+      "again": "Bir kez daha dene"
+    },
+    "latest": "Son öğrendiğin hareket · her turda",
+    "review": "Tekrar · daha önce öğrendiğin"
   },
   "block": {
     "long": "{{sec}} sn bırakmadan sık",
     "quick": "{{sec}} sn · 1 sn sık, 1 sn bırak",
-    "slow": "{{count}} kez · yavaşça sık, tepede tut, bırak"
+    "slow": "{{count}} kez · yavaşça sık, tepede tut, bırak",
+    "step_up": "{{count}} kez · ⅓ → ⅔ → tam sık, bırak",
+    "step_down": "{{count}} kez · yavaşça tam sık, 3 basamakta bırak",
+    "double_peak": "{{count}} kez · tam → yarım → tam, bırak",
+    "half_quick": "{{sec}} sn · 1 sn yarım sık, 1 sn bırak",
+    "half_hold": "{{count}} kez · {{sec}} sn yarımda tut",
+    "wave": "{{count}} kez · tam → yarım → tam → yarımda uzun tut"
   },
   "bodyweight": {
     "title": "Aletsiz Fitness",
@@ -3351,5 +3449,114 @@
   "exerciseSoon": {
     "title": "{{n}}. egzersiz",
     "locked": "İlerleyen seviyelerde açılacak"
+  },
+  "app": {
+    "tagline": "Kegel & Pelvik Taban"
+  },
+  "moveIntro": {
+    "kicker": "TUR 2'DEN ÖNCE · YENİ HAREKET",
+    "title": "Yeni hareket: {{name}}",
+    "progress": "Adım {{step}} / {{total}}",
+    "tryIt": "Birlikte dene",
+    "later": "Tur 2'yi sonra yap",
+    "practiceTitle": "Birlikte dene: {{name}}",
+    "practiceHint": "Daireyi takip et: ne kadar büyükse o kadar güçlü sık. Ekrandaki yazı hangi basamakta olduğunu söyler; titreşim de sıkma gücüne göre güçlenip zayıflar.",
+    "checkTitle": "Nasıl geçti?",
+    "checkNote": "Hepsine “evet” diyebiliyorsan hazırsın. Emin değilsen bir kez daha dene; acele etme.",
+    "ready": "Hazırım, Tur 2'yi başlat",
+    "again": "Bir kez daha dene",
+    "note": "{{name}}, bir sonraki yeni hareketi öğrenene kadar her turda olacak. Daha önce öğrendiğin hareketler de sırayla gelmeye devam eder.",
+    "demoA11y": "Örnek: daire hareketin basamaklarına göre büyüyüp küçülür.",
+    "moves": {
+      "step_up": {
+        "steps": [
+          "Kası üçte bir sık: hafif bir çekiş, 2 saniye.",
+          "Biraz daha sık: üçte iki, 2 saniye.",
+          "Üçüncü basamakta kası tam sık ve 2 saniye tut.",
+          "Sonra tamamen bırak ve dinlen."
+        ],
+        "checkItems": [
+          "Üç ayrı basamak hissettim; her biri bir öncekinden biraz daha güçlüydü.",
+          "Üçüncü basamakta kası tam sıktım.",
+          "Nefesimi tutmadım; karnım ve kalçam gevşekti."
+        ]
+      },
+      "step_down": {
+        "steps": [
+          "Kası yavaşça tam sık (yaklaşık 3 saniye) ve kısa bir an tut.",
+          "Üçte ikiye in: kası biraz bırak ama tamamen değil.",
+          "Üçte bire in: biraz daha bırak.",
+          "Sonra kası tamamen bırak."
+        ],
+        "checkItems": [
+          "Kası bir anda değil, basamak basamak bıraktım.",
+          "Her basamakta kası o güçte kısa bir süre tutabildim.",
+          "En sonda kası tamamen gevşettim."
+        ]
+      },
+      "double_peak": {
+        "steps": [
+          "Kası tam sık, 2 saniye.",
+          "Yarıya kadar bırak; kas yarım sıkılı kalsın.",
+          "Yeniden tam sık, 2 saniye.",
+          "Sonra tamamen bırak."
+        ],
+        "checkItems": [
+          "Yarıya inerken kası tamamen bırakmadım.",
+          "İkinci kez tam sıkabildim.",
+          "Nefesimi tutmadım; karnım ve kalçam gevşekti."
+        ]
+      },
+      "half_quick": {
+        "steps": [
+          "Kası hızlıca sık ama sadece yarıya kadar.",
+          "Hemen tamamen bırak.",
+          "1 saniye yarım sık, 1 saniye bırak; ritmi koru."
+        ],
+        "checkItems": [
+          "Her sıkmada kası tam değil, yarıya kadar sıktım.",
+          "Her seferinde kası tamamen bıraktım.",
+          "Ritmi kaçırmadım; karnım ve kalçam gevşekti."
+        ]
+      },
+      "half_hold": {
+        "steps": [
+          "Kası yarıya kadar sık; tam değil.",
+          "O güçte uzun süre tut: kası ne artır ne bırak.",
+          "Süre bitince kası tamamen bırak ve dinlen."
+        ],
+        "checkItems": [
+          "Kası yarım güçte tuttum, tam sıkmadım.",
+          "Tutarken güç ne düştü ne arttı.",
+          "Nefes almaya devam ettim."
+        ]
+      },
+      "wave": {
+        "steps": [
+          "Kası tam sık, sonra yarıya bırak.",
+          "Yeniden tam sık.",
+          "Yarıya düşür ve orada uzun tut.",
+          "En sonda kası tamamen bırak."
+        ],
+        "checkItems": [
+          "Tam ve yarım arasında geçiş yapabildim.",
+          "Son yarım tutuşta kası bırakmadım.",
+          "Nefesimi tutmadım; karnım ve kalçam gevşekti."
+        ]
+      }
+    }
+  },
+  "moves": {
+    "section": "Hareketlerin",
+    "learnedTitle": "Öğrendiğin hareketler",
+    "count": "{{done}} / {{total}}",
+    "current": "Öğrenildi · şu an her turda",
+    "currentBadge": "Her turda",
+    "learned": "Öğrenildi · 2. turda sırayla gelir",
+    "next_one": "Sıradaki · {{day}}. günde açılır (1 gün kaldı)",
+    "next_other": "Sıradaki · {{day}}. günde açılır ({{count}} gün kaldı)",
+    "nextToday": "Sıradaki · bugün 1. turdan sonra öğreneceksin",
+    "locked": "{{day}}. günde açılır",
+    "learnedSlow": "Öğrenildi · her 2. turda"
   }
 }

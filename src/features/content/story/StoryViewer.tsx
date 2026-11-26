@@ -8,6 +8,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 
+import { useAppActive } from '@/lib/useLive';
+import { currentSex, sexCtx } from '@/i18n/sex';
 import { AppText, Icon, useTheme, type IconName } from '@/components';
 import { Button, Sheet, uiHaptic } from '@/components/ui';
 import { exploreImage } from '@/content/images';
@@ -51,7 +53,10 @@ export function StoryViewer({ story, startAt = 0, saved, onToggleSave, onIndex, 
   const screenReader = useScreenReader();
   const [index, setIndex] = useState(() => Math.min(Math.max(0, startAt), pages.length - 1));
   const [elapsed, setElapsed] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [heldPaused, setPaused] = useState(false);
+  // Battery (round 8): the slide timer also stops while the app is in the background.
+  const appActive = useAppActive();
+  const paused = heldPaused || !appActive;
   const [flipped, setFlipped] = useState<Record<number, boolean>>({});
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [sourcesOpen, setSourcesOpen] = useState(false);
@@ -343,7 +348,7 @@ function Slide(p: SlideProps) {
         <View style={[bottom, { gap: t.space.sm }]} accessible accessibilityLabel={`${p.story.title}. ${p.meta}`} pointerEvents="none">
           <View style={{ alignSelf: 'flex-start', backgroundColor: t.veil.mid, borderRadius: t.radius.pill, paddingHorizontal: 12, paddingVertical: 5 }}>
             <AppText variant="footnote" weight="600" color={W}>
-              {tr(`stories.category.${p.story.category}`)}
+              {tr(`stories.category.${p.story.category}`, sexCtx(currentSex()))}
             </AppText>
           </View>
           <AppText variant="title1" color={W} style={{ fontSize: 34, lineHeight: 41 }} accessibilityRole="header">

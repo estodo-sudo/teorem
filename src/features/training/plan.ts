@@ -1,9 +1,23 @@
-import { PLAN_LENGTH_DAYS } from '@/config/app';
+import { CYCLE_DAYS, LEGACY_PLAN_LENGTH_DAYS, PLAN_LENGTH_DAYS } from '@/config/app';
 import type { DailyTarget, DurationPreset, Feedback, TrackId, TrainingState } from '@/types';
 
 import { adjustLevel } from './adjustLevel';
 import { clampLevel } from './levels';
+import { MOVE_IDS } from './moves';
 import { levelLocked, planWeekNumber } from './schedule';
+
+/** Days in plan `planNumber`: the 180-day plan first, then 7-day cycles for ever. */
+export const planLengthOf = (planNumber: number) => (planNumber <= 1 ? PLAN_LENGTH_DAYS : CYCLE_DAYS);
+/** Whether plan `planNumber` is one of the endless 7-day cycles after the 180 days. */
+export const isCycle = (planNumber: number) => planNumber >= 2;
+/** Plan number and day for `days` days done in all (the 180 days, then 7-day cycles). */
+export function positionFromDays(days: number): { planNumber: number; planDayIndex: number } {
+  const d = Math.max(0, Math.floor(days));
+  if (d < PLAN_LENGTH_DAYS) return { planNumber: 1, planDayIndex: d };
+  return { planNumber: 2 + Math.floor((d - PLAN_LENGTH_DAYS) / CYCLE_DAYS), planDayIndex: (d - PLAN_LENGTH_DAYS) % CYCLE_DAYS };
+}
+/** Days done in all before plan `planNumber`, day `planDay`. */
+export const daysBefore = (planNumber: number, planDay: number) => (planNumber <= 1 ? 0 : PLAN_LENGTH_DAYS + (planNumber - 2) * CYCLE_DAYS) + Math.max(0, planDay);
 
 const TRACKS: TrackId[] = ['general', 'erection', 'control', 'bladder', 'surgery', 'relax'];
 const PRESETS: DurationPreset[] = ['quick', 'standard', 'full'];
@@ -24,6 +38,7 @@ export const defaultTraining = (): TrainingState => ({
   lastDeloadWeek: -1,
   freezeTokens: 2,
   freezeMonth: null,
+  planLength: PLAN_LENGTH_DAYS,
 });
 
 const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
@@ -38,9 +53,15 @@ const dateKey = (v: unknown) => (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.
 export function migrateTraining(raw: unknown): TrainingState {
   const d = defaultTraining();
   if (!isObj(raw)) return d;
-  const planDayIndex = Math.min(PLAN_LENGTH_DAYS - 1, int(raw.planDayIndex, 0));
-  const planNumber = int(raw.planNumber, 1, 1);
-  const days = (planNumber - 1) * PLAN_LENGTH_DAYS + planDayIndex;
+  // Plans saved before 2026-11-26 were 30 days long: the days done so far carry over onto the 180-day
+  // plan (plan 2 day 5 of the old plan = day 35 now) and, past 180, into the 7-day cycles — once; the
+  // result is saved with planLength.
+  const savedNumber = int(raw.planNumber, 1, 1);
+  const days =
+    raw.planLength === PLAN_LENGTH_DAYS
+      ? daysBefore(savedNumber, Math.min(planLengthOf(savedNumber) - 1, int(raw.planDayIndex, 0)))
+      : (savedNumber - 1) * LEGACY_PLAN_LENGTH_DAYS + Math.min(LEGACY_PLAN_LENGTH_DAYS - 1, int(raw.planDayIndex, 0));
+  const { planNumber, planDayIndex } = positionFromDays(days);
   const weekIndex = int(raw.weekIndex, Math.floor(days / 7));
   const vacation = isObj(raw.vacation) && dateKey(raw.vacation.from) && dateKey(raw.vacation.to) ? { from: raw.vacation.from as string, to: raw.vacation.to as string } : undefined;
   const lock = dateKey(raw.levelLockUntil);
@@ -64,6 +85,8 @@ export function migrateTraining(raw: unknown): TrainingState {
     ...(vacation ? { vacation } : {}),
     ...(lock ? { levelLockUntil: lock } : {}),
     ...(raw.round2IntroDone === true ? { round2IntroDone: true } : {}),
+    planLength: PLAN_LENGTH_DAYS,
+    ...(Array.isArray(raw.movesLearned) ? { movesLearned: learnedFrom(raw.movesLearned) } : {}),
     ...(PRESETS.includes(raw.nextPresetOnce as DurationPreset) ? { nextPresetOnce: raw.nextPresetOnce as DurationPreset } : {}),
     ...(Array.isArray(raw.frozenDays) ? { frozenDays: (raw.frozenDays as unknown[]).filter((d): d is string => Boolean(dateKey(d))).slice(-62) } : {}),
     ...(dateKey(raw.lastReturnCheck) ? { lastReturnCheck: raw.lastReturnCheck as string } : {}),
@@ -73,11 +96,16 @@ export function migrateTraining(raw: unknown): TrainingState {
   };
 }
 
+/** Known move ids only, each once, in the order given. */
+function learnedFrom(v: unknown[]): string[] {
+  return v.filter((x, i): x is string => typeof x === 'string' && MOVE_IDS.has(x) && v.indexOf(x) === i);
+}
+
 /** The plan day (0-based) that today's main session belongs to. */
 export function todayPlanDay(t: TrainingState, today: string): number {
   if (t.lastAdvancedDate === today) {
-    // Already advanced today → extra sessions replay today's day.
-    return t.planDayIndex === 0 ? PLAN_LENGTH_DAYS - 1 : t.planDayIndex - 1;
+    // Already advanced today → extra sessions replay today's day (the last day of the plan just finished).
+    return t.planDayIndex === 0 ? planLengthOf(t.planNumber - 1) - 1 : t.planDayIndex - 1;
   }
   return t.planDayIndex;
 }
@@ -113,7 +141,7 @@ export interface SessionOutcome {
 }
 
 /**
- * Moves the 30-day plan and the programme week one day on, once per date. Called when a main session
+ * Moves the plan (the 180 days, then the 7-day cycles) and the programme week one day on, once per date. Called when a main session
  * finishes (2026-11-23 fix: it used to wait for the "Nasıldı?" answers, so leaving that screen kept the
  * plan on the same day).
  */
@@ -121,7 +149,8 @@ export function advancePlan(t: TrainingState, date: string): TrainingState {
   if (t.lastAdvancedDate === date) return t;
   let day = t.planDayIndex + 1;
   let plan = t.planNumber;
-  if (day >= PLAN_LENGTH_DAYS) {
+  // the 180-day plan, then a 7-day cycle after another
+  if (day >= planLengthOf(plan)) {
     day = 0;
     plan += 1;
   }
@@ -134,7 +163,7 @@ export function undoAdvance(t: TrainingState, date: string): TrainingState {
   const rolled = t.planDayIndex === 0;
   return {
     ...t,
-    planDayIndex: rolled ? PLAN_LENGTH_DAYS - 1 : t.planDayIndex - 1,
+    planDayIndex: rolled ? planLengthOf(t.planNumber - 1) - 1 : t.planDayIndex - 1,
     planNumber: rolled ? Math.max(1, t.planNumber - 1) : t.planNumber,
     lastAdvancedDate: null,
     dayIndex: (t.dayIndex + 6) % 7,
@@ -144,7 +173,7 @@ export function undoAdvance(t: TrainingState, date: string): TrainingState {
 
 /**
  * Applies a finished main session to the training state: level adjustment v2 + (once per day)
- * advancing the 30-day plan and the programme week. "Could not finish" repeats the day.
+ * advancing the plan and the programme week. "Could not finish" repeats the day.
  */
 export function applySessionResult(t: TrainingState, result: SessionOutcome): TrainingState {
   const adj = adjustLevel(

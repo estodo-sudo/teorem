@@ -12,47 +12,57 @@
   "tracks": [
     {
       "id": "general",
-      "sourceIds": [
-        "dumoulin2018_cochrane",
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "dumoulin2018_cochrane",
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "erection",
       "title": "Cinsel Sağlık ve His",
       "text": "Tam güçte kasılmalar; her seansta yatarak, oturarak ve ayakta. Kası daha iyi tanımak cinsel his ve kontrolü destekleyebilir.",
       "note": "Tıbbi bir tedavi değildir; belirli bir sonuç vaat edilmez.",
-      "sourceIds": [
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "control",
       "title": "Kontrol ve Koordinasyon",
       "text": "Hızlı kasılma ve tam bırakma koordinasyonu, nefesle eşleme, gevşeme farkındalığı.",
-      "sourceIds": [
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "bladder",
       "title": "İdrar Kaçırma ve Mesane Kontrolü",
       "text": "Yavaş tutma, hızlı kasılma ve öksürük, hapşırık ya da ağır kaldırma öncesi sıkma (Knack) pratiği.",
-      "sourceIds": [
-        "dumoulin2018_cochrane",
-        "miller1996_knack",
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "dumoulin2018_cochrane",
+          "miller1996_knack",
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "surgery",
       "title": "Doğum Sonrası Toparlanma",
       "text": "Hafif başlangıç, yatarak başlayıp ayakta ilerleme, Knack pratiği.",
       "note": "Yalnızca doktorun ya da ebenin onay verdiyse açılır. Ağrı, kanama ya da dikiş sorunu varsa egzersiz yapma.",
-      "sourceIds": [
-        "woodley2020_cochrane",
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "woodley2020_cochrane",
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "relax",

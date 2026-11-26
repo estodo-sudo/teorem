@@ -6,6 +6,7 @@ import Svg, { Circle } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Icon, Screen, useTheme, type IconName } from '@/components';
+import { CelebrationBurst } from '@/components/CelebrationBurst';
 import { Button, Card, IconTile, Progress, ScalePressable, StatRow, uiHaptic } from '@/components/ui';
 import { useStreak } from '@/features/gamification/service';
 import { playCue } from '@/features/training/haptics';
@@ -150,6 +151,8 @@ function Completion({ completed, micro }: { completed: boolean; micro: boolean }
   return (
     <View style={{ alignItems: 'center', gap: t.space.md, marginTop: t.space.lg }}>
       <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }} accessible accessibilityLabel={title}>
+        {/* a one-off burst as the ring closes (aesthetic pass 2026-11-25) */}
+        <CelebrationBurst size={size} play={completed} delay={600} />
         <Svg width={size} height={size} style={{ position: 'absolute', left: 0, top: 0 }}>
           <Circle cx={size / 2} cy={size / 2} r={r} stroke={t.tokens.muted} strokeWidth={stroke} fill="none" />
           <ACircle

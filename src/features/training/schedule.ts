@@ -1,3 +1,4 @@
+import { CYCLE_DAYS, PLAN_STAGE_DAYS, PLAN_STAGES } from '@/config/app';
 import { addDays, dayOf, daysBetween } from '@/lib/date';
 import type { DurationPreset, PainReport, StrengthTest, TrackId } from '@/types';
 
@@ -16,15 +17,21 @@ export function strengthFallingTwoWeeks(tests: StrengthTest[]): boolean {
 }
 
 /**
- * The deload week follows the 30-day plan, so what the roadmap says is what the session does:
- * plan week 4 ("4. Hafta: Toparlanma", days 22–30) is the lighter week. Weeks are counted per plan:
- * days 1–7 week 1, 8–14 week 2, 15–21 week 3, 22–30 week 4.
+ * The deload week follows the plan, so what the roadmap says is what the session does. The 180-day
+ * plan runs in 30-day stages and every stage has four weeks: days 1–7 week 1, 8–14 week 2, 15–21
+ * week 3, 22–30 week 4 ("Toparlanma", the lighter week) — counted inside the stage.
  */
 export const DELOAD_PLAN_WEEK = 3;
-export const planWeekOf = (planDay: number) => Math.min(3, Math.max(0, Math.floor(planDay / 7)));
-/** A running plan-week number across plans (plan 1 week 1 = 0, plan 2 week 1 = 4 …). */
-export const planWeekNumber = (planNumber: number, planDay: number) => (Math.max(1, planNumber) - 1) * 4 + planWeekOf(planDay);
+/** 0-based stage (30-day block) of a plan day. */
+export const planStageOf = (planDay: number) => Math.max(0, Math.floor(planDay / PLAN_STAGE_DAYS));
+/** Week (0..3) of a plan day inside its stage. */
+export const planWeekOf = (planDay: number) => Math.min(3, Math.max(0, Math.floor((Math.max(0, planDay) % PLAN_STAGE_DAYS) / 7)));
+/** A running week number (stage 1 week 1 = 0 … stage 6 week 4 = 23; each 7-day cycle after it one more). */
+export const planWeekNumber = (planNumber: number, planDay: number) => (planNumber <= 1 ? planStageOf(planDay) * 4 + planWeekOf(planDay) : PLAN_STAGES * 4 + (planNumber - 2));
+/** A light day of the 180-day plan: week 4 of each 30-day stage. (One argument: safe to pass to map/filter.) */
 export const isPlanDeloadDay = (planDay: number) => planWeekOf(planDay) === DELOAD_PLAN_WEEK;
+/** The light day of each 7-day cycle after the 180 days: its 7th day. */
+export const isCycleLightDay = (cycleDay: number) => cycleDay % CYCLE_DAYS === CYCLE_DAYS - 1;
 
 /**
  * Deload today? Always in plan week 4. Earlier only when strength tests have fallen two weeks in a
@@ -32,7 +39,7 @@ export const isPlanDeloadDay = (planDay: number) => planWeekOf(planDay) === DELO
  * plan week (`lastDeloadWeek` holds the plan-week number of the last deload).
  */
 export function deloadDue(i: { planNumber: number; planDay: number; lastDeloadWeek: number; strengthFalling?: boolean }): boolean {
-  if (isPlanDeloadDay(i.planDay)) return true;
+  if (i.planNumber >= 2 ? isCycleLightDay(i.planDay) : isPlanDeloadDay(i.planDay)) return true;
   const week = planWeekNumber(i.planNumber, i.planDay);
   if (week === i.lastDeloadWeek) return true; // inside an early deload week
   return Boolean(i.strengthFalling) && week - i.lastDeloadWeek >= 2;

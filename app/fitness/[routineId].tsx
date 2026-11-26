@@ -3,11 +3,14 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AppState, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
+import { useAppActive } from '@/lib/useLive';
 import { AppText, Button, Card, Dialog, Header, Icon, ProgressBar, ProgressRing, Screen, useTheme } from '@/components';
 import { IconTile } from '@/components/ui';
-import { FitnessDemo, FitnessFigure } from '@/features/fitness/FitnessFigure';
+import { FitnessFigure } from '@/features/fitness/FitnessFigure';
+import { FITNESS_VIDEO, FitnessPreview, FitnessVideo } from '@/features/fitness/FitnessVideo';
 import { motionAt, repsIn, type MoveSpec } from '@/features/fitness/motion';
 import { getExercise, getMove, getRoutine, routineDurationSec, routinePhases, routineRounds, type FitnessExercise, type FitnessPhase, type RoutineStep } from '@/features/fitness/routines';
+import { useWorkoutMusic } from '@/features/fitness/music';
 import { cancelHaptics, playCue } from '@/features/training/haptics';
 import { activeTime, currentPhase, progress, remainingInPhase, type PlayerEvent, type PlayerState } from '@/features/training/player/machine';
 import { usePlayer } from '@/features/training/player/usePlayer';
@@ -120,8 +123,8 @@ function MoveCard({ n, step, open, onToggle }: { n: number; step: RoutineStep; o
       {open ? (
         <View style={{ paddingHorizontal: 14, paddingBottom: 14, gap: 12 }}>
           {move ? (
-            <View style={{ alignItems: 'center', borderRadius: t.radius.lg, backgroundColor: t.tokens.muted, paddingVertical: 8 }}>
-              <FitnessDemo move={move} width={260} />
+            <View style={{ alignItems: 'center' }}>
+              <FitnessPreview move={move} width={280} />
             </View>
           ) : null}
           <HowTo ex={ex} />
@@ -252,6 +255,8 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
   const remain = remainingInPhase(state, now);
   const paused = state.status === 'paused';
   const working = phase?.kind === 'work';
+  // the beat runs with the routine: paused with it, off on the summary and when the screen closes
+  useWorkoutMusic(state.status === 'running');
 
   if (state.status === 'completed') {
     return (
@@ -291,7 +296,7 @@ function FitnessPlayer({ routineId }: { routineId: string }) {
             <WorkView move={move} state={state} paused={paused} durationMs={phase.durationMs} strength={strength} remain={remain} />
           ) : (
             <View style={{ alignItems: 'center', gap: 10 }}>
-              <FitnessDemo move={move} width={240} paused={paused} />
+              <FitnessPreview move={move} width={260} paused={paused} />
               <ProgressRing size={84} stroke={8} value={phase.durationMs ? remain / phase.durationMs : 0} color={t.colors.breathe}>
                 <AppText variant="h2" accessibilityLiveRegion="polite">
                   {Math.ceil(remain / 1000)}
@@ -342,11 +347,13 @@ function WorkView({ move, state, paused, durationMs, strength, remain }: { move:
   const t = useTheme();
   const { t: tr } = useTranslation();
   const [clock, setClock] = useState(() => Date.now());
+  // Battery (round 8): no 25 fps redraws while the app is in the background (the player keeps its own time).
+  const active = useAppActive();
   useEffect(() => {
-    if (paused) return;
+    if (paused || !active) return;
     const id = setInterval(() => setClock(Date.now()), 40);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, active]);
   // A paused player freezes its own time, so the clock value does not matter then.
   const elapsed = Math.max(0, durationMs - remainingInPhase(state, clock));
   const m = motionAt(move, elapsed, durationMs);
@@ -362,7 +369,11 @@ function WorkView({ move, state, paused, durationMs, strength, remain }: { move:
   const sideJustChanged = move.sides && !move.alternate && m.side === 2 && elapsed - durationMs / 2 < 2500;
   return (
     <View style={{ alignItems: 'center', gap: 6 }}>
-      <FitnessFigure move={move} pose={m.pose} mirrored={m.side === 2} width={280} />
+      {FITNESS_VIDEO.has(move) ? (
+        <FitnessVideo move={move} elapsedMs={elapsed} workMs={durationMs} paused={paused} width={300} />
+      ) : (
+        <FitnessFigure move={move} pose={m.pose} mirrored={m.side === 2} width={280} word={m.word} pulse={(Math.sin(clock / 320) + 1) / 2} />
+      )}
       <AppText variant="display" center color={t.colors.accent} accessibilityLiveRegion="polite" style={{ fontSize: 40, lineHeight: 48 }}>
         {tr(`fitness.tempo.${m.word}`)}
       </AppText>

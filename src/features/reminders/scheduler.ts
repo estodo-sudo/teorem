@@ -18,7 +18,6 @@ import { dayStatus } from '@/features/training/summary';
 const CATEGORY = 'daily-workout';
 const CHANNEL = 'reminders';
 const ACTION_START = 'start';
-const ACTION_MICRO = 'micro';
 const ACTION_SNOOZE_15 = 'snooze15';
 const ACTION_SKIP_TODAY = 'skipToday';
 
@@ -48,9 +47,8 @@ export async function initNotifications() {
       });
     }
     await Notifications.setNotificationCategoryAsync(CATEGORY, [
-      // Kegel v2 (§13): start (3 min), micro set (1 min), snooze 15 min, skip today.
+      // Kegel v2 (§13): start, snooze 15 min, skip today (the micro set was removed 2026-11-25).
       { identifier: ACTION_START, buttonTitle: i18n.t('reminders.actions.start'), options: { opensAppToForeground: true } },
-      { identifier: ACTION_MICRO, buttonTitle: i18n.t('reminders.actions.micro'), options: { opensAppToForeground: true } },
       { identifier: ACTION_SNOOZE_15, buttonTitle: i18n.t('reminders.actions.snooze15'), options: { opensAppToForeground: false } },
       { identifier: ACTION_SKIP_TODAY, buttonTitle: i18n.t('reminders.actions.skipToday'), options: { opensAppToForeground: false } },
     ]);
@@ -159,9 +157,6 @@ export function handleNotificationResponse(res: Notifications.NotificationRespon
       break;
     case ACTION_START:
       router.push({ pathname: '/workout/[sessionId]', params: { sessionId: 'quick' } });
-      break;
-    case ACTION_MICRO:
-      router.push({ pathname: '/workout/[sessionId]', params: { sessionId: 'micro' } });
       break;
     default:
       if (kind === 'weeklyTest') router.push('/strength-test');

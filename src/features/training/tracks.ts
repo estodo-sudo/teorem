@@ -35,6 +35,10 @@ export const KEGEL_CUES = cuesJson.cues as KegelCue[];
 /** Track texts follow the profile's sex (same ids and engine; see src/i18n/sex.ts). */
 export const KEGEL_TRACKS = bySex(tracksJson.tracks as TrackInfo[], femaleJson.tracks);
 export const KEGEL_WEEK_THEMES = tracksJson.weekThemes;
+/** Week 1 of stages 2–6 of the 180-day plan ("Tazele" instead of "Kası tanı"). */
+export const KEGEL_WEEK_THEME_RESTART = tracksJson.weekThemeRestart;
+/** The endless 7-day cycle after the 180-day plan. */
+export const KEGEL_WEEK_THEME_CYCLE = tracksJson.weekThemeCycle;
 
 export const DURATION_SEC: Record<DurationPreset, number> = { quick: 180, standard: 300, full: 480 };
 export const DURATION_ORDER: DurationPreset[] = ['quick', 'standard', 'full'];
@@ -58,7 +62,7 @@ export const TRACK_SEQUENCE: Record<TrackId, KegelExerciseType[]> = {
 };
 
 /** Exercise types that contract the muscle (count toward caps). */
-export const CONTRACTION_TYPES: ReadonlySet<KegelExerciseType> = new Set(['slow_hold', 'quick_flick', 'max_contraction', 'elevator', 'endurance', 'knack']);
+export const CONTRACTION_TYPES: ReadonlySet<KegelExerciseType> = new Set(['slow_hold', 'quick_flick', 'max_contraction', 'elevator', 'endurance', 'knack', 'step_up', 'step_down', 'double_peak', 'half_quick', 'half_hold', 'wave']);
 
 /** Priority when several goals are chosen (user decision): surgery > bladder > erection > control > general. */
 export const TRACK_PRIORITY: TrackId[] = ['surgery', 'bladder', 'erection', 'control', 'general'];

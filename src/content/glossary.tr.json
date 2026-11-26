@@ -451,21 +451,21 @@
     "id": "plan",
     "icon": "calendar",
     "tone": "knowledge",
-    "title": "30 günlük plan nedir?",
-    "summary": "Her gün bir antrenmandan oluşan, ilerlemeni takip eden plan.",
-    "shortSummary": "Her gün bir antrenmandan oluşan plan",
+    "title": "180 günlük plan nedir?",
+    "summary": "Her gün iki turdan oluşan, yeni hareketlerle ilerleyen 180 günlük plan.",
+    "shortSummary": "Yeni hareketlerle ilerleyen 180 günlük plan",
     "sections": [
       {
         "title": "Kısaca",
-        "text": "Plan 30 günden oluşur. Her gün için o günün seviyesine göre bir antrenman hazırlanır ve tamamladığın günler işaretlenir."
+        "text": "Plan 180 günden oluşur ve 30 günlük altı aya bölünür. Her gün 1. tur ve 2. turdan oluşur; ikisi bitince gün tamamlanır. Her ayın 4. haftası hafif haftadır."
       },
       {
-        "title": "Antrenman nasıl kurulur?",
-        "text": "Her antrenman hafif bir ısınmayla başlar, ana bölümle devam eder ve gevşeme ile nefesle biter. Seviye 5 ve üzerinde bir dayanıklılık bölümü de eklenir."
+        "title": "Yeni hareketler",
+        "text": "1. günde Yavaş Sıkma, ardından 11, 16, 24, 32, 45 ve 55. günlerde birer yeni hareket öğrenirsin. Yeni hareket, o günün 1. turundan sonra kısa bir eğitimle gelir. Son öğrendiğin hareket her turda olur; öncekiler 2. turda sırayla tekrar edilir."
       },
       {
         "title": "Plan bitince",
-        "text": "30 gün tamamlandığında yeni plan otomatik başlar ve seviyen kaldığı yerden devam eder."
+        "text": "180 gün tamamlandığında hiç bitmeyen 7 günlük bir döngü başlar: her gün bir hareket öne çıkar, 7. gün hafif gündür. Seviyen ve öğrendiğin hareketler korunur."
       }
     ],
     "reviewed": false

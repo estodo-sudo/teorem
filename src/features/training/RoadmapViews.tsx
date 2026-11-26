@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { View } from 'react-native';
-import Animated, { Easing, useAnimatedStyle, useReducedMotion, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
+import Animated, { cancelAnimation, Easing, useAnimatedStyle, useReducedMotion, useSharedValue, withRepeat, withSequence, withTiming } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
+import { useLive } from '@/lib/useLive';
 import { AppText, Icon, useTheme } from '@/components';
 import { Card, Dialog, IconTile, ScalePressable } from '@/components/ui';
 import { formatDuration, toDateKey } from '@/lib/date';
@@ -10,6 +11,8 @@ import { useHistoryStore } from '@/stores/historyStore';
 import { useKegelStore } from '@/stores/kegelStore';
 
 import { generateSession } from './generateSession';
+import { absoluteDay, cycleMoves, learnedMoves, plannedLearned, roundMoves } from './moves';
+import { isCycle, todayPlanPosition } from './plan';
 import { blockText } from './player/playerUi';
 import { deloadOnPlanDay, tasksForDay, type RoadmapNode } from './roadmap';
 import { strengthFallingTwoWeeks } from './schedule';
@@ -23,10 +26,15 @@ export function DayNode({ node, size = 44, onPress, deload }: { node: RoadmapNod
   const t = useTheme();
   const { t: tr } = useTranslation();
   const reduce = useReducedMotion();
+  const live = useLive();
   const pulse = useSharedValue(0);
   useEffect(() => {
+    if (!live) {
+      cancelAnimation(pulse);
+      return;
+    }
     if (node.state === 'today' && !reduce) pulse.value = withRepeat(withSequence(withTiming(1, { duration: 1200, easing: Easing.out(Easing.quad) }), withTiming(0, { duration: 0 })), -1);
-  }, [node.state, pulse, reduce]);
+  }, [node.state, pulse, reduce, live]);
   const ring = useAnimatedStyle(() => ({ opacity: 0.45 * (1 - pulse.value), transform: [{ scale: 1 + 0.3 * pulse.value }] }));
   const done = node.state === 'done';
   const today = node.state === 'today';
@@ -70,17 +78,25 @@ export function DayNode({ node, size = 44, onPress, deload }: { node: RoadmapNod
 }
 
 /** Tap a day → its session (§8): the blocks as a numbered vertical stepper. */
-export function DayPreview({ visible, day, week, training, onClose }: { visible: boolean; day: number; week: number; training: TrainingState; onClose: () => void }) {
+export function DayPreview({ visible, day, cycle = false, week, training, onClose }: { visible: boolean; day: number; cycle?: boolean; week: number; training: TrainingState; onClose: () => void }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const falling = useHistoryStore((h) => strengthFallingTwoWeeks(h.strengthTests));
   // Same lighter-week rule as the real session (plan week 4, or an early deload this week).
-  const deload = deloadOnPlanDay(training, toDateKey(), day, falling);
-  const s = generateSession({ level: training.level, dayIndex: day, weekIndex: week, seed: `preview-${day}`, deload });
+  const deload = deloadOnPlanDay(training, toDateKey(), day, falling, cycle);
+  // Tur 1 of that day with the moves learned by then: today's real ones, other days as planned. A cycle
+  // day (after the 180 days) has its own moves, from the moves learned so far.
+  const today = toDateKey();
+  const pos = todayPlanPosition(training, today);
+  const abs = cycle ? 0 : absoluteDay(1, day);
+  const isToday = cycle ? isCycle(pos.planNumber) && pos.planDay === day : !isCycle(pos.planNumber) && pos.planDay === day;
+  const learned = isToday || cycle ? learnedMoves(training) : plannedLearned(abs);
+  const moves = cycle ? cycleMoves(learned.length ? learned : plannedLearned(Number.MAX_SAFE_INTEGER), day, 1) : roundMoves(learned, abs, 1);
+  const s = generateSession({ level: training.level, dayIndex: day, weekIndex: week, seed: `preview-${cycle ? 'c' : ''}${day}`, deload, moves });
   return (
     <Dialog
       visible={visible}
-      title={tr('training.preview.title', { day: day + 1 })}
+      title={cycle ? tr('training.cycleDayLabel', { day: day + 1 }) : tr('training.preview.title', { day: day + 1 })}
       description={`${tr('training.preview.meta', { time: formatDuration(s.plannedSec), count: s.contractions })}${s.deload ? ` · ${tr('today.workout.deload')}` : ''}`}
       onClose={onClose}
       actions={[{ label: tr('common.close'), variant: 'secondary', onPress: onClose }]}

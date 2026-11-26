@@ -1,6 +1,6 @@
 import { appImage, type AppImage } from '@/content/images';
 
-import type { Story } from '../data';
+import { storyCoverId, type Story } from '../data';
 import type { ShownPage } from './pages';
 
 /** Bottom scrim (SPEC_GORSELLER_V5 §4): black, from 0 at 40 % height to `max` at the bottom, eased. */
@@ -37,7 +37,7 @@ export interface SlidePhoto {
  * and the slide's own `image` elsewhere. Undefined → the viewer draws the tone gradient with an icon.
  */
 export function slidePhoto(story: Story, page: ShownPage): SlidePhoto | undefined {
-  const cover = appImage(`story/${story.id}`);
+  const cover = appImage(storyCoverId(story));
   const own = page.type === 'cover' || page.type === 'summary' ? cover : appImage(page.image);
   if (!own) return undefined;
   return {

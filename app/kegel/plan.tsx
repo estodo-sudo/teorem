@@ -4,9 +4,9 @@ import Animated, { FadeIn, ReduceMotion } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
 import { AppText, Header, Icon, Screen, useTheme } from '@/components';
+import { PLAN_STAGE_DAYS, PLAN_STAGES } from '@/config/app';
 import { Badge, Card, ScalePressable } from '@/components/ui';
-import { todayPlanDay } from '@/features/training/plan';
-import { deloadOnPlanDay, roadmapNodes, weekIndexForPlanDay, weekTheme, type RoadmapNode } from '@/features/training/roadmap';
+import { currentPlanWeek, CYCLE_STAGE, deloadOnPlanDay, type RoadmapNode, roadmapNodes, weekIndexForPlanDay, weekTheme } from '@/features/training/roadmap';
 import { DayNode, DayPreview } from '@/features/training/RoadmapViews';
 import { strengthFallingTwoWeeks } from '@/features/training/schedule';
 import { TrackCard } from '@/features/training/TrackCard';
@@ -30,39 +30,66 @@ export default function PlanScreen() {
   const training = useTrainingStore((s) => s.training);
   const today = toDateKey();
   const nodes = roadmapNodes(training, today);
-  const planWeek = Math.min(3, Math.floor(todayPlanDay(training, today) / 7));
-  const [open, setOpen] = useState<number | null>(planWeek);
-  const [preview, setPreview] = useState<number | null>(null);
+  const { stage: planStage, week: planWeek } = currentPlanWeek(training, today);
+  // one fold per week of the whole plan (and the cycle); today's week starts open
+  const [open, setOpen] = useState<string | null>(`${planStage}-${planWeek}`);
+  const [preview, setPreview] = useState<{ day: number; cycle: boolean } | null>(null);
   const falling = useHistoryStore((h) => strengthFallingTwoWeeks(h.strengthTests));
 
   return (
     <Screen>
-      <Header title={tr('training.roadmap.title', { plan: training.planNumber })} onBack={() => goBack('/')} />
+      <Header title={tr('training.roadmap.title')} onBack={() => goBack('/')} />
       <TrackCard />
+      {/* The whole 180-day plan, month by month in the familiar four-week folds, then the 7-day cycle that
+          repeats after it (2026-11-26). */}
+      {Array.from({ length: PLAN_STAGES }, (_, stage) => (
+        <View key={stage} style={{ gap: t.space.md }}>
+          <AppText variant="footnote" muted accessibilityRole="header">
+            {tr('training.roadmap.stage', { stage: stage + 1, total: PLAN_STAGES, from: stage * PLAN_STAGE_DAYS + 1, to: (stage + 1) * PLAN_STAGE_DAYS })}
+          </AppText>
+          {[0, 1, 2, 3].map((w) => {
+            const key = `${stage}-${w}`;
+            return (
+              <WeekSection
+                key={key}
+                week={w}
+                stage={stage}
+                nodes={nodes.filter((n) => n.stage === stage && n.week === w)}
+                current={stage === planStage && w === planWeek}
+                open={open === key}
+                onToggle={() => setOpen(open === key ? null : key)}
+                isDeload={(day) => w !== 3 && deloadOnPlanDay(training, today, day, falling)}
+                onPreview={(day) => setPreview({ day, cycle: false })}
+              />
+            );
+          })}
+        </View>
+      ))}
       <View style={{ gap: t.space.md }}>
-        {[0, 1, 2, 3].map((w) => (
-          <WeekSection
-            key={w}
-            week={w}
-            nodes={nodes.filter((n) => n.week === w)}
-            current={w === planWeek}
-            open={open === w}
-            onToggle={() => setOpen(open === w ? null : w)}
-            isDeload={(day) => w !== 3 && deloadOnPlanDay(training, today, day, falling)}
-            onPreview={setPreview}
-          />
-        ))}
+        <AppText variant="footnote" muted accessibilityRole="header">
+          {tr('training.roadmap.cycle')}
+        </AppText>
+        <WeekSection
+          week={0}
+          stage={CYCLE_STAGE}
+          nodes={nodes.filter((n) => n.cycle)}
+          current={planStage === CYCLE_STAGE}
+          open={open === `${CYCLE_STAGE}-0`}
+          onToggle={() => setOpen(open === `${CYCLE_STAGE}-0` ? null : `${CYCLE_STAGE}-0`)}
+          isDeload={(day) => deloadOnPlanDay(training, today, day, falling, true)}
+          onPreview={(day) => setPreview({ day, cycle: true })}
+        />
       </View>
-      {preview !== null ? <DayPreview visible day={preview} week={weekIndexForPlanDay(training, today, preview)} training={training} onClose={() => setPreview(null)} /> : null}
+      {preview !== null ? <DayPreview visible day={preview.day} cycle={preview.cycle} week={weekIndexForPlanDay(training, today, preview.day)} training={training} onClose={() => setPreview(null)} /> : null}
     </Screen>
   );
 }
 
-function WeekSection({ week, nodes, current, open, onToggle, isDeload, onPreview }: { week: number; nodes: RoadmapNode[]; current: boolean; open: boolean; onToggle: () => void; isDeload: (day: number) => boolean; onPreview: (day: number) => void }) {
+function WeekSection({ week, stage, nodes, current, open, onToggle, isDeload, onPreview }: { week: number; stage: number; nodes: RoadmapNode[]; current: boolean; open: boolean; onToggle: () => void; isDeload: (day: number) => boolean; onPreview: (day: number) => void }) {
   const t = useTheme();
   const { t: tr } = useTranslation();
   const k = t.tokens;
-  const theme = weekTheme(week);
+  const theme = weekTheme(week, stage);
   const done = nodes.filter((n) => n.state === 'done').length;
   const finished = done === nodes.length && nodes.length > 0;
   return (
@@ -79,7 +106,7 @@ function WeekSection({ week, nodes, current, open, onToggle, isDeload, onPreview
             <Icon name="check" size="sm" color={k.primaryForeground} />
           ) : (
             <AppText variant="footnote" tabular style={{ fontWeight: '600', color: current ? k.primary : k.mutedForeground }}>
-              {week + 1}
+              {stage >= CYCLE_STAGE ? '∞' : stage * 4 + week + 1}
             </AppText>
           )}
         </View>
@@ -112,7 +139,7 @@ function WeekSection({ week, nodes, current, open, onToggle, isDeload, onPreview
                     <DayNode node={n} size={NODE} deload={deload} onPress={() => onPreview(n.day)} />
                   </View>
                   <AppText variant="body" style={{ flex: 1, color: n.state === 'future' ? k.mutedForeground : k.foreground }}>
-                    {tr('training.dayLabel', { day: n.day + 1 })}
+                    {n.cycle ? tr('training.cycleDayLabel', { day: n.day + 1 }) : tr('training.dayLabel', { day: n.day + 1 })}
                   </AppText>
                   {deload ? (
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.xs }}>

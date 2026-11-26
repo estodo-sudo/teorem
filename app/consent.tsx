@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Screen, useTheme } from '@/components';
-import { AccordionCard, Button, IconTile, OptionCard, ScalePressable } from '@/components/ui';
+import { AppText, Branded, Screen, useTheme } from '@/components';
+import { AnimatedArt } from '@/components/AnimatedArt';
+import { AccordionCard, Button, OptionCard, ScalePressable } from '@/components/ui';
 import { APP_NAME, MIN_AGE } from '@/config/app';
 import { useProfileStore } from '@/stores/profileStore';
 
@@ -24,9 +25,9 @@ export default function Consent() {
   return (
     <Screen footer={<Button label={tr('consent.accept')} size="lg" fullWidth disabled={!age || !medical} onPress={accept} accessibilityHint={tr('consent.acceptHint')} />}>
       <View style={{ alignItems: 'center', marginTop: t.space.lg, gap: t.space.md }}>
-        <IconTile icon="shieldCheck" size={t.tile.lg + t.space.xl} round />
+        <AnimatedArt name="consent" size={150} />
         <AppText variant="title1" center accessibilityRole="header">
-          {tr('consent.title', { app: APP_NAME })}
+          <Branded>{tr('consent.title', { app: APP_NAME })}</Branded>
         </AppText>
         <AppText variant="body" muted center>
           {tr('consent.subtitle')}

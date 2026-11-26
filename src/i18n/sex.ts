@@ -18,13 +18,13 @@ const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object
 /**
  * Lays `patch` over `base` without changing either. Objects merge key by key. In arrays, a patch item
  * with an `id` replaces fields of the base item with the same id; items without an id go by position,
- * and `null` keeps the base item. A list of plain values (strings, numbers) replaces the base list.
+ * and `null` (or a shorter patch) keeps the base items. `{ $replace: [...] }` replaces a list as a whole.
  */
 export function overlay<T>(base: T, patch: unknown): T {
   if (patch === undefined || patch === null) return base;
+  // { $replace: [...] } replaces a list as a whole (e.g. a story's sources, a track's sourceIds).
+  if (isObj(patch) && '$replace' in patch) return patch.$replace as T;
   if (Array.isArray(base) && Array.isArray(patch)) {
-    // A list of plain values (e.g. sourceIds) is replaced as a whole.
-    if (patch.every((p) => p !== null && typeof p !== 'object')) return patch as T;
     const byId = new Map(patch.filter((p) => isObj(p) && typeof p.id === 'string').map((p) => [(p as { id: string }).id, p]));
     const anyId = byId.size > 0;
     return base.map((item, i) => {
@@ -46,7 +46,30 @@ export function overlay<T>(base: T, patch: unknown): T {
  * change in settings shows on the next render.
  */
 export function bySex<T extends object>(base: T, female: unknown): T {
-  const variants: Record<Sex, T> = { male: base, female: overlay(base, female) };
+  return sexVariants(base, overlay(base, female));
+}
+
+/**
+ * Women's content lists (2026-11-25): `hide` takes out items only men need (e.g. erection topics),
+ * `patch` lays women's wording over shared items (by id), and `add` puts women-only items where a
+ * hidden one stood (`after`), so the list keeps its order and length.
+ */
+export function femaleList<T extends { id: string }>(base: T[], spec: { hide?: string[]; patch?: unknown[]; add?: (Partial<T> & { after?: string })[] }): T[] {
+  const patched = overlay(base, spec.patch ?? []);
+  const hide = new Set(spec.hide ?? []);
+  const out: T[] = [];
+  for (const item of patched) {
+    if (!hide.has(item.id)) out.push(item);
+    for (const a of spec.add ?? []) if (a.after === item.id) out.push(a as unknown as T);
+  }
+  for (const a of spec.add ?? []) if (!a.after || !base.some((b) => b.id === a.after)) out.push(a as unknown as T);
+  return out;
+}
+
+/** A value that is `male` or `female` depending on the profile, read afresh on every access. */
+export function sexVariants<T extends object>(male: T, female: T): T {
+  const base = male;
+  const variants: Record<Sex, T> = { male, female };
   const cur = () => variants[currentSex()];
   return new Proxy(base, {
     get: (_t, key) => {

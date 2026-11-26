@@ -1,3 +1,5 @@
+import { MAX_MOVE_BLOCK_REPS } from './moves';
+
 /**
  * Kegel levels 1..30 (user decision 2026-11-22). A session has three exercises:
  *
@@ -22,7 +24,7 @@ export interface LevelParams {
   slowBlockSec: number;
   /** Tur 1 cycles of (uzun, hızlı). */
   cycles: number;
-  /** Contractions in Tur 1 + Tur 2 at this level. */
+  /** Contractions in Tur 1 + Tur 2 at this level (with room for the learned moves of the 180-day plan). */
   sessionCap: number;
 }
 
@@ -60,7 +62,8 @@ function build(level: number): LevelParams {
   const flicks = quickSec / 2;
   const round1 = cycles + 1 + cycles * flicks;
   const round2 = ROUND2_ORDER.reduce((n, b) => n + (b === 'slow' ? slowReps(slowBlockSec) : b === 'quick' ? flicks : 1), 0);
-  return { level, holdSec, quickSec, slowBlockSec, cycles, sessionCap: round1 + round2 };
+  // 180-day plan: up to three move blocks more (the latest in Tur 1 and Tur 2, one review in Tur 2).
+  return { level, holdSec, quickSec, slowBlockSec, cycles, sessionCap: round1 + round2 + 3 * MAX_MOVE_BLOCK_REPS };
 }
 
 export const LEVELS: readonly LevelParams[] = Array.from({ length: MAX_LEVEL }, (_, i) => build(i + 1));

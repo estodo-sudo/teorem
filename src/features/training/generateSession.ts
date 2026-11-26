@@ -2,6 +2,7 @@ import { createRng, shuffle } from '@/lib/random';
 import type { KegelExerciseType } from '@/types';
 
 import { clampLevel, getLevel, REST_SEC, ROUND2_ORDER, SLOW_PAUSE_SEC, SLOW_TOP_SEC, SLOW_UP_SEC, slowReps, type LevelParams } from './levels';
+import { moveShape, type MoveId, type RoundMoves } from './moves';
 import { CONTRACTION_TYPES, KEGEL_CUES } from './tracks';
 import type { GeneratedSession, Phase, SessionBlock, SessionExercise } from './types';
 
@@ -10,6 +11,10 @@ import type { GeneratedSession, Phase, SessionBlock, SessionExercise } from './t
  *
  *  Tur 1  (uzun sıkma → dinlen → hızlı sık-bırak → dinlen) × cycles → uzun sıkma
  *  Tur 2  yavaş sıkma → dinlen → hızlı sık-bırak → dinlen → yavaş sıkma → dinlen → uzun sıkma, optional after Tur 1
+ *
+ * 180-day plan (2026-11-26): the latest learned move (moves.ts) is added to both rounds — in Tur 1
+ * before the last uzun sıkma, in Tur 2 after the first yavaş sıkma — and one earlier move, in turns,
+ * before the last uzun sıkma of Tur 2.
  *
  * Uzun sıkma is one continuous squeeze; hızlı sık-bırak is 1 s squeeze / 1 s let go; yavaş sıkma is
  * slowly up (3 s), 0.5 s at the top, let go and wait 1 s. "Dinlen" (5 s) is the pause between exercises
@@ -36,6 +41,8 @@ export interface SessionInput {
   weekIndex?: number;
   /** Plan week 4 ("Toparlanma") or an early deload: Tur 1 has one cycle less (at least 1). */
   deload?: boolean;
+  /** Learned moves added to this round (moves.ts → roundMoves). */
+  moves?: RoundMoves;
 }
 
 const ms = (s: number) => Math.round(s * 1000);
@@ -65,15 +72,28 @@ const slowBlock = (p: LevelParams, rng: () => number): SessionBlock => ({
   role: 'main',
 });
 
-/** Blocks of a round at a level. */
-export function roundBlocks(round: Round, p: LevelParams, rng: () => number, deload = false): SessionBlock[] {
+/** A learned move as a block: its steps per rep and the reps at this level. */
+export function moveBlock(id: MoveId, p: LevelParams, rng: () => number): SessionBlock {
+  if (id === 'elevator') return slowBlock(p, rng);
+  const { steps, reps } = moveShape(id, p.level);
+  const sum = (on: boolean) => steps.reduce((a, s) => a + ((s.level > 0) === on ? s.sec : 0), 0);
+  return { type: id, position: POSITION, steps, holdSec: sum(true), restSec: sum(false), reps, cueSet: pickCues(id, rng), role: 'main' };
+}
+
+/** Blocks of a round at a level (with the learned moves of the 180-day plan). */
+export function roundBlocks(round: Round, p: LevelParams, rng: () => number, deload = false, moves: RoundMoves = {}): SessionBlock[] {
   const blocks: SessionBlock[] = [];
   if (round === 1) {
     const cycles = deload ? Math.max(1, p.cycles - 1) : p.cycles;
     for (let c = 0; c < cycles; c++) blocks.push(longBlock(p, rng), quickBlock(p, rng));
+    if (moves.latest) blocks.push(moveBlock(moves.latest, p, rng));
     blocks.push(longBlock(p, rng));
   } else {
-    for (const b of ROUND2_ORDER) blocks.push(b === 'slow' ? slowBlock(p, rng) : b === 'quick' ? quickBlock(p, rng) : longBlock(p, rng));
+    ROUND2_ORDER.forEach((b, i) => {
+      if (b === 'long' && moves.review) blocks.push(moveBlock(moves.review, p, rng));
+      blocks.push(b === 'slow' ? slowBlock(p, rng) : b === 'quick' ? quickBlock(p, rng) : longBlock(p, rng));
+      if (i === 0 && moves.latest) blocks.push(moveBlock(moves.latest, p, rng));
+    });
   }
   return blocks;
 }
@@ -82,6 +102,16 @@ export function roundBlocks(round: Round, p: LevelParams, rng: () => number, del
 function repPhases(b: SessionBlock, i: number, rep: number): Phase[] {
   const base = { exerciseIndex: i, rep, reps: b.reps, set: 1, sets: 1 };
   const ph = (kind: Phase['kind'], sec: number, variant?: Phase['variant']): Phase => ({ kind, durationMs: ms(sec), ...base, ...(variant ? { variant } : {}) });
+  if (b.steps) {
+    // A move of the 180-day plan: each step squeezes to its level (a slow one grows over the step);
+    // level 0 lets go fully. Every rep starts from a let-go muscle.
+    let prev = 0;
+    return b.steps.map((s) => {
+      const p: Phase = s.level > 0 ? { ...ph('contract', s.sec, s.ramp ? 'slowUp' : undefined), level: s.level, fromLevel: prev } : { ...ph('relax', s.sec), fromLevel: prev };
+      prev = s.level;
+      return p;
+    });
+  }
   switch (b.type) {
     case 'elevator':
       return [ph('contract', b.slowSec ?? SLOW_UP_SEC, 'slowUp'), ph('contract', (b.holdSec ?? SLOW_UP_SEC + SLOW_TOP_SEC) - (b.slowSec ?? SLOW_UP_SEC), 'top'), ph('relax', b.restSec)];
@@ -131,18 +161,12 @@ export function generateSession(input: SessionInput): GeneratedSession {
   const round: Round = input.round ?? 1;
   const rng = createRng(`${input.seed}|L${lvl}|R${round}`);
   const deload = round === 1 && Boolean(input.deload);
-  const blocks = roundBlocks(round, getLevel(lvl), rng, deload);
+  const moves = input.moves ?? {};
+  const blocks = roundBlocks(round, getLevel(lvl), rng, deload, moves);
   const dayIndex = Math.max(0, Math.floor(input.dayIndex ?? 0));
   const weekIndex = Math.max(0, Math.floor(input.weekIndex ?? 0));
-  return assemble({ ...base(`${input.seed}-L${lvl}-R${round}-D${dayIndex}${deload ? '-light' : ''}`, input.seed, lvl, { dayIndex, weekIndex, round, deload }), blocks });
-}
-
-/** Micro set: one uzun sıkma and one hızlı sık-bırak (≈ 50 s at level 1). */
-export function generateMicroSet(input: { level: number; seed: string }): GeneratedSession {
-  const lvl = clampLevel(input.level);
-  const p = getLevel(lvl);
-  const rng = createRng(`${input.seed}|micro|${lvl}`);
-  return assemble({ ...base(`${input.seed}-micro-L${lvl}`, input.seed, lvl, { isMicro: true }), blocks: [longBlock(p, rng), quickBlock(p, rng)] });
+  const tag = [moves.latest, moves.review].filter(Boolean).join('+');
+  return assemble({ ...base(`${input.seed}-L${lvl}-R${round}-D${dayIndex}${deload ? '-light' : ''}${tag ? `-M${tag}` : ''}`, input.seed, lvl, { dayIndex, weekIndex, round, deload }), blocks });
 }
 
 /** Release-only session: what still opens once the daily contraction cap is reached (§11.5) or after pain. */
@@ -156,6 +180,13 @@ export function generateReleaseSession(seed: string): GeneratedSession {
 export function generateTrialSession(): GeneratedSession {
   const blocks: SessionBlock[] = [{ type: 'slow_hold', position: POSITION, holdSec: 3, restSec: 3, reps: 3, cueSet: [], role: 'main' }];
   return assemble({ ...base('trial', 'trial', 1, { isMicro: true }), blocks });
+}
+
+/** Practice in a move's lesson (180-day plan): a few reps at level 1 (two, six quick ones, or one long one). */
+export function generateMoveDemo(id: Exclude<MoveId, 'elevator'>): GeneratedSession {
+  const rng = createRng(`move-demo-${id}`);
+  const reps = id === 'half_quick' ? 6 : id === 'half_hold' || id === 'wave' ? 1 : 2;
+  return assemble({ ...base(`move-demo-${id}`, `move-demo-${id}`, 1, { isMicro: true, round: 2 }), blocks: [{ ...moveBlock(id, getLevel(1), rng), reps }] });
 }
 
 /** Tur 2 introduction demo: 3 yavaş sıkma reps, as in Tur 2. */

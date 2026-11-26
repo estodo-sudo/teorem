@@ -3126,6 +3126,137 @@
       },
       "blurhash": "L~LNiDNGofof~qofayofj[xtWBj@",
       "readability": null
+    },
+    "story/journey-180": {
+      "hash": "6747481c6c64",
+      "files": {
+        "card": {
+          "file": "story/journey-180/card.webp",
+          "bytes": 22576,
+          "quality": 70,
+          "overLimit": false
+        },
+        "slide": {
+          "file": "story/journey-180/1.webp",
+          "bytes": 28896,
+          "quality": 62,
+          "overLimit": false
+        },
+        "wide": {
+          "file": "story/journey-180/wide.webp",
+          "bytes": 33652,
+          "quality": 70,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L~N,h{%1o0xa~qbbWWkCIqWCj[ay",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 7.89,
+        "type": "cover"
+      }
+    },
+    "story/journey-180/2": {
+      "hash": "c1bb2e7be4a4",
+      "files": {
+        "slide": {
+          "file": "story/journey-180/2.webp",
+          "bytes": 33676,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LBIhmc_3~q%2Di%M_3IUR-bH%MRj",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 16.36,
+        "type": "myth"
+      }
+    },
+    "story/journey-180/3": {
+      "hash": "69e3cb878530",
+      "files": {
+        "slide": {
+          "file": "story/journey-180/3.webp",
+          "bytes": 57690,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L6C~#I-oR4-U?Gt7-:xa~U?aShbH",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 12.26,
+        "type": "info"
+      }
+    },
+    "story/journey-180/4": {
+      "hash": "98e69ba159fe",
+      "files": {
+        "slide": {
+          "file": "story/journey-180/4.webp",
+          "bytes": 47944,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LcF?C8x[aeof.TofaykCIpRkayoe",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 10.77,
+        "type": "action"
+      }
+    },
+    "story/journey-180/5": {
+      "hash": "6468d84c16bd",
+      "files": {
+        "slide": {
+          "file": "story/journey-180/5.webp",
+          "bytes": 37662,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L5B|7@%L02~V00D*jFD*9c-p%Lt7",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 17.36,
+        "type": "quiz"
+      }
+    },
+    "story/journey-180/6": {
+      "hash": "0f7a9d457167",
+      "files": {
+        "slide": {
+          "file": "story/journey-180/6.webp",
+          "bytes": 11178,
+          "quality": 62,
+          "overLimit": false
+        }
+      },
+      "blurhash": "LlL|$6-pRkt7~qazayofs-NGj[oL",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 9.47,
+        "type": "info"
+      }
+    },
+    "story/journey-180/7": {
+      "hash": "bd77455ed6ee",
+      "files": {
+        "slide": {
+          "file": "story/journey-180/7.webp",
+          "bytes": 100628,
+          "quality": 50,
+          "overLimit": false
+        }
+      },
+      "blurhash": "L99%q?s:oL%L~pofWBozNHWVWVRk",
+      "readability": {
+        "scrim": 0.78,
+        "contrast": 15.16,
+        "type": "action"
+      }
     }
   }
 }

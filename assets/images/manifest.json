@@ -3609,6 +3609,165 @@
       },
       "alt": "Gün batımında dağ zirvesinde kollarını açmış duran bir adam, arkadan",
       "status": "accepted"
+    },
+    {
+      "id": "story/journey-180",
+      "source": {
+        "site": "pexels",
+        "photoId": 2915263,
+        "page": "https://www.pexels.com/photo/man-standing-on-hill-2915263/",
+        "photographer": "Muhammad  Ilyasa ",
+        "photographerUrl": "https://www.pexels.com/@ilyasajpg",
+        "license": "Pexels License",
+        "width": 5184,
+        "height": 3456
+      },
+      "download": "https://images.pexels.com/photos/2915263/pexels-photo-2915263.jpeg?auto=compress&cs=tinysrgb&h=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.38,
+        "y": 0.5
+      },
+      "alt": "Gün doğumunda sisli vadilere bakan bir yürüyüşçü",
+      "status": "accepted",
+      "wideFocus": {
+        "x": 0.42,
+        "y": 0.78,
+        "zoom": 1.8
+      },
+      "reusedFrom": "story/smoking"
+    },
+    {
+      "id": "story/journey-180/2",
+      "source": {
+        "site": "pexels",
+        "photoId": 1743397,
+        "page": "https://www.pexels.com/photo/person-wearing-black-leather-shoes-1743397/",
+        "photographer": "eberhard grossgasteiger",
+        "photographerUrl": "https://www.pexels.com/@eberhardgross",
+        "license": "Pexels License",
+        "width": 2000,
+        "height": 3000
+      },
+      "download": "https://images.pexels.com/photos/1743397/pexels-photo-1743397.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "alt": "Aydınlık basamaklarda yukarı çıkan bir ayak",
+      "status": "accepted",
+      "reusedFrom": "story/move-more/5"
+    },
+    {
+      "id": "story/journey-180/3",
+      "source": {
+        "site": "pexels",
+        "photoId": 25559836,
+        "page": "https://www.pexels.com/photo/spiral-stairs-on-a-staircase-25559836/",
+        "photographer": "Chayanan Chaisaart",
+        "photographerUrl": null,
+        "license": "Pexels License",
+        "width": 4284,
+        "height": 5712
+      },
+      "download": "https://images.pexels.com/photos/25559836/pexels-photo-25559836.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "alt": "Yukarıdan çekilmiş dönen bir merdiven",
+      "status": "accepted",
+      "reusedFrom": "story/performance-anxiety/3"
+    },
+    {
+      "id": "story/journey-180/4",
+      "source": {
+        "site": "pexels",
+        "photoId": 16980804,
+        "page": "https://www.pexels.com/photo/man-running-on-road-in-countryside-16980804/",
+        "photographer": "Masi",
+        "photographerUrl": null,
+        "license": "Pexels License",
+        "width": 2635,
+        "height": 3952
+      },
+      "download": "https://images.pexels.com/photos/16980804/pexels-photo-16980804.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "alt": "Gün doğumunda kırda uzanan bir yol ve koşan biri",
+      "status": "accepted",
+      "reusedFrom": "story/alcohol/6"
+    },
+    {
+      "id": "story/journey-180/5",
+      "source": {
+        "site": "pexels",
+        "photoId": 26150937,
+        "page": "https://www.pexels.com/photo/balancing-stones-by-river-26150937/",
+        "photographer": "ABHIJEET  SINGH",
+        "photographerUrl": null,
+        "license": "Pexels License",
+        "width": 4000,
+        "height": 6000
+      },
+      "download": "https://images.pexels.com/photos/26150937/pexels-photo-26150937.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "alt": "Çakıllar üzerinde dengede duran taşlar",
+      "status": "accepted",
+      "reusedFrom": "story/core-hips/6"
+    },
+    {
+      "id": "story/journey-180/6",
+      "source": {
+        "site": "pexels",
+        "photoId": 32815278,
+        "page": "https://www.pexels.com/photo/minimalist-dark-blue-analog-alarm-clock-on-wooden-surface-32815278/",
+        "photographer": "Enikő Tóth",
+        "photographerUrl": null,
+        "license": "Pexels License",
+        "width": 3000,
+        "height": 4000
+      },
+      "download": "https://images.pexels.com/photos/32815278/pexels-photo-32815278.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "alt": "Ahşap zeminde duran bir çalar saat",
+      "status": "accepted",
+      "reusedFrom": "story/sleep-hormones/3"
+    },
+    {
+      "id": "story/journey-180/7",
+      "source": {
+        "site": "pexels",
+        "photoId": 1662283,
+        "page": "https://www.pexels.com/photo/person-wearing-blue-jeans-1662283/",
+        "photographer": "Luis Aquino",
+        "photographerUrl": null,
+        "license": "Pexels License",
+        "width": 3864,
+        "height": 5152
+      },
+      "download": "https://images.pexels.com/photos/1662283/pexels-photo-1662283.jpeg?auto=compress&cs=tinysrgb&w=1440",
+      "downloaded": "2026-11-21",
+      "focus": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "alt": "Çakıllı bir yolda duran iki ayak",
+      "status": "accepted",
+      "reusedFrom": "story/bladder-control/6"
     }
   ]
 }

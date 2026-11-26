@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Card, Header, Screen, useTheme } from '@/components';
+import { AppLogo, AppText, BrandName, Card, Header, Screen, useTheme } from '@/components';
 import { IconTile } from '@/components/ui';
 import { APP_NAME, APP_VERSION } from '@/config/app';
 
@@ -12,8 +12,11 @@ export default function About() {
     <Screen>
       <Header title={tr('settings.about.title', { app: APP_NAME })} />
       <View style={{ alignItems: 'center', gap: t.space.xs, marginVertical: t.space.md }}>
-        <IconTile icon="leaf" size={t.tile.lg + t.space.xxl} round />
-        <AppText variant="title2">{APP_NAME}</AppText>
+        <AppLogo size={t.tile.lg + t.space.xxl} />
+        <BrandName variant="title2" />
+        <AppText variant="callout" muted>
+          {tr('app.tagline')}
+        </AppText>
         <AppText variant="footnote" muted>
           {tr('settings.about.version', { version: APP_VERSION })}
         </AppText>

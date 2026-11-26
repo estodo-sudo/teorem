@@ -14,7 +14,7 @@ export const TUTORIAL_ORDER: TutorialStep[] = ['what', 'find', 'anatomy', 'posit
 export const CHECKLIST = ['glutes', 'belly', 'breath', 'legs'] as const;
 export const checklistDone = (checked: readonly string[]) => CHECKLIST.every((c) => checked.includes(c));
 
-/** Release practice (§12.5): 2 × (squeeze 3 s → release fully 6 s). */
+/** Practice set 2 (§12.5; shown as "2. deneme seti" since 2026-11-25): 2 × (squeeze 3 s → relax fully 6 s). */
 export function generateReleasePractice(): GeneratedSession {
   const block: SessionBlock = { type: 'slow_hold', position: 'lying', holdSec: 3, restSec: 4, reps: 2, cueSet: ['rel_ground'], role: 'main' };
   const phases: Phase[] = [{ kind: 'countdown', durationMs: 3000, exerciseIndex: -1, rep: 0, reps: 0, set: 1, sets: 1 }];

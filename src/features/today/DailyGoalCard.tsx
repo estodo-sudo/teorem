@@ -8,7 +8,7 @@ import { CHALLENGES, NUTRITION_DAYS, NUTRITION_PLAN, type Challenge } from '@/fe
 import { nutritionDayIndex, nutritionTasksForDay } from '@/features/content/daily';
 import { strengthTestDue } from '@/features/progress/stats';
 import { openGated } from '@/features/purchases/useGate';
-import { generateMicroSet } from '@/features/training/generateSession';
+import {  } from '@/features/training/generateSession';
 import { buildTodaySession } from '@/features/training/service';
 import { dayStatus } from '@/features/training/summary';
 import { useKegelLock } from '@/features/training/useKegelLock';
@@ -27,7 +27,7 @@ interface Goal {
 }
 
 /**
- * "Bugün" — back to the plain task list (user request 2026-11-23): main session, micro set, weekly
+ * "Bugün" — back to the plain task list (user request 2026-11-23): Tur 1, Tur 2, weekly
  * strength test; ticks come from the real history, tapping an open task starts it. Below it, in its
  * own section, today's food ideas from the 28-day plan — suggestions only, nothing to tick.
  */
@@ -44,12 +44,14 @@ export function DailyGoalCard() {
   // Same start as the card's "Başla": the daily contraction cap and the rest lock are checked (2026-11-23).
   const { go, dialog } = useSessionStarter();
   const startMain = () => go(today, buildTodaySession(training, today).contractions);
-  const startMicro = () => go('micro', generateMicroSet({ level: training.level, seed: `${today}-micro` }).contractions);
   const testDoneToday = tests.some((x) => x.date === today);
 
-  const goals: Goal[] = [{ id: 'main', icon: 'play', title: tr('today.goals.main'), done: status.mainDone, onPress: startMain }];
-  // The second slot: a micro set, or the target reached another way (e.g. two main sessions).
-  if (training.dailyTarget > 1) goals.push({ id: 'micro', icon: 'pulse', title: tr('today.goals.micro'), done: status.microDone || status.full, onPress: startMicro });
+  // The day's two halves (2026-11-25): Tur 1, then Tur 2 (the micro set was removed).
+  const startRound2 = () => go('round2', buildTodaySession(training, today, { round: 2 }).contractions);
+  const goals: Goal[] = [
+    { id: 'main', icon: 'play', title: tr('today.goals.round1'), done: status.mainDone, onPress: startMain },
+    { id: 'round2', icon: 'play', title: tr('today.goals.round2'), done: status.round2Done, onPress: status.mainDone ? startRound2 : startMain },
+  ];
   // The weekly test stays ticked on the day it was done (it used to vanish from the list).
   if (testDoneToday || strengthTestDue(tests, today)) goals.push({ id: 'test', icon: 'chart', title: tr('today.goals.test'), done: testDoneToday, onPress: () => openGated('strengthTest', '/strength-test') });
 
@@ -68,10 +70,9 @@ export function DailyGoalCard() {
               title={g.title}
               onPress={g.done || (lock.locked && g.id !== 'test') ? undefined : g.onPress}
               trailing={
+                // During the rest the countdown is only on "Başla" (2026-11-25): here just a lock.
                 g.done ? null : lock.locked && g.id !== 'test' ? (
-                  <AppText variant="footnote" muted tabular>
-                    {lock.left}
-                  </AppText>
+                  <Icon name="lock" size="sm" color={t.tokens.mutedForeground} />
                 ) : (
                   <Icon name="chevron" size="md" color={t.tokens.subtle} />
                 )

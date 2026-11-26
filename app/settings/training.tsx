@@ -13,7 +13,7 @@ import { useSex } from '@/i18n/sex';
 import { useProfileStore } from '@/stores/profileStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 import { useTrainingStore } from '@/stores/trainingStore';
-import type { DailyTarget, HapticStrength, Sex } from '@/types';
+import type { HapticStrength, Sex } from '@/types';
 
 /** "Standart" vibration when switched on: Normal (same as a fresh install). */
 const DEFAULT_STRENGTH: HapticStrength = 2;
@@ -116,18 +116,7 @@ export default function TrainingSettings() {
 
       <VacationCard />
 
-      <Card style={{ gap: 10 }}>
-        <AppText variant="h3">{tr('settings.training.perDay')}</AppText>
-        <Segmented<DailyTarget>
-          accessibilityLabel={tr('settings.training.perDay')}
-          value={training.dailyTarget}
-          onChange={(v) => useTrainingStore.getState().update({ dailyTarget: v })}
-          options={([1, 2, 3, 4] as const).map((v) => ({ value: v, label: String(v) }))}
-        />
-        <AppText variant="small" muted>
-          {tr('settings.training.perDayHint')}
-        </AppText>
-      </Card>
+      {/* "Sessions per day" was removed (2026-11-25): a day is Tur 1 + Tur 2. */}
     </Screen>
   );
 }

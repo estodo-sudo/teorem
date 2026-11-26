@@ -93,6 +93,7 @@ export default function RootLayout() {
           <Stack.Screen name="workout/feedback" options={{ gestureEnabled: false }} />
           <Stack.Screen name="workout/next" options={{ gestureEnabled: false }} />
           <Stack.Screen name="workout/round2-intro" options={{ gestureEnabled: false }} />
+          <Stack.Screen name="workout/move-intro" options={{ gestureEnabled: false }} />
           <Stack.Screen name="strength-test" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="fitness/[routineId]" options={{ presentation: 'fullScreenModal' }} />
           <Stack.Screen name="story/[storyId]" options={{ presentation: 'fullScreenModal', animation: 'fade' }} />

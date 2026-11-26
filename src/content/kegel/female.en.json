@@ -12,47 +12,57 @@
   "tracks": [
     {
       "id": "general",
-      "sourceIds": [
-        "dumoulin2018_cochrane",
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "dumoulin2018_cochrane",
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "erection",
       "title": "Sexual Health and Sensation",
       "text": "Full-strength contractions; lying, sitting and standing in every session. Knowing the muscle better can support sensation and control during sex.",
       "note": "It is not a medical treatment; no particular result is promised.",
-      "sourceIds": [
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "control",
       "title": "Control and Coordination",
       "text": "Coordination of quick contractions and full release, matching with the breath, awareness of relaxation.",
-      "sourceIds": [
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "bladder",
       "title": "Leaks and Bladder Control",
       "text": "Slow holds, quick contractions and squeezing before a cough, sneeze or lift (the Knack).",
-      "sourceIds": [
-        "dumoulin2018_cochrane",
-        "miller1996_knack",
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "dumoulin2018_cochrane",
+          "miller1996_knack",
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "surgery",
       "title": "Recovery After Giving Birth",
       "text": "A gentle start, beginning lying down and progressing to standing, plus Knack practice.",
       "note": "Unlocks only if your doctor or midwife has approved it. Don't exercise if you have pain, bleeding or a problem with stitches.",
-      "sourceIds": [
-        "woodley2020_cochrane",
-        "nice_ng210"
-      ]
+      "sourceIds": {
+        "$replace": [
+          "woodley2020_cochrane",
+          "nice_ng210"
+        ]
+      }
     },
     {
       "id": "relax",

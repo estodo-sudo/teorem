@@ -117,13 +117,15 @@ export function hapticEvents(cue: Cue, strength: HapticStrength): HapticEvent[] 
  * let-go phases are silent. `fromMs` = time already spent in the phase (resume after a pause).
  * Full strength; scale with `scaleEvents`.
  */
-export function phaseVibration(phase: { kind: string; durationMs: number; variant?: string }, fromMs = 0): HapticEvent[] {
+export function phaseVibration(phase: { kind: string; durationMs: number; variant?: string; level?: number }, fromMs = 0): HapticEvent[] {
   if (phase.kind !== 'contract' && phase.kind !== 'cough') return [];
   const from = Math.max(0, fromMs);
   const left = Math.round(phase.durationMs - from);
   if (left < 40) return [];
   // Yavaş sıkma builds up from 30 % to full; everything else rumbles at full strength.
-  const level = phase.variant === 'slowUp' ? (t: number) => 0.3 + (0.7 * Math.min(phase.durationMs, from + t)) / Math.max(1, phase.durationMs) : () => 1;
+  // 180-day-plan moves: a partial squeeze vibrates more softly (⅓ ≈ 53 %, ½ = 65 %, ⅔ ≈ 77 %, full 100 %).
+  const steady = phase.level === undefined ? 1 : 0.3 + 0.7 * Math.min(1, Math.max(0, phase.level));
+  const level = phase.variant === 'slowUp' ? (t: number) => 0.3 + (0.7 * Math.min(phase.durationMs, from + t)) / Math.max(1, phase.durationMs) : () => steady;
   return rumble(left, level, Math.floor(from / RUMBLE_GRAIN_MS));
 }
 
@@ -271,8 +273,17 @@ export function iosFallbackCalls(events: HapticEvent[]): { style: IosImpact; del
 export const cueLengthMs = (cue: Cue) => Math.max(...LANGUAGE[cue].map((e) => e.time + (e.type === 'continuous' ? e.duration : TRANSIENT_MS(e.sharpness))));
 
 /** Cue for a phase start. `exerciseType` tells a quick flick from a squeeze. */
-export function cueForPhase(phase: { kind: string; stage?: number; durationMs: number; variant?: string }, exerciseType?: ExerciseType): Cue | null {
+export function cueForPhase(phase: { kind: string; stage?: number; durationMs: number; variant?: string; level?: number; fromLevel?: number }, exerciseType?: ExerciseType): Cue | null {
   if (phase.variant === 'slowUp') return 'slowSqueeze';
+  if (phase.kind === 'contract' && phase.level !== undefined) {
+    // A step of a 180-day-plan move: the first squeeze of a rep starts like any squeeze; going up a
+    // step taps like the floors (stronger the higher), coming down a step like the floor going down.
+    const from = phase.fromLevel ?? 0;
+    if (from === 0) return phase.durationMs <= 1000 ? 'quickFlick' : 'squeezeStart';
+    if (Math.abs(phase.level - from) < 0.02) return 'holdTick';
+    if (phase.level < from) return 'elevatorDown';
+    return phase.level >= 0.99 ? 'elevatorFloor3' : phase.level > 0.5 ? 'elevatorFloor2' : 'elevatorFloor1';
+  }
   if (phase.variant === 'top') return 'holdTick';
   if (phase.variant === 'slowDown') return 'slowRelease';
   if (phase.variant === 'settle') return null;
@@ -304,8 +315,10 @@ export function cueForPhase(phase: { kind: string; stage?: number; durationMs: n
 }
 
 /** Tick during a hold: every whole second, stronger in the last 3 seconds; none for short squeezes. */
-export function cueForHoldSecond(phase: { kind: string; durationMs: number; stage?: number; variant?: string }, second: number): Cue | null {
+export function cueForHoldSecond(phase: { kind: string; durationMs: number; stage?: number; variant?: string; level?: number }, second: number): Cue | null {
   if (phase.kind !== 'contract' || phase.stage || phase.durationMs < 2000) return null;
+  // the short steps of a 180-day-plan move have their own step taps; only its long holds tick
+  if (phase.level !== undefined && phase.durationMs < 4000) return null;
   const left = phase.durationMs / 1000 - second;
   if (second <= 0 || left <= 0) return null;
   return left <= 3 ? 'holdTickFinal' : 'holdTick';

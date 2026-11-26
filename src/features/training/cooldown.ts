@@ -2,25 +2,30 @@ import { toDateKey } from '@/lib/date';
 import type { WorkoutSession } from '@/types';
 
 /**
- * Kegel rest lock (user request 2026-11-23): a full session is Tur 1 + Tur 2; after it the user may do
- * one more full session (Tur 1 + Tur 2), so at most 4 rounds. When the 4th round is finished, Kegel is
- * locked for 10 hours — only Kegel (main session and micro set); the rest of the app stays open.
+ * Kegel rest lock (user decision 2026-11-25): the day is Tur 1 + Tur 2; after both, one more session
+ * is allowed, so at most 3 rounds. When the 3rd is finished, Kegel is locked for 10 hours — only Kegel;
+ * the rest of the app stays open. The countdown shows only on the "Başla" button, as numbers.
  *
- * A round is a finished, non-micro workout with contractions (release sessions have none). Rounds are
+ * A round is a finished main-session workout (Tur 1, Tur 2 or the extra session). Rounds are
  * counted per day and start again from zero when a lock ends. Pure: derived from the history.
  */
-export const ROUNDS_BEFORE_LOCK = 4;
+export const ROUNDS_BEFORE_LOCK = 3;
 export const LOCK_HOURS = 10;
 const LOCK_MS = LOCK_HOURS * 3600 * 1000;
 
 export interface KegelLock {
   /** End of the lock, or null when Kegel is open. */
   until: Date | null;
-  /** Rounds counted towards the next lock (0..3). */
+  /** Rounds counted towards the next lock (0..2). */
   rounds: number;
 }
 
-const isRound = (w: WorkoutSession) => w.completed && !w.isMicro && (w.contractions ?? 0) > 0;
+/**
+ * A finished round of the main session — the same rounds the day rule counts (summary.dayStatus).
+ * Release sessions are `isMicro`. A round finished with skipped exercises (0 contractions) counts too:
+ * it already makes the day "tamam", so it must count for the rest as well (bug 2026-11-25).
+ */
+const isRound = (w: WorkoutSession) => w.completed && !w.isMicro;
 
 export function kegelLock(workouts: WorkoutSession[], now: Date = new Date()): KegelLock {
   const rounds = workouts.filter(isRound).sort((a, b) => a.finishedAt.localeCompare(b.finishedAt));

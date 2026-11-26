@@ -46,6 +46,7 @@ export interface DayWorkout {
   round?: 1 | 2;
   isMicro?: boolean;
   track?: string;
+  round2Locked?: boolean;
 }
 
 /** The release session ("Bırakma seansı": no contractions, after the cap or pain) is not a training session. */
@@ -75,7 +76,9 @@ export interface DayStatus {
   round2Done: boolean;
   /** An extra micro set was done. */
   microDone: boolean;
-  /** The day is done: Tur 1 and Tur 2. */
+  /** Tur 2 needed premium when that day's Tur 1 finished (Tur 1 alone completes the day). */
+  round2Locked: boolean;
+  /** The day is done: Tur 1 and Tur 2 — or Tur 1 alone when Tur 2 was locked (2026-11-26). */
   full: boolean;
   /** Halves done (0, 1 or 2), for the ring and the "1/2" counters. */
   counted: number;
@@ -91,8 +94,9 @@ export function dayStatus(workouts: DayWorkout[], date: string, _target?: number
   const mainDone = day.some((w) => isMainRound(w) && w.round !== 2);
   const round2Done = day.some((w) => isMainRound(w) && w.round === 2);
   const microDone = day.some((w) => w.completed && w.isMicro === true && !isRelease(w));
+  const round2Locked = day.some((w) => isMainRound(w) && w.round !== 2 && w.round2Locked === true);
   const counted = (mainDone ? 1 : 0) + (round2Done ? 1 : 0);
-  return { sessions: day.filter(countsAsSession).length, mainDone, round2Done, microDone, full: mainDone && round2Done, counted, target: DAY_HALVES };
+  return { sessions: day.filter(countsAsSession).length, mainDone, round2Done, microDone, round2Locked, full: mainDone && (round2Done || round2Locked), counted, target: DAY_HALVES };
 }
 
 /** Days split by that rule: `full` = both halves, `partial` = one half (shown half filled). Micro sets alone don't mark a day. */
@@ -106,5 +110,7 @@ export function targetDays(workouts: DayWorkout[], _target?: number): { full: st
 
 export function dailyProgress(workouts: DayWorkout[], today: string, _target?: number): { done: number; target: number; reached: boolean } {
   const s = dayStatus(workouts, today);
-  return { done: s.counted, target: s.target, reached: s.full };
+  // Tur 2 locked (no premium): the day's target is Tur 1 alone, so "1/1" and a full bar (2026-11-26).
+  const target = s.round2Locked && !s.round2Done ? 1 : s.target;
+  return { done: Math.min(s.counted, target), target, reached: s.full };
 }

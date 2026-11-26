@@ -8,7 +8,12 @@ import { Platform } from "react-native";
 import {
   OFFER_LIFETIME,
   ONE_TIME_SKUS,
+  LIST_SKUS,
+  OFFER_PRODUCT_IDS,
+  OFFER_SKUS,
   PRODUCT_IDS,
+  PROMO_PRODUCT_IDS,
+  REGULAR_SKUS,
   SUBSCRIPTION_SKUS,
   type PlanKey,
 } from "@/config/monetization";
@@ -57,6 +62,12 @@ function connect(): Promise<boolean> {
 const keyFor = (productId: string): PlanKey | undefined =>
   (Object.keys(PRODUCT_IDS) as PlanKey[]).find(
     (k) => PRODUCT_IDS[k] === productId,
+  ) ??
+  (Object.keys(OFFER_PRODUCT_IDS) as (keyof typeof OFFER_PRODUCT_IDS)[]).find(
+    (k) => OFFER_PRODUCT_IDS[k] === productId,
+  ) ??
+  (Object.keys(PROMO_PRODUCT_IDS) as (keyof typeof PROMO_PRODUCT_IDS)[]).find(
+    (k) => PROMO_PRODUCT_IDS[k] === productId,
   );
 
 type AnyProduct = {
@@ -115,16 +126,20 @@ function toOffer(p: AnyProduct): Offer | null {
   };
 }
 
-/** Fetches the paywall plans with real store prices. Returns [] when unavailable. */
-export async function loadOffers(): Promise<Offer[]> {
+/**
+ * Fetches the paywall plans with real store prices: the regular plans, (`'offer'`) the yearly plan with
+ * the offer's monthly and weekly, or (`'list'`) the full prices a reduced plan is compared with.
+ * Returns [] when unavailable.
+ */
+export async function loadOffers(variant: "regular" | "offer" | "list" = "regular"): Promise<Offer[]> {
   const m = iap();
   if (!m || !(await connect())) return [];
   try {
     const subs = ((await m.fetchProducts({
-      skus: SUBSCRIPTION_SKUS,
+      skus: variant === "offer" ? OFFER_SKUS : variant === "list" ? LIST_SKUS : REGULAR_SKUS,
       type: "subs",
     })) ?? []) as unknown as AnyProduct[];
-    const once = OFFER_LIFETIME
+    const once = OFFER_LIFETIME && variant === "regular"
       ? (((await m.fetchProducts({ skus: ONE_TIME_SKUS, type: "in-app" })) ??
           []) as unknown as AnyProduct[])
       : [];

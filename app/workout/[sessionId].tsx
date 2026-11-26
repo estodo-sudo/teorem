@@ -7,6 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import { useTheme } from '@/components';
+import { canAccess } from '@/features/purchases/useGate';
 import { kegelLock } from '@/features/training/cooldown';
 import { generateReleaseSession } from '@/features/training/generateSession';
 import { WorkoutPlayer, type PlayerResult } from '@/features/training/player/WorkoutPlayer';
@@ -30,9 +31,12 @@ export default function WorkoutScreen() {
   // 10-hour Kegel rest (2026-11-23): checked once at mount, so finishing the 4th round does not cut the
   // player off; any other way in (task row, notification, deep link) goes back home.
   const [blocked] = useState(() => sessionId !== 'release' && !!kegelLock(useHistoryStore.getState().workouts).until);
+  // Tur 2 is premium (2026-11-26): any other way in (task row, deep link) goes to the "fırsat" paywall.
+  const [needsPremium] = useState(() => sessionId === 'round2' && !canAccess('round2'));
   useEffect(() => {
     if (blocked) goHome();
-  }, [blocked]);
+    else if (needsPremium) router.replace({ pathname: '/paywall', params: { source: 'round2', offer: '1' } });
+  }, [blocked, needsPremium]);
   // Snapshot the training state at mount: the session must not change mid-play.
   const session = useMemo(() => {
     const training = useTrainingStore.getState().training;
@@ -44,7 +48,8 @@ export default function WorkoutScreen() {
 
   const onDone = useCallback(
     (result: PlayerResult) => {
-      const w = recordWorkout(session, result);
+      // Without premium Tur 2 is locked, so Tur 1 alone completes the day (streak; 2026-11-26).
+      const w = recordWorkout(session, result, undefined, { round2Locked: !canAccess('round2') });
       // Pain: no feedback (no level change); continue with release only, or stop for today.
       if (result.pain === 'release') return router.replace({ pathname: '/workout/[sessionId]', params: { sessionId: 'release' } });
       if (result.pain === 'end' || session.id.endsWith('-release')) return goHome();
@@ -64,7 +69,7 @@ export default function WorkoutScreen() {
     [session, first],
   );
 
-  if (blocked) return null;
+  if (blocked || needsPremium) return null;
   return (
     <View style={{ flex: 1, backgroundColor: t.player.bg }}>
       <StatusBar style={t.dark ? 'light' : 'dark'} />

@@ -7,6 +7,7 @@ import { CelebrationBurst } from '@/components/CelebrationBurst';
 import { Button, Card, IconTile } from '@/components/ui';
 import { absoluteDay, cycleMoves, learnedMoves, roundMoves } from '@/features/training/moves';
 import { isCycle, todayPlanPosition } from '@/features/training/plan';
+import { canAccess, openOffer, useAccess } from '@/features/purchases/useGate';
 import { buildTodaySession, lessonRoute } from '@/features/training/service';
 import { useKegelLock } from '@/features/training/useKegelLock';
 import { toDateKey } from '@/lib/date';
@@ -33,8 +34,16 @@ export default function NextRoundScreen() {
   const moves = isCycle(pos.planNumber) ? cycleMoves(learnedMoves(training), pos.planDay, 2) : roundMoves(learnedMoves(training), absoluteDay(pos.planNumber, pos.planDay), 2);
 
   // A lesson due today comes first (yavaş sıkma the first time, a new move on its day).
-  const startRound2 = () => router.replace(lessonRoute(training, id) ?? { pathname: '/workout/[sessionId]', params: { sessionId: 'round2', first: id } });
+  // Tur 2 is premium (2026-11-26): the lesson still comes first; without premium the "fırsat" paywall opens.
+  const startRound2 = () => {
+    const lesson = lessonRoute(training, id);
+    if (lesson) return router.replace(lesson);
+    if (!canAccess('round2')) return openOffer('round2');
+    router.replace({ pathname: '/workout/[sessionId]', params: { sessionId: 'round2', first: id } });
+  };
   const finish = () => router.replace({ pathname: '/workout/feedback', params: { id } });
+  // Without premium Tur 1 already completes the day (2026-11-26): the text says so and Tur 2 is the extra.
+  const premium = useAccess()('round2');
 
   return (
     <Screen
@@ -42,7 +51,7 @@ export default function NextRoundScreen() {
         <View style={{ gap: t.space.sm }}>
           {/* The countdown shows only on Günüm's "Başla" (2026-11-25). */}
           {lock.locked ? null : <Button label={tr('round.start', { min: minutes })} icon="play" size="lg" onPress={startRound2} fullWidth testID="start-round2" />}
-          <Button label={tr('round.finish')} variant="secondary" size="lg" onPress={finish} fullWidth />
+          <Button label={tr(premium ? 'round.finish' : 'round.finishFree')} variant="secondary" size="lg" onPress={finish} fullWidth />
         </View>
       }
     >
@@ -56,7 +65,7 @@ export default function NextRoundScreen() {
           {tr('round.doneTitle')}
         </AppText>
         <AppText variant="body" muted center>
-          {tr('round.offer', { min: minutes })}
+          {tr(premium ? 'round.offer' : 'round.offerFree', { min: minutes })}
         </AppText>
       </View>
       <Card style={{ padding: t.space.gutter, gap: t.space.md }}>

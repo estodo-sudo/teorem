@@ -12,6 +12,7 @@ import { currentPlanWeek, weekTheme } from '@/features/training/roadmap';
 import { targetDays } from '@/features/training/summary';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
+import { openGated } from '@/features/purchases/useGate';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 import { PHOTO_SPACE, PhotoBackground } from './PhotoCard';
@@ -157,7 +158,8 @@ export function FitnessCard() {
     { icon: 'clock', label: tr('fitness.chipMin', { min }) },
   ];
   // Opens the 7-week programme (2026-11-23); the session starts from there.
-  const open = () => router.push('/fitness');
+  // premium only (2026-11-26): without it the "fırsat" paywall opens
+  const open = () => openGated('fitness', '/fitness');
   return (
     <Card style={{ padding: 0, overflow: 'hidden' }}>
       {cover ? <PhotoBackground image={cover} id="fitnessVeil" textAt="bottom" /> : null}

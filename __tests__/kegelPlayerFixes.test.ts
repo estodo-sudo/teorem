@@ -46,7 +46,7 @@ describe('Kegel player review (2026-11-23)', () => {
     expect(list.map(countsAsSession)).toEqual([true, false]);
     expect(dailyProgress(list, day)).toEqual({ done: 2, target: 2, reached: true });
     expect(read('src/features/training/service.ts')).toMatch(/session\.round === 2 \? \{ round: 2 as const \}/);
-    expect(read('src/features/data/db.ts')).toMatch(/'deload', 'round', 'advancedPlan'\]/);
+    expect(read('src/features/data/db.ts')).toMatch(/'deload', 'round', 'advancedPlan', 'round2Locked'\]/);
     expect(read('app/workout/[sessionId].tsx')).toMatch(/\{ id: first, second: w\.id \}/);
     expect(read('app/workout/feedback.tsx')).toMatch(/workout\.actualSec \+ \(round2\?\.actualSec \?\? 0\)/);
   });

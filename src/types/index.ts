@@ -175,6 +175,11 @@ export interface WorkoutSession {
   round?: 1 | 2;
   /** This session moved the 30-day plan on when it finished. */
   advancedPlan?: boolean;
+  /**
+   * Tur 1 finished while Tur 2 needed premium (2026-11-26): that day counts as done with Tur 1 alone
+   * (streak, calendar, reminders). Stored per day, so buying or losing premium later rewrites no history.
+   */
+  round2Locked?: boolean;
 }
 
 export interface StrengthTest {

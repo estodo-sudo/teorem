@@ -12,7 +12,7 @@ import { featuredStory, orderStories, storyProgress, storyState } from '@/featur
 import { CampWideCard, CARD, FeaturedStoryCard, GlossaryCompactCard, ProgramCard, StoryPosterCard } from '@/features/content/explore/ExploreCards';
 import { HorizontalSection } from '@/features/content/explore/HorizontalSection';
 import { ALC, useAlcSummary } from '@/features/content/explore/summaries';
-import { openGated, useAccess } from '@/features/purchases/useGate';
+import { openGated, openOffer, useAccess } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useProgressStore } from '@/stores/progressStore';
 
@@ -40,6 +40,7 @@ export default function Discover() {
   const { t: tr } = useTranslation();
   const content = useProgressStore((s) => s.content);
   const access = useAccess();
+  const locked = !access('discover');
   const read = content.readStoryIds;
   const positions = content.storyPositions ?? {};
   const saved = content.favoriteStoryIds;
@@ -56,7 +57,8 @@ export default function Discover() {
   const a11y = (title: string, count: number) => tr('discover.listA11y', { title, count });
 
   return (
-    <Screen contentStyle={{ gap: t.space.xxl }}>
+    // premium only (2026-11-26): blurred, moving by itself; a tap opens the "fırsat" paywall
+    <Screen contentStyle={{ gap: t.space.xxl }} locked={locked ? () => openOffer('discover') : undefined}>
       {/* Title, and beside it a quiet note that this page keeps growing. */}
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md }}>
         <AppText variant="title1" accessibilityRole="header">

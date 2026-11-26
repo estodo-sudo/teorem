@@ -421,13 +421,11 @@
       "title": "Pelvik taban kası nedir?",
       "body": [
         "Leğen kemiğinin altında hamak gibi uzanan bir kas grubudur.",
-        "Mesaneyi ve bağırsağı taşır, idrar kontrolünü ve cinsel işlevi destekler, penis kontrolünü güçlendirir.",
-        "Her kas gibi düzenli ve doğru çalıştırılırsa güçlenir."
+        "Mesaneyi ve bağırsağı taşır; idrar kontrolüne, cinsel işleve ve penis kontrolüne yardım eder."
       ],
       "body_female": [
         "Leğen kemiğinin altında hamak gibi uzanan bir kas grubudur.",
-        "Mesaneyi ve bağırsağı taşır, idrar kontrolünü ve cinsel işlevi destekler.",
-        "Her kas gibi düzenli ve doğru çalıştırılırsa güçlenir."
+        "Mesaneyi, rahmi ve bağırsağı taşır; idrar kontrolüne ve cinsel işleve yardım eder."
       ],
       "artAlt": "Leğen kemiği ve altında hamak gibi uzanan pelvik taban kası"
     },
@@ -435,26 +433,25 @@
       "title": "Kası nasıl bulursun?",
       "body": [
         "İdrarını yarıda kestiğini ya da gazını tuttuğunu hayal et.",
-        "O an içeri ve yukarı çekilen kas, pelvik taban kasındır.",
-        "Bu hissi idrar yapmadan, uzanırken ya da otururken tekrarla."
+        "O an içeri ve yukarı çekilen kas, pelvik taban kasındır."
       ],
-      "warn": "İdrar yaparken egzersiz yapma. İdrarı kesmeyi yalnızca kası bulmak için bir kez hayal et; bunu tekrarlamak mesanenin tam boşalmasını engelleyebilir."
+      "warn": "İdrar yaparken egzersiz yapma; idrarı kesmeyi yalnızca kası bulmak için bir kez hayal et."
     },
     "technique": {
       "title": "Doğru teknik",
       "body": [
+        "Sırtüstü uzan, dizlerini bük, ayak tabanların yerde. İlk hafta hep böyle çalışırsın.",
         "Sadece pelvik taban kasını sık; karın, kalça ve bacaklar gevşek kalsın.",
-        "Nefesini tutma, sakin nefes almaya devam et.",
-        "Her sıkmadan sonra kası tamamen gevşet; gevşemek de egzersizin parçası."
+        "Nefesini tutma; her sıkmadan sonra kası tamamen gevşet."
       ],
-      "warn": "Kegel ağrı yapmamalı. Ağrı ya da rahatsızlık hissedersen dur."
+      "warn": "Kegel ağrı yapmamalı; ağrı olursa dur."
     },
     "trial": {
-      "title": "1. deneme seti",
-      "body": "3 tekrar: 3 saniye sık, 3 saniye gevşe. Titreşimi takip et."
+      "title": "Deneme seti",
+      "body": "3 tekrar: 3 sn sık, 3 sn gevşe. Titreşimi takip et."
     },
     "check": {
-      "title": "1. set nasıl geçti?",
+      "title": "Nasıl geçti?",
       "body": "Kası sıkıp gevşetmeyi hissedebildin mi?",
       "yes": "Evet, hissettim",
       "unsure": "Emin değilim"
@@ -462,90 +459,31 @@
     "tips": {
       "title": "Birkaç ipucu",
       "body": [
-        "Uzanarak dene: dizler bükülü, sırt yerde. Kas bu pozisyonda daha kolay hissedilir.",
+        "Uzanarak dene; kas böyle daha kolay hissedilir.",
         "Elini karnına koy; sıkarken karın kıpırdamamalı.",
-        "Çok güçlü sıkmaya çalışma; hafif ama net bir içeri-yukarı çekiş yeter.",
-        "İlk günlerde hissetmek zor olabilir; pratikle kolaylaşır."
+        "Hafif ama net bir içeri-yukarı çekiş yeter."
       ],
       "retry": "Tekrar dene"
-    },
-    "position": {
-      "title": "Başlangıç pozisyonu",
-      "body": [
-        "İlk hafta hep bu pozisyonda çalışırsın.",
-        "Sonraki haftalarda oturarak ve ayakta da çalışırsın. Pozisyon değişince ekranda bir kart çıkar."
-      ]
-    },
-    "checklist": {
-      "title": "Doğru mu yapıyorum?",
-      "body": "Bir kez sık ve tut. Tutarken maddelere bak; “evet” diyebildiklerini işaretle.",
-      "items": {
-        "glutes": {
-          "title": "Kalçam gevşek",
-          "text": "Kalça kasların sıkılmıyor, oturduğun yerde yükselmiyorsun."
-        },
-        "belly": {
-          "title": "Karnım gevşek",
-          "text": "Elini karnına koy: sıkarken karın içeri çekilmiyor, sertleşmiyor."
-        },
-        "breath": {
-          "title": "Nefesim akıyor",
-          "text": "Sıkarken nefesini tutmuyorsun; rahatça alıp verebiliyorsun."
-        },
-        "legs": {
-          "title": "Bacaklarım gevşek",
-          "text": "Uyluk ve iç bacak kasların çalışmıyor, dizlerini birbirine bastırmıyorsun."
-        }
-      }
-    },
-    "release": {
-      "title": "2. deneme seti",
-      "body": "2 tekrar: 3 saniye sık, sonra 6 saniye tamamen gevşe. Kas yavaşça yerine insin."
-    },
-    "releaseCheck": {
-      "title": "2. set nasıl geçti?",
-      "body": "Sıktıktan sonra kasın tamamen gevşediğini hissettin mi?",
-      "yes": "Evet, hissettim",
-      "unsure": "Emin değilim"
-    },
-    "releaseTips": {
-      "title": "Gevşemek için ipuçları",
-      "body": [
-        "Acele etme; kası yavaş yavaş gevşet.",
-        "Omuzlarını ve çeneni de gevşet; gerginlik genelde birlikte gelir.",
-        "Gevşerken ıkınma; sadece tutmayı bırak."
-      ]
     },
     "mistakes": {
       "title": "Yaygın hatalar",
       "items": [
         {
           "icon": "wind",
-          "title": "Nefes tutmak",
-          "text": "Sıkarken nefesini tutma. Sayıları sesli saymak nefesin akmasına yardım eder."
+          "title": "Nefesini tutma"
         },
         {
           "icon": "apple",
-          "title": "Kalçayı sıkmak",
-          "text": "Kalça, karın ve bacaklar devreye girerse pelvik taban daha az çalışır."
+          "title": "Kalçanı sıkma"
         },
         {
           "icon": "arrowDown",
-          "title": "Ikınmak",
-          "text": "Kas içeri ve yukarı çekilir. Aşağı ittirmek yanlış yöndür; bırakırken de ıkınma."
+          "title": "Ikınma"
         },
         {
           "icon": "repeat",
-          "title": "Aşırı tekrar",
-          "text": "Daha çok her zaman daha iyi değildir. Yorgun kas yanlış çalışır; uygulama günlük bir sınır koyar."
+          "title": "Fazla tekrar yapma"
         }
-      ]
-    },
-    "ready": {
-      "title": "Hazırsın!",
-      "body": [
-        "Kası buldun, titreşimleri öğrendin ve iki deneme setini tamamladın.",
-        "İlk seansın Hızlı (2 dakika). Sonra süreyi sen seçersin; seviye, geri bildirimine göre ayarlanır."
       ],
       "cta": "Hazırım"
     }
@@ -823,7 +761,7 @@
         {
           "heading": "Planlar ve fiyat",
           "paragraphs": [
-            "Haftalık, aylık ve yıllık planlar sunulur. Güncel fiyat ve para birimi, satın almadan önce satın alma ekranında ve mağazanın onay penceresinde vergiler dahil gösterilir. Yıllık planda mağazada belirtilen süre kadar ücretsiz deneme bulunabilir."
+            "Haftalık, aylık ve yıllık planlar sunulur. Güncel fiyat ve para birimi, satın almadan önce satın alma ekranında ve mağazanın onay penceresinde vergiler dahil gösterilir. Planlarda mağazada belirtilen süre kadar ücretsiz deneme bulunabilir."
           ]
         },
         {
@@ -872,7 +810,7 @@
         {
           "heading": "Ücretsiz deneme",
           "paragraphs": [
-            "Yıllık planda ücretsiz deneme sunulabilir. Deneme bitmeden en az 24 saat önce iptal etmezsen abonelik ücretli plana dönüşür ve yıllık ücret alınır. Deneme sırasında ücretli bir plan satın alırsan denemenin kalan kısmı sona erer.",
+            "Planlarda ücretsiz deneme sunulabilir. Deneme bitmeden en az 24 saat önce iptal etmezsen abonelik ücretli plana dönüşür ve seçtiğin planın ücreti alınır. Deneme sırasında ücretli bir plan satın alırsan denemenin kalan kısmı sona erer.",
             "Satın alma ekranı, ilk ücretin hangi tarihte alınacağını gösterir."
           ]
         },
@@ -1013,7 +951,7 @@
         {
           "heading": "Ücretsiz deneme nasıl çalışır?",
           "paragraphs": [
-            "Yıllık planı ücretsiz denemeyle başlatırsan deneme bitene kadar ücret alınmaz. Deneme bitmeden en az 24 saat önce iptal etmezsen yıllık ücret alınır. İlk ücret tarihi satın alma ekranında yazar."
+            "Bir planı ücretsiz denemeyle başlatırsan deneme bitene kadar ücret alınmaz. Deneme bitmeden en az 24 saat önce iptal etmezsen seçtiğin planın ücreti alınır. İlk ücret tarihi satın alma ekranında yazar."
           ]
         },
         {
@@ -1793,12 +1731,10 @@
       "title": "{{days}} gün ücretsiz dene",
       "body": "Kararını vermeden önce tüm özellikleri rahatça dene.",
       "step1": "Tüm Premium özellikler açılır.",
-      "step2": "{{date}}: Devam etmek istemiyorsan iptal etmek için iyi bir gün.",
       "step3": "{{date}}: İptal etmediysen yıllık plan ({{price}}) başlar.",
       "cta": "{{days}} gün ücretsiz başla",
       "later": "Şimdilik değil",
       "step1Title": "Bugün",
-      "step2Title": "Bitişe 2 gün kala",
       "step3Title": "Deneme bitince"
     },
     "included": "PREMIUM’DA NELER VAR",
@@ -1820,7 +1756,18 @@
     "privacyShort": "Gizlilik",
     "restoreShort": "Satın alımları geri yükle",
     "selected": "seçili",
-    "presaleShort": "Ön bilgilendirme"
+    "presaleShort": "Ön bilgilendirme",
+    "offerKicker": "Sana özel fırsat",
+    "offerBadge": "Fırsat",
+    "offerWas": "{{price}} yerine",
+    "list": {
+      "plan": "Kişiselleştirilmiş Antrenman Planı",
+      "unlimited": "Sınırsız Antrenman",
+      "progress": "İlerleme Takibi",
+      "discover": "Geniş Keşfet İçerik Sekmesi",
+      "noAds": "Reklamsız deneyim"
+    },
+    "offPct": "%{{pct}} indirim"
   },
   "profile": {
     "title": "Profil",
@@ -1833,9 +1780,10 @@
     "sub": {
       "active": "Premium aktif",
       "free": "Ücretsiz sürüm",
-      "renews": "Yenilenme / bitiş: {{date}}",
       "upgrade": "Premium'a geç",
-      "manage": "Aboneliği yönet"
+      "manage": "Aboneliği yönet",
+      "restoring": "Satın alımlar kontrol ediliyor…",
+      "restored": "Premium geri yüklendi."
     },
     "devGallery": "Bileşen Galerisi (geliştirici)",
     "groups": {
@@ -3351,10 +3299,13 @@
       ],
       "checkNote": "Hepsine “evet” diyebiliyorsan hazırsın. Emin değilsen bir kez daha dene; acele etme.",
       "ready": "Hazırım, Tur 2'yi başlat",
-      "again": "Bir kez daha dene"
+      "again": "Bir kez daha dene",
+      "checkNoteReady": "Hepsine “evet” diyebiliyorsan hazırsın."
     },
     "latest": "Son öğrendiğin hareket · her turda",
-    "review": "Tekrar · daha önce öğrendiğin"
+    "review": "Tekrar · daha önce öğrendiğin",
+    "offerFree": "Bugünün antrenmanı tamam, serin devam ediyor. Tur 2 günün ikinci yarısı: yavaş sıkma ve öğrendiğin hareketler, yaklaşık {{min}} dakika. Premium ile açılır.",
+    "finishFree": "Bugünlük bitir"
   },
   "block": {
     "long": "{{sec}} sn bırakmadan sık",
@@ -3544,7 +3495,8 @@
           "Nefesimi tutmadım; karnım ve kalçam gevşekti."
         ]
       }
-    }
+    },
+    "checkNoteReady": "Hepsine “evet” diyebiliyorsan hazırsın."
   },
   "moves": {
     "section": "Hareketlerin",
@@ -3558,5 +3510,9 @@
     "nextToday": "Sıradaki · bugün 1. turdan sonra öğreneceksin",
     "locked": "{{day}}. günde açılır",
     "learnedSlow": "Öğrenildi · her 2. turda"
+  },
+  "premiumLock": {
+    "title": "Premium'a özel",
+    "hint": "Açmak için ekrana dokun"
   }
 }

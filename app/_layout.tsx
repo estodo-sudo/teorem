@@ -57,7 +57,7 @@ export default function RootLayout() {
     if (gate !== null || !needsRouteCheck(from, top)) return;
     const rule = premiumRuleFor(segments);
     if (rule === 'soon') router.replace('/');
-    else if (rule && !canAccess(rule)) router.replace({ pathname: '/paywall', params: { source: rule } });
+    else if (rule && !canAccess(rule)) router.replace({ pathname: '/paywall', params: { source: rule, offer: '1' } });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only a navigation should trigger the check
   }, [pathname]);
 

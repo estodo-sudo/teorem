@@ -10,6 +10,7 @@ import { generateSlowDemo } from '@/features/training/generateSession';
 import { MuscleSphere } from '@/features/training/player/MuscleSphere';
 import { sphereWord } from '@/features/training/player/sphereMotion';
 import { WorkoutPlayer } from '@/features/training/player/WorkoutPlayer';
+import { canAccess, openOffer, useAccess } from '@/features/purchases/useGate';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 type Step = 'learn' | 'practice' | 'check';
@@ -32,7 +33,11 @@ export default function Round2IntroScreen() {
   const [runKey, setRunKey] = useState(0);
   const practice = useMemo(() => generateSlowDemo(), []);
 
+  // Tur 2 is premium (2026-11-26): without it "Hazırım" opens the "fırsat" paywall; the move is learned
+  // only when Tur 2 really starts, so the lesson comes again after buying or on the next day.
+  const premium = useAccess()('round2');
   const startRound2 = () => {
+    if (!canAccess('round2')) return openOffer('round2');
     useTrainingStore.getState().update({ round2IntroDone: true });
     router.replace({ pathname: '/workout/[sessionId]', params: { sessionId: 'round2', ...(first ? { first } : {}) } });
   };
@@ -68,16 +73,21 @@ export default function Round2IntroScreen() {
         footer={
           <View style={{ gap: t.space.sm }}>
             <Button label={tr('round.intro.ready')} icon="play" size="lg" onPress={startRound2} fullWidth testID="round2-intro-go" />
-            <Button
-              label={tr('round.intro.again')}
-              variant="secondary"
-              size="lg"
-              onPress={() => {
-                setRunKey((k) => k + 1);
-                setStep('practice');
-              }}
-              fullWidth
-            />
+            {premium ? (
+              <Button
+                label={tr('round.intro.again')}
+                variant="secondary"
+                size="lg"
+                onPress={() => {
+                  setRunKey((k) => k + 1);
+                  setStep('practice');
+                }}
+                fullWidth
+              />
+            ) : (
+              // Without premium "Hazırım" opens the offer; this is the way out (and on to Tur 1's feedback).
+              <Button label={tr('round.intro.later')} variant="ghost" onPress={later} fullWidth testID="lesson-later" />
+            )}
           </View>
         }
       >
@@ -97,7 +107,7 @@ export default function Round2IntroScreen() {
             ))}
           </Card>
           <AppText variant="footnote" muted>
-            {tr('round.intro.checkNote')}
+            {tr(premium ? 'round.intro.checkNote' : 'round.intro.checkNoteReady')}
           </AppText>
         </Animated.View>
       </Screen>

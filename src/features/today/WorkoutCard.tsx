@@ -46,7 +46,8 @@ export function WorkoutCard() {
   // day's main session among them (2026-11-23: one session of two already said "tamam").
   const status = dayStatus(workouts, today, training.dailyTarget);
   const doneCount = status.counted;
-  const dayDone = status.full;
+  // The card still offers Tur 2 after a free Tur 1 (it opens the offer); the streak counts that day already.
+  const dayDone = status.mainDone && status.round2Done;
   const session = buildTodaySession(training, today);
   const used = contractionsToday(workouts, today);
   const cap = capStatus(used, training.level);

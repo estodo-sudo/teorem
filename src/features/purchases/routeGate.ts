@@ -26,6 +26,9 @@ export function premiumRuleFor(segments: readonly string[]): RouteRule | null {
       return 'strengthTest';
     case 'campus':
       return 'courses';
+    // Nefes, zihin boşaltma, beden taraması (2026-11-26): opened from Keşfet, a direct link checked too.
+    case 'mind':
+      return 'mind';
     case 'bodyweight':
       return 'soon';
     default:

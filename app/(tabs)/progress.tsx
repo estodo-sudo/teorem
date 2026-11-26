@@ -8,7 +8,7 @@ import { useStreak } from '@/features/gamification/service';
 import { HeatMap } from '@/features/progress/charts/HeatMap';
 import { LineChart } from '@/features/progress/charts/LineChart';
 import { heatMap, holdTrend, quickTrend, strengthTestDue, summarize } from '@/features/progress/stats';
-import { openGated } from '@/features/purchases/useGate';
+import { openGated, openOffer, useAccess } from '@/features/purchases/useGate';
 import { MovesCard } from '@/features/training/MovesCard';
 import { ExerciseGuide } from '@/features/training/ProfileTraining';
 import { scoreTrend } from '@/features/training/strengthV2';
@@ -41,9 +41,11 @@ export default function ProgressTab() {
   const quick = quickTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const score = scoreTrend(tests).map((p) => ({ label: short(p.date), value: p.value }));
   const due = strengthTestDue(tests, today);
+  const locked = !useAccess()('progress');
 
   return (
-    <Screen contentStyle={{ gap: t.space.xxl }}>
+    // premium only (2026-11-26): blurred, moving by itself; a tap opens the "fırsat" paywall
+    <Screen contentStyle={{ gap: t.space.xxl }} locked={locked ? () => openOffer('progress') : undefined}>
       <AppText variant="title1" accessibilityRole="header">
         {tr('progress.title')}
       </AppText>

@@ -14,7 +14,6 @@ import { openManageSubscriptions, restorePurchases } from '@/features/purchases/
 import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useProgressStore } from '@/stores/progressStore';
 import { useTrainingStore } from '@/stores/trainingStore';
-import { localeOf } from '@/i18n/languages';
 
 /**
  * Profil — ui-v3 (SPEC_UI_V3 §7.8): avatar (User icon) with the level / streak / trophies summary,
@@ -23,14 +22,20 @@ import { localeOf } from '@/i18n/languages';
  */
 export default function Profile() {
   const t = useTheme();
-  const { t: tr, i18n } = useTranslation();
+  const { t: tr } = useTranslation();
   const level = useTrainingStore((s) => s.training.level);
   const unlocked = useProgressStore((s) => Object.keys(s.achievements).length);
   const ent = useEntitlementStore((s) => s.entitlement);
   const streak = useStreak();
   const premium = isEntitlementValid(ent, new Date());
-  const locale = localeOf(i18n.language);
   const [deleteStep, setDeleteStep] = useState<0 | 1 | 2>(0);
+  // "Satın alımları geri yükle" used to do its work silently (2026-11-26): now it says what happened.
+  const [restoreMsg, setRestoreMsg] = useState<string | null>(null);
+  const restore = async () => {
+    setRestoreMsg(tr('profile.sub.restoring'));
+    const ok = await restorePurchases();
+    setRestoreMsg(ok ? tr('profile.sub.restored') : tr('paywall.restoreNone'));
+  };
 
   return (
     <Screen contentStyle={{ gap: t.space.xl }}>
@@ -59,17 +64,18 @@ export default function Profile() {
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: t.space.md, minHeight: 64, paddingVertical: t.space.sm, borderBottomWidth: t.border.hairline, borderBottomColor: t.tokens.border }}>
           <IconTile icon={premium ? 'badgeCheck' : 'sparkle'} background={premium ? t.tokens.successSoft : undefined} color={premium ? t.tokens.success : undefined} />
           <View style={{ flex: 1, gap: 2 }}>
+            {/* status only; no renewal or end date under it (user request 2026-11-26) */}
             <AppText variant="bodyStrong">{premium ? tr('profile.sub.active') : tr('profile.sub.free')}</AppText>
-            {premium && ent.expiresAt ? (
-              <AppText variant="footnote" muted>
-                {tr('profile.sub.renews', { date: new Date(ent.expiresAt).toLocaleDateString(locale) })}
-              </AppText>
-            ) : null}
           </View>
         </View>
         {!premium ? <ListRow label={tr('profile.sub.upgrade')} icon="star" onPress={() => router.push({ pathname: '/paywall', params: { source: 'profile' } })} /> : null}
         <ListRow label={tr('profile.sub.manage')} icon="card" onPress={() => void openManageSubscriptions()} />
-        <ListRow label={tr('paywall.restore')} icon="rotate" onPress={() => void restorePurchases()} />
+        <ListRow label={tr('paywall.restore')} icon="rotate" onPress={() => void restore()} />
+        {restoreMsg ? (
+          <AppText variant="footnote" muted accessibilityLiveRegion="polite" style={{ paddingVertical: t.space.sm }}>
+            {restoreMsg}
+          </AppText>
+        ) : null}
         {/* Ayarlar (formerly "Antrenman"), right under restore purchases (user request 2026-11-23). */}
         <ListRow label={tr('settings.training.title')} icon="gear" onPress={() => router.push('/settings/training')} />
       </RowGroup>

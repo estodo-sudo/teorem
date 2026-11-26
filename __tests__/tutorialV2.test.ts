@@ -4,45 +4,39 @@ import path from 'path';
 import { isAllowedDuringFirstRun } from '@/features/app/gate';
 import { applySessionResult, defaultTraining, migrateTraining } from '@/features/training/plan';
 import { buildTodaySession } from '@/features/training/service';
-import { CHECKLIST, checklistDone, generateReleasePractice, TUTORIAL_ORDER } from '@/features/training/tutorial';
+import { TUTORIAL_ORDER } from '@/features/training/tutorial';
 import tr from '@/i18n/tr.json';
 
 const root = path.join(__dirname, '..');
-type TutorialI18n = { tutorial: Record<string, unknown> & { checklist: { items: Record<string, { title: string }> }; mistakes: { items: { title: string }[] }; find: { warn: string }; ready: { body: string[] } } };
+type TutorialI18n = { tutorial: Record<string, unknown> & { mistakes: { title: string; cta: string; items: { title: string; text?: string }[] }; find: { warn: string }; technique: { body: string[]; warn: string }; trial: { title: string } } };
 const T = (tr as unknown as TutorialI18n).tutorial;
 
-describe('tutorial v2 (spec 12)', () => {
-  it('order: position training, checklist, vibration game, trial, release practice, mistakes, ready', () => {
-    const at = (s: string) => TUTORIAL_ORDER.indexOf(s as never);
-    expect(at('position')).toBeGreaterThan(at('find'));
-    // The anatomy animation comes right after "Kası nasıl bulursun?".
-    expect(at('anatomy')).toBe(at('find') + 1);
-    expect(at('checklist')).toBeLessThan(at('trial'));
-    // The vibration matching game was removed: the screen already says what to do.
-    expect(TUTORIAL_ORDER).not.toContain('vibration');
-    expect(at('release')).toBeGreaterThan(at('check'));
-    expect(at('mistakes')).toBe(TUTORIAL_ORDER.length - 2);
-    expect(TUTORIAL_ORDER.at(-1)).toBe('ready');
+describe('tutorial v2 (spec 12; slimmed down 2026-11-26)', () => {
+  it('order: what, find, the animation, technique, one practice set, its check, mistakes (which finishes)', () => {
+    expect(TUTORIAL_ORDER).toEqual(['what', 'find', 'anatomy', 'technique', 'trial', 'check', 'mistakes']);
+    // gone: the separate position page, the checklist, the second practice set and the "Hazırsın" page
+    for (const s of ['position', 'checklist', 'release', 'releaseCheck', 'ready', 'vibration']) expect(TUTORIAL_ORDER).not.toContain(s);
+    for (const k of ['position', 'checklist', 'release', 'releaseCheck', 'releaseTips', 'ready']) expect(T[k]).toBeUndefined();
   });
 
-  it('checklist: hips, belly, breath and legs — every one needs a yes', () => {
-    expect([...CHECKLIST]).toEqual(['glutes', 'belly', 'breath', 'legs']);
-    expect(checklistDone(['glutes', 'belly', 'breath'])).toBe(false);
-    expect(checklistDone(['legs', 'breath', 'belly', 'glutes'])).toBe(true);
-    for (const id of CHECKLIST) expect(T.checklist.items[id]?.title).toBeTruthy();
+  it('the technique page holds the starting position and the self-check in three short lines', () => {
+    const body = T.technique.body.join(' ');
+    expect(T.technique.body).toHaveLength(3);
+    expect(body).toMatch(/Sırtüstü uzan, dizlerini bük/);
+    expect(body).toMatch(/karın, kalça ve bacaklar gevşek/);
+    expect(body).toMatch(/Nefesini tutma/);
+    for (const line of T.technique.body) expect(line.split(/\s+/).length).toBeLessThanOrEqual(16);
+    expect(T.trial.title).toBe('Deneme seti');
   });
 
-  it('release practice: 2 × squeeze 3 s → release 6 s (release at least twice as long)', () => {
-    const s = generateReleasePractice();
-    expect(s.phases.filter((p) => p.kind === 'contract').map((p) => p.durationMs)).toEqual([3000, 3000]);
-    expect(s.phases.filter((p) => p.kind === 'relax').map((p) => p.durationMs)).toEqual([6000, 6000]);
-    expect(s.plannedSec).toBe(Math.round(s.phases.reduce((a, p) => a + p.durationMs, 0) / 1000));
-  });
-
-  it('safety texts: no exercise while urinating; common mistakes cover breath, glutes, bearing down, overdoing', () => {
+  it('safety texts stay; common mistakes are titles only and the button says "Hazırım"', () => {
     expect(T.find.warn).toMatch(/İdrar yaparken egzersiz yapma/);
-    expect(T.mistakes.items.map((m) => m.title)).toEqual(['Nefes tutmak', 'Kalçayı sıkmak', 'Ikınmak', 'Aşırı tekrar']);
-    expect(T.ready.body.join(' ')).toMatch(/Hızlı \(2 dakika\)/);
+    expect(T.technique.warn).toMatch(/ağrı/);
+    expect(T.mistakes.items.map((m) => m.title)).toEqual(['Nefesini tutma', 'Kalçanı sıkma', 'Ikınma', 'Fazla tekrar yapma']);
+    expect(T.mistakes.items.every((m) => m.text === undefined)).toBe(true);
+    expect(T.mistakes.cta).toBe('Hazırım');
+    const src = fs.readFileSync(path.join(root, 'app', 'tutorial.tsx'), 'utf8');
+    expect(src).toMatch(/label: replay \? tr\('tutorial\.close'\) : tr\('tutorial\.mistakes\.cta'\), onPress: finish/);
   });
 
   it('one session length: a stored one-off preset no longer changes the session (about 3 min at level 1)', () => {
@@ -60,7 +54,7 @@ describe('tutorial v2 (spec 12)', () => {
     expect(isAllowedDuringFirstRun('/onboarding', 'kegel')).toBe(false);
   });
 
-  it('tutorial screen: checkboxes have roles and ≥ 48 px; tutorialDone is set; no duration preset', () => {
+  it('tutorial screen: pressables have roles and ≥ 48 px; tutorialDone is set; no duration preset', () => {
     const src = fs.readFileSync(path.join(root, 'app', 'tutorial.tsx'), 'utf8');
     for (const m of src.matchAll(/<Pressable\b([\s\S]*?)(?<!=)>/g)) {
       expect(m[1]).toMatch(/accessibilityRole/);

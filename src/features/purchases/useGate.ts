@@ -20,10 +20,18 @@ export function canAccess(feature: GatedFeature): boolean {
   return hasAccess(feature, gateContextNow());
 }
 
-/** Opens a route if the user has access, otherwise the paywall. */
+/**
+ * The paywall with the "fırsat" prices (2026-11-26): what someone without premium sees when they try Tur 2,
+ * Kasık Fitness or a locked tab.
+ */
+export function openOffer(source: GatedFeature) {
+  router.push({ pathname: '/paywall', params: { source, offer: '1' } });
+}
+
+/** Opens a route if the user has access, otherwise the offer paywall. */
 export function openGated(feature: GatedFeature, href: Href) {
   if (canAccess(feature)) router.push(href);
-  else router.push({ pathname: '/paywall', params: { source: feature } });
+  else openOffer(feature);
 }
 
 export function useAccess() {

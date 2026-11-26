@@ -16,20 +16,48 @@ export interface Offer {
   type: 'subs' | 'in-app';
   /** A trial price for previews (no store): shown, never purchasable. */
   preview?: boolean;
+  /** "Fırsat" plans: the regular plan's store price, shown crossed out (only when it is really higher). */
+  compareAt?: string;
+  /** The crossed-out price as a number (for the "%11 indirim" ribbon). */
+  compareAtPrice?: number;
 }
 
-/** The weekly, monthly and yearly plans at the trial prices (yearly with its free trial), for previews only. */
-export function previewOffers(prices: { currency: string; weekly: number; monthly: number; yearly: number }, trialDays: number, locale = 'tr-TR'): Offer[] {
-  return (['yearly', 'monthly', 'weekly'] as const).map((key) => ({
-    key,
-    productId: `preview_${key}`,
-    displayPrice: formatMoney(prices[key], prices.currency, locale),
-    price: prices[key],
-    currency: prices.currency,
-    ...(key === 'yearly' && trialDays > 0 ? { trialDays } : {}),
-    type: 'subs' as const,
-    preview: true,
-  }));
+/**
+ * The weekly, monthly and yearly plans at the trial prices, for previews only. Every plan starts with the
+ * free trial (2026-11-26). With `offer`, the monthly and weekly plans take the offer's lower prices and
+ * show the regular ones crossed out; otherwise `list` gives full prices to cross out (weekly 99,90).
+ */
+export function previewOffers(
+  prices: { currency: string; weekly: number; monthly: number; yearly: number },
+  trialDays: number,
+  locale = 'tr-TR',
+  offer?: { weekly: number; monthly: number },
+  list?: Partial<Record<'weekly' | 'monthly' | 'yearly', number>>,
+): Offer[] {
+  return (['yearly', 'monthly', 'weekly'] as const).map((key) => {
+    const low = offer && key !== 'yearly' ? offer[key] : undefined;
+    const amount = low ?? prices[key];
+    const was = low !== undefined ? prices[key] : list?.[key];
+    return {
+      key,
+      productId: low !== undefined ? `preview_${key}_offer` : `preview_${key}`,
+      displayPrice: formatMoney(amount, prices.currency, locale),
+      price: amount,
+      currency: prices.currency,
+      ...(trialDays > 0 ? { trialDays } : {}),
+      ...(was !== undefined && was > amount ? { compareAt: formatMoney(was, prices.currency, locale), compareAtPrice: was } : {}),
+      type: 'subs' as const,
+      preview: true,
+    };
+  });
+}
+
+/** Offer plans with the regular plan's price crossed out, where the regular one really costs more. */
+export function withCompareAt(offer: Offer[], regular: Offer[]): Offer[] {
+  return offer.map((o) => {
+    const r = regular.find((x) => x.key === o.key);
+    return r && o.key !== 'yearly' && r.productId !== o.productId && r.price != null && o.price != null && r.price > o.price && r.currency === o.currency ? { ...o, compareAt: r.displayPrice, compareAtPrice: r.price } : o;
+  });
 }
 
 export interface TrialPeriod {

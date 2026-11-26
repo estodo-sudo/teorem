@@ -1,7 +1,7 @@
-import { HARD_MODE_FREE_WORKOUTS, OFFER_LIFETIME, PREVIEW_PRICES, PRODUCT_IDS, SUBSCRIPTION_SKUS } from '@/config/monetization';
+import { LIST_PREVIEW_PRICES, LIST_SKUS, OFFER_LIFETIME, OFFER_PREVIEW_PRICES, OFFER_PRODUCT_IDS, OFFER_SKUS, PREVIEW_PRICES, PRODUCT_IDS, PROMO_PRODUCT_IDS, REGULAR_SKUS, SUBSCRIPTION_SKUS, TRIAL_DAYS, YEARLY_TRIAL_DAYS } from '@/config/monetization';
 import { isEntitlementValid, resolveEntitlement } from '@/features/purchases/entitlement';
 import { hasAccess, type GateContext } from '@/features/purchases/gate';
-import { monthlyEquivalent, previewOffers, trialDaysFromPeriod, trialEndDate, yearlySavingPercent, type Offer } from '@/features/purchases/pricing';
+import { monthlyEquivalent, previewOffers, trialDaysFromPeriod, trialEndDate, withCompareAt, yearlySavingPercent, type Offer } from '@/features/purchases/pricing';
 
 const now = new Date('2026-11-15T12:00:00Z');
 const DAY = 86_400_000;
@@ -61,11 +61,13 @@ const ctx = (patch: Partial<GateContext>): GateContext => ({
 });
 
 describe('paywall gate', () => {
-  it('hard mode: first workout free, then premium', () => {
+  it('hard mode: Tur 1 free every day; Tur 2, fitness, İlerleme and Keşfet need premium', () => {
     expect(hasAccess('workout', ctx({}))).toBe(true);
-    expect(hasAccess('workout', ctx({ completedWorkouts: HARD_MODE_FREE_WORKOUTS }))).toBe(false);
-    expect(hasAccess('stories', ctx({}))).toBe(false);
-    expect(hasAccess('workout', ctx({ completedWorkouts: 9, entitled: true }))).toBe(true);
+    expect(hasAccess('workout', ctx({ completedWorkouts: 40 }))).toBe(true);
+    for (const f of ['round2', 'fitness', 'progress', 'discover', 'stories', 'courses', 'camp'] as const) {
+      expect(hasAccess(f, ctx({}))).toBe(false);
+      expect(hasAccess(f, ctx({ entitled: true }))).toBe(true);
+    }
   });
   it('freemium: base plan free, advanced levels + courses + fitness premium', () => {
     const f = (p: Partial<GateContext>) => ctx({ mode: 'freemium', ...p });
@@ -143,21 +145,64 @@ describe('weeklyEquivalent (paywall plan cards)', () => {
 });
 
 describe('plans and trial (preview) prices', () => {
-  it('offers weekly, monthly and yearly subscriptions only', () => {
+  it('offers weekly, monthly and yearly subscriptions only (plus the lower "fırsat" monthly and weekly)', () => {
     expect(OFFER_LIFETIME).toBe(false);
-    expect(SUBSCRIPTION_SKUS).toEqual([PRODUCT_IDS.weekly, PRODUCT_IDS.monthly, PRODUCT_IDS.yearly]);
+    // the weekly plan sells reduced; the full-price weekly product is only shown crossed out
+    expect(REGULAR_SKUS).toEqual([PROMO_PRODUCT_IDS.weekly, PRODUCT_IDS.monthly, PRODUCT_IDS.yearly]);
+    expect(LIST_SKUS).toEqual([PRODUCT_IDS.weekly]);
+    expect(OFFER_SKUS).toEqual([PRODUCT_IDS.yearly, OFFER_PRODUCT_IDS.weekly, OFFER_PRODUCT_IDS.monthly]);
+    // every plan someone can buy (or bought before) counts as premium when the store lists the active subscriptions
+    expect([...REGULAR_SKUS, ...OFFER_SKUS, ...LIST_SKUS].every((s) => SUBSCRIPTION_SKUS.includes(s))).toBe(true);
+    expect(TRIAL_DAYS).toBe(14);
+    expect(YEARLY_TRIAL_DAYS).toBe(TRIAL_DAYS);
   });
 
-  it('preview offers: three subscriptions, yearly first with the trial, never real products', () => {
-    const o = previewOffers(PREVIEW_PRICES, 7);
+  it('preview offers: three subscriptions, each with the 14-day trial, weekly 99,90 → 89,90, never real products', () => {
+    const o = previewOffers(PREVIEW_PRICES, TRIAL_DAYS, 'tr-TR', undefined, LIST_PREVIEW_PRICES);
     expect(o.map((x) => x.key)).toEqual(['yearly', 'monthly', 'weekly']);
     expect(o.every((x) => x.preview && x.type === 'subs' && !Object.values(PRODUCT_IDS).includes(x.productId as never))).toBe(true);
-    expect(o.map((x) => x.trialDays)).toEqual([7, undefined, undefined]);
-    expect(o[0]!.displayPrice).toContain('899,99');
+    expect(o.map((x) => x.trialDays)).toEqual([14, 14, 14]);
+    expect(o.map((x) => x.displayPrice.replace(/\s/g, ''))).toEqual(['₺669,90', '₺189,99', '₺89,90']);
+    expect(o.map((x) => x.compareAt?.replace(/\s/g, ''))).toEqual([undefined, undefined, '₺99,90']);
+    expect(o[2]!.compareAtPrice).toBe(99.9);
+    // without a list price nothing is crossed out
+    expect(previewOffers(PREVIEW_PRICES, TRIAL_DAYS).some((x) => x.compareAt)).toBe(false);
+  });
+
+  it('the "fırsat" preview: monthly 169,90 and weekly 39,90 with the regular prices crossed out; yearly unchanged', () => {
+    const o = previewOffers(PREVIEW_PRICES, YEARLY_TRIAL_DAYS, 'tr-TR', OFFER_PREVIEW_PRICES);
+    const by = Object.fromEntries(o.map((x) => [x.key, x]));
+    expect(by.monthly!.displayPrice.replace(/\s/g, '')).toBe('₺169,90');
+    expect(by.monthly!.compareAt!.replace(/\s/g, '')).toBe('₺189,99');
+    expect(by.weekly!.displayPrice.replace(/\s/g, '')).toBe('₺39,90');
+    // crossed out: what the regular paywall charges (weekly 89,90), not the old full price
+    expect(by.weekly!.compareAt!.replace(/\s/g, '')).toBe('₺89,90');
+    expect(by.yearly!.compareAt).toBeUndefined();
+    expect(by.yearly!.trialDays).toBe(14);
+    // the offer plans start with the same 14-day free trial (user decision 2026-11-26)
+    expect(by.monthly!.trialDays).toBe(14);
+    expect(by.weekly!.trialDays).toBe(14);
+    expect(o.every((x) => x.preview && !Object.values(OFFER_PRODUCT_IDS).includes(x.productId as never))).toBe(true);
+  });
+
+  it('withCompareAt crosses out only a really higher regular price of the same plan and currency', () => {
+    const mk = (key: Offer['key'], productId: string, price: number, currency = 'TRY'): Offer => ({ key, productId, displayPrice: `${price}`, price, currency, type: 'subs' });
+    const regular = [mk('yearly', 'premium_yearly', 669.9), mk('monthly', 'premium_monthly', 189.99), mk('weekly', 'premium_weekly', 49.9)];
+    const offer = [mk('yearly', 'premium_yearly', 669.9), mk('monthly', 'premium_monthly_offer', 169.9), mk('weekly', 'premium_weekly_offer', 39.9)];
+    const r = withCompareAt(offer, regular);
+    expect(r.map((x) => x.compareAt)).toEqual([undefined, '189.99', '49.9']);
+    expect(r.map((x) => x.compareAtPrice)).toEqual([undefined, 189.99, 49.9]);
+    // the regular paywall: the reduced weekly against the full-price weekly product
+    const promo = withCompareAt([mk('weekly', 'premium_weekly_promo', 89.9), mk('monthly', 'premium_monthly', 189.99)], [mk('weekly', 'premium_weekly', 99.9)]);
+    expect(promo.map((x) => x.compareAt)).toEqual(['99.9', undefined]);
+    // a store that prices the offer at or above the regular plan shows no fake discount
+    expect(withCompareAt([mk('monthly', 'premium_monthly_offer', 199)], regular)[0]!.compareAt).toBeUndefined();
+    expect(withCompareAt([mk('monthly', 'premium_monthly_offer', 5, 'USD')], regular)[0]!.compareAt).toBeUndefined();
+    expect(withCompareAt(offer, [])[1]!.compareAt).toBeUndefined();
   });
 
   it('yearly is the honest best value at the trial prices', () => {
-    const o = previewOffers(PREVIEW_PRICES, 7);
+    const o = previewOffers(PREVIEW_PRICES, YEARLY_TRIAL_DAYS);
     const saving = yearlySavingPercent(o[0], o[1]);
     expect(saving).toBeGreaterThan(0);
     expect(PREVIEW_PRICES.weekly * 52).toBeGreaterThan(PREVIEW_PRICES.monthly * 12);

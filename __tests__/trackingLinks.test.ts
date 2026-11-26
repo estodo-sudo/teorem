@@ -128,7 +128,7 @@ describe('a day is Tur 1 + Tur 2 (2026-11-25; micro sets removed, old ones count
 
   it('the card counts halves and, after Tur 1, starts Tur 2; the tasks are Tur 1, Tur 2 and the test', () => {
     const card = read('src/features/today/WorkoutCard.tsx');
-    expect(card).toMatch(/const dayDone = status\.full;/);
+    expect(card).toMatch(/const dayDone = status\.mainDone && status\.round2Done;/);
     expect(card).toMatch(/const target = status\.target;/);
     expect(card).toMatch(/const nextIsRound2 = status\.mainDone && !status\.round2Done;/);
     expect(card).toMatch(/go\('round2', round2\.contractions\)/);

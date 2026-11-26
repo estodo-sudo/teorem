@@ -48,5 +48,5 @@ Satıcı bilgileri tek yerde: `src/config/app.ts` → `LEGAL_ENTITY`.
 - [ ] `LEGAL_ENTITY.email`: gerçek destek e-postası (şu an yer tutucu).
 - [ ] Adrese kapı numarası / posta kodu eklemek gerekiyorsa `LEGAL_ENTITY.address`.
 - [ ] Gizlilik Politikası ve Şartları bir web sayfasında yayınla, URL'leri iki mağazaya gir.
-- [ ] App Store Connect ve Play Console'da haftalık / aylık / yıllık ürünleri `premium_weekly`, `premium_monthly`, `premium_yearly` kimlikleriyle oluştur; yıllığa 7 günlük ücretsiz deneme ekle.
+- [ ] App Store Connect ve Play Console'da haftalık / aylık / yıllık ürünleri `premium_weekly`, `premium_monthly`, `premium_yearly` kimlikleriyle oluştur; üç plana da 14 günlük ücretsiz deneme ekle. Fiyatlar: yıllık 669,90 / aylık 189,99 TL; haftalık `premium_weekly` 99,90 TL (üstü çizili gösterilir) ve indirimli haftalık `premium_weekly_promo` 89,90 TL (14 gün deneme). Fırsat ürünleri `premium_monthly_offer` (169,90 TL) ve `premium_weekly_offer` (39,90 TL) de aynı abonelik grubunda oluşturulmalı; bu iki fırsat ürününe de 14 günlük ücretsiz deneme (tanıtım teklifi) ekle.
 - [ ] Metinleri bir hukukçuya kontrol ettir (özellikle cayma hakkı istisnası ve ön bilgilendirme).

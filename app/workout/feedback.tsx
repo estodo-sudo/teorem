@@ -96,7 +96,7 @@ export default function FeedbackScreen() {
             <StepHeader n={1} title={tr('feedback.howWas')} done={!!choice} />
             <View accessibilityRole="radiogroup" accessibilityLabel={tr('feedback.question')} style={{ flexDirection: 'row', flexWrap: 'wrap', gap: t.space.md }}>
               {options.map((o) => (
-                <BigChoice key={o.value} icon={o.icon} label={tr(`feedback.option.${o.value}.label`)} hint={tr(`feedback.option.${o.value}.hint`)} selected={choice === o.value} onPress={() => setChoice(o.value)} />
+                <BigChoice key={o.value} icon={o.icon} label={tr(`feedback.option.${o.value}.label`)} selected={choice === o.value} onPress={() => setChoice(o.value)} />
               ))}
             </View>
           </View>
@@ -245,7 +245,8 @@ function BigChoice({ icon, label, hint, selected, onPress, compact }: { icon: Ic
       style={{
         flexBasis: '47%',
         flexGrow: 1,
-        minHeight: compact ? 64 : 128,
+        // titles only (2026-11-26): a shorter card with the icon over its title
+        minHeight: compact ? 64 : 104,
         padding: t.space.lg,
         gap: t.space.sm,
         borderRadius: t.radius.lg,
@@ -254,6 +255,7 @@ function BigChoice({ icon, label, hint, selected, onPress, compact }: { icon: Ic
         backgroundColor: selected ? k.primarySoft : k.card,
         flexDirection: compact ? 'row' : 'column',
         alignItems: compact ? 'center' : 'flex-start',
+        justifyContent: compact ? undefined : 'center',
       }}
     >
       <IconTile icon={icon} background={selected ? k.card : undefined} />

@@ -14,6 +14,7 @@ import { campNotifiers } from '@/features/camps/registry';
 
 import { planReminders, snoozeDate } from './plan';
 import { dayStatus } from '@/features/training/summary';
+import { canAccess } from '@/features/purchases/useGate';
 
 const CATEGORY = 'daily-workout';
 const CHANNEL = 'reminders';
@@ -91,7 +92,8 @@ export function syncReminders(): Promise<void> {
         skipDate: s.reminderSkipDate ?? null,
         vacation: useTrainingStore.getState().training.vacation,
         discreet: s.discreetNotifications,
-        weeklyTest: s.weeklyTestReminder,
+        // The weekly test is premium: no reminder for a test that would open the paywall (2026-11-26).
+        weeklyTest: s.weeklyTestReminder && canAccess('strengthTest'),
         lastStrengthTest: lastStrengthTest(),
       });
       for (const r of plan) {

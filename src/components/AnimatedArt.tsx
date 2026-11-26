@@ -20,7 +20,8 @@ const ramp = (x: number, a: number, b: number) => clamp01((x - a) / (b - a));
 const ease = (x: number) => x * x * (3 - 2 * x);
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-type Draw = (p: number, id: (name: string) => string) => ReactNode;
+/** `core: false` leaves the middle empty for something drawn over it (the logo on the welcome screen). */
+type Draw = (p: number, id: (name: string) => string, opts: { core: boolean }) => ReactNode;
 
 /** Breathing sphere: squeeze (smaller, brighter) and release, ripples, orbiting sparks, a lifting hammock. */
 const welcome: Draw = (p, id) => {
@@ -114,20 +115,25 @@ const plan: Draw = (p) => {
 };
 
 /** Consent: a shield, its check drawing in and a light sweep; a soft dashed ring breathes. */
-const consent: Draw = (p, id) => {
+const consentBreathe = (p: number) => (1 - Math.cos(p * TAU)) / 2;
+const consent: Draw = (p, id, { core }) => {
   const draw = ease(ramp(p, 0.1, 0.4)) * (1 - ramp(p, 0.9, 1));
   const sweep = lerp(-1, 1, ramp(p, 0.45, 0.75));
-  const breathe = (1 - Math.cos(p * TAU)) / 2;
+  const breathe = consentBreathe(p);
   const shield = 'M120 30 L186 54 V112 C186 158 156 190 120 206 C84 190 54 158 54 112 V54 Z';
   return (
     <>
       <Circle cx={120} cy={118} r={92 + breathe * 8} fill={`url(#${id('halo')})`} />
       <Circle cx={120} cy={118} r={104 + breathe * 6} fill="none" stroke={K.petrol} strokeWidth={2} strokeDasharray="4 10" transform={`rotate(${p * 90} 120 118)`} opacity={0.7} />
-      <Path d={shield} fill={`url(#${id('orb')})`} />
-      <G clipPath={`url(#${id('shield')})`}>
-        <Rect x={60 + sweep * 120} y={10} width={40} height={220} fill={`url(#${id('shine')})`} transform="rotate(20 120 120)" />
-      </G>
-      <Path d="M92 116 l20 20 l38 -42" stroke="#fff" strokeWidth={11} fill="none" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="100" strokeDashoffset={100 * (1 - draw)} />
+      {core ? (
+        <>
+          <Path d={shield} fill={`url(#${id('orb')})`} />
+          <G clipPath={`url(#${id('shield')})`}>
+            <Rect x={60 + sweep * 120} y={10} width={40} height={220} fill={`url(#${id('shine')})`} transform="rotate(20 120 120)" />
+          </G>
+          <Path d="M92 116 l20 20 l38 -42" stroke="#fff" strokeWidth={11} fill="none" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="100" strokeDashoffset={100 * (1 - draw)} />
+        </>
+      ) : null}
     </>
   );
 };
@@ -282,7 +288,17 @@ export type { AnimatedArtName } from './artLoop';
 /** Frames per second the picture is redrawn at (plenty for these soft motions). */
 const FPS = 30;
 
-export function AnimatedArt({ name, size = 180 }: { name: AnimatedArtName; size?: number }) {
+/**
+ * Art that can hold something in its middle (2026-11-26): the first screen (consent) shows the app logo
+ * inside the turning ring of dots instead of the shield with the tick. Centre in the 240 × 240 drawing,
+ * box size, and how it breathes with the ring.
+ */
+const CENTER: Partial<Record<AnimatedArtName, { x: number; y: number; box: number; scale: (p: number) => number }>> = {
+  consent: { x: 120, y: 118, box: 120, scale: (p) => 1 + 0.05 * consentBreathe(p) },
+};
+
+/** `center`: drawn in the middle of the art instead of its core (only for names in CENTER). */
+export function AnimatedArt({ name, size = 180, center }: { name: AnimatedArtName; size?: number; center?: ReactNode }) {
   const reduce = useReducedMotion();
   // Battery (round 8): no redraws while the app is in the background or the screen isn't focused.
   const live = useLive();
@@ -308,6 +324,9 @@ export function AnimatedArt({ name, size = 180 }: { name: AnimatedArtName; size?
     return () => cancelAnimationFrame(raf);
   }, [name, reduce, live]);
 
+  const phase = reduce ? art.still : p;
+  const slot = center ? CENTER[name] : undefined;
+  const unit = size / 240;
   return (
     <View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size }}>
       <Svg width={size} height={size} viewBox="0 0 240 240">
@@ -330,8 +349,25 @@ export function AnimatedArt({ name, size = 180 }: { name: AnimatedArtName; size?
             <Path d={SHIELD} />
           </ClipPath>
         </Defs>
-        {art.draw(reduce ? art.still : p, id)}
+        {art.draw(phase, id, { core: !slot })}
       </Svg>
+      {slot ? (
+        <View
+          pointerEvents="none"
+          style={{
+            position: 'absolute',
+            left: (slot.x - slot.box / 2) * unit,
+            top: (slot.y - slot.box / 2) * unit,
+            width: slot.box * unit,
+            height: slot.box * unit,
+            alignItems: 'center',
+            justifyContent: 'center',
+            transform: [{ scale: slot.scale(phase) }],
+          }}
+        >
+          {center}
+        </View>
+      ) : null}
     </View>
   );
 }

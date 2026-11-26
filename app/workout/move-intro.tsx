@@ -10,6 +10,7 @@ import { generateMoveDemo } from '@/features/training/generateSession';
 import { MOVE_IDS, withLearned, type MoveId } from '@/features/training/moves';
 import { MoveLoop } from '@/features/training/MoveLoop';
 import { WorkoutPlayer } from '@/features/training/player/WorkoutPlayer';
+import { canAccess, openOffer, useAccess } from '@/features/purchases/useGate';
 import { useTrainingStore } from '@/stores/trainingStore';
 
 type Step = 'learn' | 'practice' | 'check';
@@ -34,7 +35,11 @@ export default function MoveIntroScreen() {
   const [runKey, setRunKey] = useState(0);
   const practice = useMemo(() => generateMoveDemo(move), [move]);
 
+  // Tur 2 is premium (2026-11-26): without it "Hazırım" opens the "fırsat" paywall; the move is learned
+  // only when Tur 2 really starts, so the lesson comes again after buying or on the next day.
+  const premium = useAccess()('round2');
   const startRound2 = () => {
+    if (!canAccess('round2')) return openOffer('round2');
     const training = useTrainingStore.getState().training;
     useTrainingStore.getState().update({ movesLearned: withLearned(training, move) });
     router.replace({ pathname: '/workout/[sessionId]', params: { sessionId: 'round2', ...(first ? { first } : {}) } });
@@ -71,16 +76,21 @@ export default function MoveIntroScreen() {
         footer={
           <View style={{ gap: t.space.sm }}>
             <Button label={tr('moveIntro.ready')} icon="play" size="lg" onPress={startRound2} fullWidth testID="move-intro-go" />
-            <Button
-              label={tr('moveIntro.again')}
-              variant="secondary"
-              size="lg"
-              onPress={() => {
-                setRunKey((k) => k + 1);
-                setStep('practice');
-              }}
-              fullWidth
-            />
+            {premium ? (
+              <Button
+                label={tr('moveIntro.again')}
+                variant="secondary"
+                size="lg"
+                onPress={() => {
+                  setRunKey((k) => k + 1);
+                  setStep('practice');
+                }}
+                fullWidth
+              />
+            ) : (
+              // Without premium "Hazırım" opens the offer; this is the way out (and on to Tur 1's feedback).
+              <Button label={tr('moveIntro.later')} variant="ghost" onPress={later} fullWidth testID="lesson-later" />
+            )}
           </View>
         }
       >
@@ -100,7 +110,7 @@ export default function MoveIntroScreen() {
             ))}
           </Card>
           <AppText variant="footnote" muted>
-            {tr('moveIntro.checkNote')}
+            {tr(premium ? 'moveIntro.checkNote' : 'moveIntro.checkNoteReady')}
           </AppText>
         </Animated.View>
       </Screen>

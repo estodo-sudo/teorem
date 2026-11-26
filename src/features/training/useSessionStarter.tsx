@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Dialog } from '@/components/ui';
-import { openGated } from '@/features/purchases/useGate';
+import { canAccess, openGated, openOffer } from '@/features/purchases/useGate';
 import { toDateKey } from '@/lib/date';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useTrainingStore } from '@/stores/trainingStore';
@@ -31,6 +31,8 @@ export function useSessionStarter() {
     // Tur 2 (the day's second half) can be started later from Günüm; a lesson due today comes first.
     const lesson = sessionId === 'round2' ? lessonRoute(useTrainingStore.getState().training) : null;
     if (lesson) return openGated('workout', lesson);
+    // Tur 2 is premium (2026-11-26): without it the "fırsat" paywall opens.
+    if (sessionId === 'round2' && !canAccess('round2')) return openOffer('round2');
     openGated('workout', { pathname: '/workout/[sessionId]', params: { sessionId } });
   };
   const dialog = (

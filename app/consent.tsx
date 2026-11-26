@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { AppText, Branded, Screen, useTheme } from '@/components';
+import { AppLogo, AppText, Branded, Screen, useTheme } from '@/components';
 import { AnimatedArt } from '@/components/AnimatedArt';
 import { AccordionCard, Button, OptionCard, ScalePressable } from '@/components/ui';
 import { APP_NAME, MIN_AGE } from '@/config/app';
@@ -25,7 +25,8 @@ export default function Consent() {
   return (
     <Screen footer={<Button label={tr('consent.accept')} size="lg" fullWidth disabled={!age || !medical} onPress={accept} accessibilityHint={tr('consent.acceptHint')} />}>
       <View style={{ alignItems: 'center', marginTop: t.space.lg, gap: t.space.md }}>
-        <AnimatedArt name="consent" size={150} />
+        {/* the logo inside the turning ring of dots (2026-11-26) */}
+        <AnimatedArt name="consent" size={150} center={<AppLogo size={72} />} />
         <AppText variant="title1" center accessibilityRole="header">
           <Branded>{tr('consent.title', { app: APP_NAME })}</Branded>
         </AppText>

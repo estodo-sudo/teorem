@@ -90,6 +90,9 @@ Yayın öncesi `src/config/app.ts` içindeki `IOS_BUNDLE_ID` / `ANDROID_PACKAGE`
 |---|---|---|
 | weekly | `premium_weekly` | Otomatik yenilenen abonelik |
 | monthly | `premium_monthly` | Otomatik yenilenen abonelik |
+| weekly (indirimli) | `premium_weekly_promo` | Normal paywall’daki indirimli haftalık (99,90 yerine 89,90) |
+| weekly (fırsat) | `premium_weekly_offer` | Fırsat paywall'ı (Tur 2 / kilitli bölümler) |
+| monthly (fırsat) | `premium_monthly_offer` | Fırsat paywall'ı (Tur 2 / kilitli bölümler) |
 | yearly | `premium_yearly` | Otomatik yenilenen abonelik + **7 günlük ücretsiz deneme** (giriş teklifi) |
 | lifetime | `premium_lifetime` | Tüketilmeyen tek seferlik (opsiyonel, `OFFER_LIFETIME`) |
 

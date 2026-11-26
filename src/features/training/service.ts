@@ -66,8 +66,11 @@ function runHooks(w: WorkoutSession) {
   });
 }
 
-/** Persists a finished (or ended-early) session without feedback yet. */
-export function recordWorkout(session: GeneratedSession, result: PlayerResult, now = new Date()): WorkoutSession {
+/**
+ * Persists a finished (or ended-early) session without feedback yet. `round2Locked`: Tur 2 needs premium
+ * the user does not have, so a finished Tur 1 completes the day on its own.
+ */
+export function recordWorkout(session: GeneratedSession, result: PlayerResult, now = new Date(), opts: { round2Locked?: boolean } = {}): WorkoutSession {
   const w: WorkoutSession = {
     id: makeId('w_'),
     date: toDateKey(now),
@@ -89,6 +92,7 @@ export function recordWorkout(session: GeneratedSession, result: PlayerResult, n
     ...doneSummary(session, result),
     deload: session.deload,
     ...(session.round === 2 ? { round: 2 as const } : {}),
+    ...(opts.round2Locked && session.round !== 2 && !session.isMicro ? { round2Locked: true } : {}),
   };
   // A finished main session moves the plan on right away (once a day), without waiting for "Nasıldı?".
   const training = useTrainingStore.getState();

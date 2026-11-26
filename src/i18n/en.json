@@ -421,13 +421,11 @@
       "title": "What is the pelvic floor muscle?",
       "body": [
         "A group of muscles stretched like a hammock across the bottom of your pelvis.",
-        "It holds up the bladder and bowel, supports urinary control and sexual function, and strengthens penis control.",
-        "Like any muscle, it gets stronger when trained regularly and correctly."
+        "It holds up the bladder and bowel and helps urinary control, sexual function and penis control."
       ],
       "body_female": [
         "A group of muscles stretched like a hammock across the bottom of your pelvis.",
-        "It holds up the bladder and bowel and supports urinary control and sexual function.",
-        "Like any muscle, it gets stronger when trained regularly and correctly."
+        "It holds up the bladder, uterus and bowel and helps urinary control and sexual function."
       ],
       "artAlt": "The pelvis with the pelvic floor muscle slung underneath like a hammock"
     },
@@ -435,26 +433,25 @@
       "title": "How do you find the muscle?",
       "body": [
         "Imagine stopping your urine midstream or holding in wind.",
-        "The muscle that lifts in and up at that moment is your pelvic floor.",
-        "Repeat that feeling when you're not urinating, lying down or sitting."
+        "The muscle that lifts in and up at that moment is your pelvic floor."
       ],
-      "warn": "Don't exercise while urinating. Imagine stopping the flow only once, to find the muscle; doing it repeatedly can stop the bladder from emptying fully."
+      "warn": "Don't exercise while urinating; imagine stopping the flow only once, to find the muscle."
     },
     "technique": {
       "title": "Correct technique",
       "body": [
+        "Lie on your back, knees bent, feet flat. In the first week you always train like this.",
         "Squeeze only the pelvic floor; keep your belly, buttocks and legs relaxed.",
-        "Don't hold your breath; keep breathing calmly.",
-        "Let the muscle relax fully after every squeeze; relaxing is part of the exercise."
+        "Don't hold your breath; let the muscle relax fully after every squeeze."
       ],
-      "warn": "Kegels shouldn't hurt. If you feel pain or discomfort, stop."
+      "warn": "Kegels shouldn't hurt; stop if they do."
     },
     "trial": {
-      "title": "Practice set 1",
-      "body": "3 reps: squeeze for 3 seconds, relax for 3 seconds. Follow the vibration."
+      "title": "Practice set",
+      "body": "3 reps: squeeze 3 s, relax 3 s. Follow the vibration."
     },
     "check": {
-      "title": "How did set 1 go?",
+      "title": "How did it go?",
       "body": "Could you feel the muscle squeeze and relax?",
       "yes": "Yes, I felt it",
       "unsure": "I'm not sure"
@@ -462,90 +459,31 @@
     "tips": {
       "title": "A few tips",
       "body": [
-        "Try lying down: knees bent, back on the floor. The muscle is easier to feel this way.",
+        "Try lying down; the muscle is easier to feel this way.",
         "Put a hand on your belly; it shouldn't move while you squeeze.",
-        "Don't squeeze too hard; a light but clear lift in and up is enough.",
-        "It can be hard to feel at first; it gets easier with practice."
+        "A light but clear lift in and up is enough."
       ],
       "retry": "Try again"
-    },
-    "position": {
-      "title": "Starting position",
-      "body": [
-        "In the first week you always train in this position.",
-        "In later weeks you also train sitting and standing. A card appears when the position changes."
-      ]
-    },
-    "checklist": {
-      "title": "Am I doing it right?",
-      "body": "Squeeze once and hold. While holding, go through the list and tick each one you can say “yes” to.",
-      "items": {
-        "glutes": {
-          "title": "My glutes are relaxed",
-          "text": "Your buttock muscles aren't clenching and you aren't lifting up off your seat."
-        },
-        "belly": {
-          "title": "My belly is relaxed",
-          "text": "Put a hand on your belly: it doesn't pull in or harden while you squeeze."
-        },
-        "breath": {
-          "title": "I'm still breathing",
-          "text": "You aren't holding your breath while squeezing; you can breathe in and out easily."
-        },
-        "legs": {
-          "title": "My legs are relaxed",
-          "text": "Your thigh and inner-leg muscles aren't working and you aren't pressing your knees together."
-        }
-      }
-    },
-    "release": {
-      "title": "Practice set 2",
-      "body": "2 reps: squeeze for 3 seconds, then relax fully for 6 seconds. Let the muscle settle back slowly."
-    },
-    "releaseCheck": {
-      "title": "How did set 2 go?",
-      "body": "After the squeeze, did you feel the muscle relax fully?",
-      "yes": "Yes, I felt it",
-      "unsure": "I'm not sure"
-    },
-    "releaseTips": {
-      "title": "Tips for relaxing",
-      "body": [
-        "Don't rush; let the muscle go little by little.",
-        "Relax your shoulders and jaw too; tension usually comes together.",
-        "Don't bear down as you relax; simply stop holding."
-      ]
     },
     "mistakes": {
       "title": "Common mistakes",
       "items": [
         {
           "icon": "wind",
-          "title": "Holding your breath",
-          "text": "Don't hold your breath while squeezing. Counting out loud helps keep your breath flowing."
+          "title": "Don't hold your breath"
         },
         {
           "icon": "apple",
-          "title": "Clenching your glutes",
-          "text": "When your glutes, belly and legs join in, the pelvic floor works less."
+          "title": "Don't squeeze your buttocks"
         },
         {
           "icon": "arrowDown",
-          "title": "Bearing down",
-          "text": "The muscle draws in and up. Pushing down is the wrong direction; don't bear down when letting go either."
+          "title": "Don't bear down"
         },
         {
           "icon": "repeat",
-          "title": "Too many reps",
-          "text": "More is not always better. A tired muscle works incorrectly; the app sets a daily limit."
+          "title": "Don't overdo the reps"
         }
-      ]
-    },
-    "ready": {
-      "title": "You're ready!",
-      "body": [
-        "You've found the muscle, learned the vibrations and finished both practice sets.",
-        "Your first session is Quick (2 minutes). After that you choose the length; your level adapts to your feedback."
       ],
       "cta": "I'm ready"
     }
@@ -823,7 +761,7 @@
         {
           "heading": "Plans and price",
           "paragraphs": [
-            "Weekly, monthly and yearly plans are offered. The current price and currency, including taxes, are shown before purchase on the purchase screen and in the store's confirmation window. The yearly plan may include a free trial of the length stated in the store."
+            "Weekly, monthly and yearly plans are offered. The current price and currency, including taxes, are shown before purchase on the purchase screen and in the store's confirmation window. Plans may include a free trial of the length stated in the store."
           ]
         },
         {
@@ -872,7 +810,7 @@
         {
           "heading": "Free trial",
           "paragraphs": [
-            "The yearly plan may offer a free trial. Unless you cancel at least 24 hours before the trial ends, the subscription becomes a paid plan and the yearly fee is charged. If you buy a paid plan during the trial, the rest of the trial ends.",
+            "Plans may offer a free trial. Unless you cancel at least 24 hours before the trial ends, the subscription becomes a paid plan and the fee of the plan you chose is charged. If you buy a paid plan during the trial, the rest of the trial ends.",
             "The purchase screen shows the date of your first charge."
           ]
         },
@@ -1013,7 +951,7 @@
         {
           "heading": "How does the free trial work?",
           "paragraphs": [
-            "If you start the yearly plan with a free trial, you aren't charged until the trial ends. Unless you cancel at least 24 hours before the trial ends, the yearly fee is charged. The date of the first charge is shown on the purchase screen."
+            "If you start a plan with a free trial, you aren't charged until the trial ends. Unless you cancel at least 24 hours before the trial ends, the fee of the plan you chose is charged. The date of the first charge is shown on the purchase screen."
           ]
         },
         {
@@ -1793,12 +1731,10 @@
       "title": "Try {{days}} days free",
       "body": "Try all the features at your own pace before you decide.",
       "step1": "All Premium features unlock.",
-      "step2": "{{date}}: a good day to cancel if you don't want to continue.",
       "step3": "{{date}}: unless you cancelled, the yearly plan ({{price}}) begins.",
       "cta": "Start {{days}} days free",
       "later": "Not now",
       "step1Title": "Today",
-      "step2Title": "2 days before the end",
       "step3Title": "When the trial ends"
     },
     "included": "WHAT'S IN PREMIUM",
@@ -1820,7 +1756,18 @@
     "privacyShort": "Privacy",
     "restoreShort": "Restore purchases",
     "selected": "selected",
-    "presaleShort": "Pre-contract information"
+    "presaleShort": "Pre-contract information",
+    "offerKicker": "A special offer for you",
+    "offerBadge": "Offer",
+    "offerWas": "instead of {{price}}",
+    "list": {
+      "plan": "Personalised training plan",
+      "unlimited": "Unlimited training",
+      "progress": "Progress tracking",
+      "discover": "Wide Discover content tab",
+      "noAds": "Ad-free experience"
+    },
+    "offPct": "{{pct}}% off"
   },
   "profile": {
     "title": "Profile",
@@ -1833,9 +1780,10 @@
     "sub": {
       "active": "Premium active",
       "free": "Free version",
-      "renews": "Renews / ends: {{date}}",
       "upgrade": "Go Premium",
-      "manage": "Manage subscription"
+      "manage": "Manage subscription",
+      "restoring": "Checking your purchases…",
+      "restored": "Premium restored."
     },
     "devGallery": "Component Gallery (developer)",
     "groups": {
@@ -3351,10 +3299,13 @@
       ],
       "checkNote": "If you can say “yes” to all of them, you're ready. If you're not sure, try once more; there's no rush.",
       "ready": "I'm ready, start Round 2",
-      "again": "Try once more"
+      "again": "Try once more",
+      "checkNoteReady": "If you can say “yes” to all of them, you're ready."
     },
     "latest": "The move you learned last · every round",
-    "review": "Review · learned earlier"
+    "review": "Review · learned earlier",
+    "offerFree": "Today's workout is done and your streak goes on. Round 2 is the second half of the day: slow squeezes and the moves you've learned, about {{min}} minutes. It comes with Premium.",
+    "finishFree": "Finish for today"
   },
   "block": {
     "long": "Squeeze for {{sec}} s without letting go",
@@ -3544,7 +3495,8 @@
           "I didn't hold my breath; my belly and buttocks stayed relaxed."
         ]
       }
-    }
+    },
+    "checkNoteReady": "If you can say “yes” to all of them, you're ready."
   },
   "moves": {
     "section": "Your moves",
@@ -3558,5 +3510,9 @@
     "nextToday": "Next · you learn it today after Round 1",
     "locked": "Opens on day {{day}}",
     "learnedSlow": "Learned · in every Round 2"
+  },
+  "premiumLock": {
+    "title": "Premium only",
+    "hint": "Tap anywhere to unlock"
   }
 }

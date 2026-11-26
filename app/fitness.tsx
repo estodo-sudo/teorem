@@ -1,3 +1,5 @@
+import { router } from 'expo-router';
+import { useEffect } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
@@ -27,6 +29,10 @@ export default function FitnessProgram() {
   const { t: tr, i18n } = useTranslation();
   const logs = useHistoryStore((s) => s.fitnessLogs);
   const access = useAccess()('fitness');
+  // Premium only (2026-11-26): a deep link without premium goes to the "fırsat" paywall.
+  useEffect(() => {
+    if (!access) router.replace({ pathname: '/paywall', params: { source: 'fitness', offer: '1' } });
+  }, [access]);
   const today = toDateKey();
   const s = programState(logs, today);
   const routine = standardRoutine();

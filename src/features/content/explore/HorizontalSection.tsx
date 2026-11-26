@@ -1,7 +1,8 @@
-import { useState, type ReactElement } from 'react';
+import { useCallback, useRef, useState, type ReactElement } from 'react';
 import { FlatList, View, type NativeScrollEvent, type NativeSyntheticEvent } from 'react-native';
 
 import { AppText, useTheme } from '@/components';
+import { PREVIEW_SPEED, useAutoScroll, usePremiumPreview } from '@/components/PremiumLock';
 
 /** Scroll offsets kept for the session, so a strip is where you left it when you come back (§6). */
 const offsets = new Map<string, number>();
@@ -28,7 +29,16 @@ export function HorizontalSection<T>({ id, title, hint, right, items, itemWidth,
   const columns: T[][] = [];
   for (let i = 0; i < items.length; i += rows) columns.push(items.slice(i, i + rows));
   const [startAt] = useState(() => offsets.get(id) ?? 0);
-  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => offsets.set(id, e.nativeEvent.contentOffset.x);
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (!locked) offsets.set(id, e.nativeEvent.contentOffset.x);
+  };
+  // Locked premium preview (2026-11-26): the strip drifts left on its own, then glides back.
+  const locked = usePremiumPreview();
+  const list = useRef<FlatList<T[]>>(null);
+  const [width, setWidth] = useState(0);
+  const [contentWidth, setContentWidth] = useState(0);
+  const scrollTo = useCallback((x: number, animated: boolean) => list.current?.scrollToOffset({ offset: x, animated }), []);
+  useAutoScroll(locked, Math.max(0, contentWidth - width), PREVIEW_SPEED.along, scrollTo);
 
   return (
     <View style={{ gap: t.space.md }}>
@@ -50,6 +60,10 @@ export function HorizontalSection<T>({ id, title, hint, right, items, itemWidth,
         ) : null}
       </View>
       <FlatList
+        ref={list}
+        onLayout={(e) => setWidth(e.nativeEvent.layout.width)}
+        onContentSizeChange={(w) => setContentWidth(w)}
+        scrollEnabled={!locked}
         horizontal
         data={columns}
         keyExtractor={(col) => col.map(keyOf).join('|')}

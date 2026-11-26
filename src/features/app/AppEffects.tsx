@@ -9,6 +9,7 @@ import { useOdakLockStore } from '@/features/camps/odak/privacy/lockStore';
 import { dailyCheck } from '@/features/training/returns';
 import { toDateKey } from '@/lib/date';
 import { useCampEventsStore, useCampStore } from '@/stores/campStore';
+import { useEntitlementStore } from '@/stores/entitlementStore';
 import { useHistoryStore } from '@/stores/historyStore';
 import { useProfileStore } from '@/stores/profileStore';
 import { useSettingsStore } from '@/stores/settingsStore';
@@ -93,9 +94,14 @@ export function AppEffects() {
     const unsubOdak = useOdakLockStore.subscribe((state, prev) => {
       if (state.notifPlan !== prev.notifPlan || state.notifEnabled !== prev.notifEnabled || state.enrolled !== prev.enrolled) void syncReminders();
     });
+    // Premium bought or ended: premium-only reminders (the weekly test) come or go (2026-11-26).
+    const unsubEntitlement = useEntitlementStore.subscribe((state, prev) => {
+      if (state.entitlement !== prev.entitlement) void syncReminders();
+    });
     return () => {
       unsubTraining();
       unsubOdak();
+      unsubEntitlement();
       removeListener();
       appSub.remove();
       unsubSettings();
